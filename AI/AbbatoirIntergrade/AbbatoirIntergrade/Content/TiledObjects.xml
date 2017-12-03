@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <objecttype name="BasicAlien">
+    <property name="MaximumHealth" type="float" default="32" />
+    <property name="Speed" type="float" default="150" />
+    <property name="IsRangedAttacker" type="bool" default="true" />
+    <property name="MeleeAttackDamage" type="float" default="15" />
+    <property name="RangedAttackDamage" type="float" default="8" />
+    <property name="ProjectileSpeed" type="float" default="500" />
+    <property name="SecondsBetweenRangedAttack" type="float" default="2" />
+    <property name="SecondsBetweenMeleeAttack" type="float" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="12" />
+    <property name="DisplayName" type="string" default="Looker" />
+    <property name="IsMeleeAttacker" type="bool" default="false" />
+    <property name="MeleeAttackRadius" type="float" default="16" />
+    <property name="RangedAttackRadius" type="float" default="200" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+  </objecttype>
+  <objecttype name="FlyingEnemy">
+    <property name="MaximumHealth" type="float" default="64" />
+    <property name="Speed" type="float" default="75" />
+    <property name="IsRangedAttacker" type="bool" default="true" />
+    <property name="MeleeAttackDamage" type="float" />
+    <property name="RangedAttackDamage" type="float" default="15" />
+    <property name="ProjectileSpeed" type="float" default="200" />
+    <property name="SecondsBetweenRangedAttack" type="float" default="4" />
+    <property name="SecondsBetweenMeleeAttack" type="float" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="20" />
+    <property name="DisplayName" type="string" default="Flybo" />
+    <property name="IsMeleeAttacker" type="bool" default="false" />
+    <property name="MeleeAttackRadius" type="float" default="16" />
+    <property name="RangedAttackRadius" type="float" default="250" />
+    <property name="IsFlying" type="bool" default="true" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+  </objecttype>
+  <objecttype name="MeleeAlien">
+    <property name="MaximumHealth" type="float" default="160" />
+    <property name="Speed" type="float" default="175" />
+    <property name="IsRangedAttacker" type="bool" default="false" />
+    <property name="MeleeAttackDamage" type="float" default="6" />
+    <property name="RangedAttackDamage" type="float" default="0" />
+    <property name="ProjectileSpeed" type="float" default="0" />
+    <property name="SecondsBetweenRangedAttack" type="float" default="0" />
+    <property name="SecondsBetweenMeleeAttack" type="float" default="1.6" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="25" />
+    <property name="DisplayName" type="string" default="Basic Alien" />
+    <property name="IsMeleeAttacker" type="bool" default="true" />
+    <property name="MeleeAttackRadius" type="float" default="64" />
+    <property name="RangedAttackRadius" type="float" default="16" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+  </objecttype>
+  <objecttype name="SlimeAlien">
+    <property name="MaximumHealth" type="float" default="224" />
+    <property name="Speed" type="float" default="160" />
+    <property name="IsRangedAttacker" type="bool" default="false" />
+    <property name="MeleeAttackDamage" type="float" default="20" />
+    <property name="RangedAttackDamage" type="float" />
+    <property name="ProjectileSpeed" type="float" />
+    <property name="SecondsBetweenRangedAttack" type="float" />
+    <property name="SecondsBetweenMeleeAttack" type="float" default="3" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="35" />
+    <property name="DisplayName" type="string" default="Slime" />
+    <property name="IsMeleeAttacker" type="bool" default="true" />
+    <property name="MeleeAttackRadius" type="float" default="96" />
+    <property name="RangedAttackRadius" type="float" default="0" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="true" />
+  </objecttype>
+  <objecttype name="SmallSlime">
+    <property name="MaximumHealth" type="float" default="16" />
+    <property name="Speed" type="float" default="225" />
+    <property name="IsRangedAttacker" type="bool" default="false" />
+    <property name="MeleeAttackDamage" type="float" default="2" />
+    <property name="RangedAttackDamage" type="float" default="0" />
+    <property name="ProjectileSpeed" type="float" default="0" />
+    <property name="SecondsBetweenRangedAttack" type="float" default="0" />
+    <property name="SecondsBetweenMeleeAttack" type="float" default="0.5" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="10" />
+    <property name="DisplayName" type="string" default="Small Slime" />
+    <property name="IsMeleeAttacker" type="bool" default="true" />
+    <property name="MeleeAttackRadius" type="float" default="72" />
+    <property name="RangedAttackRadius" type="float" default="0" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="true" />
+  </objecttype>
+  <objecttype name="StructurePlacement">
+    <property name="SpriteInstanceRed" type="float" default="0" />
+    <property name="SpriteInstanceGreen" type="float" default="1" />
+    <property name="SpriteInstanceBlue" type="float" default="0" />
+    <property name="SpriteInstanceColorOperation" type="ColorOperation" default="ColorTextureAlpha" />
+    <property name="SpriteInstanceTextureScale" type="float" default="1" />
+  </objecttype>
+  <objecttype name="CannonProjectile">
+    <property name="DamageInflicted" type="float" />
+    <property name="HasLightSource" type="bool" default="true" />
+  </objecttype>
+  <objecttype name="LaserTurretProjectile">
+    <property name="DamageInflicted" type="float" />
+    <property name="HasLightSource" type="bool" default="true" />
+  </objecttype>
+  <objecttype name="TallLaserProjectile">
+    <property name="DamageInflicted" type="float" />
+    <property name="HasLightSource" type="bool" default="true" />
+  </objecttype>
+</objecttypes>

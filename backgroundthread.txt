@@ -1,0 +1,17 @@
+Action actionToRun = () =>
+{
+    DoSomeReallyTimeConsumingLogic();
+
+    // If you need to do something that interacts 
+    // with FRB like adding a new object (which should 
+    // only be done on the main thread), you should use
+    // the InstructionManager to add an instruction. If you
+    // give it a time of 0, it will get executed next frame:
+
+    Action stuffToDoOnPrimaryThread = () => DoPrimaryThreadStuff();
+    InstructionManager.AddSafe(stuffToDoOnPrimaryThread);
+};
+
+ThreadStart threadStart = new ThreadStart(action);
+Thread thread = new Thread(threadStart);
+thread.Start();

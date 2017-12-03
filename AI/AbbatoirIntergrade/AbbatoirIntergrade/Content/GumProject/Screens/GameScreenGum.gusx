@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScreenSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>GameScreenGum</Name>
+  <State>
+    <Name>Default</Name>
+    <Variable>
+      <Type>float</Type>
+      <Name>ChatBoxInstance.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ChatBoxInstance.Y</Name>
+      <Value xsi:type="xsd:float">50</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>EnemyInfoInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>HorizonBoxInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>StructureInfoInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+  </State>
+  <Instance>
+    <Name>HorizonBoxInstance</Name>
+    <BaseType>HorizonBox</BaseType>
+  </Instance>
+  <Instance>
+    <Name>EnemyInfoInstance</Name>
+    <BaseType>infodisplays/EnemyInfo</BaseType>
+  </Instance>
+  <Instance>
+    <Name>StructureInfoInstance</Name>
+    <BaseType>infodisplays/StructureInfo</BaseType>
+  </Instance>
+  <Instance>
+    <Name>ChatBoxInstance</Name>
+    <BaseType>ChatBox</BaseType>
+  </Instance>
+  <Instance>
+    <Name>BuildMenuInstance</Name>
+    <BaseType>BuildMenu</BaseType>
+  </Instance>
+</ScreenSave>

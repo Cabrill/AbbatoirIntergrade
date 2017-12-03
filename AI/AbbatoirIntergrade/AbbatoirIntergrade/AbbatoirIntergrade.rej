@@ -1,0 +1,12 @@
+diff a/AbbatoirIntergrade/AbbatoirIntergrade/AbbatoirIntergrade.csproj b/AbbatoirIntergrade/AbbatoirIntergrade/AbbatoirIntergrade.csproj	(rejected hunks)
+@@ -562,10 +562,6 @@
+       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+       <Name>ResourceBar</Name>
+     </None>
+-    <None Include="content\gumproject\components\horizonbox.gucx">
+-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+-      <Name>HorizonBox</Name>
+-    </None>
+     <None Include="content\gumproject\components\infobar.gucx">
+       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+       <Name>InfoBar</Name>
