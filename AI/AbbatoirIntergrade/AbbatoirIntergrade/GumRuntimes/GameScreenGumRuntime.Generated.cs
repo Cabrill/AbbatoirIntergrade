@@ -30,6 +30,9 @@
                             StructureInfoInstance.Visible = false;
                             ChatBoxInstance.X = 0f;
                             ChatBoxInstance.Y = 50f;
+                            LivesPointsDisplayInstance.X = 100f;
+                            LivesPointsDisplayInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                            LivesPointsDisplayInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             break;
                     }
                 }
@@ -52,6 +55,10 @@
                 bool setChatBoxInstanceYSecondValue = false;
                 float ChatBoxInstanceYFirstValue= 0;
                 float ChatBoxInstanceYSecondValue= 0;
+                bool setLivesPointsDisplayInstanceXFirstValue = false;
+                bool setLivesPointsDisplayInstanceXSecondValue = false;
+                float LivesPointsDisplayInstanceXFirstValue= 0;
+                float LivesPointsDisplayInstanceXSecondValue= 0;
                 switch(firstState)
                 {
                     case  VariableState.Default:
@@ -66,6 +73,16 @@
                         if (interpolationValue < 1)
                         {
                             this.HorizonBoxInstance.Visible = true;
+                        }
+                        setLivesPointsDisplayInstanceXFirstValue = true;
+                        LivesPointsDisplayInstanceXFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.LivesPointsDisplayInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.LivesPointsDisplayInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
@@ -88,6 +105,16 @@
                         {
                             this.HorizonBoxInstance.Visible = true;
                         }
+                        setLivesPointsDisplayInstanceXSecondValue = true;
+                        LivesPointsDisplayInstanceXSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.LivesPointsDisplayInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.LivesPointsDisplayInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
                         if (interpolationValue >= 1)
                         {
                             this.StructureInfoInstance.Visible = false;
@@ -101,6 +128,10 @@
                 if (setChatBoxInstanceYFirstValue && setChatBoxInstanceYSecondValue)
                 {
                     ChatBoxInstance.Y = ChatBoxInstanceYFirstValue * (1 - interpolationValue) + ChatBoxInstanceYSecondValue * interpolationValue;
+                }
+                if (setLivesPointsDisplayInstanceXFirstValue && setLivesPointsDisplayInstanceXSecondValue)
+                {
+                    LivesPointsDisplayInstance.X = LivesPointsDisplayInstanceXFirstValue * (1 - interpolationValue) + LivesPointsDisplayInstanceXSecondValue * interpolationValue;
                 }
                 if (interpolationValue < 1)
                 {
@@ -178,6 +209,7 @@
                 StructureInfoInstance.StopAnimations();
                 ChatBoxInstance.StopAnimations();
                 BuildMenuInstance.StopAnimations();
+                LivesPointsDisplayInstance.StopAnimations();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -224,6 +256,30 @@
                             Name = "ChatBoxInstance.Y",
                             Type = "float",
                             Value = ChatBoxInstance.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LivesPointsDisplayInstance.X",
+                            Type = "float",
+                            Value = LivesPointsDisplayInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LivesPointsDisplayInstance.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = LivesPointsDisplayInstance.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LivesPointsDisplayInstance.X Units",
+                            Type = "PositionUnitType",
+                            Value = LivesPointsDisplayInstance.XUnits
                         }
                         );
                         break;
@@ -276,6 +332,30 @@
                             Value = ChatBoxInstance.Y + 50f
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LivesPointsDisplayInstance.X",
+                            Type = "float",
+                            Value = LivesPointsDisplayInstance.X + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LivesPointsDisplayInstance.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = LivesPointsDisplayInstance.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LivesPointsDisplayInstance.X Units",
+                            Type = "PositionUnitType",
+                            Value = LivesPointsDisplayInstance.XUnits
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -299,6 +379,7 @@
             private AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime StructureInfoInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime ChatBoxInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime BuildMenuInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime LivesPointsDisplayInstance { get; set; }
             public GameScreenGumRuntime (bool fullInstantiation = true) 
             {
                 if (fullInstantiation)
@@ -329,6 +410,7 @@
                 StructureInfoInstance = this.GetGraphicalUiElementByName("StructureInfoInstance") as AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime;
                 ChatBoxInstance = this.GetGraphicalUiElementByName("ChatBoxInstance") as AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime;
                 BuildMenuInstance = this.GetGraphicalUiElementByName("BuildMenuInstance") as AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime;
+                LivesPointsDisplayInstance = this.GetGraphicalUiElementByName("LivesPointsDisplayInstance") as AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

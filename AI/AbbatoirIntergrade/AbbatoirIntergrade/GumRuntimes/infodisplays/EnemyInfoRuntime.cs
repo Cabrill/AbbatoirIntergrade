@@ -35,8 +35,6 @@ namespace AbbatoirIntergrade.GumRuntimes
 
                 EnemyName = enemy.DisplayName;
                 EnemyHealth = $"{enemy.HealthRemaining} / {enemy.MaximumHealth}";
-                EnemyMelee = enemy.MeleeAttackDamage.ToString();
-                EnemyRanged = enemy.RangedAttackDamage.ToString();
             }
         }
 

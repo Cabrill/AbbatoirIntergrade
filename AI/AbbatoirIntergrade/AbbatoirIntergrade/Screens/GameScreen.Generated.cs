@@ -47,6 +47,7 @@ namespace AbbatoirIntergrade.Screens
         private AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime ChatBoxInstance;
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.StructurePlacement> StructurePlacementList;
         private AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime BuildMenuInstance;
+        private AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime LivesPointsDisplayInstance;
         protected global::RenderingLibrary.Graphics.Layer BackgroundLayerGum;
         protected global::RenderingLibrary.Graphics.Layer WorldLayerGum;
         protected global::RenderingLibrary.Graphics.Layer LightLayerGum;
@@ -90,6 +91,7 @@ namespace AbbatoirIntergrade.Screens
             StructurePlacementList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.StructurePlacement>();
             StructurePlacementList.Name = "StructurePlacementList";
             BuildMenuInstance = GameScreenGum.GetGraphicalUiElementByName("BuildMenuInstance") as AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime;
+            LivesPointsDisplayInstance = GameScreenGum.GetGraphicalUiElementByName("LivesPointsDisplayInstance") as AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime;
             
             
             PostInitialize();
@@ -172,6 +174,7 @@ namespace AbbatoirIntergrade.Screens
             
             ChatBoxInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             BuildMenuInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            LivesPointsDisplayInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             base.AddToManagers();
             AddToManagersBottomUp();
             CustomInitialize();
@@ -324,6 +327,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 BuildMenuInstance.RemoveFromManagers();
             }
+            if (LivesPointsDisplayInstance != null)
+            {
+                LivesPointsDisplayInstance.RemoveFromManagers();
+            }
             AllStructuresList.MakeTwoWay();
             AllEnemiesList.MakeTwoWay();
             PlayerProjectileList.MakeTwoWay();
@@ -335,7 +342,7 @@ namespace AbbatoirIntergrade.Screens
             bool oldShapeManagerSuppressAdd = FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue;
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = true;
             BackgroundLayer.Visible = true;
-            WorldLayer.SortType = FlatRedBall.Graphics.SortType.ZSecondaryParentY;
+            WorldLayer.SortType = FlatRedBall.Graphics.SortType.Z;
             WorldLayer.Visible = true;
             InfoLayer.Visible = true;
             HUDLayer.Visible = true;
@@ -348,6 +355,7 @@ namespace AbbatoirIntergrade.Screens
             HorizonBoxInstance.MoveToFrbLayer(BackgroundLayer, BackgroundLayerGum);
             ChatBoxInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             BuildMenuInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            LivesPointsDisplayInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             FlatRedBall.Gui.GuiManager.SortZAndLayerBased();
         }
         public virtual void RemoveFromManagers () 
@@ -425,6 +433,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 BuildMenuInstance.RemoveFromManagers();
             }
+            if (LivesPointsDisplayInstance != null)
+            {
+                LivesPointsDisplayInstance.RemoveFromManagers();
+            }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 
         {
@@ -433,7 +445,7 @@ namespace AbbatoirIntergrade.Screens
                 ShaderRendererInstance.AssignCustomVariables(true);
             }
             BackgroundLayer.Visible = true;
-            WorldLayer.SortType = FlatRedBall.Graphics.SortType.ZSecondaryParentY;
+            WorldLayer.SortType = FlatRedBall.Graphics.SortType.Z;
             WorldLayer.Visible = true;
             InfoLayer.Visible = true;
             HUDLayer.Visible = true;

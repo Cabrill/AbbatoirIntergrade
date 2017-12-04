@@ -1151,15 +1151,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
             LightSprite.AlphaRate = LightSpriteAlphaRateReset;
             MaximumHealth = 64f;
             Speed = 75f;
-            IsRangedAttacker = true;
-            RangedAttackDamage = 15f;
-            ProjectileSpeed = 200f;
-            SecondsBetweenRangedAttack = 4f;
             MineralsRewardedWhenKilled = 20;
             DisplayName = "Flybo";
-            IsMeleeAttacker = false;
-            MeleeAttackRadius = 16f;
-            RangedAttackRadius = 250f;
             IsFlying = true;
             HasLightSource = true;
             IsJumper = false;

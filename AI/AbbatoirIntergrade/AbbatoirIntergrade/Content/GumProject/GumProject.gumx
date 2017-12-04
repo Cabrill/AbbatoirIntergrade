@@ -113,6 +113,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>LivesPointsDisplay</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>specificbuttons/CloseChatButton</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>

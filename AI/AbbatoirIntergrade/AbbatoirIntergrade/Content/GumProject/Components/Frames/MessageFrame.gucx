@@ -17,12 +17,6 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>string</Type>
-      <Name>BottomSprite.Parent</Name>
-      <Value xsi:type="xsd:string">BackgroundContainer</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>BottomSprite.SourceFile</Name>
@@ -102,12 +96,6 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>string</Type>
-      <Name>MiddleSprite.Parent</Name>
-      <Value xsi:type="xsd:string">BackgroundContainer</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>MiddleSprite.SourceFile</Name>
@@ -171,12 +159,6 @@
       <Type>DimensionUnitType</Type>
       <Name>TopSprite.Height Units</Name>
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>TopSprite.Parent</Name>
-      <Value xsi:type="xsd:string">BackgroundContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

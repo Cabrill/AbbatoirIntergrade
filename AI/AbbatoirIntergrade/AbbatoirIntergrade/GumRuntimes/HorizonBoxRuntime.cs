@@ -53,6 +53,15 @@ namespace AbbatoirIntergrade.GumRuntimes
         {
             UpdateSunAndMoon(timeOfDay);
             UpdateStarrySky(timeOfDay);
+            UpdateForeground(timeOfDay);
+        }
+
+        private void UpdateForeground(DateTime timeOfDay)
+        {
+            var visibility = (int)(30f + (225f * SunPercentageAboveHorizon));
+            ForegroundSprite.Red = visibility;
+            ForegroundSprite.Green = visibility;
+            ForegroundSprite.Blue = visibility;
         }
 
         private void UpdateStarrySky(DateTime timeOfDay)
@@ -108,30 +117,6 @@ namespace AbbatoirIntergrade.GumRuntimes
             outCart.X = -a * (float)Math.Sin(azimuth); 
             outCart.Y = radius * (float)Math.Sin(altitude);
             outCart.Z = a * (float)Math.Cos(azimuth);
-        }
-
-        public float ForecastFor(DateTime timeOfDay)
-        {
-            var _radius = SunMoonContainer.GetAbsoluteHeight() / 2;
-
-            var sunPosition =
-                SunAndMoonCalculation.GetSunPosition(timeOfDay, 49.2827, 123.1207);
-
-            SphericalToCartesian(_radius, sunPosition.Azimuth, sunPosition.Altitude, out Vector3 newSunPosition);
-
-            var sunEffectiveness = MathHelper.Clamp(newSunPosition.Y / SunSprite.GetAbsoluteHeight(), 0f, 1f);
-
-            if (sunEffectiveness > 0) return sunEffectiveness;
-                
-            //Sun's not up, so we calculate using the moon
-            var moonPosition =
-                SunAndMoonCalculation.GetMoonPosition(timeOfDay, 49.2827, 123.1207);
-
-            SphericalToCartesian(_radius, moonPosition.Azimuth, moonPosition.Altitude, out Vector3 newMoonPosition);
-
-            var moonEffectiveness = MathHelper.Clamp(newMoonPosition.Y / MoonSprite.GetAbsoluteHeight(), 0f, 1f);
-
-            return moonEffectiveness / 345;
         }
     }
 }

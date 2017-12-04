@@ -1106,16 +1106,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
             LightSprite.AlphaRate = LightSpriteAlphaRateReset;
             MaximumHealth = 32f;
             Speed = 150f;
-            IsRangedAttacker = true;
-            MeleeAttackDamage = 15f;
-            RangedAttackDamage = 8f;
-            ProjectileSpeed = 500f;
-            SecondsBetweenRangedAttack = 2f;
             MineralsRewardedWhenKilled = 12;
             DisplayName = "Looker";
-            IsMeleeAttacker = false;
-            MeleeAttackRadius = 16f;
-            RangedAttackRadius = 200f;
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;

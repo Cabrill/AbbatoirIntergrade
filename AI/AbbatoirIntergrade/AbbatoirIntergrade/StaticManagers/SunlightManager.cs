@@ -12,9 +12,6 @@ namespace AbbatoirIntergrade.StaticManagers
     /// </summary>
     public static class SunlightManager
     {
-        private static List<float> _nineHourForecast;
-        public static List<float> NineHourForecast => _nineHourForecast;
-
         public static float SunlightEffectiveness { get; private set; } = 1f;
         public static bool SunIsUp { get; private set; }
         public static bool MoonIsUp { get; private set; }
@@ -29,11 +26,6 @@ namespace AbbatoirIntergrade.StaticManagers
             SunIsUp = true;
             MoonIsUp = false;
 
-            _nineHourForecast = new List<float>(9);
-            for (var i = 0; i < 9; i++)
-            {
-                _nineHourForecast.Add(_horizon.ForecastFor(gameDateTime.AddHours(i)));
-            }
             _lastUpdate = gameDateTime;
         }
 
@@ -55,13 +47,6 @@ namespace AbbatoirIntergrade.StaticManagers
                 SunlightEffectiveness = _horizon.SunAboveHorizon
                     ? GetSunEffectiveness()
                     : GetMoonEffectiveness();
-            }
-
-            if ((gameDateTime - _lastUpdate).Hours >= 1)
-            {
-                _lastUpdate = gameDateTime;
-                _nineHourForecast.RemoveAt(0);
-                _nineHourForecast.Add(_horizon.ForecastFor(gameDateTime.AddHours(_nineHourForecast.Count-1)));
             }
         }
 

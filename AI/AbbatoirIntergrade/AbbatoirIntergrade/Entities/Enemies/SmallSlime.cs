@@ -88,7 +88,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
 	        LightSprite.RelativeY = SpriteInstance.RelativeY - 20 * SpriteInstance.TextureScale;
         }
 
-	    protected override void NavigateToTargetStructure()
+	    protected override void NavigateToTarget()
 	    {
 	        if (CurrentJumpState == Jump.InAir && Altitude == 0)
 	        {
@@ -102,7 +102,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
 	        else if (CurrentJumpState == Jump.NotJumping || (CurrentJumpState == Jump.Landing && SpriteInstance.JustCycled))
 	        {
-	            if (_targetStructureForNavigation != null)
+	            if (_targetPointForNavigation != null)
 	            {
 	                CurrentJumpState = Jump.PreparingJump;
 	            }
@@ -114,10 +114,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
 	        }
 	        else if (CurrentJumpState == Jump.PreparingJump && SpriteInstance.JustCycled)
 	        {
-	            if (_targetStructureForNavigation != null)
+	            if (_targetPointForNavigation != null)
 	            {
-	                var angle = (float)Math.Atan2(Y - _targetStructureForNavigation.Position.Y,
-	                    X - _targetStructureForNavigation.Position.X);
+	                var angle = (float)Math.Atan2(Y - _targetPointForNavigation.Y,
+	                    X - _targetPointForNavigation.X);
 	                var direction = new Vector3(
 	                    (float)-Math.Cos(angle),
 	                    (float)-Math.Sin(angle), 0);

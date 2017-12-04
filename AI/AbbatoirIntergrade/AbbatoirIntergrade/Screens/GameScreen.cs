@@ -36,6 +36,7 @@ namespace AbbatoirIntergrade.Screens
         };
 
         private BaseLevel CurrentLevel;
+        private Polygon Pathing;
         private DateTime currentLevelDateTime;
 
         private GameMode CurrentGameMode = GameMode.Normal;
@@ -61,7 +62,7 @@ namespace AbbatoirIntergrade.Screens
             resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
             //TODO:  Set these values by loading a level
-            CurrentLevel = new HelsinkiLevel(AllEnemiesList, WorldLayer);
+            CurrentLevel = new Chapter1Level(AllEnemiesList, WorldLayer);
             currentLevelDateTime = CurrentLevel.StartTime;
 
             InitializeFactories();
@@ -79,7 +80,7 @@ namespace AbbatoirIntergrade.Screens
             InitializeManagers();
 
             //StartButtonInstance.Click += OnStartButtonInstanceClick;
-            GameHasStarted = false;
+            //GameHasStarted = false;
             
             CreateNotificationPool();
 
@@ -87,7 +88,7 @@ namespace AbbatoirIntergrade.Screens
 
             ChatBoxInstance.AppearAnimation.Play();
 
-            
+            GameHasStarted = true;
         }
 
         private void LoadDialogue()
@@ -162,7 +163,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void InitializeBaseEntities()
         {
-            var maxY = Camera.Main.OrthogonalHeight * 0.8f - Camera.Main.OrthogonalHeight / 2;
+            var maxY = Camera.Main.OrthogonalHeight * 0.95f;
             BaseStructure.Initialize(maxY);
             BasePlayerProjectile.Initialize(maxY);
             BaseStructure.Initialize(AllEnemiesList);
@@ -192,6 +193,9 @@ namespace AbbatoirIntergrade.Screens
             
             StructurePlacementFactory.EntitySpawned +=
                 placement => placement.AddSpritesToLayers(LightLayer, InfoLayer);
+
+            BasicAlienFactory.Initialize(ContentManagerName);
+            BasicAlienFactory.AddList(AllEnemiesList);
 
             BasicAlienFactory.EntitySpawned +=
                 alien =>
@@ -239,13 +243,20 @@ namespace AbbatoirIntergrade.Screens
                 place.AttachTo(Chapter1);
                 place.SetRelativeFromAbsolute();
             }
-
+            Pathing = Chapter1.ShapeCollections.FirstOrDefault()?.Polygons.FirstOrDefault();
+            Pathing?.AttachTo(Chapter1);
+            Pathing.SetRelativeFromAbsolute();
             Chapter1.AddToManagers(WorldLayer);
 
             //This centers the map in the middle of the screen
+            
             Chapter1.Position.X = -Chapter1.Width / 2;
 
-            Chapter1.Position.Y = Chapter1.Height / 2;
+            Chapter1.Position.Y = -(Camera.Main.OrthogonalHeight / 2 - Chapter1.Height);
+            Chapter1.Z = -11f;
+            //ShapeManager.AddPolygon(pathing);
+            ShapeManager.AddToLayer(Pathing, WorldLayer);
+            Pathing.Visible = false;
         }
 
         private void OnClick(object sender, EventArgs eventArgs)
@@ -432,13 +443,9 @@ namespace AbbatoirIntergrade.Screens
 
             if (GameHasStarted)
             {
-                if (CurrentLevel.HasReachedDefeat(currentLevelDateTime))
+                if (CurrentLevel.HasReachedDefeat())
                 {
                     LevelFailed();
-                }
-                else if (CurrentLevel.HasReachedVictory(currentLevelDateTime))
-                {
-                    LevelVictory();
                 }
             }
         }
@@ -482,6 +489,12 @@ namespace AbbatoirIntergrade.Screens
 	        for (var i = AllEnemiesList.Count; i > 0; i--)
 	        {
 	            var enemy = AllEnemiesList[i-1];
+	            if (enemy.HasReachedGoal)
+	            {
+	                HandleEnemyReachingGoal();
+                    enemy.Destroy();
+	                continue;
+	            }
 	            if (enemy.IsDead) continue;
 
                 //Colide enemies against others
@@ -511,8 +524,14 @@ namespace AbbatoirIntergrade.Screens
 	            }
 	        }
 	    }
-        
-	    private void PlayerProjectileActivity()
+
+        private void HandleEnemyReachingGoal()
+        {
+            CurrentLevel.RemainingLives--;
+            LivesPointsDisplayInstance.LivesRemaining = CurrentLevel.RemainingLives.ToString();
+        }
+
+        private void PlayerProjectileActivity()
 	    {
 	        for (var i = PlayerProjectileList.Count; i > 0; i--)
 	        {
@@ -567,32 +586,32 @@ namespace AbbatoirIntergrade.Screens
             if (InputManager.Keyboard.KeyPushed(Keys.X))
 	        {
 	            var newAlien = SmallSlimeFactory.CreateNew(WorldLayer);
-                newAlien.PlaceOnRightSide();
+                newAlien.FollowLine(Pathing);
 	        }
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.Z))
 	        {
 	            var newAlien = BasicAlienFactory.CreateNew(WorldLayer);
-                newAlien.PlaceOnRightSide();
-	        }
+	            newAlien.FollowLine(Pathing);
+            }
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.C))
 	        {
 	            var newAlien = SlimeAlienFactory.CreateNew(WorldLayer);
-	            newAlien.PlaceOnRightSide();
-	        }
+	            newAlien.FollowLine(Pathing);
+            }
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.V))
 	        {
 	            var newAlien = FlyingEnemyFactory.CreateNew(WorldLayer);
-	            newAlien.PlaceOnRightSide();
-	        }
+	            newAlien.FollowLine(Pathing);
+            }
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.B))
 	        {
 	            var newAlien = MeleeAlienFactory.CreateNew(WorldLayer);
-	            newAlien.PlaceOnRightSide();
-	        }
+	            newAlien.FollowLine(Pathing);
+            }
             if (InputManager.Keyboard.KeyDown(Keys.Y))
 	        {
 	            CameraZoomManager.PerformZoom(0, 0, 0.1f);

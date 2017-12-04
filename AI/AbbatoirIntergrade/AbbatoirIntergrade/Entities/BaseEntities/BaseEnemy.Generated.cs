@@ -35,12 +35,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             Dying = 2, 
             Hurt = 3, 
             Running = 4, 
-            StartMeleeAttack = 5, 
-            StartRangedAttack = 6, 
-            FinishRangedAttack = 7, 
-            RangedAim = 8, 
-            Standing = 9, 
-            FinishMeleeAttack = 10
+            Standing = 5
         }
         protected int mCurrentActionState = 0;
         public Entities.BaseEntities.BaseEnemy.Action CurrentActionState
@@ -74,23 +69,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     case  Action.Running:
                         SpriteInstanceCurrentChainName = "Run";
                         break;
-                    case  Action.StartMeleeAttack:
-                        SpriteInstanceCurrentChainName = "StartMeleeAttack";
-                        break;
-                    case  Action.StartRangedAttack:
-                        SpriteInstanceCurrentChainName = "StartRangedAttack";
-                        break;
-                    case  Action.FinishRangedAttack:
-                        SpriteInstanceCurrentChainName = "FinishRangedAttack";
-                        break;
-                    case  Action.RangedAim:
-                        SpriteInstanceCurrentChainName = "RangedAim";
-                        break;
                     case  Action.Standing:
                         SpriteInstanceCurrentChainName = "Standing";
-                        break;
-                    case  Action.FinishMeleeAttack:
-                        SpriteInstanceCurrentChainName = "FinishMeleeAttack";
                         break;
                 }
             }
@@ -249,12 +229,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         }
         public virtual float MaximumHealth { get; set; }
         public virtual float Speed { get; set; }
-        public virtual bool IsRangedAttacker { get; set; }
-        public virtual float MeleeAttackDamage { get; set; }
-        public virtual float RangedAttackDamage { get; set; }
-        public virtual float ProjectileSpeed { get; set; }
-        public virtual float SecondsBetweenRangedAttack { get; set; }
-        public virtual float SecondsBetweenMeleeAttack { get; set; }
         System.Double mMineralsRewardedWhenKilled = 0;
         public virtual System.Double MineralsRewardedWhenKilled
         {
@@ -277,40 +251,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             get
             {
                 return mDisplayName;
-            }
-        }
-        bool mIsMeleeAttacker = false;
-        public virtual bool IsMeleeAttacker
-        {
-            set
-            {
-                mIsMeleeAttacker = value;
-            }
-            get
-            {
-                return mIsMeleeAttacker;
-            }
-        }
-        public virtual float MeleeAttackRadius
-        {
-            get
-            {
-                return MeleeAttackRadiusCircleInstance.Radius;
-            }
-            set
-            {
-                MeleeAttackRadiusCircleInstance.Radius = value;
-            }
-        }
-        public virtual float RangedAttackRadius
-        {
-            get
-            {
-                return RangedAttackRadiusCircleInstance.Radius;
-            }
-            set
-            {
-                RangedAttackRadiusCircleInstance.Radius = value;
             }
         }
         bool mIsFlying = false;
@@ -348,6 +288,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 return mIsJumper;
             }
         }
+        public bool HasReachedGoal;
         public event System.EventHandler BeforeVisibleSet;
         public event System.EventHandler AfterVisibleSet;
         protected bool mVisible = true;
@@ -970,9 +911,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             SpriteInstanceFlipHorizontal = false;
             MineralsRewardedWhenKilled = 0;
             DisplayName = "Not Set";
-            IsMeleeAttacker = false;
-            MeleeAttackRadius = 16f;
-            RangedAttackRadius = 16f;
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
@@ -1051,17 +989,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     break;
                 case  Action.Running:
                     break;
-                case  Action.StartMeleeAttack:
-                    break;
-                case  Action.StartRangedAttack:
-                    break;
-                case  Action.FinishRangedAttack:
-                    break;
-                case  Action.RangedAim:
-                    break;
                 case  Action.Standing:
-                    break;
-                case  Action.FinishMeleeAttack:
                     break;
             }
             var instruction = new FlatRedBall.Instructions.DelegateInstruction<Action>(StopStateInterpolation, stateToInterpolateTo);
@@ -1079,17 +1007,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     break;
                 case  Action.Running:
                     break;
-                case  Action.StartMeleeAttack:
-                    break;
-                case  Action.StartRangedAttack:
-                    break;
-                case  Action.FinishRangedAttack:
-                    break;
-                case  Action.RangedAim:
-                    break;
                 case  Action.Standing:
-                    break;
-                case  Action.FinishMeleeAttack:
                     break;
             }
             CurrentActionState = stateToStop;
@@ -1122,40 +1040,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                         this.SpriteInstanceCurrentChainName = "Run";
                     }
                     break;
-                case  Action.StartMeleeAttack:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "StartMeleeAttack";
-                    }
-                    break;
-                case  Action.StartRangedAttack:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "StartRangedAttack";
-                    }
-                    break;
-                case  Action.FinishRangedAttack:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "FinishRangedAttack";
-                    }
-                    break;
-                case  Action.RangedAim:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "RangedAim";
-                    }
-                    break;
                 case  Action.Standing:
                     if (interpolationValue < 1)
                     {
                         this.SpriteInstanceCurrentChainName = "Standing";
-                    }
-                    break;
-                case  Action.FinishMeleeAttack:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "FinishMeleeAttack";
                     }
                     break;
             }
@@ -1179,40 +1067,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                         this.SpriteInstanceCurrentChainName = "Run";
                     }
                     break;
-                case  Action.StartMeleeAttack:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "StartMeleeAttack";
-                    }
-                    break;
-                case  Action.StartRangedAttack:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "StartRangedAttack";
-                    }
-                    break;
-                case  Action.FinishRangedAttack:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "FinishRangedAttack";
-                    }
-                    break;
-                case  Action.RangedAim:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "RangedAim";
-                    }
-                    break;
                 case  Action.Standing:
                     if (interpolationValue >= 1)
                     {
                         this.SpriteInstanceCurrentChainName = "Standing";
-                    }
-                    break;
-                case  Action.FinishMeleeAttack:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "FinishMeleeAttack";
                     }
                     break;
             }
@@ -1317,34 +1175,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                         object throwaway = "Run";
                     }
                     break;
-                case  Action.StartMeleeAttack:
-                    {
-                        object throwaway = "StartMeleeAttack";
-                    }
-                    break;
-                case  Action.StartRangedAttack:
-                    {
-                        object throwaway = "StartRangedAttack";
-                    }
-                    break;
-                case  Action.FinishRangedAttack:
-                    {
-                        object throwaway = "FinishRangedAttack";
-                    }
-                    break;
-                case  Action.RangedAim:
-                    {
-                        object throwaway = "RangedAim";
-                    }
-                    break;
                 case  Action.Standing:
                     {
                         object throwaway = "Standing";
-                    }
-                    break;
-                case  Action.FinishMeleeAttack:
-                    {
-                        object throwaway = "FinishMeleeAttack";
                     }
                     break;
             }

@@ -146,6 +146,23 @@
                             DawnDuskSprite.Wrap = true;
                             DawnDuskSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
                             DawnDuskSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                            ForegroundSprite.Blue = 100;
+                            ForegroundSprite.Green = 100;
+                            ForegroundSprite.Height = 20f;
+                            ForegroundSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ForegroundSprite.Red = 100;
+                            SetProperty("ForegroundSprite.SourceFile", "Mangrove.png");
+                            ForegroundSprite.TextureAddress = Gum.Managers.TextureAddress.DimensionsBased;
+                            ForegroundSprite.TextureHeight = 454;
+                            ForegroundSprite.TextureHeightScale = 0.65f;
+                            ForegroundSprite.TextureLeft = 0;
+                            ForegroundSprite.TextureTop = 0;
+                            ForegroundSprite.TextureWidth = 600;
+                            ForegroundSprite.TextureWidthScale = 1f;
+                            ForegroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ForegroundSprite.Wrap = true;
+                            ForegroundSprite.X = 0f;
+                            ForegroundSprite.Y = 0f;
                             break;
                     }
                 }
@@ -196,6 +213,54 @@
                 bool setDawnDuskSpriteTextureWidthSecondValue = false;
                 int DawnDuskSpriteTextureWidthFirstValue= 0;
                 int DawnDuskSpriteTextureWidthSecondValue= 0;
+                bool setForegroundSpriteBlueFirstValue = false;
+                bool setForegroundSpriteBlueSecondValue = false;
+                int ForegroundSpriteBlueFirstValue= 0;
+                int ForegroundSpriteBlueSecondValue= 0;
+                bool setForegroundSpriteGreenFirstValue = false;
+                bool setForegroundSpriteGreenSecondValue = false;
+                int ForegroundSpriteGreenFirstValue= 0;
+                int ForegroundSpriteGreenSecondValue= 0;
+                bool setForegroundSpriteHeightFirstValue = false;
+                bool setForegroundSpriteHeightSecondValue = false;
+                float ForegroundSpriteHeightFirstValue= 0;
+                float ForegroundSpriteHeightSecondValue= 0;
+                bool setForegroundSpriteRedFirstValue = false;
+                bool setForegroundSpriteRedSecondValue = false;
+                int ForegroundSpriteRedFirstValue= 0;
+                int ForegroundSpriteRedSecondValue= 0;
+                bool setForegroundSpriteTextureHeightFirstValue = false;
+                bool setForegroundSpriteTextureHeightSecondValue = false;
+                int ForegroundSpriteTextureHeightFirstValue= 0;
+                int ForegroundSpriteTextureHeightSecondValue= 0;
+                bool setForegroundSpriteTextureHeightScaleFirstValue = false;
+                bool setForegroundSpriteTextureHeightScaleSecondValue = false;
+                float ForegroundSpriteTextureHeightScaleFirstValue= 0;
+                float ForegroundSpriteTextureHeightScaleSecondValue= 0;
+                bool setForegroundSpriteTextureLeftFirstValue = false;
+                bool setForegroundSpriteTextureLeftSecondValue = false;
+                int ForegroundSpriteTextureLeftFirstValue= 0;
+                int ForegroundSpriteTextureLeftSecondValue= 0;
+                bool setForegroundSpriteTextureTopFirstValue = false;
+                bool setForegroundSpriteTextureTopSecondValue = false;
+                int ForegroundSpriteTextureTopFirstValue= 0;
+                int ForegroundSpriteTextureTopSecondValue= 0;
+                bool setForegroundSpriteTextureWidthFirstValue = false;
+                bool setForegroundSpriteTextureWidthSecondValue = false;
+                int ForegroundSpriteTextureWidthFirstValue= 0;
+                int ForegroundSpriteTextureWidthSecondValue= 0;
+                bool setForegroundSpriteTextureWidthScaleFirstValue = false;
+                bool setForegroundSpriteTextureWidthScaleSecondValue = false;
+                float ForegroundSpriteTextureWidthScaleFirstValue= 0;
+                float ForegroundSpriteTextureWidthScaleSecondValue= 0;
+                bool setForegroundSpriteXFirstValue = false;
+                bool setForegroundSpriteXSecondValue = false;
+                float ForegroundSpriteXFirstValue= 0;
+                float ForegroundSpriteXSecondValue= 0;
+                bool setForegroundSpriteYFirstValue = false;
+                bool setForegroundSpriteYSecondValue = false;
+                float ForegroundSpriteYFirstValue= 0;
+                float ForegroundSpriteYSecondValue= 0;
                 bool setHeightFirstValue = false;
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
@@ -425,6 +490,50 @@
                         {
                             this.DawnDuskSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                         }
+                        setForegroundSpriteBlueFirstValue = true;
+                        ForegroundSpriteBlueFirstValue = 100;
+                        setForegroundSpriteGreenFirstValue = true;
+                        ForegroundSpriteGreenFirstValue = 100;
+                        setForegroundSpriteHeightFirstValue = true;
+                        ForegroundSpriteHeightFirstValue = 20f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ForegroundSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setForegroundSpriteRedFirstValue = true;
+                        ForegroundSpriteRedFirstValue = 100;
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "Mangrove.png");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ForegroundSprite.TextureAddress = Gum.Managers.TextureAddress.DimensionsBased;
+                        }
+                        setForegroundSpriteTextureHeightFirstValue = true;
+                        ForegroundSpriteTextureHeightFirstValue = 454;
+                        setForegroundSpriteTextureHeightScaleFirstValue = true;
+                        ForegroundSpriteTextureHeightScaleFirstValue = 0.65f;
+                        setForegroundSpriteTextureLeftFirstValue = true;
+                        ForegroundSpriteTextureLeftFirstValue = 0;
+                        setForegroundSpriteTextureTopFirstValue = true;
+                        ForegroundSpriteTextureTopFirstValue = 0;
+                        setForegroundSpriteTextureWidthFirstValue = true;
+                        ForegroundSpriteTextureWidthFirstValue = 600;
+                        setForegroundSpriteTextureWidthScaleFirstValue = true;
+                        ForegroundSpriteTextureWidthScaleFirstValue = 1f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ForegroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ForegroundSprite.Wrap = true;
+                        }
+                        setForegroundSpriteXFirstValue = true;
+                        ForegroundSpriteXFirstValue = 0f;
+                        setForegroundSpriteYFirstValue = true;
+                        ForegroundSpriteYFirstValue = 0f;
                         setHeightFirstValue = true;
                         HeightFirstValue = 100f;
                         if (interpolationValue < 1)
@@ -818,6 +927,50 @@
                         {
                             this.DawnDuskSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                         }
+                        setForegroundSpriteBlueSecondValue = true;
+                        ForegroundSpriteBlueSecondValue = 100;
+                        setForegroundSpriteGreenSecondValue = true;
+                        ForegroundSpriteGreenSecondValue = 100;
+                        setForegroundSpriteHeightSecondValue = true;
+                        ForegroundSpriteHeightSecondValue = 20f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ForegroundSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setForegroundSpriteRedSecondValue = true;
+                        ForegroundSpriteRedSecondValue = 100;
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "Mangrove.png");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ForegroundSprite.TextureAddress = Gum.Managers.TextureAddress.DimensionsBased;
+                        }
+                        setForegroundSpriteTextureHeightSecondValue = true;
+                        ForegroundSpriteTextureHeightSecondValue = 454;
+                        setForegroundSpriteTextureHeightScaleSecondValue = true;
+                        ForegroundSpriteTextureHeightScaleSecondValue = 0.65f;
+                        setForegroundSpriteTextureLeftSecondValue = true;
+                        ForegroundSpriteTextureLeftSecondValue = 0;
+                        setForegroundSpriteTextureTopSecondValue = true;
+                        ForegroundSpriteTextureTopSecondValue = 0;
+                        setForegroundSpriteTextureWidthSecondValue = true;
+                        ForegroundSpriteTextureWidthSecondValue = 600;
+                        setForegroundSpriteTextureWidthScaleSecondValue = true;
+                        ForegroundSpriteTextureWidthScaleSecondValue = 1f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ForegroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ForegroundSprite.Wrap = true;
+                        }
+                        setForegroundSpriteXSecondValue = true;
+                        ForegroundSpriteXSecondValue = 0f;
+                        setForegroundSpriteYSecondValue = true;
+                        ForegroundSpriteYSecondValue = 0f;
                         setHeightSecondValue = true;
                         HeightSecondValue = 100f;
                         if (interpolationValue >= 1)
@@ -1173,6 +1326,54 @@
                 if (setDawnDuskSpriteTextureWidthFirstValue && setDawnDuskSpriteTextureWidthSecondValue)
                 {
                     DawnDuskSprite.TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(DawnDuskSpriteTextureWidthFirstValue* (1 - interpolationValue) + DawnDuskSpriteTextureWidthSecondValue * interpolationValue);
+                }
+                if (setForegroundSpriteBlueFirstValue && setForegroundSpriteBlueSecondValue)
+                {
+                    ForegroundSprite.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(ForegroundSpriteBlueFirstValue* (1 - interpolationValue) + ForegroundSpriteBlueSecondValue * interpolationValue);
+                }
+                if (setForegroundSpriteGreenFirstValue && setForegroundSpriteGreenSecondValue)
+                {
+                    ForegroundSprite.Green = FlatRedBall.Math.MathFunctions.RoundToInt(ForegroundSpriteGreenFirstValue* (1 - interpolationValue) + ForegroundSpriteGreenSecondValue * interpolationValue);
+                }
+                if (setForegroundSpriteHeightFirstValue && setForegroundSpriteHeightSecondValue)
+                {
+                    ForegroundSprite.Height = ForegroundSpriteHeightFirstValue * (1 - interpolationValue) + ForegroundSpriteHeightSecondValue * interpolationValue;
+                }
+                if (setForegroundSpriteRedFirstValue && setForegroundSpriteRedSecondValue)
+                {
+                    ForegroundSprite.Red = FlatRedBall.Math.MathFunctions.RoundToInt(ForegroundSpriteRedFirstValue* (1 - interpolationValue) + ForegroundSpriteRedSecondValue * interpolationValue);
+                }
+                if (setForegroundSpriteTextureHeightFirstValue && setForegroundSpriteTextureHeightSecondValue)
+                {
+                    ForegroundSprite.TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(ForegroundSpriteTextureHeightFirstValue* (1 - interpolationValue) + ForegroundSpriteTextureHeightSecondValue * interpolationValue);
+                }
+                if (setForegroundSpriteTextureHeightScaleFirstValue && setForegroundSpriteTextureHeightScaleSecondValue)
+                {
+                    ForegroundSprite.TextureHeightScale = ForegroundSpriteTextureHeightScaleFirstValue * (1 - interpolationValue) + ForegroundSpriteTextureHeightScaleSecondValue * interpolationValue;
+                }
+                if (setForegroundSpriteTextureLeftFirstValue && setForegroundSpriteTextureLeftSecondValue)
+                {
+                    ForegroundSprite.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(ForegroundSpriteTextureLeftFirstValue* (1 - interpolationValue) + ForegroundSpriteTextureLeftSecondValue * interpolationValue);
+                }
+                if (setForegroundSpriteTextureTopFirstValue && setForegroundSpriteTextureTopSecondValue)
+                {
+                    ForegroundSprite.TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(ForegroundSpriteTextureTopFirstValue* (1 - interpolationValue) + ForegroundSpriteTextureTopSecondValue * interpolationValue);
+                }
+                if (setForegroundSpriteTextureWidthFirstValue && setForegroundSpriteTextureWidthSecondValue)
+                {
+                    ForegroundSprite.TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(ForegroundSpriteTextureWidthFirstValue* (1 - interpolationValue) + ForegroundSpriteTextureWidthSecondValue * interpolationValue);
+                }
+                if (setForegroundSpriteTextureWidthScaleFirstValue && setForegroundSpriteTextureWidthScaleSecondValue)
+                {
+                    ForegroundSprite.TextureWidthScale = ForegroundSpriteTextureWidthScaleFirstValue * (1 - interpolationValue) + ForegroundSpriteTextureWidthScaleSecondValue * interpolationValue;
+                }
+                if (setForegroundSpriteXFirstValue && setForegroundSpriteXSecondValue)
+                {
+                    ForegroundSprite.X = ForegroundSpriteXFirstValue * (1 - interpolationValue) + ForegroundSpriteXSecondValue * interpolationValue;
+                }
+                if (setForegroundSpriteYFirstValue && setForegroundSpriteYSecondValue)
+                {
+                    ForegroundSprite.Y = ForegroundSpriteYFirstValue * (1 - interpolationValue) + ForegroundSpriteYSecondValue * interpolationValue;
                 }
                 if (setHeightFirstValue && setHeightSecondValue)
                 {
@@ -2377,6 +2578,142 @@
                             Value = DawnDuskSprite.YUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Blue",
+                            Type = "int",
+                            Value = ForegroundSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Green",
+                            Type = "int",
+                            Value = ForegroundSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Height",
+                            Type = "float",
+                            Value = ForegroundSprite.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ForegroundSprite.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Red",
+                            Type = "int",
+                            Value = ForegroundSprite.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Texture Address",
+                            Type = "TextureAddress",
+                            Value = ForegroundSprite.TextureAddress
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Texture Height",
+                            Type = "int",
+                            Value = ForegroundSprite.TextureHeight
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Texture Height Scale",
+                            Type = "float",
+                            Value = ForegroundSprite.TextureHeightScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Texture Left",
+                            Type = "int",
+                            Value = ForegroundSprite.TextureLeft
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Texture Top",
+                            Type = "int",
+                            Value = ForegroundSprite.TextureTop
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Texture Width",
+                            Type = "int",
+                            Value = ForegroundSprite.TextureWidth
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Texture Width Scale",
+                            Type = "float",
+                            Value = ForegroundSprite.TextureWidthScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ForegroundSprite.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Wrap",
+                            Type = "bool",
+                            Value = ForegroundSprite.Wrap
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.X",
+                            Type = "float",
+                            Value = ForegroundSprite.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Y",
+                            Type = "float",
+                            Value = ForegroundSprite.Y
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -3355,6 +3692,142 @@
                             Value = DawnDuskSprite.YUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Blue",
+                            Type = "int",
+                            Value = ForegroundSprite.Blue + 100
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Green",
+                            Type = "int",
+                            Value = ForegroundSprite.Green + 100
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Height",
+                            Type = "float",
+                            Value = ForegroundSprite.Height + 20f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ForegroundSprite.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Red",
+                            Type = "int",
+                            Value = ForegroundSprite.Red + 100
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Texture Address",
+                            Type = "TextureAddress",
+                            Value = ForegroundSprite.TextureAddress
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Texture Height",
+                            Type = "int",
+                            Value = ForegroundSprite.TextureHeight + 454
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Texture Height Scale",
+                            Type = "float",
+                            Value = ForegroundSprite.TextureHeightScale + 0.65f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Texture Left",
+                            Type = "int",
+                            Value = ForegroundSprite.TextureLeft + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Texture Top",
+                            Type = "int",
+                            Value = ForegroundSprite.TextureTop + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Texture Width",
+                            Type = "int",
+                            Value = ForegroundSprite.TextureWidth + 600
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Texture Width Scale",
+                            Type = "float",
+                            Value = ForegroundSprite.TextureWidthScale + 1f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ForegroundSprite.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Wrap",
+                            Type = "bool",
+                            Value = ForegroundSprite.Wrap
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.X",
+                            Type = "float",
+                            Value = ForegroundSprite.X + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.Y",
+                            Type = "float",
+                            Value = ForegroundSprite.Y + 0f
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -3382,6 +3855,7 @@
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime MoonSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SkyHazeSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime DawnDuskSprite { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime ForegroundSprite { get; set; }
             public HorizonBoxRuntime (bool fullInstantiation = true) 
             	: base(false)
             {
@@ -3419,6 +3893,7 @@
                 MoonSprite = this.GetGraphicalUiElementByName("MoonSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 SkyHazeSprite = this.GetGraphicalUiElementByName("SkyHazeSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 DawnDuskSprite = this.GetGraphicalUiElementByName("DawnDuskSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
+                ForegroundSprite = this.GetGraphicalUiElementByName("ForegroundSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

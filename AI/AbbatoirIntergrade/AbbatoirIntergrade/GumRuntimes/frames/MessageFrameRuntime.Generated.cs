@@ -36,7 +36,6 @@
                             YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             TopSprite.Height = 23.5f;
                             TopSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            TopSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
                             SetProperty("TopSprite.SourceFile", "AllUIAssets.png");
                             TopSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             TopSprite.TextureHeight = 70;
@@ -47,7 +46,6 @@
                             TopSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             MiddleSprite.Height = 53f;
                             MiddleSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            MiddleSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
                             SetProperty("MiddleSprite.SourceFile", "AllUIAssets.png");
                             MiddleSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             MiddleSprite.TextureHeight = 159;
@@ -58,7 +56,6 @@
                             MiddleSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             BottomSprite.Height = 23.5f;
                             BottomSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            BottomSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
                             SetProperty("BottomSprite.SourceFile", "AllUIAssets.png");
                             BottomSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             BottomSprite.TextureHeight = 70;
@@ -180,10 +177,6 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.BottomSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
-                        }
-                        if (interpolationValue < 1)
-                        {
                             SetProperty("BottomSprite.SourceFile", "AllUIAssets.png");
                         }
                         if (interpolationValue < 1)
@@ -222,10 +215,6 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.MiddleSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
-                        }
-                        if (interpolationValue < 1)
-                        {
                             SetProperty("MiddleSprite.SourceFile", "AllUIAssets.png");
                         }
                         if (interpolationValue < 1)
@@ -251,10 +240,6 @@
                         if (interpolationValue < 1)
                         {
                             this.TopSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.TopSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
                         }
                         if (interpolationValue < 1)
                         {
@@ -309,10 +294,6 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.BottomSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
-                        }
-                        if (interpolationValue >= 1)
-                        {
                             SetProperty("BottomSprite.SourceFile", "AllUIAssets.png");
                         }
                         if (interpolationValue >= 1)
@@ -351,10 +332,6 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.MiddleSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
-                        }
-                        if (interpolationValue >= 1)
-                        {
                             SetProperty("MiddleSprite.SourceFile", "AllUIAssets.png");
                         }
                         if (interpolationValue >= 1)
@@ -380,10 +357,6 @@
                         if (interpolationValue >= 1)
                         {
                             this.TopSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.TopSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
                         }
                         if (interpolationValue >= 1)
                         {
@@ -685,14 +658,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TopSprite.Parent",
-                            Type = "string",
-                            Value = TopSprite.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "TopSprite.SourceFile",
                             Type = "string",
                             Value = TopSprite.SourceFile
@@ -773,14 +738,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "MiddleSprite.Parent",
-                            Type = "string",
-                            Value = MiddleSprite.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "MiddleSprite.SourceFile",
                             Type = "string",
                             Value = MiddleSprite.SourceFile
@@ -856,14 +813,6 @@
                             Name = "BottomSprite.Height Units",
                             Type = "DimensionUnitType",
                             Value = BottomSprite.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "BottomSprite.Parent",
-                            Type = "string",
-                            Value = BottomSprite.Parent
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1031,14 +980,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TopSprite.Parent",
-                            Type = "string",
-                            Value = TopSprite.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "TopSprite.SourceFile",
                             Type = "string",
                             Value = TopSprite.SourceFile
@@ -1119,14 +1060,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "MiddleSprite.Parent",
-                            Type = "string",
-                            Value = MiddleSprite.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "MiddleSprite.SourceFile",
                             Type = "string",
                             Value = MiddleSprite.SourceFile
@@ -1202,14 +1135,6 @@
                             Name = "BottomSprite.Height Units",
                             Type = "DimensionUnitType",
                             Value = BottomSprite.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "BottomSprite.Parent",
-                            Type = "string",
-                            Value = BottomSprite.Parent
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

@@ -1187,17 +1187,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
             LightSprite.AlphaRate = LightSpriteAlphaRateReset;
             MaximumHealth = 160f;
             Speed = 175f;
-            IsRangedAttacker = false;
-            MeleeAttackDamage = 6f;
-            RangedAttackDamage = 0f;
-            ProjectileSpeed = 0f;
-            SecondsBetweenRangedAttack = 0f;
-            SecondsBetweenMeleeAttack = 1.6f;
             MineralsRewardedWhenKilled = 25;
             DisplayName = "Basic Alien";
-            IsMeleeAttacker = true;
-            MeleeAttackRadius = 64f;
-            RangedAttackRadius = 16f;
             IsFlying = false;
             HasLightSource = true;
             IsJumper = false;

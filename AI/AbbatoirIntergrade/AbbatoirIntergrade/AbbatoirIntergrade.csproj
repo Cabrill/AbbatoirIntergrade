@@ -145,10 +145,11 @@
     <Compile Include="Factories\TallLaserProjectileFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="GameClasses\BaseClasses\BaseWave.cs" />
     <Compile Include="GameClasses\GameDialogue.cs" />
     <Compile Include="GameClasses\Interfaces\IBuildButton.cs" />
     <Compile Include="GameClasses\Interfaces\ICity.cs" />
-    <Compile Include="GameClasses\Levels\HelsinkiLevel.cs" />
+    <Compile Include="GameClasses\Levels\Chapter1Level.cs" />
     <Compile Include="GameClasses\SunTimes.cs" />
     <Compile Include="GameClasses\InsolationFormulas.cs" />
     <Compile Include="GameClasses\BaseClasses\BaseLevel.cs" />
@@ -294,6 +295,7 @@
       <DependentUpon>StructureInfoRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\LivesPointsDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\LoadingScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
@@ -628,6 +630,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>StructureInfo</Name>
     </None>
+    <None Include="content\gumproject\components\livespointsdisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>LivesPointsDisplay</Name>
+    </None>
     <None Include="content\gumproject\components\specificbuttons\closechatbutton.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>CloseChatButton</Name>
@@ -671,6 +677,10 @@
     <None Include="content\gumproject\gumproject.gumx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>GumProject</Name>
+    </None>
+    <None Include="content\gumproject\mangrove.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Mangrove</Name>
     </None>
     <None Include="content\gumproject\screens\gamescreengum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FlatRedBall;
+using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
 
 namespace AbbatoirIntergrade.Entities.BaseEntities
@@ -12,98 +9,74 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
     {
         #region Properties and fields
 
-        protected BaseStructure _targetStructureForNavigation;
+        protected Vector3 _targetPointForNavigation;
         private float _lastDistanceToNavigationTarget;
         protected float _currentDistanceToNavigationTarget;
+        private int pointIndex;
+        private Polygon PathingLine;
 
         #endregion
 
         #region Placement methods
-        public void PlaceOnLeftSide()
+
+        public void FollowLine(Polygon line)
         {
-            X = _leftSpawnArea.Left;
-            Y = FlatRedBallServices.Random.Between(_leftSpawnArea.Bottom + CircleInstance.Radius, _leftSpawnArea.Top - CircleInstance.Radius);
+            PathingLine = line;
+            pointIndex = 0;
+            var firstPoint = PathingLine.AbsolutePointPosition(pointIndex);
+            X = (float)firstPoint.X;
+            Y = (float)firstPoint.Y;
+
+            var secondPoint = PathingLine.AbsolutePointPosition(++pointIndex);
+            _targetPointForNavigation = secondPoint;
             CurrentActionState = Action.Running;
             CurrentDirectionState = Direction.MovingRight;
         }
-
-        public void PlaceOnRightSide()
-        {
-            X = _rightSpawnArea.Right;
-            Y = FlatRedBallServices.Random.Between(_rightSpawnArea.Bottom + CircleInstance.Radius, _rightSpawnArea.Top - CircleInstance.Radius);
-
-            CurrentActionState = Action.Running;
-            CurrentDirectionState = Direction.MovingLeft;
-        }
-
         #endregion
 
         #region Navigation methods
 
         private void NavigationActivity()
         {
-            _currentDistanceToNavigationTarget = float.MaxValue;
+            _currentDistanceToNavigationTarget = Vector3.Distance(Position, _targetPointForNavigation);
 
-            if (_targetStructureForNavigation != null && !_targetStructureForNavigation.IsDestroyed)
-            {
-                _currentDistanceToNavigationTarget =
-                    Vector3.Distance(Position, _targetStructureForNavigation.Position);
-            }
-
-            var shouldUpdateNavigation = IsJumper || 
-                (CurrentActionState == Action.Running && _currentDistanceToNavigationTarget > _lastDistanceToNavigationTarget) ||                           
-                _targetStructureForNavigation == null || 
-                _targetStructureForNavigation.IsDestroyed ;
+            var shouldUpdateNavigation = IsJumper ||  CurrentActionState == Action.Running;
 
             if (shouldUpdateNavigation)
             {
-
-                if (_lastNumberOfPotentialTargets != _currentNumberOfPotentialTargets || _targetStructureForNavigation == null || _targetStructureForNavigation.IsDestroyed)
+                if (_currentDistanceToNavigationTarget < 30)
                 {
-                    ChooseStructureForNavigation();
+                    ChoosePointForNavigation();
                 }
 
-                if (_targetStructureForNavigation != null)
+                shouldUpdateNavigation = IsJumper || _currentDistanceToNavigationTarget > _lastDistanceToNavigationTarget || Velocity.Equals(Vector3.Zero);
+                if (shouldUpdateNavigation)
                 {
-                    shouldUpdateNavigation = IsJumper || _currentDistanceToNavigationTarget > _lastDistanceToNavigationTarget || Velocity.Equals(Vector3.Zero);
-                    if (shouldUpdateNavigation)
-                    {
-                        NavigateToTargetStructure();
-                        _currentDistanceToNavigationTarget = Vector3.Distance(Position, _targetStructureForNavigation.Position);
-                    }
+                    NavigateToTarget();
+                    _currentDistanceToNavigationTarget = Vector3.Distance(Position, _targetPointForNavigation);
                 }
             }
             _lastDistanceToNavigationTarget = _currentDistanceToNavigationTarget;
         }
 
-        private void ChooseStructureForNavigation()
+        private void ChoosePointForNavigation()
         {
-            if (_potentialTargetList == null || _potentialTargetList.Count <= 0) return;
-
-            var minDistance = float.MaxValue;
-            BaseStructure potentialTarget = null;
-
-            foreach (var target in _potentialTargetList)
+            if (pointIndex < PathingLine.Points.Count-1)
             {
-                if (target.CurrentState != BaseStructure.VariableState.Built || target.IsDestroyed) continue;
-
-                var distanceToTarget = Vector3.Distance(Position, target.Position);
-
-                if (distanceToTarget >= minDistance) continue;
-                    
-                minDistance = distanceToTarget;
-                potentialTarget = target;
+                _targetPointForNavigation = PathingLine.AbsolutePointPosition(++pointIndex);
             }
-
-            _targetStructureForNavigation = potentialTarget;
+            else
+            {
+                HasReachedGoal = true;
+            }
         }
 
-        protected virtual void NavigateToTargetStructure()
+        protected virtual void NavigateToTarget()
         {
-            if (_targetStructureForNavigation != null)
+            if (_targetPointForNavigation != null)
             {
-                var angle = (float)Math.Atan2(Y - _targetStructureForNavigation.Position.Y,
-                    X - _targetStructureForNavigation.Position.X);
+                var angle = (float)Math.Atan2(Y - _targetPointForNavigation.Y,
+                    X - _targetPointForNavigation.X);
                 var direction = new Vector3(
                     (float)-Math.Cos(angle),
                     (float)-Math.Sin(angle), 0);
@@ -124,9 +97,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         protected float CalculateJumpAltitudeVelocity()
         {
-            if (_targetStructureForNavigation == null) return 0f;
+            if (_targetPointForNavigation == null) return 0f;
 
-            var targetPosition = _targetStructureForNavigation.AxisAlignedRectangleInstance.Position;
+            var targetPosition = _targetPointForNavigation;
             var targetDistance = Vector3.Distance(CircleInstance.Position, targetPosition);
             var timeToTravel = targetDistance / Speed;
 

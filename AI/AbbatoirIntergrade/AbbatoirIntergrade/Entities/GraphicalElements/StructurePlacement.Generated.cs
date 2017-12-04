@@ -297,6 +297,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
                 mCircleInstance.AttachTo(this, false);
             }
             CircleInstance.Radius = 60f;
+            CircleInstance.Visible = false;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
@@ -332,6 +333,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             SpriteInstance.AnimationChains = AnimationChainListFile;
             SpriteInstance.CurrentChainName = "Spin";
             CircleInstance.Radius = 60f;
+            CircleInstance.Visible = false;
             SpriteInstanceRed = 0f;
             SpriteInstanceGreen = 1f;
             SpriteInstanceBlue = 0f;

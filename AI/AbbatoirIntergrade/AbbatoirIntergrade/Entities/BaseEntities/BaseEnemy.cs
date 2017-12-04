@@ -23,10 +23,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         private static AxisAlignedRectangle _leftSpawnArea;
 	    private static AxisAlignedRectangle _rightSpawnArea;
 
-        private static PositionedObjectList<BaseStructure> _potentialTargetList;
-	    private int _currentNumberOfPotentialTargets;
-	    private int _lastNumberOfPotentialTargets;
-
         public float HealthRemaining { get; set; }
         public bool IsDead => HealthRemaining <= 0;
 	    private bool IsHurt => CurrentActionState == Action.Hurt;
@@ -58,8 +54,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		    if (DebugVariables.ShowDebugShapes)
 		    {
 		        CircleInstance.Visible = true;
-		        MeleeAttackRadiusCircleInstance.Visible = IsMeleeAttacker;
-		        RangedAttackRadiusCircleInstance.Visible = IsRangedAttacker;
 		    }
 		    else
 #endif
@@ -77,11 +71,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		        _startingShadowWidth = ShadowSprite.Width;
 		        _startingShadowHeight = ShadowSprite.Height;
 		        _startingShadowAlpha = ShadowSprite.Alpha;
-		        _startingRangedRadius = RangedAttackRadius;
-		        _startingMeleeRadius = MeleeAttackRadius;
 
 		        _spriteRelativeY = SpriteInstance.Height / 2;
             }
+
+		    HasReachedGoal = false;
 
 		    HealthBar.X = X;
 		    HealthBar.Y = Y;
@@ -106,8 +100,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 		private void CustomActivity()
 		{
-		    _currentNumberOfPotentialTargets = _potentialTargetList.Count;
-
 		    if (IsDead)
 		    {
 		        PerformDeath();
@@ -126,8 +118,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             UpdateScale();
 		    UpdateAnimation();
             UpdateHealthBar();
-
-		    _lastNumberOfPotentialTargets = _currentNumberOfPotentialTargets;
 		}
 
 	    private void CalculateScale()
@@ -142,8 +132,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        HealthBar.SetWidth(SpriteInstance.Width);
 
             if (HasLightSource) LightSprite.TextureScale = _startingLightScale * _currentScale;
-            if (IsRangedAttacker) RangedAttackRadiusCircleInstance.Radius = _startingRangedRadius * _currentScale;
-	        if (IsMeleeAttacker) MeleeAttackRadiusCircleInstance.Radius = _startingMeleeRadius * _currentScale;
 	    }
 
         private void UpdateAnimation()
@@ -205,12 +193,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        }
 	        else
 	        {
-	            if (CurrentActionState == Action.StartRangedAttack)
-	            {
-                    Instructions.Clear();
-	                if (rangedChargeSound != null && !rangedChargeSound.IsDisposed && rangedChargeSound.State == SoundState.Playing) rangedChargeSound.Stop();
-	            }
-
 	            Velocity = Vector3.Zero;
                 CurrentActionState = Action.Hurt;
                 SpriteInstance.UpdateToCurrentAnimationFrame();

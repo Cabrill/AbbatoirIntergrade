@@ -1187,17 +1187,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
             LightSprite.AlphaRate = LightSpriteAlphaRateReset;
             MaximumHealth = 16f;
             Speed = 225f;
-            IsRangedAttacker = false;
-            MeleeAttackDamage = 2f;
-            RangedAttackDamage = 0f;
-            ProjectileSpeed = 0f;
-            SecondsBetweenRangedAttack = 0f;
-            SecondsBetweenMeleeAttack = 0.5f;
             MineralsRewardedWhenKilled = 10;
             DisplayName = "Small Slime";
-            IsMeleeAttacker = true;
-            MeleeAttackRadius = 72f;
-            RangedAttackRadius = 0f;
             IsFlying = false;
             HasLightSource = true;
             IsJumper = true;

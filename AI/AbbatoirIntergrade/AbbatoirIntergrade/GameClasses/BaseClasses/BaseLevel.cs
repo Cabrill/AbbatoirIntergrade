@@ -14,25 +14,16 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 {
     public abstract class BaseLevel
     {
-        private enum AlienSides { Left, Right, Both};
-
-        protected int HoursBetweenWaves = 3;
-        protected int _wavesToEaseIntoDifficulty = 48;
-
-        private AlienSides currentAlienSides;
-
         public abstract DateTime StartTime { get; }
-        public abstract DateTime EndTime { get; } 
-        public abstract float AvgDailyEnergyUsage { get; }
+        public abstract List<BaseWave> Waves { get; }
 
-        protected float EnergyToSpend;
+        public virtual int StartingLives { get; } = 1;
 
-        private bool sentShip = false;
+        public int RemainingLives { get; set; }
+
         private DateTime _lastEnemyWave;
-        private DateTime _lastEnergyUpdate;
         private Layer _layerForEnemies;
         private int _wavesSent;
-        protected bool HasSentBoss = false;
         
         protected FlatRedBall.Math.PositionedObjectList<BaseEnemy> _enemyList;
 
@@ -40,44 +31,27 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         {
             this._layerForEnemies = layerForEnemies;
             _wavesSent = 0;
-            EnergyToSpend = 0;
             _enemyList = enemyList;
             _lastEnemyWave = DateTime.MinValue;
-            _lastEnergyUpdate = DateTime.MinValue;
-            currentAlienSides = AlienSides.Right;
+            RemainingLives = StartingLives;
         }
-
-        /// <summary>
-        /// Decides whether the player has achieved victory.  If there is an end time this method will return true
-        /// if the player has passed the end time.  For other conditions, the derived Level should override this.
-        /// </summary>
-        /// <param name="currentDateTime"></param>
-        /// <returns></returns>
-        public bool HasReachedVictory(DateTime currentDateTime)
-        {
-            if (EndTime != DateTime.MaxValue)
-            {
-                return HasSentBoss && currentDateTime >= EndTime && _enemyList.Count == 0;
-            }
-            return false;
-        }
-
+        
         /// <summary>
         /// Decides whether the player has been defeated.  All levels end when the house has been destroyed, but
         /// if there are additional defeat criteria then the derived Level should override this.
         /// </summary>
         /// <param name="currentDateTime">The current game time</param>
         /// <returns></returns>
-        public bool HasReachedDefeat(DateTime currentDateTime)
+        public bool HasReachedDefeat()
         {
-            return false;
+            return RemainingLives <= 0;
         }
 
         /// <summary>
         /// Creates enemies equal to the energy amount
         /// </summary>
         /// <param name="energyAmount">Amount of energy to spend in creating enemies</param>
-        private void CreateEnemiesFromEnergy(bool useBossMonster)
+        private void CreateEnemiesForWave()
         {
             //if (EnergyToSpend < GameFormulas.Instance.MinimumEnergyCostForAnEnemy) return;
 
@@ -104,7 +78,6 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
             if (_lastEnemyWave == DateTime.MinValue)
             {
                 _lastEnemyWave = currentDateTime;
-                _lastEnergyUpdate = currentDateTime;
             }
 
             //if (currentDateTime > _lastEnergyUpdate && (currentDateTime - _lastEnergyUpdate).Hours >= 1 && currentDateTime <= EndTime)
@@ -125,29 +98,10 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
             //    _lastEnergyUpdate = currentDateTime;
             //}
 
-            if (currentDateTime > _lastEnemyWave && (currentDateTime - _lastEnemyWave).Hours >= HoursBetweenWaves)
+            if (currentDateTime > _lastEnemyWave)
             {
                 _lastEnemyWave = currentDateTime;
-                sentShip = false;
                 _wavesSent++;
-                CreateEnemiesFromEnergy(currentDateTime.AddHours(HoursBetweenWaves) > EndTime);
-                UpdateAlienSides();
-            }
-        }
-
-        private void UpdateAlienSides()
-        {
-            switch (currentAlienSides)
-            {
-                case AlienSides.Left:
-                    currentAlienSides = _wavesSent % 5 == 0 ? AlienSides.Both : AlienSides.Right;
-                    break;
-                case AlienSides.Right:
-                    currentAlienSides = _wavesSent % 5 == 0 ? AlienSides.Both : AlienSides.Left;
-                    break;
-                default:
-                    currentAlienSides = _wavesSent % 2 == 0 ? AlienSides.Left : AlienSides.Right;
-                    break;
             }
         }
     }

@@ -28,6 +28,24 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float</Type>
+      <Name>LivesPointsDisplayInstance.X</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>LivesPointsDisplayInstance.X Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>LivesPointsDisplayInstance.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>bool</Type>
       <Name>StructureInfoInstance.Visible</Name>
       <Value xsi:type="xsd:boolean">false</Value>
@@ -53,5 +71,9 @@
   <Instance>
     <Name>BuildMenuInstance</Name>
     <BaseType>BuildMenu</BaseType>
+  </Instance>
+  <Instance>
+    <Name>LivesPointsDisplayInstance</Name>
+    <BaseType>LivesPointsDisplay</BaseType>
   </Instance>
 </ScreenSave>
