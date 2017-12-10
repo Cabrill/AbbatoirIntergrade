@@ -357,9 +357,12 @@ namespace AbbatoirIntergrade.Screens
         {
             bool oldShapeManagerSuppressAdd = FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue;
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = true;
+            BackgroundLayer.SortType = FlatRedBall.Graphics.SortType.ZSecondaryParentY;
             BackgroundLayer.Visible = true;
-            WorldLayer.SortType = FlatRedBall.Graphics.SortType.Z;
+            WorldLayer.SortType = FlatRedBall.Graphics.SortType.ZSecondaryParentY;
             WorldLayer.Visible = true;
+            LightLayer.SortType = FlatRedBall.Graphics.SortType.ZSecondaryParentY;
+            ShaderOutputLayer.SortType = FlatRedBall.Graphics.SortType.ZSecondaryParentY;
             InfoLayer.Visible = true;
             HUDLayer.Visible = true;
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
@@ -460,9 +463,12 @@ namespace AbbatoirIntergrade.Screens
             {
                 ShaderRendererInstance.AssignCustomVariables(true);
             }
+            BackgroundLayer.SortType = FlatRedBall.Graphics.SortType.ZSecondaryParentY;
             BackgroundLayer.Visible = true;
-            WorldLayer.SortType = FlatRedBall.Graphics.SortType.Z;
+            WorldLayer.SortType = FlatRedBall.Graphics.SortType.ZSecondaryParentY;
             WorldLayer.Visible = true;
+            LightLayer.SortType = FlatRedBall.Graphics.SortType.ZSecondaryParentY;
+            ShaderOutputLayer.SortType = FlatRedBall.Graphics.SortType.ZSecondaryParentY;
             InfoLayer.Visible = true;
             HUDLayer.Visible = true;
         }

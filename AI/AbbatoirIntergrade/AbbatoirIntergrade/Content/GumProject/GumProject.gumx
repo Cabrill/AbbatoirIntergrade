@@ -121,6 +121,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>SpecificButtons/BuildButton</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>specificbuttons/CloseChatButton</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>

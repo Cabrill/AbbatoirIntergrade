@@ -63,31 +63,31 @@
                             SevenButtonFrameInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             SevenButtonFrameInstance.Y = 100.8836f;
                             SevenButtonFrameInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
-                            ButtonFrameInstance0.X = 43.29829f;
-                            ButtonFrameInstance0.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance0.Y = 67.83752f;
-                            ButtonFrameInstance0.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance1.X = 33.23347f;
-                            ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance1.Y = 51.25159f;
-                            ButtonFrameInstance1.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance2.X = 51.49597f;
-                            ButtonFrameInstance2.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance2.Y = 51.31417f;
-                            ButtonFrameInstance2.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance3.X = 42.26307f;
-                            ButtonFrameInstance3.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance3.Y = 34.15827f;
-                            ButtonFrameInstance3.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance4.Visible = false;
-                            ButtonFrameInstance4.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance4.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance5.Visible = false;
-                            ButtonFrameInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance6.Visible = false;
-                            ButtonFrameInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance6.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance0.X = 43.29829f;
+                            BuildButtonInstance0.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance0.Y = 67.83752f;
+                            BuildButtonInstance0.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance1.X = 33.23347f;
+                            BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance1.Y = 51.25159f;
+                            BuildButtonInstance1.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance2.X = 51.49597f;
+                            BuildButtonInstance2.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance2.Y = 51.31417f;
+                            BuildButtonInstance2.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance3.X = 42.26307f;
+                            BuildButtonInstance3.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance3.Y = 34.15827f;
+                            BuildButtonInstance3.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance4.Visible = false;
+                            BuildButtonInstance4.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance4.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance5.Visible = false;
+                            BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance6.Visible = false;
+                            BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance6.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             break;
                     }
                 }
@@ -112,28 +112,28 @@
                             SevenButtonFrameInstance.Visible = false;
                             SevenButtonFrameInstance.X = 47.50298f;
                             SevenButtonFrameInstance.Y = 100.8836f;
-                            ButtonFrameInstance0.X = 43.19118f;
-                            ButtonFrameInstance0.Y = 67.92753f;
-                            ButtonFrameInstance1.X = 34.37128f;
-                            ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance1.Y = 51.32274f;
-                            ButtonFrameInstance2.X = 52.03481f;
-                            ButtonFrameInstance2.Y = 51.35582f;
-                            ButtonFrameInstance3.X = 43.17259f;
-                            ButtonFrameInstance3.Y = 34.02776f;
-                            ButtonFrameInstance4.Visible = false;
-                            ButtonFrameInstance4.X = 0f;
-                            ButtonFrameInstance4.Y = 0f;
-                            ButtonFrameInstance5.Height = 24.47f;
-                            ButtonFrameInstance5.Visible = false;
-                            ButtonFrameInstance5.Width = 13.647f;
-                            ButtonFrameInstance5.X = 0f;
-                            ButtonFrameInstance5.Y = 0f;
-                            ButtonFrameInstance6.Height = 24.47f;
-                            ButtonFrameInstance6.Visible = false;
-                            ButtonFrameInstance6.Width = 13.647f;
-                            ButtonFrameInstance6.X = 0f;
-                            ButtonFrameInstance6.Y = 0f;
+                            BuildButtonInstance0.X = 43.19118f;
+                            BuildButtonInstance0.Y = 67.92753f;
+                            BuildButtonInstance1.X = 34.37128f;
+                            BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance1.Y = 51.32274f;
+                            BuildButtonInstance2.X = 52.03481f;
+                            BuildButtonInstance2.Y = 51.35582f;
+                            BuildButtonInstance3.X = 43.17259f;
+                            BuildButtonInstance3.Y = 34.02776f;
+                            BuildButtonInstance4.Visible = false;
+                            BuildButtonInstance4.X = 0f;
+                            BuildButtonInstance4.Y = 0f;
+                            BuildButtonInstance5.Height = 24.47f;
+                            BuildButtonInstance5.Visible = false;
+                            BuildButtonInstance5.Width = 13.647f;
+                            BuildButtonInstance5.X = 0f;
+                            BuildButtonInstance5.Y = 0f;
+                            BuildButtonInstance6.Height = 24.47f;
+                            BuildButtonInstance6.Visible = false;
+                            BuildButtonInstance6.Width = 13.647f;
+                            BuildButtonInstance6.X = 0f;
+                            BuildButtonInstance6.Y = 0f;
                             break;
                         case  Capacity.FourLeft:
                             XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
@@ -145,28 +145,28 @@
                             SevenButtonFrameInstance.Visible = false;
                             SevenButtonFrameInstance.X = 47.50298f;
                             SevenButtonFrameInstance.Y = 100.8836f;
-                            ButtonFrameInstance0.X = 82.09743f;
-                            ButtonFrameInstance0.Y = 37.92752f;
-                            ButtonFrameInstance1.X = 72.73f;
-                            ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance1.Y = 53.82274f;
-                            ButtonFrameInstance2.X = 72.73793f;
-                            ButtonFrameInstance2.Y = 21.95767f;
-                            ButtonFrameInstance3.X = 63.01634f;
-                            ButtonFrameInstance3.Y = 37.91665f;
-                            ButtonFrameInstance4.Visible = false;
-                            ButtonFrameInstance4.X = 0f;
-                            ButtonFrameInstance4.Y = 0f;
-                            ButtonFrameInstance5.Height = 24.47f;
-                            ButtonFrameInstance5.Visible = false;
-                            ButtonFrameInstance5.Width = 13.647f;
-                            ButtonFrameInstance5.X = 0f;
-                            ButtonFrameInstance5.Y = 0f;
-                            ButtonFrameInstance6.Height = 24.47f;
-                            ButtonFrameInstance6.Visible = false;
-                            ButtonFrameInstance6.Width = 13.647f;
-                            ButtonFrameInstance6.X = 0f;
-                            ButtonFrameInstance6.Y = 0f;
+                            BuildButtonInstance0.X = 82.09743f;
+                            BuildButtonInstance0.Y = 37.92752f;
+                            BuildButtonInstance1.X = 72.73f;
+                            BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance1.Y = 53.82274f;
+                            BuildButtonInstance2.X = 72.73793f;
+                            BuildButtonInstance2.Y = 21.95767f;
+                            BuildButtonInstance3.X = 63.01634f;
+                            BuildButtonInstance3.Y = 37.91665f;
+                            BuildButtonInstance4.Visible = false;
+                            BuildButtonInstance4.X = 0f;
+                            BuildButtonInstance4.Y = 0f;
+                            BuildButtonInstance5.Height = 24.47f;
+                            BuildButtonInstance5.Visible = false;
+                            BuildButtonInstance5.Width = 13.647f;
+                            BuildButtonInstance5.X = 0f;
+                            BuildButtonInstance5.Y = 0f;
+                            BuildButtonInstance6.Height = 24.47f;
+                            BuildButtonInstance6.Visible = false;
+                            BuildButtonInstance6.Width = 13.647f;
+                            BuildButtonInstance6.X = 0f;
+                            BuildButtonInstance6.Y = 0f;
                             break;
                         case  Capacity.FourRight:
                             XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
@@ -178,28 +178,28 @@
                             SevenButtonFrameInstance.Visible = false;
                             SevenButtonFrameInstance.X = 47.50298f;
                             SevenButtonFrameInstance.Y = 100.8836f;
-                            ButtonFrameInstance0.X = 4.363056f;
-                            ButtonFrameInstance0.Y = 37.92752f;
-                            ButtonFrameInstance1.X = 13.73f;
-                            ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance1.Y = 53.56481f;
-                            ButtonFrameInstance2.X = 13.73f;
-                            ButtonFrameInstance2.Y = 22.05026f;
-                            ButtonFrameInstance3.X = 23.38464f;
-                            ButtonFrameInstance3.Y = 37.7976f;
-                            ButtonFrameInstance4.Visible = false;
-                            ButtonFrameInstance4.X = 0f;
-                            ButtonFrameInstance4.Y = 0f;
-                            ButtonFrameInstance5.Height = 24.47f;
-                            ButtonFrameInstance5.Visible = false;
-                            ButtonFrameInstance5.Width = 13.647f;
-                            ButtonFrameInstance5.X = 0f;
-                            ButtonFrameInstance5.Y = 0f;
-                            ButtonFrameInstance6.Height = 24.47f;
-                            ButtonFrameInstance6.Visible = false;
-                            ButtonFrameInstance6.Width = 13.647f;
-                            ButtonFrameInstance6.X = 0f;
-                            ButtonFrameInstance6.Y = 0f;
+                            BuildButtonInstance0.X = 4.363056f;
+                            BuildButtonInstance0.Y = 37.92752f;
+                            BuildButtonInstance1.X = 13.73f;
+                            BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance1.Y = 53.56481f;
+                            BuildButtonInstance2.X = 13.73f;
+                            BuildButtonInstance2.Y = 22.05026f;
+                            BuildButtonInstance3.X = 23.38464f;
+                            BuildButtonInstance3.Y = 37.7976f;
+                            BuildButtonInstance4.Visible = false;
+                            BuildButtonInstance4.X = 0f;
+                            BuildButtonInstance4.Y = 0f;
+                            BuildButtonInstance5.Height = 24.47f;
+                            BuildButtonInstance5.Visible = false;
+                            BuildButtonInstance5.Width = 13.647f;
+                            BuildButtonInstance5.X = 0f;
+                            BuildButtonInstance5.Y = 0f;
+                            BuildButtonInstance6.Height = 24.47f;
+                            BuildButtonInstance6.Visible = false;
+                            BuildButtonInstance6.Width = 13.647f;
+                            BuildButtonInstance6.X = 0f;
+                            BuildButtonInstance6.Y = 0f;
                             break;
                         case  Capacity.Seven:
                             XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
@@ -210,31 +210,31 @@
                             SevenButtonFrameInstance.Visible = true;
                             SevenButtonFrameInstance.X = 47.50298f;
                             SevenButtonFrameInstance.Y = 100.8836f;
-                            ButtonFrameInstance0.X = 43.14814f;
-                            ButtonFrameInstance0.Y = 68.01085f;
-                            ButtonFrameInstance1.X = 34.26563f;
-                            ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance1.Y = 51.43519f;
-                            ButtonFrameInstance2.X = 52.06459f;
-                            ButtonFrameInstance2.Y = 51.57408f;
-                            ButtonFrameInstance3.X = 43.15125f;
-                            ButtonFrameInstance3.Y = 35.08086f;
-                            ButtonFrameInstance4.Visible = true;
-                            ButtonFrameInstance4.X = 34.29688f;
-                            ButtonFrameInstance4.Y = 18.35648f;
-                            ButtonFrameInstance5.Height = 24.47f;
-                            ButtonFrameInstance5.Visible = true;
-                            ButtonFrameInstance5.Width = 13.647f;
-                            ButtonFrameInstance5.X = 52.00523f;
-                            ButtonFrameInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance5.Y = 18.31018f;
-                            ButtonFrameInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance6.Height = 24.47f;
-                            ButtonFrameInstance6.Visible = true;
-                            ButtonFrameInstance6.Width = 13.647f;
-                            ButtonFrameInstance6.X = 43.15125f;
-                            ButtonFrameInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance6.Y = 1.134257f;
+                            BuildButtonInstance0.X = 43.14814f;
+                            BuildButtonInstance0.Y = 68.01085f;
+                            BuildButtonInstance1.X = 34.26563f;
+                            BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance1.Y = 51.43519f;
+                            BuildButtonInstance2.X = 52.06459f;
+                            BuildButtonInstance2.Y = 51.57408f;
+                            BuildButtonInstance3.X = 43.15125f;
+                            BuildButtonInstance3.Y = 35.08086f;
+                            BuildButtonInstance4.Visible = true;
+                            BuildButtonInstance4.X = 34.29688f;
+                            BuildButtonInstance4.Y = 18.35648f;
+                            BuildButtonInstance5.Height = 24.47f;
+                            BuildButtonInstance5.Visible = true;
+                            BuildButtonInstance5.Width = 13.647f;
+                            BuildButtonInstance5.X = 52.00523f;
+                            BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance5.Y = 18.31018f;
+                            BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance6.Height = 24.47f;
+                            BuildButtonInstance6.Visible = true;
+                            BuildButtonInstance6.Width = 13.647f;
+                            BuildButtonInstance6.X = 43.15125f;
+                            BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance6.Y = 1.134257f;
                             break;
                         case  Capacity.SevenLeft:
                             XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
@@ -246,31 +246,31 @@
                             SevenButtonFrameInstance.Visible = true;
                             SevenButtonFrameInstance.X = 60.5945f;
                             SevenButtonFrameInstance.Y = 116.85f;
-                            ButtonFrameInstance0.X = 82.00231f;
-                            ButtonFrameInstance0.Y = 37.87195f;
-                            ButtonFrameInstance1.X = 72.76563f;
-                            ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance1.Y = 53.65741f;
-                            ButtonFrameInstance2.X = 72.76772f;
-                            ButtonFrameInstance2.Y = 21.99075f;
-                            ButtonFrameInstance3.X = 63.51583f;
-                            ButtonFrameInstance3.Y = 37.90495f;
-                            ButtonFrameInstance4.Visible = true;
-                            ButtonFrameInstance4.X = 54.14063f;
-                            ButtonFrameInstance4.Y = 53.63426f;
-                            ButtonFrameInstance5.Height = 24.47f;
-                            ButtonFrameInstance5.Visible = true;
-                            ButtonFrameInstance5.Width = 13.647f;
-                            ButtonFrameInstance5.X = 54.1146f;
-                            ButtonFrameInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance5.Y = 22.02546f;
-                            ButtonFrameInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance6.Height = 24.47f;
-                            ButtonFrameInstance6.Visible = true;
-                            ButtonFrameInstance6.Width = 13.647f;
-                            ButtonFrameInstance6.X = 44.38015f;
-                            ButtonFrameInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance6.Y = 37.88074f;
+                            BuildButtonInstance0.X = 82.00231f;
+                            BuildButtonInstance0.Y = 37.87195f;
+                            BuildButtonInstance1.X = 72.76563f;
+                            BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance1.Y = 53.65741f;
+                            BuildButtonInstance2.X = 72.76772f;
+                            BuildButtonInstance2.Y = 21.99075f;
+                            BuildButtonInstance3.X = 63.51583f;
+                            BuildButtonInstance3.Y = 37.90495f;
+                            BuildButtonInstance4.Visible = true;
+                            BuildButtonInstance4.X = 54.14063f;
+                            BuildButtonInstance4.Y = 53.63426f;
+                            BuildButtonInstance5.Height = 24.47f;
+                            BuildButtonInstance5.Visible = true;
+                            BuildButtonInstance5.Width = 13.647f;
+                            BuildButtonInstance5.X = 54.1146f;
+                            BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance5.Y = 22.02546f;
+                            BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance6.Height = 24.47f;
+                            BuildButtonInstance6.Visible = true;
+                            BuildButtonInstance6.Width = 13.647f;
+                            BuildButtonInstance6.X = 44.38015f;
+                            BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance6.Y = 37.88074f;
                             break;
                         case  Capacity.SevenRight:
                             XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
@@ -282,31 +282,31 @@
                             SevenButtonFrameInstance.Visible = true;
                             SevenButtonFrameInstance.X = 9.088921f;
                             SevenButtonFrameInstance.Y = 116.5294f;
-                            ButtonFrameInstance0.X = 4.293975f;
-                            ButtonFrameInstance0.Y = 37.88f;
-                            ButtonFrameInstance1.X = 13.57813f;
-                            ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance1.Y = 53.87964f;
-                            ButtonFrameInstance2.X = 13.61667f;
-                            ButtonFrameInstance2.Y = 21.90742f;
-                            ButtonFrameInstance3.X = 22.90776f;
-                            ButtonFrameInstance3.Y = 37.90197f;
-                            ButtonFrameInstance4.Visible = true;
-                            ButtonFrameInstance4.X = 32.28125f;
-                            ButtonFrameInstance4.Y = 53.74537f;
-                            ButtonFrameInstance5.Height = 24.47f;
-                            ButtonFrameInstance5.Visible = true;
-                            ButtonFrameInstance5.Width = 13.647f;
-                            ButtonFrameInstance5.X = 32.29986f;
-                            ButtonFrameInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance5.Y = 22.04827f;
-                            ButtonFrameInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance6.Height = 24.47f;
-                            ButtonFrameInstance6.Visible = true;
-                            ButtonFrameInstance6.Width = 13.647f;
-                            ButtonFrameInstance6.X = 41.88341f;
-                            ButtonFrameInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance6.Y = 37.8168f;
+                            BuildButtonInstance0.X = 4.293975f;
+                            BuildButtonInstance0.Y = 37.88f;
+                            BuildButtonInstance1.X = 13.57813f;
+                            BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance1.Y = 53.87964f;
+                            BuildButtonInstance2.X = 13.61667f;
+                            BuildButtonInstance2.Y = 21.90742f;
+                            BuildButtonInstance3.X = 22.90776f;
+                            BuildButtonInstance3.Y = 37.90197f;
+                            BuildButtonInstance4.Visible = true;
+                            BuildButtonInstance4.X = 32.28125f;
+                            BuildButtonInstance4.Y = 53.74537f;
+                            BuildButtonInstance5.Height = 24.47f;
+                            BuildButtonInstance5.Visible = true;
+                            BuildButtonInstance5.Width = 13.647f;
+                            BuildButtonInstance5.X = 32.29986f;
+                            BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance5.Y = 22.04827f;
+                            BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance6.Height = 24.47f;
+                            BuildButtonInstance6.Visible = true;
+                            BuildButtonInstance6.Width = 13.647f;
+                            BuildButtonInstance6.X = 41.88341f;
+                            BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            BuildButtonInstance6.Y = 37.8168f;
                             break;
                     }
                 }
@@ -321,38 +321,38 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
-                bool setButtonFrameInstance0XFirstValue = false;
-                bool setButtonFrameInstance0XSecondValue = false;
-                float ButtonFrameInstance0XFirstValue= 0;
-                float ButtonFrameInstance0XSecondValue= 0;
-                bool setButtonFrameInstance0YFirstValue = false;
-                bool setButtonFrameInstance0YSecondValue = false;
-                float ButtonFrameInstance0YFirstValue= 0;
-                float ButtonFrameInstance0YSecondValue= 0;
-                bool setButtonFrameInstance1XFirstValue = false;
-                bool setButtonFrameInstance1XSecondValue = false;
-                float ButtonFrameInstance1XFirstValue= 0;
-                float ButtonFrameInstance1XSecondValue= 0;
-                bool setButtonFrameInstance1YFirstValue = false;
-                bool setButtonFrameInstance1YSecondValue = false;
-                float ButtonFrameInstance1YFirstValue= 0;
-                float ButtonFrameInstance1YSecondValue= 0;
-                bool setButtonFrameInstance2XFirstValue = false;
-                bool setButtonFrameInstance2XSecondValue = false;
-                float ButtonFrameInstance2XFirstValue= 0;
-                float ButtonFrameInstance2XSecondValue= 0;
-                bool setButtonFrameInstance2YFirstValue = false;
-                bool setButtonFrameInstance2YSecondValue = false;
-                float ButtonFrameInstance2YFirstValue= 0;
-                float ButtonFrameInstance2YSecondValue= 0;
-                bool setButtonFrameInstance3XFirstValue = false;
-                bool setButtonFrameInstance3XSecondValue = false;
-                float ButtonFrameInstance3XFirstValue= 0;
-                float ButtonFrameInstance3XSecondValue= 0;
-                bool setButtonFrameInstance3YFirstValue = false;
-                bool setButtonFrameInstance3YSecondValue = false;
-                float ButtonFrameInstance3YFirstValue= 0;
-                float ButtonFrameInstance3YSecondValue= 0;
+                bool setBuildButtonInstance0XFirstValue = false;
+                bool setBuildButtonInstance0XSecondValue = false;
+                float BuildButtonInstance0XFirstValue= 0;
+                float BuildButtonInstance0XSecondValue= 0;
+                bool setBuildButtonInstance0YFirstValue = false;
+                bool setBuildButtonInstance0YSecondValue = false;
+                float BuildButtonInstance0YFirstValue= 0;
+                float BuildButtonInstance0YSecondValue= 0;
+                bool setBuildButtonInstance1XFirstValue = false;
+                bool setBuildButtonInstance1XSecondValue = false;
+                float BuildButtonInstance1XFirstValue= 0;
+                float BuildButtonInstance1XSecondValue= 0;
+                bool setBuildButtonInstance1YFirstValue = false;
+                bool setBuildButtonInstance1YSecondValue = false;
+                float BuildButtonInstance1YFirstValue= 0;
+                float BuildButtonInstance1YSecondValue= 0;
+                bool setBuildButtonInstance2XFirstValue = false;
+                bool setBuildButtonInstance2XSecondValue = false;
+                float BuildButtonInstance2XFirstValue= 0;
+                float BuildButtonInstance2XSecondValue= 0;
+                bool setBuildButtonInstance2YFirstValue = false;
+                bool setBuildButtonInstance2YSecondValue = false;
+                float BuildButtonInstance2YFirstValue= 0;
+                float BuildButtonInstance2YSecondValue= 0;
+                bool setBuildButtonInstance3XFirstValue = false;
+                bool setBuildButtonInstance3XSecondValue = false;
+                float BuildButtonInstance3XFirstValue= 0;
+                float BuildButtonInstance3XSecondValue= 0;
+                bool setBuildButtonInstance3YFirstValue = false;
+                bool setBuildButtonInstance3YSecondValue = false;
+                float BuildButtonInstance3YFirstValue= 0;
+                float BuildButtonInstance3YSecondValue= 0;
                 bool setFourButtonFrameInstanceHeightFirstValue = false;
                 bool setFourButtonFrameInstanceHeightSecondValue = false;
                 float FourButtonFrameInstanceHeightFirstValue= 0;
@@ -404,89 +404,89 @@
                 switch(firstState)
                 {
                     case  VariableState.Default:
-                        setButtonFrameInstance0XFirstValue = true;
-                        ButtonFrameInstance0XFirstValue = 43.29829f;
+                        setBuildButtonInstance0XFirstValue = true;
+                        BuildButtonInstance0XFirstValue = 43.29829f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance0.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance0.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance0YFirstValue = true;
-                        ButtonFrameInstance0YFirstValue = 67.83752f;
+                        setBuildButtonInstance0YFirstValue = true;
+                        BuildButtonInstance0YFirstValue = 67.83752f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance0.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance0.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance1XFirstValue = true;
-                        ButtonFrameInstance1XFirstValue = 33.23347f;
+                        setBuildButtonInstance1XFirstValue = true;
+                        BuildButtonInstance1XFirstValue = 33.23347f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance1YFirstValue = true;
-                        ButtonFrameInstance1YFirstValue = 51.25159f;
+                        setBuildButtonInstance1YFirstValue = true;
+                        BuildButtonInstance1YFirstValue = 51.25159f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance1.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance1.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance2XFirstValue = true;
-                        ButtonFrameInstance2XFirstValue = 51.49597f;
+                        setBuildButtonInstance2XFirstValue = true;
+                        BuildButtonInstance2XFirstValue = 51.49597f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance2.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance2.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance2YFirstValue = true;
-                        ButtonFrameInstance2YFirstValue = 51.31417f;
+                        setBuildButtonInstance2YFirstValue = true;
+                        BuildButtonInstance2YFirstValue = 51.31417f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance2.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance2.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance3XFirstValue = true;
-                        ButtonFrameInstance3XFirstValue = 42.26307f;
+                        setBuildButtonInstance3XFirstValue = true;
+                        BuildButtonInstance3XFirstValue = 42.26307f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance3.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance3.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance3YFirstValue = true;
-                        ButtonFrameInstance3YFirstValue = 34.15827f;
+                        setBuildButtonInstance3YFirstValue = true;
+                        BuildButtonInstance3YFirstValue = 34.15827f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance3.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.ButtonFrameInstance4.Visible = false;
+                            this.BuildButtonInstance3.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance4.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance4.Visible = false;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance4.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance4.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance5.Visible = false;
+                            this.BuildButtonInstance4.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance5.Visible = false;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance6.Visible = false;
+                            this.BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance6.Visible = false;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance6.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.BuildButtonInstance6.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setFourButtonFrameInstanceHeightFirstValue = true;
                         FourButtonFrameInstanceHeightFirstValue = 53.646f;
@@ -581,89 +581,89 @@
                 switch(secondState)
                 {
                     case  VariableState.Default:
-                        setButtonFrameInstance0XSecondValue = true;
-                        ButtonFrameInstance0XSecondValue = 43.29829f;
+                        setBuildButtonInstance0XSecondValue = true;
+                        BuildButtonInstance0XSecondValue = 43.29829f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance0.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance0.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance0YSecondValue = true;
-                        ButtonFrameInstance0YSecondValue = 67.83752f;
+                        setBuildButtonInstance0YSecondValue = true;
+                        BuildButtonInstance0YSecondValue = 67.83752f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance0.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance0.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance1XSecondValue = true;
-                        ButtonFrameInstance1XSecondValue = 33.23347f;
+                        setBuildButtonInstance1XSecondValue = true;
+                        BuildButtonInstance1XSecondValue = 33.23347f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance1YSecondValue = true;
-                        ButtonFrameInstance1YSecondValue = 51.25159f;
+                        setBuildButtonInstance1YSecondValue = true;
+                        BuildButtonInstance1YSecondValue = 51.25159f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance1.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance1.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance2XSecondValue = true;
-                        ButtonFrameInstance2XSecondValue = 51.49597f;
+                        setBuildButtonInstance2XSecondValue = true;
+                        BuildButtonInstance2XSecondValue = 51.49597f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance2.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance2.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance2YSecondValue = true;
-                        ButtonFrameInstance2YSecondValue = 51.31417f;
+                        setBuildButtonInstance2YSecondValue = true;
+                        BuildButtonInstance2YSecondValue = 51.31417f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance2.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance2.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance3XSecondValue = true;
-                        ButtonFrameInstance3XSecondValue = 42.26307f;
+                        setBuildButtonInstance3XSecondValue = true;
+                        BuildButtonInstance3XSecondValue = 42.26307f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance3.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance3.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance3YSecondValue = true;
-                        ButtonFrameInstance3YSecondValue = 34.15827f;
+                        setBuildButtonInstance3YSecondValue = true;
+                        BuildButtonInstance3YSecondValue = 34.15827f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance3.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.ButtonFrameInstance4.Visible = false;
+                            this.BuildButtonInstance3.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance4.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance4.Visible = false;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance4.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance4.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance5.Visible = false;
+                            this.BuildButtonInstance4.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance5.Visible = false;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance6.Visible = false;
+                            this.BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance6.Visible = false;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance6.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.BuildButtonInstance6.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setFourButtonFrameInstanceHeightSecondValue = true;
                         FourButtonFrameInstanceHeightSecondValue = 53.646f;
@@ -755,37 +755,37 @@
                         }
                         break;
                 }
-                if (setButtonFrameInstance0XFirstValue && setButtonFrameInstance0XSecondValue)
+                if (setBuildButtonInstance0XFirstValue && setBuildButtonInstance0XSecondValue)
                 {
-                    ButtonFrameInstance0.X = ButtonFrameInstance0XFirstValue * (1 - interpolationValue) + ButtonFrameInstance0XSecondValue * interpolationValue;
+                    BuildButtonInstance0.X = BuildButtonInstance0XFirstValue * (1 - interpolationValue) + BuildButtonInstance0XSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance0YFirstValue && setButtonFrameInstance0YSecondValue)
+                if (setBuildButtonInstance0YFirstValue && setBuildButtonInstance0YSecondValue)
                 {
-                    ButtonFrameInstance0.Y = ButtonFrameInstance0YFirstValue * (1 - interpolationValue) + ButtonFrameInstance0YSecondValue * interpolationValue;
+                    BuildButtonInstance0.Y = BuildButtonInstance0YFirstValue * (1 - interpolationValue) + BuildButtonInstance0YSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance1XFirstValue && setButtonFrameInstance1XSecondValue)
+                if (setBuildButtonInstance1XFirstValue && setBuildButtonInstance1XSecondValue)
                 {
-                    ButtonFrameInstance1.X = ButtonFrameInstance1XFirstValue * (1 - interpolationValue) + ButtonFrameInstance1XSecondValue * interpolationValue;
+                    BuildButtonInstance1.X = BuildButtonInstance1XFirstValue * (1 - interpolationValue) + BuildButtonInstance1XSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance1YFirstValue && setButtonFrameInstance1YSecondValue)
+                if (setBuildButtonInstance1YFirstValue && setBuildButtonInstance1YSecondValue)
                 {
-                    ButtonFrameInstance1.Y = ButtonFrameInstance1YFirstValue * (1 - interpolationValue) + ButtonFrameInstance1YSecondValue * interpolationValue;
+                    BuildButtonInstance1.Y = BuildButtonInstance1YFirstValue * (1 - interpolationValue) + BuildButtonInstance1YSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance2XFirstValue && setButtonFrameInstance2XSecondValue)
+                if (setBuildButtonInstance2XFirstValue && setBuildButtonInstance2XSecondValue)
                 {
-                    ButtonFrameInstance2.X = ButtonFrameInstance2XFirstValue * (1 - interpolationValue) + ButtonFrameInstance2XSecondValue * interpolationValue;
+                    BuildButtonInstance2.X = BuildButtonInstance2XFirstValue * (1 - interpolationValue) + BuildButtonInstance2XSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance2YFirstValue && setButtonFrameInstance2YSecondValue)
+                if (setBuildButtonInstance2YFirstValue && setBuildButtonInstance2YSecondValue)
                 {
-                    ButtonFrameInstance2.Y = ButtonFrameInstance2YFirstValue * (1 - interpolationValue) + ButtonFrameInstance2YSecondValue * interpolationValue;
+                    BuildButtonInstance2.Y = BuildButtonInstance2YFirstValue * (1 - interpolationValue) + BuildButtonInstance2YSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance3XFirstValue && setButtonFrameInstance3XSecondValue)
+                if (setBuildButtonInstance3XFirstValue && setBuildButtonInstance3XSecondValue)
                 {
-                    ButtonFrameInstance3.X = ButtonFrameInstance3XFirstValue * (1 - interpolationValue) + ButtonFrameInstance3XSecondValue * interpolationValue;
+                    BuildButtonInstance3.X = BuildButtonInstance3XFirstValue * (1 - interpolationValue) + BuildButtonInstance3XSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance3YFirstValue && setButtonFrameInstance3YSecondValue)
+                if (setBuildButtonInstance3YFirstValue && setBuildButtonInstance3YSecondValue)
                 {
-                    ButtonFrameInstance3.Y = ButtonFrameInstance3YFirstValue * (1 - interpolationValue) + ButtonFrameInstance3YSecondValue * interpolationValue;
+                    BuildButtonInstance3.Y = BuildButtonInstance3YFirstValue * (1 - interpolationValue) + BuildButtonInstance3YSecondValue * interpolationValue;
                 }
                 if (setFourButtonFrameInstanceHeightFirstValue && setFourButtonFrameInstanceHeightSecondValue)
                 {
@@ -852,78 +852,78 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
-                bool setButtonFrameInstance0XFirstValue = false;
-                bool setButtonFrameInstance0XSecondValue = false;
-                float ButtonFrameInstance0XFirstValue= 0;
-                float ButtonFrameInstance0XSecondValue= 0;
-                bool setButtonFrameInstance0YFirstValue = false;
-                bool setButtonFrameInstance0YSecondValue = false;
-                float ButtonFrameInstance0YFirstValue= 0;
-                float ButtonFrameInstance0YSecondValue= 0;
-                bool setButtonFrameInstance1XFirstValue = false;
-                bool setButtonFrameInstance1XSecondValue = false;
-                float ButtonFrameInstance1XFirstValue= 0;
-                float ButtonFrameInstance1XSecondValue= 0;
-                bool setButtonFrameInstance1YFirstValue = false;
-                bool setButtonFrameInstance1YSecondValue = false;
-                float ButtonFrameInstance1YFirstValue= 0;
-                float ButtonFrameInstance1YSecondValue= 0;
-                bool setButtonFrameInstance2XFirstValue = false;
-                bool setButtonFrameInstance2XSecondValue = false;
-                float ButtonFrameInstance2XFirstValue= 0;
-                float ButtonFrameInstance2XSecondValue= 0;
-                bool setButtonFrameInstance2YFirstValue = false;
-                bool setButtonFrameInstance2YSecondValue = false;
-                float ButtonFrameInstance2YFirstValue= 0;
-                float ButtonFrameInstance2YSecondValue= 0;
-                bool setButtonFrameInstance3XFirstValue = false;
-                bool setButtonFrameInstance3XSecondValue = false;
-                float ButtonFrameInstance3XFirstValue= 0;
-                float ButtonFrameInstance3XSecondValue= 0;
-                bool setButtonFrameInstance3YFirstValue = false;
-                bool setButtonFrameInstance3YSecondValue = false;
-                float ButtonFrameInstance3YFirstValue= 0;
-                float ButtonFrameInstance3YSecondValue= 0;
-                bool setButtonFrameInstance4XFirstValue = false;
-                bool setButtonFrameInstance4XSecondValue = false;
-                float ButtonFrameInstance4XFirstValue= 0;
-                float ButtonFrameInstance4XSecondValue= 0;
-                bool setButtonFrameInstance4YFirstValue = false;
-                bool setButtonFrameInstance4YSecondValue = false;
-                float ButtonFrameInstance4YFirstValue= 0;
-                float ButtonFrameInstance4YSecondValue= 0;
-                bool setButtonFrameInstance5HeightFirstValue = false;
-                bool setButtonFrameInstance5HeightSecondValue = false;
-                float ButtonFrameInstance5HeightFirstValue= 0;
-                float ButtonFrameInstance5HeightSecondValue= 0;
-                bool setButtonFrameInstance5WidthFirstValue = false;
-                bool setButtonFrameInstance5WidthSecondValue = false;
-                float ButtonFrameInstance5WidthFirstValue= 0;
-                float ButtonFrameInstance5WidthSecondValue= 0;
-                bool setButtonFrameInstance5XFirstValue = false;
-                bool setButtonFrameInstance5XSecondValue = false;
-                float ButtonFrameInstance5XFirstValue= 0;
-                float ButtonFrameInstance5XSecondValue= 0;
-                bool setButtonFrameInstance5YFirstValue = false;
-                bool setButtonFrameInstance5YSecondValue = false;
-                float ButtonFrameInstance5YFirstValue= 0;
-                float ButtonFrameInstance5YSecondValue= 0;
-                bool setButtonFrameInstance6HeightFirstValue = false;
-                bool setButtonFrameInstance6HeightSecondValue = false;
-                float ButtonFrameInstance6HeightFirstValue= 0;
-                float ButtonFrameInstance6HeightSecondValue= 0;
-                bool setButtonFrameInstance6WidthFirstValue = false;
-                bool setButtonFrameInstance6WidthSecondValue = false;
-                float ButtonFrameInstance6WidthFirstValue= 0;
-                float ButtonFrameInstance6WidthSecondValue= 0;
-                bool setButtonFrameInstance6XFirstValue = false;
-                bool setButtonFrameInstance6XSecondValue = false;
-                float ButtonFrameInstance6XFirstValue= 0;
-                float ButtonFrameInstance6XSecondValue= 0;
-                bool setButtonFrameInstance6YFirstValue = false;
-                bool setButtonFrameInstance6YSecondValue = false;
-                float ButtonFrameInstance6YFirstValue= 0;
-                float ButtonFrameInstance6YSecondValue= 0;
+                bool setBuildButtonInstance0XFirstValue = false;
+                bool setBuildButtonInstance0XSecondValue = false;
+                float BuildButtonInstance0XFirstValue= 0;
+                float BuildButtonInstance0XSecondValue= 0;
+                bool setBuildButtonInstance0YFirstValue = false;
+                bool setBuildButtonInstance0YSecondValue = false;
+                float BuildButtonInstance0YFirstValue= 0;
+                float BuildButtonInstance0YSecondValue= 0;
+                bool setBuildButtonInstance1XFirstValue = false;
+                bool setBuildButtonInstance1XSecondValue = false;
+                float BuildButtonInstance1XFirstValue= 0;
+                float BuildButtonInstance1XSecondValue= 0;
+                bool setBuildButtonInstance1YFirstValue = false;
+                bool setBuildButtonInstance1YSecondValue = false;
+                float BuildButtonInstance1YFirstValue= 0;
+                float BuildButtonInstance1YSecondValue= 0;
+                bool setBuildButtonInstance2XFirstValue = false;
+                bool setBuildButtonInstance2XSecondValue = false;
+                float BuildButtonInstance2XFirstValue= 0;
+                float BuildButtonInstance2XSecondValue= 0;
+                bool setBuildButtonInstance2YFirstValue = false;
+                bool setBuildButtonInstance2YSecondValue = false;
+                float BuildButtonInstance2YFirstValue= 0;
+                float BuildButtonInstance2YSecondValue= 0;
+                bool setBuildButtonInstance3XFirstValue = false;
+                bool setBuildButtonInstance3XSecondValue = false;
+                float BuildButtonInstance3XFirstValue= 0;
+                float BuildButtonInstance3XSecondValue= 0;
+                bool setBuildButtonInstance3YFirstValue = false;
+                bool setBuildButtonInstance3YSecondValue = false;
+                float BuildButtonInstance3YFirstValue= 0;
+                float BuildButtonInstance3YSecondValue= 0;
+                bool setBuildButtonInstance4XFirstValue = false;
+                bool setBuildButtonInstance4XSecondValue = false;
+                float BuildButtonInstance4XFirstValue= 0;
+                float BuildButtonInstance4XSecondValue= 0;
+                bool setBuildButtonInstance4YFirstValue = false;
+                bool setBuildButtonInstance4YSecondValue = false;
+                float BuildButtonInstance4YFirstValue= 0;
+                float BuildButtonInstance4YSecondValue= 0;
+                bool setBuildButtonInstance5HeightFirstValue = false;
+                bool setBuildButtonInstance5HeightSecondValue = false;
+                float BuildButtonInstance5HeightFirstValue= 0;
+                float BuildButtonInstance5HeightSecondValue= 0;
+                bool setBuildButtonInstance5WidthFirstValue = false;
+                bool setBuildButtonInstance5WidthSecondValue = false;
+                float BuildButtonInstance5WidthFirstValue= 0;
+                float BuildButtonInstance5WidthSecondValue= 0;
+                bool setBuildButtonInstance5XFirstValue = false;
+                bool setBuildButtonInstance5XSecondValue = false;
+                float BuildButtonInstance5XFirstValue= 0;
+                float BuildButtonInstance5XSecondValue= 0;
+                bool setBuildButtonInstance5YFirstValue = false;
+                bool setBuildButtonInstance5YSecondValue = false;
+                float BuildButtonInstance5YFirstValue= 0;
+                float BuildButtonInstance5YSecondValue= 0;
+                bool setBuildButtonInstance6HeightFirstValue = false;
+                bool setBuildButtonInstance6HeightSecondValue = false;
+                float BuildButtonInstance6HeightFirstValue= 0;
+                float BuildButtonInstance6HeightSecondValue= 0;
+                bool setBuildButtonInstance6WidthFirstValue = false;
+                bool setBuildButtonInstance6WidthSecondValue = false;
+                float BuildButtonInstance6WidthFirstValue= 0;
+                float BuildButtonInstance6WidthSecondValue= 0;
+                bool setBuildButtonInstance6XFirstValue = false;
+                bool setBuildButtonInstance6XSecondValue = false;
+                float BuildButtonInstance6XFirstValue= 0;
+                float BuildButtonInstance6XSecondValue= 0;
+                bool setBuildButtonInstance6YFirstValue = false;
+                bool setBuildButtonInstance6YSecondValue = false;
+                float BuildButtonInstance6YFirstValue= 0;
+                float BuildButtonInstance6YSecondValue= 0;
                 bool setFourButtonFrameInstanceXFirstValue = false;
                 bool setFourButtonFrameInstanceXSecondValue = false;
                 float FourButtonFrameInstanceXFirstValue= 0;
@@ -951,58 +951,58 @@
                 switch(firstState)
                 {
                     case  Capacity.Four:
-                        setButtonFrameInstance0XFirstValue = true;
-                        ButtonFrameInstance0XFirstValue = 43.19118f;
-                        setButtonFrameInstance0YFirstValue = true;
-                        ButtonFrameInstance0YFirstValue = 67.92753f;
-                        setButtonFrameInstance1XFirstValue = true;
-                        ButtonFrameInstance1XFirstValue = 34.37128f;
+                        setBuildButtonInstance0XFirstValue = true;
+                        BuildButtonInstance0XFirstValue = 43.19118f;
+                        setBuildButtonInstance0YFirstValue = true;
+                        BuildButtonInstance0YFirstValue = 67.92753f;
+                        setBuildButtonInstance1XFirstValue = true;
+                        BuildButtonInstance1XFirstValue = 34.37128f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance1YFirstValue = true;
-                        ButtonFrameInstance1YFirstValue = 51.32274f;
-                        setButtonFrameInstance2XFirstValue = true;
-                        ButtonFrameInstance2XFirstValue = 52.03481f;
-                        setButtonFrameInstance2YFirstValue = true;
-                        ButtonFrameInstance2YFirstValue = 51.35582f;
-                        setButtonFrameInstance3XFirstValue = true;
-                        ButtonFrameInstance3XFirstValue = 43.17259f;
-                        setButtonFrameInstance3YFirstValue = true;
-                        ButtonFrameInstance3YFirstValue = 34.02776f;
+                        setBuildButtonInstance1YFirstValue = true;
+                        BuildButtonInstance1YFirstValue = 51.32274f;
+                        setBuildButtonInstance2XFirstValue = true;
+                        BuildButtonInstance2XFirstValue = 52.03481f;
+                        setBuildButtonInstance2YFirstValue = true;
+                        BuildButtonInstance2YFirstValue = 51.35582f;
+                        setBuildButtonInstance3XFirstValue = true;
+                        BuildButtonInstance3XFirstValue = 43.17259f;
+                        setBuildButtonInstance3YFirstValue = true;
+                        BuildButtonInstance3YFirstValue = 34.02776f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance4.Visible = false;
+                            this.BuildButtonInstance4.Visible = false;
                         }
-                        setButtonFrameInstance4XFirstValue = true;
-                        ButtonFrameInstance4XFirstValue = 0f;
-                        setButtonFrameInstance4YFirstValue = true;
-                        ButtonFrameInstance4YFirstValue = 0f;
-                        setButtonFrameInstance5HeightFirstValue = true;
-                        ButtonFrameInstance5HeightFirstValue = 24.47f;
+                        setBuildButtonInstance4XFirstValue = true;
+                        BuildButtonInstance4XFirstValue = 0f;
+                        setBuildButtonInstance4YFirstValue = true;
+                        BuildButtonInstance4YFirstValue = 0f;
+                        setBuildButtonInstance5HeightFirstValue = true;
+                        BuildButtonInstance5HeightFirstValue = 24.47f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance5.Visible = false;
+                            this.BuildButtonInstance5.Visible = false;
                         }
-                        setButtonFrameInstance5WidthFirstValue = true;
-                        ButtonFrameInstance5WidthFirstValue = 13.647f;
-                        setButtonFrameInstance5XFirstValue = true;
-                        ButtonFrameInstance5XFirstValue = 0f;
-                        setButtonFrameInstance5YFirstValue = true;
-                        ButtonFrameInstance5YFirstValue = 0f;
-                        setButtonFrameInstance6HeightFirstValue = true;
-                        ButtonFrameInstance6HeightFirstValue = 24.47f;
+                        setBuildButtonInstance5WidthFirstValue = true;
+                        BuildButtonInstance5WidthFirstValue = 13.647f;
+                        setBuildButtonInstance5XFirstValue = true;
+                        BuildButtonInstance5XFirstValue = 0f;
+                        setBuildButtonInstance5YFirstValue = true;
+                        BuildButtonInstance5YFirstValue = 0f;
+                        setBuildButtonInstance6HeightFirstValue = true;
+                        BuildButtonInstance6HeightFirstValue = 24.47f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance6.Visible = false;
+                            this.BuildButtonInstance6.Visible = false;
                         }
-                        setButtonFrameInstance6WidthFirstValue = true;
-                        ButtonFrameInstance6WidthFirstValue = 13.647f;
-                        setButtonFrameInstance6XFirstValue = true;
-                        ButtonFrameInstance6XFirstValue = 0f;
-                        setButtonFrameInstance6YFirstValue = true;
-                        ButtonFrameInstance6YFirstValue = 0f;
+                        setBuildButtonInstance6WidthFirstValue = true;
+                        BuildButtonInstance6WidthFirstValue = 13.647f;
+                        setBuildButtonInstance6XFirstValue = true;
+                        BuildButtonInstance6XFirstValue = 0f;
+                        setBuildButtonInstance6YFirstValue = true;
+                        BuildButtonInstance6YFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
                             this.FourButtonFrameInstance.Visible = true;
@@ -1029,58 +1029,58 @@
                         }
                         break;
                     case  Capacity.FourLeft:
-                        setButtonFrameInstance0XFirstValue = true;
-                        ButtonFrameInstance0XFirstValue = 82.09743f;
-                        setButtonFrameInstance0YFirstValue = true;
-                        ButtonFrameInstance0YFirstValue = 37.92752f;
-                        setButtonFrameInstance1XFirstValue = true;
-                        ButtonFrameInstance1XFirstValue = 72.73f;
+                        setBuildButtonInstance0XFirstValue = true;
+                        BuildButtonInstance0XFirstValue = 82.09743f;
+                        setBuildButtonInstance0YFirstValue = true;
+                        BuildButtonInstance0YFirstValue = 37.92752f;
+                        setBuildButtonInstance1XFirstValue = true;
+                        BuildButtonInstance1XFirstValue = 72.73f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance1YFirstValue = true;
-                        ButtonFrameInstance1YFirstValue = 53.82274f;
-                        setButtonFrameInstance2XFirstValue = true;
-                        ButtonFrameInstance2XFirstValue = 72.73793f;
-                        setButtonFrameInstance2YFirstValue = true;
-                        ButtonFrameInstance2YFirstValue = 21.95767f;
-                        setButtonFrameInstance3XFirstValue = true;
-                        ButtonFrameInstance3XFirstValue = 63.01634f;
-                        setButtonFrameInstance3YFirstValue = true;
-                        ButtonFrameInstance3YFirstValue = 37.91665f;
+                        setBuildButtonInstance1YFirstValue = true;
+                        BuildButtonInstance1YFirstValue = 53.82274f;
+                        setBuildButtonInstance2XFirstValue = true;
+                        BuildButtonInstance2XFirstValue = 72.73793f;
+                        setBuildButtonInstance2YFirstValue = true;
+                        BuildButtonInstance2YFirstValue = 21.95767f;
+                        setBuildButtonInstance3XFirstValue = true;
+                        BuildButtonInstance3XFirstValue = 63.01634f;
+                        setBuildButtonInstance3YFirstValue = true;
+                        BuildButtonInstance3YFirstValue = 37.91665f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance4.Visible = false;
+                            this.BuildButtonInstance4.Visible = false;
                         }
-                        setButtonFrameInstance4XFirstValue = true;
-                        ButtonFrameInstance4XFirstValue = 0f;
-                        setButtonFrameInstance4YFirstValue = true;
-                        ButtonFrameInstance4YFirstValue = 0f;
-                        setButtonFrameInstance5HeightFirstValue = true;
-                        ButtonFrameInstance5HeightFirstValue = 24.47f;
+                        setBuildButtonInstance4XFirstValue = true;
+                        BuildButtonInstance4XFirstValue = 0f;
+                        setBuildButtonInstance4YFirstValue = true;
+                        BuildButtonInstance4YFirstValue = 0f;
+                        setBuildButtonInstance5HeightFirstValue = true;
+                        BuildButtonInstance5HeightFirstValue = 24.47f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance5.Visible = false;
+                            this.BuildButtonInstance5.Visible = false;
                         }
-                        setButtonFrameInstance5WidthFirstValue = true;
-                        ButtonFrameInstance5WidthFirstValue = 13.647f;
-                        setButtonFrameInstance5XFirstValue = true;
-                        ButtonFrameInstance5XFirstValue = 0f;
-                        setButtonFrameInstance5YFirstValue = true;
-                        ButtonFrameInstance5YFirstValue = 0f;
-                        setButtonFrameInstance6HeightFirstValue = true;
-                        ButtonFrameInstance6HeightFirstValue = 24.47f;
+                        setBuildButtonInstance5WidthFirstValue = true;
+                        BuildButtonInstance5WidthFirstValue = 13.647f;
+                        setBuildButtonInstance5XFirstValue = true;
+                        BuildButtonInstance5XFirstValue = 0f;
+                        setBuildButtonInstance5YFirstValue = true;
+                        BuildButtonInstance5YFirstValue = 0f;
+                        setBuildButtonInstance6HeightFirstValue = true;
+                        BuildButtonInstance6HeightFirstValue = 24.47f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance6.Visible = false;
+                            this.BuildButtonInstance6.Visible = false;
                         }
-                        setButtonFrameInstance6WidthFirstValue = true;
-                        ButtonFrameInstance6WidthFirstValue = 13.647f;
-                        setButtonFrameInstance6XFirstValue = true;
-                        ButtonFrameInstance6XFirstValue = 0f;
-                        setButtonFrameInstance6YFirstValue = true;
-                        ButtonFrameInstance6YFirstValue = 0f;
+                        setBuildButtonInstance6WidthFirstValue = true;
+                        BuildButtonInstance6WidthFirstValue = 13.647f;
+                        setBuildButtonInstance6XFirstValue = true;
+                        BuildButtonInstance6XFirstValue = 0f;
+                        setBuildButtonInstance6YFirstValue = true;
+                        BuildButtonInstance6YFirstValue = 0f;
                         setFourButtonFrameInstanceCurrentRotatedStateFirstValue = true;
                         FourButtonFrameInstanceCurrentRotatedStateFirstValue = AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated.Left;
                         if (interpolationValue < 1)
@@ -1109,58 +1109,58 @@
                         }
                         break;
                     case  Capacity.FourRight:
-                        setButtonFrameInstance0XFirstValue = true;
-                        ButtonFrameInstance0XFirstValue = 4.363056f;
-                        setButtonFrameInstance0YFirstValue = true;
-                        ButtonFrameInstance0YFirstValue = 37.92752f;
-                        setButtonFrameInstance1XFirstValue = true;
-                        ButtonFrameInstance1XFirstValue = 13.73f;
+                        setBuildButtonInstance0XFirstValue = true;
+                        BuildButtonInstance0XFirstValue = 4.363056f;
+                        setBuildButtonInstance0YFirstValue = true;
+                        BuildButtonInstance0YFirstValue = 37.92752f;
+                        setBuildButtonInstance1XFirstValue = true;
+                        BuildButtonInstance1XFirstValue = 13.73f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance1YFirstValue = true;
-                        ButtonFrameInstance1YFirstValue = 53.56481f;
-                        setButtonFrameInstance2XFirstValue = true;
-                        ButtonFrameInstance2XFirstValue = 13.73f;
-                        setButtonFrameInstance2YFirstValue = true;
-                        ButtonFrameInstance2YFirstValue = 22.05026f;
-                        setButtonFrameInstance3XFirstValue = true;
-                        ButtonFrameInstance3XFirstValue = 23.38464f;
-                        setButtonFrameInstance3YFirstValue = true;
-                        ButtonFrameInstance3YFirstValue = 37.7976f;
+                        setBuildButtonInstance1YFirstValue = true;
+                        BuildButtonInstance1YFirstValue = 53.56481f;
+                        setBuildButtonInstance2XFirstValue = true;
+                        BuildButtonInstance2XFirstValue = 13.73f;
+                        setBuildButtonInstance2YFirstValue = true;
+                        BuildButtonInstance2YFirstValue = 22.05026f;
+                        setBuildButtonInstance3XFirstValue = true;
+                        BuildButtonInstance3XFirstValue = 23.38464f;
+                        setBuildButtonInstance3YFirstValue = true;
+                        BuildButtonInstance3YFirstValue = 37.7976f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance4.Visible = false;
+                            this.BuildButtonInstance4.Visible = false;
                         }
-                        setButtonFrameInstance4XFirstValue = true;
-                        ButtonFrameInstance4XFirstValue = 0f;
-                        setButtonFrameInstance4YFirstValue = true;
-                        ButtonFrameInstance4YFirstValue = 0f;
-                        setButtonFrameInstance5HeightFirstValue = true;
-                        ButtonFrameInstance5HeightFirstValue = 24.47f;
+                        setBuildButtonInstance4XFirstValue = true;
+                        BuildButtonInstance4XFirstValue = 0f;
+                        setBuildButtonInstance4YFirstValue = true;
+                        BuildButtonInstance4YFirstValue = 0f;
+                        setBuildButtonInstance5HeightFirstValue = true;
+                        BuildButtonInstance5HeightFirstValue = 24.47f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance5.Visible = false;
+                            this.BuildButtonInstance5.Visible = false;
                         }
-                        setButtonFrameInstance5WidthFirstValue = true;
-                        ButtonFrameInstance5WidthFirstValue = 13.647f;
-                        setButtonFrameInstance5XFirstValue = true;
-                        ButtonFrameInstance5XFirstValue = 0f;
-                        setButtonFrameInstance5YFirstValue = true;
-                        ButtonFrameInstance5YFirstValue = 0f;
-                        setButtonFrameInstance6HeightFirstValue = true;
-                        ButtonFrameInstance6HeightFirstValue = 24.47f;
+                        setBuildButtonInstance5WidthFirstValue = true;
+                        BuildButtonInstance5WidthFirstValue = 13.647f;
+                        setBuildButtonInstance5XFirstValue = true;
+                        BuildButtonInstance5XFirstValue = 0f;
+                        setBuildButtonInstance5YFirstValue = true;
+                        BuildButtonInstance5YFirstValue = 0f;
+                        setBuildButtonInstance6HeightFirstValue = true;
+                        BuildButtonInstance6HeightFirstValue = 24.47f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance6.Visible = false;
+                            this.BuildButtonInstance6.Visible = false;
                         }
-                        setButtonFrameInstance6WidthFirstValue = true;
-                        ButtonFrameInstance6WidthFirstValue = 13.647f;
-                        setButtonFrameInstance6XFirstValue = true;
-                        ButtonFrameInstance6XFirstValue = 0f;
-                        setButtonFrameInstance6YFirstValue = true;
-                        ButtonFrameInstance6YFirstValue = 0f;
+                        setBuildButtonInstance6WidthFirstValue = true;
+                        BuildButtonInstance6WidthFirstValue = 13.647f;
+                        setBuildButtonInstance6XFirstValue = true;
+                        BuildButtonInstance6XFirstValue = 0f;
+                        setBuildButtonInstance6YFirstValue = true;
+                        BuildButtonInstance6YFirstValue = 0f;
                         setFourButtonFrameInstanceCurrentRotatedStateFirstValue = true;
                         FourButtonFrameInstanceCurrentRotatedStateFirstValue = AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated.Right;
                         if (interpolationValue < 1)
@@ -1189,70 +1189,70 @@
                         }
                         break;
                     case  Capacity.Seven:
-                        setButtonFrameInstance0XFirstValue = true;
-                        ButtonFrameInstance0XFirstValue = 43.14814f;
-                        setButtonFrameInstance0YFirstValue = true;
-                        ButtonFrameInstance0YFirstValue = 68.01085f;
-                        setButtonFrameInstance1XFirstValue = true;
-                        ButtonFrameInstance1XFirstValue = 34.26563f;
+                        setBuildButtonInstance0XFirstValue = true;
+                        BuildButtonInstance0XFirstValue = 43.14814f;
+                        setBuildButtonInstance0YFirstValue = true;
+                        BuildButtonInstance0YFirstValue = 68.01085f;
+                        setBuildButtonInstance1XFirstValue = true;
+                        BuildButtonInstance1XFirstValue = 34.26563f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance1YFirstValue = true;
-                        ButtonFrameInstance1YFirstValue = 51.43519f;
-                        setButtonFrameInstance2XFirstValue = true;
-                        ButtonFrameInstance2XFirstValue = 52.06459f;
-                        setButtonFrameInstance2YFirstValue = true;
-                        ButtonFrameInstance2YFirstValue = 51.57408f;
-                        setButtonFrameInstance3XFirstValue = true;
-                        ButtonFrameInstance3XFirstValue = 43.15125f;
-                        setButtonFrameInstance3YFirstValue = true;
-                        ButtonFrameInstance3YFirstValue = 35.08086f;
+                        setBuildButtonInstance1YFirstValue = true;
+                        BuildButtonInstance1YFirstValue = 51.43519f;
+                        setBuildButtonInstance2XFirstValue = true;
+                        BuildButtonInstance2XFirstValue = 52.06459f;
+                        setBuildButtonInstance2YFirstValue = true;
+                        BuildButtonInstance2YFirstValue = 51.57408f;
+                        setBuildButtonInstance3XFirstValue = true;
+                        BuildButtonInstance3XFirstValue = 43.15125f;
+                        setBuildButtonInstance3YFirstValue = true;
+                        BuildButtonInstance3YFirstValue = 35.08086f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance4.Visible = true;
+                            this.BuildButtonInstance4.Visible = true;
                         }
-                        setButtonFrameInstance4XFirstValue = true;
-                        ButtonFrameInstance4XFirstValue = 34.29688f;
-                        setButtonFrameInstance4YFirstValue = true;
-                        ButtonFrameInstance4YFirstValue = 18.35648f;
-                        setButtonFrameInstance5HeightFirstValue = true;
-                        ButtonFrameInstance5HeightFirstValue = 24.47f;
+                        setBuildButtonInstance4XFirstValue = true;
+                        BuildButtonInstance4XFirstValue = 34.29688f;
+                        setBuildButtonInstance4YFirstValue = true;
+                        BuildButtonInstance4YFirstValue = 18.35648f;
+                        setBuildButtonInstance5HeightFirstValue = true;
+                        BuildButtonInstance5HeightFirstValue = 24.47f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance5.Visible = true;
+                            this.BuildButtonInstance5.Visible = true;
                         }
-                        setButtonFrameInstance5WidthFirstValue = true;
-                        ButtonFrameInstance5WidthFirstValue = 13.647f;
-                        setButtonFrameInstance5XFirstValue = true;
-                        ButtonFrameInstance5XFirstValue = 52.00523f;
+                        setBuildButtonInstance5WidthFirstValue = true;
+                        BuildButtonInstance5WidthFirstValue = 13.647f;
+                        setBuildButtonInstance5XFirstValue = true;
+                        BuildButtonInstance5XFirstValue = 52.00523f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance5YFirstValue = true;
-                        ButtonFrameInstance5YFirstValue = 18.31018f;
+                        setBuildButtonInstance5YFirstValue = true;
+                        BuildButtonInstance5YFirstValue = 18.31018f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance6HeightFirstValue = true;
-                        ButtonFrameInstance6HeightFirstValue = 24.47f;
+                        setBuildButtonInstance6HeightFirstValue = true;
+                        BuildButtonInstance6HeightFirstValue = 24.47f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance6.Visible = true;
+                            this.BuildButtonInstance6.Visible = true;
                         }
-                        setButtonFrameInstance6WidthFirstValue = true;
-                        ButtonFrameInstance6WidthFirstValue = 13.647f;
-                        setButtonFrameInstance6XFirstValue = true;
-                        ButtonFrameInstance6XFirstValue = 43.15125f;
+                        setBuildButtonInstance6WidthFirstValue = true;
+                        BuildButtonInstance6WidthFirstValue = 13.647f;
+                        setBuildButtonInstance6XFirstValue = true;
+                        BuildButtonInstance6XFirstValue = 43.15125f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance6YFirstValue = true;
-                        ButtonFrameInstance6YFirstValue = 1.134257f;
+                        setBuildButtonInstance6YFirstValue = true;
+                        BuildButtonInstance6YFirstValue = 1.134257f;
                         if (interpolationValue < 1)
                         {
                             this.FourButtonFrameInstance.Visible = false;
@@ -1279,70 +1279,70 @@
                         }
                         break;
                     case  Capacity.SevenLeft:
-                        setButtonFrameInstance0XFirstValue = true;
-                        ButtonFrameInstance0XFirstValue = 82.00231f;
-                        setButtonFrameInstance0YFirstValue = true;
-                        ButtonFrameInstance0YFirstValue = 37.87195f;
-                        setButtonFrameInstance1XFirstValue = true;
-                        ButtonFrameInstance1XFirstValue = 72.76563f;
+                        setBuildButtonInstance0XFirstValue = true;
+                        BuildButtonInstance0XFirstValue = 82.00231f;
+                        setBuildButtonInstance0YFirstValue = true;
+                        BuildButtonInstance0YFirstValue = 37.87195f;
+                        setBuildButtonInstance1XFirstValue = true;
+                        BuildButtonInstance1XFirstValue = 72.76563f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance1YFirstValue = true;
-                        ButtonFrameInstance1YFirstValue = 53.65741f;
-                        setButtonFrameInstance2XFirstValue = true;
-                        ButtonFrameInstance2XFirstValue = 72.76772f;
-                        setButtonFrameInstance2YFirstValue = true;
-                        ButtonFrameInstance2YFirstValue = 21.99075f;
-                        setButtonFrameInstance3XFirstValue = true;
-                        ButtonFrameInstance3XFirstValue = 63.51583f;
-                        setButtonFrameInstance3YFirstValue = true;
-                        ButtonFrameInstance3YFirstValue = 37.90495f;
+                        setBuildButtonInstance1YFirstValue = true;
+                        BuildButtonInstance1YFirstValue = 53.65741f;
+                        setBuildButtonInstance2XFirstValue = true;
+                        BuildButtonInstance2XFirstValue = 72.76772f;
+                        setBuildButtonInstance2YFirstValue = true;
+                        BuildButtonInstance2YFirstValue = 21.99075f;
+                        setBuildButtonInstance3XFirstValue = true;
+                        BuildButtonInstance3XFirstValue = 63.51583f;
+                        setBuildButtonInstance3YFirstValue = true;
+                        BuildButtonInstance3YFirstValue = 37.90495f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance4.Visible = true;
+                            this.BuildButtonInstance4.Visible = true;
                         }
-                        setButtonFrameInstance4XFirstValue = true;
-                        ButtonFrameInstance4XFirstValue = 54.14063f;
-                        setButtonFrameInstance4YFirstValue = true;
-                        ButtonFrameInstance4YFirstValue = 53.63426f;
-                        setButtonFrameInstance5HeightFirstValue = true;
-                        ButtonFrameInstance5HeightFirstValue = 24.47f;
+                        setBuildButtonInstance4XFirstValue = true;
+                        BuildButtonInstance4XFirstValue = 54.14063f;
+                        setBuildButtonInstance4YFirstValue = true;
+                        BuildButtonInstance4YFirstValue = 53.63426f;
+                        setBuildButtonInstance5HeightFirstValue = true;
+                        BuildButtonInstance5HeightFirstValue = 24.47f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance5.Visible = true;
+                            this.BuildButtonInstance5.Visible = true;
                         }
-                        setButtonFrameInstance5WidthFirstValue = true;
-                        ButtonFrameInstance5WidthFirstValue = 13.647f;
-                        setButtonFrameInstance5XFirstValue = true;
-                        ButtonFrameInstance5XFirstValue = 54.1146f;
+                        setBuildButtonInstance5WidthFirstValue = true;
+                        BuildButtonInstance5WidthFirstValue = 13.647f;
+                        setBuildButtonInstance5XFirstValue = true;
+                        BuildButtonInstance5XFirstValue = 54.1146f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance5YFirstValue = true;
-                        ButtonFrameInstance5YFirstValue = 22.02546f;
+                        setBuildButtonInstance5YFirstValue = true;
+                        BuildButtonInstance5YFirstValue = 22.02546f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance6HeightFirstValue = true;
-                        ButtonFrameInstance6HeightFirstValue = 24.47f;
+                        setBuildButtonInstance6HeightFirstValue = true;
+                        BuildButtonInstance6HeightFirstValue = 24.47f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance6.Visible = true;
+                            this.BuildButtonInstance6.Visible = true;
                         }
-                        setButtonFrameInstance6WidthFirstValue = true;
-                        ButtonFrameInstance6WidthFirstValue = 13.647f;
-                        setButtonFrameInstance6XFirstValue = true;
-                        ButtonFrameInstance6XFirstValue = 44.38015f;
+                        setBuildButtonInstance6WidthFirstValue = true;
+                        BuildButtonInstance6WidthFirstValue = 13.647f;
+                        setBuildButtonInstance6XFirstValue = true;
+                        BuildButtonInstance6XFirstValue = 44.38015f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance6YFirstValue = true;
-                        ButtonFrameInstance6YFirstValue = 37.88074f;
+                        setBuildButtonInstance6YFirstValue = true;
+                        BuildButtonInstance6YFirstValue = 37.88074f;
                         if (interpolationValue < 1)
                         {
                             this.FourButtonFrameInstance.Visible = false;
@@ -1371,70 +1371,70 @@
                         }
                         break;
                     case  Capacity.SevenRight:
-                        setButtonFrameInstance0XFirstValue = true;
-                        ButtonFrameInstance0XFirstValue = 4.293975f;
-                        setButtonFrameInstance0YFirstValue = true;
-                        ButtonFrameInstance0YFirstValue = 37.88f;
-                        setButtonFrameInstance1XFirstValue = true;
-                        ButtonFrameInstance1XFirstValue = 13.57813f;
+                        setBuildButtonInstance0XFirstValue = true;
+                        BuildButtonInstance0XFirstValue = 4.293975f;
+                        setBuildButtonInstance0YFirstValue = true;
+                        BuildButtonInstance0YFirstValue = 37.88f;
+                        setBuildButtonInstance1XFirstValue = true;
+                        BuildButtonInstance1XFirstValue = 13.57813f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance1YFirstValue = true;
-                        ButtonFrameInstance1YFirstValue = 53.87964f;
-                        setButtonFrameInstance2XFirstValue = true;
-                        ButtonFrameInstance2XFirstValue = 13.61667f;
-                        setButtonFrameInstance2YFirstValue = true;
-                        ButtonFrameInstance2YFirstValue = 21.90742f;
-                        setButtonFrameInstance3XFirstValue = true;
-                        ButtonFrameInstance3XFirstValue = 22.90776f;
-                        setButtonFrameInstance3YFirstValue = true;
-                        ButtonFrameInstance3YFirstValue = 37.90197f;
+                        setBuildButtonInstance1YFirstValue = true;
+                        BuildButtonInstance1YFirstValue = 53.87964f;
+                        setBuildButtonInstance2XFirstValue = true;
+                        BuildButtonInstance2XFirstValue = 13.61667f;
+                        setBuildButtonInstance2YFirstValue = true;
+                        BuildButtonInstance2YFirstValue = 21.90742f;
+                        setBuildButtonInstance3XFirstValue = true;
+                        BuildButtonInstance3XFirstValue = 22.90776f;
+                        setBuildButtonInstance3YFirstValue = true;
+                        BuildButtonInstance3YFirstValue = 37.90197f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance4.Visible = true;
+                            this.BuildButtonInstance4.Visible = true;
                         }
-                        setButtonFrameInstance4XFirstValue = true;
-                        ButtonFrameInstance4XFirstValue = 32.28125f;
-                        setButtonFrameInstance4YFirstValue = true;
-                        ButtonFrameInstance4YFirstValue = 53.74537f;
-                        setButtonFrameInstance5HeightFirstValue = true;
-                        ButtonFrameInstance5HeightFirstValue = 24.47f;
+                        setBuildButtonInstance4XFirstValue = true;
+                        BuildButtonInstance4XFirstValue = 32.28125f;
+                        setBuildButtonInstance4YFirstValue = true;
+                        BuildButtonInstance4YFirstValue = 53.74537f;
+                        setBuildButtonInstance5HeightFirstValue = true;
+                        BuildButtonInstance5HeightFirstValue = 24.47f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance5.Visible = true;
+                            this.BuildButtonInstance5.Visible = true;
                         }
-                        setButtonFrameInstance5WidthFirstValue = true;
-                        ButtonFrameInstance5WidthFirstValue = 13.647f;
-                        setButtonFrameInstance5XFirstValue = true;
-                        ButtonFrameInstance5XFirstValue = 32.29986f;
+                        setBuildButtonInstance5WidthFirstValue = true;
+                        BuildButtonInstance5WidthFirstValue = 13.647f;
+                        setBuildButtonInstance5XFirstValue = true;
+                        BuildButtonInstance5XFirstValue = 32.29986f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance5YFirstValue = true;
-                        ButtonFrameInstance5YFirstValue = 22.04827f;
+                        setBuildButtonInstance5YFirstValue = true;
+                        BuildButtonInstance5YFirstValue = 22.04827f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance6HeightFirstValue = true;
-                        ButtonFrameInstance6HeightFirstValue = 24.47f;
+                        setBuildButtonInstance6HeightFirstValue = true;
+                        BuildButtonInstance6HeightFirstValue = 24.47f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance6.Visible = true;
+                            this.BuildButtonInstance6.Visible = true;
                         }
-                        setButtonFrameInstance6WidthFirstValue = true;
-                        ButtonFrameInstance6WidthFirstValue = 13.647f;
-                        setButtonFrameInstance6XFirstValue = true;
-                        ButtonFrameInstance6XFirstValue = 41.88341f;
+                        setBuildButtonInstance6WidthFirstValue = true;
+                        BuildButtonInstance6WidthFirstValue = 13.647f;
+                        setBuildButtonInstance6XFirstValue = true;
+                        BuildButtonInstance6XFirstValue = 41.88341f;
                         if (interpolationValue < 1)
                         {
-                            this.ButtonFrameInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance6YFirstValue = true;
-                        ButtonFrameInstance6YFirstValue = 37.8168f;
+                        setBuildButtonInstance6YFirstValue = true;
+                        BuildButtonInstance6YFirstValue = 37.8168f;
                         if (interpolationValue < 1)
                         {
                             this.FourButtonFrameInstance.Visible = false;
@@ -1466,58 +1466,58 @@
                 switch(secondState)
                 {
                     case  Capacity.Four:
-                        setButtonFrameInstance0XSecondValue = true;
-                        ButtonFrameInstance0XSecondValue = 43.19118f;
-                        setButtonFrameInstance0YSecondValue = true;
-                        ButtonFrameInstance0YSecondValue = 67.92753f;
-                        setButtonFrameInstance1XSecondValue = true;
-                        ButtonFrameInstance1XSecondValue = 34.37128f;
+                        setBuildButtonInstance0XSecondValue = true;
+                        BuildButtonInstance0XSecondValue = 43.19118f;
+                        setBuildButtonInstance0YSecondValue = true;
+                        BuildButtonInstance0YSecondValue = 67.92753f;
+                        setBuildButtonInstance1XSecondValue = true;
+                        BuildButtonInstance1XSecondValue = 34.37128f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance1YSecondValue = true;
-                        ButtonFrameInstance1YSecondValue = 51.32274f;
-                        setButtonFrameInstance2XSecondValue = true;
-                        ButtonFrameInstance2XSecondValue = 52.03481f;
-                        setButtonFrameInstance2YSecondValue = true;
-                        ButtonFrameInstance2YSecondValue = 51.35582f;
-                        setButtonFrameInstance3XSecondValue = true;
-                        ButtonFrameInstance3XSecondValue = 43.17259f;
-                        setButtonFrameInstance3YSecondValue = true;
-                        ButtonFrameInstance3YSecondValue = 34.02776f;
+                        setBuildButtonInstance1YSecondValue = true;
+                        BuildButtonInstance1YSecondValue = 51.32274f;
+                        setBuildButtonInstance2XSecondValue = true;
+                        BuildButtonInstance2XSecondValue = 52.03481f;
+                        setBuildButtonInstance2YSecondValue = true;
+                        BuildButtonInstance2YSecondValue = 51.35582f;
+                        setBuildButtonInstance3XSecondValue = true;
+                        BuildButtonInstance3XSecondValue = 43.17259f;
+                        setBuildButtonInstance3YSecondValue = true;
+                        BuildButtonInstance3YSecondValue = 34.02776f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance4.Visible = false;
+                            this.BuildButtonInstance4.Visible = false;
                         }
-                        setButtonFrameInstance4XSecondValue = true;
-                        ButtonFrameInstance4XSecondValue = 0f;
-                        setButtonFrameInstance4YSecondValue = true;
-                        ButtonFrameInstance4YSecondValue = 0f;
-                        setButtonFrameInstance5HeightSecondValue = true;
-                        ButtonFrameInstance5HeightSecondValue = 24.47f;
+                        setBuildButtonInstance4XSecondValue = true;
+                        BuildButtonInstance4XSecondValue = 0f;
+                        setBuildButtonInstance4YSecondValue = true;
+                        BuildButtonInstance4YSecondValue = 0f;
+                        setBuildButtonInstance5HeightSecondValue = true;
+                        BuildButtonInstance5HeightSecondValue = 24.47f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance5.Visible = false;
+                            this.BuildButtonInstance5.Visible = false;
                         }
-                        setButtonFrameInstance5WidthSecondValue = true;
-                        ButtonFrameInstance5WidthSecondValue = 13.647f;
-                        setButtonFrameInstance5XSecondValue = true;
-                        ButtonFrameInstance5XSecondValue = 0f;
-                        setButtonFrameInstance5YSecondValue = true;
-                        ButtonFrameInstance5YSecondValue = 0f;
-                        setButtonFrameInstance6HeightSecondValue = true;
-                        ButtonFrameInstance6HeightSecondValue = 24.47f;
+                        setBuildButtonInstance5WidthSecondValue = true;
+                        BuildButtonInstance5WidthSecondValue = 13.647f;
+                        setBuildButtonInstance5XSecondValue = true;
+                        BuildButtonInstance5XSecondValue = 0f;
+                        setBuildButtonInstance5YSecondValue = true;
+                        BuildButtonInstance5YSecondValue = 0f;
+                        setBuildButtonInstance6HeightSecondValue = true;
+                        BuildButtonInstance6HeightSecondValue = 24.47f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance6.Visible = false;
+                            this.BuildButtonInstance6.Visible = false;
                         }
-                        setButtonFrameInstance6WidthSecondValue = true;
-                        ButtonFrameInstance6WidthSecondValue = 13.647f;
-                        setButtonFrameInstance6XSecondValue = true;
-                        ButtonFrameInstance6XSecondValue = 0f;
-                        setButtonFrameInstance6YSecondValue = true;
-                        ButtonFrameInstance6YSecondValue = 0f;
+                        setBuildButtonInstance6WidthSecondValue = true;
+                        BuildButtonInstance6WidthSecondValue = 13.647f;
+                        setBuildButtonInstance6XSecondValue = true;
+                        BuildButtonInstance6XSecondValue = 0f;
+                        setBuildButtonInstance6YSecondValue = true;
+                        BuildButtonInstance6YSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
                             this.FourButtonFrameInstance.Visible = true;
@@ -1544,58 +1544,58 @@
                         }
                         break;
                     case  Capacity.FourLeft:
-                        setButtonFrameInstance0XSecondValue = true;
-                        ButtonFrameInstance0XSecondValue = 82.09743f;
-                        setButtonFrameInstance0YSecondValue = true;
-                        ButtonFrameInstance0YSecondValue = 37.92752f;
-                        setButtonFrameInstance1XSecondValue = true;
-                        ButtonFrameInstance1XSecondValue = 72.73f;
+                        setBuildButtonInstance0XSecondValue = true;
+                        BuildButtonInstance0XSecondValue = 82.09743f;
+                        setBuildButtonInstance0YSecondValue = true;
+                        BuildButtonInstance0YSecondValue = 37.92752f;
+                        setBuildButtonInstance1XSecondValue = true;
+                        BuildButtonInstance1XSecondValue = 72.73f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance1YSecondValue = true;
-                        ButtonFrameInstance1YSecondValue = 53.82274f;
-                        setButtonFrameInstance2XSecondValue = true;
-                        ButtonFrameInstance2XSecondValue = 72.73793f;
-                        setButtonFrameInstance2YSecondValue = true;
-                        ButtonFrameInstance2YSecondValue = 21.95767f;
-                        setButtonFrameInstance3XSecondValue = true;
-                        ButtonFrameInstance3XSecondValue = 63.01634f;
-                        setButtonFrameInstance3YSecondValue = true;
-                        ButtonFrameInstance3YSecondValue = 37.91665f;
+                        setBuildButtonInstance1YSecondValue = true;
+                        BuildButtonInstance1YSecondValue = 53.82274f;
+                        setBuildButtonInstance2XSecondValue = true;
+                        BuildButtonInstance2XSecondValue = 72.73793f;
+                        setBuildButtonInstance2YSecondValue = true;
+                        BuildButtonInstance2YSecondValue = 21.95767f;
+                        setBuildButtonInstance3XSecondValue = true;
+                        BuildButtonInstance3XSecondValue = 63.01634f;
+                        setBuildButtonInstance3YSecondValue = true;
+                        BuildButtonInstance3YSecondValue = 37.91665f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance4.Visible = false;
+                            this.BuildButtonInstance4.Visible = false;
                         }
-                        setButtonFrameInstance4XSecondValue = true;
-                        ButtonFrameInstance4XSecondValue = 0f;
-                        setButtonFrameInstance4YSecondValue = true;
-                        ButtonFrameInstance4YSecondValue = 0f;
-                        setButtonFrameInstance5HeightSecondValue = true;
-                        ButtonFrameInstance5HeightSecondValue = 24.47f;
+                        setBuildButtonInstance4XSecondValue = true;
+                        BuildButtonInstance4XSecondValue = 0f;
+                        setBuildButtonInstance4YSecondValue = true;
+                        BuildButtonInstance4YSecondValue = 0f;
+                        setBuildButtonInstance5HeightSecondValue = true;
+                        BuildButtonInstance5HeightSecondValue = 24.47f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance5.Visible = false;
+                            this.BuildButtonInstance5.Visible = false;
                         }
-                        setButtonFrameInstance5WidthSecondValue = true;
-                        ButtonFrameInstance5WidthSecondValue = 13.647f;
-                        setButtonFrameInstance5XSecondValue = true;
-                        ButtonFrameInstance5XSecondValue = 0f;
-                        setButtonFrameInstance5YSecondValue = true;
-                        ButtonFrameInstance5YSecondValue = 0f;
-                        setButtonFrameInstance6HeightSecondValue = true;
-                        ButtonFrameInstance6HeightSecondValue = 24.47f;
+                        setBuildButtonInstance5WidthSecondValue = true;
+                        BuildButtonInstance5WidthSecondValue = 13.647f;
+                        setBuildButtonInstance5XSecondValue = true;
+                        BuildButtonInstance5XSecondValue = 0f;
+                        setBuildButtonInstance5YSecondValue = true;
+                        BuildButtonInstance5YSecondValue = 0f;
+                        setBuildButtonInstance6HeightSecondValue = true;
+                        BuildButtonInstance6HeightSecondValue = 24.47f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance6.Visible = false;
+                            this.BuildButtonInstance6.Visible = false;
                         }
-                        setButtonFrameInstance6WidthSecondValue = true;
-                        ButtonFrameInstance6WidthSecondValue = 13.647f;
-                        setButtonFrameInstance6XSecondValue = true;
-                        ButtonFrameInstance6XSecondValue = 0f;
-                        setButtonFrameInstance6YSecondValue = true;
-                        ButtonFrameInstance6YSecondValue = 0f;
+                        setBuildButtonInstance6WidthSecondValue = true;
+                        BuildButtonInstance6WidthSecondValue = 13.647f;
+                        setBuildButtonInstance6XSecondValue = true;
+                        BuildButtonInstance6XSecondValue = 0f;
+                        setBuildButtonInstance6YSecondValue = true;
+                        BuildButtonInstance6YSecondValue = 0f;
                         setFourButtonFrameInstanceCurrentRotatedStateSecondValue = true;
                         FourButtonFrameInstanceCurrentRotatedStateSecondValue = AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated.Left;
                         if (interpolationValue >= 1)
@@ -1624,58 +1624,58 @@
                         }
                         break;
                     case  Capacity.FourRight:
-                        setButtonFrameInstance0XSecondValue = true;
-                        ButtonFrameInstance0XSecondValue = 4.363056f;
-                        setButtonFrameInstance0YSecondValue = true;
-                        ButtonFrameInstance0YSecondValue = 37.92752f;
-                        setButtonFrameInstance1XSecondValue = true;
-                        ButtonFrameInstance1XSecondValue = 13.73f;
+                        setBuildButtonInstance0XSecondValue = true;
+                        BuildButtonInstance0XSecondValue = 4.363056f;
+                        setBuildButtonInstance0YSecondValue = true;
+                        BuildButtonInstance0YSecondValue = 37.92752f;
+                        setBuildButtonInstance1XSecondValue = true;
+                        BuildButtonInstance1XSecondValue = 13.73f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance1YSecondValue = true;
-                        ButtonFrameInstance1YSecondValue = 53.56481f;
-                        setButtonFrameInstance2XSecondValue = true;
-                        ButtonFrameInstance2XSecondValue = 13.73f;
-                        setButtonFrameInstance2YSecondValue = true;
-                        ButtonFrameInstance2YSecondValue = 22.05026f;
-                        setButtonFrameInstance3XSecondValue = true;
-                        ButtonFrameInstance3XSecondValue = 23.38464f;
-                        setButtonFrameInstance3YSecondValue = true;
-                        ButtonFrameInstance3YSecondValue = 37.7976f;
+                        setBuildButtonInstance1YSecondValue = true;
+                        BuildButtonInstance1YSecondValue = 53.56481f;
+                        setBuildButtonInstance2XSecondValue = true;
+                        BuildButtonInstance2XSecondValue = 13.73f;
+                        setBuildButtonInstance2YSecondValue = true;
+                        BuildButtonInstance2YSecondValue = 22.05026f;
+                        setBuildButtonInstance3XSecondValue = true;
+                        BuildButtonInstance3XSecondValue = 23.38464f;
+                        setBuildButtonInstance3YSecondValue = true;
+                        BuildButtonInstance3YSecondValue = 37.7976f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance4.Visible = false;
+                            this.BuildButtonInstance4.Visible = false;
                         }
-                        setButtonFrameInstance4XSecondValue = true;
-                        ButtonFrameInstance4XSecondValue = 0f;
-                        setButtonFrameInstance4YSecondValue = true;
-                        ButtonFrameInstance4YSecondValue = 0f;
-                        setButtonFrameInstance5HeightSecondValue = true;
-                        ButtonFrameInstance5HeightSecondValue = 24.47f;
+                        setBuildButtonInstance4XSecondValue = true;
+                        BuildButtonInstance4XSecondValue = 0f;
+                        setBuildButtonInstance4YSecondValue = true;
+                        BuildButtonInstance4YSecondValue = 0f;
+                        setBuildButtonInstance5HeightSecondValue = true;
+                        BuildButtonInstance5HeightSecondValue = 24.47f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance5.Visible = false;
+                            this.BuildButtonInstance5.Visible = false;
                         }
-                        setButtonFrameInstance5WidthSecondValue = true;
-                        ButtonFrameInstance5WidthSecondValue = 13.647f;
-                        setButtonFrameInstance5XSecondValue = true;
-                        ButtonFrameInstance5XSecondValue = 0f;
-                        setButtonFrameInstance5YSecondValue = true;
-                        ButtonFrameInstance5YSecondValue = 0f;
-                        setButtonFrameInstance6HeightSecondValue = true;
-                        ButtonFrameInstance6HeightSecondValue = 24.47f;
+                        setBuildButtonInstance5WidthSecondValue = true;
+                        BuildButtonInstance5WidthSecondValue = 13.647f;
+                        setBuildButtonInstance5XSecondValue = true;
+                        BuildButtonInstance5XSecondValue = 0f;
+                        setBuildButtonInstance5YSecondValue = true;
+                        BuildButtonInstance5YSecondValue = 0f;
+                        setBuildButtonInstance6HeightSecondValue = true;
+                        BuildButtonInstance6HeightSecondValue = 24.47f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance6.Visible = false;
+                            this.BuildButtonInstance6.Visible = false;
                         }
-                        setButtonFrameInstance6WidthSecondValue = true;
-                        ButtonFrameInstance6WidthSecondValue = 13.647f;
-                        setButtonFrameInstance6XSecondValue = true;
-                        ButtonFrameInstance6XSecondValue = 0f;
-                        setButtonFrameInstance6YSecondValue = true;
-                        ButtonFrameInstance6YSecondValue = 0f;
+                        setBuildButtonInstance6WidthSecondValue = true;
+                        BuildButtonInstance6WidthSecondValue = 13.647f;
+                        setBuildButtonInstance6XSecondValue = true;
+                        BuildButtonInstance6XSecondValue = 0f;
+                        setBuildButtonInstance6YSecondValue = true;
+                        BuildButtonInstance6YSecondValue = 0f;
                         setFourButtonFrameInstanceCurrentRotatedStateSecondValue = true;
                         FourButtonFrameInstanceCurrentRotatedStateSecondValue = AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated.Right;
                         if (interpolationValue >= 1)
@@ -1704,70 +1704,70 @@
                         }
                         break;
                     case  Capacity.Seven:
-                        setButtonFrameInstance0XSecondValue = true;
-                        ButtonFrameInstance0XSecondValue = 43.14814f;
-                        setButtonFrameInstance0YSecondValue = true;
-                        ButtonFrameInstance0YSecondValue = 68.01085f;
-                        setButtonFrameInstance1XSecondValue = true;
-                        ButtonFrameInstance1XSecondValue = 34.26563f;
+                        setBuildButtonInstance0XSecondValue = true;
+                        BuildButtonInstance0XSecondValue = 43.14814f;
+                        setBuildButtonInstance0YSecondValue = true;
+                        BuildButtonInstance0YSecondValue = 68.01085f;
+                        setBuildButtonInstance1XSecondValue = true;
+                        BuildButtonInstance1XSecondValue = 34.26563f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance1YSecondValue = true;
-                        ButtonFrameInstance1YSecondValue = 51.43519f;
-                        setButtonFrameInstance2XSecondValue = true;
-                        ButtonFrameInstance2XSecondValue = 52.06459f;
-                        setButtonFrameInstance2YSecondValue = true;
-                        ButtonFrameInstance2YSecondValue = 51.57408f;
-                        setButtonFrameInstance3XSecondValue = true;
-                        ButtonFrameInstance3XSecondValue = 43.15125f;
-                        setButtonFrameInstance3YSecondValue = true;
-                        ButtonFrameInstance3YSecondValue = 35.08086f;
+                        setBuildButtonInstance1YSecondValue = true;
+                        BuildButtonInstance1YSecondValue = 51.43519f;
+                        setBuildButtonInstance2XSecondValue = true;
+                        BuildButtonInstance2XSecondValue = 52.06459f;
+                        setBuildButtonInstance2YSecondValue = true;
+                        BuildButtonInstance2YSecondValue = 51.57408f;
+                        setBuildButtonInstance3XSecondValue = true;
+                        BuildButtonInstance3XSecondValue = 43.15125f;
+                        setBuildButtonInstance3YSecondValue = true;
+                        BuildButtonInstance3YSecondValue = 35.08086f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance4.Visible = true;
+                            this.BuildButtonInstance4.Visible = true;
                         }
-                        setButtonFrameInstance4XSecondValue = true;
-                        ButtonFrameInstance4XSecondValue = 34.29688f;
-                        setButtonFrameInstance4YSecondValue = true;
-                        ButtonFrameInstance4YSecondValue = 18.35648f;
-                        setButtonFrameInstance5HeightSecondValue = true;
-                        ButtonFrameInstance5HeightSecondValue = 24.47f;
+                        setBuildButtonInstance4XSecondValue = true;
+                        BuildButtonInstance4XSecondValue = 34.29688f;
+                        setBuildButtonInstance4YSecondValue = true;
+                        BuildButtonInstance4YSecondValue = 18.35648f;
+                        setBuildButtonInstance5HeightSecondValue = true;
+                        BuildButtonInstance5HeightSecondValue = 24.47f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance5.Visible = true;
+                            this.BuildButtonInstance5.Visible = true;
                         }
-                        setButtonFrameInstance5WidthSecondValue = true;
-                        ButtonFrameInstance5WidthSecondValue = 13.647f;
-                        setButtonFrameInstance5XSecondValue = true;
-                        ButtonFrameInstance5XSecondValue = 52.00523f;
+                        setBuildButtonInstance5WidthSecondValue = true;
+                        BuildButtonInstance5WidthSecondValue = 13.647f;
+                        setBuildButtonInstance5XSecondValue = true;
+                        BuildButtonInstance5XSecondValue = 52.00523f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance5YSecondValue = true;
-                        ButtonFrameInstance5YSecondValue = 18.31018f;
+                        setBuildButtonInstance5YSecondValue = true;
+                        BuildButtonInstance5YSecondValue = 18.31018f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance6HeightSecondValue = true;
-                        ButtonFrameInstance6HeightSecondValue = 24.47f;
+                        setBuildButtonInstance6HeightSecondValue = true;
+                        BuildButtonInstance6HeightSecondValue = 24.47f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance6.Visible = true;
+                            this.BuildButtonInstance6.Visible = true;
                         }
-                        setButtonFrameInstance6WidthSecondValue = true;
-                        ButtonFrameInstance6WidthSecondValue = 13.647f;
-                        setButtonFrameInstance6XSecondValue = true;
-                        ButtonFrameInstance6XSecondValue = 43.15125f;
+                        setBuildButtonInstance6WidthSecondValue = true;
+                        BuildButtonInstance6WidthSecondValue = 13.647f;
+                        setBuildButtonInstance6XSecondValue = true;
+                        BuildButtonInstance6XSecondValue = 43.15125f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance6YSecondValue = true;
-                        ButtonFrameInstance6YSecondValue = 1.134257f;
+                        setBuildButtonInstance6YSecondValue = true;
+                        BuildButtonInstance6YSecondValue = 1.134257f;
                         if (interpolationValue >= 1)
                         {
                             this.FourButtonFrameInstance.Visible = false;
@@ -1794,70 +1794,70 @@
                         }
                         break;
                     case  Capacity.SevenLeft:
-                        setButtonFrameInstance0XSecondValue = true;
-                        ButtonFrameInstance0XSecondValue = 82.00231f;
-                        setButtonFrameInstance0YSecondValue = true;
-                        ButtonFrameInstance0YSecondValue = 37.87195f;
-                        setButtonFrameInstance1XSecondValue = true;
-                        ButtonFrameInstance1XSecondValue = 72.76563f;
+                        setBuildButtonInstance0XSecondValue = true;
+                        BuildButtonInstance0XSecondValue = 82.00231f;
+                        setBuildButtonInstance0YSecondValue = true;
+                        BuildButtonInstance0YSecondValue = 37.87195f;
+                        setBuildButtonInstance1XSecondValue = true;
+                        BuildButtonInstance1XSecondValue = 72.76563f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance1YSecondValue = true;
-                        ButtonFrameInstance1YSecondValue = 53.65741f;
-                        setButtonFrameInstance2XSecondValue = true;
-                        ButtonFrameInstance2XSecondValue = 72.76772f;
-                        setButtonFrameInstance2YSecondValue = true;
-                        ButtonFrameInstance2YSecondValue = 21.99075f;
-                        setButtonFrameInstance3XSecondValue = true;
-                        ButtonFrameInstance3XSecondValue = 63.51583f;
-                        setButtonFrameInstance3YSecondValue = true;
-                        ButtonFrameInstance3YSecondValue = 37.90495f;
+                        setBuildButtonInstance1YSecondValue = true;
+                        BuildButtonInstance1YSecondValue = 53.65741f;
+                        setBuildButtonInstance2XSecondValue = true;
+                        BuildButtonInstance2XSecondValue = 72.76772f;
+                        setBuildButtonInstance2YSecondValue = true;
+                        BuildButtonInstance2YSecondValue = 21.99075f;
+                        setBuildButtonInstance3XSecondValue = true;
+                        BuildButtonInstance3XSecondValue = 63.51583f;
+                        setBuildButtonInstance3YSecondValue = true;
+                        BuildButtonInstance3YSecondValue = 37.90495f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance4.Visible = true;
+                            this.BuildButtonInstance4.Visible = true;
                         }
-                        setButtonFrameInstance4XSecondValue = true;
-                        ButtonFrameInstance4XSecondValue = 54.14063f;
-                        setButtonFrameInstance4YSecondValue = true;
-                        ButtonFrameInstance4YSecondValue = 53.63426f;
-                        setButtonFrameInstance5HeightSecondValue = true;
-                        ButtonFrameInstance5HeightSecondValue = 24.47f;
+                        setBuildButtonInstance4XSecondValue = true;
+                        BuildButtonInstance4XSecondValue = 54.14063f;
+                        setBuildButtonInstance4YSecondValue = true;
+                        BuildButtonInstance4YSecondValue = 53.63426f;
+                        setBuildButtonInstance5HeightSecondValue = true;
+                        BuildButtonInstance5HeightSecondValue = 24.47f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance5.Visible = true;
+                            this.BuildButtonInstance5.Visible = true;
                         }
-                        setButtonFrameInstance5WidthSecondValue = true;
-                        ButtonFrameInstance5WidthSecondValue = 13.647f;
-                        setButtonFrameInstance5XSecondValue = true;
-                        ButtonFrameInstance5XSecondValue = 54.1146f;
+                        setBuildButtonInstance5WidthSecondValue = true;
+                        BuildButtonInstance5WidthSecondValue = 13.647f;
+                        setBuildButtonInstance5XSecondValue = true;
+                        BuildButtonInstance5XSecondValue = 54.1146f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance5YSecondValue = true;
-                        ButtonFrameInstance5YSecondValue = 22.02546f;
+                        setBuildButtonInstance5YSecondValue = true;
+                        BuildButtonInstance5YSecondValue = 22.02546f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance6HeightSecondValue = true;
-                        ButtonFrameInstance6HeightSecondValue = 24.47f;
+                        setBuildButtonInstance6HeightSecondValue = true;
+                        BuildButtonInstance6HeightSecondValue = 24.47f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance6.Visible = true;
+                            this.BuildButtonInstance6.Visible = true;
                         }
-                        setButtonFrameInstance6WidthSecondValue = true;
-                        ButtonFrameInstance6WidthSecondValue = 13.647f;
-                        setButtonFrameInstance6XSecondValue = true;
-                        ButtonFrameInstance6XSecondValue = 44.38015f;
+                        setBuildButtonInstance6WidthSecondValue = true;
+                        BuildButtonInstance6WidthSecondValue = 13.647f;
+                        setBuildButtonInstance6XSecondValue = true;
+                        BuildButtonInstance6XSecondValue = 44.38015f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance6YSecondValue = true;
-                        ButtonFrameInstance6YSecondValue = 37.88074f;
+                        setBuildButtonInstance6YSecondValue = true;
+                        BuildButtonInstance6YSecondValue = 37.88074f;
                         if (interpolationValue >= 1)
                         {
                             this.FourButtonFrameInstance.Visible = false;
@@ -1886,70 +1886,70 @@
                         }
                         break;
                     case  Capacity.SevenRight:
-                        setButtonFrameInstance0XSecondValue = true;
-                        ButtonFrameInstance0XSecondValue = 4.293975f;
-                        setButtonFrameInstance0YSecondValue = true;
-                        ButtonFrameInstance0YSecondValue = 37.88f;
-                        setButtonFrameInstance1XSecondValue = true;
-                        ButtonFrameInstance1XSecondValue = 13.57813f;
+                        setBuildButtonInstance0XSecondValue = true;
+                        BuildButtonInstance0XSecondValue = 4.293975f;
+                        setBuildButtonInstance0YSecondValue = true;
+                        BuildButtonInstance0YSecondValue = 37.88f;
+                        setBuildButtonInstance1XSecondValue = true;
+                        BuildButtonInstance1XSecondValue = 13.57813f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance1YSecondValue = true;
-                        ButtonFrameInstance1YSecondValue = 53.87964f;
-                        setButtonFrameInstance2XSecondValue = true;
-                        ButtonFrameInstance2XSecondValue = 13.61667f;
-                        setButtonFrameInstance2YSecondValue = true;
-                        ButtonFrameInstance2YSecondValue = 21.90742f;
-                        setButtonFrameInstance3XSecondValue = true;
-                        ButtonFrameInstance3XSecondValue = 22.90776f;
-                        setButtonFrameInstance3YSecondValue = true;
-                        ButtonFrameInstance3YSecondValue = 37.90197f;
+                        setBuildButtonInstance1YSecondValue = true;
+                        BuildButtonInstance1YSecondValue = 53.87964f;
+                        setBuildButtonInstance2XSecondValue = true;
+                        BuildButtonInstance2XSecondValue = 13.61667f;
+                        setBuildButtonInstance2YSecondValue = true;
+                        BuildButtonInstance2YSecondValue = 21.90742f;
+                        setBuildButtonInstance3XSecondValue = true;
+                        BuildButtonInstance3XSecondValue = 22.90776f;
+                        setBuildButtonInstance3YSecondValue = true;
+                        BuildButtonInstance3YSecondValue = 37.90197f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance4.Visible = true;
+                            this.BuildButtonInstance4.Visible = true;
                         }
-                        setButtonFrameInstance4XSecondValue = true;
-                        ButtonFrameInstance4XSecondValue = 32.28125f;
-                        setButtonFrameInstance4YSecondValue = true;
-                        ButtonFrameInstance4YSecondValue = 53.74537f;
-                        setButtonFrameInstance5HeightSecondValue = true;
-                        ButtonFrameInstance5HeightSecondValue = 24.47f;
+                        setBuildButtonInstance4XSecondValue = true;
+                        BuildButtonInstance4XSecondValue = 32.28125f;
+                        setBuildButtonInstance4YSecondValue = true;
+                        BuildButtonInstance4YSecondValue = 53.74537f;
+                        setBuildButtonInstance5HeightSecondValue = true;
+                        BuildButtonInstance5HeightSecondValue = 24.47f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance5.Visible = true;
+                            this.BuildButtonInstance5.Visible = true;
                         }
-                        setButtonFrameInstance5WidthSecondValue = true;
-                        ButtonFrameInstance5WidthSecondValue = 13.647f;
-                        setButtonFrameInstance5XSecondValue = true;
-                        ButtonFrameInstance5XSecondValue = 32.29986f;
+                        setBuildButtonInstance5WidthSecondValue = true;
+                        BuildButtonInstance5WidthSecondValue = 13.647f;
+                        setBuildButtonInstance5XSecondValue = true;
+                        BuildButtonInstance5XSecondValue = 32.29986f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance5YSecondValue = true;
-                        ButtonFrameInstance5YSecondValue = 22.04827f;
+                        setBuildButtonInstance5YSecondValue = true;
+                        BuildButtonInstance5YSecondValue = 22.04827f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance6HeightSecondValue = true;
-                        ButtonFrameInstance6HeightSecondValue = 24.47f;
+                        setBuildButtonInstance6HeightSecondValue = true;
+                        BuildButtonInstance6HeightSecondValue = 24.47f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance6.Visible = true;
+                            this.BuildButtonInstance6.Visible = true;
                         }
-                        setButtonFrameInstance6WidthSecondValue = true;
-                        ButtonFrameInstance6WidthSecondValue = 13.647f;
-                        setButtonFrameInstance6XSecondValue = true;
-                        ButtonFrameInstance6XSecondValue = 41.88341f;
+                        setBuildButtonInstance6WidthSecondValue = true;
+                        BuildButtonInstance6WidthSecondValue = 13.647f;
+                        setBuildButtonInstance6XSecondValue = true;
+                        BuildButtonInstance6XSecondValue = 41.88341f;
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonFrameInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
-                        setButtonFrameInstance6YSecondValue = true;
-                        ButtonFrameInstance6YSecondValue = 37.8168f;
+                        setBuildButtonInstance6YSecondValue = true;
+                        BuildButtonInstance6YSecondValue = 37.8168f;
                         if (interpolationValue >= 1)
                         {
                             this.FourButtonFrameInstance.Visible = false;
@@ -1978,77 +1978,77 @@
                         }
                         break;
                 }
-                if (setButtonFrameInstance0XFirstValue && setButtonFrameInstance0XSecondValue)
+                if (setBuildButtonInstance0XFirstValue && setBuildButtonInstance0XSecondValue)
                 {
-                    ButtonFrameInstance0.X = ButtonFrameInstance0XFirstValue * (1 - interpolationValue) + ButtonFrameInstance0XSecondValue * interpolationValue;
+                    BuildButtonInstance0.X = BuildButtonInstance0XFirstValue * (1 - interpolationValue) + BuildButtonInstance0XSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance0YFirstValue && setButtonFrameInstance0YSecondValue)
+                if (setBuildButtonInstance0YFirstValue && setBuildButtonInstance0YSecondValue)
                 {
-                    ButtonFrameInstance0.Y = ButtonFrameInstance0YFirstValue * (1 - interpolationValue) + ButtonFrameInstance0YSecondValue * interpolationValue;
+                    BuildButtonInstance0.Y = BuildButtonInstance0YFirstValue * (1 - interpolationValue) + BuildButtonInstance0YSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance1XFirstValue && setButtonFrameInstance1XSecondValue)
+                if (setBuildButtonInstance1XFirstValue && setBuildButtonInstance1XSecondValue)
                 {
-                    ButtonFrameInstance1.X = ButtonFrameInstance1XFirstValue * (1 - interpolationValue) + ButtonFrameInstance1XSecondValue * interpolationValue;
+                    BuildButtonInstance1.X = BuildButtonInstance1XFirstValue * (1 - interpolationValue) + BuildButtonInstance1XSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance1YFirstValue && setButtonFrameInstance1YSecondValue)
+                if (setBuildButtonInstance1YFirstValue && setBuildButtonInstance1YSecondValue)
                 {
-                    ButtonFrameInstance1.Y = ButtonFrameInstance1YFirstValue * (1 - interpolationValue) + ButtonFrameInstance1YSecondValue * interpolationValue;
+                    BuildButtonInstance1.Y = BuildButtonInstance1YFirstValue * (1 - interpolationValue) + BuildButtonInstance1YSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance2XFirstValue && setButtonFrameInstance2XSecondValue)
+                if (setBuildButtonInstance2XFirstValue && setBuildButtonInstance2XSecondValue)
                 {
-                    ButtonFrameInstance2.X = ButtonFrameInstance2XFirstValue * (1 - interpolationValue) + ButtonFrameInstance2XSecondValue * interpolationValue;
+                    BuildButtonInstance2.X = BuildButtonInstance2XFirstValue * (1 - interpolationValue) + BuildButtonInstance2XSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance2YFirstValue && setButtonFrameInstance2YSecondValue)
+                if (setBuildButtonInstance2YFirstValue && setBuildButtonInstance2YSecondValue)
                 {
-                    ButtonFrameInstance2.Y = ButtonFrameInstance2YFirstValue * (1 - interpolationValue) + ButtonFrameInstance2YSecondValue * interpolationValue;
+                    BuildButtonInstance2.Y = BuildButtonInstance2YFirstValue * (1 - interpolationValue) + BuildButtonInstance2YSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance3XFirstValue && setButtonFrameInstance3XSecondValue)
+                if (setBuildButtonInstance3XFirstValue && setBuildButtonInstance3XSecondValue)
                 {
-                    ButtonFrameInstance3.X = ButtonFrameInstance3XFirstValue * (1 - interpolationValue) + ButtonFrameInstance3XSecondValue * interpolationValue;
+                    BuildButtonInstance3.X = BuildButtonInstance3XFirstValue * (1 - interpolationValue) + BuildButtonInstance3XSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance3YFirstValue && setButtonFrameInstance3YSecondValue)
+                if (setBuildButtonInstance3YFirstValue && setBuildButtonInstance3YSecondValue)
                 {
-                    ButtonFrameInstance3.Y = ButtonFrameInstance3YFirstValue * (1 - interpolationValue) + ButtonFrameInstance3YSecondValue * interpolationValue;
+                    BuildButtonInstance3.Y = BuildButtonInstance3YFirstValue * (1 - interpolationValue) + BuildButtonInstance3YSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance4XFirstValue && setButtonFrameInstance4XSecondValue)
+                if (setBuildButtonInstance4XFirstValue && setBuildButtonInstance4XSecondValue)
                 {
-                    ButtonFrameInstance4.X = ButtonFrameInstance4XFirstValue * (1 - interpolationValue) + ButtonFrameInstance4XSecondValue * interpolationValue;
+                    BuildButtonInstance4.X = BuildButtonInstance4XFirstValue * (1 - interpolationValue) + BuildButtonInstance4XSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance4YFirstValue && setButtonFrameInstance4YSecondValue)
+                if (setBuildButtonInstance4YFirstValue && setBuildButtonInstance4YSecondValue)
                 {
-                    ButtonFrameInstance4.Y = ButtonFrameInstance4YFirstValue * (1 - interpolationValue) + ButtonFrameInstance4YSecondValue * interpolationValue;
+                    BuildButtonInstance4.Y = BuildButtonInstance4YFirstValue * (1 - interpolationValue) + BuildButtonInstance4YSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance5HeightFirstValue && setButtonFrameInstance5HeightSecondValue)
+                if (setBuildButtonInstance5HeightFirstValue && setBuildButtonInstance5HeightSecondValue)
                 {
-                    ButtonFrameInstance5.Height = ButtonFrameInstance5HeightFirstValue * (1 - interpolationValue) + ButtonFrameInstance5HeightSecondValue * interpolationValue;
+                    BuildButtonInstance5.Height = BuildButtonInstance5HeightFirstValue * (1 - interpolationValue) + BuildButtonInstance5HeightSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance5WidthFirstValue && setButtonFrameInstance5WidthSecondValue)
+                if (setBuildButtonInstance5WidthFirstValue && setBuildButtonInstance5WidthSecondValue)
                 {
-                    ButtonFrameInstance5.Width = ButtonFrameInstance5WidthFirstValue * (1 - interpolationValue) + ButtonFrameInstance5WidthSecondValue * interpolationValue;
+                    BuildButtonInstance5.Width = BuildButtonInstance5WidthFirstValue * (1 - interpolationValue) + BuildButtonInstance5WidthSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance5XFirstValue && setButtonFrameInstance5XSecondValue)
+                if (setBuildButtonInstance5XFirstValue && setBuildButtonInstance5XSecondValue)
                 {
-                    ButtonFrameInstance5.X = ButtonFrameInstance5XFirstValue * (1 - interpolationValue) + ButtonFrameInstance5XSecondValue * interpolationValue;
+                    BuildButtonInstance5.X = BuildButtonInstance5XFirstValue * (1 - interpolationValue) + BuildButtonInstance5XSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance5YFirstValue && setButtonFrameInstance5YSecondValue)
+                if (setBuildButtonInstance5YFirstValue && setBuildButtonInstance5YSecondValue)
                 {
-                    ButtonFrameInstance5.Y = ButtonFrameInstance5YFirstValue * (1 - interpolationValue) + ButtonFrameInstance5YSecondValue * interpolationValue;
+                    BuildButtonInstance5.Y = BuildButtonInstance5YFirstValue * (1 - interpolationValue) + BuildButtonInstance5YSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance6HeightFirstValue && setButtonFrameInstance6HeightSecondValue)
+                if (setBuildButtonInstance6HeightFirstValue && setBuildButtonInstance6HeightSecondValue)
                 {
-                    ButtonFrameInstance6.Height = ButtonFrameInstance6HeightFirstValue * (1 - interpolationValue) + ButtonFrameInstance6HeightSecondValue * interpolationValue;
+                    BuildButtonInstance6.Height = BuildButtonInstance6HeightFirstValue * (1 - interpolationValue) + BuildButtonInstance6HeightSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance6WidthFirstValue && setButtonFrameInstance6WidthSecondValue)
+                if (setBuildButtonInstance6WidthFirstValue && setBuildButtonInstance6WidthSecondValue)
                 {
-                    ButtonFrameInstance6.Width = ButtonFrameInstance6WidthFirstValue * (1 - interpolationValue) + ButtonFrameInstance6WidthSecondValue * interpolationValue;
+                    BuildButtonInstance6.Width = BuildButtonInstance6WidthFirstValue * (1 - interpolationValue) + BuildButtonInstance6WidthSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance6XFirstValue && setButtonFrameInstance6XSecondValue)
+                if (setBuildButtonInstance6XFirstValue && setBuildButtonInstance6XSecondValue)
                 {
-                    ButtonFrameInstance6.X = ButtonFrameInstance6XFirstValue * (1 - interpolationValue) + ButtonFrameInstance6XSecondValue * interpolationValue;
+                    BuildButtonInstance6.X = BuildButtonInstance6XFirstValue * (1 - interpolationValue) + BuildButtonInstance6XSecondValue * interpolationValue;
                 }
-                if (setButtonFrameInstance6YFirstValue && setButtonFrameInstance6YSecondValue)
+                if (setBuildButtonInstance6YFirstValue && setBuildButtonInstance6YSecondValue)
                 {
-                    ButtonFrameInstance6.Y = ButtonFrameInstance6YFirstValue * (1 - interpolationValue) + ButtonFrameInstance6YSecondValue * interpolationValue;
+                    BuildButtonInstance6.Y = BuildButtonInstance6YFirstValue * (1 - interpolationValue) + BuildButtonInstance6YSecondValue * interpolationValue;
                 }
                 if (setFourButtonFrameInstanceXFirstValue && setFourButtonFrameInstanceXSecondValue)
                 {
@@ -2201,13 +2201,13 @@
                 base.StopAnimations();
                 FourButtonFrameInstance.StopAnimations();
                 SevenButtonFrameInstance.StopAnimations();
-                ButtonFrameInstance0.StopAnimations();
-                ButtonFrameInstance1.StopAnimations();
-                ButtonFrameInstance2.StopAnimations();
-                ButtonFrameInstance3.StopAnimations();
-                ButtonFrameInstance4.StopAnimations();
-                ButtonFrameInstance5.StopAnimations();
-                ButtonFrameInstance6.StopAnimations();
+                BuildButtonInstance0.StopAnimations();
+                BuildButtonInstance1.StopAnimations();
+                BuildButtonInstance2.StopAnimations();
+                BuildButtonInstance3.StopAnimations();
+                BuildButtonInstance4.StopAnimations();
+                BuildButtonInstance5.StopAnimations();
+                BuildButtonInstance6.StopAnimations();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -2443,201 +2443,201 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.X",
+                            Name = "BuildButtonInstance0.X",
                             Type = "float",
-                            Value = ButtonFrameInstance0.X
+                            Value = BuildButtonInstance0.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.X Units",
+                            Name = "BuildButtonInstance0.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance0.XUnits
+                            Value = BuildButtonInstance0.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.Y",
+                            Name = "BuildButtonInstance0.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance0.Y
+                            Value = BuildButtonInstance0.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.Y Units",
+                            Name = "BuildButtonInstance0.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance0.YUnits
+                            Value = BuildButtonInstance0.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X",
+                            Name = "BuildButtonInstance1.X",
                             Type = "float",
-                            Value = ButtonFrameInstance1.X
+                            Value = BuildButtonInstance1.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Units",
+                            Name = "BuildButtonInstance1.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.XUnits
+                            Value = BuildButtonInstance1.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.Y",
+                            Name = "BuildButtonInstance1.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance1.Y
+                            Value = BuildButtonInstance1.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.Y Units",
+                            Name = "BuildButtonInstance1.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.YUnits
+                            Value = BuildButtonInstance1.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.X",
+                            Name = "BuildButtonInstance2.X",
                             Type = "float",
-                            Value = ButtonFrameInstance2.X
+                            Value = BuildButtonInstance2.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.X Units",
+                            Name = "BuildButtonInstance2.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance2.XUnits
+                            Value = BuildButtonInstance2.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.Y",
+                            Name = "BuildButtonInstance2.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance2.Y
+                            Value = BuildButtonInstance2.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.Y Units",
+                            Name = "BuildButtonInstance2.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance2.YUnits
+                            Value = BuildButtonInstance2.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.X",
+                            Name = "BuildButtonInstance3.X",
                             Type = "float",
-                            Value = ButtonFrameInstance3.X
+                            Value = BuildButtonInstance3.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.X Units",
+                            Name = "BuildButtonInstance3.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance3.XUnits
+                            Value = BuildButtonInstance3.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.Y",
+                            Name = "BuildButtonInstance3.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance3.Y
+                            Value = BuildButtonInstance3.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.Y Units",
+                            Name = "BuildButtonInstance3.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance3.YUnits
+                            Value = BuildButtonInstance3.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Visible",
+                            Name = "BuildButtonInstance4.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance4.Visible
+                            Value = BuildButtonInstance4.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.X Units",
+                            Name = "BuildButtonInstance4.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance4.XUnits
+                            Value = BuildButtonInstance4.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Y Units",
+                            Name = "BuildButtonInstance4.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance4.YUnits
+                            Value = BuildButtonInstance4.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Visible",
+                            Name = "BuildButtonInstance5.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance5.Visible
+                            Value = BuildButtonInstance5.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X Units",
+                            Name = "BuildButtonInstance5.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance5.XUnits
+                            Value = BuildButtonInstance5.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y Units",
+                            Name = "BuildButtonInstance5.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance5.YUnits
+                            Value = BuildButtonInstance5.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Visible",
+                            Name = "BuildButtonInstance6.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance6.Visible
+                            Value = BuildButtonInstance6.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X Units",
+                            Name = "BuildButtonInstance6.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance6.XUnits
+                            Value = BuildButtonInstance6.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Y Units",
+                            Name = "BuildButtonInstance6.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance6.YUnits
+                            Value = BuildButtonInstance6.YUnits
                         }
                         );
                         break;
@@ -2877,201 +2877,201 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.X",
+                            Name = "BuildButtonInstance0.X",
                             Type = "float",
-                            Value = ButtonFrameInstance0.X + 43.29829f
+                            Value = BuildButtonInstance0.X + 43.29829f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.X Units",
+                            Name = "BuildButtonInstance0.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance0.XUnits
+                            Value = BuildButtonInstance0.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.Y",
+                            Name = "BuildButtonInstance0.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance0.Y + 67.83752f
+                            Value = BuildButtonInstance0.Y + 67.83752f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.Y Units",
+                            Name = "BuildButtonInstance0.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance0.YUnits
+                            Value = BuildButtonInstance0.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X",
+                            Name = "BuildButtonInstance1.X",
                             Type = "float",
-                            Value = ButtonFrameInstance1.X + 33.23347f
+                            Value = BuildButtonInstance1.X + 33.23347f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Units",
+                            Name = "BuildButtonInstance1.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.XUnits
+                            Value = BuildButtonInstance1.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.Y",
+                            Name = "BuildButtonInstance1.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance1.Y + 51.25159f
+                            Value = BuildButtonInstance1.Y + 51.25159f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.Y Units",
+                            Name = "BuildButtonInstance1.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.YUnits
+                            Value = BuildButtonInstance1.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.X",
+                            Name = "BuildButtonInstance2.X",
                             Type = "float",
-                            Value = ButtonFrameInstance2.X + 51.49597f
+                            Value = BuildButtonInstance2.X + 51.49597f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.X Units",
+                            Name = "BuildButtonInstance2.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance2.XUnits
+                            Value = BuildButtonInstance2.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.Y",
+                            Name = "BuildButtonInstance2.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance2.Y + 51.31417f
+                            Value = BuildButtonInstance2.Y + 51.31417f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.Y Units",
+                            Name = "BuildButtonInstance2.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance2.YUnits
+                            Value = BuildButtonInstance2.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.X",
+                            Name = "BuildButtonInstance3.X",
                             Type = "float",
-                            Value = ButtonFrameInstance3.X + 42.26307f
+                            Value = BuildButtonInstance3.X + 42.26307f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.X Units",
+                            Name = "BuildButtonInstance3.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance3.XUnits
+                            Value = BuildButtonInstance3.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.Y",
+                            Name = "BuildButtonInstance3.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance3.Y + 34.15827f
+                            Value = BuildButtonInstance3.Y + 34.15827f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.Y Units",
+                            Name = "BuildButtonInstance3.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance3.YUnits
+                            Value = BuildButtonInstance3.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Visible",
+                            Name = "BuildButtonInstance4.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance4.Visible
+                            Value = BuildButtonInstance4.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.X Units",
+                            Name = "BuildButtonInstance4.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance4.XUnits
+                            Value = BuildButtonInstance4.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Y Units",
+                            Name = "BuildButtonInstance4.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance4.YUnits
+                            Value = BuildButtonInstance4.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Visible",
+                            Name = "BuildButtonInstance5.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance5.Visible
+                            Value = BuildButtonInstance5.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X Units",
+                            Name = "BuildButtonInstance5.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance5.XUnits
+                            Value = BuildButtonInstance5.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y Units",
+                            Name = "BuildButtonInstance5.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance5.YUnits
+                            Value = BuildButtonInstance5.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Visible",
+                            Name = "BuildButtonInstance6.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance6.Visible
+                            Value = BuildButtonInstance6.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X Units",
+                            Name = "BuildButtonInstance6.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance6.XUnits
+                            Value = BuildButtonInstance6.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Y Units",
+                            Name = "BuildButtonInstance6.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance6.YUnits
+                            Value = BuildButtonInstance6.YUnits
                         }
                         );
                         break;
@@ -3151,177 +3151,177 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.X",
+                            Name = "BuildButtonInstance0.X",
                             Type = "float",
-                            Value = ButtonFrameInstance0.X
+                            Value = BuildButtonInstance0.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.Y",
+                            Name = "BuildButtonInstance0.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance0.Y
+                            Value = BuildButtonInstance0.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X",
+                            Name = "BuildButtonInstance1.X",
                             Type = "float",
-                            Value = ButtonFrameInstance1.X
+                            Value = BuildButtonInstance1.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Units",
+                            Name = "BuildButtonInstance1.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.XUnits
+                            Value = BuildButtonInstance1.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.Y",
+                            Name = "BuildButtonInstance1.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance1.Y
+                            Value = BuildButtonInstance1.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.X",
+                            Name = "BuildButtonInstance2.X",
                             Type = "float",
-                            Value = ButtonFrameInstance2.X
+                            Value = BuildButtonInstance2.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.Y",
+                            Name = "BuildButtonInstance2.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance2.Y
+                            Value = BuildButtonInstance2.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.X",
+                            Name = "BuildButtonInstance3.X",
                             Type = "float",
-                            Value = ButtonFrameInstance3.X
+                            Value = BuildButtonInstance3.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.Y",
+                            Name = "BuildButtonInstance3.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance3.Y
+                            Value = BuildButtonInstance3.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Visible",
+                            Name = "BuildButtonInstance4.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance4.Visible
+                            Value = BuildButtonInstance4.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.X",
+                            Name = "BuildButtonInstance4.X",
                             Type = "float",
-                            Value = ButtonFrameInstance4.X
+                            Value = BuildButtonInstance4.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Y",
+                            Name = "BuildButtonInstance4.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance4.Y
+                            Value = BuildButtonInstance4.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Height",
+                            Name = "BuildButtonInstance5.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Height
+                            Value = BuildButtonInstance5.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Visible",
+                            Name = "BuildButtonInstance5.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance5.Visible
+                            Value = BuildButtonInstance5.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Width",
+                            Name = "BuildButtonInstance5.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Width
+                            Value = BuildButtonInstance5.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X",
+                            Name = "BuildButtonInstance5.X",
                             Type = "float",
-                            Value = ButtonFrameInstance5.X
+                            Value = BuildButtonInstance5.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y",
+                            Name = "BuildButtonInstance5.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Y
+                            Value = BuildButtonInstance5.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Height",
+                            Name = "BuildButtonInstance6.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Height
+                            Value = BuildButtonInstance6.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Visible",
+                            Name = "BuildButtonInstance6.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance6.Visible
+                            Value = BuildButtonInstance6.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Width",
+                            Name = "BuildButtonInstance6.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Width
+                            Value = BuildButtonInstance6.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X",
+                            Name = "BuildButtonInstance6.X",
                             Type = "float",
-                            Value = ButtonFrameInstance6.X
+                            Value = BuildButtonInstance6.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Y",
+                            Name = "BuildButtonInstance6.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Y
+                            Value = BuildButtonInstance6.Y
                         }
                         );
                         break;
@@ -3401,177 +3401,177 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.X",
+                            Name = "BuildButtonInstance0.X",
                             Type = "float",
-                            Value = ButtonFrameInstance0.X
+                            Value = BuildButtonInstance0.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.Y",
+                            Name = "BuildButtonInstance0.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance0.Y
+                            Value = BuildButtonInstance0.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X",
+                            Name = "BuildButtonInstance1.X",
                             Type = "float",
-                            Value = ButtonFrameInstance1.X
+                            Value = BuildButtonInstance1.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Units",
+                            Name = "BuildButtonInstance1.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.XUnits
+                            Value = BuildButtonInstance1.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.Y",
+                            Name = "BuildButtonInstance1.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance1.Y
+                            Value = BuildButtonInstance1.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.X",
+                            Name = "BuildButtonInstance2.X",
                             Type = "float",
-                            Value = ButtonFrameInstance2.X
+                            Value = BuildButtonInstance2.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.Y",
+                            Name = "BuildButtonInstance2.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance2.Y
+                            Value = BuildButtonInstance2.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.X",
+                            Name = "BuildButtonInstance3.X",
                             Type = "float",
-                            Value = ButtonFrameInstance3.X
+                            Value = BuildButtonInstance3.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.Y",
+                            Name = "BuildButtonInstance3.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance3.Y
+                            Value = BuildButtonInstance3.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Visible",
+                            Name = "BuildButtonInstance4.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance4.Visible
+                            Value = BuildButtonInstance4.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.X",
+                            Name = "BuildButtonInstance4.X",
                             Type = "float",
-                            Value = ButtonFrameInstance4.X
+                            Value = BuildButtonInstance4.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Y",
+                            Name = "BuildButtonInstance4.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance4.Y
+                            Value = BuildButtonInstance4.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Height",
+                            Name = "BuildButtonInstance5.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Height
+                            Value = BuildButtonInstance5.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Visible",
+                            Name = "BuildButtonInstance5.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance5.Visible
+                            Value = BuildButtonInstance5.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Width",
+                            Name = "BuildButtonInstance5.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Width
+                            Value = BuildButtonInstance5.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X",
+                            Name = "BuildButtonInstance5.X",
                             Type = "float",
-                            Value = ButtonFrameInstance5.X
+                            Value = BuildButtonInstance5.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y",
+                            Name = "BuildButtonInstance5.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Y
+                            Value = BuildButtonInstance5.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Height",
+                            Name = "BuildButtonInstance6.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Height
+                            Value = BuildButtonInstance6.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Visible",
+                            Name = "BuildButtonInstance6.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance6.Visible
+                            Value = BuildButtonInstance6.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Width",
+                            Name = "BuildButtonInstance6.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Width
+                            Value = BuildButtonInstance6.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X",
+                            Name = "BuildButtonInstance6.X",
                             Type = "float",
-                            Value = ButtonFrameInstance6.X
+                            Value = BuildButtonInstance6.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Y",
+                            Name = "BuildButtonInstance6.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Y
+                            Value = BuildButtonInstance6.Y
                         }
                         );
                         break;
@@ -3651,177 +3651,177 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.X",
+                            Name = "BuildButtonInstance0.X",
                             Type = "float",
-                            Value = ButtonFrameInstance0.X
+                            Value = BuildButtonInstance0.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.Y",
+                            Name = "BuildButtonInstance0.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance0.Y
+                            Value = BuildButtonInstance0.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X",
+                            Name = "BuildButtonInstance1.X",
                             Type = "float",
-                            Value = ButtonFrameInstance1.X
+                            Value = BuildButtonInstance1.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Units",
+                            Name = "BuildButtonInstance1.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.XUnits
+                            Value = BuildButtonInstance1.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.Y",
+                            Name = "BuildButtonInstance1.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance1.Y
+                            Value = BuildButtonInstance1.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.X",
+                            Name = "BuildButtonInstance2.X",
                             Type = "float",
-                            Value = ButtonFrameInstance2.X
+                            Value = BuildButtonInstance2.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.Y",
+                            Name = "BuildButtonInstance2.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance2.Y
+                            Value = BuildButtonInstance2.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.X",
+                            Name = "BuildButtonInstance3.X",
                             Type = "float",
-                            Value = ButtonFrameInstance3.X
+                            Value = BuildButtonInstance3.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.Y",
+                            Name = "BuildButtonInstance3.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance3.Y
+                            Value = BuildButtonInstance3.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Visible",
+                            Name = "BuildButtonInstance4.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance4.Visible
+                            Value = BuildButtonInstance4.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.X",
+                            Name = "BuildButtonInstance4.X",
                             Type = "float",
-                            Value = ButtonFrameInstance4.X
+                            Value = BuildButtonInstance4.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Y",
+                            Name = "BuildButtonInstance4.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance4.Y
+                            Value = BuildButtonInstance4.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Height",
+                            Name = "BuildButtonInstance5.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Height
+                            Value = BuildButtonInstance5.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Visible",
+                            Name = "BuildButtonInstance5.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance5.Visible
+                            Value = BuildButtonInstance5.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Width",
+                            Name = "BuildButtonInstance5.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Width
+                            Value = BuildButtonInstance5.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X",
+                            Name = "BuildButtonInstance5.X",
                             Type = "float",
-                            Value = ButtonFrameInstance5.X
+                            Value = BuildButtonInstance5.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y",
+                            Name = "BuildButtonInstance5.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Y
+                            Value = BuildButtonInstance5.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Height",
+                            Name = "BuildButtonInstance6.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Height
+                            Value = BuildButtonInstance6.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Visible",
+                            Name = "BuildButtonInstance6.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance6.Visible
+                            Value = BuildButtonInstance6.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Width",
+                            Name = "BuildButtonInstance6.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Width
+                            Value = BuildButtonInstance6.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X",
+                            Name = "BuildButtonInstance6.X",
                             Type = "float",
-                            Value = ButtonFrameInstance6.X
+                            Value = BuildButtonInstance6.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Y",
+                            Name = "BuildButtonInstance6.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Y
+                            Value = BuildButtonInstance6.Y
                         }
                         );
                         break;
@@ -3893,201 +3893,201 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.X",
+                            Name = "BuildButtonInstance0.X",
                             Type = "float",
-                            Value = ButtonFrameInstance0.X
+                            Value = BuildButtonInstance0.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.Y",
+                            Name = "BuildButtonInstance0.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance0.Y
+                            Value = BuildButtonInstance0.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X",
+                            Name = "BuildButtonInstance1.X",
                             Type = "float",
-                            Value = ButtonFrameInstance1.X
+                            Value = BuildButtonInstance1.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Units",
+                            Name = "BuildButtonInstance1.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.XUnits
+                            Value = BuildButtonInstance1.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.Y",
+                            Name = "BuildButtonInstance1.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance1.Y
+                            Value = BuildButtonInstance1.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.X",
+                            Name = "BuildButtonInstance2.X",
                             Type = "float",
-                            Value = ButtonFrameInstance2.X
+                            Value = BuildButtonInstance2.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.Y",
+                            Name = "BuildButtonInstance2.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance2.Y
+                            Value = BuildButtonInstance2.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.X",
+                            Name = "BuildButtonInstance3.X",
                             Type = "float",
-                            Value = ButtonFrameInstance3.X
+                            Value = BuildButtonInstance3.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.Y",
+                            Name = "BuildButtonInstance3.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance3.Y
+                            Value = BuildButtonInstance3.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Visible",
+                            Name = "BuildButtonInstance4.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance4.Visible
+                            Value = BuildButtonInstance4.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.X",
+                            Name = "BuildButtonInstance4.X",
                             Type = "float",
-                            Value = ButtonFrameInstance4.X
+                            Value = BuildButtonInstance4.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Y",
+                            Name = "BuildButtonInstance4.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance4.Y
+                            Value = BuildButtonInstance4.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Height",
+                            Name = "BuildButtonInstance5.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Height
+                            Value = BuildButtonInstance5.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Visible",
+                            Name = "BuildButtonInstance5.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance5.Visible
+                            Value = BuildButtonInstance5.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Width",
+                            Name = "BuildButtonInstance5.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Width
+                            Value = BuildButtonInstance5.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X",
+                            Name = "BuildButtonInstance5.X",
                             Type = "float",
-                            Value = ButtonFrameInstance5.X
+                            Value = BuildButtonInstance5.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X Units",
+                            Name = "BuildButtonInstance5.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance5.XUnits
+                            Value = BuildButtonInstance5.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y",
+                            Name = "BuildButtonInstance5.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Y
+                            Value = BuildButtonInstance5.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y Units",
+                            Name = "BuildButtonInstance5.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance5.YUnits
+                            Value = BuildButtonInstance5.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Height",
+                            Name = "BuildButtonInstance6.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Height
+                            Value = BuildButtonInstance6.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Visible",
+                            Name = "BuildButtonInstance6.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance6.Visible
+                            Value = BuildButtonInstance6.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Width",
+                            Name = "BuildButtonInstance6.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Width
+                            Value = BuildButtonInstance6.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X",
+                            Name = "BuildButtonInstance6.X",
                             Type = "float",
-                            Value = ButtonFrameInstance6.X
+                            Value = BuildButtonInstance6.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X Units",
+                            Name = "BuildButtonInstance6.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance6.XUnits
+                            Value = BuildButtonInstance6.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Y",
+                            Name = "BuildButtonInstance6.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Y
+                            Value = BuildButtonInstance6.Y
                         }
                         );
                         break;
@@ -4167,201 +4167,201 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.X",
+                            Name = "BuildButtonInstance0.X",
                             Type = "float",
-                            Value = ButtonFrameInstance0.X
+                            Value = BuildButtonInstance0.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.Y",
+                            Name = "BuildButtonInstance0.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance0.Y
+                            Value = BuildButtonInstance0.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X",
+                            Name = "BuildButtonInstance1.X",
                             Type = "float",
-                            Value = ButtonFrameInstance1.X
+                            Value = BuildButtonInstance1.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Units",
+                            Name = "BuildButtonInstance1.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.XUnits
+                            Value = BuildButtonInstance1.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.Y",
+                            Name = "BuildButtonInstance1.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance1.Y
+                            Value = BuildButtonInstance1.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.X",
+                            Name = "BuildButtonInstance2.X",
                             Type = "float",
-                            Value = ButtonFrameInstance2.X
+                            Value = BuildButtonInstance2.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.Y",
+                            Name = "BuildButtonInstance2.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance2.Y
+                            Value = BuildButtonInstance2.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.X",
+                            Name = "BuildButtonInstance3.X",
                             Type = "float",
-                            Value = ButtonFrameInstance3.X
+                            Value = BuildButtonInstance3.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.Y",
+                            Name = "BuildButtonInstance3.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance3.Y
+                            Value = BuildButtonInstance3.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Visible",
+                            Name = "BuildButtonInstance4.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance4.Visible
+                            Value = BuildButtonInstance4.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.X",
+                            Name = "BuildButtonInstance4.X",
                             Type = "float",
-                            Value = ButtonFrameInstance4.X
+                            Value = BuildButtonInstance4.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Y",
+                            Name = "BuildButtonInstance4.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance4.Y
+                            Value = BuildButtonInstance4.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Height",
+                            Name = "BuildButtonInstance5.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Height
+                            Value = BuildButtonInstance5.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Visible",
+                            Name = "BuildButtonInstance5.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance5.Visible
+                            Value = BuildButtonInstance5.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Width",
+                            Name = "BuildButtonInstance5.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Width
+                            Value = BuildButtonInstance5.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X",
+                            Name = "BuildButtonInstance5.X",
                             Type = "float",
-                            Value = ButtonFrameInstance5.X
+                            Value = BuildButtonInstance5.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X Units",
+                            Name = "BuildButtonInstance5.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance5.XUnits
+                            Value = BuildButtonInstance5.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y",
+                            Name = "BuildButtonInstance5.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Y
+                            Value = BuildButtonInstance5.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y Units",
+                            Name = "BuildButtonInstance5.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance5.YUnits
+                            Value = BuildButtonInstance5.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Height",
+                            Name = "BuildButtonInstance6.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Height
+                            Value = BuildButtonInstance6.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Visible",
+                            Name = "BuildButtonInstance6.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance6.Visible
+                            Value = BuildButtonInstance6.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Width",
+                            Name = "BuildButtonInstance6.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Width
+                            Value = BuildButtonInstance6.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X",
+                            Name = "BuildButtonInstance6.X",
                             Type = "float",
-                            Value = ButtonFrameInstance6.X
+                            Value = BuildButtonInstance6.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X Units",
+                            Name = "BuildButtonInstance6.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance6.XUnits
+                            Value = BuildButtonInstance6.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Y",
+                            Name = "BuildButtonInstance6.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Y
+                            Value = BuildButtonInstance6.Y
                         }
                         );
                         break;
@@ -4441,201 +4441,201 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.X",
+                            Name = "BuildButtonInstance0.X",
                             Type = "float",
-                            Value = ButtonFrameInstance0.X
+                            Value = BuildButtonInstance0.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.Y",
+                            Name = "BuildButtonInstance0.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance0.Y
+                            Value = BuildButtonInstance0.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X",
+                            Name = "BuildButtonInstance1.X",
                             Type = "float",
-                            Value = ButtonFrameInstance1.X
+                            Value = BuildButtonInstance1.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Units",
+                            Name = "BuildButtonInstance1.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.XUnits
+                            Value = BuildButtonInstance1.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.Y",
+                            Name = "BuildButtonInstance1.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance1.Y
+                            Value = BuildButtonInstance1.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.X",
+                            Name = "BuildButtonInstance2.X",
                             Type = "float",
-                            Value = ButtonFrameInstance2.X
+                            Value = BuildButtonInstance2.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.Y",
+                            Name = "BuildButtonInstance2.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance2.Y
+                            Value = BuildButtonInstance2.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.X",
+                            Name = "BuildButtonInstance3.X",
                             Type = "float",
-                            Value = ButtonFrameInstance3.X
+                            Value = BuildButtonInstance3.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.Y",
+                            Name = "BuildButtonInstance3.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance3.Y
+                            Value = BuildButtonInstance3.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Visible",
+                            Name = "BuildButtonInstance4.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance4.Visible
+                            Value = BuildButtonInstance4.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.X",
+                            Name = "BuildButtonInstance4.X",
                             Type = "float",
-                            Value = ButtonFrameInstance4.X
+                            Value = BuildButtonInstance4.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Y",
+                            Name = "BuildButtonInstance4.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance4.Y
+                            Value = BuildButtonInstance4.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Height",
+                            Name = "BuildButtonInstance5.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Height
+                            Value = BuildButtonInstance5.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Visible",
+                            Name = "BuildButtonInstance5.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance5.Visible
+                            Value = BuildButtonInstance5.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Width",
+                            Name = "BuildButtonInstance5.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Width
+                            Value = BuildButtonInstance5.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X",
+                            Name = "BuildButtonInstance5.X",
                             Type = "float",
-                            Value = ButtonFrameInstance5.X
+                            Value = BuildButtonInstance5.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X Units",
+                            Name = "BuildButtonInstance5.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance5.XUnits
+                            Value = BuildButtonInstance5.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y",
+                            Name = "BuildButtonInstance5.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Y
+                            Value = BuildButtonInstance5.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y Units",
+                            Name = "BuildButtonInstance5.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance5.YUnits
+                            Value = BuildButtonInstance5.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Height",
+                            Name = "BuildButtonInstance6.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Height
+                            Value = BuildButtonInstance6.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Visible",
+                            Name = "BuildButtonInstance6.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance6.Visible
+                            Value = BuildButtonInstance6.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Width",
+                            Name = "BuildButtonInstance6.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Width
+                            Value = BuildButtonInstance6.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X",
+                            Name = "BuildButtonInstance6.X",
                             Type = "float",
-                            Value = ButtonFrameInstance6.X
+                            Value = BuildButtonInstance6.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X Units",
+                            Name = "BuildButtonInstance6.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance6.XUnits
+                            Value = BuildButtonInstance6.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Y",
+                            Name = "BuildButtonInstance6.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Y
+                            Value = BuildButtonInstance6.Y
                         }
                         );
                         break;
@@ -4715,177 +4715,177 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.X",
+                            Name = "BuildButtonInstance0.X",
                             Type = "float",
-                            Value = ButtonFrameInstance0.X + 43.19118f
+                            Value = BuildButtonInstance0.X + 43.19118f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.Y",
+                            Name = "BuildButtonInstance0.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance0.Y + 67.92753f
+                            Value = BuildButtonInstance0.Y + 67.92753f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X",
+                            Name = "BuildButtonInstance1.X",
                             Type = "float",
-                            Value = ButtonFrameInstance1.X + 34.37128f
+                            Value = BuildButtonInstance1.X + 34.37128f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Units",
+                            Name = "BuildButtonInstance1.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.XUnits
+                            Value = BuildButtonInstance1.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.Y",
+                            Name = "BuildButtonInstance1.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance1.Y + 51.32274f
+                            Value = BuildButtonInstance1.Y + 51.32274f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.X",
+                            Name = "BuildButtonInstance2.X",
                             Type = "float",
-                            Value = ButtonFrameInstance2.X + 52.03481f
+                            Value = BuildButtonInstance2.X + 52.03481f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.Y",
+                            Name = "BuildButtonInstance2.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance2.Y + 51.35582f
+                            Value = BuildButtonInstance2.Y + 51.35582f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.X",
+                            Name = "BuildButtonInstance3.X",
                             Type = "float",
-                            Value = ButtonFrameInstance3.X + 43.17259f
+                            Value = BuildButtonInstance3.X + 43.17259f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.Y",
+                            Name = "BuildButtonInstance3.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance3.Y + 34.02776f
+                            Value = BuildButtonInstance3.Y + 34.02776f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Visible",
+                            Name = "BuildButtonInstance4.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance4.Visible
+                            Value = BuildButtonInstance4.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.X",
+                            Name = "BuildButtonInstance4.X",
                             Type = "float",
-                            Value = ButtonFrameInstance4.X + 0f
+                            Value = BuildButtonInstance4.X + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Y",
+                            Name = "BuildButtonInstance4.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance4.Y + 0f
+                            Value = BuildButtonInstance4.Y + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Height",
+                            Name = "BuildButtonInstance5.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Height + 24.47f
+                            Value = BuildButtonInstance5.Height + 24.47f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Visible",
+                            Name = "BuildButtonInstance5.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance5.Visible
+                            Value = BuildButtonInstance5.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Width",
+                            Name = "BuildButtonInstance5.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Width + 13.647f
+                            Value = BuildButtonInstance5.Width + 13.647f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X",
+                            Name = "BuildButtonInstance5.X",
                             Type = "float",
-                            Value = ButtonFrameInstance5.X + 0f
+                            Value = BuildButtonInstance5.X + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y",
+                            Name = "BuildButtonInstance5.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Y + 0f
+                            Value = BuildButtonInstance5.Y + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Height",
+                            Name = "BuildButtonInstance6.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Height + 24.47f
+                            Value = BuildButtonInstance6.Height + 24.47f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Visible",
+                            Name = "BuildButtonInstance6.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance6.Visible
+                            Value = BuildButtonInstance6.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Width",
+                            Name = "BuildButtonInstance6.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Width + 13.647f
+                            Value = BuildButtonInstance6.Width + 13.647f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X",
+                            Name = "BuildButtonInstance6.X",
                             Type = "float",
-                            Value = ButtonFrameInstance6.X + 0f
+                            Value = BuildButtonInstance6.X + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Y",
+                            Name = "BuildButtonInstance6.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Y + 0f
+                            Value = BuildButtonInstance6.Y + 0f
                         }
                         );
                         break;
@@ -4965,177 +4965,177 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.X",
+                            Name = "BuildButtonInstance0.X",
                             Type = "float",
-                            Value = ButtonFrameInstance0.X + 82.09743f
+                            Value = BuildButtonInstance0.X + 82.09743f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.Y",
+                            Name = "BuildButtonInstance0.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance0.Y + 37.92752f
+                            Value = BuildButtonInstance0.Y + 37.92752f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X",
+                            Name = "BuildButtonInstance1.X",
                             Type = "float",
-                            Value = ButtonFrameInstance1.X + 72.73f
+                            Value = BuildButtonInstance1.X + 72.73f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Units",
+                            Name = "BuildButtonInstance1.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.XUnits
+                            Value = BuildButtonInstance1.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.Y",
+                            Name = "BuildButtonInstance1.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance1.Y + 53.82274f
+                            Value = BuildButtonInstance1.Y + 53.82274f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.X",
+                            Name = "BuildButtonInstance2.X",
                             Type = "float",
-                            Value = ButtonFrameInstance2.X + 72.73793f
+                            Value = BuildButtonInstance2.X + 72.73793f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.Y",
+                            Name = "BuildButtonInstance2.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance2.Y + 21.95767f
+                            Value = BuildButtonInstance2.Y + 21.95767f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.X",
+                            Name = "BuildButtonInstance3.X",
                             Type = "float",
-                            Value = ButtonFrameInstance3.X + 63.01634f
+                            Value = BuildButtonInstance3.X + 63.01634f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.Y",
+                            Name = "BuildButtonInstance3.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance3.Y + 37.91665f
+                            Value = BuildButtonInstance3.Y + 37.91665f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Visible",
+                            Name = "BuildButtonInstance4.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance4.Visible
+                            Value = BuildButtonInstance4.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.X",
+                            Name = "BuildButtonInstance4.X",
                             Type = "float",
-                            Value = ButtonFrameInstance4.X + 0f
+                            Value = BuildButtonInstance4.X + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Y",
+                            Name = "BuildButtonInstance4.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance4.Y + 0f
+                            Value = BuildButtonInstance4.Y + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Height",
+                            Name = "BuildButtonInstance5.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Height + 24.47f
+                            Value = BuildButtonInstance5.Height + 24.47f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Visible",
+                            Name = "BuildButtonInstance5.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance5.Visible
+                            Value = BuildButtonInstance5.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Width",
+                            Name = "BuildButtonInstance5.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Width + 13.647f
+                            Value = BuildButtonInstance5.Width + 13.647f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X",
+                            Name = "BuildButtonInstance5.X",
                             Type = "float",
-                            Value = ButtonFrameInstance5.X + 0f
+                            Value = BuildButtonInstance5.X + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y",
+                            Name = "BuildButtonInstance5.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Y + 0f
+                            Value = BuildButtonInstance5.Y + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Height",
+                            Name = "BuildButtonInstance6.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Height + 24.47f
+                            Value = BuildButtonInstance6.Height + 24.47f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Visible",
+                            Name = "BuildButtonInstance6.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance6.Visible
+                            Value = BuildButtonInstance6.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Width",
+                            Name = "BuildButtonInstance6.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Width + 13.647f
+                            Value = BuildButtonInstance6.Width + 13.647f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X",
+                            Name = "BuildButtonInstance6.X",
                             Type = "float",
-                            Value = ButtonFrameInstance6.X + 0f
+                            Value = BuildButtonInstance6.X + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Y",
+                            Name = "BuildButtonInstance6.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Y + 0f
+                            Value = BuildButtonInstance6.Y + 0f
                         }
                         );
                         break;
@@ -5215,177 +5215,177 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.X",
+                            Name = "BuildButtonInstance0.X",
                             Type = "float",
-                            Value = ButtonFrameInstance0.X + 4.363056f
+                            Value = BuildButtonInstance0.X + 4.363056f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.Y",
+                            Name = "BuildButtonInstance0.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance0.Y + 37.92752f
+                            Value = BuildButtonInstance0.Y + 37.92752f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X",
+                            Name = "BuildButtonInstance1.X",
                             Type = "float",
-                            Value = ButtonFrameInstance1.X + 13.73f
+                            Value = BuildButtonInstance1.X + 13.73f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Units",
+                            Name = "BuildButtonInstance1.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.XUnits
+                            Value = BuildButtonInstance1.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.Y",
+                            Name = "BuildButtonInstance1.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance1.Y + 53.56481f
+                            Value = BuildButtonInstance1.Y + 53.56481f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.X",
+                            Name = "BuildButtonInstance2.X",
                             Type = "float",
-                            Value = ButtonFrameInstance2.X + 13.73f
+                            Value = BuildButtonInstance2.X + 13.73f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.Y",
+                            Name = "BuildButtonInstance2.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance2.Y + 22.05026f
+                            Value = BuildButtonInstance2.Y + 22.05026f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.X",
+                            Name = "BuildButtonInstance3.X",
                             Type = "float",
-                            Value = ButtonFrameInstance3.X + 23.38464f
+                            Value = BuildButtonInstance3.X + 23.38464f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.Y",
+                            Name = "BuildButtonInstance3.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance3.Y + 37.7976f
+                            Value = BuildButtonInstance3.Y + 37.7976f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Visible",
+                            Name = "BuildButtonInstance4.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance4.Visible
+                            Value = BuildButtonInstance4.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.X",
+                            Name = "BuildButtonInstance4.X",
                             Type = "float",
-                            Value = ButtonFrameInstance4.X + 0f
+                            Value = BuildButtonInstance4.X + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Y",
+                            Name = "BuildButtonInstance4.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance4.Y + 0f
+                            Value = BuildButtonInstance4.Y + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Height",
+                            Name = "BuildButtonInstance5.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Height + 24.47f
+                            Value = BuildButtonInstance5.Height + 24.47f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Visible",
+                            Name = "BuildButtonInstance5.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance5.Visible
+                            Value = BuildButtonInstance5.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Width",
+                            Name = "BuildButtonInstance5.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Width + 13.647f
+                            Value = BuildButtonInstance5.Width + 13.647f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X",
+                            Name = "BuildButtonInstance5.X",
                             Type = "float",
-                            Value = ButtonFrameInstance5.X + 0f
+                            Value = BuildButtonInstance5.X + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y",
+                            Name = "BuildButtonInstance5.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Y + 0f
+                            Value = BuildButtonInstance5.Y + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Height",
+                            Name = "BuildButtonInstance6.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Height + 24.47f
+                            Value = BuildButtonInstance6.Height + 24.47f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Visible",
+                            Name = "BuildButtonInstance6.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance6.Visible
+                            Value = BuildButtonInstance6.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Width",
+                            Name = "BuildButtonInstance6.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Width + 13.647f
+                            Value = BuildButtonInstance6.Width + 13.647f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X",
+                            Name = "BuildButtonInstance6.X",
                             Type = "float",
-                            Value = ButtonFrameInstance6.X + 0f
+                            Value = BuildButtonInstance6.X + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Y",
+                            Name = "BuildButtonInstance6.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Y + 0f
+                            Value = BuildButtonInstance6.Y + 0f
                         }
                         );
                         break;
@@ -5457,201 +5457,201 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.X",
+                            Name = "BuildButtonInstance0.X",
                             Type = "float",
-                            Value = ButtonFrameInstance0.X + 43.14814f
+                            Value = BuildButtonInstance0.X + 43.14814f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.Y",
+                            Name = "BuildButtonInstance0.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance0.Y + 68.01085f
+                            Value = BuildButtonInstance0.Y + 68.01085f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X",
+                            Name = "BuildButtonInstance1.X",
                             Type = "float",
-                            Value = ButtonFrameInstance1.X + 34.26563f
+                            Value = BuildButtonInstance1.X + 34.26563f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Units",
+                            Name = "BuildButtonInstance1.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.XUnits
+                            Value = BuildButtonInstance1.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.Y",
+                            Name = "BuildButtonInstance1.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance1.Y + 51.43519f
+                            Value = BuildButtonInstance1.Y + 51.43519f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.X",
+                            Name = "BuildButtonInstance2.X",
                             Type = "float",
-                            Value = ButtonFrameInstance2.X + 52.06459f
+                            Value = BuildButtonInstance2.X + 52.06459f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.Y",
+                            Name = "BuildButtonInstance2.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance2.Y + 51.57408f
+                            Value = BuildButtonInstance2.Y + 51.57408f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.X",
+                            Name = "BuildButtonInstance3.X",
                             Type = "float",
-                            Value = ButtonFrameInstance3.X + 43.15125f
+                            Value = BuildButtonInstance3.X + 43.15125f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.Y",
+                            Name = "BuildButtonInstance3.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance3.Y + 35.08086f
+                            Value = BuildButtonInstance3.Y + 35.08086f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Visible",
+                            Name = "BuildButtonInstance4.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance4.Visible
+                            Value = BuildButtonInstance4.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.X",
+                            Name = "BuildButtonInstance4.X",
                             Type = "float",
-                            Value = ButtonFrameInstance4.X + 34.29688f
+                            Value = BuildButtonInstance4.X + 34.29688f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Y",
+                            Name = "BuildButtonInstance4.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance4.Y + 18.35648f
+                            Value = BuildButtonInstance4.Y + 18.35648f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Height",
+                            Name = "BuildButtonInstance5.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Height + 24.47f
+                            Value = BuildButtonInstance5.Height + 24.47f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Visible",
+                            Name = "BuildButtonInstance5.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance5.Visible
+                            Value = BuildButtonInstance5.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Width",
+                            Name = "BuildButtonInstance5.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Width + 13.647f
+                            Value = BuildButtonInstance5.Width + 13.647f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X",
+                            Name = "BuildButtonInstance5.X",
                             Type = "float",
-                            Value = ButtonFrameInstance5.X + 52.00523f
+                            Value = BuildButtonInstance5.X + 52.00523f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X Units",
+                            Name = "BuildButtonInstance5.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance5.XUnits
+                            Value = BuildButtonInstance5.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y",
+                            Name = "BuildButtonInstance5.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Y + 18.31018f
+                            Value = BuildButtonInstance5.Y + 18.31018f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y Units",
+                            Name = "BuildButtonInstance5.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance5.YUnits
+                            Value = BuildButtonInstance5.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Height",
+                            Name = "BuildButtonInstance6.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Height + 24.47f
+                            Value = BuildButtonInstance6.Height + 24.47f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Visible",
+                            Name = "BuildButtonInstance6.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance6.Visible
+                            Value = BuildButtonInstance6.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Width",
+                            Name = "BuildButtonInstance6.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Width + 13.647f
+                            Value = BuildButtonInstance6.Width + 13.647f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X",
+                            Name = "BuildButtonInstance6.X",
                             Type = "float",
-                            Value = ButtonFrameInstance6.X + 43.15125f
+                            Value = BuildButtonInstance6.X + 43.15125f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X Units",
+                            Name = "BuildButtonInstance6.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance6.XUnits
+                            Value = BuildButtonInstance6.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Y",
+                            Name = "BuildButtonInstance6.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Y + 1.134257f
+                            Value = BuildButtonInstance6.Y + 1.134257f
                         }
                         );
                         break;
@@ -5731,201 +5731,201 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.X",
+                            Name = "BuildButtonInstance0.X",
                             Type = "float",
-                            Value = ButtonFrameInstance0.X + 82.00231f
+                            Value = BuildButtonInstance0.X + 82.00231f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.Y",
+                            Name = "BuildButtonInstance0.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance0.Y + 37.87195f
+                            Value = BuildButtonInstance0.Y + 37.87195f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X",
+                            Name = "BuildButtonInstance1.X",
                             Type = "float",
-                            Value = ButtonFrameInstance1.X + 72.76563f
+                            Value = BuildButtonInstance1.X + 72.76563f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Units",
+                            Name = "BuildButtonInstance1.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.XUnits
+                            Value = BuildButtonInstance1.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.Y",
+                            Name = "BuildButtonInstance1.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance1.Y + 53.65741f
+                            Value = BuildButtonInstance1.Y + 53.65741f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.X",
+                            Name = "BuildButtonInstance2.X",
                             Type = "float",
-                            Value = ButtonFrameInstance2.X + 72.76772f
+                            Value = BuildButtonInstance2.X + 72.76772f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.Y",
+                            Name = "BuildButtonInstance2.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance2.Y + 21.99075f
+                            Value = BuildButtonInstance2.Y + 21.99075f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.X",
+                            Name = "BuildButtonInstance3.X",
                             Type = "float",
-                            Value = ButtonFrameInstance3.X + 63.51583f
+                            Value = BuildButtonInstance3.X + 63.51583f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.Y",
+                            Name = "BuildButtonInstance3.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance3.Y + 37.90495f
+                            Value = BuildButtonInstance3.Y + 37.90495f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Visible",
+                            Name = "BuildButtonInstance4.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance4.Visible
+                            Value = BuildButtonInstance4.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.X",
+                            Name = "BuildButtonInstance4.X",
                             Type = "float",
-                            Value = ButtonFrameInstance4.X + 54.14063f
+                            Value = BuildButtonInstance4.X + 54.14063f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Y",
+                            Name = "BuildButtonInstance4.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance4.Y + 53.63426f
+                            Value = BuildButtonInstance4.Y + 53.63426f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Height",
+                            Name = "BuildButtonInstance5.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Height + 24.47f
+                            Value = BuildButtonInstance5.Height + 24.47f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Visible",
+                            Name = "BuildButtonInstance5.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance5.Visible
+                            Value = BuildButtonInstance5.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Width",
+                            Name = "BuildButtonInstance5.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Width + 13.647f
+                            Value = BuildButtonInstance5.Width + 13.647f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X",
+                            Name = "BuildButtonInstance5.X",
                             Type = "float",
-                            Value = ButtonFrameInstance5.X + 54.1146f
+                            Value = BuildButtonInstance5.X + 54.1146f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X Units",
+                            Name = "BuildButtonInstance5.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance5.XUnits
+                            Value = BuildButtonInstance5.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y",
+                            Name = "BuildButtonInstance5.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Y + 22.02546f
+                            Value = BuildButtonInstance5.Y + 22.02546f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y Units",
+                            Name = "BuildButtonInstance5.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance5.YUnits
+                            Value = BuildButtonInstance5.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Height",
+                            Name = "BuildButtonInstance6.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Height + 24.47f
+                            Value = BuildButtonInstance6.Height + 24.47f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Visible",
+                            Name = "BuildButtonInstance6.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance6.Visible
+                            Value = BuildButtonInstance6.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Width",
+                            Name = "BuildButtonInstance6.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Width + 13.647f
+                            Value = BuildButtonInstance6.Width + 13.647f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X",
+                            Name = "BuildButtonInstance6.X",
                             Type = "float",
-                            Value = ButtonFrameInstance6.X + 44.38015f
+                            Value = BuildButtonInstance6.X + 44.38015f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X Units",
+                            Name = "BuildButtonInstance6.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance6.XUnits
+                            Value = BuildButtonInstance6.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Y",
+                            Name = "BuildButtonInstance6.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Y + 37.88074f
+                            Value = BuildButtonInstance6.Y + 37.88074f
                         }
                         );
                         break;
@@ -6005,201 +6005,201 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.X",
+                            Name = "BuildButtonInstance0.X",
                             Type = "float",
-                            Value = ButtonFrameInstance0.X + 4.293975f
+                            Value = BuildButtonInstance0.X + 4.293975f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance0.Y",
+                            Name = "BuildButtonInstance0.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance0.Y + 37.88f
+                            Value = BuildButtonInstance0.Y + 37.88f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X",
+                            Name = "BuildButtonInstance1.X",
                             Type = "float",
-                            Value = ButtonFrameInstance1.X + 13.57813f
+                            Value = BuildButtonInstance1.X + 13.57813f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Units",
+                            Name = "BuildButtonInstance1.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.XUnits
+                            Value = BuildButtonInstance1.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance1.Y",
+                            Name = "BuildButtonInstance1.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance1.Y + 53.87964f
+                            Value = BuildButtonInstance1.Y + 53.87964f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.X",
+                            Name = "BuildButtonInstance2.X",
                             Type = "float",
-                            Value = ButtonFrameInstance2.X + 13.61667f
+                            Value = BuildButtonInstance2.X + 13.61667f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance2.Y",
+                            Name = "BuildButtonInstance2.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance2.Y + 21.90742f
+                            Value = BuildButtonInstance2.Y + 21.90742f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.X",
+                            Name = "BuildButtonInstance3.X",
                             Type = "float",
-                            Value = ButtonFrameInstance3.X + 22.90776f
+                            Value = BuildButtonInstance3.X + 22.90776f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance3.Y",
+                            Name = "BuildButtonInstance3.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance3.Y + 37.90197f
+                            Value = BuildButtonInstance3.Y + 37.90197f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Visible",
+                            Name = "BuildButtonInstance4.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance4.Visible
+                            Value = BuildButtonInstance4.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.X",
+                            Name = "BuildButtonInstance4.X",
                             Type = "float",
-                            Value = ButtonFrameInstance4.X + 32.28125f
+                            Value = BuildButtonInstance4.X + 32.28125f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance4.Y",
+                            Name = "BuildButtonInstance4.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance4.Y + 53.74537f
+                            Value = BuildButtonInstance4.Y + 53.74537f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Height",
+                            Name = "BuildButtonInstance5.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Height + 24.47f
+                            Value = BuildButtonInstance5.Height + 24.47f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Visible",
+                            Name = "BuildButtonInstance5.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance5.Visible
+                            Value = BuildButtonInstance5.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Width",
+                            Name = "BuildButtonInstance5.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Width + 13.647f
+                            Value = BuildButtonInstance5.Width + 13.647f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X",
+                            Name = "BuildButtonInstance5.X",
                             Type = "float",
-                            Value = ButtonFrameInstance5.X + 32.29986f
+                            Value = BuildButtonInstance5.X + 32.29986f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.X Units",
+                            Name = "BuildButtonInstance5.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance5.XUnits
+                            Value = BuildButtonInstance5.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y",
+                            Name = "BuildButtonInstance5.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance5.Y + 22.04827f
+                            Value = BuildButtonInstance5.Y + 22.04827f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance5.Y Units",
+                            Name = "BuildButtonInstance5.Y Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance5.YUnits
+                            Value = BuildButtonInstance5.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Height",
+                            Name = "BuildButtonInstance6.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Height + 24.47f
+                            Value = BuildButtonInstance6.Height + 24.47f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Visible",
+                            Name = "BuildButtonInstance6.Visible",
                             Type = "bool",
-                            Value = ButtonFrameInstance6.Visible
+                            Value = BuildButtonInstance6.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Width",
+                            Name = "BuildButtonInstance6.Width",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Width + 13.647f
+                            Value = BuildButtonInstance6.Width + 13.647f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X",
+                            Name = "BuildButtonInstance6.X",
                             Type = "float",
-                            Value = ButtonFrameInstance6.X + 41.88341f
+                            Value = BuildButtonInstance6.X + 41.88341f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.X Units",
+                            Name = "BuildButtonInstance6.X Units",
                             Type = "PositionUnitType",
-                            Value = ButtonFrameInstance6.XUnits
+                            Value = BuildButtonInstance6.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance6.Y",
+                            Name = "BuildButtonInstance6.Y",
                             Type = "float",
-                            Value = ButtonFrameInstance6.Y + 37.8168f
+                            Value = BuildButtonInstance6.Y + 37.8168f
                         }
                         );
                         break;
@@ -6231,13 +6231,13 @@
             }
             private AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime FourButtonFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SevenButtonFrameRuntime SevenButtonFrameInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance0 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance1 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance2 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance3 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance4 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance5 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance6 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance0 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance1 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance2 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance3 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance4 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance5 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance6 { get; set; }
             public BuildMenuRuntime (bool fullInstantiation = true) 
             	: base(false)
             {
@@ -6267,13 +6267,13 @@
             {
                 FourButtonFrameInstance = this.GetGraphicalUiElementByName("FourButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime;
                 SevenButtonFrameInstance = this.GetGraphicalUiElementByName("SevenButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.SevenButtonFrameRuntime;
-                ButtonFrameInstance0 = this.GetGraphicalUiElementByName("ButtonFrameInstance0") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                ButtonFrameInstance1 = this.GetGraphicalUiElementByName("ButtonFrameInstance1") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                ButtonFrameInstance2 = this.GetGraphicalUiElementByName("ButtonFrameInstance2") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                ButtonFrameInstance3 = this.GetGraphicalUiElementByName("ButtonFrameInstance3") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                ButtonFrameInstance4 = this.GetGraphicalUiElementByName("ButtonFrameInstance4") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                ButtonFrameInstance5 = this.GetGraphicalUiElementByName("ButtonFrameInstance5") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                ButtonFrameInstance6 = this.GetGraphicalUiElementByName("ButtonFrameInstance6") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
+                BuildButtonInstance0 = this.GetGraphicalUiElementByName("BuildButtonInstance0") as AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime;
+                BuildButtonInstance1 = this.GetGraphicalUiElementByName("BuildButtonInstance1") as AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime;
+                BuildButtonInstance2 = this.GetGraphicalUiElementByName("BuildButtonInstance2") as AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime;
+                BuildButtonInstance3 = this.GetGraphicalUiElementByName("BuildButtonInstance3") as AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime;
+                BuildButtonInstance4 = this.GetGraphicalUiElementByName("BuildButtonInstance4") as AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime;
+                BuildButtonInstance5 = this.GetGraphicalUiElementByName("BuildButtonInstance5") as AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime;
+                BuildButtonInstance6 = this.GetGraphicalUiElementByName("BuildButtonInstance6") as AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

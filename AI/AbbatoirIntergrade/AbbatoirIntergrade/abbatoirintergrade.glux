@@ -83,6 +83,11 @@
             <Member>Visible</Member>
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
+          <CustomProperty>
+            <Type>SortType</Type>
+            <Member>SortType</Member>
+            <ValueAsInt>4</ValueAsInt>
+          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
           <SourceName />
@@ -107,7 +112,7 @@
           <CustomProperty>
             <Type>SortType</Type>
             <Member>SortType</Member>
-            <ValueAsInt>1</ValueAsInt>
+            <ValueAsInt>4</ValueAsInt>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -158,6 +163,11 @@
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
+          <CustomProperty>
+            <Type>SortType</Type>
+            <Member>SortType</Member>
+            <ValueAsInt>4</ValueAsInt>
+          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
           <SourceName />
@@ -169,6 +179,11 @@
           <Is2D>true</Is2D>
         </NamedObjectSave>
         <NamedObjectSave>
+          <CustomProperty>
+            <Type>SortType</Type>
+            <Member>SortType</Member>
+            <ValueAsInt>4</ValueAsInt>
+          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
           <SourceName />
@@ -463,6 +478,7 @@
           </Properties>
           <Name>Z</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1327,6 +1343,7 @@
           </Properties>
           <Name>Z</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1562,6 +1579,11 @@
             <Type>float</Type>
             <Member>Z</Member>
             <ValueAsFloat>-1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>towers</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -2221,7 +2243,6 @@
       </Properties>
       <Tags>
         <string>GLUE</string>
-        <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
       <CustomVariables>
@@ -2631,8 +2652,6 @@
         </PropertySave>
       </Properties>
       <Tags>
-        <string>GLUE</string>
-        <string>GLUE</string>
         <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
@@ -3472,7 +3491,6 @@
       </Properties>
       <Tags>
         <string>GLUE</string>
-        <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
       <CustomVariables>
@@ -3900,8 +3918,6 @@
         </PropertySave>
       </Properties>
       <Tags>
-        <string>GLUE</string>
-        <string>GLUE</string>
         <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
@@ -4331,7 +4347,6 @@
       </Properties>
       <Tags>
         <string>GLUE</string>
-        <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
       <CustomVariables>
@@ -4760,8 +4775,6 @@
       </Properties>
       <Tags>
         <string>GLUE</string>
-        <string>GLUE</string>
-        <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
       <CustomVariables>
@@ -5189,9 +5202,6 @@
         </PropertySave>
       </Properties>
       <Tags>
-        <string>GLUE</string>
-        <string>GLUE</string>
-        <string>GLUE</string>
         <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
@@ -6123,7 +6133,6 @@
       </Properties>
       <Tags>
         <string>GLUE</string>
-        <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
       <CustomVariables>
@@ -6551,7 +6560,6 @@
         </PropertySave>
       </Properties>
       <Tags>
-        <string>GLUE</string>
         <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
@@ -6981,8 +6989,6 @@
       </Properties>
       <Tags>
         <string>GLUE</string>
-        <string>GLUE</string>
-        <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
       <CustomVariables>
@@ -7411,9 +7417,6 @@
       </Properties>
       <Tags>
         <string>GLUE</string>
-        <string>GLUE</string>
-        <string>GLUE</string>
-        <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
       <CustomVariables>
@@ -7841,10 +7844,6 @@
         </PropertySave>
       </Properties>
       <Tags>
-        <string>GLUE</string>
-        <string>GLUE</string>
-        <string>GLUE</string>
-        <string>GLUE</string>
         <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
@@ -9986,7 +9985,6 @@
     <EntitySave>
       <Tags>
         <string>GLUE</string>
-        <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
       <CustomVariables>
@@ -10076,11 +10074,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>towers</ValueAsString>
@@ -10104,6 +10097,11 @@
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
             <ValueAsFloat>842</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -10196,7 +10194,6 @@
     </EntitySave>
     <EntitySave>
       <Tags>
-        <string>GLUE</string>
         <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
@@ -10287,11 +10284,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>towers</ValueAsString>
@@ -10315,6 +10307,11 @@
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
             <ValueAsFloat>1070</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -10407,7 +10404,6 @@
     </EntitySave>
     <EntitySave>
       <Tags>
-        <string>GLUE</string>
         <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
@@ -10498,11 +10494,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>towers</ValueAsString>
@@ -10526,6 +10517,11 @@
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
             <ValueAsFloat>256</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -10618,7 +10614,6 @@
     </EntitySave>
     <EntitySave>
       <Tags>
-        <string>GLUE</string>
         <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
@@ -10709,11 +10704,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>towers</ValueAsString>
@@ -10737,6 +10727,11 @@
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
             <ValueAsFloat>1308</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -10830,7 +10825,6 @@
     <EntitySave>
       <Tags>
         <string>GLUE</string>
-        <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
       <CustomVariables>
@@ -10920,11 +10914,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>towers</ValueAsString>
@@ -10948,6 +10937,11 @@
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
             <ValueAsFloat>582</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -11130,11 +11124,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>towers</ValueAsString>
@@ -11158,6 +11147,11 @@
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
             <ValueAsFloat>1605</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>

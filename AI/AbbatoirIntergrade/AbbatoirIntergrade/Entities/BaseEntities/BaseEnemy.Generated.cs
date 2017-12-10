@@ -908,6 +908,18 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             HealthBar.BarSpriteRed = 0f;
             HealthBar.BarSpriteGreen = 1f;
             HealthBar.BarSpriteBlue = 0f;
+            if (Parent == null)
+            {
+                Z = 1f;
+            }
+            else if (Parent is FlatRedBall.Camera)
+            {
+                RelativeZ = 1f - 40.0f;
+            }
+            else
+            {
+                RelativeZ = 1f;
+            }
             SpriteInstanceFlipHorizontal = false;
             MineralsRewardedWhenKilled = 0;
             DisplayName = "Not Set";

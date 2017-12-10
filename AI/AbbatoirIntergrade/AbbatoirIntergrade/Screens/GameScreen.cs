@@ -72,6 +72,10 @@ namespace AbbatoirIntergrade.Screens
 
             InitializeBaseEntities();
 
+            PlayerDataManager.LoadData();
+
+            AssignBuildButtons();
+
             CameraZoomManager.Initialize();
             AdjustLayerOrthoValues();
             InitializeShaders();
@@ -179,6 +183,7 @@ namespace AbbatoirIntergrade.Screens
             {
                 place.OnClick += OnClick;
                 place.AttachTo(Chapter1);
+                place.Z = 2;
                 place.SetRelativeFromAbsolute();
             }
             Pathing = Chapter1.ShapeCollections.FirstOrDefault()?.Polygons.FirstOrDefault();
@@ -191,7 +196,7 @@ namespace AbbatoirIntergrade.Screens
             Chapter1.Position.X = -Chapter1.Width / 2;
 
             Chapter1.Position.Y = -(Camera.Main.OrthogonalHeight / 2 - Chapter1.Height);
-            Chapter1.Z = -11f;
+            Chapter1.Z = -1f;
             //ShapeManager.AddPolygon(pathing);
             ShapeManager.AddToLayer(Pathing, WorldLayer);
             Pathing.Visible = false;
@@ -201,10 +206,7 @@ namespace AbbatoirIntergrade.Screens
         {
             if (sender is StructurePlacement placement)
             {
-                BuildMenuInstance.CurrentCapacityState = BuildMenuRuntime.Capacity.Four;
-                BuildMenuInstance.X = placement.X;
-                BuildMenuInstance.Y = placement.Y;
-                BuildMenuInstance.Visible = true;
+                BuildMenuInstance.DisplayForPlacement(placement);
             }
         }
 

@@ -18,7 +18,7 @@ namespace AbbatoirIntergrade.GumRuntimes
 
         private void OnRollOver(IWindow window)
         {
-            CurrentHighlightState = CircleInstance.HasCursorOver(GuiManager.Cursor) ? Highlight.Highlighted : Highlight.NotHighlighted;
+            CurrentHighlightState = HasCursorOver(GuiManager.Cursor) ? Highlight.Highlighted : Highlight.NotHighlighted;
         }
 
         private void CircleButtonInstanceOnRollOff(IWindow window)

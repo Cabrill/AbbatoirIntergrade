@@ -226,6 +226,7 @@
     <Compile Include="GameClasses\Interfaces\IBuildButton.cs" />
     <Compile Include="GameClasses\Interfaces\ICity.cs" />
     <Compile Include="GameClasses\Levels\Chapter1Level.cs" />
+    <Compile Include="GameClasses\PlayerData.cs" />
     <Compile Include="GameClasses\SunTimes.cs" />
     <Compile Include="GameClasses\InsolationFormulas.cs" />
     <Compile Include="GameClasses\BaseClasses\BaseLevel.cs" />
@@ -238,7 +239,10 @@
     <Compile Include="GumRuntimes\Behaviors\IScrollViewerBehavior.Generated.cs" />
     <Compile Include="GumRuntimes\Behaviors\ITextBoxBehavior.Generated.cs" />
     <Compile Include="GumRuntimes\Behaviors\IToggleBehavior.Generated.cs" />
-    <Compile Include="GumRuntimes\BuildMenuRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\BuildMenuRuntime.cs" />
+    <Compile Include="GumRuntimes\BuildMenuRuntime.Generated.cs">
+      <DependentUpon>BuildMenuRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\ChatBoxRuntime.Generated.cs">
       <DependentUpon>ChatBoxRuntime.cs</DependentUpon>
     </Compile>
@@ -298,6 +302,11 @@
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\OptionsBoxRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\SpecificButtons\BuildButtonRuntime.cs" />
+    <Compile Include="GumRuntimes\SpecificButtons\BuildButtonRuntime.Generated.cs">
+      <DependentUpon>BuildButtonRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\SpecificButtons\ButtonFrame1Runtime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\CircleButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\CloseChatButtonRuntime.cs" />
     <Compile Include="GumRuntimes\specificbuttons\CloseChatButtonRuntime.Generated.cs">
@@ -321,22 +330,8 @@
     <Compile Include="Screens\GameScreen.Generated.Event.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="StateInterpolation\Back.cs" />
-    <Compile Include="StateInterpolation\Bounce.cs" />
-    <Compile Include="StateInterpolation\Circular.cs" />
-    <Compile Include="StateInterpolation\Cubic.cs" />
-    <Compile Include="StateInterpolation\Elastic.cs" />
-    <Compile Include="StateInterpolation\Exponential.cs" />
-    <Compile Include="StateInterpolation\Instant.cs" />
-    <Compile Include="StateInterpolation\Linear.cs" />
-    <Compile Include="StateInterpolation\Quadratic.cs" />
-    <Compile Include="StateInterpolation\Quartic.cs" />
-    <Compile Include="StateInterpolation\Quintic.cs" />
-    <Compile Include="StateInterpolation\ShakeTweener.cs" />
-    <Compile Include="StateInterpolation\Sinusoidal.cs" />
-    <Compile Include="StateInterpolation\Tweener.cs" />
-    <Compile Include="StateInterpolation\TweenerManager.cs" />
     <Compile Include="StaticManagers\CameraZoomManager.cs" />
+    <Compile Include="StaticManagers\PlayerDataManager.cs" />
     <Compile Include="StaticManagers\WaterManager.cs" />
     <Compile Include="Screens\GameScreen.BuildButtons.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
@@ -642,6 +637,10 @@
     <None Include="content\gumproject\components\optionsbox.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>OptionsBox</Name>
+    </None>
+    <None Include="content\gumproject\components\specificbuttons\buildbutton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BuildButton</Name>
     </None>
     <None Include="content\gumproject\components\specificbuttons\closechatbutton.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

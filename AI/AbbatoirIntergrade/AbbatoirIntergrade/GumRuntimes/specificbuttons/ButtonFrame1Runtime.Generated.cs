@@ -1,7 +1,7 @@
     using System.Linq;
     namespace AbbatoirIntergrade.GumRuntimes
     {
-        public partial class ButtonFrameRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
+        public partial class ButtonFrame1Runtime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
             #region State Enums
             public enum VariableState
@@ -487,7 +487,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ButtonFrame1Runtime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.ButtonFrame1Runtime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -541,7 +541,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Highlight fromState,AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Highlight toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ButtonFrame1Runtime.Highlight fromState,AbbatoirIntergrade.GumRuntimes.ButtonFrame1Runtime.Highlight toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -595,7 +595,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Select fromState,AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Select toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ButtonFrame1Runtime.Select fromState,AbbatoirIntergrade.GumRuntimes.ButtonFrame1Runtime.Select toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1215,14 +1215,14 @@
             }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime BackgroundSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SelectSprite { get; set; }
-            public ButtonFrameRuntime (bool fullInstantiation = true) 
+            public ButtonFrame1Runtime (bool fullInstantiation = true) 
             	: base(false)
             {
                 this.HasEvents = true;
                 this.ExposeChildrenEvents = false;
                 if (fullInstantiation)
                 {
-                    Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "frames/ButtonFrame");
+                    Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "SpecificButtons/ButtonFrame1");
                     this.ElementSave = elementSave;
                     string oldDirectory = FlatRedBall.IO.FileManager.RelativeDirectory;
                     FlatRedBall.IO.FileManager.RelativeDirectory = FlatRedBall.IO.FileManager.GetDirectory(Gum.Managers.ObjectFinder.Self.GumProjectSave.FullFileName);

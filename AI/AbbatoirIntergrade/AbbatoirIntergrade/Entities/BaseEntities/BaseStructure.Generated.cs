@@ -461,6 +461,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 {
                     LightSpriteInstance.RelativeZ = -1f;
                 }
+                LightSpriteInstance.Texture = towers;
                 LightSpriteInstance.LeftTexturePixel = 1792f;
                 LightSpriteInstance.RightTexturePixel = 2048f;
                 LightSpriteInstance.TopTexturePixel = 1792f;
@@ -504,6 +505,18 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
             }
             RangeCircleInstance.Radius = 16f;
+            if (Parent == null)
+            {
+                Z = 1f;
+            }
+            else if (Parent is FlatRedBall.Camera)
+            {
+                RelativeZ = 1f - 40.0f;
+            }
+            else
+            {
+                RelativeZ = 1f;
+            }
             SpriteInstanceRed = 0f;
             SpriteInstanceGreen = 0f;
             SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;

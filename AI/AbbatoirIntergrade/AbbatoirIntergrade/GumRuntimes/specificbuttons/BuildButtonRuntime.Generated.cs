@@ -1,7 +1,7 @@
     using System.Linq;
     namespace AbbatoirIntergrade.GumRuntimes
     {
-        public partial class ButtonFrameRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
+        public partial class BuildButtonRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
             #region State Enums
             public enum VariableState
@@ -62,6 +62,26 @@
                             SelectSprite.Visible = false;
                             SelectSprite.Width = 100f;
                             SelectSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            StructureSprite.Height = 50f;
+                            StructureSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            StructureSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            StructureSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                            StructureSprite.Width = 50f;
+                            StructureSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            StructureSprite.X = 0f;
+                            StructureSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            StructureSprite.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            StructureSprite.Y = 0f;
+                            StructureSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            StructureSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddleInverted;
+                            ContainerInstance.Height = 56.90496f;
+                            ContainerInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ContainerInstance.Width = 56.27251f;
+                            ContainerInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ContainerInstance.X = 21.89936f;
+                            ContainerInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            ContainerInstance.Y = 21.32949f;
+                            ContainerInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             break;
                     }
                 }
@@ -140,6 +160,22 @@
                 bool setBackgroundSpriteWidthSecondValue = false;
                 float BackgroundSpriteWidthFirstValue= 0;
                 float BackgroundSpriteWidthSecondValue= 0;
+                bool setContainerInstanceHeightFirstValue = false;
+                bool setContainerInstanceHeightSecondValue = false;
+                float ContainerInstanceHeightFirstValue= 0;
+                float ContainerInstanceHeightSecondValue= 0;
+                bool setContainerInstanceWidthFirstValue = false;
+                bool setContainerInstanceWidthSecondValue = false;
+                float ContainerInstanceWidthFirstValue= 0;
+                float ContainerInstanceWidthSecondValue= 0;
+                bool setContainerInstanceXFirstValue = false;
+                bool setContainerInstanceXSecondValue = false;
+                float ContainerInstanceXFirstValue= 0;
+                float ContainerInstanceXSecondValue= 0;
+                bool setContainerInstanceYFirstValue = false;
+                bool setContainerInstanceYSecondValue = false;
+                float ContainerInstanceYFirstValue= 0;
+                float ContainerInstanceYSecondValue= 0;
                 bool setHeightFirstValue = false;
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
@@ -168,6 +204,22 @@
                 bool setSelectSpriteWidthSecondValue = false;
                 float SelectSpriteWidthFirstValue= 0;
                 float SelectSpriteWidthSecondValue= 0;
+                bool setStructureSpriteHeightFirstValue = false;
+                bool setStructureSpriteHeightSecondValue = false;
+                float StructureSpriteHeightFirstValue= 0;
+                float StructureSpriteHeightSecondValue= 0;
+                bool setStructureSpriteWidthFirstValue = false;
+                bool setStructureSpriteWidthSecondValue = false;
+                float StructureSpriteWidthFirstValue= 0;
+                float StructureSpriteWidthSecondValue= 0;
+                bool setStructureSpriteXFirstValue = false;
+                bool setStructureSpriteXSecondValue = false;
+                float StructureSpriteXFirstValue= 0;
+                float StructureSpriteXSecondValue= 0;
+                bool setStructureSpriteYFirstValue = false;
+                bool setStructureSpriteYSecondValue = false;
+                float StructureSpriteYFirstValue= 0;
+                float StructureSpriteYSecondValue= 0;
                 bool setWidthFirstValue = false;
                 bool setWidthSecondValue = false;
                 float WidthFirstValue= 0;
@@ -202,6 +254,30 @@
                         if (interpolationValue < 1)
                         {
                             this.BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setContainerInstanceHeightFirstValue = true;
+                        ContainerInstanceHeightFirstValue = 56.90496f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ContainerInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setContainerInstanceWidthFirstValue = true;
+                        ContainerInstanceWidthFirstValue = 56.27251f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ContainerInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setContainerInstanceXFirstValue = true;
+                        ContainerInstanceXFirstValue = 21.89936f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ContainerInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        setContainerInstanceYFirstValue = true;
+                        ContainerInstanceYFirstValue = 21.32949f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ContainerInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setHeightFirstValue = true;
                         HeightFirstValue = 24.47f;
@@ -240,6 +316,46 @@
                         if (interpolationValue < 1)
                         {
                             this.SelectSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setStructureSpriteHeightFirstValue = true;
+                        StructureSpriteHeightFirstValue = 50f;
+                        if (interpolationValue < 1)
+                        {
+                            this.StructureSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.StructureSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.StructureSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                        }
+                        setStructureSpriteWidthFirstValue = true;
+                        StructureSpriteWidthFirstValue = 50f;
+                        if (interpolationValue < 1)
+                        {
+                            this.StructureSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setStructureSpriteXFirstValue = true;
+                        StructureSpriteXFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.StructureSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.StructureSprite.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        setStructureSpriteYFirstValue = true;
+                        StructureSpriteYFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.StructureSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.StructureSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddleInverted;
                         }
                         setWidthFirstValue = true;
                         WidthFirstValue = 13.647f;
@@ -280,6 +396,30 @@
                         {
                             this.BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setContainerInstanceHeightSecondValue = true;
+                        ContainerInstanceHeightSecondValue = 56.90496f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ContainerInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setContainerInstanceWidthSecondValue = true;
+                        ContainerInstanceWidthSecondValue = 56.27251f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ContainerInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setContainerInstanceXSecondValue = true;
+                        ContainerInstanceXSecondValue = 21.89936f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ContainerInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        setContainerInstanceYSecondValue = true;
+                        ContainerInstanceYSecondValue = 21.32949f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ContainerInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
                         setHeightSecondValue = true;
                         HeightSecondValue = 24.47f;
                         if (interpolationValue >= 1)
@@ -318,6 +458,46 @@
                         {
                             this.SelectSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setStructureSpriteHeightSecondValue = true;
+                        StructureSpriteHeightSecondValue = 50f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.StructureSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.StructureSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.StructureSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                        }
+                        setStructureSpriteWidthSecondValue = true;
+                        StructureSpriteWidthSecondValue = 50f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.StructureSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setStructureSpriteXSecondValue = true;
+                        StructureSpriteXSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.StructureSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.StructureSprite.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        setStructureSpriteYSecondValue = true;
+                        StructureSpriteYSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.StructureSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.StructureSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddleInverted;
+                        }
                         setWidthSecondValue = true;
                         WidthSecondValue = 13.647f;
                         if (interpolationValue >= 1)
@@ -350,6 +530,22 @@
                 {
                     BackgroundSprite.Width = BackgroundSpriteWidthFirstValue * (1 - interpolationValue) + BackgroundSpriteWidthSecondValue * interpolationValue;
                 }
+                if (setContainerInstanceHeightFirstValue && setContainerInstanceHeightSecondValue)
+                {
+                    ContainerInstance.Height = ContainerInstanceHeightFirstValue * (1 - interpolationValue) + ContainerInstanceHeightSecondValue * interpolationValue;
+                }
+                if (setContainerInstanceWidthFirstValue && setContainerInstanceWidthSecondValue)
+                {
+                    ContainerInstance.Width = ContainerInstanceWidthFirstValue * (1 - interpolationValue) + ContainerInstanceWidthSecondValue * interpolationValue;
+                }
+                if (setContainerInstanceXFirstValue && setContainerInstanceXSecondValue)
+                {
+                    ContainerInstance.X = ContainerInstanceXFirstValue * (1 - interpolationValue) + ContainerInstanceXSecondValue * interpolationValue;
+                }
+                if (setContainerInstanceYFirstValue && setContainerInstanceYSecondValue)
+                {
+                    ContainerInstance.Y = ContainerInstanceYFirstValue * (1 - interpolationValue) + ContainerInstanceYSecondValue * interpolationValue;
+                }
                 if (setHeightFirstValue && setHeightSecondValue)
                 {
                     Height = HeightFirstValue * (1 - interpolationValue) + HeightSecondValue * interpolationValue;
@@ -377,6 +573,22 @@
                 if (setSelectSpriteWidthFirstValue && setSelectSpriteWidthSecondValue)
                 {
                     SelectSprite.Width = SelectSpriteWidthFirstValue * (1 - interpolationValue) + SelectSpriteWidthSecondValue * interpolationValue;
+                }
+                if (setStructureSpriteHeightFirstValue && setStructureSpriteHeightSecondValue)
+                {
+                    StructureSprite.Height = StructureSpriteHeightFirstValue * (1 - interpolationValue) + StructureSpriteHeightSecondValue * interpolationValue;
+                }
+                if (setStructureSpriteWidthFirstValue && setStructureSpriteWidthSecondValue)
+                {
+                    StructureSprite.Width = StructureSpriteWidthFirstValue * (1 - interpolationValue) + StructureSpriteWidthSecondValue * interpolationValue;
+                }
+                if (setStructureSpriteXFirstValue && setStructureSpriteXSecondValue)
+                {
+                    StructureSprite.X = StructureSpriteXFirstValue * (1 - interpolationValue) + StructureSpriteXSecondValue * interpolationValue;
+                }
+                if (setStructureSpriteYFirstValue && setStructureSpriteYSecondValue)
+                {
+                    StructureSprite.Y = StructureSpriteYFirstValue * (1 - interpolationValue) + StructureSpriteYSecondValue * interpolationValue;
                 }
                 if (setWidthFirstValue && setWidthSecondValue)
                 {
@@ -487,7 +699,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -541,7 +753,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Highlight fromState,AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Highlight toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime.Highlight fromState,AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime.Highlight toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -595,7 +807,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Select fromState,AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Select toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime.Select fromState,AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime.Select toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -863,6 +1075,166 @@
                             Value = SelectSprite.WidthUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Height",
+                            Type = "float",
+                            Value = StructureSprite.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = StructureSprite.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Parent",
+                            Type = "string",
+                            Value = StructureSprite.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Texture Address",
+                            Type = "TextureAddress",
+                            Value = StructureSprite.TextureAddress
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Width",
+                            Type = "float",
+                            Value = StructureSprite.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = StructureSprite.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.X",
+                            Type = "float",
+                            Value = StructureSprite.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = StructureSprite.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.X Units",
+                            Type = "PositionUnitType",
+                            Value = StructureSprite.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Y",
+                            Type = "float",
+                            Value = StructureSprite.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = StructureSprite.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Y Units",
+                            Type = "PositionUnitType",
+                            Value = StructureSprite.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContainerInstance.Height",
+                            Type = "float",
+                            Value = ContainerInstance.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContainerInstance.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ContainerInstance.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContainerInstance.Width",
+                            Type = "float",
+                            Value = ContainerInstance.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContainerInstance.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ContainerInstance.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContainerInstance.X",
+                            Type = "float",
+                            Value = ContainerInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContainerInstance.X Units",
+                            Type = "PositionUnitType",
+                            Value = ContainerInstance.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContainerInstance.Y",
+                            Type = "float",
+                            Value = ContainerInstance.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContainerInstance.Y Units",
+                            Type = "PositionUnitType",
+                            Value = ContainerInstance.YUnits
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -1073,6 +1445,166 @@
                             Value = SelectSprite.WidthUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Height",
+                            Type = "float",
+                            Value = StructureSprite.Height + 50f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = StructureSprite.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Parent",
+                            Type = "string",
+                            Value = StructureSprite.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Texture Address",
+                            Type = "TextureAddress",
+                            Value = StructureSprite.TextureAddress
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Width",
+                            Type = "float",
+                            Value = StructureSprite.Width + 50f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = StructureSprite.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.X",
+                            Type = "float",
+                            Value = StructureSprite.X + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = StructureSprite.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.X Units",
+                            Type = "PositionUnitType",
+                            Value = StructureSprite.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Y",
+                            Type = "float",
+                            Value = StructureSprite.Y + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = StructureSprite.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StructureSprite.Y Units",
+                            Type = "PositionUnitType",
+                            Value = StructureSprite.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContainerInstance.Height",
+                            Type = "float",
+                            Value = ContainerInstance.Height + 56.90496f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContainerInstance.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ContainerInstance.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContainerInstance.Width",
+                            Type = "float",
+                            Value = ContainerInstance.Width + 56.27251f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContainerInstance.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ContainerInstance.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContainerInstance.X",
+                            Type = "float",
+                            Value = ContainerInstance.X + 21.89936f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContainerInstance.X Units",
+                            Type = "PositionUnitType",
+                            Value = ContainerInstance.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContainerInstance.Y",
+                            Type = "float",
+                            Value = ContainerInstance.Y + 21.32949f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContainerInstance.Y Units",
+                            Type = "PositionUnitType",
+                            Value = ContainerInstance.YUnits
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -1215,14 +1747,16 @@
             }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime BackgroundSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SelectSprite { get; set; }
-            public ButtonFrameRuntime (bool fullInstantiation = true) 
+            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime StructureSprite { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ContainerInstance { get; set; }
+            public BuildButtonRuntime (bool fullInstantiation = true) 
             	: base(false)
             {
                 this.HasEvents = true;
                 this.ExposeChildrenEvents = false;
                 if (fullInstantiation)
                 {
-                    Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "frames/ButtonFrame");
+                    Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "SpecificButtons/BuildButton");
                     this.ElementSave = elementSave;
                     string oldDirectory = FlatRedBall.IO.FileManager.RelativeDirectory;
                     FlatRedBall.IO.FileManager.RelativeDirectory = FlatRedBall.IO.FileManager.GetDirectory(Gum.Managers.ObjectFinder.Self.GumProjectSave.FullFileName);
@@ -1245,6 +1779,8 @@
             {
                 BackgroundSprite = this.GetGraphicalUiElementByName("BackgroundSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 SelectSprite = this.GetGraphicalUiElementByName("SelectSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
+                StructureSprite = this.GetGraphicalUiElementByName("StructureSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
+                ContainerInstance = this.GetGraphicalUiElementByName("ContainerInstance") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {
