@@ -16,9 +16,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	{
         void OnAfterIsBeingPlacedSet (object sender, EventArgs e)
         {
-            CheckmarkInstance.Visible = IsBeingPlaced;
-            XCancelInstance.Visible = IsBeingPlaced;
-
             if (_hudLayer != null)
             { 
                 _hudLayer.Remove(SpriteInstance);
@@ -31,12 +28,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (CurrentState != VariableState.CantAfford)
             {
                 CurrentState = VariableState.ValidLocation;
-                CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
             }
             else
             {
                 CurrentState = VariableState.InvalidLocation;
-                CheckmarkInstance.CurrentState = Checkmark.VariableState.Disabled;
             }
         }
 	}

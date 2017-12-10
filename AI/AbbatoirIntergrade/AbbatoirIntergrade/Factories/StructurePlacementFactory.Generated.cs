@@ -24,7 +24,7 @@ namespace AbbatoirIntergrade.Factories
             instance.AddToManagers(layer);
             instance.X = x;
             instance.Y = y;
-            foreach (var list in listsToAddTo)
+            foreach (var list in ListsToAddTo)
             {
                 if (SortAxis == FlatRedBall.Math.Axis.X && list is PositionedObjectList<StructurePlacement>)
                 {
@@ -57,7 +57,7 @@ namespace AbbatoirIntergrade.Factories
         public static void Destroy () 
         {
             mContentManagerName = null;
-            listsToAddTo.Clear();
+            ListsToAddTo.Clear();
             SortAxis = null;
             mPool.Clear();
             EntitySpawned = null;
@@ -98,12 +98,20 @@ namespace AbbatoirIntergrade.Factories
         
         public static void AddList<T> (System.Collections.Generic.IList<T> newList) where T : StructurePlacement
         {
-            listsToAddTo.Add(newList as System.Collections.IList);
+            ListsToAddTo.Add(newList as System.Collections.IList);
+        }
+        public static void RemoveList<T> (System.Collections.Generic.IList<T> newList) where T : StructurePlacement
+        {
+            ListsToAddTo.Remove(newList as System.Collections.IList);
+        }
+        public static void ClearListsToAddTo () 
+        {
+            ListsToAddTo.Clear();
         }
         
         
             static string mContentManagerName;
-            static System.Collections.Generic.List<System.Collections.IList> listsToAddTo = new System.Collections.Generic.List<System.Collections.IList>();
+            static System.Collections.Generic.List<System.Collections.IList> ListsToAddTo = new System.Collections.Generic.List<System.Collections.IList>();
             static PoolList<StructurePlacement> mPool = new PoolList<StructurePlacement>();
             public static Action<StructurePlacement> EntitySpawned;
             object IEntityFactory.CreateNew () 
@@ -113,6 +121,14 @@ namespace AbbatoirIntergrade.Factories
             object IEntityFactory.CreateNew (Layer layer) 
             {
                 return StructurePlacementFactory.CreateNew(layer);
+            }
+            void IEntityFactory.Initialize (string contentManagerName) 
+            {
+                StructurePlacementFactory.Initialize(contentManagerName);
+            }
+            void IEntityFactory.ClearListsToAddTo () 
+            {
+                StructurePlacementFactory.ClearListsToAddTo();
             }
             static StructurePlacementFactory mSelf;
             public static StructurePlacementFactory Self

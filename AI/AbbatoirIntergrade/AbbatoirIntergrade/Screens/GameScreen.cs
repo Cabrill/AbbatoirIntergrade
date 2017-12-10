@@ -15,6 +15,7 @@ using AbbatoirIntergrade.GameClasses;
 using AbbatoirIntergrade.GameClasses.BaseClasses;
 using AbbatoirIntergrade.GameClasses.Levels;
 using AbbatoirIntergrade.GumRuntimes;
+using AbbatoirIntergrade.Performance;
 using AbbatoirIntergrade.StaticManagers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -169,70 +170,7 @@ namespace AbbatoirIntergrade.Screens
             BaseStructure.Initialize(AllEnemiesList);
             BaseEnemy.Initialize(maxY);
         }
-
-        private void InitializeFactories()
-        {
-            LaserTurretProjectileFactory.EntitySpawned +=
-                projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
-
-            CannonProjectileFactory.EntitySpawned +=
-                projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
-
-            TallLaserProjectileFactory.EntitySpawned +=
-                projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
-
-            //LaserTurretFactory.EntitySpawned +=
-            //    turrent => turrent.AddSpritesToLayers(LightLayer, InfoLayer);
-
-            //CannonFactory.EntitySpawned +=
-            //    cannon => cannon.AddSpritesToLayers(LightLayer, InfoLayer);
-
-            //TallLaserFactory.EntitySpawned +=
-            //    laser => laser.AddSpritesToLayers(LightLayer, InfoLayer);
-
-            
-            StructurePlacementFactory.EntitySpawned +=
-                placement => placement.AddSpritesToLayers(LightLayer, InfoLayer);
-
-            BasicAlienFactory.Initialize(ContentManagerName);
-            BasicAlienFactory.AddList(AllEnemiesList);
-
-            BasicAlienFactory.EntitySpawned +=
-                alien =>
-                {
-                    alien.AddSpritesToLayers(LightLayer, InfoLayer);
-                    alien.OnDeath += CreateResourceNotification;
-                };
-
-            MeleeAlienFactory.EntitySpawned +=
-                alien =>
-                {
-                    alien.AddSpritesToLayers(LightLayer, InfoLayer);
-                    alien.OnDeath += CreateResourceNotification;
-                };
-
-            FlyingEnemyFactory.EntitySpawned +=
-                alien =>
-                {
-                    alien.AddSpritesToLayers(LightLayer, InfoLayer);
-                    alien.OnDeath += CreateResourceNotification;
-                };
-
-            SlimeAlienFactory.EntitySpawned +=
-                alien =>
-                {
-                    alien.AddSpritesToLayers(LightLayer, InfoLayer);
-                    alien.OnDeath += CreateResourceNotification;
-                };
-
-            SmallSlimeFactory.EntitySpawned +=
-                alien =>
-                {
-                    alien.AddSpritesToLayers(LightLayer, InfoLayer);
-                    alien.OnDeath += CreateResourceNotification;
-                };
-        }
-
+        
         void LoadTiledMap()
         {
             FlatRedBall.TileEntities.TileEntityInstantiator.CreateEntitiesFrom(Chapter1);
@@ -585,33 +523,29 @@ namespace AbbatoirIntergrade.Screens
 
             if (InputManager.Keyboard.KeyPushed(Keys.X))
 	        {
-	            var newAlien = SmallSlimeFactory.CreateNew(WorldLayer);
+	            var newAlien = Chicken1EnemyFactory.CreateNew(WorldLayer);
                 newAlien.FollowLine(Pathing);
 	        }
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.Z))
 	        {
-	            var newAlien = BasicAlienFactory.CreateNew(WorldLayer);
+	            var newAlien = Cow1EnemyFactory.CreateNew(WorldLayer);
 	            newAlien.FollowLine(Pathing);
             }
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.C))
 	        {
-	            var newAlien = SlimeAlienFactory.CreateNew(WorldLayer);
+	            var newAlien = Sheep1EnemyFactory.CreateNew(WorldLayer);
 	            newAlien.FollowLine(Pathing);
             }
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.V))
 	        {
-	            var newAlien = FlyingEnemyFactory.CreateNew(WorldLayer);
+	            var newAlien = Pig1EnemyFactory.CreateNew(WorldLayer);
 	            newAlien.FollowLine(Pathing);
             }
 
-	        if (InputManager.Keyboard.KeyPushed(Keys.B))
-	        {
-	            var newAlien = MeleeAlienFactory.CreateNew(WorldLayer);
-	            newAlien.FollowLine(Pathing);
-            }
+
             if (InputManager.Keyboard.KeyDown(Keys.Y))
 	        {
 	            CameraZoomManager.PerformZoom(0, 0, 0.1f);

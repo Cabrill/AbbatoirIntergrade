@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BehaviorSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>ScrollViewerBehavior</Name>
+  <RequiredVariables />
+  <RequiredInstances>
+    <InstanceSave>
+      <Name>VerticalScrollBarInstance</Name>
+    </InstanceSave>
+    <InstanceSave>
+      <Name>InnerPanelInstance</Name>
+    </InstanceSave>
+    <InstanceSave>
+      <Name>ClipContainerInstance</Name>
+    </InstanceSave>
+  </RequiredInstances>
+</BehaviorSave>

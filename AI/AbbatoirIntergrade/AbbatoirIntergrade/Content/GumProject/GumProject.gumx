@@ -117,6 +117,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>OptionsBox</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>specificbuttons/CloseChatButton</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
@@ -156,4 +160,28 @@
     <Name>Text</Name>
     <ElementType>Standard</ElementType>
   </StandardElementReference>
+  <BehaviorReference>
+    <Name>ButtonBehavior</Name>
+  </BehaviorReference>
+  <BehaviorReference>
+    <Name>ComboBoxBehavior</Name>
+  </BehaviorReference>
+  <BehaviorReference>
+    <Name>ListBoxItemBehavior</Name>
+  </BehaviorReference>
+  <BehaviorReference>
+    <Name>RadioButtonBehavior</Name>
+  </BehaviorReference>
+  <BehaviorReference>
+    <Name>ScrollBarBehavior</Name>
+  </BehaviorReference>
+  <BehaviorReference>
+    <Name>ScrollViewerBehavior</Name>
+  </BehaviorReference>
+  <BehaviorReference>
+    <Name>TextBoxBehavior</Name>
+  </BehaviorReference>
+  <BehaviorReference>
+    <Name>ToggleBehavior</Name>
+  </BehaviorReference>
 </GumProjectSave>

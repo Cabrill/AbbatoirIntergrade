@@ -5,6 +5,7 @@ using Color = Microsoft.Xna.Framework.Color;
 using AbbatoirIntergrade.Screens;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
+using AbbatoirIntergrade.Performance;
 using FlatRedBall.Gui;
 using AbbatoirIntergrade.Entities.BaseEntities;
 using AbbatoirIntergrade.Entities;
@@ -21,7 +22,7 @@ using System.Text;
 using FlatRedBall.Math.Geometry;
 namespace AbbatoirIntergrade.Entities.Structures
 {
-    public partial class PiercingTower : AbbatoirIntergrade.Entities.BaseEntities.BaseStructure, FlatRedBall.Graphics.IDestroyable, FlatRedBall.Graphics.IVisible, FlatRedBall.Gui.IClickable
+    public partial class PiercingTower : AbbatoirIntergrade.Entities.BaseEntities.BaseStructure, FlatRedBall.Graphics.IDestroyable, FlatRedBall.Performance.IPoolable, FlatRedBall.Graphics.IVisible, FlatRedBall.Gui.IClickable
     {
         // This is made static so that static lazy-loaded content can access it.
         public static new string ContentManagerName
@@ -42,6 +43,8 @@ namespace AbbatoirIntergrade.Entities.Structures
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         
+        public int Index { get; set; }
+        public bool Used { get; set; }
         public new event System.EventHandler BeforeVisibleSet;
         public new event System.EventHandler AfterVisibleSet;
         public override bool Visible
@@ -113,19 +116,23 @@ namespace AbbatoirIntergrade.Entities.Structures
         }
         public override void Destroy () 
         {
+            if (Used)
+            {
+                Factories.PiercingTowerFactory.MakeUnused(this, false);
+            }
             base.Destroy();
             
             if (SpriteInstance != null)
             {
-                FlatRedBall.SpriteManager.RemoveSprite(SpriteInstance);
+                FlatRedBall.SpriteManager.RemoveSpriteOneWay(SpriteInstance);
             }
             if (AxisAlignedRectangleInstance != null)
             {
-                FlatRedBall.Math.Geometry.ShapeManager.Remove(AxisAlignedRectangleInstance);
+                FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(AxisAlignedRectangleInstance);
             }
             if (LightSpriteInstance != null)
             {
-                FlatRedBall.SpriteManager.RemoveSprite(LightSpriteInstance);
+                FlatRedBall.SpriteManager.RemoveSpriteOneWay(LightSpriteInstance);
             }
             CustomDestroy();
         }
@@ -139,6 +146,11 @@ namespace AbbatoirIntergrade.Entities.Structures
                 SpriteInstance.CopyAbsoluteToRelative();
                 SpriteInstance.AttachTo(this, false);
             }
+            base.SpriteInstance.Texture = towers;
+            base.SpriteInstance.LeftTexturePixel = 0f;
+            base.SpriteInstance.RightTexturePixel = 301f;
+            base.SpriteInstance.TopTexturePixel = 1314f;
+            base.SpriteInstance.BottomTexturePixel = 1605f;
             base.SpriteInstance.TextureScale = 1f;
             if (mAxisAlignedRectangleInstance.Parent == null)
             {
@@ -200,6 +212,11 @@ namespace AbbatoirIntergrade.Entities.Structures
             if (callOnContainedElements)
             {
             }
+            base.SpriteInstance.Texture = towers;
+            base.SpriteInstance.LeftTexturePixel = 0f;
+            base.SpriteInstance.RightTexturePixel = 301f;
+            base.SpriteInstance.TopTexturePixel = 1314f;
+            base.SpriteInstance.BottomTexturePixel = 1605f;
             base.SpriteInstance.TextureScale = 1f;
             base.AxisAlignedRectangleInstance.Width = 64f;
             base.AxisAlignedRectangleInstance.Height = 64f;

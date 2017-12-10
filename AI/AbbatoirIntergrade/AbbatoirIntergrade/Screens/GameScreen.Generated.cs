@@ -230,11 +230,27 @@ namespace AbbatoirIntergrade.Screens
         public override void Destroy () 
         {
             base.Destroy();
-            BasicAlienFactory.Destroy();
-            FlyingEnemyFactory.Destroy();
-            MeleeAlienFactory.Destroy();
-            SlimeAlienFactory.Destroy();
-            SmallSlimeFactory.Destroy();
+            BombardingTowerFactory.Destroy();
+            ChemicalTowerFactory.Destroy();
+            ElectricTowerFactory.Destroy();
+            FireTowerFactory.Destroy();
+            FrostTowerFactory.Destroy();
+            PiercingTowerFactory.Destroy();
+            Chicken1EnemyFactory.Destroy();
+            Chicken2EnemyFactory.Destroy();
+            Chicken3EnemyFactory.Destroy();
+            Cow1EnemyFactory.Destroy();
+            Cow2EnemyFactory.Destroy();
+            Cow3EnemyFactory.Destroy();
+            Pig1EnemyFactory.Destroy();
+            Pig2EnemyFactory.Destroy();
+            Pig3EnemyFactory.Destroy();
+            Rabbit1EnemyFactory.Destroy();
+            Rabbit2EnemyFactory.Destroy();
+            Rabbit3EnemyFactory.Destroy();
+            Sheep1EnemyFactory.Destroy();
+            Sheep2EnemyFactory.Destroy();
+            Sheep3EnemyFactory.Destroy();
             CannonProjectileFactory.Destroy();
             LaserTurretProjectileFactory.Destroy();
             TallLaserProjectileFactory.Destroy();

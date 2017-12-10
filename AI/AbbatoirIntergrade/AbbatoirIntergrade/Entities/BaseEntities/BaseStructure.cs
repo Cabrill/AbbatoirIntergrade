@@ -112,18 +112,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 UpdateScale();
 
                 CurrentState = VariableState.InvalidLocation;
-                CheckmarkInstance.CurrentState = Checkmark.VariableState.Disabled;
-
-                if (CheckmarkInstance.CurrentState == Checkmark.VariableState.Enabled &&
-                    CheckmarkInstance.WasClickedThisFrame(GuiManager.Cursor))
-                {
-                    BuildStructure();
-                }
-
-                if (XCancelInstance.WasClickedThisFrame(GuiManager.Cursor))
-                {
-                    Destroy();
-                }
             }
             else
             {
@@ -182,11 +170,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     buttonHeight = (baseFrame.BottomCoordinate - baseFrame.TopCoordinate) * baseFrame.Texture.Height *
                                    _currentScale;
                 }
-                XCancelInstance.RelativeX = XCancelInstance.Width + buttonDistance / 1.5f;
-                CheckmarkInstance.RelativeX = -CheckmarkInstance.Width - buttonDistance / 1.5f;
-
-                XCancelInstance.RelativeY = buttonHeight + XCancelInstance.Height;
-                CheckmarkInstance.RelativeY = XCancelInstance.RelativeY;
             }
 
             if (_startingRangeRadius.HasValue)
@@ -301,12 +284,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         protected void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
         {
             _hudLayer = hudLayer;
-
-            LayerProvidedByContainer.Remove(CheckmarkInstance.SpriteInstance);
-            CheckmarkInstance.MoveToLayer(hudLayer);
-
-            LayerProvidedByContainer.Remove(XCancelInstance.SpriteInstance);
-            XCancelInstance.MoveToLayer(hudLayer);
 
             LayerProvidedByContainer.Remove(AxisAlignedRectangleInstance);
             ShapeManager.AddToLayer(AxisAlignedRectangleInstance, hudLayer);

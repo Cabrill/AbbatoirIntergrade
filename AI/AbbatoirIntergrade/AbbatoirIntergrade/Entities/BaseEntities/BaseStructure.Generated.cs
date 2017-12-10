@@ -135,6 +135,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static Microsoft.Xna.Framework.Audio.SoundEffect Structure_Placed;
         protected static Microsoft.Xna.Framework.Audio.SoundEffect Building_Destroyed;
+        protected static Microsoft.Xna.Framework.Graphics.Texture2D towers;
         
         protected FlatRedBall.Sprite mSpriteInstance;
         public FlatRedBall.Sprite SpriteInstance
@@ -160,8 +161,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 mAxisAlignedRectangleInstance = value;
             }
         }
-        private AbbatoirIntergrade.Entities.GraphicalElements.Checkmark CheckmarkInstance;
-        private AbbatoirIntergrade.Entities.GraphicalElements.XCancel XCancelInstance;
         protected FlatRedBall.Sprite LightSpriteInstance;
         private FlatRedBall.Math.Geometry.Circle mRangeCircleInstance;
         public FlatRedBall.Math.Geometry.Circle RangeCircleInstance
@@ -383,10 +382,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         protected virtual void InitializeEntity (bool addToManagers) 
         {
             LoadStaticContent(ContentManagerName);
-            CheckmarkInstance = new AbbatoirIntergrade.Entities.GraphicalElements.Checkmark(ContentManagerName, false);
-            CheckmarkInstance.Name = "CheckmarkInstance";
-            XCancelInstance = new AbbatoirIntergrade.Entities.GraphicalElements.XCancel(ContentManagerName, false);
-            XCancelInstance.Name = "XCancelInstance";
             mRangeCircleInstance = new FlatRedBall.Math.Geometry.Circle();
             mRangeCircleInstance.Name = "mRangeCircleInstance";
             
@@ -400,16 +395,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             LayerProvidedByContainer = layerToAddTo;
             FlatRedBall.SpriteManager.AddPositionedObject(this);
-            CheckmarkInstance.ReAddToManagers(LayerProvidedByContainer);
-            XCancelInstance.ReAddToManagers(LayerProvidedByContainer);
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mRangeCircleInstance, LayerProvidedByContainer);
         }
         public virtual void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
             LayerProvidedByContainer = layerToAddTo;
             FlatRedBall.SpriteManager.AddPositionedObject(this);
-            CheckmarkInstance.AddToManagers(LayerProvidedByContainer);
-            XCancelInstance.AddToManagers(LayerProvidedByContainer);
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mRangeCircleInstance, LayerProvidedByContainer);
             AddToManagersBottomUp(layerToAddTo);
             CustomInitialize();
@@ -418,24 +409,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             mIsPaused = false;
             
-            CheckmarkInstance.Activity();
-            XCancelInstance.Activity();
             CustomActivity();
         }
         public virtual void Destroy () 
         {
             FlatRedBall.SpriteManager.RemovePositionedObject(this);
             
-            if (CheckmarkInstance != null)
-            {
-                CheckmarkInstance.Destroy();
-                CheckmarkInstance.Detach();
-            }
-            if (XCancelInstance != null)
-            {
-                XCancelInstance.Destroy();
-                XCancelInstance.Detach();
-            }
             if (RangeCircleInstance != null)
             {
                 FlatRedBall.Math.Geometry.ShapeManager.Remove(RangeCircleInstance);
@@ -466,64 +445,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 }
                 AxisAlignedRectangleInstance.Width = 64f;
                 AxisAlignedRectangleInstance.Height = 64f;
-            }
-            if (CheckmarkInstance.Parent == null)
-            {
-                CheckmarkInstance.CopyAbsoluteToRelative();
-                CheckmarkInstance.AttachTo(this, false);
-            }
-            if (CheckmarkInstance.Parent == null)
-            {
-                CheckmarkInstance.X = -110f;
-            }
-            else
-            {
-                CheckmarkInstance.RelativeX = -110f;
-            }
-            if (CheckmarkInstance.Parent == null)
-            {
-                CheckmarkInstance.Y = 100f;
-            }
-            else
-            {
-                CheckmarkInstance.RelativeY = 100f;
-            }
-            if (CheckmarkInstance.Parent == null)
-            {
-                CheckmarkInstance.Z = 5f;
-            }
-            else
-            {
-                CheckmarkInstance.RelativeZ = 5f;
-            }
-            if (XCancelInstance.Parent == null)
-            {
-                XCancelInstance.CopyAbsoluteToRelative();
-                XCancelInstance.AttachTo(this, false);
-            }
-            if (XCancelInstance.Parent == null)
-            {
-                XCancelInstance.X = 110f;
-            }
-            else
-            {
-                XCancelInstance.RelativeX = 110f;
-            }
-            if (XCancelInstance.Parent == null)
-            {
-                XCancelInstance.Y = 100f;
-            }
-            else
-            {
-                XCancelInstance.RelativeY = 100f;
-            }
-            if (XCancelInstance.Parent == null)
-            {
-                XCancelInstance.Z = 5f;
-            }
-            else
-            {
-                XCancelInstance.RelativeZ = 5f;
             }
             if (LightSpriteInstance!= null)
             {
@@ -571,8 +492,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         public virtual void RemoveFromManagers () 
         {
             FlatRedBall.SpriteManager.ConvertToManuallyUpdated(this);
-            CheckmarkInstance.RemoveFromManagers();
-            XCancelInstance.RemoveFromManagers();
             if (RangeCircleInstance != null)
             {
                 FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(RangeCircleInstance);
@@ -583,56 +502,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             if (callOnContainedElements)
             {
-                CheckmarkInstance.AssignCustomVariables(true);
-                XCancelInstance.AssignCustomVariables(true);
-            }
-            if (CheckmarkInstance.Parent == null)
-            {
-                CheckmarkInstance.X = -110f;
-            }
-            else
-            {
-                CheckmarkInstance.RelativeX = -110f;
-            }
-            if (CheckmarkInstance.Parent == null)
-            {
-                CheckmarkInstance.Y = 100f;
-            }
-            else
-            {
-                CheckmarkInstance.RelativeY = 100f;
-            }
-            if (CheckmarkInstance.Parent == null)
-            {
-                CheckmarkInstance.Z = 5f;
-            }
-            else
-            {
-                CheckmarkInstance.RelativeZ = 5f;
-            }
-            if (XCancelInstance.Parent == null)
-            {
-                XCancelInstance.X = 110f;
-            }
-            else
-            {
-                XCancelInstance.RelativeX = 110f;
-            }
-            if (XCancelInstance.Parent == null)
-            {
-                XCancelInstance.Y = 100f;
-            }
-            else
-            {
-                XCancelInstance.RelativeY = 100f;
-            }
-            if (XCancelInstance.Parent == null)
-            {
-                XCancelInstance.Z = 5f;
-            }
-            else
-            {
-                XCancelInstance.RelativeZ = 5f;
             }
             RangeCircleInstance.Radius = 16f;
             SpriteInstanceRed = 0f;
@@ -658,8 +527,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (AxisAlignedRectangleInstance != null)
             {
             }
-            CheckmarkInstance.ConvertToManuallyUpdated();
-            XCancelInstance.ConvertToManuallyUpdated();
             if (LightSpriteInstance != null)
             {
                 FlatRedBall.SpriteManager.ConvertToManuallyUpdated(LightSpriteInstance);
@@ -703,9 +570,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 }
                 Structure_Placed = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/structure_placed", ContentManagerName);
                 Building_Destroyed = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/building_destroyed", ContentManagerName);
+                towers = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/globalcontent/towers.png", ContentManagerName);
             }
-            AbbatoirIntergrade.Entities.GraphicalElements.Checkmark.LoadStaticContent(contentManagerName);
-            AbbatoirIntergrade.Entities.GraphicalElements.XCancel.LoadStaticContent(contentManagerName);
             CustomLoadStaticContent(contentManagerName);
         }
         public static void UnloadStaticContent () 
@@ -1020,6 +886,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return Structure_Placed;
                 case  "Building_Destroyed":
                     return Building_Destroyed;
+                case  "towers":
+                    return towers;
             }
             return null;
         }
@@ -1031,6 +899,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return Structure_Placed;
                 case  "Building_Destroyed":
                     return Building_Destroyed;
+                case  "towers":
+                    return towers;
             }
             return null;
         }
@@ -1042,6 +912,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return Structure_Placed;
                 case  "Building_Destroyed":
                     return Building_Destroyed;
+                case  "towers":
+                    return towers;
             }
             return null;
         }
@@ -1064,14 +936,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 return false;
             }
             if (SpriteInstance.Alpha != 0 && SpriteInstance.AbsoluteVisible && cursor.IsOn3D(SpriteInstance, LayerProvidedByContainer))
-            {
-                return true;
-            }
-            if (CheckmarkInstance.HasCursorOver(cursor))
-            {
-                return true;
-            }
-            if (XCancelInstance.HasCursorOver(cursor))
             {
                 return true;
             }
@@ -1106,8 +970,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(AxisAlignedRectangleInstance);
             }
-            CheckmarkInstance.SetToIgnorePausing();
-            XCancelInstance.SetToIgnorePausing();
             if (LightSpriteInstance != null)
             {
                 FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(LightSpriteInstance);
@@ -1127,8 +989,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 layerToRemoveFrom.Remove(AxisAlignedRectangleInstance);
             }
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(AxisAlignedRectangleInstance, layerToMoveTo);
-            CheckmarkInstance.MoveToLayer(layerToMoveTo);
-            XCancelInstance.MoveToLayer(layerToMoveTo);
             if (layerToRemoveFrom != null)
             {
                 layerToRemoveFrom.Remove(LightSpriteInstance);
