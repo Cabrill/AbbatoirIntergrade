@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using AbbatoirIntergrade.Entities.BaseEntities;
 using AbbatoirIntergrade.Entities.GraphicalElements;
 using AbbatoirIntergrade.Performance;
+using RenderingLibrary;
+using Camera = FlatRedBall.Camera;
 
 namespace AbbatoirIntergrade.GumRuntimes
 {
@@ -16,19 +18,31 @@ namespace AbbatoirIntergrade.GumRuntimes
 
         public void DisplayForPlacement(StructurePlacement placement)
         {
-            if (MoreThanFour)
-            {
-                CurrentCapacityState = Capacity.Seven;
-            }
-            else
-            {
-                CurrentCapacityState = Capacity.Four;
-            }
-
             CurrentPlacement = placement;
 
             X = CurrentPlacement.X;
             Y = CurrentPlacement.Y;
+
+            var screenHeight = Camera.Main.OrthogonalHeight;
+
+            if (MoreThanFour)
+            {
+                CurrentCapacityState = Capacity.Seven;
+
+                if (BuildButtonInstance6.AbsoluteY < 0)
+                {
+                    CurrentCapacityState = X < 0 ? Capacity.SevenRight : Capacity.SevenLeft;
+                }
+            }
+            else
+            {
+                CurrentCapacityState = Capacity.Four;
+
+                if (BuildButtonInstance3.AbsoluteY < 0)
+                {
+                    CurrentCapacityState = X < 0 ? Capacity.FourRight : Capacity.FourLeft;
+                }
+            }
 
             Visible = true;
         }
