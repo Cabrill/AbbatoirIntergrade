@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AnimationChainArraySave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FileRelativeTextures>true</FileRelativeTextures>
+  <TimeMeasurementUnit>Second</TimeMeasurementUnit>
+  <CoordinateType>Pixel</CoordinateType>
+  <AnimationChain>
+    <Name>Shot</Name>
+    <Frame>
+      <TextureName>../AllParticles.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>1026</LeftCoordinate>
+      <RightCoordinate>1090</RightCoordinate>
+      <TopCoordinate>247</TopCoordinate>
+      <BottomCoordinate>253</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>../AllParticles.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>1092</LeftCoordinate>
+      <RightCoordinate>1156</RightCoordinate>
+      <TopCoordinate>247</TopCoordinate>
+      <BottomCoordinate>253</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>Impact</Name>
+    <Frame>
+      <TextureName>../AllParticles.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>1028</LeftCoordinate>
+      <RightCoordinate>1076</RightCoordinate>
+      <TopCoordinate>499</TopCoordinate>
+      <BottomCoordinate>505</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+</AnimationChainArraySave>

@@ -19,6 +19,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	{
 	    public float Altitude { get; set; }
 	    public float AltitudeVelocity { get; set; }
+        public DamageTypes DamageType { get; protected set; }
 
         private static float _maximumY;
 	    protected float _currentScale;

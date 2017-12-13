@@ -8,9 +8,25 @@
             {
                 Default
             }
+            public enum Scenery
+            {
+                Swamp,
+                DeadTrees,
+                ForestedHills,
+                RedMountains,
+                Plains,
+                SparseTrees
+            }
+            public enum CloudCover
+            {
+                CloudStart,
+                CloudEnd
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
+            Scenery mCurrentSceneryState;
+            CloudCover mCurrentCloudCoverState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -146,13 +162,32 @@
                             DawnDuskSprite.Wrap = true;
                             DawnDuskSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
                             DawnDuskSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                            CloudCoverSprite.Animate = false;
+                            CloudCoverSprite.Blue = 255;
+                            CloudCoverSprite.Green = 255;
+                            CloudCoverSprite.Height = 20f;
+                            CloudCoverSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            CloudCoverSprite.Red = 255;
+                            SetProperty("CloudCoverSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains-clouds.png");
+                            CloudCoverSprite.TextureAddress = Gum.Managers.TextureAddress.DimensionsBased;
+                            CloudCoverSprite.TextureHeight = 288;
+                            CloudCoverSprite.TextureHeightScale = 1f;
+                            CloudCoverSprite.TextureLeft = 0;
+                            CloudCoverSprite.TextureTop = 0;
+                            CloudCoverSprite.TextureWidth = 381;
+                            CloudCoverSprite.TextureWidthScale = 1f;
+                            CloudCoverSprite.Visible = true;
+                            CloudCoverSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            CloudCoverSprite.Wrap = true;
+                            CloudCoverSprite.X = 0f;
+                            CloudCoverSprite.Y = 0f;
                             ForegroundSprite.Animate = false;
-                            ForegroundSprite.Blue = 100;
-                            ForegroundSprite.Green = 100;
+                            ForegroundSprite.Blue = 255;
+                            ForegroundSprite.Green = 255;
                             ForegroundSprite.Height = 20f;
                             ForegroundSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ForegroundSprite.Red = 100;
-                            SetProperty("ForegroundSprite.SourceFile", "Mangrove.png");
+                            ForegroundSprite.Red = 255;
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains.png");
                             ForegroundSprite.TextureAddress = Gum.Managers.TextureAddress.DimensionsBased;
                             ForegroundSprite.TextureHeight = 288;
                             ForegroundSprite.TextureHeightScale = 1f;
@@ -168,6 +203,72 @@
                     }
                 }
             }
+            public Scenery CurrentSceneryState
+            {
+                get
+                {
+                    return mCurrentSceneryState;
+                }
+                set
+                {
+                    mCurrentSceneryState = value;
+                    switch(mCurrentSceneryState)
+                    {
+                        case  Scenery.Swamp:
+                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
+                            CloudCoverSprite.Visible = false;
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGswamp.png");
+                            break;
+                        case  Scenery.DeadTrees:
+                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
+                            CloudCoverSprite.Visible = false;
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGDeadtrees.png");
+                            break;
+                        case  Scenery.ForestedHills:
+                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
+                            CloudCoverSprite.Visible = false;
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGforesthills.png");
+                            break;
+                        case  Scenery.RedMountains:
+                            SetProperty("CloudCoverSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains-clouds.png");
+                            CloudCoverSprite.Visible = true;
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains.png");
+                            break;
+                        case  Scenery.Plains:
+                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
+                            CloudCoverSprite.Visible = false;
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGPlains.png");
+                            break;
+                        case  Scenery.SparseTrees:
+                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
+                            CloudCoverSprite.Visible = false;
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGTreeplains.png");
+                            break;
+                    }
+                }
+            }
+            public CloudCover CurrentCloudCoverState
+            {
+                get
+                {
+                    return mCurrentCloudCoverState;
+                }
+                set
+                {
+                    mCurrentCloudCoverState = value;
+                    switch(mCurrentCloudCoverState)
+                    {
+                        case  CloudCover.CloudStart:
+                            CloudCoverSprite.Width = 150f;
+                            CloudCoverSprite.X = 0f;
+                            break;
+                        case  CloudCover.CloudEnd:
+                            CloudCoverSprite.Width = 150f;
+                            CloudCoverSprite.X = -512f;
+                            break;
+                    }
+                }
+            }
             #endregion
             #region State Interpolation
             public void InterpolateBetween (VariableState firstState, VariableState secondState, float interpolationValue) 
@@ -178,6 +279,54 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
+                bool setCloudCoverSpriteBlueFirstValue = false;
+                bool setCloudCoverSpriteBlueSecondValue = false;
+                int CloudCoverSpriteBlueFirstValue= 0;
+                int CloudCoverSpriteBlueSecondValue= 0;
+                bool setCloudCoverSpriteGreenFirstValue = false;
+                bool setCloudCoverSpriteGreenSecondValue = false;
+                int CloudCoverSpriteGreenFirstValue= 0;
+                int CloudCoverSpriteGreenSecondValue= 0;
+                bool setCloudCoverSpriteHeightFirstValue = false;
+                bool setCloudCoverSpriteHeightSecondValue = false;
+                float CloudCoverSpriteHeightFirstValue= 0;
+                float CloudCoverSpriteHeightSecondValue= 0;
+                bool setCloudCoverSpriteRedFirstValue = false;
+                bool setCloudCoverSpriteRedSecondValue = false;
+                int CloudCoverSpriteRedFirstValue= 0;
+                int CloudCoverSpriteRedSecondValue= 0;
+                bool setCloudCoverSpriteTextureHeightFirstValue = false;
+                bool setCloudCoverSpriteTextureHeightSecondValue = false;
+                int CloudCoverSpriteTextureHeightFirstValue= 0;
+                int CloudCoverSpriteTextureHeightSecondValue= 0;
+                bool setCloudCoverSpriteTextureHeightScaleFirstValue = false;
+                bool setCloudCoverSpriteTextureHeightScaleSecondValue = false;
+                float CloudCoverSpriteTextureHeightScaleFirstValue= 0;
+                float CloudCoverSpriteTextureHeightScaleSecondValue= 0;
+                bool setCloudCoverSpriteTextureLeftFirstValue = false;
+                bool setCloudCoverSpriteTextureLeftSecondValue = false;
+                int CloudCoverSpriteTextureLeftFirstValue= 0;
+                int CloudCoverSpriteTextureLeftSecondValue= 0;
+                bool setCloudCoverSpriteTextureTopFirstValue = false;
+                bool setCloudCoverSpriteTextureTopSecondValue = false;
+                int CloudCoverSpriteTextureTopFirstValue= 0;
+                int CloudCoverSpriteTextureTopSecondValue= 0;
+                bool setCloudCoverSpriteTextureWidthFirstValue = false;
+                bool setCloudCoverSpriteTextureWidthSecondValue = false;
+                int CloudCoverSpriteTextureWidthFirstValue= 0;
+                int CloudCoverSpriteTextureWidthSecondValue= 0;
+                bool setCloudCoverSpriteTextureWidthScaleFirstValue = false;
+                bool setCloudCoverSpriteTextureWidthScaleSecondValue = false;
+                float CloudCoverSpriteTextureWidthScaleFirstValue= 0;
+                float CloudCoverSpriteTextureWidthScaleSecondValue= 0;
+                bool setCloudCoverSpriteXFirstValue = false;
+                bool setCloudCoverSpriteXSecondValue = false;
+                float CloudCoverSpriteXFirstValue= 0;
+                float CloudCoverSpriteXSecondValue= 0;
+                bool setCloudCoverSpriteYFirstValue = false;
+                bool setCloudCoverSpriteYSecondValue = false;
+                float CloudCoverSpriteYFirstValue= 0;
+                float CloudCoverSpriteYSecondValue= 0;
                 bool setDawnDuskSpriteBlueFirstValue = false;
                 bool setDawnDuskSpriteBlueSecondValue = false;
                 int DawnDuskSpriteBlueFirstValue= 0;
@@ -429,6 +578,58 @@
                         {
                             this.ClipsChildren = false;
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.CloudCoverSprite.Animate = false;
+                        }
+                        setCloudCoverSpriteBlueFirstValue = true;
+                        CloudCoverSpriteBlueFirstValue = 255;
+                        setCloudCoverSpriteGreenFirstValue = true;
+                        CloudCoverSpriteGreenFirstValue = 255;
+                        setCloudCoverSpriteHeightFirstValue = true;
+                        CloudCoverSpriteHeightFirstValue = 20f;
+                        if (interpolationValue < 1)
+                        {
+                            this.CloudCoverSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setCloudCoverSpriteRedFirstValue = true;
+                        CloudCoverSpriteRedFirstValue = 255;
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("CloudCoverSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains-clouds.png");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CloudCoverSprite.TextureAddress = Gum.Managers.TextureAddress.DimensionsBased;
+                        }
+                        setCloudCoverSpriteTextureHeightFirstValue = true;
+                        CloudCoverSpriteTextureHeightFirstValue = 288;
+                        setCloudCoverSpriteTextureHeightScaleFirstValue = true;
+                        CloudCoverSpriteTextureHeightScaleFirstValue = 1f;
+                        setCloudCoverSpriteTextureLeftFirstValue = true;
+                        CloudCoverSpriteTextureLeftFirstValue = 0;
+                        setCloudCoverSpriteTextureTopFirstValue = true;
+                        CloudCoverSpriteTextureTopFirstValue = 0;
+                        setCloudCoverSpriteTextureWidthFirstValue = true;
+                        CloudCoverSpriteTextureWidthFirstValue = 381;
+                        setCloudCoverSpriteTextureWidthScaleFirstValue = true;
+                        CloudCoverSpriteTextureWidthScaleFirstValue = 1f;
+                        if (interpolationValue < 1)
+                        {
+                            this.CloudCoverSprite.Visible = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CloudCoverSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CloudCoverSprite.Wrap = true;
+                        }
+                        setCloudCoverSpriteXFirstValue = true;
+                        CloudCoverSpriteXFirstValue = 0f;
+                        setCloudCoverSpriteYFirstValue = true;
+                        CloudCoverSpriteYFirstValue = 0f;
                         setDawnDuskSpriteBlueFirstValue = true;
                         DawnDuskSpriteBlueFirstValue = 0;
                         if (interpolationValue < 1)
@@ -496,9 +697,9 @@
                             this.ForegroundSprite.Animate = false;
                         }
                         setForegroundSpriteBlueFirstValue = true;
-                        ForegroundSpriteBlueFirstValue = 100;
+                        ForegroundSpriteBlueFirstValue = 255;
                         setForegroundSpriteGreenFirstValue = true;
-                        ForegroundSpriteGreenFirstValue = 100;
+                        ForegroundSpriteGreenFirstValue = 255;
                         setForegroundSpriteHeightFirstValue = true;
                         ForegroundSpriteHeightFirstValue = 20f;
                         if (interpolationValue < 1)
@@ -506,10 +707,10 @@
                             this.ForegroundSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setForegroundSpriteRedFirstValue = true;
-                        ForegroundSpriteRedFirstValue = 100;
+                        ForegroundSpriteRedFirstValue = 255;
                         if (interpolationValue < 1)
                         {
-                            SetProperty("ForegroundSprite.SourceFile", "Mangrove.png");
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains.png");
                         }
                         if (interpolationValue < 1)
                         {
@@ -870,6 +1071,58 @@
                         {
                             this.ClipsChildren = false;
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloudCoverSprite.Animate = false;
+                        }
+                        setCloudCoverSpriteBlueSecondValue = true;
+                        CloudCoverSpriteBlueSecondValue = 255;
+                        setCloudCoverSpriteGreenSecondValue = true;
+                        CloudCoverSpriteGreenSecondValue = 255;
+                        setCloudCoverSpriteHeightSecondValue = true;
+                        CloudCoverSpriteHeightSecondValue = 20f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloudCoverSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setCloudCoverSpriteRedSecondValue = true;
+                        CloudCoverSpriteRedSecondValue = 255;
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("CloudCoverSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains-clouds.png");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloudCoverSprite.TextureAddress = Gum.Managers.TextureAddress.DimensionsBased;
+                        }
+                        setCloudCoverSpriteTextureHeightSecondValue = true;
+                        CloudCoverSpriteTextureHeightSecondValue = 288;
+                        setCloudCoverSpriteTextureHeightScaleSecondValue = true;
+                        CloudCoverSpriteTextureHeightScaleSecondValue = 1f;
+                        setCloudCoverSpriteTextureLeftSecondValue = true;
+                        CloudCoverSpriteTextureLeftSecondValue = 0;
+                        setCloudCoverSpriteTextureTopSecondValue = true;
+                        CloudCoverSpriteTextureTopSecondValue = 0;
+                        setCloudCoverSpriteTextureWidthSecondValue = true;
+                        CloudCoverSpriteTextureWidthSecondValue = 381;
+                        setCloudCoverSpriteTextureWidthScaleSecondValue = true;
+                        CloudCoverSpriteTextureWidthScaleSecondValue = 1f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloudCoverSprite.Visible = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloudCoverSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloudCoverSprite.Wrap = true;
+                        }
+                        setCloudCoverSpriteXSecondValue = true;
+                        CloudCoverSpriteXSecondValue = 0f;
+                        setCloudCoverSpriteYSecondValue = true;
+                        CloudCoverSpriteYSecondValue = 0f;
                         setDawnDuskSpriteBlueSecondValue = true;
                         DawnDuskSpriteBlueSecondValue = 0;
                         if (interpolationValue >= 1)
@@ -937,9 +1190,9 @@
                             this.ForegroundSprite.Animate = false;
                         }
                         setForegroundSpriteBlueSecondValue = true;
-                        ForegroundSpriteBlueSecondValue = 100;
+                        ForegroundSpriteBlueSecondValue = 255;
                         setForegroundSpriteGreenSecondValue = true;
-                        ForegroundSpriteGreenSecondValue = 100;
+                        ForegroundSpriteGreenSecondValue = 255;
                         setForegroundSpriteHeightSecondValue = true;
                         ForegroundSpriteHeightSecondValue = 20f;
                         if (interpolationValue >= 1)
@@ -947,10 +1200,10 @@
                             this.ForegroundSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setForegroundSpriteRedSecondValue = true;
-                        ForegroundSpriteRedSecondValue = 100;
+                        ForegroundSpriteRedSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("ForegroundSprite.SourceFile", "Mangrove.png");
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains.png");
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1300,6 +1553,54 @@
                         }
                         break;
                 }
+                if (setCloudCoverSpriteBlueFirstValue && setCloudCoverSpriteBlueSecondValue)
+                {
+                    CloudCoverSprite.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(CloudCoverSpriteBlueFirstValue* (1 - interpolationValue) + CloudCoverSpriteBlueSecondValue * interpolationValue);
+                }
+                if (setCloudCoverSpriteGreenFirstValue && setCloudCoverSpriteGreenSecondValue)
+                {
+                    CloudCoverSprite.Green = FlatRedBall.Math.MathFunctions.RoundToInt(CloudCoverSpriteGreenFirstValue* (1 - interpolationValue) + CloudCoverSpriteGreenSecondValue * interpolationValue);
+                }
+                if (setCloudCoverSpriteHeightFirstValue && setCloudCoverSpriteHeightSecondValue)
+                {
+                    CloudCoverSprite.Height = CloudCoverSpriteHeightFirstValue * (1 - interpolationValue) + CloudCoverSpriteHeightSecondValue * interpolationValue;
+                }
+                if (setCloudCoverSpriteRedFirstValue && setCloudCoverSpriteRedSecondValue)
+                {
+                    CloudCoverSprite.Red = FlatRedBall.Math.MathFunctions.RoundToInt(CloudCoverSpriteRedFirstValue* (1 - interpolationValue) + CloudCoverSpriteRedSecondValue * interpolationValue);
+                }
+                if (setCloudCoverSpriteTextureHeightFirstValue && setCloudCoverSpriteTextureHeightSecondValue)
+                {
+                    CloudCoverSprite.TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(CloudCoverSpriteTextureHeightFirstValue* (1 - interpolationValue) + CloudCoverSpriteTextureHeightSecondValue * interpolationValue);
+                }
+                if (setCloudCoverSpriteTextureHeightScaleFirstValue && setCloudCoverSpriteTextureHeightScaleSecondValue)
+                {
+                    CloudCoverSprite.TextureHeightScale = CloudCoverSpriteTextureHeightScaleFirstValue * (1 - interpolationValue) + CloudCoverSpriteTextureHeightScaleSecondValue * interpolationValue;
+                }
+                if (setCloudCoverSpriteTextureLeftFirstValue && setCloudCoverSpriteTextureLeftSecondValue)
+                {
+                    CloudCoverSprite.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(CloudCoverSpriteTextureLeftFirstValue* (1 - interpolationValue) + CloudCoverSpriteTextureLeftSecondValue * interpolationValue);
+                }
+                if (setCloudCoverSpriteTextureTopFirstValue && setCloudCoverSpriteTextureTopSecondValue)
+                {
+                    CloudCoverSprite.TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(CloudCoverSpriteTextureTopFirstValue* (1 - interpolationValue) + CloudCoverSpriteTextureTopSecondValue * interpolationValue);
+                }
+                if (setCloudCoverSpriteTextureWidthFirstValue && setCloudCoverSpriteTextureWidthSecondValue)
+                {
+                    CloudCoverSprite.TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(CloudCoverSpriteTextureWidthFirstValue* (1 - interpolationValue) + CloudCoverSpriteTextureWidthSecondValue * interpolationValue);
+                }
+                if (setCloudCoverSpriteTextureWidthScaleFirstValue && setCloudCoverSpriteTextureWidthScaleSecondValue)
+                {
+                    CloudCoverSprite.TextureWidthScale = CloudCoverSpriteTextureWidthScaleFirstValue * (1 - interpolationValue) + CloudCoverSpriteTextureWidthScaleSecondValue * interpolationValue;
+                }
+                if (setCloudCoverSpriteXFirstValue && setCloudCoverSpriteXSecondValue)
+                {
+                    CloudCoverSprite.X = CloudCoverSpriteXFirstValue * (1 - interpolationValue) + CloudCoverSpriteXSecondValue * interpolationValue;
+                }
+                if (setCloudCoverSpriteYFirstValue && setCloudCoverSpriteYSecondValue)
+                {
+                    CloudCoverSprite.Y = CloudCoverSpriteYFirstValue * (1 - interpolationValue) + CloudCoverSpriteYSecondValue * interpolationValue;
+                }
                 if (setDawnDuskSpriteBlueFirstValue && setDawnDuskSpriteBlueSecondValue)
                 {
                     DawnDuskSprite.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(DawnDuskSpriteBlueFirstValue* (1 - interpolationValue) + DawnDuskSpriteBlueSecondValue * interpolationValue);
@@ -1549,6 +1850,260 @@
                     mCurrentVariableState = secondState;
                 }
             }
+            public void InterpolateBetween (Scenery firstState, Scenery secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                switch(firstState)
+                {
+                    case  Scenery.Swamp:
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CloudCoverSprite.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGswamp.png");
+                        }
+                        break;
+                    case  Scenery.DeadTrees:
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CloudCoverSprite.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGDeadtrees.png");
+                        }
+                        break;
+                    case  Scenery.ForestedHills:
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CloudCoverSprite.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGforesthills.png");
+                        }
+                        break;
+                    case  Scenery.RedMountains:
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("CloudCoverSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains-clouds.png");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CloudCoverSprite.Visible = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains.png");
+                        }
+                        break;
+                    case  Scenery.Plains:
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CloudCoverSprite.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGPlains.png");
+                        }
+                        break;
+                    case  Scenery.SparseTrees:
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CloudCoverSprite.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGTreeplains.png");
+                        }
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  Scenery.Swamp:
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloudCoverSprite.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGswamp.png");
+                        }
+                        break;
+                    case  Scenery.DeadTrees:
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloudCoverSprite.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGDeadtrees.png");
+                        }
+                        break;
+                    case  Scenery.ForestedHills:
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloudCoverSprite.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGforesthills.png");
+                        }
+                        break;
+                    case  Scenery.RedMountains:
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("CloudCoverSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains-clouds.png");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloudCoverSprite.Visible = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains.png");
+                        }
+                        break;
+                    case  Scenery.Plains:
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloudCoverSprite.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGPlains.png");
+                        }
+                        break;
+                    case  Scenery.SparseTrees:
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloudCoverSprite.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGTreeplains.png");
+                        }
+                        break;
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentSceneryState = firstState;
+                }
+                else
+                {
+                    mCurrentSceneryState = secondState;
+                }
+            }
+            public void InterpolateBetween (CloudCover firstState, CloudCover secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                bool setCloudCoverSpriteWidthFirstValue = false;
+                bool setCloudCoverSpriteWidthSecondValue = false;
+                float CloudCoverSpriteWidthFirstValue= 0;
+                float CloudCoverSpriteWidthSecondValue= 0;
+                bool setCloudCoverSpriteXFirstValue = false;
+                bool setCloudCoverSpriteXSecondValue = false;
+                float CloudCoverSpriteXFirstValue= 0;
+                float CloudCoverSpriteXSecondValue= 0;
+                switch(firstState)
+                {
+                    case  CloudCover.CloudStart:
+                        setCloudCoverSpriteWidthFirstValue = true;
+                        CloudCoverSpriteWidthFirstValue = 150f;
+                        setCloudCoverSpriteXFirstValue = true;
+                        CloudCoverSpriteXFirstValue = 0f;
+                        break;
+                    case  CloudCover.CloudEnd:
+                        setCloudCoverSpriteWidthFirstValue = true;
+                        CloudCoverSpriteWidthFirstValue = 150f;
+                        setCloudCoverSpriteXFirstValue = true;
+                        CloudCoverSpriteXFirstValue = -512f;
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  CloudCover.CloudStart:
+                        setCloudCoverSpriteWidthSecondValue = true;
+                        CloudCoverSpriteWidthSecondValue = 150f;
+                        setCloudCoverSpriteXSecondValue = true;
+                        CloudCoverSpriteXSecondValue = 0f;
+                        break;
+                    case  CloudCover.CloudEnd:
+                        setCloudCoverSpriteWidthSecondValue = true;
+                        CloudCoverSpriteWidthSecondValue = 150f;
+                        setCloudCoverSpriteXSecondValue = true;
+                        CloudCoverSpriteXSecondValue = -512f;
+                        break;
+                }
+                if (setCloudCoverSpriteWidthFirstValue && setCloudCoverSpriteWidthSecondValue)
+                {
+                    CloudCoverSprite.Width = CloudCoverSpriteWidthFirstValue * (1 - interpolationValue) + CloudCoverSpriteWidthSecondValue * interpolationValue;
+                }
+                if (setCloudCoverSpriteXFirstValue && setCloudCoverSpriteXSecondValue)
+                {
+                    CloudCoverSprite.X = CloudCoverSpriteXFirstValue * (1 - interpolationValue) + CloudCoverSpriteXSecondValue * interpolationValue;
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentCloudCoverState = firstState;
+                }
+                else
+                {
+                    mCurrentCloudCoverState = secondState;
+                }
+            }
             #endregion
             #region State Interpolate To
             public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.HorizonBoxRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.HorizonBoxRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
@@ -1605,12 +2160,198 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.HorizonBoxRuntime.Scenery fromState,AbbatoirIntergrade.GumRuntimes.HorizonBoxRuntime.Scenery toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (Scenery toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "Scenery").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentSceneryState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (Scenery toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentSceneryState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.HorizonBoxRuntime.CloudCover fromState,AbbatoirIntergrade.GumRuntimes.HorizonBoxRuntime.CloudCover toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (CloudCover toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "CloudCover").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentCloudCoverState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (CloudCover toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentCloudCoverState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
             #endregion
             #region State Animations
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> MoveStaticCloudsAnimationInstructions (object target) 
+            {
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction( ()=> this.CurrentCloudCoverState = CloudCover.CloudStart);
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(CloudCover.CloudEnd, 10, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, MoveStaticCloudsAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => FlatRedBall.Instructions.InstructionManager.Instructions.AddRange(this.MoveStaticCloudsAnimationInstructions(target)));
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 10;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+            }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> MoveStaticCloudsAnimationRelativeInstructions (object target) 
+            {
+                {
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "CloudCover/CloudStart").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "CloudCover/CloudEnd").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(CloudCover.CloudEnd);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 10, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => FlatRedBall.Instructions.InstructionManager.Instructions.AddRange(this.MoveStaticCloudsAnimationRelativeInstructions(target)));
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 10;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation moveStaticCloudsAnimation;
+            public FlatRedBall.Gum.Animation.GumAnimation MoveStaticCloudsAnimation
+            {
+                get
+                {
+                    if (moveStaticCloudsAnimation == null)
+                    {
+                        moveStaticCloudsAnimation = new FlatRedBall.Gum.Animation.GumAnimation(10, MoveStaticCloudsAnimationInstructions);
+                    }
+                    return moveStaticCloudsAnimation;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation moveStaticCloudsAnimationRelative;
+            public FlatRedBall.Gum.Animation.GumAnimation MoveStaticCloudsAnimationRelative
+            {
+                get
+                {
+                    if (moveStaticCloudsAnimationRelative == null)
+                    {
+                        moveStaticCloudsAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(10, MoveStaticCloudsAnimationRelativeInstructions);
+                    }
+                    return moveStaticCloudsAnimationRelative;
+                }
+            }
             #endregion
             public override void StopAnimations () 
             {
                 base.StopAnimations();
+                MoveStaticCloudsAnimation.Stop();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -2585,6 +3326,158 @@
                             Name = "DawnDuskSprite.Y Units",
                             Type = "PositionUnitType",
                             Value = DawnDuskSprite.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Animate",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Animate
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Blue",
+                            Type = "int",
+                            Value = CloudCoverSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Green",
+                            Type = "int",
+                            Value = CloudCoverSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Height",
+                            Type = "float",
+                            Value = CloudCoverSprite.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = CloudCoverSprite.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Red",
+                            Type = "int",
+                            Value = CloudCoverSprite.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.SourceFile",
+                            Type = "string",
+                            Value = CloudCoverSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Texture Address",
+                            Type = "TextureAddress",
+                            Value = CloudCoverSprite.TextureAddress
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Texture Height",
+                            Type = "int",
+                            Value = CloudCoverSprite.TextureHeight
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Texture Height Scale",
+                            Type = "float",
+                            Value = CloudCoverSprite.TextureHeightScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Texture Left",
+                            Type = "int",
+                            Value = CloudCoverSprite.TextureLeft
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Texture Top",
+                            Type = "int",
+                            Value = CloudCoverSprite.TextureTop
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Texture Width",
+                            Type = "int",
+                            Value = CloudCoverSprite.TextureWidth
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Texture Width Scale",
+                            Type = "float",
+                            Value = CloudCoverSprite.TextureWidthScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = CloudCoverSprite.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Wrap",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Wrap
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.X",
+                            Type = "float",
+                            Value = CloudCoverSprite.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Y",
+                            Type = "float",
+                            Value = CloudCoverSprite.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3712,6 +4605,158 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "CloudCoverSprite.Animate",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Animate
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Blue",
+                            Type = "int",
+                            Value = CloudCoverSprite.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Green",
+                            Type = "int",
+                            Value = CloudCoverSprite.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Height",
+                            Type = "float",
+                            Value = CloudCoverSprite.Height + 20f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = CloudCoverSprite.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Red",
+                            Type = "int",
+                            Value = CloudCoverSprite.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.SourceFile",
+                            Type = "string",
+                            Value = CloudCoverSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Texture Address",
+                            Type = "TextureAddress",
+                            Value = CloudCoverSprite.TextureAddress
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Texture Height",
+                            Type = "int",
+                            Value = CloudCoverSprite.TextureHeight + 288
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Texture Height Scale",
+                            Type = "float",
+                            Value = CloudCoverSprite.TextureHeightScale + 1f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Texture Left",
+                            Type = "int",
+                            Value = CloudCoverSprite.TextureLeft + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Texture Top",
+                            Type = "int",
+                            Value = CloudCoverSprite.TextureTop + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Texture Width",
+                            Type = "int",
+                            Value = CloudCoverSprite.TextureWidth + 381
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Texture Width Scale",
+                            Type = "float",
+                            Value = CloudCoverSprite.TextureWidthScale + 1f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = CloudCoverSprite.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Wrap",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Wrap
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.X",
+                            Type = "float",
+                            Value = CloudCoverSprite.X + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Y",
+                            Type = "float",
+                            Value = CloudCoverSprite.Y + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ForegroundSprite.Animate",
                             Type = "bool",
                             Value = ForegroundSprite.Animate
@@ -3722,7 +4767,7 @@
                             SetsValue = true,
                             Name = "ForegroundSprite.Blue",
                             Type = "int",
-                            Value = ForegroundSprite.Blue + 100
+                            Value = ForegroundSprite.Blue + 255
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3730,7 +4775,7 @@
                             SetsValue = true,
                             Name = "ForegroundSprite.Green",
                             Type = "int",
-                            Value = ForegroundSprite.Green + 100
+                            Value = ForegroundSprite.Green + 255
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3754,7 +4799,7 @@
                             SetsValue = true,
                             Name = "ForegroundSprite.Red",
                             Type = "int",
-                            Value = ForegroundSprite.Red + 100
+                            Value = ForegroundSprite.Red + 255
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3857,6 +4902,422 @@
                 }
                 return newState;
             }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (Scenery state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Scenery.Swamp:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.SourceFile",
+                            Type = "string",
+                            Value = CloudCoverSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        break;
+                    case  Scenery.DeadTrees:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.SourceFile",
+                            Type = "string",
+                            Value = CloudCoverSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        break;
+                    case  Scenery.ForestedHills:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.SourceFile",
+                            Type = "string",
+                            Value = CloudCoverSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        break;
+                    case  Scenery.RedMountains:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.SourceFile",
+                            Type = "string",
+                            Value = CloudCoverSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        break;
+                    case  Scenery.Plains:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.SourceFile",
+                            Type = "string",
+                            Value = CloudCoverSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        break;
+                    case  Scenery.SparseTrees:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.SourceFile",
+                            Type = "string",
+                            Value = CloudCoverSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (Scenery state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Scenery.Swamp:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.SourceFile",
+                            Type = "string",
+                            Value = CloudCoverSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        break;
+                    case  Scenery.DeadTrees:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.SourceFile",
+                            Type = "string",
+                            Value = CloudCoverSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        break;
+                    case  Scenery.ForestedHills:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.SourceFile",
+                            Type = "string",
+                            Value = CloudCoverSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        break;
+                    case  Scenery.RedMountains:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.SourceFile",
+                            Type = "string",
+                            Value = CloudCoverSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        break;
+                    case  Scenery.Plains:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.SourceFile",
+                            Type = "string",
+                            Value = CloudCoverSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        break;
+                    case  Scenery.SparseTrees:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.SourceFile",
+                            Type = "string",
+                            Value = CloudCoverSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (CloudCover state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  CloudCover.CloudStart:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Width",
+                            Type = "float",
+                            Value = CloudCoverSprite.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.X",
+                            Type = "float",
+                            Value = CloudCoverSprite.X
+                        }
+                        );
+                        break;
+                    case  CloudCover.CloudEnd:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Width",
+                            Type = "float",
+                            Value = CloudCoverSprite.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.X",
+                            Type = "float",
+                            Value = CloudCoverSprite.X
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (CloudCover state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  CloudCover.CloudStart:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Width",
+                            Type = "float",
+                            Value = CloudCoverSprite.Width + 150f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.X",
+                            Type = "float",
+                            Value = CloudCoverSprite.X + 0f
+                        }
+                        );
+                        break;
+                    case  CloudCover.CloudEnd:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Width",
+                            Type = "float",
+                            Value = CloudCoverSprite.Width + 150f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.X",
+                            Type = "float",
+                            Value = CloudCoverSprite.X + -512f
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
             #endregion
             public override void ApplyState (Gum.DataTypes.Variables.StateSave state) 
             {
@@ -3867,6 +5328,20 @@
                     if (category == null)
                     {
                         if (state.Name == "Default") this.mCurrentVariableState = VariableState.Default;
+                    }
+                    else if (category.Name == "Scenery")
+                    {
+                        if(state.Name == "Swamp") this.mCurrentSceneryState = Scenery.Swamp;
+                        if(state.Name == "DeadTrees") this.mCurrentSceneryState = Scenery.DeadTrees;
+                        if(state.Name == "ForestedHills") this.mCurrentSceneryState = Scenery.ForestedHills;
+                        if(state.Name == "RedMountains") this.mCurrentSceneryState = Scenery.RedMountains;
+                        if(state.Name == "Plains") this.mCurrentSceneryState = Scenery.Plains;
+                        if(state.Name == "SparseTrees") this.mCurrentSceneryState = Scenery.SparseTrees;
+                    }
+                    else if (category.Name == "CloudCover")
+                    {
+                        if(state.Name == "CloudStart") this.mCurrentCloudCoverState = CloudCover.CloudStart;
+                        if(state.Name == "CloudEnd") this.mCurrentCloudCoverState = CloudCover.CloudEnd;
                     }
                 }
                 base.ApplyState(state);
@@ -3880,6 +5355,7 @@
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime MoonSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SkyHazeSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime DawnDuskSprite { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime CloudCoverSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime ForegroundSprite { get; set; }
             public HorizonBoxRuntime (bool fullInstantiation = true) 
             	: base(false)
@@ -3918,6 +5394,7 @@
                 MoonSprite = this.GetGraphicalUiElementByName("MoonSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 SkyHazeSprite = this.GetGraphicalUiElementByName("SkyHazeSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 DawnDuskSprite = this.GetGraphicalUiElementByName("DawnDuskSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
+                CloudCoverSprite = this.GetGraphicalUiElementByName("CloudCoverSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 ForegroundSprite = this.GetGraphicalUiElementByName("ForegroundSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 

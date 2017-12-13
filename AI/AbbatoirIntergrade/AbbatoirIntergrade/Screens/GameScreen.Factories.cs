@@ -16,9 +16,9 @@ namespace AbbatoirIntergrade.Screens
                 placement => placement.AddSpritesToLayers(LightLayer, InfoLayer);
 
             //Projectiles
-            LaserTurretProjectileFactory.Initialize(ContentManagerName);
-            LaserTurretProjectileFactory.AddList(PlayerProjectileList);
-            LaserTurretProjectileFactory.EntitySpawned +=
+            PiercingProjectileFactory.Initialize(ContentManagerName);
+            PiercingProjectileFactory.AddList(PlayerProjectileList);
+            PiercingProjectileFactory.EntitySpawned +=
                 projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
             CannonProjectileFactory.Initialize(ContentManagerName);
@@ -26,9 +26,24 @@ namespace AbbatoirIntergrade.Screens
             CannonProjectileFactory.EntitySpawned +=
                 projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
-            TallLaserProjectileFactory.Initialize(ContentManagerName);
-            TallLaserProjectileFactory.AddList(PlayerProjectileList);
-            TallLaserProjectileFactory.EntitySpawned +=
+            ElectricProjectileFactory.Initialize(ContentManagerName);
+            ElectricProjectileFactory.AddList(PlayerProjectileList);
+            ElectricProjectileFactory.EntitySpawned +=
+                projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
+
+            FireProjectileFactory.Initialize(ContentManagerName);
+            FireProjectileFactory.AddList(PlayerProjectileList);
+            FireProjectileFactory.EntitySpawned +=
+                projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
+
+            FrostProjectileFactory.Initialize(ContentManagerName);
+            FrostProjectileFactory.AddList(PlayerProjectileList);
+            FrostProjectileFactory.EntitySpawned +=
+                projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
+
+            ChemicalProjectileFactory.Initialize(ContentManagerName);
+            ChemicalProjectileFactory.AddList(PlayerProjectileList);
+            ChemicalProjectileFactory.EntitySpawned +=
                 projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
             //Towers

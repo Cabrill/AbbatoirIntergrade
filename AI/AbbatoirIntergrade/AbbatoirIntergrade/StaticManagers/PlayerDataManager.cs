@@ -17,7 +17,11 @@ namespace AbbatoirIntergrade.StaticManagers
         {
             Data = new PlayerData();
             Data.AvailableTowers.Add(typeof(PiercingTower).AssemblyQualifiedName);
+            Data.AvailableTowers.Add(typeof(BombardingTower).AssemblyQualifiedName);
+            Data.AvailableTowers.Add(typeof(FireTower).AssemblyQualifiedName);
             Data.AvailableTowers.Add(typeof(FrostTower).AssemblyQualifiedName);
+            Data.AvailableTowers.Add(typeof(ElectricTower).AssemblyQualifiedName);
+            Data.AvailableTowers.Add(typeof(ChemicalTower).AssemblyQualifiedName);
         }
 
         public static void SaveData()

@@ -136,6 +136,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         protected static Microsoft.Xna.Framework.Audio.SoundEffect Structure_Placed;
         protected static Microsoft.Xna.Framework.Audio.SoundEffect Building_Destroyed;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D towers;
+        protected static FlatRedBall.Graphics.Animation.AnimationChainList BaseStructureAnimationChainListFile;
+        protected static Microsoft.Xna.Framework.Graphics.Texture2D AllParticles;
         
         protected FlatRedBall.Sprite mSpriteInstance;
         public FlatRedBall.Sprite SpriteInstance
@@ -434,7 +436,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     mSpriteInstance.CopyAbsoluteToRelative();
                     mSpriteInstance.AttachTo(this, false);
                 }
+                SpriteInstance.Texture = towers;
                 SpriteInstance.TextureScale = 1f;
+                SpriteInstance.AnimationChains = BaseStructureAnimationChainListFile;
             }
             if (AxisAlignedRectangleInstance!= null)
             {
@@ -480,7 +484,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 mRangeCircleInstance.CopyAbsoluteToRelative();
                 mRangeCircleInstance.AttachTo(this, false);
             }
-            RangeCircleInstance.Radius = 16f;
+            RangeCircleInstance.Radius = 400f;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.AxisAlignedRectangles.AddOneWay(mAxisAlignedRectangleInstance);
             mGeneratedCollision.Circles.AddOneWay(mRangeCircleInstance);
@@ -504,7 +508,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (callOnContainedElements)
             {
             }
-            RangeCircleInstance.Radius = 16f;
+            RangeCircleInstance.Radius = 400f;
             if (Parent == null)
             {
                 Z = 1f;
@@ -527,7 +531,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             LightSpriteInstanceRed = 0f;
             LightSpriteInstanceGreen = 0f;
             LightSpriteInstanceBlue = 0.5f;
-            RangedRadius = 16f;
+            RangedRadius = 400f;
         }
         public virtual void ConvertToManuallyUpdated () 
         {
@@ -584,6 +588,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 Structure_Placed = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/structure_placed", ContentManagerName);
                 Building_Destroyed = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/building_destroyed", ContentManagerName);
                 towers = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/globalcontent/towers.png", ContentManagerName);
+                BaseStructureAnimationChainListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/baseentities/basestructure/basestructureanimationchainlistfile.achx", ContentManagerName);
+                AllParticles = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/projectiles/allparticles.png", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -901,6 +907,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return Building_Destroyed;
                 case  "towers":
                     return towers;
+                case  "BaseStructureAnimationChainListFile":
+                    return BaseStructureAnimationChainListFile;
+                case  "AllParticles":
+                    return AllParticles;
             }
             return null;
         }
@@ -914,6 +924,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return Building_Destroyed;
                 case  "towers":
                     return towers;
+                case  "BaseStructureAnimationChainListFile":
+                    return BaseStructureAnimationChainListFile;
+                case  "AllParticles":
+                    return AllParticles;
             }
             return null;
         }
@@ -927,6 +941,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return Building_Destroyed;
                 case  "towers":
                     return towers;
+                case  "BaseStructureAnimationChainListFile":
+                    return BaseStructureAnimationChainListFile;
+                case  "AllParticles":
+                    return AllParticles;
             }
             return null;
         }

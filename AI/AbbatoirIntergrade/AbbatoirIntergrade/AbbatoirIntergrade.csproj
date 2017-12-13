@@ -158,13 +158,25 @@
     <Compile Include="Entities\Projectiles\CannonProjectile.Generated.cs">
       <DependentUpon>CannonProjectile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Projectiles\LaserTurretProjectile.cs" />
-    <Compile Include="Entities\Projectiles\LaserTurretProjectile.Generated.cs">
-      <DependentUpon>LaserTurretProjectile.cs</DependentUpon>
+    <Compile Include="Entities\Projectiles\ChemicalProjectile.cs" />
+    <Compile Include="Entities\Projectiles\ChemicalProjectile.Generated.cs">
+      <DependentUpon>ChemicalProjectile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Projectiles\TallLaserProjectile.cs" />
-    <Compile Include="Entities\Projectiles\TallLaserProjectile.Generated.cs">
-      <DependentUpon>TallLaserProjectile.cs</DependentUpon>
+    <Compile Include="Entities\Projectiles\ElectricProjectile.cs" />
+    <Compile Include="Entities\Projectiles\ElectricProjectile.Generated.cs">
+      <DependentUpon>ElectricProjectile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Projectiles\FireProjectile.cs" />
+    <Compile Include="Entities\Projectiles\FireProjectile.Generated.cs">
+      <DependentUpon>FireProjectile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Projectiles\FrostProjectile.cs" />
+    <Compile Include="Entities\Projectiles\FrostProjectile.Generated.cs">
+      <DependentUpon>FrostProjectile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Projectiles\PiercingProjectile.cs" />
+    <Compile Include="Entities\Projectiles\PiercingProjectile.Generated.cs">
+      <DependentUpon>PiercingProjectile.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\ShaderRenderer.cs" />
     <Compile Include="Entities\ShaderRenderer.Generated.cs">
@@ -195,10 +207,15 @@
       <DependentUpon>FrostTower.cs</DependentUpon>
     </Compile>
     <Compile Include="Factories\BombardingTowerFactory.Generated.cs" />
+    <Compile Include="Factories\ChemicalProjectileFactory.Generated.cs" />
     <Compile Include="Factories\ChemicalTowerFactory.Generated.cs" />
+    <Compile Include="Factories\ElectricProjectileFactory.Generated.cs" />
     <Compile Include="Factories\ElectricTowerFactory.Generated.cs" />
+    <Compile Include="Factories\FireProjectileFactory.Generated.cs" />
     <Compile Include="Factories\FireTowerFactory.Generated.cs" />
+    <Compile Include="Factories\FrostProjectileFactory.Generated.cs" />
     <Compile Include="Factories\FrostTowerFactory.Generated.cs" />
+    <Compile Include="Factories\PiercingProjectileFactory.Generated.cs" />
     <Compile Include="Factories\PiercingTowerFactory.Generated.cs" />
     <Compile Include="Factories\Sheep3EnemyFactory.Generated.cs" />
     <Compile Include="Factories\Sheep2EnemyFactory.Generated.cs" />
@@ -215,13 +232,12 @@
     <Compile Include="Factories\Chicken2EnemyFactory.Generated.cs" />
     <Compile Include="Factories\Chicken1EnemyFactory.Generated.cs" />
     <Compile Include="Factories\Cow1EnemyFactory.Generated.cs" />
-    <Compile Include="Factories\LaserTurretProjectileFactory.Generated.cs" />
     <Compile Include="Factories\Rabbit1EnemyFactory.Generated.cs" />
     <Compile Include="Factories\StructurePlacementFactory.Generated.cs" />
-    <Compile Include="Factories\TallLaserProjectileFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameClasses\BaseClasses\BaseWave.cs" />
+    <Compile Include="GameClasses\Enums\GlobalEnums.cs" />
     <Compile Include="GameClasses\GameDialogue.cs" />
     <Compile Include="GameClasses\Interfaces\IBuildButton.cs" />
     <Compile Include="GameClasses\Interfaces\ICity.cs" />
@@ -330,6 +346,21 @@
     <Compile Include="Screens\GameScreen.Generated.Event.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="StateInterpolation\Back.cs" />
+    <Compile Include="StateInterpolation\Bounce.cs" />
+    <Compile Include="StateInterpolation\Circular.cs" />
+    <Compile Include="StateInterpolation\Cubic.cs" />
+    <Compile Include="StateInterpolation\Elastic.cs" />
+    <Compile Include="StateInterpolation\Exponential.cs" />
+    <Compile Include="StateInterpolation\Instant.cs" />
+    <Compile Include="StateInterpolation\Linear.cs" />
+    <Compile Include="StateInterpolation\Quadratic.cs" />
+    <Compile Include="StateInterpolation\Quartic.cs" />
+    <Compile Include="StateInterpolation\Quintic.cs" />
+    <Compile Include="StateInterpolation\ShakeTweener.cs" />
+    <Compile Include="StateInterpolation\Sinusoidal.cs" />
+    <Compile Include="StateInterpolation\Tweener.cs" />
+    <Compile Include="StateInterpolation\TweenerManager.cs" />
     <Compile Include="StaticManagers\CameraZoomManager.cs" />
     <Compile Include="StaticManagers\PlayerDataManager.cs" />
     <Compile Include="StaticManagers\WaterManager.cs" />
@@ -460,21 +491,6 @@
       <Name>Cannon_Hit</Name>
       <Link>content\entities\projectiles\cannonprojectile\cannon_hit.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\desktopgl\entities\projectiles\laserturretprojectile\laser_ground.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Laser_Ground</Name>
-      <Link>content\entities\projectiles\laserturretprojectile\laser_ground.xnb</Link>
-    </None>
-    <None Include="..\builtxnbs\desktopgl\entities\projectiles\laserturretprojectile\laser_hit.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Laser_Hit</Name>
-      <Link>content\entities\projectiles\laserturretprojectile\laser_hit.xnb</Link>
-    </None>
-    <None Include="..\builtxnbs\desktopgl\entities\projectiles\talllaserprojectile\talllaser_hit.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>TallLaser_Hit</Name>
-      <Link>content\entities\projectiles\talllaserprojectile\talllaser_hit.xnb</Link>
-    </None>
     <None Include="..\builtxnbs\desktopgl\entities\structures\building_destroyed.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Building_Destroyed</Name>
@@ -489,6 +505,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>darknessshader</Name>
       <Link>content\screens\gamescreen\effects\darknessshader.xnb</Link>
+    </None>
+    <None Include="content\entities\baseentities\baseplayerprojectile\baseprojectilelightanimationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BaseProjectileLightAnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\baseentities\basestructure\basestructureanimationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BaseStructureAnimationChainListFile</Name>
     </None>
     <None Include="content\entities\enemies\basicalien\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -510,17 +534,33 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
     </None>
+    <None Include="content\entities\projectiles\allparticles.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AllParticles</Name>
+    </None>
     <None Include="content\entities\projectiles\cannonprojectile\cannonprojectileanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>CannonProjectileAnimationChainListFile</Name>
     </None>
-    <None Include="content\entities\projectiles\laserturretprojectile\laserturretprojectileanimationchainlistfile.achx">
+    <None Include="content\entities\projectiles\chemicalprojectile\chemicalprojectileanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>LaserTurretProjectileAnimationChainListFile</Name>
+      <Name>ChemicalProjectileAnimationChainListFile</Name>
     </None>
-    <None Include="content\entities\projectiles\talllaserprojectile\talllaserprojectileanimationchainlistfile.achx">
+    <None Include="content\entities\projectiles\electricprojectile\electricprojectileanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>TallLaserProjectileAnimationChainListFile</Name>
+      <Name>ElectricProjectileAnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\projectiles\fireprojectile\fireprojectileanimationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FireProjectileAnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\projectiles\frostprojectile\frostprojectileanimationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FrostProjectileAnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\projectiles\piercingprojectile\piercingprojectileanimationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PiercingProjectileAnimationChainListFile</Name>
     </None>
     <None Include="content\entities\structures\energyproducers\hydrogenerator\waterdropanimationchain.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -782,6 +822,34 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>animation_sheet</Name>
     </None>
+    <None Include="content\screens\gamescreen\backgrounds\bgdeadtrees.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BGDeadtrees</Name>
+    </None>
+    <None Include="content\screens\gamescreen\backgrounds\bgforesthills.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BGforesthills</Name>
+    </None>
+    <None Include="content\screens\gamescreen\backgrounds\bgmountains-clouds.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BGmountains-clouds</Name>
+    </None>
+    <None Include="content\screens\gamescreen\backgrounds\bgmountains.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BGmountains</Name>
+    </None>
+    <None Include="content\screens\gamescreen\backgrounds\bgplains.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BGPlains</Name>
+    </None>
+    <None Include="content\screens\gamescreen\backgrounds\bgswamp.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BGswamp</Name>
+    </None>
+    <None Include="content\screens\gamescreen\backgrounds\bgtreeplains.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BGTreeplains</Name>
+    </None>
     <None Include="content\screens\gamescreen\levels\chapter1.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Chapter1</Name>
@@ -844,7 +912,6 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="content\entities\projectiles\flyingenemyprojectile\" />
     <Folder Include="content\entities\projectiles\rangedenemyprojectile\" />
     <Folder Include="content\entities\structures\combat\cannon\" />
     <Folder Include="content\entities\structures\combat\laserturret\" />

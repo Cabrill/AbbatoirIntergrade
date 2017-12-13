@@ -5,6 +5,11 @@
   <State>
     <Name>Default</Name>
     <Variable>
+      <Type>BackgroundState</Type>
+      <Name>BackgroundState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
       <Type>ChildrenLayout</Type>
       <Name>Children Layout</Name>
       <Value xsi:type="xsd:int">0</Value>
@@ -15,6 +20,126 @@
       <Name>Clips Children</Name>
       <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>CloudCoverSprite.Animate</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>CloudCoverSprite.Blue</Name>
+      <Value xsi:type="xsd:int">255</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>CloudCoverSprite.Green</Name>
+      <Value xsi:type="xsd:int">255</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CloudCoverSprite.Height</Name>
+      <Value xsi:type="xsd:float">20</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>CloudCoverSprite.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>CloudCoverSprite.Red</Name>
+      <Value xsi:type="xsd:int">255</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>CloudCoverSprite.SourceFile</Name>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/Backgrounds/BGmountains-clouds.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>CloudCoverSprite.Texture Address</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>CloudCoverSprite.Texture Height</Name>
+      <Value xsi:type="xsd:int">288</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CloudCoverSprite.Texture Height Scale</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>CloudCoverSprite.Texture Left</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>CloudCoverSprite.Texture Top</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>CloudCoverSprite.Texture Width</Name>
+      <Value xsi:type="xsd:int">381</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CloudCoverSprite.Texture Width Scale</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>CloudCoverSprite.Visible</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>CloudCoverSprite.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>CloudCoverSprite.Wrap</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CloudCoverSprite.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CloudCoverSprite.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>CloudCoverState</Type>
+      <Name>CloudCoverState</Name>
+      <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
@@ -153,13 +278,13 @@
     <Variable>
       <Type>int</Type>
       <Name>ForegroundSprite.Blue</Name>
-      <Value xsi:type="xsd:int">100</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>ForegroundSprite.Green</Name>
-      <Value xsi:type="xsd:int">100</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -177,14 +302,14 @@
     <Variable>
       <Type>int</Type>
       <Name>ForegroundSprite.Red</Name>
-      <Value xsi:type="xsd:int">100</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>ForegroundSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">Mangrove.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/Backgrounds/BGmountains.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -897,6 +1022,223 @@
       <Value />
     </VariableList>
   </State>
+  <Category>
+    <Name>Scenery</Name>
+    <State>
+      <Name>Swamp</Name>
+      <Variable>
+        <Type>bool</Type>
+        <Name>CloudCoverSprite.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <IsFile>true</IsFile>
+        <Type>string</Type>
+        <Name>ForegroundSprite.SourceFile</Name>
+        <Value xsi:type="xsd:string">../Screens/GameScreen/Backgrounds/BGswamp.png</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <IsFile>true</IsFile>
+        <Type>string</Type>
+        <Name>CloudCoverSprite.SourceFile</Name>
+        <Value xsi:type="xsd:string">Mangrove.png</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>AnimationFrames</Name>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value />
+      </VariableList>
+    </State>
+    <State>
+      <Name>DeadTrees</Name>
+      <Variable>
+        <Type>bool</Type>
+        <Name>CloudCoverSprite.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <IsFile>true</IsFile>
+        <Type>string</Type>
+        <Name>ForegroundSprite.SourceFile</Name>
+        <Value xsi:type="xsd:string">../Screens/GameScreen/Backgrounds/BGDeadtrees.png</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <IsFile>true</IsFile>
+        <Type>string</Type>
+        <Name>CloudCoverSprite.SourceFile</Name>
+        <Value xsi:type="xsd:string">Mangrove.png</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>AnimationFrames</Name>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value />
+      </VariableList>
+    </State>
+    <State>
+      <Name>ForestedHills</Name>
+      <Variable>
+        <Type>bool</Type>
+        <Name>CloudCoverSprite.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <IsFile>true</IsFile>
+        <Type>string</Type>
+        <Name>ForegroundSprite.SourceFile</Name>
+        <Value xsi:type="xsd:string">../Screens/GameScreen/Backgrounds/BGforesthills.png</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <IsFile>true</IsFile>
+        <Type>string</Type>
+        <Name>CloudCoverSprite.SourceFile</Name>
+        <Value xsi:type="xsd:string">Mangrove.png</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>AnimationFrames</Name>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value />
+      </VariableList>
+    </State>
+    <State>
+      <Name>RedMountains</Name>
+      <Variable>
+        <IsFile>true</IsFile>
+        <Type>string</Type>
+        <Name>CloudCoverSprite.SourceFile</Name>
+        <Value xsi:type="xsd:string">../Screens/GameScreen/Backgrounds/BGmountains-clouds.png</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>CloudCoverSprite.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <IsFile>true</IsFile>
+        <Type>string</Type>
+        <Name>ForegroundSprite.SourceFile</Name>
+        <Value xsi:type="xsd:string">../Screens/GameScreen/Backgrounds/BGmountains.png</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>AnimationFrames</Name>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value />
+      </VariableList>
+    </State>
+    <State>
+      <Name>Plains</Name>
+      <Variable>
+        <IsFile>true</IsFile>
+        <Type>string</Type>
+        <Name>CloudCoverSprite.SourceFile</Name>
+        <Value xsi:type="xsd:string">Mangrove.png</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>CloudCoverSprite.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <IsFile>true</IsFile>
+        <Type>string</Type>
+        <Name>ForegroundSprite.SourceFile</Name>
+        <Value xsi:type="xsd:string">../Screens/GameScreen/Backgrounds/BGPlains.png</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>AnimationFrames</Name>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value />
+      </VariableList>
+    </State>
+    <State>
+      <Name>SparseTrees</Name>
+      <Variable>
+        <IsFile>true</IsFile>
+        <Type>string</Type>
+        <Name>CloudCoverSprite.SourceFile</Name>
+        <Value xsi:type="xsd:string">Mangrove.png</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>CloudCoverSprite.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <IsFile>true</IsFile>
+        <Type>string</Type>
+        <Name>ForegroundSprite.SourceFile</Name>
+        <Value xsi:type="xsd:string">../Screens/GameScreen/Backgrounds/BGTreeplains.png</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>AnimationFrames</Name>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value />
+      </VariableList>
+    </State>
+  </Category>
+  <Category>
+    <Name>CloudCover</Name>
+    <State>
+      <Name>CloudStart</Name>
+      <Variable>
+        <Type>float</Type>
+        <Name>CloudCoverSprite.Width</Name>
+        <Value xsi:type="xsd:float">150</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>CloudCoverSprite.X</Name>
+        <Value xsi:type="xsd:float">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>CloudEnd</Name>
+      <Variable>
+        <Type>float</Type>
+        <Name>CloudCoverSprite.Width</Name>
+        <Value xsi:type="xsd:float">150</Value>
+        <Category>Dimensions</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>CloudCoverSprite.X</Name>
+        <Value xsi:type="xsd:float">-512</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
   <Instance>
     <Name>StarContainer</Name>
     <BaseType>Container</BaseType>
@@ -931,6 +1273,10 @@
   </Instance>
   <Instance>
     <Name>DawnDuskSprite</Name>
+    <BaseType>Sprite</BaseType>
+  </Instance>
+  <Instance>
+    <Name>CloudCoverSprite</Name>
     <BaseType>Sprite</BaseType>
   </Instance>
   <Instance>

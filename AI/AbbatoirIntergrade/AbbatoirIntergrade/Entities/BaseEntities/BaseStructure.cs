@@ -23,6 +23,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 {
     public partial class BaseStructure
     {
+        protected DamageTypes DamageType;
         private static float _maximumY;
         protected float _currentScale;
         protected float _startingScale;
@@ -249,7 +250,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         private void PerformDestruction()
         {
-            ;
             OnDestroy?.Invoke();
 
             Destroy();
@@ -374,47 +374,47 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         protected virtual void SetAnimationFromAimRotation()
         {
-            var isolatedAim = _aimRotation % (2 * Math.PI);//A full circle is is 2*Pi
+            //var isolatedAim = _aimRotation % (2 * Math.PI);//A full circle is is 2*Pi
 
-            if (isolatedAim < 0) isolatedAim = (2 * Math.PI) - Math.Abs(isolatedAim);
+            //if (isolatedAim < 0) isolatedAim = (2 * Math.PI) - Math.Abs(isolatedAim);
 
-            var quadSize = (2 * Math.PI) / 4;//Four quads in a circle
-            var aimQuad = (int)(isolatedAim / quadSize);
-            var quadRemainder = isolatedAim % quadSize;
+            //var quadSize = (2 * Math.PI) / 4;//Four quads in a circle
+            //var aimQuad = (int)(isolatedAim / quadSize);
+            //var quadRemainder = isolatedAim % quadSize;
 
-            //var quadProgress = (int)Math.Floor(quadRemainder / (quadrantSegments/5));
+            ////var quadProgress = (int)Math.Floor(quadRemainder / (quadrantSegments/5));
 
-            var quadPercent = quadRemainder / quadSize;
-            int quadProgress = 0;
+            //var quadPercent = quadRemainder / quadSize;
+            //int quadProgress = 0;
 
-            if (aimQuad == 0 || aimQuad == 2)//bottom-left and top-right
-            {
-                if (quadPercent > 0.7f) quadProgress = 4;
-                else if (quadPercent > .4f) quadProgress = 3;
-                else if (quadPercent > .25f) quadProgress = 2;
-                else if (quadPercent > .12f) quadProgress = 1;
-            }
-            else//bottom-right and top-left
-            {
-                if (quadPercent > 0.97f) quadProgress = 4;
-                else if (quadPercent > .9f) quadProgress = 3;
-                else if (quadPercent > .7f) quadProgress = 2;
-                else if (quadPercent > .35f) quadProgress = 1;
-            }
+            //if (aimQuad == 0 || aimQuad == 2)//bottom-left and top-right
+            //{
+            //    if (quadPercent > 0.7f) quadProgress = 4;
+            //    else if (quadPercent > .4f) quadProgress = 3;
+            //    else if (quadPercent > .25f) quadProgress = 2;
+            //    else if (quadPercent > .12f) quadProgress = 1;
+            //}
+            //else//bottom-right and top-left
+            //{
+            //    if (quadPercent > 0.97f) quadProgress = 4;
+            //    else if (quadPercent > .9f) quadProgress = 3;
+            //    else if (quadPercent > .7f) quadProgress = 2;
+            //    else if (quadPercent > .35f) quadProgress = 1;
+            //}
 
-            if (targetEnemy == null || !targetEnemy.IsFlying)
-            {
-                SpriteInstance.CurrentChainName = "Turn";
-            }
-            else
-            {
-                SpriteInstance.CurrentChainName = "UpTurn";
-            }
+            //if (targetEnemy == null || !targetEnemy.IsFlying)
+            //{
+            //    SpriteInstance.CurrentChainName = "Turn";
+            //}
+            //else
+            //{
+            //    SpriteInstance.CurrentChainName = "UpTurn";
+            //}
 
-            SpriteInstance.CurrentFrameIndex = (aimQuad * 5) + quadProgress;
+            //SpriteInstance.CurrentFrameIndex = (aimQuad * 5) + quadProgress;
 
 
-            UpdateAnimation();
+            //UpdateAnimation();
         }
 
         protected virtual Vector3 GetProjectilePositioning(float? angle = null)

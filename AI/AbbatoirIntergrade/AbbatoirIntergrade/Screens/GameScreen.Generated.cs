@@ -252,8 +252,11 @@ namespace AbbatoirIntergrade.Screens
             Sheep2EnemyFactory.Destroy();
             Sheep3EnemyFactory.Destroy();
             CannonProjectileFactory.Destroy();
-            LaserTurretProjectileFactory.Destroy();
-            TallLaserProjectileFactory.Destroy();
+            ChemicalProjectileFactory.Destroy();
+            ElectricProjectileFactory.Destroy();
+            FireProjectileFactory.Destroy();
+            FrostProjectileFactory.Destroy();
+            PiercingProjectileFactory.Destroy();
             StructurePlacementFactory.Destroy();
             FlatRedBall.SpriteManager.RemoveDrawableBatch(GameScreenGum); FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged -= GameScreenGum.HandleResolutionChanged;
             GameScreenGum = null;

@@ -71,7 +71,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         static object mLockObject = new object();
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
-        protected static Microsoft.Xna.Framework.Graphics.Texture2D AllAssetsSheet;
+        protected static Microsoft.Xna.Framework.Graphics.Texture2D AllParticles;
+        protected static FlatRedBall.Graphics.Animation.AnimationChainList BaseProjectileLightAnimationChainListFile;
         
         protected FlatRedBall.Sprite SpriteInstance;
         static float SpriteInstanceXReset;
@@ -103,14 +104,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         static float LightOrShadowSpriteRotationZVelocityReset;
         static float LightOrShadowSpriteAlphaReset;
         static float LightOrShadowSpriteAlphaRateReset;
-        protected FlatRedBall.Math.Geometry.Circle mCircleInstance;
+        private FlatRedBall.Math.Geometry.Circle mCircleInstance;
         public FlatRedBall.Math.Geometry.Circle CircleInstance
         {
             get
             {
                 return mCircleInstance;
             }
-            protected set
+            private set
             {
                 mCircleInstance = value;
             }
@@ -232,6 +233,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         protected virtual void InitializeEntity (bool addToManagers) 
         {
             LoadStaticContent(ContentManagerName);
+            mCircleInstance = new FlatRedBall.Math.Geometry.Circle();
+            mCircleInstance.Name = "mCircleInstance";
             
             PostInitialize();
             if (addToManagers)
@@ -282,7 +285,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 {
                     SpriteInstance.RelativeZ = 1f;
                 }
-                SpriteInstance.Texture = AllAssetsSheet;
                 SpriteInstance.TextureScale = 1f;
                 SpriteInstance.ParentRotationChangesPosition = false;
             }
@@ -301,25 +303,24 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 {
                     LightOrShadowSprite.RelativeZ = -1f;
                 }
-                LightOrShadowSprite.Texture = AllAssetsSheet;
+                LightOrShadowSprite.Texture = AllParticles;
                 LightOrShadowSprite.LeftTexturePixel = 1792f;
                 LightOrShadowSprite.RightTexturePixel = 2048f;
                 LightOrShadowSprite.TopTexturePixel = 1792f;
                 LightOrShadowSprite.BottomTexturePixel = 2048f;
                 LightOrShadowSprite.TextureScale = 1f;
+                LightOrShadowSprite.AnimationChains = BaseProjectileLightAnimationChainListFile;
+                LightOrShadowSprite.CurrentChainName = "Light_Shot";
                 LightOrShadowSprite.ParentRotationChangesPosition = false;
             }
-            if (CircleInstance!= null)
+            if (mCircleInstance.Parent == null)
             {
-                if (mCircleInstance.Parent == null)
-                {
-                    mCircleInstance.CopyAbsoluteToRelative();
-                    mCircleInstance.AttachTo(this, false);
-                }
-                CircleInstance.Radius = 16f;
-                CircleInstance.Color = Color.Red;
-                CircleInstance.ParentRotationChangesPosition = false;
+                mCircleInstance.CopyAbsoluteToRelative();
+                mCircleInstance.AttachTo(this, false);
             }
+            CircleInstance.Radius = 16f;
+            CircleInstance.Color = Color.Red;
+            CircleInstance.ParentRotationChangesPosition = false;
             if (AnimationChainInstance!= null)
             {
             }
@@ -341,6 +342,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (callOnContainedElements)
             {
             }
+            CircleInstance.Radius = 16f;
+            CircleInstance.Color = Color.Red;
+            CircleInstance.ParentRotationChangesPosition = false;
             HasLightSource = false;
         }
         public virtual void ConvertToManuallyUpdated () 
@@ -395,7 +399,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                         mRegisteredUnloads.Add(ContentManagerName);
                     }
                 }
-                AllAssetsSheet = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/allassetssheet.png", ContentManagerName);
+                AllParticles = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/projectiles/allparticles.png", ContentManagerName);
+                BaseProjectileLightAnimationChainListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/baseentities/baseplayerprojectile/baseprojectilelightanimationchainlistfile.achx", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -518,8 +523,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             switch(memberName)
             {
-                case  "AllAssetsSheet":
-                    return AllAssetsSheet;
+                case  "AllParticles":
+                    return AllParticles;
+                case  "BaseProjectileLightAnimationChainListFile":
+                    return BaseProjectileLightAnimationChainListFile;
             }
             return null;
         }
@@ -527,8 +534,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             switch(memberName)
             {
-                case  "AllAssetsSheet":
-                    return AllAssetsSheet;
+                case  "AllParticles":
+                    return AllParticles;
+                case  "BaseProjectileLightAnimationChainListFile":
+                    return BaseProjectileLightAnimationChainListFile;
             }
             return null;
         }
@@ -536,8 +545,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             switch(memberName)
             {
-                case  "AllAssetsSheet":
-                    return AllAssetsSheet;
+                case  "AllParticles":
+                    return AllParticles;
+                case  "BaseProjectileLightAnimationChainListFile":
+                    return BaseProjectileLightAnimationChainListFile;
             }
             return null;
         }
@@ -558,10 +569,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(LightOrShadowSprite);
             }
-            if (CircleInstance != null)
-            {
-                FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(CircleInstance);
-            }
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(CircleInstance);
             if (AnimationChainInstance != null)
             {
             }

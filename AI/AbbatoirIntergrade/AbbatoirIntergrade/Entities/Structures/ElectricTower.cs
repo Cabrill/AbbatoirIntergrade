@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using AbbatoirIntergrade.Entities.BaseEntities;
+using AbbatoirIntergrade.Factories;
 using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
@@ -21,7 +23,7 @@ namespace AbbatoirIntergrade.Entities.Structures
         /// </summary>
 		private void CustomInitialize()
 		{
-
+            DamageType = DamageTypes.Electrical;
 
 		}
 
@@ -34,6 +36,11 @@ namespace AbbatoirIntergrade.Entities.Structures
 	            //LayerProvidedByContainer.Remove(LightSpriteInstance);
 	            //SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
 	        }
+	    }
+
+	    protected new BasePlayerProjectile CreateNewProjectile()
+	    {
+	        return ElectricProjectileFactory.CreateNew();
 	    }
 
         private void CustomActivity()

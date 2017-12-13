@@ -161,11 +161,23 @@
     <property name="DamageInflicted" type="float" />
     <property name="HasLightSource" type="bool" default="true" />
   </objecttype>
-  <objecttype name="LaserTurretProjectile">
+  <objecttype name="ChemicalProjectile">
+    <property name="DamageInflicted" type="float" />
+    <property name="HasLightSource" type="bool" default="false" />
+  </objecttype>
+  <objecttype name="ElectricProjectile">
     <property name="DamageInflicted" type="float" />
     <property name="HasLightSource" type="bool" default="true" />
   </objecttype>
-  <objecttype name="TallLaserProjectile">
+  <objecttype name="FireProjectile">
+    <property name="DamageInflicted" type="float" />
+    <property name="HasLightSource" type="bool" default="false" />
+  </objecttype>
+  <objecttype name="FrostProjectile">
+    <property name="DamageInflicted" type="float" />
+    <property name="HasLightSource" type="bool" default="false" />
+  </objecttype>
+  <objecttype name="PiercingProjectile">
     <property name="DamageInflicted" type="float" />
     <property name="HasLightSource" type="bool" default="true" />
   </objecttype>
