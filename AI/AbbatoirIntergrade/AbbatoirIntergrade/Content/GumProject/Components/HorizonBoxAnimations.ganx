@@ -13,7 +13,7 @@
         </AnimatedStateSave>
         <AnimatedStateSave>
           <StateName>CloudCover/CloudEnd</StateName>
-          <Time>10</Time>
+          <Time>15</Time>
           <InterpolationType>Linear</InterpolationType>
           <Easing>Out</Easing>
         </AnimatedStateSave>

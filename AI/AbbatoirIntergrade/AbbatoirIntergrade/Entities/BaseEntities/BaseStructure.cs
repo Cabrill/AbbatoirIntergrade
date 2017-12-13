@@ -425,7 +425,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 (float)-Math.Cos(angle.Value),
                 (float)-Math.Sin(angle.Value), 0);
             direction.Normalize();
-            return new Vector3(Position.X + AxisAlignedRectangleInstance.Width / 2 * direction.X, Position.Y + AxisAlignedRectangleInstance.Height * direction.Y, 0);
+            return new Vector3(Position.X + AxisAlignedRectangleInstance.Width / 2 * direction.X,
+                Position.Y + AxisAlignedRectangleInstance.Height * direction.Y, Position.Z);
         }
 
         private void ChooseTarget()
@@ -453,7 +454,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 var newProjectile = CreateNewProjectile();
                 newProjectile.DamageInflicted = AttackDamage;
                 newProjectile.Speed = ProjectileSpeed;
-                newProjectile.Position = Position;
 
                 var direction = new Vector3(
                     (float)-Math.Cos(_aimRotation),

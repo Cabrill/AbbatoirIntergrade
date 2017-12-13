@@ -27,8 +27,8 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 		    if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = Cannon_Hit.CreateInstance();
 		    HitTargetSound = HitGroundSound;
 		    circleRadius = CircleInstance.Radius;
-
-		    GravityDrag = -25f;
+		    LightOrShadowSprite.Visible = false;
+            GravityDrag = -25f;
 		}
 
 	    protected  override void CustomHandleImpact()
@@ -36,28 +36,29 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 	        RotationX = 0;
 	        RotationY = 0;
 	        RotationZ = 0;
-            SpriteInstance.TextureScale = 2f * _currentScale;
-	        LightOrShadowSprite.Alpha = 1f;
-            
+            //SpriteInstance.TextureScale = 2f * _currentScale;
+	        //LightOrShadowSprite.Alpha = 1f;
+	        //LightOrShadowSprite.Visible = true;
+
             var duration = SpriteInstance.AnimationChains["Impact"].TotalLength / 2;
 	        
-            this.Tween(HandleLightGrowUpdate, 0, 4f, duration,
-	            InterpolationType.Elastic, Easing.Out);
+            //this.Tween(HandleLightGrowUpdate, 0, 4f, duration,
+	           // InterpolationType.Elastic, Easing.Out);
 
 	        this.Call(FadeOut).After(duration);
 	    }
 
 	    private void HandleLightGrowUpdate(float newPosition)
 	    {
-	        SpriteInstance.TextureScale = 2f * newPosition * _currentScale;
-	        SpriteInstance.Alpha = newPosition/6;
-            LightOrShadowSprite.TextureScale = newPosition * _currentScale;
-	        CircleInstance.Radius = circleRadius * newPosition * _currentScale;
+	        //SpriteInstance.TextureScale = 2f * newPosition * _currentScale;
+	        //SpriteInstance.Alpha = 1 - newPosition/4;
+         //   LightOrShadowSprite.TextureScale = newPosition * _currentScale;
+	        //CircleInstance.Radius = circleRadius * newPosition * _currentScale;
 	    }
 
 	    private void HandleShrinkUpdate(float newPosition)
 	    {
-	        SpriteInstance.TextureScale = 2f * newPosition * _currentScale;
+	        //SpriteInstance.TextureScale = 2f * newPosition * _currentScale;
 	        SpriteInstance.Alpha = newPosition/4;
             LightOrShadowSprite.TextureScale = newPosition * _currentScale;
 	        LightOrShadowSprite.Alpha = newPosition * _currentScale;

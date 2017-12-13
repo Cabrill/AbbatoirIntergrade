@@ -40,7 +40,7 @@ namespace AbbatoirIntergrade.Entities.Structures
 
 	    protected override BasePlayerProjectile CreateNewProjectile()
 	    {
-	        return FrostProjectileFactory.CreateNew(Position.X, Position.Y);
+	        return FrostProjectileFactory.CreateNew(LayerProvidedByContainer);
         }
 
         private void CustomActivity()

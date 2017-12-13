@@ -197,6 +197,7 @@ namespace AbbatoirIntergrade.Screens
 
             Chapter1.Position.Y = -(Camera.Main.OrthogonalHeight / 2 - Chapter1.Height);
             Chapter1.Z = -1f;
+
             //ShapeManager.AddPolygon(pathing);
             ShapeManager.AddToLayer(Pathing, WorldLayer);
             Pathing.Visible = false;

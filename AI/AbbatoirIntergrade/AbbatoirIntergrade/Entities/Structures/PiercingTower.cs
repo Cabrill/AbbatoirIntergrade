@@ -40,8 +40,8 @@ namespace AbbatoirIntergrade.Entities.Structures
 
 	    protected override BasePlayerProjectile CreateNewProjectile()
 	    {
-	        return PiercingProjectileFactory.CreateNew(Position.X, Position.Y);
-	    }
+	        return PiercingProjectileFactory.CreateNew(LayerProvidedByContainer);
+        }
 
         private void CustomActivity()
 		{

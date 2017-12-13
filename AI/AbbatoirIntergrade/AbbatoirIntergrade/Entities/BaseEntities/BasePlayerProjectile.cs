@@ -210,7 +210,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	        SpriteManager.AddToLayer(LightOrShadowSprite, darknessLayer);
 	        ShapeManager.AddToLayer(CircleInstance, hudLayer);
-	        if (HasLightSource) SpriteManager.AddToLayer(SpriteInstance, darknessLayer);
+	        //if (HasLightSource) SpriteManager.AddToLayer(SpriteInstance, darknessLayer);
 
 	        _AddedToLayers = true;
         }

@@ -448,6 +448,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.SpriteManager.AddPositionedObject(this);
             FlatRedBall.SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(LightOrShadowSprite, LayerProvidedByContainer);
+            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mCircleInstance, LayerProvidedByContainer);
         }
         public virtual void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
@@ -455,6 +456,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.SpriteManager.AddPositionedObject(this);
             FlatRedBall.SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(LightOrShadowSprite, LayerProvidedByContainer);
+            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mCircleInstance, LayerProvidedByContainer);
             AddToManagersBottomUp(layerToAddTo);
             CustomInitialize();
         }
@@ -474,6 +476,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (LightOrShadowSprite != null)
             {
                 FlatRedBall.SpriteManager.RemoveSprite(LightOrShadowSprite);
+            }
+            if (CircleInstance != null)
+            {
+                FlatRedBall.Math.Geometry.ShapeManager.Remove(CircleInstance);
             }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
@@ -548,6 +554,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (LightOrShadowSprite != null)
             {
                 FlatRedBall.SpriteManager.RemoveSpriteOneWay(LightOrShadowSprite);
+            }
+            if (CircleInstance != null)
+            {
+                FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(CircleInstance);
             }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
         }

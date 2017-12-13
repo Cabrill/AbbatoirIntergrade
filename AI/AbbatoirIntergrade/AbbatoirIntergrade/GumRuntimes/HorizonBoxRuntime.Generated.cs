@@ -2292,14 +2292,14 @@
                     yield return toReturn;
                 }
                 {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(CloudCover.CloudEnd, 10, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, MoveStaticCloudsAnimation));
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(CloudCover.CloudEnd, 15, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, MoveStaticCloudsAnimation));
                     toReturn.Target = target;
                     toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
                     yield return toReturn;
                 }
                 {
                     var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => FlatRedBall.Instructions.InstructionManager.Instructions.AddRange(this.MoveStaticCloudsAnimationInstructions(target)));
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 10;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 15;
                     toReturn.Target = target;
                     yield return toReturn;
                 }
@@ -2318,7 +2318,7 @@
                         Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(CloudCover.CloudEnd);
                         Gum.DataTypes.Variables.StateSave second = first.Clone();
                         Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
-                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 10, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 15, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
                         tweener.Owner = this;
                         tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
                         tweener.Start();
@@ -2331,7 +2331,7 @@
                 }
                 {
                     var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => FlatRedBall.Instructions.InstructionManager.Instructions.AddRange(this.MoveStaticCloudsAnimationRelativeInstructions(target)));
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 10;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 15;
                     toReturn.Target = target;
                     yield return toReturn;
                 }
@@ -2343,7 +2343,7 @@
                 {
                     if (moveStaticCloudsAnimation == null)
                     {
-                        moveStaticCloudsAnimation = new FlatRedBall.Gum.Animation.GumAnimation(10, MoveStaticCloudsAnimationInstructions);
+                        moveStaticCloudsAnimation = new FlatRedBall.Gum.Animation.GumAnimation(15, MoveStaticCloudsAnimationInstructions);
                     }
                     return moveStaticCloudsAnimation;
                 }
@@ -2355,7 +2355,7 @@
                 {
                     if (moveStaticCloudsAnimationRelative == null)
                     {
-                        moveStaticCloudsAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(10, MoveStaticCloudsAnimationRelativeInstructions);
+                        moveStaticCloudsAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(15, MoveStaticCloudsAnimationRelativeInstructions);
                     }
                     return moveStaticCloudsAnimationRelative;
                 }
