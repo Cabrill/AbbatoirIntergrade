@@ -106,6 +106,7 @@
                         case  Capacity.Four:
                             XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                            FourButtonFrameInstance.CurrentRotatedState = AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated.None;
                             FourButtonFrameInstance.Visible = true;
                             FourButtonFrameInstance.X = 50f;
                             FourButtonFrameInstance.Y = 100f;
@@ -207,6 +208,7 @@
                             FourButtonFrameInstance.Visible = false;
                             FourButtonFrameInstance.X = 50f;
                             FourButtonFrameInstance.Y = 100f;
+                            SevenButtonFrameInstance.CurrentRotatedState = AbbatoirIntergrade.GumRuntimes.SevenButtonFrameRuntime.Rotated.None;
                             SevenButtonFrameInstance.Visible = true;
                             SevenButtonFrameInstance.X = 47.50298f;
                             SevenButtonFrameInstance.Y = 100.8836f;
@@ -924,6 +926,10 @@
                 bool setBuildButtonInstance6YSecondValue = false;
                 float BuildButtonInstance6YFirstValue= 0;
                 float BuildButtonInstance6YSecondValue= 0;
+                bool setFourButtonFrameInstanceCurrentRotatedStateFirstValue = false;
+                bool setFourButtonFrameInstanceCurrentRotatedStateSecondValue = false;
+                FourButtonFrameRuntime.Rotated FourButtonFrameInstanceCurrentRotatedStateFirstValue= FourButtonFrameRuntime.Rotated.Left;
+                FourButtonFrameRuntime.Rotated FourButtonFrameInstanceCurrentRotatedStateSecondValue= FourButtonFrameRuntime.Rotated.Left;
                 bool setFourButtonFrameInstanceXFirstValue = false;
                 bool setFourButtonFrameInstanceXSecondValue = false;
                 float FourButtonFrameInstanceXFirstValue= 0;
@@ -940,10 +946,6 @@
                 bool setSevenButtonFrameInstanceYSecondValue = false;
                 float SevenButtonFrameInstanceYFirstValue= 0;
                 float SevenButtonFrameInstanceYSecondValue= 0;
-                bool setFourButtonFrameInstanceCurrentRotatedStateFirstValue = false;
-                bool setFourButtonFrameInstanceCurrentRotatedStateSecondValue = false;
-                FourButtonFrameRuntime.Rotated FourButtonFrameInstanceCurrentRotatedStateFirstValue= FourButtonFrameRuntime.Rotated.Left;
-                FourButtonFrameRuntime.Rotated FourButtonFrameInstanceCurrentRotatedStateSecondValue= FourButtonFrameRuntime.Rotated.Left;
                 bool setSevenButtonFrameInstanceCurrentRotatedStateFirstValue = false;
                 bool setSevenButtonFrameInstanceCurrentRotatedStateSecondValue = false;
                 SevenButtonFrameRuntime.Rotated SevenButtonFrameInstanceCurrentRotatedStateFirstValue= SevenButtonFrameRuntime.Rotated.Left;
@@ -1003,6 +1005,8 @@
                         BuildButtonInstance6XFirstValue = 0f;
                         setBuildButtonInstance6YFirstValue = true;
                         BuildButtonInstance6YFirstValue = 0f;
+                        setFourButtonFrameInstanceCurrentRotatedStateFirstValue = true;
+                        FourButtonFrameInstanceCurrentRotatedStateFirstValue = AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated.None;
                         if (interpolationValue < 1)
                         {
                             this.FourButtonFrameInstance.Visible = true;
@@ -1261,6 +1265,8 @@
                         FourButtonFrameInstanceXFirstValue = 50f;
                         setFourButtonFrameInstanceYFirstValue = true;
                         FourButtonFrameInstanceYFirstValue = 100f;
+                        setSevenButtonFrameInstanceCurrentRotatedStateFirstValue = true;
+                        SevenButtonFrameInstanceCurrentRotatedStateFirstValue = AbbatoirIntergrade.GumRuntimes.SevenButtonFrameRuntime.Rotated.None;
                         if (interpolationValue < 1)
                         {
                             this.SevenButtonFrameInstance.Visible = true;
@@ -1518,6 +1524,8 @@
                         BuildButtonInstance6XSecondValue = 0f;
                         setBuildButtonInstance6YSecondValue = true;
                         BuildButtonInstance6YSecondValue = 0f;
+                        setFourButtonFrameInstanceCurrentRotatedStateSecondValue = true;
+                        FourButtonFrameInstanceCurrentRotatedStateSecondValue = AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated.None;
                         if (interpolationValue >= 1)
                         {
                             this.FourButtonFrameInstance.Visible = true;
@@ -1776,6 +1784,8 @@
                         FourButtonFrameInstanceXSecondValue = 50f;
                         setFourButtonFrameInstanceYSecondValue = true;
                         FourButtonFrameInstanceYSecondValue = 100f;
+                        setSevenButtonFrameInstanceCurrentRotatedStateSecondValue = true;
+                        SevenButtonFrameInstanceCurrentRotatedStateSecondValue = AbbatoirIntergrade.GumRuntimes.SevenButtonFrameRuntime.Rotated.None;
                         if (interpolationValue >= 1)
                         {
                             this.SevenButtonFrameInstance.Visible = true;
@@ -2050,6 +2060,10 @@
                 {
                     BuildButtonInstance6.Y = BuildButtonInstance6YFirstValue * (1 - interpolationValue) + BuildButtonInstance6YSecondValue * interpolationValue;
                 }
+                if (setFourButtonFrameInstanceCurrentRotatedStateFirstValue && setFourButtonFrameInstanceCurrentRotatedStateSecondValue)
+                {
+                    FourButtonFrameInstance.InterpolateBetween(FourButtonFrameInstanceCurrentRotatedStateFirstValue, FourButtonFrameInstanceCurrentRotatedStateSecondValue, interpolationValue);
+                }
                 if (setFourButtonFrameInstanceXFirstValue && setFourButtonFrameInstanceXSecondValue)
                 {
                     FourButtonFrameInstance.X = FourButtonFrameInstanceXFirstValue * (1 - interpolationValue) + FourButtonFrameInstanceXSecondValue * interpolationValue;
@@ -2065,10 +2079,6 @@
                 if (setSevenButtonFrameInstanceYFirstValue && setSevenButtonFrameInstanceYSecondValue)
                 {
                     SevenButtonFrameInstance.Y = SevenButtonFrameInstanceYFirstValue * (1 - interpolationValue) + SevenButtonFrameInstanceYSecondValue * interpolationValue;
-                }
-                if (setFourButtonFrameInstanceCurrentRotatedStateFirstValue && setFourButtonFrameInstanceCurrentRotatedStateSecondValue)
-                {
-                    FourButtonFrameInstance.InterpolateBetween(FourButtonFrameInstanceCurrentRotatedStateFirstValue, FourButtonFrameInstanceCurrentRotatedStateSecondValue, interpolationValue);
                 }
                 if (setSevenButtonFrameInstanceCurrentRotatedStateFirstValue && setSevenButtonFrameInstanceCurrentRotatedStateSecondValue)
                 {
@@ -3103,6 +3113,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "FourButtonFrameInstance.RotatedState",
+                            Type = "RotatedState",
+                            Value = FourButtonFrameInstance.CurrentRotatedState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "FourButtonFrameInstance.Visible",
                             Type = "bool",
                             Value = FourButtonFrameInstance.Visible
@@ -3864,6 +3882,14 @@
                             Name = "FourButtonFrameInstance.Y",
                             Type = "float",
                             Value = FourButtonFrameInstance.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SevenButtonFrameInstance.RotatedState",
+                            Type = "RotatedState",
+                            Value = SevenButtonFrameInstance.CurrentRotatedState
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4667,6 +4693,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "FourButtonFrameInstance.RotatedState",
+                            Type = "RotatedState",
+                            Value = FourButtonFrameInstance.CurrentRotatedState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "FourButtonFrameInstance.Visible",
                             Type = "bool",
                             Value = FourButtonFrameInstance.Visible
@@ -5428,6 +5462,14 @@
                             Name = "FourButtonFrameInstance.Y",
                             Type = "float",
                             Value = FourButtonFrameInstance.Y + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SevenButtonFrameInstance.RotatedState",
+                            Type = "RotatedState",
+                            Value = SevenButtonFrameInstance.CurrentRotatedState
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

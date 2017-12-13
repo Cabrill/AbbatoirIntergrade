@@ -38,10 +38,10 @@ namespace AbbatoirIntergrade.Entities.Structures
 	        }
 	    }
 
-	    protected new BasePlayerProjectile CreateNewProjectile()
+	    protected override BasePlayerProjectile CreateNewProjectile()
 	    {
-	        return FireProjectileFactory.CreateNew();
-	    }
+	        return FireProjectileFactory.CreateNew(Position.X, Position.Y);
+        }
 
         private void CustomActivity()
 		{

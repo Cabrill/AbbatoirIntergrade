@@ -162,6 +162,7 @@
                             DawnDuskSprite.Wrap = true;
                             DawnDuskSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
                             DawnDuskSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                            CloudCoverSprite.Alpha = 150;
                             CloudCoverSprite.Animate = false;
                             CloudCoverSprite.Blue = 255;
                             CloudCoverSprite.Green = 255;
@@ -279,6 +280,10 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
+                bool setCloudCoverSpriteAlphaFirstValue = false;
+                bool setCloudCoverSpriteAlphaSecondValue = false;
+                int CloudCoverSpriteAlphaFirstValue= 0;
+                int CloudCoverSpriteAlphaSecondValue= 0;
                 bool setCloudCoverSpriteBlueFirstValue = false;
                 bool setCloudCoverSpriteBlueSecondValue = false;
                 int CloudCoverSpriteBlueFirstValue= 0;
@@ -578,6 +583,8 @@
                         {
                             this.ClipsChildren = false;
                         }
+                        setCloudCoverSpriteAlphaFirstValue = true;
+                        CloudCoverSpriteAlphaFirstValue = 150;
                         if (interpolationValue < 1)
                         {
                             this.CloudCoverSprite.Animate = false;
@@ -1071,6 +1078,8 @@
                         {
                             this.ClipsChildren = false;
                         }
+                        setCloudCoverSpriteAlphaSecondValue = true;
+                        CloudCoverSpriteAlphaSecondValue = 150;
                         if (interpolationValue >= 1)
                         {
                             this.CloudCoverSprite.Animate = false;
@@ -1552,6 +1561,10 @@
                             this.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddleInverted;
                         }
                         break;
+                }
+                if (setCloudCoverSpriteAlphaFirstValue && setCloudCoverSpriteAlphaSecondValue)
+                {
+                    CloudCoverSprite.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(CloudCoverSpriteAlphaFirstValue* (1 - interpolationValue) + CloudCoverSpriteAlphaSecondValue * interpolationValue);
                 }
                 if (setCloudCoverSpriteBlueFirstValue && setCloudCoverSpriteBlueSecondValue)
                 {
@@ -3331,6 +3344,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "CloudCoverSprite.Alpha",
+                            Type = "int",
+                            Value = CloudCoverSprite.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "CloudCoverSprite.Animate",
                             Type = "bool",
                             Value = CloudCoverSprite.Animate
@@ -4600,6 +4621,14 @@
                             Name = "DawnDuskSprite.Y Units",
                             Type = "PositionUnitType",
                             Value = DawnDuskSprite.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Alpha",
+                            Type = "int",
+                            Value = CloudCoverSprite.Alpha + 150
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

@@ -11,7 +11,8 @@
             public enum Rotated
             {
                 Left,
-                Right
+                Right,
+                None
             }
             #endregion
             #region State Fields
@@ -72,6 +73,11 @@
                             SpriteInstance.Rotation = -90f;
                             SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                             SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                            break;
+                        case  Rotated.None:
+                            SpriteInstance.Rotation = 0f;
+                            SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                            SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                             break;
                     }
                 }
@@ -307,6 +313,18 @@
                             this.SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
                         }
                         break;
+                    case  Rotated.None:
+                        setSpriteInstanceRotationFirstValue = true;
+                        SpriteInstanceRotationFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                        }
+                        break;
                 }
                 switch(secondState)
                 {
@@ -332,6 +350,18 @@
                         if (interpolationValue >= 1)
                         {
                             this.SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                        }
+                        break;
+                    case  Rotated.None:
+                        setSpriteInstanceRotationSecondValue = true;
+                        SpriteInstanceRotationSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                         }
                         break;
                 }
@@ -815,6 +845,32 @@
                         }
                         );
                         break;
+                    case  Rotated.None:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Rotation",
+                            Type = "float",
+                            Value = SpriteInstance.Rotation
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = SpriteInstance.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = SpriteInstance.YOrigin
+                        }
+                        );
+                        break;
                 }
                 return newState;
             }
@@ -875,6 +931,32 @@
                         }
                         );
                         break;
+                    case  Rotated.None:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Rotation",
+                            Type = "float",
+                            Value = SpriteInstance.Rotation + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = SpriteInstance.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = SpriteInstance.YOrigin
+                        }
+                        );
+                        break;
                 }
                 return newState;
             }
@@ -893,6 +975,7 @@
                     {
                         if(state.Name == "Left") this.mCurrentRotatedState = Rotated.Left;
                         if(state.Name == "Right") this.mCurrentRotatedState = Rotated.Right;
+                        if(state.Name == "None") this.mCurrentRotatedState = Rotated.None;
                     }
                 }
                 base.ApplyState(state);

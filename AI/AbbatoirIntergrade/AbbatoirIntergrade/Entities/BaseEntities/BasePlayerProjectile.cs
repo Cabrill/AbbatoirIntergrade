@@ -105,10 +105,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             if (ShouldBeDestroyed)
 		    {
-		        if (HitGroundSound.State == SoundState.Stopped && HitTargetSound.State == SoundState.Stopped)
-		        {
+		        //if (HitGroundSound.State == SoundState.Stopped && HitTargetSound.State == SoundState.Stopped)
+		        //{
 		            Destroy();
-		        }
+		        //}
 		    }
             else
             {

@@ -240,9 +240,12 @@ namespace AbbatoirIntergrade.Entities.Structures
             #endif
             base.LightSpriteInstance.Blue = 0.5f;
             base.LightSpriteInstance.Alpha = 0.25f;
-            InternalBatteryMaxStorage = 0;
-            DisplayName = "Not Set";
+            DisplayName = "Piercing Tower";
             HasLightSource = true;
+            ProjectileSpeed = 500f;
+            RangedRadius = 400f;
+            AttackDamage = 1f;
+            SecondsBetweenFiring = 0.5;
         }
         public override void ConvertToManuallyUpdated () 
         {

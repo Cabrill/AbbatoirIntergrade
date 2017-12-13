@@ -43,20 +43,6 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static FlatRedBall.Graphics.Animation.AnimationChainList PiercingProjectileAnimationChainListFile;
         
-        static float SpriteInstanceXReset;
-        static float SpriteInstanceYReset;
-        static float SpriteInstanceZReset;
-        static float SpriteInstanceXVelocityReset;
-        static float SpriteInstanceYVelocityReset;
-        static float SpriteInstanceZVelocityReset;
-        static float SpriteInstanceRotationXReset;
-        static float SpriteInstanceRotationYReset;
-        static float SpriteInstanceRotationZReset;
-        static float SpriteInstanceRotationXVelocityReset;
-        static float SpriteInstanceRotationYVelocityReset;
-        static float SpriteInstanceRotationZVelocityReset;
-        static float SpriteInstanceAlphaReset;
-        static float SpriteInstanceAlphaRateReset;
         static float LightOrShadowSpriteXReset;
         static float LightOrShadowSpriteYReset;
         static float LightOrShadowSpriteZReset;
@@ -71,8 +57,20 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         static float LightOrShadowSpriteRotationZVelocityReset;
         static float LightOrShadowSpriteAlphaReset;
         static float LightOrShadowSpriteAlphaRateReset;
-        static float LightOrShadowSpriteWidthReset;
-        static float LightOrShadowSpriteHeightReset;
+        static float SpriteInstanceXReset;
+        static float SpriteInstanceYReset;
+        static float SpriteInstanceZReset;
+        static float SpriteInstanceXVelocityReset;
+        static float SpriteInstanceYVelocityReset;
+        static float SpriteInstanceZVelocityReset;
+        static float SpriteInstanceRotationXReset;
+        static float SpriteInstanceRotationYReset;
+        static float SpriteInstanceRotationZReset;
+        static float SpriteInstanceRotationXVelocityReset;
+        static float SpriteInstanceRotationYVelocityReset;
+        static float SpriteInstanceRotationZVelocityReset;
+        static float SpriteInstanceAlphaReset;
+        static float SpriteInstanceAlphaRateReset;
         public int Index { get; set; }
         public bool Used { get; set; }
         public new event System.EventHandler BeforeVisibleSet;
@@ -121,112 +119,10 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         protected override void InitializeEntity (bool addToManagers) 
         {
             LoadStaticContent(ContentManagerName);
-            SpriteInstance = new FlatRedBall.Sprite();
-            SpriteInstance.Name = "SpriteInstance";
             AnimationChainInstance = new FlatRedBall.Graphics.Animation.AnimationChain();
             AnimationChainInstance.Name = "AnimationChainInstance";
-            LightOrShadowSprite = new FlatRedBall.Sprite();
-            LightOrShadowSprite.Name = "LightOrShadowSprite";
             
             base.InitializeEntity(addToManagers);
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstanceXReset = SpriteInstance.X;
-            }
-            else
-            {
-                SpriteInstanceXReset = SpriteInstance.RelativeX;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstanceYReset = SpriteInstance.Y;
-            }
-            else
-            {
-                SpriteInstanceYReset = SpriteInstance.RelativeY;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstanceZReset = SpriteInstance.Z;
-            }
-            else
-            {
-                SpriteInstanceZReset = SpriteInstance.RelativeZ;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstanceXVelocityReset = SpriteInstance.XVelocity;
-            }
-            else
-            {
-                SpriteInstanceXVelocityReset = SpriteInstance.RelativeXVelocity;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstanceYVelocityReset = SpriteInstance.YVelocity;
-            }
-            else
-            {
-                SpriteInstanceYVelocityReset = SpriteInstance.RelativeYVelocity;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstanceZVelocityReset = SpriteInstance.ZVelocity;
-            }
-            else
-            {
-                SpriteInstanceZVelocityReset = SpriteInstance.RelativeZVelocity;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstanceRotationXReset = SpriteInstance.RotationX;
-            }
-            else
-            {
-                SpriteInstanceRotationXReset = SpriteInstance.RelativeRotationX;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstanceRotationYReset = SpriteInstance.RotationY;
-            }
-            else
-            {
-                SpriteInstanceRotationYReset = SpriteInstance.RelativeRotationY;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstanceRotationZReset = SpriteInstance.RotationZ;
-            }
-            else
-            {
-                SpriteInstanceRotationZReset = SpriteInstance.RelativeRotationZ;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstanceRotationXVelocityReset = SpriteInstance.RotationXVelocity;
-            }
-            else
-            {
-                SpriteInstanceRotationXVelocityReset = SpriteInstance.RelativeRotationXVelocity;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstanceRotationYVelocityReset = SpriteInstance.RotationYVelocity;
-            }
-            else
-            {
-                SpriteInstanceRotationYVelocityReset = SpriteInstance.RelativeRotationYVelocity;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstanceRotationZVelocityReset = SpriteInstance.RotationZVelocity;
-            }
-            else
-            {
-                SpriteInstanceRotationZVelocityReset = SpriteInstance.RelativeRotationZVelocity;
-            }
-            SpriteInstanceAlphaReset = SpriteInstance.Alpha;
-            SpriteInstanceAlphaRateReset = SpriteInstance.AlphaRate;
             if (LightOrShadowSprite.Parent == null)
             {
                 LightOrShadowSpriteXReset = LightOrShadowSprite.X;
@@ -325,20 +221,112 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             LightOrShadowSpriteAlphaReset = LightOrShadowSprite.Alpha;
             LightOrShadowSpriteAlphaRateReset = LightOrShadowSprite.AlphaRate;
-            LightOrShadowSpriteWidthReset = LightOrShadowSprite.Width;
-            LightOrShadowSpriteHeightReset = LightOrShadowSprite.Height;
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstanceXReset = SpriteInstance.X;
+            }
+            else
+            {
+                SpriteInstanceXReset = SpriteInstance.RelativeX;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstanceYReset = SpriteInstance.Y;
+            }
+            else
+            {
+                SpriteInstanceYReset = SpriteInstance.RelativeY;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstanceZReset = SpriteInstance.Z;
+            }
+            else
+            {
+                SpriteInstanceZReset = SpriteInstance.RelativeZ;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstanceXVelocityReset = SpriteInstance.XVelocity;
+            }
+            else
+            {
+                SpriteInstanceXVelocityReset = SpriteInstance.RelativeXVelocity;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstanceYVelocityReset = SpriteInstance.YVelocity;
+            }
+            else
+            {
+                SpriteInstanceYVelocityReset = SpriteInstance.RelativeYVelocity;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstanceZVelocityReset = SpriteInstance.ZVelocity;
+            }
+            else
+            {
+                SpriteInstanceZVelocityReset = SpriteInstance.RelativeZVelocity;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstanceRotationXReset = SpriteInstance.RotationX;
+            }
+            else
+            {
+                SpriteInstanceRotationXReset = SpriteInstance.RelativeRotationX;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstanceRotationYReset = SpriteInstance.RotationY;
+            }
+            else
+            {
+                SpriteInstanceRotationYReset = SpriteInstance.RelativeRotationY;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstanceRotationZReset = SpriteInstance.RotationZ;
+            }
+            else
+            {
+                SpriteInstanceRotationZReset = SpriteInstance.RelativeRotationZ;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstanceRotationXVelocityReset = SpriteInstance.RotationXVelocity;
+            }
+            else
+            {
+                SpriteInstanceRotationXVelocityReset = SpriteInstance.RelativeRotationXVelocity;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstanceRotationYVelocityReset = SpriteInstance.RotationYVelocity;
+            }
+            else
+            {
+                SpriteInstanceRotationYVelocityReset = SpriteInstance.RelativeRotationYVelocity;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstanceRotationZVelocityReset = SpriteInstance.RotationZVelocity;
+            }
+            else
+            {
+                SpriteInstanceRotationZVelocityReset = SpriteInstance.RelativeRotationZVelocity;
+            }
+            SpriteInstanceAlphaReset = SpriteInstance.Alpha;
+            SpriteInstanceAlphaRateReset = SpriteInstance.AlphaRate;
         }
         public override void ReAddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
             base.ReAddToManagers(layerToAddTo);
-            FlatRedBall.SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
-            FlatRedBall.SpriteManager.AddToLayer(LightOrShadowSprite, LayerProvidedByContainer);
         }
         public override void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
             LayerProvidedByContainer = layerToAddTo;
-            FlatRedBall.SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
-            FlatRedBall.SpriteManager.AddToLayer(LightOrShadowSprite, LayerProvidedByContainer);
             base.AddToManagers(layerToAddTo);
             CustomInitialize();
         }
@@ -356,14 +344,6 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             base.Destroy();
             
-            if (SpriteInstance != null)
-            {
-                FlatRedBall.SpriteManager.RemoveSpriteOneWay(SpriteInstance);
-            }
-            if (LightOrShadowSprite != null)
-            {
-                FlatRedBall.SpriteManager.RemoveSpriteOneWay(LightOrShadowSprite);
-            }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
         }
@@ -372,46 +352,18 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             bool oldShapeManagerSuppressAdd = FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue;
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = true;
             base.PostInitialize();
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstance.CopyAbsoluteToRelative();
-                SpriteInstance.AttachTo(this, false);
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                base.SpriteInstance.X = 0f;
-            }
-            else
-            {
-                base.SpriteInstance.RelativeX = 0f;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                base.SpriteInstance.Y = 0f;
-            }
-            else
-            {
-                base.SpriteInstance.RelativeY = 0f;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                base.SpriteInstance.Z = 1f;
-            }
-            else
-            {
-                base.SpriteInstance.RelativeZ = 1f;
-            }
-            base.SpriteInstance.Texture = AllParticles;
-            base.SpriteInstance.TextureScale = 1f;
-            base.SpriteInstance.AnimationChains = PiercingProjectileAnimationChainListFile;
-            base.SpriteInstance.CurrentChainName = "Shot";
-            base.SpriteInstance.Visible = true;
-            base.SpriteInstance.Alpha = 0.5f;
-            base.SpriteInstance.ParentRotationChangesPosition = false;
             if (LightOrShadowSprite.Parent == null)
             {
                 LightOrShadowSprite.CopyAbsoluteToRelative();
                 LightOrShadowSprite.AttachTo(this, false);
+            }
+            if (LightOrShadowSprite.Parent == null)
+            {
+                base.LightOrShadowSprite.Z = -1f;
+            }
+            else
+            {
+                base.LightOrShadowSprite.RelativeZ = -1f;
             }
             base.LightOrShadowSprite.Texture = AllParticles;
             base.LightOrShadowSprite.LeftTexturePixel = 1792f;
@@ -421,16 +373,24 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.TextureScale = 1f;
             base.LightOrShadowSprite.AnimationChains = BaseProjectileLightAnimationChainListFile;
             base.LightOrShadowSprite.CurrentChainName = "Light_Shot";
-            #if FRB_MDX
-            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
-            #else
-            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-            #endif
-            base.LightOrShadowSprite.Red = 1f;
-            base.LightOrShadowSprite.Green = 0.15f;
-            base.LightOrShadowSprite.Blue = 0.1f;
-            base.LightOrShadowSprite.BlendOperation = FlatRedBall.Graphics.BlendOperation.Add;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstance.CopyAbsoluteToRelative();
+                SpriteInstance.AttachTo(this, false);
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                base.SpriteInstance.Z = 1f;
+            }
+            else
+            {
+                base.SpriteInstance.RelativeZ = 1f;
+            }
+            base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.AnimationChains = PiercingProjectileAnimationChainListFile;
+            base.SpriteInstance.CurrentChainName = "Shot";
+            base.SpriteInstance.ParentRotationChangesPosition = false;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
@@ -441,14 +401,6 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         public override void RemoveFromManagers () 
         {
             base.RemoveFromManagers();
-            if (SpriteInstance != null)
-            {
-                FlatRedBall.SpriteManager.RemoveSpriteOneWay(SpriteInstance);
-            }
-            if (LightOrShadowSprite != null)
-            {
-                FlatRedBall.SpriteManager.RemoveSpriteOneWay(LightOrShadowSprite);
-            }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
         }
         public override void AssignCustomVariables (bool callOnContainedElements) 
@@ -457,135 +409,14 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             if (callOnContainedElements)
             {
             }
-            if (SpriteInstance.Parent == null)
+            if (LightOrShadowSprite.Parent == null)
             {
-                base.SpriteInstance.X = 0f;
+                base.LightOrShadowSprite.Z = -1f;
             }
             else
             {
-                base.SpriteInstance.RelativeX = 0f;
+                base.LightOrShadowSprite.RelativeZ = -1f;
             }
-            if (SpriteInstance.Parent == null)
-            {
-                base.SpriteInstance.Y = 0f;
-            }
-            else
-            {
-                base.SpriteInstance.RelativeY = 0f;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                base.SpriteInstance.Z = 1f;
-            }
-            else
-            {
-                base.SpriteInstance.RelativeZ = 1f;
-            }
-            base.SpriteInstance.Texture = AllParticles;
-            base.SpriteInstance.TextureScale = 1f;
-            base.SpriteInstance.AnimationChains = PiercingProjectileAnimationChainListFile;
-            base.SpriteInstance.CurrentChainName = "Shot";
-            base.SpriteInstance.Visible = true;
-            base.SpriteInstance.Alpha = 0.5f;
-            base.SpriteInstance.ParentRotationChangesPosition = false;
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstance.X = SpriteInstanceXReset;
-            }
-            else
-            {
-                SpriteInstance.RelativeX = SpriteInstanceXReset;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstance.Y = SpriteInstanceYReset;
-            }
-            else
-            {
-                SpriteInstance.RelativeY = SpriteInstanceYReset;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstance.Z = SpriteInstanceZReset;
-            }
-            else
-            {
-                SpriteInstance.RelativeZ = SpriteInstanceZReset;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstance.XVelocity = SpriteInstanceXVelocityReset;
-            }
-            else
-            {
-                SpriteInstance.RelativeXVelocity = SpriteInstanceXVelocityReset;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstance.YVelocity = SpriteInstanceYVelocityReset;
-            }
-            else
-            {
-                SpriteInstance.RelativeYVelocity = SpriteInstanceYVelocityReset;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstance.ZVelocity = SpriteInstanceZVelocityReset;
-            }
-            else
-            {
-                SpriteInstance.RelativeZVelocity = SpriteInstanceZVelocityReset;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstance.RotationX = SpriteInstanceRotationXReset;
-            }
-            else
-            {
-                SpriteInstance.RelativeRotationX = SpriteInstanceRotationXReset;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstance.RotationY = SpriteInstanceRotationYReset;
-            }
-            else
-            {
-                SpriteInstance.RelativeRotationY = SpriteInstanceRotationYReset;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstance.RotationZ = SpriteInstanceRotationZReset;
-            }
-            else
-            {
-                SpriteInstance.RelativeRotationZ = SpriteInstanceRotationZReset;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstance.RotationXVelocity = SpriteInstanceRotationXVelocityReset;
-            }
-            else
-            {
-                SpriteInstance.RelativeRotationXVelocity = SpriteInstanceRotationXVelocityReset;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstance.RotationYVelocity = SpriteInstanceRotationYVelocityReset;
-            }
-            else
-            {
-                SpriteInstance.RelativeRotationYVelocity = SpriteInstanceRotationYVelocityReset;
-            }
-            if (SpriteInstance.Parent == null)
-            {
-                SpriteInstance.RotationZVelocity = SpriteInstanceRotationZVelocityReset;
-            }
-            else
-            {
-                SpriteInstance.RelativeRotationZVelocity = SpriteInstanceRotationZVelocityReset;
-            }
-            SpriteInstance.Alpha = SpriteInstanceAlphaReset;
-            SpriteInstance.AlphaRate = SpriteInstanceAlphaRateReset;
             base.LightOrShadowSprite.Texture = AllParticles;
             base.LightOrShadowSprite.LeftTexturePixel = 1792f;
             base.LightOrShadowSprite.RightTexturePixel = 2048f;
@@ -594,15 +425,6 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.TextureScale = 1f;
             base.LightOrShadowSprite.AnimationChains = BaseProjectileLightAnimationChainListFile;
             base.LightOrShadowSprite.CurrentChainName = "Light_Shot";
-            #if FRB_MDX
-            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
-            #else
-            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-            #endif
-            base.LightOrShadowSprite.Red = 1f;
-            base.LightOrShadowSprite.Green = 0.15f;
-            base.LightOrShadowSprite.Blue = 0.1f;
-            base.LightOrShadowSprite.BlendOperation = FlatRedBall.Graphics.BlendOperation.Add;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (LightOrShadowSprite.Parent == null)
             {
@@ -702,8 +524,116 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             LightOrShadowSprite.Alpha = LightOrShadowSpriteAlphaReset;
             LightOrShadowSprite.AlphaRate = LightOrShadowSpriteAlphaRateReset;
-            LightOrShadowSprite.Width = LightOrShadowSpriteWidthReset;
-            LightOrShadowSprite.Height = LightOrShadowSpriteHeightReset;
+            if (SpriteInstance.Parent == null)
+            {
+                base.SpriteInstance.Z = 1f;
+            }
+            else
+            {
+                base.SpriteInstance.RelativeZ = 1f;
+            }
+            base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.AnimationChains = PiercingProjectileAnimationChainListFile;
+            base.SpriteInstance.CurrentChainName = "Shot";
+            base.SpriteInstance.ParentRotationChangesPosition = false;
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstance.X = SpriteInstanceXReset;
+            }
+            else
+            {
+                SpriteInstance.RelativeX = SpriteInstanceXReset;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstance.Y = SpriteInstanceYReset;
+            }
+            else
+            {
+                SpriteInstance.RelativeY = SpriteInstanceYReset;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstance.Z = SpriteInstanceZReset;
+            }
+            else
+            {
+                SpriteInstance.RelativeZ = SpriteInstanceZReset;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstance.XVelocity = SpriteInstanceXVelocityReset;
+            }
+            else
+            {
+                SpriteInstance.RelativeXVelocity = SpriteInstanceXVelocityReset;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstance.YVelocity = SpriteInstanceYVelocityReset;
+            }
+            else
+            {
+                SpriteInstance.RelativeYVelocity = SpriteInstanceYVelocityReset;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstance.ZVelocity = SpriteInstanceZVelocityReset;
+            }
+            else
+            {
+                SpriteInstance.RelativeZVelocity = SpriteInstanceZVelocityReset;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstance.RotationX = SpriteInstanceRotationXReset;
+            }
+            else
+            {
+                SpriteInstance.RelativeRotationX = SpriteInstanceRotationXReset;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstance.RotationY = SpriteInstanceRotationYReset;
+            }
+            else
+            {
+                SpriteInstance.RelativeRotationY = SpriteInstanceRotationYReset;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstance.RotationZ = SpriteInstanceRotationZReset;
+            }
+            else
+            {
+                SpriteInstance.RelativeRotationZ = SpriteInstanceRotationZReset;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstance.RotationXVelocity = SpriteInstanceRotationXVelocityReset;
+            }
+            else
+            {
+                SpriteInstance.RelativeRotationXVelocity = SpriteInstanceRotationXVelocityReset;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstance.RotationYVelocity = SpriteInstanceRotationYVelocityReset;
+            }
+            else
+            {
+                SpriteInstance.RelativeRotationYVelocity = SpriteInstanceRotationYVelocityReset;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstance.RotationZVelocity = SpriteInstanceRotationZVelocityReset;
+            }
+            else
+            {
+                SpriteInstance.RelativeRotationZVelocity = SpriteInstanceRotationZVelocityReset;
+            }
+            SpriteInstance.Alpha = SpriteInstanceAlphaReset;
+            SpriteInstance.AlphaRate = SpriteInstanceAlphaRateReset;
             HasLightSource = true;
         }
         public override void ConvertToManuallyUpdated () 
@@ -711,8 +641,6 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.ConvertToManuallyUpdated();
             this.ForceUpdateDependenciesDeep();
             FlatRedBall.SpriteManager.ConvertToManuallyUpdated(this);
-            FlatRedBall.SpriteManager.ConvertToManuallyUpdated(SpriteInstance);
-            FlatRedBall.SpriteManager.ConvertToManuallyUpdated(LightOrShadowSprite);
         }
         public static new void LoadStaticContent (string contentManagerName) 
         {
@@ -790,8 +718,8 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         public override void SetToIgnorePausing () 
         {
             base.SetToIgnorePausing();
-            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(SpriteInstance);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(LightOrShadowSprite);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(SpriteInstance);
         }
         public override void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {

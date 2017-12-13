@@ -39,9 +39,9 @@ namespace AbbatoirIntergrade.Entities.Structures
 	        }
 	    }
 
-	    protected new BasePlayerProjectile CreateNewProjectile()
+	    protected override BasePlayerProjectile CreateNewProjectile()
 	    {
-	        return CannonProjectileFactory.CreateNew();
+	        return CannonProjectileFactory.CreateNew(Position.X, Position.Y); 
 	    }
 
         private void CustomActivity()

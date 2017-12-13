@@ -231,18 +231,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 return mIsBeingPlaced;
             }
         }
-        int mInternalBatteryMaxStorage = 0;
-        public virtual int InternalBatteryMaxStorage
-        {
-            set
-            {
-                mInternalBatteryMaxStorage = value;
-            }
-            get
-            {
-                return mInternalBatteryMaxStorage;
-            }
-        }
         string mDisplayName = "Not Set";
         public virtual string DisplayName
         {
@@ -300,10 +288,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
         }
         public virtual string StructureDescription { get; set; }
-        public System.Double SecondsBetweenFiring;
-        public float AttackDamage;
-        public float ProjectileSpeed;
-        public float RangedRadius
+        public virtual System.Double SecondsBetweenFiring { get; set; }
+        public virtual float AttackDamage { get; set; }
+        public virtual float ProjectileSpeed { get; set; }
+        public virtual float RangedRadius
         {
             get
             {
@@ -525,7 +513,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             SpriteInstanceGreen = 0f;
             SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
             IsBeingPlaced = true;
-            InternalBatteryMaxStorage = 0;
             DisplayName = "Not Set";
             HasLightSource = true;
             LightSpriteInstanceRed = 0f;

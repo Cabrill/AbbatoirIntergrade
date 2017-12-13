@@ -39,6 +39,8 @@ namespace AbbatoirIntergrade.GumRuntimes
             StarrySkySprite.Y = 50 + yOffset;
             DayTimeColor = new Color(SkyRectangle.Red, SkyRectangle.Green, SkyRectangle.Blue);
             NightTimeColor = new Color(0, 50, 125);
+
+            if (CloudCoverSprite.Visible) MoveStaticCloudsAnimation.Play();
         }
 
         public void ReactToCameraChange()

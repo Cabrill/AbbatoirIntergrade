@@ -182,39 +182,57 @@
     <property name="HasLightSource" type="bool" default="true" />
   </objecttype>
   <objecttype name="BombardingTower">
-    <property name="InternalBatteryMaxStorage" type="int" default="0" />
     <property name="DisplayName" type="string" default="Not Set" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="StructureDescription" type="string" />
+    <property name="ProjectileSpeed" type="float" default="250" />
+    <property name="RangedRadius" type="float" default="400" />
+    <property name="AttackDamage" type="float" default="10" />
+    <property name="SecondsBetweenFiring" type="float" default="5" />
   </objecttype>
   <objecttype name="ChemicalTower">
-    <property name="InternalBatteryMaxStorage" type="int" default="0" />
     <property name="DisplayName" type="string" default="Not Set" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="StructureDescription" type="string" />
+    <property name="ProjectileSpeed" type="float" default="500" />
+    <property name="RangedRadius" type="float" default="400" />
+    <property name="AttackDamage" type="float" default="4" />
+    <property name="SecondsBetweenFiring" type="float" default="2" />
   </objecttype>
   <objecttype name="ElectricTower">
-    <property name="InternalBatteryMaxStorage" type="int" default="0" />
     <property name="DisplayName" type="string" default="Not Set" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="StructureDescription" type="string" />
+    <property name="ProjectileSpeed" type="float" default="600" />
+    <property name="RangedRadius" type="float" default="400" />
+    <property name="AttackDamage" type="float" default="2" />
+    <property name="SecondsBetweenFiring" type="float" default="4" />
   </objecttype>
   <objecttype name="FireTower">
-    <property name="InternalBatteryMaxStorage" type="int" default="0" />
     <property name="DisplayName" type="string" default="Not Set" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="StructureDescription" type="string" />
+    <property name="ProjectileSpeed" type="float" default="400" />
+    <property name="RangedRadius" type="float" default="400" />
+    <property name="AttackDamage" type="float" default="5" />
+    <property name="SecondsBetweenFiring" type="float" default="2" />
   </objecttype>
   <objecttype name="FrostTower">
-    <property name="InternalBatteryMaxStorage" type="int" default="0" />
     <property name="DisplayName" type="string" default="Not Set" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="StructureDescription" type="string" />
+    <property name="ProjectileSpeed" type="float" default="300" />
+    <property name="RangedRadius" type="float" default="400" />
+    <property name="AttackDamage" type="float" default="3" />
+    <property name="SecondsBetweenFiring" type="float" default="1" />
   </objecttype>
   <objecttype name="PiercingTower">
-    <property name="InternalBatteryMaxStorage" type="int" default="0" />
-    <property name="DisplayName" type="string" default="Not Set" />
+    <property name="DisplayName" type="string" default="Piercing Tower" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="StructureDescription" type="string" />
+    <property name="ProjectileSpeed" type="float" default="500" />
+    <property name="RangedRadius" type="float" default="400" />
+    <property name="AttackDamage" type="float" default="1" />
+    <property name="SecondsBetweenFiring" type="float" default="0.5" />
   </objecttype>
 </objecttypes>
