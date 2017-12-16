@@ -120,8 +120,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         public virtual float DamageInflicted { get; set; }
         public event System.EventHandler BeforeSpeedSet;
         public event System.EventHandler AfterSpeedSet;
-        float mSpeed;
-        public float Speed
+        float mSpeed = 100f;
+        public virtual float Speed
         {
             set
             {
@@ -161,6 +161,18 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             set
             {
                 SpriteInstance.CurrentChainName = value;
+            }
+        }
+        float mMass = 0.01f;
+        public virtual float Mass
+        {
+            set
+            {
+                mMass = value;
+            }
+            get
+            {
+                return mMass;
             }
         }
         public event System.EventHandler BeforeVisibleSet;
@@ -820,7 +832,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 RelativeZ = 2f;
             }
+            Speed = 100f;
             HasLightSource = false;
+            Mass = 0.01f;
         }
         public virtual void ConvertToManuallyUpdated () 
         {

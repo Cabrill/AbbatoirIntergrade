@@ -484,22 +484,27 @@ namespace AbbatoirIntergrade.Screens
 
 	            if (projectile is CannonProjectile)
 	            {
-	                if (projectile.CurrentState != BasePlayerProjectile.VariableState.Impact) continue;
 	                for (var e = AllEnemiesList.Count; e > 0; e--)
 	                {
 	                    var enemy = AllEnemiesList[e - 1];
-	                    if (!projectile.CircleInstance.CollideAgainstBounce(enemy.CircleInstance, 2, 0f, 0f)) continue;
+
+	                    if (enemy.IsDead ||
+	                        !projectile.CircleInstance.CollideAgainstBounce(enemy.CircleInstance, projectile.Mass,
+	                            enemy.Mass, 0f)) continue;
+
+                        //Only hit flying enemies if cannonbal is in flight, and is at the same altitude as the enemy
+                        if (enemy.IsFlying && (projectile.CurrentState != BasePlayerProjectile.VariableState.Flying || Math.Abs(enemy.Altitude - projectile.Altitude) > 32f)) continue;
 
 	                    enemy.GetHitBy(projectile);
 	                }
-                }
+	            }
 	            else
 	            {
 	                for (var e = AllEnemiesList.Count; e > 0; e--)
 	                {
 	                    var enemy = AllEnemiesList[e - 1];
 
-	                    if (enemy.IsDead || !projectile.CircleInstance.CollideAgainst(enemy.CircleInstance)) continue;
+	                    if (enemy.IsDead || !projectile.CircleInstance.CollideAgainstBounce(enemy.CircleInstance, projectile.Mass, enemy.Mass, 0f)) continue;
 
 	                    enemy.GetHitBy(projectile);
 	                    projectile.HandleImpact(enemy);

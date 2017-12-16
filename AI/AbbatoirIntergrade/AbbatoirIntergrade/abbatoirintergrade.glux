@@ -601,6 +601,18 @@
           <Name>HasReachedGoal</Name>
           <Type>bool</Type>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <SetByDerived>true</SetByDerived>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -963,6 +975,8 @@
           </Properties>
           <Name>Speed</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <SetByDerived>true</SetByDerived>
           <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
         <CustomVariable>
@@ -988,6 +1002,18 @@
           <Type>string</Type>
           <SourceObject>SpriteInstance</SourceObject>
           <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.01</DefaultValue>
+          <SetByDerived>true</SetByDerived>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity />
@@ -2001,6 +2027,18 @@
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnemy</BaseEntity>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -2409,6 +2447,18 @@
           <Name>IsJumper</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -2821,6 +2871,18 @@
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnemy</BaseEntity>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -3229,6 +3291,18 @@
           <Name>IsJumper</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -3659,6 +3733,18 @@
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnemy</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -4085,6 +4171,18 @@
           <Name>IsJumper</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -4515,6 +4613,18 @@
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnemy</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -4943,6 +5053,18 @@
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnemy</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -5369,6 +5491,18 @@
           <Name>IsJumper</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -5833,6 +5967,18 @@
           <Name>IsJumper</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -6301,6 +6447,18 @@
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnemy</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -6727,6 +6885,18 @@
           <Name>IsJumper</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -7157,6 +7327,18 @@
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnemy</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -7585,6 +7767,18 @@
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnemy</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -8011,6 +8205,18 @@
           <Name>IsJumper</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -9157,6 +9363,31 @@
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Speed</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">500</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BasePlayerProjectile</BaseEntity>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -9463,6 +9694,30 @@
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.01</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Speed</Name>
+          <Type>float</Type>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BasePlayerProjectile</BaseEntity>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -9723,6 +9978,30 @@
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.01</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Speed</Name>
+          <Type>float</Type>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BasePlayerProjectile</BaseEntity>
@@ -9999,6 +10278,30 @@
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.01</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Speed</Name>
+          <Type>float</Type>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BasePlayerProjectile</BaseEntity>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -10253,6 +10556,30 @@
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.01</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Speed</Name>
+          <Type>float</Type>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BasePlayerProjectile</BaseEntity>
@@ -10514,6 +10841,30 @@
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Mass</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.01</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Speed</Name>
+          <Type>float</Type>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BasePlayerProjectile</BaseEntity>

@@ -84,6 +84,17 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         static float SpriteInstanceRotationZVelocityReset;
         static float SpriteInstanceAlphaReset;
         static float SpriteInstanceAlphaRateReset;
+        public override float Speed
+        {
+            set
+            {
+                base.Speed = value;
+            }
+            get
+            {
+                return base.Speed;
+            }
+        }
         public int Index { get; set; }
         public bool Used { get; set; }
         public new event System.EventHandler BeforeVisibleSet;
@@ -682,6 +693,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.CircleInstance.Color = Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = false;
             HasLightSource = true;
+            Mass = 0.01f;
         }
         public override void ConvertToManuallyUpdated () 
         {

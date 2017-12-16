@@ -14,6 +14,7 @@ using FlatRedBall.ManagedSpriteGroups;
 using FlatRedBall.Math.Geometry;
 using AbbatoirIntergrade.Entities.GraphicalElements;
 using AbbatoirIntergrade.Entities.Projectiles;
+using AbbatoirIntergrade.Entities.Structures;
 using FlatRedBall.Math;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -438,7 +439,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             foreach (BaseEnemy pt in _potentialTargetList)
             {
                 if (pt.IsDead) continue;
+                if (pt.IsFlying && this is BombardingTower) continue;
                 if (!pt.CircleInstance.CollideAgainst(RangeCircleInstance)) continue;
+                
                 newTarget = pt;
                 break;
             }

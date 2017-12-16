@@ -289,6 +289,18 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
         }
         public bool HasReachedGoal;
+        float mMass = 0.1f;
+        public virtual float Mass
+        {
+            set
+            {
+                mMass = value;
+            }
+            get
+            {
+                return mMass;
+            }
+        }
         public event System.EventHandler BeforeVisibleSet;
         public event System.EventHandler AfterVisibleSet;
         protected bool mVisible = true;
@@ -926,6 +938,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
+            Mass = 0.1f;
         }
         public virtual void ConvertToManuallyUpdated () 
         {

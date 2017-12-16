@@ -193,7 +193,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        }
 	        else
 	        {
-	            Velocity = Vector3.Zero;
                 CurrentActionState = Action.Hurt;
                 SpriteInstance.UpdateToCurrentAnimationFrame();
 	            UpdateAnimation();
@@ -205,8 +204,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (CurrentActionState != Action.Dying)
 	        {
 	            CurrentActionState = Action.Dying;
-	            Velocity = Vector3.Zero;
-            }
+	            Drag = 5f;
+	        }
             else if (IsFlying && Altitude > 0)
             {
                 Altitude += TimeManager.SecondDifference * -300f;

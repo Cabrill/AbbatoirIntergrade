@@ -40,22 +40,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             _currentDistanceToNavigationTarget = Vector3.Distance(Position, _targetPointForNavigation);
 
-            var shouldUpdateNavigation = IsJumper ||  CurrentActionState == Action.Running;
-
-            if (shouldUpdateNavigation)
+            if (_currentDistanceToNavigationTarget < 30)
             {
-                if (_currentDistanceToNavigationTarget < 30)
-                {
-                    ChoosePointForNavigation();
-                }
-
-                shouldUpdateNavigation = IsJumper || _currentDistanceToNavigationTarget > _lastDistanceToNavigationTarget || Velocity.Equals(Vector3.Zero);
-                if (shouldUpdateNavigation)
-                {
-                    NavigateToTarget();
-                    _currentDistanceToNavigationTarget = Vector3.Distance(Position, _targetPointForNavigation);
-                }
+                ChoosePointForNavigation();
+                _currentDistanceToNavigationTarget = Vector3.Distance(Position, _targetPointForNavigation);
             }
+
+            NavigateToTarget();
+
             _lastDistanceToNavigationTarget = _currentDistanceToNavigationTarget;
         }
 
@@ -81,9 +73,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     (float)-Math.Cos(angle),
                     (float)-Math.Sin(angle), 0);
                 direction.Normalize();
-
-                Velocity = direction * Speed * _currentScale;
-
+                Acceleration = direction * Speed * _currentScale;
+                Velocity = Acceleration * 0.2f;
+                
                 CurrentActionState = Action.Running;
                 CurrentDirectionState =
                     (Velocity.X > 0 ? Direction.MovingRight : Direction.MovingLeft);
