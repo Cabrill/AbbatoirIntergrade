@@ -159,7 +159,7 @@
   </objecttype>
   <objecttype name="CannonProjectile">
     <property name="DamageInflicted" type="float" />
-    <property name="HasLightSource" type="bool" default="true" />
+    <property name="HasLightSource" type="bool" default="false" />
   </objecttype>
   <objecttype name="ChemicalProjectile">
     <property name="DamageInflicted" type="float" />
@@ -179,7 +179,7 @@
   </objecttype>
   <objecttype name="PiercingProjectile">
     <property name="DamageInflicted" type="float" />
-    <property name="HasLightSource" type="bool" default="true" />
+    <property name="HasLightSource" type="bool" default="false" />
   </objecttype>
   <objecttype name="BombardingTower">
     <property name="DisplayName" type="string" default="Not Set" />
@@ -189,6 +189,7 @@
     <property name="RangedRadius" type="float" default="400" />
     <property name="AttackDamage" type="float" default="10" />
     <property name="SecondsBetweenFiring" type="float" default="5" />
+    <property name="ProjectileAltitude" type="float" default="100" />
   </objecttype>
   <objecttype name="ChemicalTower">
     <property name="DisplayName" type="string" default="Not Set" />
@@ -198,6 +199,7 @@
     <property name="RangedRadius" type="float" default="400" />
     <property name="AttackDamage" type="float" default="4" />
     <property name="SecondsBetweenFiring" type="float" default="2" />
+    <property name="ProjectileAltitude" type="float" default="100" />
   </objecttype>
   <objecttype name="ElectricTower">
     <property name="DisplayName" type="string" default="Not Set" />
@@ -207,6 +209,7 @@
     <property name="RangedRadius" type="float" default="400" />
     <property name="AttackDamage" type="float" default="2" />
     <property name="SecondsBetweenFiring" type="float" default="4" />
+    <property name="ProjectileAltitude" type="float" default="100" />
   </objecttype>
   <objecttype name="FireTower">
     <property name="DisplayName" type="string" default="Not Set" />
@@ -216,6 +219,7 @@
     <property name="RangedRadius" type="float" default="400" />
     <property name="AttackDamage" type="float" default="5" />
     <property name="SecondsBetweenFiring" type="float" default="2" />
+    <property name="ProjectileAltitude" type="float" default="100" />
   </objecttype>
   <objecttype name="FrostTower">
     <property name="DisplayName" type="string" default="Not Set" />
@@ -225,6 +229,7 @@
     <property name="RangedRadius" type="float" default="400" />
     <property name="AttackDamage" type="float" default="3" />
     <property name="SecondsBetweenFiring" type="float" default="1" />
+    <property name="ProjectileAltitude" type="float" default="100" />
   </objecttype>
   <objecttype name="PiercingTower">
     <property name="DisplayName" type="string" default="Piercing Tower" />
@@ -234,5 +239,6 @@
     <property name="RangedRadius" type="float" default="400" />
     <property name="AttackDamage" type="float" default="1" />
     <property name="SecondsBetweenFiring" type="float" default="0.5" />
+    <property name="ProjectileAltitude" type="float" default="100" />
   </objecttype>
 </objecttypes>

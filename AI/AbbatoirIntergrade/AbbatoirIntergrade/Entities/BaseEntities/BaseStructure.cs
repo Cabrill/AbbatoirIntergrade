@@ -13,6 +13,7 @@ using FlatRedBall.Gum;
 using FlatRedBall.ManagedSpriteGroups;
 using FlatRedBall.Math.Geometry;
 using AbbatoirIntergrade.Entities.GraphicalElements;
+using AbbatoirIntergrade.Entities.Projectiles;
 using FlatRedBall.Math;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -35,6 +36,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         protected BaseEnemy targetEnemy;
         protected SoundEffectInstance attackSound;
         protected float _aimRotation;
+        protected float _timeToTravel;
         protected float _shotAltitude = 1f;
         private float? _startingRangeRadius;
         private double LastFiredTime;
@@ -347,7 +349,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             var targetDistance = Vector3.Distance(startPosition, targetPosition);
 
             //Calculate how long the bullet would take to reach them
-            var timeToTravel = targetDistance / ProjectileSpeed;
+            _timeToTravel = targetDistance / ProjectileSpeed;
 
             var aimLocation = targetPosition;
 
@@ -355,15 +357,15 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (targetVector != Vector3.Zero)
             {
                 //Calculate how far they would travel in the time 
-                var aimAheadDistance = targetVector * timeToTravel;
+                var aimAheadDistance = targetVector * _timeToTravel;
 
                 //Aim where they'll be in the time the bullet takes to travel
                 aimLocation = aimAheadDistance + targetPosition;
 
                 //Recalculate time with the new aiming location
                 targetDistance = Vector3.Distance(startPosition, aimLocation);
-                timeToTravel = targetDistance / ProjectileSpeed;
-                aimAheadDistance = targetVector * timeToTravel;
+                _timeToTravel = targetDistance / ProjectileSpeed;
+                aimAheadDistance = targetVector * _timeToTravel;
                 aimLocation = targetPosition + aimAheadDistance;
             }
 
@@ -460,12 +462,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     (float)-Math.Sin(_aimRotation), 0);
                 direction.Normalize();
                 newProjectile.Position = GetProjectilePositioning();
-
+                newProjectile.Altitude = ProjectileAltitude;
                 newProjectile.AltitudeVelocity = CalculateAltitudeVelocity(newProjectile);
 
                 newProjectile.Velocity = direction * newProjectile.Speed;
 
-                newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity);
+                newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity+newProjectile.AltitudeVelocity);
 
                 PlayFireSound();
 
@@ -475,15 +477,15 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         private float CalculateAltitudeVelocity(BasePlayerProjectile projectile)
         {
-            if (targetEnemy == null) return 0f;
+            if (targetEnemy == null) return 0f;;
 
-            var targetPosition = targetEnemy.Position;
-            var targetDistance = Vector3.Distance(projectile.Position, targetPosition);
+            float altitudeDifference = -projectile.Altitude;
+            if (!(projectile is CannonProjectile))
+            {
+                altitudeDifference += targetEnemy.Altitude + (targetEnemy.SpriteInstance.Height / 2);
+            }
 
-            var timeToTravel = targetDistance / ProjectileSpeed;
-
-            var altitudeDifference = targetEnemy.Altitude + (targetEnemy.SpriteInstance.Height / 2) - projectile.Altitude;
-            var altitudeVelocity = (altitudeDifference / timeToTravel) - ((projectile.GravityDrag * timeToTravel) / 2);
+            var altitudeVelocity = (altitudeDifference / _timeToTravel) - ((projectile.GravityDrag * _timeToTravel) / 2);
 
             return altitudeVelocity;
         }

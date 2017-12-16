@@ -302,6 +302,18 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 RangeCircleInstance.Radius = value;
             }
         }
+        float mProjectileAltitude = 100f;
+        public virtual float ProjectileAltitude
+        {
+            set
+            {
+                mProjectileAltitude = value;
+            }
+            get
+            {
+                return mProjectileAltitude;
+            }
+        }
         public event System.EventHandler BeforeVisibleSet;
         public event System.EventHandler AfterVisibleSet;
         protected bool mVisible = true;
@@ -519,6 +531,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             LightSpriteInstanceGreen = 0f;
             LightSpriteInstanceBlue = 0.5f;
             RangedRadius = 400f;
+            ProjectileAltitude = 100f;
         }
         public virtual void ConvertToManuallyUpdated () 
         {

@@ -1051,22 +1051,22 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>1792</ValueAsFloat>
+            <ValueAsFloat>1019</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>RightTexturePixel</Member>
-            <ValueAsFloat>2048</ValueAsFloat>
+            <ValueAsFloat>1072</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TopTexturePixel</Member>
-            <ValueAsFloat>1792</ValueAsFloat>
+            <ValueAsFloat>1895</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>2048</ValueAsFloat>
+            <ValueAsFloat>1948</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -1138,6 +1138,7 @@
           <SourceClassType>Circle</SourceClassType>
           <InstanceName>CircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
+          <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIClickable>false</IncludeInIClickable>
@@ -1534,6 +1535,18 @@
           <SetByDerived>true</SetByDerived>
           <SourceObject>RangeCircleInstance</SourceObject>
           <SourceObjectProperty>Radius</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ProjectileAltitude</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <SetByDerived>true</SetByDerived>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -9141,7 +9154,7 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -9177,22 +9190,22 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>1792</ValueAsFloat>
+            <ValueAsFloat>1019</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>RightTexturePixel</Member>
-            <ValueAsFloat>2048</ValueAsFloat>
+            <ValueAsFloat>1072</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TopTexturePixel</Member>
-            <ValueAsFloat>1792</ValueAsFloat>
+            <ValueAsFloat>1895</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>2048</ValueAsFloat>
+            <ValueAsFloat>1948</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -9200,18 +9213,51 @@
             <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>BaseProjectileLightAnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Light_Shot</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>60</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>48</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>3</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Animate</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>0.8</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>-8</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesRotation</Member>
             <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
@@ -9270,6 +9316,11 @@
             <Member>ParentRotationChangesPosition</Member>
             <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
           <InstanceName>SpriteInstance</InstanceName>
@@ -9296,6 +9347,36 @@
             <string>Alpha</string>
             <string>AlphaRate</string>
           </VariablesToReset>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>32</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>Red</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -9533,6 +9614,36 @@
             <string>Alpha</string>
             <string>AlphaRate</string>
           </VariablesToReset>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>16</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>Red</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -9786,6 +9897,36 @@
           </VariablesToReset>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>16</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>Red</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -10009,6 +10150,36 @@
             <string>Alpha</string>
             <string>AlphaRate</string>
           </VariablesToReset>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>16</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>Red</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -10236,6 +10407,36 @@
           </VariablesToReset>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>16</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>Red</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -10311,7 +10512,7 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -10335,6 +10536,14 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
+            <Member>X</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Member>Y</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
             <Type>float</Type>
             <Member>Z</Member>
             <ValueAsFloat>-1</ValueAsFloat>
@@ -10347,22 +10556,22 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>1792</ValueAsFloat>
+            <ValueAsFloat>1019</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>RightTexturePixel</Member>
-            <ValueAsFloat>2048</ValueAsFloat>
+            <ValueAsFloat>1072</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TopTexturePixel</Member>
-            <ValueAsFloat>1792</ValueAsFloat>
+            <ValueAsFloat>1895</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>2048</ValueAsFloat>
+            <ValueAsFloat>1948</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -10370,19 +10579,42 @@
             <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>BaseProjectileLightAnimationChainListFile</ValueAsString>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>3</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Light_Shot</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>3</ValueAsInt>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>ParentRotationChangesPosition</Member>
             <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Animate</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>0.5</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -10466,6 +10698,41 @@
             <string>Alpha</string>
             <string>AlphaRate</string>
           </VariablesToReset>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>26</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>6</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>Red</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -10629,6 +10896,18 @@
           <Name>SecondsBetweenFiring</Name>
           <Type>double</Type>
           <DefaultValue xsi:type="xsd:double">5</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ProjectileAltitude</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -10877,6 +11156,18 @@
           <DefaultValue xsi:type="xsd:double">2</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ProjectileAltitude</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -11121,6 +11412,18 @@
           <Name>SecondsBetweenFiring</Name>
           <Type>double</Type>
           <DefaultValue xsi:type="xsd:double">4</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ProjectileAltitude</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -11369,6 +11672,18 @@
           <DefaultValue xsi:type="xsd:double">2</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ProjectileAltitude</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -11615,6 +11930,18 @@
           <DefaultValue xsi:type="xsd:double">1</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ProjectileAltitude</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -11859,6 +12186,18 @@
           <Name>SecondsBetweenFiring</Name>
           <Type>double</Type>
           <DefaultValue xsi:type="xsd:double">0.5</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ProjectileAltitude</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>

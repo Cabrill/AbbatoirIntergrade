@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using AbbatoirIntergrade.Entities.BaseEntities;
 using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
@@ -10,6 +11,7 @@ using FlatRedBall.Graphics;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using FlatRedBall.Math.Statistics;
 using StateInterpolationPlugin;
 
 namespace AbbatoirIntergrade.Entities.Projectiles
@@ -38,13 +40,40 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 	        }
 	    }
 
-	    protected override void CustomHandleImpact()
+	    protected override void CustomHandleImpact(BaseEnemy enemy = null)
 	    {
-	        var duration = SpriteInstance.AnimationChains["Impact"].TotalLength;
-	        LightOrShadowSprite.Tween("Alpha", 0, duration, InterpolationType.Exponential, Easing.Out);
-	    }
+	        if (enemy != null)
+	        {
+	            var impactOffset = FlatRedBallServices.Random.NextFloat(enemy.SpriteInstance.Width * 0.1f);
+                var impactOrigin = enemy.X;
+	            var impactSite = 0f;
 
-	    private void CustomActivity()
+	            if (enemy.X > X)
+	            {
+	                impactSite = impactOrigin - impactOffset;
+	            }
+	            else
+	            {
+	                impactSite = impactOrigin + impactOffset;
+                }
+
+	            X = impactSite;
+	        }
+
+	        var duration = SpriteInstance.AnimationChains["Impact"].TotalLength;
+
+	        this.Tween(FadeOut, 1, 0f, duration,
+	            InterpolationType.Exponential, Easing.Out);
+        }
+
+
+	    private void FadeOut(float newPosition)
+        {
+	        SpriteInstance.Alpha = newPosition;
+	        LightOrShadowSprite.Alpha = newPosition;
+        }
+
+        private void CustomActivity()
 		{
 
 

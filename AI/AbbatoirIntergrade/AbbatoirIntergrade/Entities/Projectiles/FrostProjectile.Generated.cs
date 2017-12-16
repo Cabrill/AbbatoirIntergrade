@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using FlatRedBall.Graphics.Animation;
+using FlatRedBall.Math.Geometry;
 namespace AbbatoirIntergrade.Entities.Projectiles
 {
     public partial class FrostProjectile : AbbatoirIntergrade.Entities.BaseEntities.BasePlayerProjectile, FlatRedBall.Graphics.IDestroyable, FlatRedBall.Performance.IPoolable
@@ -361,6 +362,14 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.SpriteInstance.AnimationChains = FrostProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
             base.SpriteInstance.ParentRotationChangesPosition = false;
+            if (mCircleInstance.Parent == null)
+            {
+                mCircleInstance.CopyAbsoluteToRelative();
+                mCircleInstance.AttachTo(this, false);
+            }
+            base.CircleInstance.Radius = 16f;
+            base.CircleInstance.Color = Color.Red;
+            base.CircleInstance.ParentRotationChangesPosition = false;
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
         public override void AddToManagersBottomUp (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -602,6 +611,9 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             SpriteInstance.Alpha = SpriteInstanceAlphaReset;
             SpriteInstance.AlphaRate = SpriteInstanceAlphaRateReset;
+            base.CircleInstance.Radius = 16f;
+            base.CircleInstance.Color = Color.Red;
+            base.CircleInstance.ParentRotationChangesPosition = false;
             HasLightSource = false;
         }
         public override void ConvertToManuallyUpdated () 
@@ -688,6 +700,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.SetToIgnorePausing();
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(LightOrShadowSprite);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(SpriteInstance);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(CircleInstance);
         }
         public override void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {

@@ -482,8 +482,9 @@ namespace AbbatoirIntergrade.Screens
 	            if (projectile.CurrentState != BasePlayerProjectile.VariableState.Flying &&
 	                !(projectile is CannonProjectile)) continue;
 
-	            if (projectile.CurrentState == BasePlayerProjectile.VariableState.Impact)
+	            if (projectile is CannonProjectile)
 	            {
+	                if (projectile.CurrentState != BasePlayerProjectile.VariableState.Impact) continue;
 	                for (var e = AllEnemiesList.Count; e > 0; e--)
 	                {
 	                    var enemy = AllEnemiesList[e - 1];
@@ -501,7 +502,7 @@ namespace AbbatoirIntergrade.Screens
 	                    if (enemy.IsDead || !projectile.CircleInstance.CollideAgainst(enemy.CircleInstance)) continue;
 
 	                    enemy.GetHitBy(projectile);
-	                    projectile.HandleImpact();
+	                    projectile.HandleImpact(enemy);
                     }
 	            }
 	        }

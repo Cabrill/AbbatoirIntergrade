@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using AbbatoirIntergrade.Entities.BaseEntities;
 using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
@@ -32,7 +33,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 
 		}
 
-	    protected override void CustomHandleImpact()
+	    protected override void CustomHandleImpact(BaseEnemy enemy = null)
         {
 	        RotationZ = FlatRedBallServices.Random.Between(-4, 4);
 	        LightOrShadowSprite.TextureScale = 2f * _currentScale;

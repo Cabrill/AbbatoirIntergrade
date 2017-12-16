@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using AbbatoirIntergrade.Entities.BaseEntities;
 using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
@@ -27,18 +28,17 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 		    if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = Cannon_Hit.CreateInstance();
 		    HitTargetSound = HitGroundSound;
 		    circleRadius = CircleInstance.Radius;
-		    LightOrShadowSprite.Visible = false;
-            GravityDrag = -25f;
+            GravityDrag = -75f;
 		}
 
-	    protected  override void CustomHandleImpact()
+	    protected  override void CustomHandleImpact(BaseEnemy enemy = null)
 	    {
 	        RotationX = 0;
 	        RotationY = 0;
 	        RotationZ = 0;
             //SpriteInstance.TextureScale = 2f * _currentScale;
 	        //LightOrShadowSprite.Alpha = 1f;
-	        //LightOrShadowSprite.Visible = true;
+	        LightOrShadowSprite.Visible = false;
 
             var duration = SpriteInstance.AnimationChains["Impact"].TotalLength / 2;
 	        

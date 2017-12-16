@@ -104,7 +104,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         static float LightOrShadowSpriteRotationZVelocityReset;
         static float LightOrShadowSpriteAlphaReset;
         static float LightOrShadowSpriteAlphaRateReset;
-        private FlatRedBall.Math.Geometry.Circle mCircleInstance;
+        protected FlatRedBall.Math.Geometry.Circle mCircleInstance;
         public FlatRedBall.Math.Geometry.Circle CircleInstance
         {
             get
@@ -517,10 +517,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 LightOrShadowSprite.RelativeZ = -1f;
             }
             LightOrShadowSprite.Texture = AllParticles;
-            LightOrShadowSprite.LeftTexturePixel = 1792f;
-            LightOrShadowSprite.RightTexturePixel = 2048f;
-            LightOrShadowSprite.TopTexturePixel = 1792f;
-            LightOrShadowSprite.BottomTexturePixel = 2048f;
+            LightOrShadowSprite.LeftTexturePixel = 1019f;
+            LightOrShadowSprite.RightTexturePixel = 1072f;
+            LightOrShadowSprite.TopTexturePixel = 1895f;
+            LightOrShadowSprite.BottomTexturePixel = 1948f;
             LightOrShadowSprite.TextureScale = 1f;
             LightOrShadowSprite.AnimationChains = BaseProjectileLightAnimationChainListFile;
             LightOrShadowSprite.CurrentChainName = "Light_Shot";
@@ -683,10 +683,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 LightOrShadowSprite.RelativeZ = -1f;
             }
             LightOrShadowSprite.Texture = AllParticles;
-            LightOrShadowSprite.LeftTexturePixel = 1792f;
-            LightOrShadowSprite.RightTexturePixel = 2048f;
-            LightOrShadowSprite.TopTexturePixel = 1792f;
-            LightOrShadowSprite.BottomTexturePixel = 2048f;
+            LightOrShadowSprite.LeftTexturePixel = 1019f;
+            LightOrShadowSprite.RightTexturePixel = 1072f;
+            LightOrShadowSprite.TopTexturePixel = 1895f;
+            LightOrShadowSprite.BottomTexturePixel = 1948f;
             LightOrShadowSprite.TextureScale = 1f;
             LightOrShadowSprite.AnimationChains = BaseProjectileLightAnimationChainListFile;
             LightOrShadowSprite.CurrentChainName = "Light_Shot";

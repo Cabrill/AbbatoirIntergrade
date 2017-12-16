@@ -139,7 +139,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        {
 	            AltitudeVelocity += GravityDrag * TimeManager.SecondDifference;
 	            Altitude += AltitudeVelocity * TimeManager.SecondDifference;
-	        }
+	            RotationZ = (float)Math.Atan2(-XVelocity, YVelocity + AltitudeVelocity);
+            }
 	        float _spriteRelativeY = 0;
 
             if (!(this is CannonProjectile) || CurrentState == VariableState.Flying)
@@ -159,16 +160,16 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        SpriteInstance.RelativeY += Altitude * _currentScale + _spriteRelativeY;
         }
 
-	    public void HandleImpact()
+	    public void HandleImpact(BaseEnemy enemy = null)
 	    {
 	        CurrentState = VariableState.Impact;
 	        UpdateScale();
             UpdateAnimation();
             Velocity = Vector3.Zero;
-	        CustomHandleImpact();
+	        CustomHandleImpact(enemy);
 	    }
 
-	    protected virtual void CustomHandleImpact()
+	    protected virtual void CustomHandleImpact(BaseEnemy enemy = null)
 	    {
 
 	    }
@@ -196,8 +197,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	    {
 	        if (LayerProvidedByContainer != null)
 	        {
-
-	            LayerProvidedByContainer.Remove(LightOrShadowSprite);
+	            if (HasLightSource) LayerProvidedByContainer.Remove(LightOrShadowSprite);
 	            LayerProvidedByContainer.Remove(CircleInstance);
 	        }
 
@@ -208,9 +208,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	            if (HasLightSource) darknessLayer.Remove(SpriteInstance);
 	        }
 
-	        SpriteManager.AddToLayer(LightOrShadowSprite, darknessLayer);
+	        if (HasLightSource) SpriteManager.AddToLayer(LightOrShadowSprite, darknessLayer);
 	        ShapeManager.AddToLayer(CircleInstance, hudLayer);
-	        //if (HasLightSource) SpriteManager.AddToLayer(SpriteInstance, darknessLayer);
 
 	        _AddedToLayers = true;
         }

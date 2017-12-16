@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using FlatRedBall.Graphics.Animation;
+using FlatRedBall.Math.Geometry;
 namespace AbbatoirIntergrade.Entities.Projectiles
 {
     public partial class CannonProjectile : AbbatoirIntergrade.Entities.BaseEntities.BasePlayerProjectile, FlatRedBall.Graphics.IDestroyable, FlatRedBall.Performance.IPoolable, FlatRedBall.Graphics.IVisible, FlatRedBall.Math.Geometry.ICollidable
@@ -360,6 +361,14 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             if (LightOrShadowSprite.Parent == null)
             {
+                base.LightOrShadowSprite.Y = -8f;
+            }
+            else
+            {
+                base.LightOrShadowSprite.RelativeY = -8f;
+            }
+            if (LightOrShadowSprite.Parent == null)
+            {
                 base.LightOrShadowSprite.Z = -1f;
             }
             else
@@ -367,14 +376,22 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                 base.LightOrShadowSprite.RelativeZ = -1f;
             }
             base.LightOrShadowSprite.Texture = AllParticles;
-            base.LightOrShadowSprite.LeftTexturePixel = 1792f;
-            base.LightOrShadowSprite.RightTexturePixel = 2048f;
-            base.LightOrShadowSprite.TopTexturePixel = 1792f;
-            base.LightOrShadowSprite.BottomTexturePixel = 2048f;
+            base.LightOrShadowSprite.LeftTexturePixel = 1019f;
+            base.LightOrShadowSprite.RightTexturePixel = 1072f;
+            base.LightOrShadowSprite.TopTexturePixel = 1895f;
+            base.LightOrShadowSprite.BottomTexturePixel = 1948f;
             base.LightOrShadowSprite.TextureScale = 1f;
-            base.LightOrShadowSprite.AnimationChains = BaseProjectileLightAnimationChainListFile;
-            base.LightOrShadowSprite.CurrentChainName = "Light_Shot";
+            base.LightOrShadowSprite.Width = 60f;
+            base.LightOrShadowSprite.Height = 48f;
+            base.LightOrShadowSprite.Animate = false;
+            #if FRB_MDX
+            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
+            #else
+            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+            #endif
+            base.LightOrShadowSprite.Alpha = 0.8f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
+            base.LightOrShadowSprite.ParentRotationChangesRotation = false;
             if (SpriteInstance.Parent == null)
             {
                 SpriteInstance.CopyAbsoluteToRelative();
@@ -391,8 +408,18 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.AnimationChains = CannonProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
+            base.SpriteInstance.Visible = true;
             base.SpriteInstance.ParentRotationChangesPosition = false;
+            if (mCircleInstance.Parent == null)
+            {
+                mCircleInstance.CopyAbsoluteToRelative();
+                mCircleInstance.AttachTo(this, false);
+            }
+            base.CircleInstance.Radius = 32f;
+            base.CircleInstance.Color = Color.Red;
+            base.CircleInstance.ParentRotationChangesPosition = false;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
+            mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
         public override void AddToManagersBottomUp (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -412,6 +439,14 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             if (LightOrShadowSprite.Parent == null)
             {
+                base.LightOrShadowSprite.Y = -8f;
+            }
+            else
+            {
+                base.LightOrShadowSprite.RelativeY = -8f;
+            }
+            if (LightOrShadowSprite.Parent == null)
+            {
                 base.LightOrShadowSprite.Z = -1f;
             }
             else
@@ -419,14 +454,22 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                 base.LightOrShadowSprite.RelativeZ = -1f;
             }
             base.LightOrShadowSprite.Texture = AllParticles;
-            base.LightOrShadowSprite.LeftTexturePixel = 1792f;
-            base.LightOrShadowSprite.RightTexturePixel = 2048f;
-            base.LightOrShadowSprite.TopTexturePixel = 1792f;
-            base.LightOrShadowSprite.BottomTexturePixel = 2048f;
+            base.LightOrShadowSprite.LeftTexturePixel = 1019f;
+            base.LightOrShadowSprite.RightTexturePixel = 1072f;
+            base.LightOrShadowSprite.TopTexturePixel = 1895f;
+            base.LightOrShadowSprite.BottomTexturePixel = 1948f;
             base.LightOrShadowSprite.TextureScale = 1f;
-            base.LightOrShadowSprite.AnimationChains = BaseProjectileLightAnimationChainListFile;
-            base.LightOrShadowSprite.CurrentChainName = "Light_Shot";
+            base.LightOrShadowSprite.Width = 60f;
+            base.LightOrShadowSprite.Height = 48f;
+            base.LightOrShadowSprite.Animate = false;
+            #if FRB_MDX
+            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
+            #else
+            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+            #endif
+            base.LightOrShadowSprite.Alpha = 0.8f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
+            base.LightOrShadowSprite.ParentRotationChangesRotation = false;
             if (LightOrShadowSprite.Parent == null)
             {
                 LightOrShadowSprite.X = LightOrShadowSpriteXReset;
@@ -536,6 +579,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.AnimationChains = CannonProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
+            base.SpriteInstance.Visible = true;
             base.SpriteInstance.ParentRotationChangesPosition = false;
             if (SpriteInstance.Parent == null)
             {
@@ -635,7 +679,10 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             SpriteInstance.Alpha = SpriteInstanceAlphaReset;
             SpriteInstance.AlphaRate = SpriteInstanceAlphaRateReset;
-            HasLightSource = true;
+            base.CircleInstance.Radius = 32f;
+            base.CircleInstance.Color = Color.Red;
+            base.CircleInstance.ParentRotationChangesPosition = false;
+            HasLightSource = false;
         }
         public override void ConvertToManuallyUpdated () 
         {
@@ -728,6 +775,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.SetToIgnorePausing();
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(LightOrShadowSprite);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(SpriteInstance);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(CircleInstance);
         }
         public override void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {
