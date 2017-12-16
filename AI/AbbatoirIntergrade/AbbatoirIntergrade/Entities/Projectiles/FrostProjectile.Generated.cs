@@ -355,6 +355,15 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.TextureScale = 1f;
             base.LightOrShadowSprite.AnimationChains = BaseProjectileLightAnimationChainListFile;
             base.LightOrShadowSprite.CurrentChainName = "Light_Shot";
+            #if FRB_MDX
+            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Add;
+            #else
+            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Add;
+            #endif
+            base.LightOrShadowSprite.Red = 0.1f;
+            base.LightOrShadowSprite.Green = 0.3f;
+            base.LightOrShadowSprite.Blue = 1f;
+            base.LightOrShadowSprite.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (SpriteInstance.Parent == null)
             {
@@ -372,13 +381,20 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.AnimationChains = FrostProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
+            base.SpriteInstance.Visible = true;
+            #if FRB_MDX
+            SpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Add;
+            #else
+            base.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Add;
+            #endif
+            base.SpriteInstance.Blue = 0.5f;
             base.SpriteInstance.ParentRotationChangesPosition = false;
             if (mCircleInstance.Parent == null)
             {
                 mCircleInstance.CopyAbsoluteToRelative();
                 mCircleInstance.AttachTo(this, false);
             }
-            base.CircleInstance.Radius = 16f;
+            base.CircleInstance.Radius = 30f;
             base.CircleInstance.Color = Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = false;
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
@@ -413,6 +429,15 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.TextureScale = 1f;
             base.LightOrShadowSprite.AnimationChains = BaseProjectileLightAnimationChainListFile;
             base.LightOrShadowSprite.CurrentChainName = "Light_Shot";
+            #if FRB_MDX
+            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Add;
+            #else
+            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Add;
+            #endif
+            base.LightOrShadowSprite.Red = 0.1f;
+            base.LightOrShadowSprite.Green = 0.3f;
+            base.LightOrShadowSprite.Blue = 1f;
+            base.LightOrShadowSprite.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (LightOrShadowSprite.Parent == null)
             {
@@ -523,6 +548,13 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.AnimationChains = FrostProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
+            base.SpriteInstance.Visible = true;
+            #if FRB_MDX
+            SpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Add;
+            #else
+            base.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Add;
+            #endif
+            base.SpriteInstance.Blue = 0.5f;
             base.SpriteInstance.ParentRotationChangesPosition = false;
             if (SpriteInstance.Parent == null)
             {
@@ -622,11 +654,11 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             SpriteInstance.Alpha = SpriteInstanceAlphaReset;
             SpriteInstance.AlphaRate = SpriteInstanceAlphaRateReset;
-            base.CircleInstance.Radius = 16f;
+            base.CircleInstance.Radius = 30f;
             base.CircleInstance.Color = Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = false;
-            HasLightSource = false;
-            Mass = 0.01f;
+            HasLightSource = true;
+            Mass = 0.05f;
         }
         public override void ConvertToManuallyUpdated () 
         {

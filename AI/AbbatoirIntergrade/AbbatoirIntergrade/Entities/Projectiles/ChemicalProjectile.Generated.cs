@@ -355,6 +355,14 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.TextureScale = 1f;
             base.LightOrShadowSprite.AnimationChains = BaseProjectileLightAnimationChainListFile;
             base.LightOrShadowSprite.CurrentChainName = "Light_Shot";
+            #if FRB_MDX
+            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
+            #else
+            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+            #endif
+            base.LightOrShadowSprite.Green = 1f;
+            base.LightOrShadowSprite.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
+            base.LightOrShadowSprite.Alpha = 0.75f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (SpriteInstance.Parent == null)
             {
@@ -372,6 +380,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.AnimationChains = ChemicalProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
+            base.SpriteInstance.Visible = true;
             base.SpriteInstance.ParentRotationChangesPosition = false;
             if (mCircleInstance.Parent == null)
             {
@@ -413,6 +422,14 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.TextureScale = 1f;
             base.LightOrShadowSprite.AnimationChains = BaseProjectileLightAnimationChainListFile;
             base.LightOrShadowSprite.CurrentChainName = "Light_Shot";
+            #if FRB_MDX
+            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
+            #else
+            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+            #endif
+            base.LightOrShadowSprite.Green = 1f;
+            base.LightOrShadowSprite.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
+            base.LightOrShadowSprite.Alpha = 0.75f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (LightOrShadowSprite.Parent == null)
             {
@@ -523,6 +540,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.AnimationChains = ChemicalProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
+            base.SpriteInstance.Visible = true;
             base.SpriteInstance.ParentRotationChangesPosition = false;
             if (SpriteInstance.Parent == null)
             {
@@ -625,8 +643,8 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.CircleInstance.Radius = 16f;
             base.CircleInstance.Color = Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = false;
-            HasLightSource = false;
-            Mass = 0.01f;
+            HasLightSource = true;
+            Mass = 0.2f;
         }
         public override void ConvertToManuallyUpdated () 
         {

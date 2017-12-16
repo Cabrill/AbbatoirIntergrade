@@ -400,6 +400,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.BottomTexturePixel = 1948f;
             base.LightOrShadowSprite.TextureScale = 1f;
             base.LightOrShadowSprite.Width = 3f;
+            base.LightOrShadowSprite.Height = 64f;
             base.LightOrShadowSprite.Animate = false;
             base.LightOrShadowSprite.Visible = true;
             #if FRB_MDX
@@ -407,7 +408,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             #else
             base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
-            base.LightOrShadowSprite.Alpha = 0.5f;
+            base.LightOrShadowSprite.Alpha = 0.8f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (SpriteInstance.Parent == null)
             {
@@ -492,6 +493,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.BottomTexturePixel = 1948f;
             base.LightOrShadowSprite.TextureScale = 1f;
             base.LightOrShadowSprite.Width = 3f;
+            base.LightOrShadowSprite.Height = 64f;
             base.LightOrShadowSprite.Animate = false;
             base.LightOrShadowSprite.Visible = true;
             #if FRB_MDX
@@ -499,7 +501,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             #else
             base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
-            base.LightOrShadowSprite.Alpha = 0.5f;
+            base.LightOrShadowSprite.Alpha = 0.8f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (LightOrShadowSprite.Parent == null)
             {

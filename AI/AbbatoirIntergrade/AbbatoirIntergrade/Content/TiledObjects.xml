@@ -180,26 +180,26 @@
   </objecttype>
   <objecttype name="ChemicalProjectile">
     <property name="DamageInflicted" type="float" />
-    <property name="HasLightSource" type="bool" default="false" />
-    <property name="Mass" type="float" default="0.01" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="Mass" type="float" default="0.2" />
     <property name="Speed" type="float" />
   </objecttype>
   <objecttype name="ElectricProjectile">
     <property name="DamageInflicted" type="float" />
     <property name="HasLightSource" type="bool" default="true" />
-    <property name="Mass" type="float" default="0.01" />
+    <property name="Mass" type="float" default="0.001" />
     <property name="Speed" type="float" />
   </objecttype>
   <objecttype name="FireProjectile">
     <property name="DamageInflicted" type="float" />
-    <property name="HasLightSource" type="bool" default="false" />
-    <property name="Mass" type="float" default="0.01" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="Mass" type="float" default="0.1" />
     <property name="Speed" type="float" />
   </objecttype>
   <objecttype name="FrostProjectile">
     <property name="DamageInflicted" type="float" />
-    <property name="HasLightSource" type="bool" default="false" />
-    <property name="Mass" type="float" default="0.01" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="Mass" type="float" default="0.05" />
     <property name="Speed" type="float" />
   </objecttype>
   <objecttype name="PiercingProjectile">
