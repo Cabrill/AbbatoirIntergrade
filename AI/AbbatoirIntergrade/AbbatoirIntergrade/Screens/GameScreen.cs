@@ -482,20 +482,37 @@ namespace AbbatoirIntergrade.Screens
 	            if (projectile.CurrentState != BasePlayerProjectile.VariableState.Flying &&
 	                !(projectile is CannonProjectile)) continue;
 
-	            if (projectile is CannonProjectile)
+	            if (projectile is CannonProjectile cannonProjectile)
 	            {
+	                if (cannonProjectile.IsOnlySmoke) continue;
+
+	                var enemiesImpacted = new List<BaseEnemy>();
 	                for (var e = AllEnemiesList.Count; e > 0; e--)
 	                {
 	                    var enemy = AllEnemiesList[e - 1];
 
-	                    if (enemy.IsDead ||
-	                        !projectile.CircleInstance.CollideAgainstBounce(enemy.CircleInstance, projectile.Mass,
-	                            enemy.Mass, 0f)) continue;
+	                    if (enemy.IsDead) continue;
 
                         //Only hit flying enemies if cannonbal is in flight, and is at the same altitude as the enemy
-                        if (enemy.IsFlying && (projectile.CurrentState != BasePlayerProjectile.VariableState.Flying || Math.Abs(enemy.Altitude - projectile.Altitude) > 32f)) continue;
+                        if (enemy.IsFlying && (cannonProjectile.CurrentState != BasePlayerProjectile.VariableState.Flying || Math.Abs(enemy.Altitude - cannonProjectile.Altitude) > 32f)) continue;
 
-	                    enemy.GetHitBy(projectile);
+	                    if (cannonProjectile.CurrentState == BasePlayerProjectile.VariableState.Flying)
+	                    {
+	                        if (cannonProjectile.CircleInstance.CollideAgainstBounce(enemy.CircleInstance,
+	                            cannonProjectile.Mass, enemy.Mass, 0.5f))
+	                        {
+	                            enemy.GetHitBy(projectile);
+	                        }
+	                    }
+	                    else if (cannonProjectile.CircleInstance.CollideAgainst(enemy.CircleInstance))
+	                    {
+	                        enemiesImpacted.Add(enemy);
+	                    }
+	                }
+
+	                if (cannonProjectile.CurrentState == BasePlayerProjectile.VariableState.Impact)
+	                {
+	                    cannonProjectile.HandleEnemiesInImpactZone(enemiesImpacted);
 	                }
 	            }
 	            else
@@ -504,7 +521,7 @@ namespace AbbatoirIntergrade.Screens
 	                {
 	                    var enemy = AllEnemiesList[e - 1];
 
-	                    if (enemy.IsDead || !projectile.CircleInstance.CollideAgainstBounce(enemy.CircleInstance, projectile.Mass, enemy.Mass, 0f)) continue;
+	                    if (enemy.IsDead || !projectile.CircleInstance.CollideAgainstBounce(enemy.CircleInstance, projectile.Mass, enemy.Mass, 1f)) continue;
 
 	                    enemy.GetHitBy(projectile);
 	                    projectile.HandleImpact(enemy);

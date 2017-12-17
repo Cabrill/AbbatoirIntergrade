@@ -73,17 +73,8 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         static float SpriteInstanceRotationZVelocityReset;
         static float SpriteInstanceAlphaReset;
         static float SpriteInstanceAlphaRateReset;
-        public override float Speed
-        {
-            set
-            {
-                base.Speed = value;
-            }
-            get
-            {
-                return base.Speed;
-            }
-        }
+        static float CircleInstanceRadiusReset;
+        static bool CircleInstanceVisibleReset;
         public int Index { get; set; }
         public bool Used { get; set; }
         public new event System.EventHandler BeforeVisibleSet;
@@ -332,6 +323,8 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             SpriteInstanceAlphaReset = SpriteInstance.Alpha;
             SpriteInstanceAlphaRateReset = SpriteInstance.AlphaRate;
+            CircleInstanceRadiusReset = CircleInstance.Radius;
+            CircleInstanceVisibleReset = CircleInstance.Visible;
         }
         public override void ReAddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
@@ -693,9 +686,11 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.CircleInstance.Radius = 32f;
             base.CircleInstance.Color = Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = false;
+            CircleInstance.Radius = CircleInstanceRadiusReset;
+            CircleInstance.Visible = CircleInstanceVisibleReset;
+            DamageInflicted = 1f;
             HasLightSource = false;
-            Mass = 1f;
-            Speed = 500f;
+            Mass = 0.5f;
         }
         public override void ConvertToManuallyUpdated () 
         {

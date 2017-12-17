@@ -62,7 +62,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                         SpriteInstanceCurrentChainName = "Shot";
                         break;
                     case  VariableState.Impact:
-                        Speed = 0f;
                         SpriteInstanceCurrentChainName = "Impact";
                         break;
                 }
@@ -118,28 +117,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         }
         protected FlatRedBall.Graphics.Animation.AnimationChain AnimationChainInstance;
         public virtual float DamageInflicted { get; set; }
-        public event System.EventHandler BeforeSpeedSet;
-        public event System.EventHandler AfterSpeedSet;
-        float mSpeed = 100f;
-        public virtual float Speed
-        {
-            set
-            {
-                if (BeforeSpeedSet != null)
-                {
-                    BeforeSpeedSet(this, null);
-                }
-                mSpeed = value;
-                if (AfterSpeedSet != null)
-                {
-                    AfterSpeedSet(this, null);
-                }
-            }
-            get
-            {
-                return mSpeed;
-            }
-        }
         bool mHasLightSource = false;
         public virtual bool HasLightSource
         {
@@ -175,6 +152,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 return mMass;
             }
         }
+        public float Speed;
         public event System.EventHandler BeforeVisibleSet;
         public event System.EventHandler AfterVisibleSet;
         protected bool mVisible = true;
@@ -832,7 +810,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 RelativeZ = 2f;
             }
-            Speed = 100f;
             HasLightSource = false;
             Mass = 0.01f;
         }
@@ -936,9 +913,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 throw new System.Exception("interpolationValue cannot be NaN");
             }
             #endif
-            bool setSpeed = true;
-            float SpeedFirstValue= 0;
-            float SpeedSecondValue= 0;
             switch(firstState)
             {
                 case  VariableState.Flying:
@@ -948,7 +922,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     }
                     break;
                 case  VariableState.Impact:
-                    SpeedFirstValue = 0f;
                     if (interpolationValue < 1)
                     {
                         this.SpriteInstanceCurrentChainName = "Impact";
@@ -964,16 +937,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     }
                     break;
                 case  VariableState.Impact:
-                    SpeedSecondValue = 0f;
                     if (interpolationValue >= 1)
                     {
                         this.SpriteInstanceCurrentChainName = "Impact";
                     }
                     break;
-            }
-            if (setSpeed)
-            {
-                Speed = SpeedFirstValue * (1 - interpolationValue) + SpeedSecondValue * interpolationValue;
             }
             if (interpolationValue < 1)
             {

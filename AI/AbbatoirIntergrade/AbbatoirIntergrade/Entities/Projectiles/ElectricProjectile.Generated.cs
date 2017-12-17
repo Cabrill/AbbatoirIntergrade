@@ -84,17 +84,6 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         static float SpriteInstanceRotationZVelocityReset;
         static float SpriteInstanceAlphaReset;
         static float SpriteInstanceAlphaRateReset;
-        public override float Speed
-        {
-            set
-            {
-                base.Speed = value;
-            }
-            get
-            {
-                return base.Speed;
-            }
-        }
         public int Index { get; set; }
         public bool Used { get; set; }
         public new event System.EventHandler BeforeVisibleSet;

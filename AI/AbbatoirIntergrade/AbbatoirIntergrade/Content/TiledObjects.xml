@@ -173,46 +173,40 @@
     <property name="SpriteInstanceTextureScale" type="float" default="1" />
   </objecttype>
   <objecttype name="CannonProjectile">
-    <property name="DamageInflicted" type="float" />
+    <property name="DamageInflicted" type="float" default="1" />
     <property name="HasLightSource" type="bool" default="false" />
-    <property name="Mass" type="float" default="1" />
-    <property name="Speed" type="float" default="500" />
+    <property name="Mass" type="float" default="0.5" />
   </objecttype>
   <objecttype name="ChemicalProjectile">
     <property name="DamageInflicted" type="float" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="Mass" type="float" default="0.2" />
-    <property name="Speed" type="float" />
   </objecttype>
   <objecttype name="ElectricProjectile">
     <property name="DamageInflicted" type="float" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="Mass" type="float" default="0.001" />
-    <property name="Speed" type="float" />
   </objecttype>
   <objecttype name="FireProjectile">
     <property name="DamageInflicted" type="float" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="Mass" type="float" default="0.1" />
-    <property name="Speed" type="float" />
   </objecttype>
   <objecttype name="FrostProjectile">
     <property name="DamageInflicted" type="float" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="Mass" type="float" default="0.05" />
-    <property name="Speed" type="float" />
   </objecttype>
   <objecttype name="PiercingProjectile">
     <property name="DamageInflicted" type="float" />
     <property name="HasLightSource" type="bool" default="false" />
     <property name="Mass" type="float" default="0.01" />
-    <property name="Speed" type="float" />
   </objecttype>
   <objecttype name="BombardingTower">
     <property name="DisplayName" type="string" default="Not Set" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="StructureDescription" type="string" />
-    <property name="ProjectileSpeed" type="float" default="250" />
+    <property name="ProjectileSpeed" type="float" default="600" />
     <property name="RangedRadius" type="float" default="400" />
     <property name="AttackDamage" type="float" default="10" />
     <property name="SecondsBetweenFiring" type="float" default="5" />

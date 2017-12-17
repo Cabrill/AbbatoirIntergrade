@@ -65,7 +65,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         protected virtual void NavigateToTarget()
         {
-            if (_targetPointForNavigation != null)
+            if (_targetPointForNavigation != Vector3.Zero)
             {
                 var angle = (float)Math.Atan2(Y - _targetPointForNavigation.Y,
                     X - _targetPointForNavigation.X);
@@ -73,9 +73,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     (float)-Math.Cos(angle),
                     (float)-Math.Sin(angle), 0);
                 direction.Normalize();
-                Acceleration = direction * Speed * _currentScale;
-                Velocity = Acceleration * 0.2f;
-                
+                Velocity = direction * Speed * _currentScale;
+
                 CurrentActionState = Action.Running;
                 CurrentDirectionState =
                     (Velocity.X > 0 ? Direction.MovingRight : Direction.MovingLeft);

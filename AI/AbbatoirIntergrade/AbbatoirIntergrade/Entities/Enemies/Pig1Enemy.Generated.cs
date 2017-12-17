@@ -73,20 +73,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
         static float CircleInstanceRotationXVelocityReset;
         static float CircleInstanceRotationYVelocityReset;
         static float CircleInstanceRotationZVelocityReset;
-        static float ShadowSpriteXReset;
-        static float ShadowSpriteYReset;
-        static float ShadowSpriteZReset;
-        static float ShadowSpriteXVelocityReset;
-        static float ShadowSpriteYVelocityReset;
-        static float ShadowSpriteZVelocityReset;
-        static float ShadowSpriteRotationXReset;
-        static float ShadowSpriteRotationYReset;
-        static float ShadowSpriteRotationZReset;
-        static float ShadowSpriteRotationXVelocityReset;
-        static float ShadowSpriteRotationYVelocityReset;
-        static float ShadowSpriteRotationZVelocityReset;
-        static float ShadowSpriteAlphaReset;
-        static float ShadowSpriteAlphaRateReset;
         static float LightSpriteXReset;
         static float LightSpriteYReset;
         static float LightSpriteZReset;
@@ -164,8 +150,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
             mSpriteInstance.Name = "mSpriteInstance";
             mCircleInstance = new FlatRedBall.Math.Geometry.Circle();
             mCircleInstance.Name = "mCircleInstance";
-            ShadowSprite = new FlatRedBall.Sprite();
-            ShadowSprite.Name = "ShadowSprite";
             LightSprite = new FlatRedBall.Sprite();
             LightSprite.Name = "LightSprite";
             
@@ -364,104 +348,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
             {
                 CircleInstanceRotationZVelocityReset = CircleInstance.RelativeRotationZVelocity;
             }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSpriteXReset = ShadowSprite.X;
-            }
-            else
-            {
-                ShadowSpriteXReset = ShadowSprite.RelativeX;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSpriteYReset = ShadowSprite.Y;
-            }
-            else
-            {
-                ShadowSpriteYReset = ShadowSprite.RelativeY;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSpriteZReset = ShadowSprite.Z;
-            }
-            else
-            {
-                ShadowSpriteZReset = ShadowSprite.RelativeZ;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSpriteXVelocityReset = ShadowSprite.XVelocity;
-            }
-            else
-            {
-                ShadowSpriteXVelocityReset = ShadowSprite.RelativeXVelocity;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSpriteYVelocityReset = ShadowSprite.YVelocity;
-            }
-            else
-            {
-                ShadowSpriteYVelocityReset = ShadowSprite.RelativeYVelocity;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSpriteZVelocityReset = ShadowSprite.ZVelocity;
-            }
-            else
-            {
-                ShadowSpriteZVelocityReset = ShadowSprite.RelativeZVelocity;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSpriteRotationXReset = ShadowSprite.RotationX;
-            }
-            else
-            {
-                ShadowSpriteRotationXReset = ShadowSprite.RelativeRotationX;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSpriteRotationYReset = ShadowSprite.RotationY;
-            }
-            else
-            {
-                ShadowSpriteRotationYReset = ShadowSprite.RelativeRotationY;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSpriteRotationZReset = ShadowSprite.RotationZ;
-            }
-            else
-            {
-                ShadowSpriteRotationZReset = ShadowSprite.RelativeRotationZ;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSpriteRotationXVelocityReset = ShadowSprite.RotationXVelocity;
-            }
-            else
-            {
-                ShadowSpriteRotationXVelocityReset = ShadowSprite.RelativeRotationXVelocity;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSpriteRotationYVelocityReset = ShadowSprite.RotationYVelocity;
-            }
-            else
-            {
-                ShadowSpriteRotationYVelocityReset = ShadowSprite.RelativeRotationYVelocity;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSpriteRotationZVelocityReset = ShadowSprite.RotationZVelocity;
-            }
-            else
-            {
-                ShadowSpriteRotationZVelocityReset = ShadowSprite.RelativeRotationZVelocity;
-            }
-            ShadowSpriteAlphaReset = ShadowSprite.Alpha;
-            ShadowSpriteAlphaRateReset = ShadowSprite.AlphaRate;
             if (LightSprite.Parent == null)
             {
                 LightSpriteXReset = LightSprite.X;
@@ -565,14 +451,12 @@ namespace AbbatoirIntergrade.Entities.Enemies
         {
             base.ReAddToManagers(layerToAddTo);
             FlatRedBall.SpriteManager.AddToLayer(mSpriteInstance, LayerProvidedByContainer);
-            FlatRedBall.SpriteManager.AddToLayer(ShadowSprite, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(LightSprite, LayerProvidedByContainer);
         }
         public override void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
             LayerProvidedByContainer = layerToAddTo;
             FlatRedBall.SpriteManager.AddToLayer(mSpriteInstance, LayerProvidedByContainer);
-            FlatRedBall.SpriteManager.AddToLayer(ShadowSprite, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(LightSprite, LayerProvidedByContainer);
             base.AddToManagers(layerToAddTo);
             CustomInitialize();
@@ -594,10 +478,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
             if (SpriteInstance != null)
             {
                 FlatRedBall.SpriteManager.RemoveSpriteOneWay(SpriteInstance);
-            }
-            if (ShadowSprite != null)
-            {
-                FlatRedBall.SpriteManager.RemoveSpriteOneWay(ShadowSprite);
             }
             if (LightSprite != null)
             {
@@ -632,20 +512,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 mCircleInstance.AttachTo(this, false);
             }
             base.CircleInstance.Radius = 32f;
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSprite.CopyAbsoluteToRelative();
-                ShadowSprite.AttachTo(this, false);
-            }
-            base.ShadowSprite.Texture = AllAssetsSheet;
-            base.ShadowSprite.LeftTexturePixel = 334f;
-            base.ShadowSprite.RightTexturePixel = 396f;
-            base.ShadowSprite.TopTexturePixel = 158f;
-            base.ShadowSprite.BottomTexturePixel = 220f;
-            base.ShadowSprite.TextureScale = 1f;
-            base.ShadowSprite.Width = 70f;
-            base.ShadowSprite.Height = 20f;
-            base.ShadowSprite.Alpha = 0.3f;
             if (LightSprite.Parent == null)
             {
                 LightSprite.CopyAbsoluteToRelative();
@@ -657,6 +523,31 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.LightSprite.TopTexturePixel = 1792f;
             base.LightSprite.BottomTexturePixel = 2048f;
             base.LightSprite.TextureScale = 1f;
+            if (ShadowSprite.Parent == null)
+            {
+                ShadowSprite.CopyAbsoluteToRelative();
+                ShadowSprite.AttachTo(this, false);
+            }
+            if (ShadowSprite.Parent == null)
+            {
+                base.ShadowSprite.Z = -1f;
+            }
+            else
+            {
+                base.ShadowSprite.RelativeZ = -1f;
+            }
+            base.ShadowSprite.Texture = AllParticles;
+            base.ShadowSprite.LeftTexturePixel = 1019f;
+            base.ShadowSprite.RightTexturePixel = 1072f;
+            base.ShadowSprite.TopTexturePixel = 1895f;
+            base.ShadowSprite.BottomTexturePixel = 1948f;
+            base.ShadowSprite.TextureScale = 1f;
+            #if FRB_MDX
+            ShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
+            #else
+            base.ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+            #endif
+            base.ShadowSprite.Alpha = 0.8f;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
@@ -671,10 +562,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
             if (SpriteInstance != null)
             {
                 FlatRedBall.SpriteManager.RemoveSpriteOneWay(SpriteInstance);
-            }
-            if (ShadowSprite != null)
-            {
-                FlatRedBall.SpriteManager.RemoveSpriteOneWay(ShadowSprite);
             }
             if (LightSprite != null)
             {
@@ -893,113 +780,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
             {
                 CircleInstance.RelativeRotationZVelocity = CircleInstanceRotationZVelocityReset;
             }
-            base.ShadowSprite.Texture = AllAssetsSheet;
-            base.ShadowSprite.LeftTexturePixel = 334f;
-            base.ShadowSprite.RightTexturePixel = 396f;
-            base.ShadowSprite.TopTexturePixel = 158f;
-            base.ShadowSprite.BottomTexturePixel = 220f;
-            base.ShadowSprite.TextureScale = 1f;
-            base.ShadowSprite.Width = 70f;
-            base.ShadowSprite.Height = 20f;
-            base.ShadowSprite.Alpha = 0.3f;
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSprite.X = ShadowSpriteXReset;
-            }
-            else
-            {
-                ShadowSprite.RelativeX = ShadowSpriteXReset;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSprite.Y = ShadowSpriteYReset;
-            }
-            else
-            {
-                ShadowSprite.RelativeY = ShadowSpriteYReset;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSprite.Z = ShadowSpriteZReset;
-            }
-            else
-            {
-                ShadowSprite.RelativeZ = ShadowSpriteZReset;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSprite.XVelocity = ShadowSpriteXVelocityReset;
-            }
-            else
-            {
-                ShadowSprite.RelativeXVelocity = ShadowSpriteXVelocityReset;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSprite.YVelocity = ShadowSpriteYVelocityReset;
-            }
-            else
-            {
-                ShadowSprite.RelativeYVelocity = ShadowSpriteYVelocityReset;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSprite.ZVelocity = ShadowSpriteZVelocityReset;
-            }
-            else
-            {
-                ShadowSprite.RelativeZVelocity = ShadowSpriteZVelocityReset;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSprite.RotationX = ShadowSpriteRotationXReset;
-            }
-            else
-            {
-                ShadowSprite.RelativeRotationX = ShadowSpriteRotationXReset;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSprite.RotationY = ShadowSpriteRotationYReset;
-            }
-            else
-            {
-                ShadowSprite.RelativeRotationY = ShadowSpriteRotationYReset;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSprite.RotationZ = ShadowSpriteRotationZReset;
-            }
-            else
-            {
-                ShadowSprite.RelativeRotationZ = ShadowSpriteRotationZReset;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSprite.RotationXVelocity = ShadowSpriteRotationXVelocityReset;
-            }
-            else
-            {
-                ShadowSprite.RelativeRotationXVelocity = ShadowSpriteRotationXVelocityReset;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSprite.RotationYVelocity = ShadowSpriteRotationYVelocityReset;
-            }
-            else
-            {
-                ShadowSprite.RelativeRotationYVelocity = ShadowSpriteRotationYVelocityReset;
-            }
-            if (ShadowSprite.Parent == null)
-            {
-                ShadowSprite.RotationZVelocity = ShadowSpriteRotationZVelocityReset;
-            }
-            else
-            {
-                ShadowSprite.RelativeRotationZVelocity = ShadowSpriteRotationZVelocityReset;
-            }
-            ShadowSprite.Alpha = ShadowSpriteAlphaReset;
-            ShadowSprite.AlphaRate = ShadowSpriteAlphaRateReset;
             base.LightSprite.Texture = AllAssetsSheet;
             base.LightSprite.LeftTexturePixel = 1792f;
             base.LightSprite.RightTexturePixel = 2048f;
@@ -1104,6 +884,26 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             LightSprite.Alpha = LightSpriteAlphaReset;
             LightSprite.AlphaRate = LightSpriteAlphaRateReset;
+            if (ShadowSprite.Parent == null)
+            {
+                base.ShadowSprite.Z = -1f;
+            }
+            else
+            {
+                base.ShadowSprite.RelativeZ = -1f;
+            }
+            base.ShadowSprite.Texture = AllParticles;
+            base.ShadowSprite.LeftTexturePixel = 1019f;
+            base.ShadowSprite.RightTexturePixel = 1072f;
+            base.ShadowSprite.TopTexturePixel = 1895f;
+            base.ShadowSprite.BottomTexturePixel = 1948f;
+            base.ShadowSprite.TextureScale = 1f;
+            #if FRB_MDX
+            ShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
+            #else
+            base.ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+            #endif
+            base.ShadowSprite.Alpha = 0.8f;
             MaximumHealth = 32f;
             Speed = 150f;
             MineralsRewardedWhenKilled = 12;
@@ -1119,7 +919,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
             this.ForceUpdateDependenciesDeep();
             FlatRedBall.SpriteManager.ConvertToManuallyUpdated(this);
             FlatRedBall.SpriteManager.ConvertToManuallyUpdated(SpriteInstance);
-            FlatRedBall.SpriteManager.ConvertToManuallyUpdated(ShadowSprite);
             FlatRedBall.SpriteManager.ConvertToManuallyUpdated(LightSprite);
         }
         public static new void LoadStaticContent (string contentManagerName) 
@@ -1257,8 +1056,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.SetToIgnorePausing();
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(SpriteInstance);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(CircleInstance);
-            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(ShadowSprite);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(LightSprite);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(ShadowSprite);
         }
         public override void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {

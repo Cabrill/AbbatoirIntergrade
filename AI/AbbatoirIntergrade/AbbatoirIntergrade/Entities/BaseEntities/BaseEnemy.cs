@@ -14,14 +14,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	    private bool _AddedToLayers = false;
 
-
         public event Action<BaseEnemy> OnDeath;
 	    public float Altitude { get; protected set; }
 	    protected float AltitudeVelocity { get; set; }
-	    protected float GravityDrag { get; set; } = -100f;
-
-        private static AxisAlignedRectangle _leftSpawnArea;
-	    private static AxisAlignedRectangle _rightSpawnArea;
+	    protected float GravityDrag { get; set; } = -350f;
 
         public float HealthRemaining { get; set; }
         public bool IsDead => HealthRemaining <= 0;
@@ -30,8 +26,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	    private float? _startingShadowWidth;
 	    private float _startingShadowHeight;
 	    private float _startingShadowAlpha;
-	    private float _startingRangedRadius;
-	    private float _startingMeleeRadius;
 	    private float _startingSpriteScale;
 	    private float _startingLightScale;
 	    private float _startingCircleRadius;
@@ -86,7 +80,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             HealthRemaining = MaximumHealth;
 		    Altitude = 0f;
 		    AltitudeVelocity = 0f;
-		    GravityDrag = 0f;
 
             CalculateScale();
             UpdateScale();
@@ -100,13 +93,35 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 		private void CustomActivity()
 		{
-		    if (IsDead)
+		    if (!IsFlying || (IsFlying && IsDead))
+		    {
+                AltitudeVelocity += GravityDrag * TimeManager.SecondDifference;
+            }
+
+		    if (AltitudeVelocity > 0 || (Altitude > 0 && AltitudeVelocity < 0))
+		    {
+		        Altitude = Math.Max(0, Altitude + AltitudeVelocity * TimeManager.SecondDifference);
+            }
+
+            if (Math.Abs(Altitude) < 0.001f && AltitudeVelocity < 0)
+		    {
+		        AltitudeVelocity = 0;
+		    }
+
+            if (IsDead)
 		    {
 		        PerformDeath();
 		    }
 		    else if (IsHurt && SpriteInstance.JustCycled)
 		    {
-		        CurrentActionState = Action.Standing;
+		        if (!IsFlying && Altitude > 0)
+		        {
+		            SpriteInstance.Animate = false;
+		        }
+		        else
+		        {
+		            CurrentActionState = Action.Standing;
+                }
 		    }
 
 		    if (!IsDead && !IsHurt)
@@ -136,16 +151,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         private void UpdateAnimation()
 	    {
-	        if (Altitude > 0 && (!IsFlying || IsDead))
-	        {
-	            AltitudeVelocity += GravityDrag * TimeManager.SecondDifference;
-	        }
-	        else
-	        {
-	            AltitudeVelocity = 0;
-	        }
-	        Altitude = Math.Max(0, Altitude + AltitudeVelocity * TimeManager.SecondDifference);
-
 	        SpriteInstance.TextureScale = _startingSpriteScale * _currentScale;
             _spriteRelativeY = SpriteInstance.Height / 2;
 
@@ -204,13 +209,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (CurrentActionState != Action.Dying)
 	        {
 	            CurrentActionState = Action.Dying;
-	            Drag = 5f;
 	        }
-            else if (IsFlying && Altitude > 0)
+            else if (Altitude > 0)
             {
-                Altitude += TimeManager.SecondDifference * -300f;
+                Altitude += TimeManager.SecondDifference * GravityDrag;
             }
-	        else if (SpriteInstance.JustCycled)
+	        else if (Altitude <=0 && SpriteInstance.JustCycled)
             {
                 OnDeath?.Invoke(this);
                 Destroy();
@@ -243,6 +247,26 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 
         }
+
+	    public void ReactToExplosion(float damageInflicted, Vector3 velocity, float altitudeVelocity)
+	    {
+	        HealthRemaining -= damageInflicted;
+
+	        if (HealthRemaining <= 0)
+	        {
+	            PerformDeath();
+	        }
+	        else
+	        {
+	            CurrentActionState = Action.Hurt;
+	            SpriteInstance.UpdateToCurrentAnimationFrame();
+	            UpdateAnimation();
+	        }
+
+            AltitudeVelocity += altitudeVelocity;
+
+	        Velocity = velocity;
+	    }
 
 	    protected void AddSpritesToLayers(FlatRedBall.Graphics.Layer darknessLayer, FlatRedBall.Graphics.Layer hudLayer)
 	    {

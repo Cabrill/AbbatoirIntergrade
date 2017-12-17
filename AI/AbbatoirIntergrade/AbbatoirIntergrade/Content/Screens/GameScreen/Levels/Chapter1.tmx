@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="9" tilewidth="128" tileheight="128" nextobjectid="2">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="2">
  <tileset firstgid="1" name="CombinedAssets" tilewidth="128" tileheight="128" tilecount="1024" columns="32">
   <image source="../../../Tilesets/CombinedAssets.png" width="4096" height="4096"/>
   <tile id="250">
@@ -12,28 +12,33 @@
   <tile id="392" probability="0.25"/>
   <tile id="393" probability="0.5"/>
  </tileset>
- <layer name="Ground" width="20" height="9">
+ <layer name="Ground" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC42SSw7CMAxE05t222ZVIUACDkCSVYSA8u9RejQmMCNZVRddPMVO7PGnjZVzacIarBZyARG05iwannYDOr4VduBQuVHseV9yAsi0I3MDaajXUi9R6125+oNTvOAfGeepFxjfGjuZuh1j0c9gtaR3NvP21IjMSTPaHX30V6O/0eqhRp3NfNqRfGlqf97MW+w78p//vn480LP0FBNNT/omssv7dvINN7xX7cxetCO7s2R8O380aH71kBkbzEyeNZb8Y/2k1hWcZriBL6ez8YHQAgAA
+   H4sIAAAAAAAAC82STQ7CIBCF4aZsW1bEqIl6AIEVMWr99yg9moN9L06aLrq0yRdm2uHNG6gx//0ka0wesRQWMznZQaNVa9XwiBsh4FtlI+ys6cnW/jxEoSBO2BtBA70WehlaT2vcS1bykHyPOg+9iPpWxVn1DagVP2+tRb2jmreDRsKePKEdkIs/J/56rSc9XFHz8YyYU5Pn59W8Nb7K/vvg68tNPFOPNUl54p0wrt/Xoztc4T17F3jhGekzyyrX8ycF56eHgtqoZvLoMecf60a9zsJhgovwAXHM8AdwAwAA
   </data>
  </layer>
- <layer name="Objects" width="20" height="9">
+ <layer name="Objects" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NggAARIBZloAxIMyLMMgFiUzT5OBLNs4aaBzNLDIjFqeC+ICAOZiDfz1ehZilA+UVAXMyA3c/IgAWIWdHE9IHmGADxRiB7E1RMhBHTbaVYzFMBYlUs4nuA+D0Qf4DyTRgJuw0EXIDYFYfcXgJ6sYEUIE7FISfJSJpZjED1TEToAQDnMFE+0AIAAA==
+   H4sIAAAAAAAAC2NgGJxgIhBPQuIHAXEwBeZtBOJNULYIEJsAsSmamjgSzDMAYkMoG2aWGBCLk+m+AiAuhLJhfgW5U5QMs+4A8Xsg/gDlFwFxMQN2PyMDFiBmRRPTZwT6lREt/Bgx3VaKxTwVIFbFIr4HzX0mjITdBgIuQOyKQ24vAb3YQAoQp+KQk2Qkzaz1QLyBCHUAyfy5o3ADAAA=
   </data>
  </layer>
- <layer name="Overlay" width="20" height="9">
+ <layer name="Overlay" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgQAARBoYGBioAoDkMokBsQiXzTKhhCBQg+1GEDP38jAwMAkA8EciexIDqR0rceR6IL6CJUSs+YIBa8UEsYASGExMj9cxTBJqlRMA8AMQs+z/QAgAA
+   H4sIAAAAAAAAC2NgoD54TmXz2BkpN0MAiAWhbHWgeaIMEHe+INO8ACAORBMDuZODTLeeB+ILQPwEiJ8C8TOo2zRINI8fqF4AiCcC2ZOAmAXIZgViNgrchuw+FaAZqkCsxki62wgBEwaGBuqaiBv0A/EEIGYC+oGZCv5gZISYpQTEynjMAwC7ZiP5cAMAAA==
   </data>
  </layer>
- <layer name="EntityLayer" width="20" height="9">
+ <layer name="Overlay2" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgoA/4TSU1wwXQwq+UmIlNLynm/UbCxJpPCwAAe4iqvtACAAA=
+   H4sIAAAAAAAAC2NgoD54DsQvqGwmByN1zdOgsnnUBqAwVKeiG9mp7F9qum2gACMN/MBMwEwA8QSWGnADAAA=
+  </data>
+ </layer>
+ <layer name="EntityLayer" width="20" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAUg8JtKaoYLoIVfKTETm15SzPuNhIk1nxYAAK33qzhwAwAA
   </data>
  </layer>
  <objectgroup name="Pathing">
-  <object id="1" x="-3.0303" y="1081.82">
+  <object id="1" x="-3.0303" y="1337.82">
    <polyline points="0,0 1212.12,0 1209.09,-248.485 706.061,-257.576 700,-1015.15 2112.12,-1018.18 2112.12,-651.515 1730.3,-630.303 1730.3,6.06061 2563.14,6.65152"/>
   </object>
  </objectgroup>

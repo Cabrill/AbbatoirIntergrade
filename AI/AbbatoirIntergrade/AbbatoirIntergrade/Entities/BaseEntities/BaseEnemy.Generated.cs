@@ -62,15 +62,20 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                         break;
                     case  Action.Dying:
                         SpriteInstanceCurrentChainName = "Dying";
+                        Drag = 150f;
                         break;
                     case  Action.Hurt:
                         SpriteInstanceCurrentChainName = "Hurt";
+                        Drag = 50f;
                         break;
                     case  Action.Running:
                         SpriteInstanceCurrentChainName = "Run";
+                        Drag = 0f;
+                        SpriteInstanceAnimate = true;
                         break;
                     case  Action.Standing:
                         SpriteInstanceCurrentChainName = "Standing";
+                        Drag = 200f;
                         break;
                 }
             }
@@ -119,6 +124,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static Microsoft.Xna.Framework.Graphics.Texture2D AllAssetsSheet;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D animation_sheet;
+        protected static Microsoft.Xna.Framework.Graphics.Texture2D AllParticles;
         
         protected FlatRedBall.Sprite mSpriteInstance;
         public FlatRedBall.Sprite SpriteInstance
@@ -301,6 +307,17 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 return mMass;
             }
         }
+        public bool SpriteInstanceAnimate
+        {
+            get
+            {
+                return SpriteInstance.Animate;
+            }
+            set
+            {
+                SpriteInstance.Animate = value;
+            }
+        }
         public event System.EventHandler BeforeVisibleSet;
         public event System.EventHandler AfterVisibleSet;
         protected bool mVisible = true;
@@ -371,6 +388,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         protected virtual void InitializeEntity (bool addToManagers) 
         {
             LoadStaticContent(ContentManagerName);
+            ShadowSprite = new FlatRedBall.Sprite();
+            ShadowSprite.Name = "ShadowSprite";
             mMeleeAttackRadiusCircleInstance = new FlatRedBall.Math.Geometry.Circle();
             mMeleeAttackRadiusCircleInstance.Name = "mMeleeAttackRadiusCircleInstance";
             mRangedAttackRadiusCircleInstance = new FlatRedBall.Math.Geometry.Circle();
@@ -580,6 +599,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             LayerProvidedByContainer = layerToAddTo;
             FlatRedBall.SpriteManager.AddPositionedObject(this);
+            FlatRedBall.SpriteManager.AddToLayer(ShadowSprite, LayerProvidedByContainer);
             HealthBar.ReAddToManagers(LayerProvidedByContainer);
         }
         public virtual void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -587,6 +607,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             PostInitialize();
             LayerProvidedByContainer = layerToAddTo;
             FlatRedBall.SpriteManager.AddPositionedObject(this);
+            FlatRedBall.SpriteManager.AddToLayer(ShadowSprite, LayerProvidedByContainer);
             HealthBar.AddToManagers(LayerProvidedByContainer);
             AddToManagersBottomUp(layerToAddTo);
             CustomInitialize();
@@ -602,6 +623,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             FlatRedBall.SpriteManager.RemovePositionedObject(this);
             
+            if (ShadowSprite != null)
+            {
+                FlatRedBall.SpriteManager.RemoveSprite(ShadowSprite);
+            }
             if (HealthBar != null)
             {
                 HealthBar.Destroy();
@@ -635,28 +660,31 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 }
                 CircleInstance.Radius = 16f;
             }
-            if (ShadowSprite!= null)
+            if (ShadowSprite.Parent == null)
             {
-                if (ShadowSprite.Parent == null)
-                {
-                    ShadowSprite.CopyAbsoluteToRelative();
-                    ShadowSprite.AttachTo(this, false);
-                }
-                if (ShadowSprite.Parent == null)
-                {
-                    ShadowSprite.Z = -1f;
-                }
-                else
-                {
-                    ShadowSprite.RelativeZ = -1f;
-                }
-                ShadowSprite.Texture = AllAssetsSheet;
-                ShadowSprite.LeftTexturePixel = 334f;
-                ShadowSprite.RightTexturePixel = 396f;
-                ShadowSprite.TopTexturePixel = 158f;
-                ShadowSprite.BottomTexturePixel = 220f;
-                ShadowSprite.TextureScale = 1f;
+                ShadowSprite.CopyAbsoluteToRelative();
+                ShadowSprite.AttachTo(this, false);
             }
+            if (ShadowSprite.Parent == null)
+            {
+                ShadowSprite.Z = -1f;
+            }
+            else
+            {
+                ShadowSprite.RelativeZ = -1f;
+            }
+            ShadowSprite.Texture = AllParticles;
+            ShadowSprite.LeftTexturePixel = 1019f;
+            ShadowSprite.RightTexturePixel = 1072f;
+            ShadowSprite.TopTexturePixel = 1895f;
+            ShadowSprite.BottomTexturePixel = 1948f;
+            ShadowSprite.TextureScale = 1f;
+            #if FRB_MDX
+            ShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
+            #else
+            ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+            #endif
+            ShadowSprite.Alpha = 0.8f;
             if (mMeleeAttackRadiusCircleInstance.Parent == null)
             {
                 mMeleeAttackRadiusCircleInstance.CopyAbsoluteToRelative();
@@ -712,6 +740,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         public virtual void RemoveFromManagers () 
         {
             FlatRedBall.SpriteManager.ConvertToManuallyUpdated(this);
+            if (ShadowSprite != null)
+            {
+                FlatRedBall.SpriteManager.RemoveSpriteOneWay(ShadowSprite);
+            }
             HealthBar.RemoveFromManagers();
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
         }
@@ -721,6 +753,26 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 HealthBar.AssignCustomVariables(true);
             }
+            if (ShadowSprite.Parent == null)
+            {
+                ShadowSprite.Z = -1f;
+            }
+            else
+            {
+                ShadowSprite.RelativeZ = -1f;
+            }
+            ShadowSprite.Texture = AllParticles;
+            ShadowSprite.LeftTexturePixel = 1019f;
+            ShadowSprite.RightTexturePixel = 1072f;
+            ShadowSprite.TopTexturePixel = 1895f;
+            ShadowSprite.BottomTexturePixel = 1948f;
+            ShadowSprite.TextureScale = 1f;
+            #if FRB_MDX
+            ShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
+            #else
+            ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+            #endif
+            ShadowSprite.Alpha = 0.8f;
             MeleeAttackRadiusCircleInstance.Radius = 16f;
             MeleeAttackRadiusCircleInstance.Color = Color.Red;
             if (MeleeAttackRadiusCircleInstance.Parent == null)
@@ -939,6 +991,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             HasLightSource = false;
             IsJumper = false;
             Mass = 0.1f;
+            Drag = 10f;
+            SpriteInstanceAnimate = true;
         }
         public virtual void ConvertToManuallyUpdated () 
         {
@@ -948,10 +1002,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 FlatRedBall.SpriteManager.ConvertToManuallyUpdated(SpriteInstance);
             }
-            if (ShadowSprite != null)
-            {
-                FlatRedBall.SpriteManager.ConvertToManuallyUpdated(ShadowSprite);
-            }
+            FlatRedBall.SpriteManager.ConvertToManuallyUpdated(ShadowSprite);
             if (LightSprite != null)
             {
                 FlatRedBall.SpriteManager.ConvertToManuallyUpdated(LightSprite);
@@ -996,6 +1047,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 }
                 AllAssetsSheet = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/allassetssheet.png", ContentManagerName);
                 animation_sheet = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/animation_sheet.png", ContentManagerName);
+                AllParticles = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/projectiles/allparticles.png", ContentManagerName);
             }
             AbbatoirIntergrade.Entities.GraphicalElements.ResourceBar.LoadStaticContent(contentManagerName);
             CustomLoadStaticContent(contentManagerName);
@@ -1045,6 +1097,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 throw new System.Exception("interpolationValue cannot be NaN");
             }
             #endif
+            bool setDrag = true;
+            float DragFirstValue= 0;
+            float DragSecondValue= 0;
             switch(firstState)
             {
                 case  Action.Dying:
@@ -1052,17 +1107,24 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     {
                         this.SpriteInstanceCurrentChainName = "Dying";
                     }
+                    DragFirstValue = 150f;
                     break;
                 case  Action.Hurt:
                     if (interpolationValue < 1)
                     {
                         this.SpriteInstanceCurrentChainName = "Hurt";
                     }
+                    DragFirstValue = 50f;
                     break;
                 case  Action.Running:
                     if (interpolationValue < 1)
                     {
                         this.SpriteInstanceCurrentChainName = "Run";
+                    }
+                    DragFirstValue = 0f;
+                    if (interpolationValue < 1)
+                    {
+                        this.SpriteInstanceAnimate = true;
                     }
                     break;
                 case  Action.Standing:
@@ -1070,6 +1132,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     {
                         this.SpriteInstanceCurrentChainName = "Standing";
                     }
+                    DragFirstValue = 200f;
                     break;
             }
             switch(secondState)
@@ -1079,17 +1142,24 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     {
                         this.SpriteInstanceCurrentChainName = "Dying";
                     }
+                    DragSecondValue = 150f;
                     break;
                 case  Action.Hurt:
                     if (interpolationValue >= 1)
                     {
                         this.SpriteInstanceCurrentChainName = "Hurt";
                     }
+                    DragSecondValue = 50f;
                     break;
                 case  Action.Running:
                     if (interpolationValue >= 1)
                     {
                         this.SpriteInstanceCurrentChainName = "Run";
+                    }
+                    DragSecondValue = 0f;
+                    if (interpolationValue >= 1)
+                    {
+                        this.SpriteInstanceAnimate = true;
                     }
                     break;
                 case  Action.Standing:
@@ -1097,7 +1167,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     {
                         this.SpriteInstanceCurrentChainName = "Standing";
                     }
+                    DragSecondValue = 200f;
                     break;
+            }
+            if (setDrag)
+            {
+                Drag = DragFirstValue * (1 - interpolationValue) + DragSecondValue * interpolationValue;
             }
             if (interpolationValue < 1)
             {
@@ -1227,6 +1302,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return AllAssetsSheet;
                 case  "animation_sheet":
                     return animation_sheet;
+                case  "AllParticles":
+                    return AllParticles;
             }
             return null;
         }
@@ -1238,6 +1315,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return AllAssetsSheet;
                 case  "animation_sheet":
                     return animation_sheet;
+                case  "AllParticles":
+                    return AllParticles;
             }
             return null;
         }
@@ -1249,6 +1328,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return AllAssetsSheet;
                 case  "animation_sheet":
                     return animation_sheet;
+                case  "AllParticles":
+                    return AllParticles;
             }
             return null;
         }
@@ -1301,10 +1382,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(CircleInstance);
             }
-            if (ShadowSprite != null)
-            {
-                FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(ShadowSprite);
-            }
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(ShadowSprite);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(MeleeAttackRadiusCircleInstance);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(RangedAttackRadiusCircleInstance);
             if (LightSprite != null)
