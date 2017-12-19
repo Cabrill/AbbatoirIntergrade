@@ -185,6 +185,33 @@ namespace AbbatoirIntergrade.Screens
                     enemy.AddSpritesToLayers(LightLayer, InfoLayer);
                     enemy.OnDeath += CreateResourceNotification;
                 };
+
+            Rabbit1EnemyFactory.Initialize(ContentManagerName);
+            Rabbit1EnemyFactory.AddList(AllEnemiesList);
+            Rabbit1EnemyFactory.EntitySpawned +=
+                enemy =>
+                {
+                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.OnDeath += CreateResourceNotification;
+                };
+
+            Rabbit2EnemyFactory.Initialize(ContentManagerName);
+            Rabbit2EnemyFactory.AddList(AllEnemiesList);
+            Rabbit2EnemyFactory.EntitySpawned +=
+                enemy =>
+                {
+                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.OnDeath += CreateResourceNotification;
+                };
+
+            Rabbit3EnemyFactory.Initialize(ContentManagerName);
+            Rabbit3EnemyFactory.AddList(AllEnemiesList);
+            Rabbit3EnemyFactory.EntitySpawned +=
+                enemy =>
+                {
+                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.OnDeath += CreateResourceNotification;
+                };
         }
     }
 }

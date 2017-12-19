@@ -545,19 +545,19 @@ namespace AbbatoirIntergrade.Screens
         #if DEBUG
         private void HandleDebugInput()
 	    {
-	        //FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
+            //FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
+
+	        if (InputManager.Keyboard.KeyPushed(Keys.Z))
+	        {
+	            var newAlien = Rabbit1EnemyFactory.CreateNew(WorldLayer);
+	            newAlien.FollowLine(Pathing);
+	        }
 
             if (InputManager.Keyboard.KeyPushed(Keys.X))
 	        {
 	            var newAlien = Chicken1EnemyFactory.CreateNew(WorldLayer);
                 newAlien.FollowLine(Pathing);
 	        }
-
-	        if (InputManager.Keyboard.KeyPushed(Keys.Z))
-	        {
-	            var newAlien = Cow1EnemyFactory.CreateNew(WorldLayer);
-	            newAlien.FollowLine(Pathing);
-            }
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.C))
 	        {
