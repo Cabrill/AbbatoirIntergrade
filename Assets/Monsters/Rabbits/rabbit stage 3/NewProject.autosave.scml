@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
+    <folder id="0" name="head copy 2">
+        <file id="0" name="head copy 2/ear-f #2.png" width="350" height="212" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <folder id="1" name="Arm-b #2">
+        <file id="0" name="Arm-b #2/Arm-b-down #2.png" width="97" height="139" pivot_x="0.680412" pivot_y="0.820144"/>
+        <file id="1" name="Arm-b #2/Arm-b-mid #1.png" width="162" height="239" pivot_x="0.796296" pivot_y="0.882845"/>
+        <file id="2" name="Arm-b #2/Arm-b-up #2.png" width="214" height="423" pivot_x="0.616822" pivot_y="0.825059"/>
+    </folder>
+    <folder id="2" name="Arm-f #2">
+        <file id="0" name="Arm-f #2/Arm-f-down #2.png" width="138" height="167" pivot_x="0.724638" pivot_y="0.682635"/>
+        <file id="1" name="Arm-f #2/Arm-f-mid #1.png" width="170" height="296" pivot_x="0.758824" pivot_y="0.847973"/>
+    </folder>
+    <entity id="0" name="RabbitStage3">
+        <animation id="0" name="NewAnimation" length="1000" interval="100">
+            <mainline>
+                <key id="0"/>
+            </mainline>
+        </animation>
+    </entity>
+</spriter_data>

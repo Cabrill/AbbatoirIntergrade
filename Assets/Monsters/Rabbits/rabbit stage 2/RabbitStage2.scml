@@ -32,7 +32,7 @@
         <file id="1" name="Arm-b #1/Arm-b-mid.png" width="177" height="271" pivot_x="0.762712" pivot_y="0.848708"/>
         <file id="2" name="Arm-b #1/Arm-b-down #1.png" width="419" height="553" pivot_x="0.214797" pivot_y="0.211573"/>
     </folder>
-    <entity id="0" name="entity_000">
+    <entity id="0" name="RabbitStage2">
         <obj_info name="bone_000" type="bone" w="341.895" h="10"/>
         <obj_info name="bone_001" type="bone" w="177.389" h="10"/>
         <obj_info name="bone_002" type="bone" w="392.115" h="10"/>
@@ -3045,7 +3045,7 @@
                 </key>
             </timeline>
         </animation>
-        <animation id="3" name="Running" length="1000" interval="100">
+        <animation id="3" name="RunningTooGood" length="1000" interval="100">
             <mainline>
                 <key id="0">
                     <bone_ref id="0" timeline="19" key="0"/>
@@ -4665,7 +4665,7 @@
                 </key>
             </timeline>
         </animation>
-        <animation id="4" name="WorseRunning" length="1000" interval="100">
+        <animation id="4" name="Running" length="1000" interval="100">
             <mainline>
                 <key id="0">
                     <bone_ref id="0" timeline="19" key="0"/>
