@@ -276,6 +276,20 @@ namespace FlatRedBall.TileCollisions
 
         }
 
+        public void RemoveSurroundedCollision()
+        {
+            for (int i = Rectangles.Count - 1; i > -1; i--)
+            {
+                var rectangle = Rectangles[i];
+                if (rectangle.RepositionDirections == RepositionDirections.None)
+                {
+                    rectangle.Visible = false;
+                    this.Rectangles.Remove(rectangle);
+                }
+            }
+        }
+
+
         private float GetKeyValue(float x, float y)
         {
             float keyValue = 0;
@@ -368,6 +382,14 @@ namespace FlatRedBall.TileCollisions
                 case Axis.Z:
                     mShapes.AxisAlignedRectangles.SortZInsertionAscending();
                     break;
+            }
+        }
+
+        public void SetColor(Microsoft.Xna.Framework.Color color)
+        {
+            foreach (var rectangle in this.Rectangles)
+            {
+                rectangle.Color = color;
             }
         }
     }
@@ -469,6 +491,20 @@ namespace FlatRedBall.TileCollisions
             AddCollisionFromLayerInternal(tileShapeCollection, predicate, properties, dimension, dimensionHalf, rectangleIndexes, layer);
 
             ApplyMerging(tileShapeCollection, dimension, rectangleIndexes);
+        }
+
+        public static void AddCollisionFromTilesWithProperty(this TileShapeCollection tileShapeCollection, LayeredTileMap layeredTileMap, string propertyName)
+        {
+            tileShapeCollection.AddCollisionFrom(
+                layeredTileMap, (list) => list.Any(item => item.Name == propertyName));
+
+        }
+
+        public static void AddMergedCollisionFromTilesWithProperty(this TileShapeCollection tileShapeCollection, LayeredTileMap layeredTileMap, string propertyName)
+        {
+            tileShapeCollection.AddMergedCollisionFrom(
+                layeredTileMap, (list) => list.Any(item => item.Name == propertyName));
+
         }
 
         private static void ApplyMerging(TileShapeCollection tileShapeCollection, float dimension, Dictionary<int, List<int>> rectangleIndexes)
@@ -602,6 +638,11 @@ namespace FlatRedBall.TileCollisions
             rectangle.Y = y;
             rectangle.Width = width;
             rectangle.Height = height;
+
+            if (tileShapeCollection.Visible)
+            {
+                rectangle.Visible = true;
+            }
 
             tileShapeCollection.Rectangles.Add(rectangle);
         }

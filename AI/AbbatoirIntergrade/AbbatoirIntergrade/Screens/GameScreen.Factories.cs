@@ -17,69 +17,56 @@ namespace AbbatoirIntergrade.Screens
 
             //Projectiles
             PiercingProjectileFactory.Initialize(ContentManagerName);
-            PiercingProjectileFactory.AddList(PlayerProjectileList);
             PiercingProjectileFactory.EntitySpawned +=
                 projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
             CannonProjectileFactory.Initialize(ContentManagerName);
-            CannonProjectileFactory.AddList(PlayerProjectileList);
             CannonProjectileFactory.EntitySpawned +=
                 projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
             ElectricProjectileFactory.Initialize(ContentManagerName);
-            ElectricProjectileFactory.AddList(PlayerProjectileList);
             ElectricProjectileFactory.EntitySpawned +=
                 projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
             FireProjectileFactory.Initialize(ContentManagerName);
-            FireProjectileFactory.AddList(PlayerProjectileList);
             FireProjectileFactory.EntitySpawned +=
                 projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
             FrostProjectileFactory.Initialize(ContentManagerName);
-            FrostProjectileFactory.AddList(PlayerProjectileList);
             FrostProjectileFactory.EntitySpawned +=
                 projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
             ChemicalProjectileFactory.Initialize(ContentManagerName);
-            ChemicalProjectileFactory.AddList(PlayerProjectileList);
             ChemicalProjectileFactory.EntitySpawned +=
                 projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
             //Towers
             BombardingTowerFactory.Initialize(ContentManagerName);
-            BombardingTowerFactory.AddList(AllStructuresList);
             BombardingTowerFactory.EntitySpawned +=
                 turrent => turrent.AddSpritesToLayers(LightLayer, InfoLayer);
 
             ChemicalTowerFactory.Initialize(ContentManagerName);
-            ChemicalTowerFactory.AddList(AllStructuresList);
             ChemicalTowerFactory.EntitySpawned +=
                 turrent => turrent.AddSpritesToLayers(LightLayer, InfoLayer);
 
             ElectricTowerFactory.Initialize(ContentManagerName);
-            ElectricTowerFactory.AddList(AllStructuresList);
             ElectricTowerFactory.EntitySpawned +=
                 turrent => turrent.AddSpritesToLayers(LightLayer, InfoLayer);
 
             FireTowerFactory.Initialize(ContentManagerName);
-            FireTowerFactory.AddList(AllStructuresList);
             FireTowerFactory.EntitySpawned +=
                 turrent => turrent.AddSpritesToLayers(LightLayer, InfoLayer);
 
             FrostTowerFactory.Initialize(ContentManagerName);
-            FrostTowerFactory.AddList(AllStructuresList);
             FrostTowerFactory.EntitySpawned +=
                 turrent => turrent.AddSpritesToLayers(LightLayer, InfoLayer);
 
             PiercingTowerFactory.Initialize(ContentManagerName);
-            PiercingTowerFactory.AddList(AllStructuresList);
             PiercingTowerFactory.EntitySpawned +=
                 turrent => turrent.AddSpritesToLayers(LightLayer, InfoLayer);
 
             //Enemies
             Chicken1EnemyFactory.Initialize(ContentManagerName);
-            Chicken1EnemyFactory.AddList(AllEnemiesList);
             Chicken1EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
@@ -88,7 +75,6 @@ namespace AbbatoirIntergrade.Screens
                 };
 
             Chicken2EnemyFactory.Initialize(ContentManagerName);
-            Chicken2EnemyFactory.AddList(AllEnemiesList);
             Chicken2EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
@@ -97,7 +83,6 @@ namespace AbbatoirIntergrade.Screens
                 };
 
             Chicken3EnemyFactory.Initialize(ContentManagerName);
-            Chicken3EnemyFactory.AddList(AllEnemiesList);
             Chicken3EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
@@ -106,7 +91,6 @@ namespace AbbatoirIntergrade.Screens
                 };
 
             Cow1EnemyFactory.Initialize(ContentManagerName);
-            Cow1EnemyFactory.AddList(AllEnemiesList);
             Cow1EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
@@ -115,7 +99,6 @@ namespace AbbatoirIntergrade.Screens
                 };
 
             Cow2EnemyFactory.Initialize(ContentManagerName);
-            Cow2EnemyFactory.AddList(AllEnemiesList);
             Cow2EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
@@ -124,7 +107,6 @@ namespace AbbatoirIntergrade.Screens
                 };
 
             Cow3EnemyFactory.Initialize(ContentManagerName);
-            Cow3EnemyFactory.AddList(AllEnemiesList);
             Cow3EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
@@ -133,7 +115,6 @@ namespace AbbatoirIntergrade.Screens
                 };
 
             Pig1EnemyFactory.Initialize(ContentManagerName);
-            Pig1EnemyFactory.AddList(AllEnemiesList);
             Pig1EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
@@ -142,7 +123,6 @@ namespace AbbatoirIntergrade.Screens
                 };
 
             Pig2EnemyFactory.Initialize(ContentManagerName);
-            Pig2EnemyFactory.AddList(AllEnemiesList);
             Pig2EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
@@ -151,7 +131,6 @@ namespace AbbatoirIntergrade.Screens
                 };
 
             Pig3EnemyFactory.Initialize(ContentManagerName);
-            Pig3EnemyFactory.AddList(AllEnemiesList);
             Pig3EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
@@ -160,7 +139,6 @@ namespace AbbatoirIntergrade.Screens
                 };
 
             Sheep1EnemyFactory.Initialize(ContentManagerName);
-            Sheep1EnemyFactory.AddList(AllEnemiesList);
             Sheep1EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
@@ -169,7 +147,6 @@ namespace AbbatoirIntergrade.Screens
                 };
 
             Sheep2EnemyFactory.Initialize(ContentManagerName);
-            Sheep2EnemyFactory.AddList(AllEnemiesList);
             Sheep2EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
@@ -178,7 +155,6 @@ namespace AbbatoirIntergrade.Screens
                 };
 
             Sheep3EnemyFactory.Initialize(ContentManagerName);
-            Sheep3EnemyFactory.AddList(AllEnemiesList);
             Sheep3EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
@@ -187,7 +163,6 @@ namespace AbbatoirIntergrade.Screens
                 };
 
             Rabbit1EnemyFactory.Initialize(ContentManagerName);
-            Rabbit1EnemyFactory.AddList(AllEnemiesList);
             Rabbit1EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
@@ -196,7 +171,6 @@ namespace AbbatoirIntergrade.Screens
                 };
 
             Rabbit2EnemyFactory.Initialize(ContentManagerName);
-            Rabbit2EnemyFactory.AddList(AllEnemiesList);
             Rabbit2EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
@@ -205,7 +179,6 @@ namespace AbbatoirIntergrade.Screens
                 };
 
             Rabbit3EnemyFactory.Initialize(ContentManagerName);
-            Rabbit3EnemyFactory.AddList(AllEnemiesList);
             Rabbit3EnemyFactory.EntitySpawned +=
                 enemy =>
                 {

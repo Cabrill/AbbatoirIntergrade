@@ -146,10 +146,6 @@ namespace AbbatoirIntergrade.Entities
         private void DrawToScreen(Camera camera)
         {
             var destinationRectangle = camera.DestinationRectangle;
-            if (global::RenderingLibrary.Graphics.Renderer.SubtractViewportYForMonoGameGlBug)
-            {
-                destinationRectangle.Y -= RenderingLibrary.SystemManagers.Default.Renderer.GraphicsDevice.Viewport.Y;
-            }
 
             FlatRedBallServices.GraphicsDevice.SetRenderTarget(null);
 
@@ -170,10 +166,6 @@ namespace AbbatoirIntergrade.Entities
             DarknessAlpha = minimumBrightness * (1 - SunlightManager.SunlightEffectiveness);
 
             var destinationRectangle = camera.DestinationRectangle;
-            if (global::RenderingLibrary.Graphics.Renderer.SubtractViewportYForMonoGameGlBug)
-            {
-                destinationRectangle.Y -= RenderingLibrary.SystemManagers.Default.Renderer.GraphicsDevice.Viewport.Y;
-            }
 
             FlatRedBallServices.GraphicsDevice.SetRenderTarget(RenderTargetInstance);
             FlatRedBallServices.GraphicsDevice.Clear(new Color(0, 0, 0, 0));

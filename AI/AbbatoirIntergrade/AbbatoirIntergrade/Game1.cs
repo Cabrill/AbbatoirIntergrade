@@ -17,6 +17,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using AbbatoirIntergrade.GameClasses;
+using TMXGlueLib.DataTypes;
 
 namespace AbbatoirIntergrade
 {
@@ -39,7 +40,7 @@ namespace AbbatoirIntergrade
             graphics.PreferredBackBufferWidth = 800;
             graphics.PreferredBackBufferHeight = 600;
 #endif
-
+            ReducedTileMapInfo.FastCreateFromTmx = true;
 
 #if WINDOWS_8
             FlatRedBall.Instructions.Reflection.PropertyValuePair.TopLevelAssembly = 
@@ -50,21 +51,21 @@ namespace AbbatoirIntergrade
 
         protected override void Initialize()
         {
-			#if IOS
+#if IOS
 			var bounds = UIKit.UIScreen.MainScreen.Bounds;
 			var nativeScale = UIKit.UIScreen.MainScreen.Scale;
 			var screenWidth = (int)(bounds.Width * nativeScale);
 			var screenHeight = (int)(bounds.Height * nativeScale);
 			graphics.PreferredBackBufferWidth = screenWidth;
 			graphics.PreferredBackBufferHeight = screenHeight;
-			#endif
+#endif
             //FlatRedBall.TimeManager.TimeFactor = 0.5f;
+            ReducedTileMapInfo.FastCreateFromTmx = true;
             FlatRedBallServices.InitializeFlatRedBall(this, graphics);
 
 			CameraSetup.SetupCamera(SpriteManager.Camera, graphics);
 			GlobalContent.Initialize();
 			FlatRedBall.Screens.ScreenManager.Start(typeof(AbbatoirIntergrade.Screens.GameScreen));
-            global::RenderingLibrary.Graphics.Renderer.SubtractViewportYForMonoGameGlBug = true;
             base.Initialize();
         }
 
