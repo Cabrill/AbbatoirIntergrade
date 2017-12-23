@@ -15,12 +15,8 @@ namespace AbbatoirIntergrade.Factories
         }
         public static TileCollisionRectangle CreateNew (Layer layer, float x = 0, float y = 0) 
         {
-            if (string.IsNullOrEmpty(mContentManagerName))
-            {
-                throw new System.Exception("You must first initialize the factory to use it. You can either add PositionedObjectList of type TileCollisionRectangle (the most common solution) or call Initialize in custom code");
-            }
             TileCollisionRectangle instance = null;
-            instance = new TileCollisionRectangle(mContentManagerName, false);
+            instance = new TileCollisionRectangle(mContentManagerName ?? FlatRedBall.Screens.ScreenManager.CurrentScreen.ContentManagerName, false);
             instance.AddToManagers(layer);
             instance.X = x;
             instance.Y = y;

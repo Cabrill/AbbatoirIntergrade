@@ -15,12 +15,8 @@ namespace AbbatoirIntergrade.Factories
         }
         public static StructurePlacement CreateNew (Layer layer, float x = 0, float y = 0) 
         {
-            if (string.IsNullOrEmpty(mContentManagerName))
-            {
-                throw new System.Exception("You must first initialize the factory to use it. You can either add PositionedObjectList of type StructurePlacement (the most common solution) or call Initialize in custom code");
-            }
             StructurePlacement instance = null;
-            instance = new StructurePlacement(mContentManagerName, false);
+            instance = new StructurePlacement(mContentManagerName ?? FlatRedBall.Screens.ScreenManager.CurrentScreen.ContentManagerName, false);
             instance.AddToManagers(layer);
             instance.X = x;
             instance.Y = y;

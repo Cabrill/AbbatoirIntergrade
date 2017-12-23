@@ -1,0 +1,274 @@
+<?xml version="1.0"?>
+<objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <objecttype name="Chicken1Enemy">
+    <property name="MaximumHealth" type="float" default="64" />
+    <property name="Speed" type="float" default="75" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="20" />
+    <property name="DisplayName" type="string" default="Flybo" />
+    <property name="IsFlying" type="bool" default="true" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.1" />
+  </objecttype>
+  <objecttype name="Chicken2Enemy">
+    <property name="MaximumHealth" type="float" default="64" />
+    <property name="Speed" type="float" default="75" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="20" />
+    <property name="DisplayName" type="string" default="Flybo" />
+    <property name="IsFlying" type="bool" default="true" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.1" />
+  </objecttype>
+  <objecttype name="Chicken3Enemy">
+    <property name="MaximumHealth" type="float" default="64" />
+    <property name="Speed" type="float" default="75" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="20" />
+    <property name="DisplayName" type="string" default="Flybo" />
+    <property name="IsFlying" type="bool" default="true" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.1" />
+  </objecttype>
+  <objecttype name="Cow1Enemy">
+    <property name="MaximumHealth" type="float" default="32" />
+    <property name="Speed" type="float" default="150" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="12" />
+    <property name="DisplayName" type="string" default="Looker" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.1" />
+  </objecttype>
+  <objecttype name="Cow2Enemy">
+    <property name="MaximumHealth" type="float" default="32" />
+    <property name="Speed" type="float" default="150" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="12" />
+    <property name="DisplayName" type="string" default="Looker" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.1" />
+  </objecttype>
+  <objecttype name="Cow3Enemy">
+    <property name="MaximumHealth" type="float" default="32" />
+    <property name="Speed" type="float" default="150" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="12" />
+    <property name="DisplayName" type="string" default="Looker" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.1" />
+  </objecttype>
+  <objecttype name="Pig1Enemy">
+    <property name="MaximumHealth" type="float" default="32" />
+    <property name="Speed" type="float" default="150" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="12" />
+    <property name="DisplayName" type="string" default="Looker" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.1" />
+  </objecttype>
+  <objecttype name="Pig2Enemy">
+    <property name="MaximumHealth" type="float" default="32" />
+    <property name="Speed" type="float" default="150" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="12" />
+    <property name="DisplayName" type="string" default="Looker" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.1" />
+  </objecttype>
+  <objecttype name="Pig3Enemy">
+    <property name="MaximumHealth" type="float" default="32" />
+    <property name="Speed" type="float" default="150" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="12" />
+    <property name="DisplayName" type="string" default="Looker" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.1" />
+  </objecttype>
+  <objecttype name="Rabbit1Enemy">
+    <property name="MaximumHealth" type="float" default="224" />
+    <property name="Speed" type="float" default="160" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="35" />
+    <property name="DisplayName" type="string" default="Slime" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="true" />
+    <property name="Mass" type="float" default="0.1" />
+  </objecttype>
+  <objecttype name="Rabbit2Enemy">
+    <property name="MaximumHealth" type="float" default="32" />
+    <property name="Speed" type="float" default="150" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="12" />
+    <property name="DisplayName" type="string" default="Looker" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.1" />
+  </objecttype>
+  <objecttype name="Rabbit3Enemy">
+    <property name="MaximumHealth" type="float" default="32" />
+    <property name="Speed" type="float" default="150" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="12" />
+    <property name="DisplayName" type="string" default="Looker" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.1" />
+  </objecttype>
+  <objecttype name="Sheep1Enemy">
+    <property name="MaximumHealth" type="float" default="32" />
+    <property name="Speed" type="float" default="150" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="12" />
+    <property name="DisplayName" type="string" default="Looker" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.1" />
+  </objecttype>
+  <objecttype name="Sheep2Enemy">
+    <property name="MaximumHealth" type="float" default="32" />
+    <property name="Speed" type="float" default="150" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="12" />
+    <property name="DisplayName" type="string" default="Looker" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.1" />
+  </objecttype>
+  <objecttype name="Sheep3Enemy">
+    <property name="MaximumHealth" type="float" default="32" />
+    <property name="Speed" type="float" default="150" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="12" />
+    <property name="DisplayName" type="string" default="Looker" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.1" />
+  </objecttype>
+  <objecttype name="StructurePlacement">
+    <property name="SpriteInstanceRed" type="float" default="0" />
+    <property name="SpriteInstanceGreen" type="float" default="1" />
+    <property name="SpriteInstanceBlue" type="float" default="0" />
+    <property name="SpriteInstanceColorOperation" type="ColorOperation" default="ColorTextureAlpha" />
+    <property name="SpriteInstanceTextureScale" type="float" default="1" />
+  </objecttype>
+  <objecttype name="TileCollisionCircle">
+    <property name="Altitude" type="float" />
+    <property name="CircleInstanceRadius" type="float" default="64" />
+    <property name="ZHeight" type="float" />
+  </objecttype>
+  <objecttype name="TileCollisionRectangle">
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" default="128" />
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" default="128" />
+  </objecttype>
+  <objecttype name="CannonProjectile">
+    <property name="DamageInflicted" type="float" default="1" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.5" />
+  </objecttype>
+  <objecttype name="ChemicalProjectile">
+    <property name="DamageInflicted" type="float" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="Mass" type="float" default="0.2" />
+  </objecttype>
+  <objecttype name="ElectricProjectile">
+    <property name="DamageInflicted" type="float" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="Mass" type="float" default="0.001" />
+  </objecttype>
+  <objecttype name="FireProjectile">
+    <property name="DamageInflicted" type="float" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="Mass" type="float" default="0.1" />
+  </objecttype>
+  <objecttype name="FrostProjectile">
+    <property name="DamageInflicted" type="float" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="Mass" type="float" default="0.05" />
+  </objecttype>
+  <objecttype name="PiercingProjectile">
+    <property name="DamageInflicted" type="float" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.01" />
+  </objecttype>
+  <objecttype name="BombardingTower">
+    <property name="DisplayName" type="string" default="Not Set" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="StructureDescription" type="string" />
+    <property name="ProjectileSpeed" type="float" default="600" />
+    <property name="RangedRadius" type="float" default="400" />
+    <property name="AttackDamage" type="float" default="10" />
+    <property name="SecondsBetweenFiring" type="float" default="5" />
+    <property name="ProjectileAltitude" type="float" default="100" />
+  </objecttype>
+  <objecttype name="ChemicalTower">
+    <property name="DisplayName" type="string" default="Not Set" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="StructureDescription" type="string" />
+    <property name="ProjectileSpeed" type="float" default="500" />
+    <property name="RangedRadius" type="float" default="400" />
+    <property name="AttackDamage" type="float" default="4" />
+    <property name="SecondsBetweenFiring" type="float" default="2" />
+    <property name="ProjectileAltitude" type="float" default="100" />
+  </objecttype>
+  <objecttype name="ElectricTower">
+    <property name="DisplayName" type="string" default="Not Set" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="StructureDescription" type="string" />
+    <property name="ProjectileSpeed" type="float" default="600" />
+    <property name="RangedRadius" type="float" default="400" />
+    <property name="AttackDamage" type="float" default="2" />
+    <property name="SecondsBetweenFiring" type="float" default="4" />
+    <property name="ProjectileAltitude" type="float" default="100" />
+  </objecttype>
+  <objecttype name="FireTower">
+    <property name="DisplayName" type="string" default="Not Set" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="StructureDescription" type="string" />
+    <property name="ProjectileSpeed" type="float" default="400" />
+    <property name="RangedRadius" type="float" default="400" />
+    <property name="AttackDamage" type="float" default="5" />
+    <property name="SecondsBetweenFiring" type="float" default="2" />
+    <property name="ProjectileAltitude" type="float" default="100" />
+  </objecttype>
+  <objecttype name="FrostTower">
+    <property name="DisplayName" type="string" default="Not Set" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="StructureDescription" type="string" />
+    <property name="ProjectileSpeed" type="float" default="300" />
+    <property name="RangedRadius" type="float" default="400" />
+    <property name="AttackDamage" type="float" default="3" />
+    <property name="SecondsBetweenFiring" type="float" default="1" />
+    <property name="ProjectileAltitude" type="float" default="100" />
+  </objecttype>
+  <objecttype name="PiercingTower">
+    <property name="DisplayName" type="string" default="Piercing Tower" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="StructureDescription" type="string" />
+    <property name="ProjectileSpeed" type="float" default="500" />
+    <property name="RangedRadius" type="float" default="400" />
+    <property name="AttackDamage" type="float" default="1" />
+    <property name="SecondsBetweenFiring" type="float" default="0.5" />
+    <property name="ProjectileAltitude" type="float" default="100" />
+  </objecttype>
+</objecttypes>

@@ -16,11 +16,11 @@ namespace AbbatoirIntergrade.Factories
         }
         public static Chicken1Enemy CreateNew (Layer layer, float x = 0, float y = 0) 
         {
+            Chicken1Enemy instance = null;
             if (string.IsNullOrEmpty(mContentManagerName))
             {
                 throw new System.Exception("You must first initialize the factory to use it. You can either add PositionedObjectList of type Chicken1Enemy (the most common solution) or call Initialize in custom code");
             }
-            Chicken1Enemy instance = null;
             instance = mPool.GetNextAvailable();
             if (instance == null)
             {

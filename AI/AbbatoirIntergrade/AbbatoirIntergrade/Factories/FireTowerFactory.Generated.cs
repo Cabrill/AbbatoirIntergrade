@@ -16,12 +16,8 @@ namespace AbbatoirIntergrade.Factories
         }
         public static FireTower CreateNew (Layer layer, float x = 0, float y = 0) 
         {
-            if (string.IsNullOrEmpty(mContentManagerName))
-            {
-                throw new System.Exception("You must first initialize the factory to use it. You can either add PositionedObjectList of type FireTower (the most common solution) or call Initialize in custom code");
-            }
             FireTower instance = null;
-            instance = new FireTower(mContentManagerName, false);
+            instance = new FireTower(mContentManagerName ?? FlatRedBall.Screens.ScreenManager.CurrentScreen.ContentManagerName, false);
             instance.AddToManagers(layer);
             instance.X = x;
             instance.Y = y;

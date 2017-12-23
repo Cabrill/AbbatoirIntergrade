@@ -16,12 +16,8 @@ namespace AbbatoirIntergrade.Factories
         }
         public static FrostProjectile CreateNew (Layer layer, float x = 0, float y = 0) 
         {
-            if (string.IsNullOrEmpty(mContentManagerName))
-            {
-                throw new System.Exception("You must first initialize the factory to use it. You can either add PositionedObjectList of type FrostProjectile (the most common solution) or call Initialize in custom code");
-            }
             FrostProjectile instance = null;
-            instance = new FrostProjectile(mContentManagerName, false);
+            instance = new FrostProjectile(mContentManagerName ?? FlatRedBall.Screens.ScreenManager.CurrentScreen.ContentManagerName, false);
             instance.AddToManagers(layer);
             instance.X = x;
             instance.Y = y;

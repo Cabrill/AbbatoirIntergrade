@@ -16,12 +16,8 @@ namespace AbbatoirIntergrade.Factories
         }
         public static BombardingTower CreateNew (Layer layer, float x = 0, float y = 0) 
         {
-            if (string.IsNullOrEmpty(mContentManagerName))
-            {
-                throw new System.Exception("You must first initialize the factory to use it. You can either add PositionedObjectList of type BombardingTower (the most common solution) or call Initialize in custom code");
-            }
             BombardingTower instance = null;
-            instance = new BombardingTower(mContentManagerName, false);
+            instance = new BombardingTower(mContentManagerName ?? FlatRedBall.Screens.ScreenManager.CurrentScreen.ContentManagerName, false);
             instance.AddToManagers(layer);
             instance.X = x;
             instance.Y = y;

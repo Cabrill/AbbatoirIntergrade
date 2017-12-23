@@ -16,11 +16,11 @@ namespace AbbatoirIntergrade.Factories
         }
         public static Sheep3Enemy CreateNew (Layer layer, float x = 0, float y = 0) 
         {
+            Sheep3Enemy instance = null;
             if (string.IsNullOrEmpty(mContentManagerName))
             {
                 throw new System.Exception("You must first initialize the factory to use it. You can either add PositionedObjectList of type Sheep3Enemy (the most common solution) or call Initialize in custom code");
             }
-            Sheep3Enemy instance = null;
             instance = mPool.GetNextAvailable();
             if (instance == null)
             {
