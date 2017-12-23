@@ -62,20 +62,20 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                         break;
                     case  Action.Dying:
                         SpriteInstanceCurrentChainName = "Dying";
-                        Drag = 150f;
+                        Drag = 2f;
                         break;
                     case  Action.Hurt:
                         SpriteInstanceCurrentChainName = "Hurt";
-                        Drag = 50f;
+                        Drag = 1f;
                         break;
                     case  Action.Running:
                         SpriteInstanceCurrentChainName = "Run";
-                        Drag = 0f;
                         SpriteInstanceAnimate = true;
+                        Drag = 0f;
                         break;
                     case  Action.Standing:
                         SpriteInstanceCurrentChainName = "Standing";
-                        Drag = 200f;
+                        Drag = 20f;
                         break;
                 }
             }
@@ -991,8 +991,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             HasLightSource = false;
             IsJumper = false;
             Mass = 0.1f;
-            Drag = 10f;
             SpriteInstanceAnimate = true;
+            Drag = 0f;
         }
         public virtual void ConvertToManuallyUpdated () 
         {
@@ -1107,32 +1107,32 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     {
                         this.SpriteInstanceCurrentChainName = "Dying";
                     }
-                    DragFirstValue = 150f;
+                    DragFirstValue = 2f;
                     break;
                 case  Action.Hurt:
                     if (interpolationValue < 1)
                     {
                         this.SpriteInstanceCurrentChainName = "Hurt";
                     }
-                    DragFirstValue = 50f;
+                    DragFirstValue = 1f;
                     break;
                 case  Action.Running:
                     if (interpolationValue < 1)
                     {
                         this.SpriteInstanceCurrentChainName = "Run";
                     }
-                    DragFirstValue = 0f;
                     if (interpolationValue < 1)
                     {
                         this.SpriteInstanceAnimate = true;
                     }
+                    DragFirstValue = 0f;
                     break;
                 case  Action.Standing:
                     if (interpolationValue < 1)
                     {
                         this.SpriteInstanceCurrentChainName = "Standing";
                     }
-                    DragFirstValue = 200f;
+                    DragFirstValue = 20f;
                     break;
             }
             switch(secondState)
@@ -1142,32 +1142,32 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     {
                         this.SpriteInstanceCurrentChainName = "Dying";
                     }
-                    DragSecondValue = 150f;
+                    DragSecondValue = 2f;
                     break;
                 case  Action.Hurt:
                     if (interpolationValue >= 1)
                     {
                         this.SpriteInstanceCurrentChainName = "Hurt";
                     }
-                    DragSecondValue = 50f;
+                    DragSecondValue = 1f;
                     break;
                 case  Action.Running:
                     if (interpolationValue >= 1)
                     {
                         this.SpriteInstanceCurrentChainName = "Run";
                     }
-                    DragSecondValue = 0f;
                     if (interpolationValue >= 1)
                     {
                         this.SpriteInstanceAnimate = true;
                     }
+                    DragSecondValue = 0f;
                     break;
                 case  Action.Standing:
                     if (interpolationValue >= 1)
                     {
                         this.SpriteInstanceCurrentChainName = "Standing";
                     }
-                    DragSecondValue = 200f;
+                    DragSecondValue = 20f;
                     break;
             }
             if (setDrag)

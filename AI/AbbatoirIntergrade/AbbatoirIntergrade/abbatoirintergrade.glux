@@ -387,7 +387,7 @@
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>Drag</Member>
-                  <ValueAsFloat>150</ValueAsFloat>
+                  <ValueAsFloat>2</ValueAsFloat>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Dying</Name>
@@ -402,7 +402,7 @@
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>Drag</Member>
-                  <ValueAsFloat>50</ValueAsFloat>
+                  <ValueAsFloat>1</ValueAsFloat>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Hurt</Name>
@@ -415,14 +415,14 @@
                   <ValueAsString>Run</ValueAsString>
                 </InstructionSave>
                 <InstructionSave>
-                  <Type>Single</Type>
-                  <Member>Drag</Member>
-                  <ValueAsFloat>0</ValueAsFloat>
-                </InstructionSave>
-                <InstructionSave>
                   <Type>Boolean</Type>
                   <Member>SpriteInstanceAnimate</Member>
                   <ValueAsBool>true</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>Drag</Member>
+                  <ValueAsFloat>0</ValueAsFloat>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Running</Name>
@@ -437,7 +437,7 @@
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>Drag</Member>
-                  <ValueAsFloat>200</ValueAsFloat>
+                  <ValueAsFloat>20</ValueAsFloat>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Standing</Name>
@@ -642,17 +642,6 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>float</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>Drag</Name>
-          <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
               <ValueAsString>bool</ValueAsString>
             </PropertySave>
           </Properties>
@@ -661,6 +650,17 @@
           <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <SourceObject>SpriteInstance</SourceObject>
           <SourceObjectProperty>Animate</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Drag</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIClickable>true</ImplementsIClickable>

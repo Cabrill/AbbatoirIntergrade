@@ -86,14 +86,14 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 
 	            if (distanceToImpact != Vector3.Zero)
 	            {
-	                amplitude = MathHelper.Clamp(1 - distanceToImpact.Length() / (CircleInstance.Radius + enemy.CircleInstance.Radius), 0, 1);
+	                amplitude = (float)(Math.Sqrt(MathHelper.Clamp(1 - distanceToImpact.Length() / (CircleInstance.Radius + enemy.CircleInstance.Radius), 0, 1)));
 	            }
 
 	            if (amplitude > 0)
 	            {
 	                enemy.ReactToExplosion(DamageInflicted * amplitude,
-	                    direction * 400 * amplitude,
-	                    400 * amplitude);
+	                    direction * 800 * amplitude,
+	                    1000 * amplitude);
 	            }
             }
 	    }

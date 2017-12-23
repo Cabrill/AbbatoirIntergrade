@@ -17,13 +17,15 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         public event Action<BaseEnemy> OnDeath;
 	    public float Altitude { get; protected set; }
 	    protected float AltitudeVelocity { get; set; }
-	    protected float GravityDrag { get; set; } = -350f;
+	    protected float GravityDrag { get; set; } = -650f;
 
         public float HealthRemaining { get; set; }
         public bool IsDead => HealthRemaining <= 0;
 	    private bool IsHurt => CurrentActionState == Action.Hurt;
 
-	    private float? _startingShadowWidth;
+	    private bool IsOnFinalFrameOfAnimation => SpriteInstance.CurrentFrameIndex == SpriteInstance.CurrentChain.Count - 1;
+
+        private float? _startingShadowWidth;
 	    private float _startingShadowHeight;
 	    private float _startingShadowAlpha;
 	    private float _startingSpriteScale;
@@ -100,13 +102,20 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 		    if (AltitudeVelocity > 0 || (Altitude > 0 && AltitudeVelocity < 0))
 		    {
+                //Remove drag in the air
+		        Drag = 0.1f;
 		        Altitude = Math.Max(0, Altitude + AltitudeVelocity * TimeManager.SecondDifference);
-            }
-
-            if (Math.Abs(Altitude) < 0.001f && AltitudeVelocity < 0)
-		    {
-		        AltitudeVelocity = 0;
+		        if (IsHurt && IsOnFinalFrameOfAnimation) SpriteInstance.Animate = false;
 		    }
+
+            if (Math.Abs(Altitude) <= 0.001f && AltitudeVelocity < 0)
+            {
+                //Reset drag by setting state
+                CurrentActionState = CurrentActionState;
+                Altitude = 0;
+		        AltitudeVelocity = 0;
+                SpriteInstance.Animate = true;
+            }
 
             if (IsDead)
 		    {
@@ -114,14 +123,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		    }
 		    else if (IsHurt && SpriteInstance.JustCycled)
 		    {
-		        if (!IsFlying && Altitude > 0)
-		        {
-		            SpriteInstance.Animate = false;
-		        }
-		        else
-		        {
-		            CurrentActionState = Action.Standing;
-                }
+		        CurrentActionState = Action.Standing;
 		    }
 
 		    if (!IsDead && !IsHurt)
@@ -210,11 +212,13 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        {
 	            CurrentActionState = Action.Dying;
 	        }
-            else if (Altitude > 0)
-            {
-                Altitude += TimeManager.SecondDifference * GravityDrag;
-            }
-	        else if (Altitude <=0 && SpriteInstance.JustCycled)
+
+	        if (SpriteInstanceAnimate && IsOnFinalFrameOfAnimation)
+	        {
+	            SpriteInstanceAnimate = false;
+	        }
+
+            if (Altitude <=0f && IsOnFinalFrameOfAnimation)
             {
                 OnDeath?.Invoke(this);
                 Destroy();

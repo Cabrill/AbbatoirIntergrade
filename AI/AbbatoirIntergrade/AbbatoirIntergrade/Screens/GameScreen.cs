@@ -521,7 +521,7 @@ namespace AbbatoirIntergrade.Screens
 	                {
 	                    var enemy = AllEnemiesList[e - 1];
 
-	                    if (enemy.IsDead || !projectile.CircleInstance.CollideAgainstBounce(enemy.CircleInstance, projectile.Mass, enemy.Mass, 1f)) continue;
+	                    if (enemy.IsDead || !projectile.CircleInstance.CollideAgainstBounce(enemy.CircleInstance, projectile.Mass, enemy.Mass, 0.3f)) continue;
 
 	                    enemy.GetHitBy(projectile);
 	                    projectile.HandleImpact(enemy);
@@ -549,7 +549,7 @@ namespace AbbatoirIntergrade.Screens
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.Z))
 	        {
-	            var newAlien = Rabbit1EnemyFactory.CreateNew(WorldLayer);
+	            var newAlien = Cow1EnemyFactory.CreateNew(WorldLayer);
 	            newAlien.FollowLine(Pathing);
 	        }
 
