@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="2">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="42">
  <tileset firstgid="1" name="CombinedAssets" tilewidth="128" tileheight="128" tilecount="1024" columns="32">
   <image source="../../../Tilesets/CombinedAssets.png" width="4096" height="4096"/>
   <tile id="250">
@@ -12,6 +12,15 @@
   <tile id="392" probability="0.25"/>
   <tile id="393" probability="0.5"/>
  </tileset>
+ <tileset firstgid="1025" name="CollisionShapes" tilewidth="128" tileheight="128" tilecount="2" columns="2">
+  <image source="../../../Tilesets/CollisionShapes.png" width="256" height="128"/>
+  <tile id="0">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="128"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="128"/>
+   </properties>
+  </tile>
+ </tileset>
  <layer name="Ground" width="20" height="11">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC82STQ7CIBCF4aZsW1bEqIl6AIEVMWr99yg9moN9L06aLrq0yRdm2uHNG6gx//0ka0wesRQWMznZQaNVa9XwiBsh4FtlI+ys6cnW/jxEoSBO2BtBA70WehlaT2vcS1bykHyPOg+9iPpWxVn1DagVP2+tRb2jmreDRsKePKEdkIs/J/56rSc9XFHz8YyYU5Pn59W8Nb7K/vvg68tNPFOPNUl54p0wrt/Xoztc4T17F3jhGekzyyrX8ycF56eHgtqoZvLoMecf60a9zsJhgovwAXHM8AdwAwAA
@@ -19,12 +28,12 @@
  </layer>
  <layer name="Objects" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGJxgIhBPQuIHAXEwBeZtBOJNULYIEJsAsSmamjgSzDMAYkMoG2aWGBCLk+m+AiAuhLJhfgW5U5QMs+4A8Xsg/gDlFwFxMQN2PyMDFiBmRRPTZwT6lREt/Bgx3VaKxTwVIFbFIr4HzX0mjITdBgIuQOyKQ24vAb3YQAoQp+KQk2Qkzaz1QLyBCHUAyfy5o3ADAAA=
+   H4sIAAAAAAAAC2NgGJxgIhBPQuIHAXEwBeZtBOJNULYIEJsAsSmamjgSzDMAYkMoG2aWGBCLk+m+AiAuhLJhfgW5U5QMs+4A8Xsg/gDlFwFxMQN2PxMC+oxAvzKihR8jpttKsegVAmJhLOJ70Nxnwkic24yA2BiH3F4CerGBFCBOxSEnyUiaWeuBeAMR6gB5V4UrcAMAAA==
   </data>
  </layer>
  <layer name="Overlay" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgoD54TmXz2BkpN0MAiAWhbHWgeaIMEHe+INO8ACAORBMDuZODTLeeB+ILQPwEiJ8C8TOo2zRINI8fqF4AiCcC2ZOAmAXIZgViNgrchuw+FaAZqkCsxki62wgBEwaGBuqaiBv0A/EEIGYC+oGZCv5gZISYpQTEynjMAwC7ZiP5cAMAAA==
+   H4sIAAAAAAAAC2NgoD54TmXz2BkpN0MAiAWhbHWgeaIMEHe+INO8ACAORBMDuZODTLeeB+ILQPwEiJ8C8TOo2zRINI8fqF4AiCcC2ZOAmAXIZgViNiLcxgLErATcpwI0QxWI1RgJu00FiFVJcLsJA0MDPnkXIHYlwTx8oB+IJwAxE9APzFRIX4yMELOUgFgZj3kAUVG1HXADAAA=
   </data>
  </layer>
  <layer name="Overlay2" width="20" height="11">
@@ -40,6 +49,89 @@
  <objectgroup name="Pathing">
   <object id="1" x="-3.0303" y="1337.82">
    <polyline points="0,0 1212.12,0 1209.09,-248.485 706.061,-257.576 700,-1015.15 2112.12,-1018.18 2112.12,-651.515 1730.3,-630.303 1730.3,6.06061 2563.14,6.65152"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="Collisions" visible="0">
+  <object id="2" type="TileCollisionCircle" gid="1026" x="320" y="1118" width="128" height="128"/>
+  <object id="7" gid="1026" x="128" y="1122" width="128" height="128"/>
+  <object id="9" gid="1026" x="446" y="870" width="128" height="128"/>
+  <object id="11" gid="1026" x="192" y="604" width="128" height="128"/>
+  <object id="12" gid="1026" x="320" y="474" width="128" height="128"/>
+  <object id="13" gid="1026" x="892" y="516" width="128" height="128"/>
+  <object id="14" gid="1026" x="2306" y="1288" width="128" height="128"/>
+  <object id="15" gid="1026" x="1444" y="1246" width="192" height="192"/>
+  <object id="17" gid="1025" x="2066" y="888" width="238" height="140">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="238"/>
+   </properties>
+  </object>
+  <object id="24" gid="1025" x="-130.303" y="259.212" width="2809.27" height="128">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="2809.27"/>
+   </properties>
+  </object>
+  <object id="25" gid="1025" x="-134" y="1514" width="2794" height="128">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="2794"/>
+   </properties>
+  </object>
+  <object id="28" gid="1025" x="2298" y="1024" width="240" height="766">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="766"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="240"/>
+   </properties>
+  </object>
+  <object id="29" gid="1026" x="2116" y="790" width="128" height="128">
+   <properties>
+    <property name="Altitude" type="float" value="32"/>
+   </properties>
+  </object>
+  <object id="30" gid="1026" x="2174" y="762" width="128" height="128"/>
+  <object id="31" gid="1026" x="400" y="742" width="214" height="264">
+   <properties>
+    <property name="Altitude" type="float" value="128"/>
+    <property name="CircleInstanceRadius" type="float" value="128"/>
+    <property name="ZHeight" type="float" value="132"/>
+   </properties>
+  </object>
+  <object id="35" gid="1025" x="186" y="844" width="128" height="128"/>
+  <object id="36" gid="1026" x="80" y="994" width="214" height="264">
+   <properties>
+    <property name="Altitude" type="float" value="128"/>
+    <property name="CircleInstanceRadius" type="float" value="128"/>
+    <property name="ZHeight" type="float" value="132"/>
+   </properties>
+  </object>
+  <object id="37" gid="1026" x="270" y="988" width="214" height="264">
+   <properties>
+    <property name="Altitude" type="float" value="128"/>
+    <property name="CircleInstanceRadius" type="float" value="128"/>
+    <property name="ZHeight" type="float" value="132"/>
+   </properties>
+  </object>
+  <object id="38" gid="1026" x="140" y="478" width="214" height="264">
+   <properties>
+    <property name="Altitude" type="float" value="128"/>
+    <property name="CircleInstanceRadius" type="float" value="128"/>
+    <property name="ZHeight" type="float" value="132"/>
+   </properties>
+  </object>
+  <object id="39" gid="1026" x="1426" y="1054" width="214" height="264">
+   <properties>
+    <property name="Altitude" type="float" value="128"/>
+    <property name="CircleInstanceRadius" type="float" value="128"/>
+    <property name="ZHeight" type="float" value="132"/>
+   </properties>
+  </object>
+  <object id="40" gid="1025" x="1302" y="1372" width="368" height="128">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="368"/>
+   </properties>
+  </object>
+  <object id="41" gid="1025" x="1442" y="1104" width="200" height="128">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="200"/>
+   </properties>
   </object>
  </objectgroup>
 </map>

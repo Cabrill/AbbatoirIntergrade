@@ -150,6 +150,14 @@
     <Compile Include="Entities\GraphicalElements\StructurePlacement.Generated.cs">
       <DependentUpon>StructurePlacement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\GraphicalElements\TileCollisionCircle.cs" />
+    <Compile Include="Entities\GraphicalElements\TileCollisionCircle.Generated.cs">
+      <DependentUpon>TileCollisionCircle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GraphicalElements\TileCollisionRectangle.cs" />
+    <Compile Include="Entities\GraphicalElements\TileCollisionRectangle.Generated.cs">
+      <DependentUpon>TileCollisionRectangle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\GraphicalElements\XCancel.cs" />
     <Compile Include="Entities\GraphicalElements\XCancel.Generated.cs">
       <DependentUpon>XCancel.cs</DependentUpon>
@@ -234,6 +242,8 @@
     <Compile Include="Factories\Cow1EnemyFactory.Generated.cs" />
     <Compile Include="Factories\Rabbit1EnemyFactory.Generated.cs" />
     <Compile Include="Factories\StructurePlacementFactory.Generated.cs" />
+    <Compile Include="Factories\TileCollisionCircleFactory.Generated.cs" />
+    <Compile Include="Factories\TileCollisionRectangleFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameClasses\BaseClasses\BaseWave.cs" />
@@ -854,13 +864,29 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Chapter1</Name>
     </None>
+    <None Include="content\screens\gamescreen\levels\chapter2.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Chapter2</Name>
+    </None>
     <None Include="content\screens\gamescreen\starry_sky.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>starry_sky</Name>
     </None>
+    <None Include="content\tilesets\collisionshapes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CollisionShapes</Name>
+    </None>
+    <None Include="content\tilesets\collisionshapes.tsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CollisionShapes</Name>
+    </None>
     <None Include="content\tilesets\combinedassets.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>CombinedAssets</Name>
+    </None>
+    <None Include="content\tilesets\combinedassetstileset.tsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CombinedAssetsTileset</Name>
     </None>
     <None Include="x64\SDL2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

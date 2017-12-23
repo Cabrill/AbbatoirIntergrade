@@ -54,7 +54,6 @@ namespace AbbatoirIntergrade.Screens
                 return mChapter2;
             }
         }
-        protected static Microsoft.Xna.Framework.Graphics.Texture2D CollisionShapes;
         
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D WorldRenderTarget;
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D DarknessRenderTarget;
@@ -327,7 +326,6 @@ namespace AbbatoirIntergrade.Screens
                 mChapter2.Destroy();
                 mChapter2 = null;
             }
-            CollisionShapes = null;
             
             AllStructuresList.MakeOneWay();
             AllEnemiesList.MakeOneWay();
@@ -612,7 +610,6 @@ namespace AbbatoirIntergrade.Screens
             Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;  GameScreenGum = new FlatRedBall.Gum.GumIdb();  GameScreenGum.LoadFromFile("content/gumproject/screens/gamescreengum.gusx");  GameScreenGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false; GameScreenGum.Element.UpdateLayout(); GameScreenGum.Element.UpdateLayout();
             darknessshader = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Effect>(@"content/screens/gamescreen/effects/darknessshader", contentManagerName);
             CombinedAssets = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/tilesets/combinedassets.png", contentManagerName);
-            CollisionShapes = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/tilesets/collisionshapes.png", contentManagerName);
             AbbatoirIntergrade.Entities.ShaderRenderer.LoadStaticContent(contentManagerName);
             CustomLoadStaticContent(contentManagerName);
         }
@@ -631,8 +628,6 @@ namespace AbbatoirIntergrade.Screens
                     return Chapter1;
                 case  "Chapter2":
                     return Chapter2;
-                case  "CollisionShapes":
-                    return CollisionShapes;
             }
             return null;
         }
@@ -650,8 +645,6 @@ namespace AbbatoirIntergrade.Screens
                     return Chapter1;
                 case  "Chapter2":
                     return Chapter2;
-                case  "CollisionShapes":
-                    return CollisionShapes;
             }
             return null;
         }
@@ -669,8 +662,6 @@ namespace AbbatoirIntergrade.Screens
                     return Chapter1;
                 case  "Chapter2":
                     return Chapter2;
-                case  "CollisionShapes":
-                    return CollisionShapes;
             }
             return null;
         }

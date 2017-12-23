@@ -172,6 +172,15 @@
     <property name="SpriteInstanceColorOperation" type="ColorOperation" default="ColorTextureAlpha" />
     <property name="SpriteInstanceTextureScale" type="float" default="1" />
   </objecttype>
+  <objecttype name="TileCollisionCircle">
+    <property name="Altitude" type="float" />
+    <property name="CircleInstanceRadius" type="float" default="64" />
+    <property name="ZHeight" type="float" />
+  </objecttype>
+  <objecttype name="TileCollisionRectangle">
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" default="128" />
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" default="128" />
+  </objecttype>
   <objecttype name="CannonProjectile">
     <property name="DamageInflicted" type="float" default="1" />
     <property name="HasLightSource" type="bool" default="false" />
