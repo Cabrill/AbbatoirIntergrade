@@ -37,9 +37,10 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("OptionsBox", typeof(AbbatoirIntergrade.GumRuntimes.OptionsBoxRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("SpecificButtons/BuildButton", typeof(AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("specificbuttons/CloseChatButton", typeof(AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("specificbuttons/LevelButton", typeof(AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("TechnologyTree", typeof(AbbatoirIntergrade.GumRuntimes.TechnologyTreeRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("GameScreenGum", typeof(AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime));
-                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("LevelSelectScreenGum", typeof(AbbatoirIntergrade.GumRuntimes.LevelSelectScreenGumRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MapScreenGum", typeof(AbbatoirIntergrade.GumRuntimes.MapScreenGumRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("LoadingScreenGum", typeof(AbbatoirIntergrade.GumRuntimes.LoadingScreenGumRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MainMenuGum", typeof(AbbatoirIntergrade.GumRuntimes.MainMenuGumRuntime));
             }

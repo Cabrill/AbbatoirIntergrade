@@ -13,7 +13,7 @@
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ScreenReference>
-    <Name>LevelSelectScreenGum</Name>
+    <Name>MapScreenGum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ScreenReference>
@@ -126,6 +126,10 @@
   </ComponentReference>
   <ComponentReference>
     <Name>specificbuttons/CloseChatButton</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>specificbuttons/LevelButton</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>

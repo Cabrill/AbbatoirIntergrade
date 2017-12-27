@@ -321,10 +321,10 @@
     <Compile Include="GumRuntimes\infodisplays\StructureInfoRuntime.Generated.cs">
       <DependentUpon>StructureInfoRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\LivesPointsDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\LoadingScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\MapScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\OptionsBoxRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
@@ -338,6 +338,7 @@
     <Compile Include="GumRuntimes\specificbuttons\CloseChatButtonRuntime.Generated.cs">
       <DependentUpon>CloseChatButtonRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\specificbuttons\LevelButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\SettingsButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\StartGameButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
@@ -356,21 +357,6 @@
     <Compile Include="Screens\GameScreen.Generated.Event.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="StateInterpolation\Back.cs" />
-    <Compile Include="StateInterpolation\Bounce.cs" />
-    <Compile Include="StateInterpolation\Circular.cs" />
-    <Compile Include="StateInterpolation\Cubic.cs" />
-    <Compile Include="StateInterpolation\Elastic.cs" />
-    <Compile Include="StateInterpolation\Exponential.cs" />
-    <Compile Include="StateInterpolation\Instant.cs" />
-    <Compile Include="StateInterpolation\Linear.cs" />
-    <Compile Include="StateInterpolation\Quadratic.cs" />
-    <Compile Include="StateInterpolation\Quartic.cs" />
-    <Compile Include="StateInterpolation\Quintic.cs" />
-    <Compile Include="StateInterpolation\ShakeTweener.cs" />
-    <Compile Include="StateInterpolation\Sinusoidal.cs" />
-    <Compile Include="StateInterpolation\Tweener.cs" />
-    <Compile Include="StateInterpolation\TweenerManager.cs" />
     <Compile Include="StaticManagers\CameraZoomManager.cs" />
     <Compile Include="StaticManagers\PlayerDataManager.cs" />
     <Compile Include="StaticManagers\WaterManager.cs" />
@@ -384,9 +370,9 @@
     <Compile Include="Screens\GameScreen.InfoBarButtons.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\LevelSelectScreen.cs" />
-    <Compile Include="Screens\LevelSelectScreen.Generated.cs">
-      <DependentUpon>LevelSelectScreen.cs</DependentUpon>
+    <Compile Include="Screens\MapScreen.cs" />
+    <Compile Include="Screens\MapScreen.Generated.cs">
+      <DependentUpon>mapscreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\LoadingScreen.cs" />
     <Compile Include="Screens\LoadingScreen.Generated.cs">
@@ -696,6 +682,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>CloseChatButton</Name>
     </None>
+    <None Include="content\gumproject\components\specificbuttons\levelbutton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>LevelButton</Name>
+    </None>
     <None Include="content\gumproject\components\technologytree.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>TechnologyTree</Name>
@@ -744,10 +734,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>GameScreenGum</Name>
     </None>
-    <None Include="content\gumproject\screens\levelselectscreengum.gusx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>LevelSelectScreenGum</Name>
-    </None>
     <None Include="content\gumproject\screens\loadingscreengum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>LoadingScreenGum</Name>
@@ -755,6 +741,10 @@
     <None Include="content\gumproject\screens\mainmenugum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>MainMenuGum</Name>
+    </None>
+    <None Include="content\gumproject\screens\mapscreengum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>MapScreenGum</Name>
     </None>
     <None Include="content\gumproject\standards\circle.gutx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -871,6 +861,10 @@
     <None Include="content\screens\gamescreen\starry_sky.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>starry_sky</Name>
+    </None>
+    <None Include="content\screens\mapscreen\worldmap.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>worldmap</Name>
     </None>
     <None Include="content\tilesets\collisionshapes.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
