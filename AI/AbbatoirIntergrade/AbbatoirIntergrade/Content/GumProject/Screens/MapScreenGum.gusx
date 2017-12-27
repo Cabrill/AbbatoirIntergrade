@@ -4,6 +4,281 @@
   <State>
     <Name>Default</Name>
     <Variable>
+      <Type>LevelNumberState</Type>
+      <Name>LevelButtonInstance1.LevelNumberState</Name>
+      <Value xsi:type="xsd:string">Level1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance1.X</Name>
+      <Value xsi:type="xsd:float">128</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance1.Y</Name>
+      <Value xsi:type="xsd:float">1258</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>LevelNumberState</Type>
+      <Name>LevelButtonInstance10.LevelNumberState</Name>
+      <Value xsi:type="xsd:string">Level10</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance10.X</Name>
+      <Value xsi:type="xsd:float">2328</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance10.Y</Name>
+      <Value xsi:type="xsd:float">248</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>LevelNumberState</Type>
+      <Name>LevelButtonInstance2.LevelNumberState</Name>
+      <Value xsi:type="xsd:string">Level2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance2.X</Name>
+      <Value xsi:type="xsd:float">98</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance2.Y</Name>
+      <Value xsi:type="xsd:float">918</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>LevelNumberState</Type>
+      <Name>LevelButtonInstance3.LevelNumberState</Name>
+      <Value xsi:type="xsd:string">Level3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance3.X</Name>
+      <Value xsi:type="xsd:float">268</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance3.Y</Name>
+      <Value xsi:type="xsd:float">626</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>LevelNumberState</Type>
+      <Name>LevelButtonInstance4.LevelNumberState</Name>
+      <Value xsi:type="xsd:string">Level4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance4.X</Name>
+      <Value xsi:type="xsd:float">540</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance4.Y</Name>
+      <Value xsi:type="xsd:float">408</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>LevelNumberState</Type>
+      <Name>LevelButtonInstance5.LevelNumberState</Name>
+      <Value xsi:type="xsd:string">Level5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance5.X</Name>
+      <Value xsi:type="xsd:float">926</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance5.Y</Name>
+      <Value xsi:type="xsd:float">370</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>LevelNumberState</Type>
+      <Name>LevelButtonInstance6.LevelNumberState</Name>
+      <Value xsi:type="xsd:string">Level6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance6.X</Name>
+      <Value xsi:type="xsd:float">1268</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance6.Y</Name>
+      <Value xsi:type="xsd:float">552</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>LevelNumberState</Type>
+      <Name>LevelButtonInstance7.LevelNumberState</Name>
+      <Value xsi:type="xsd:string">Level7</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance7.X</Name>
+      <Value xsi:type="xsd:float">1614</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance7.Y</Name>
+      <Value xsi:type="xsd:float">716</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>LevelNumberState</Type>
+      <Name>LevelButtonInstance8.LevelNumberState</Name>
+      <Value xsi:type="xsd:string">Level8</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance8.X</Name>
+      <Value xsi:type="xsd:float">1880</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance8.Y</Name>
+      <Value xsi:type="xsd:float">576</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>LevelNumberState</Type>
+      <Name>LevelButtonInstance9.LevelNumberState</Name>
+      <Value xsi:type="xsd:string">Level9</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance9.X</Name>
+      <Value xsi:type="xsd:float">2082</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LevelButtonInstance9.Y</Name>
+      <Value xsi:type="xsd:float">334</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>MenuDisplayState</Type>
+      <Name>MenuDisplayState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonTypeState</Type>
+      <Name>MenuWindowInstance.ButtonType1State</Name>
+      <Value xsi:type="xsd:string">X</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonTypeState</Type>
+      <Name>MenuWindowInstance.ButtonType2State</Name>
+      <Value xsi:type="xsd:string">Disabled</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonTypeState</Type>
+      <Name>MenuWindowInstance.ButtonType3State</Name>
+      <Value xsi:type="xsd:string">Disabled</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonTypeState</Type>
+      <Name>MenuWindowInstance.ButtonType4State</Name>
+      <Value xsi:type="xsd:string">Play</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>MenuWindowInstance.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>OptionsButtonInstance.Height</Name>
+      <Value xsi:type="xsd:float">10.0833359</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>OptionsButtonInstance.Width</Name>
+      <Value xsi:type="xsd:float">5.703125</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>ScreenDimRectangle.Alpha</Name>
+      <Value xsi:type="xsd:int">120</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>ScreenDimRectangle.Blue</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>ScreenDimRectangle.Green</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ScreenDimRectangle.Height</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>ScreenDimRectangle.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>ScreenDimRectangle.Red</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ScreenDimRectangle.Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>ScreenDimRectangle.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>DimensionUnitType</Type>
       <Name>SpriteInstance.Height Units</Name>
       <Value xsi:type="xsd:int">1</Value>
@@ -36,6 +311,219 @@
       <Value />
     </VariableList>
   </State>
+  <Category>
+    <Name>MenuDisplay</Name>
+    <State>
+      <Name>MenuHidden</Name>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance1.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>LevelButtonInstance1.X</Name>
+        <Value xsi:type="xsd:float">102</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>LevelButtonInstance1.Y</Name>
+        <Value xsi:type="xsd:float">1236</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance10.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance2.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance3.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance4.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance5.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance6.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance7.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>LevelButtonInstance7.X</Name>
+        <Value xsi:type="xsd:float">1568</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>LevelButtonInstance7.Y</Name>
+        <Value xsi:type="xsd:float">724</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance8.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance9.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>MenuWindowInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>OptionsButtonInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>ScreenDimRectangle.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>MenuShown</Name>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance1.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>LevelButtonInstance1.X</Name>
+        <Value xsi:type="xsd:float">128</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>LevelButtonInstance1.Y</Name>
+        <Value xsi:type="xsd:float">1258</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance10.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance2.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance3.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance4.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance5.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance6.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance7.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>LevelButtonInstance7.X</Name>
+        <Value xsi:type="xsd:float">1614</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>LevelButtonInstance7.Y</Name>
+        <Value xsi:type="xsd:float">716</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance8.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategoryState</Type>
+        <Name>LevelButtonInstance9.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>MenuWindowInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>OptionsButtonInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>ScreenDimRectangle.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
   <Instance>
     <Name>SpriteInstance</Name>
     <BaseType>Sprite</BaseType>
@@ -43,5 +531,57 @@
   <Instance>
     <Name>TechnologyTreeInstance</Name>
     <BaseType>TechnologyTree</BaseType>
+  </Instance>
+  <Instance>
+    <Name>LevelButtonInstance1</Name>
+    <BaseType>specificbuttons/LevelButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>LevelButtonInstance2</Name>
+    <BaseType>specificbuttons/LevelButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>LevelButtonInstance3</Name>
+    <BaseType>specificbuttons/LevelButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>LevelButtonInstance4</Name>
+    <BaseType>specificbuttons/LevelButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>LevelButtonInstance5</Name>
+    <BaseType>specificbuttons/LevelButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>LevelButtonInstance6</Name>
+    <BaseType>specificbuttons/LevelButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>LevelButtonInstance7</Name>
+    <BaseType>specificbuttons/LevelButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>LevelButtonInstance8</Name>
+    <BaseType>specificbuttons/LevelButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>LevelButtonInstance9</Name>
+    <BaseType>specificbuttons/LevelButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>LevelButtonInstance10</Name>
+    <BaseType>specificbuttons/LevelButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>OptionsButtonInstance</Name>
+    <BaseType>specificbuttons/OptionsButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>ScreenDimRectangle</Name>
+    <BaseType>ColoredRectangle</BaseType>
+  </Instance>
+  <Instance>
+    <Name>MenuWindowInstance</Name>
+    <BaseType>MenuWindow</BaseType>
   </Instance>
 </ScreenSave>

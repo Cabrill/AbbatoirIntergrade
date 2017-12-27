@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ComponentSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>MenuWindow</Name>
+  <BaseType>Container</BaseType>
+  <State>
+    <Name>Default</Name>
+    <Variable>
+      <Type>ButtonTypeState</Type>
+      <Name>ButtonFrameInstance.ButtonTypeState</Name>
+      <ExposedAsName>ButtonType1State</ExposedAsName>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonFrameInstance.Height</Name>
+      <Value xsi:type="xsd:float">12.3866634</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonFrameInstance.Width</Name>
+      <Value xsi:type="xsd:float">7.08450031</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonFrameInstance.X</Name>
+      <Value xsi:type="xsd:float">34.09375</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>ButtonFrameInstance.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonFrameInstance.Y</Name>
+      <Value xsi:type="xsd:float">64.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>ButtonFrameInstance.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonTypeState</Type>
+      <Name>ButtonFrameInstance1.ButtonTypeState</Name>
+      <ExposedAsName>ButtonType2State</ExposedAsName>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonFrameInstance1.Height</Name>
+      <Value xsi:type="xsd:float">12.3866634</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonFrameInstance1.Width</Name>
+      <Value xsi:type="xsd:float">7.08450031</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonFrameInstance1.X</Name>
+      <Value xsi:type="xsd:float">43.0625</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>ButtonFrameInstance1.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonFrameInstance1.Y</Name>
+      <Value xsi:type="xsd:float">64.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>ButtonFrameInstance1.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonTypeState</Type>
+      <Name>ButtonFrameInstance2.ButtonTypeState</Name>
+      <ExposedAsName>ButtonType3State</ExposedAsName>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonFrameInstance2.Height</Name>
+      <Value xsi:type="xsd:float">12.3866634</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonFrameInstance2.Width</Name>
+      <Value xsi:type="xsd:float">7.08450031</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonFrameInstance2.X</Name>
+      <Value xsi:type="xsd:float">51.6875</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>ButtonFrameInstance2.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonFrameInstance2.Y</Name>
+      <Value xsi:type="xsd:float">64.4999847</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>ButtonFrameInstance2.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonTypeState</Type>
+      <Name>ButtonFrameInstance3.ButtonTypeState</Name>
+      <ExposedAsName>ButtonType4State</ExposedAsName>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonFrameInstance3.Height</Name>
+      <Value xsi:type="xsd:float">12.3866634</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonFrameInstance3.Width</Name>
+      <Value xsi:type="xsd:float">7.08450031</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonFrameInstance3.X</Name>
+      <Value xsi:type="xsd:float">60.65625</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>ButtonFrameInstance3.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonFrameInstance3.Y</Name>
+      <Value xsi:type="xsd:float">64.83331</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>ButtonFrameInstance3.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Height</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>MenuFrameInstance.ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>MenuFrameInstance.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>OptionsControlsInstance.ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>OptionsControlsInstance.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>OptionsControlsInstance.Height</Name>
+      <Value xsi:type="xsd:float">62.91127</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>OptionsControlsInstance.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>OptionsControlsInstance.Parent</Name>
+      <Value xsi:type="xsd:string">MenuFrameInstance</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>OptionsControlsInstance.Width</Name>
+      <Value xsi:type="xsd:float">70.73295</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>OptionsControlsInstance.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>OptionsControlsInstance.X</Name>
+      <Value xsi:type="xsd:float">14.3359051</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>OptionsControlsInstance.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>OptionsControlsInstance.Y</Name>
+      <Value xsi:type="xsd:float">16.6289177</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>OptionsControlsInstance.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>State</Type>
+      <Name>State</Name>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>VersionText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>VersionText.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>VersionText.Height</Name>
+      <Value xsi:type="xsd:float">34</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>VersionText.Parent</Name>
+      <Value xsi:type="xsd:string">MenuFrameInstance</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>VersionText.Text</Name>
+      <Value xsi:type="xsd:string">V1.0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>VersionText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>VersionText.Width</Name>
+      <Value xsi:type="xsd:float">186</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>VersionText.X</Name>
+      <Value xsi:type="xsd:float">10.9512339</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>VersionText.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>VersionText.Y</Name>
+      <Value xsi:type="xsd:float">6.96232176</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>VersionText.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+  </State>
+  <Instance>
+    <Name>MenuFrameInstance</Name>
+    <BaseType>frames/MenuFrame</BaseType>
+  </Instance>
+  <Instance>
+    <Name>ButtonFrameInstance</Name>
+    <BaseType>frames/ButtonFrame</BaseType>
+  </Instance>
+  <Instance>
+    <Name>ButtonFrameInstance1</Name>
+    <BaseType>frames/ButtonFrame</BaseType>
+  </Instance>
+  <Instance>
+    <Name>ButtonFrameInstance2</Name>
+    <BaseType>frames/ButtonFrame</BaseType>
+  </Instance>
+  <Instance>
+    <Name>ButtonFrameInstance3</Name>
+    <BaseType>frames/ButtonFrame</BaseType>
+  </Instance>
+  <Instance>
+    <Name>VersionText</Name>
+    <BaseType>Text</BaseType>
+  </Instance>
+  <Instance>
+    <Name>OptionsControlsInstance</Name>
+    <BaseType>OptionsControls</BaseType>
+  </Instance>
+  <Behaviors />
+</ComponentSave>

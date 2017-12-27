@@ -10,6 +10,12 @@
       <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>FrameSprite.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>FrameSprite.SourceFile</Name>
@@ -44,6 +50,18 @@
       <Type>int</Type>
       <Name>FrameSprite.Texture Width</Name>
       <Value xsi:type="xsd:int">250</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>FrameSprite.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>HighlightSprite.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -84,9 +102,15 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>HighlightSprite.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>HighlightSprite.X</Name>
-      <Value xsi:type="xsd:float">29.3492126</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -98,7 +122,7 @@
     <Variable>
       <Type>float</Type>
       <Name>HighlightSprite.Y</Name>
-      <Value xsi:type="xsd:float">38.3968124</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -111,6 +135,18 @@
       <Type>LevelNumberState</Type>
       <Name>LevelNumberState</Name>
       <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>NumberSprite.Height</Name>
+      <Value xsi:type="xsd:float">50</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>NumberSprite.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <IsFile>true</IsFile>
@@ -151,8 +187,26 @@
     </Variable>
     <Variable>
       <Type>float</Type>
+      <Name>NumberSprite.Width</Name>
+      <Value xsi:type="xsd:float">20</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>NumberSprite.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
       <Name>NumberSprite.X</Name>
-      <Value xsi:type="xsd:float">71.61905</Value>
+      <Value xsi:type="xsd:float">50</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>NumberSprite.X Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -164,7 +218,13 @@
     <Variable>
       <Type>float</Type>
       <Name>NumberSprite.Y</Name>
-      <Value xsi:type="xsd:float">47.6190376</Value>
+      <Value xsi:type="xsd:float">50</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>NumberSprite.Y Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -191,6 +251,12 @@
     <State>
       <Name>Enabled</Name>
       <Variable>
+        <Type>int</Type>
+        <Name>FrameSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>bool</Type>
         <Name>HighlightSprite.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
@@ -200,12 +266,6 @@
         <Type>bool</Type>
         <Name>NumberSprite.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>FrameSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -233,6 +293,12 @@
     <State>
       <Name>Highlighted</Name>
       <Variable>
+        <Type>int</Type>
+        <Name>FrameSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>bool</Type>
         <Name>HighlightSprite.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
@@ -242,18 +308,18 @@
         <Type>bool</Type>
         <Name>NumberSprite.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>FrameSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Pushed</Name>
       <Variable>
+        <Type>int</Type>
+        <Name>FrameSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>bool</Type>
         <Name>HighlightSprite.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
@@ -263,12 +329,6 @@
         <Type>bool</Type>
         <Name>NumberSprite.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>FrameSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <VariableList xsi:type="VariableListSaveOfString">
@@ -305,20 +365,20 @@
       </Variable>
       <Variable>
         <Type>int</Type>
+        <Name>NumberSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">2055</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
         <Name>NumberSprite.Texture Width</Name>
         <Value xsi:type="xsd:int">40</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>float</Type>
-        <Name>NumberSprite.X</Name>
-        <Value xsi:type="xsd:float">71.61905</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>NumberSprite.Y</Name>
-        <Value xsi:type="xsd:float">47.6190376</Value>
+        <Name>NumberSprite.Width</Name>
+        <Value xsi:type="xsd:float">20</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -345,29 +405,30 @@
       </Variable>
       <Variable>
         <Type>int</Type>
+        <Name>NumberSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">2055</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
         <Name>NumberSprite.Texture Width</Name>
         <Value xsi:type="xsd:int">100</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>float</Type>
-        <Name>NumberSprite.X</Name>
-        <Value xsi:type="xsd:float">53.2381</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>NumberSprite.Y</Name>
-        <Value xsi:type="xsd:float">48.1904678</Value>
+        <Name>NumberSprite.Width</Name>
+        <Value xsi:type="xsd:float">35</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Level3</Name>
       <Variable>
-        <Type>int</Type>
-        <Name>NumberSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">105</Value>
+        <Type>bool</Type>
+        <Name>NumberSprite.FlipHorizontal</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <Category>Flip</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -378,36 +439,36 @@
       </Variable>
       <Variable>
         <Type>int</Type>
+        <Name>NumberSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">260</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>NumberSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">2055</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
         <Name>NumberSprite.Texture Width</Name>
-        <Value xsi:type="xsd:int">37</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>NumberSprite.FlipHorizontal</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <Category>Flip</Category>
+        <Value xsi:type="xsd:int">85</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>float</Type>
-        <Name>NumberSprite.X</Name>
-        <Value xsi:type="xsd:float">71.61905</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>NumberSprite.Y</Name>
-        <Value xsi:type="xsd:float">47.6190376</Value>
+        <Name>NumberSprite.Width</Name>
+        <Value xsi:type="xsd:float">35</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Level4</Name>
       <Variable>
-        <Type>int</Type>
-        <Name>NumberSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">105</Value>
+        <Type>bool</Type>
+        <Name>NumberSprite.FlipHorizontal</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <Category>Flip</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -418,36 +479,36 @@
       </Variable>
       <Variable>
         <Type>int</Type>
+        <Name>NumberSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">355</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>NumberSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">2055</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
         <Name>NumberSprite.Texture Width</Name>
-        <Value xsi:type="xsd:int">37</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>NumberSprite.FlipHorizontal</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <Category>Flip</Category>
+        <Value xsi:type="xsd:int">90</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>float</Type>
-        <Name>NumberSprite.X</Name>
-        <Value xsi:type="xsd:float">71.61905</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>NumberSprite.Y</Name>
-        <Value xsi:type="xsd:float">47.6190376</Value>
+        <Name>NumberSprite.Width</Name>
+        <Value xsi:type="xsd:float">35</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Level5</Name>
       <Variable>
-        <Type>int</Type>
-        <Name>NumberSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">105</Value>
+        <Type>bool</Type>
+        <Name>NumberSprite.FlipHorizontal</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <Category>Flip</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -458,36 +519,36 @@
       </Variable>
       <Variable>
         <Type>int</Type>
+        <Name>NumberSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>NumberSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">2180</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
         <Name>NumberSprite.Texture Width</Name>
-        <Value xsi:type="xsd:int">37</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>NumberSprite.FlipHorizontal</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <Category>Flip</Category>
+        <Value xsi:type="xsd:int">95</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>float</Type>
-        <Name>NumberSprite.X</Name>
-        <Value xsi:type="xsd:float">71.61905</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>NumberSprite.Y</Name>
-        <Value xsi:type="xsd:float">47.6190376</Value>
+        <Name>NumberSprite.Width</Name>
+        <Value xsi:type="xsd:float">35</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Level6</Name>
       <Variable>
-        <Type>int</Type>
-        <Name>NumberSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">105</Value>
+        <Type>bool</Type>
+        <Name>NumberSprite.FlipHorizontal</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <Category>Flip</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -498,36 +559,36 @@
       </Variable>
       <Variable>
         <Type>int</Type>
+        <Name>NumberSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">100</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>NumberSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">2180</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
         <Name>NumberSprite.Texture Width</Name>
-        <Value xsi:type="xsd:int">37</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>NumberSprite.FlipHorizontal</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <Category>Flip</Category>
+        <Value xsi:type="xsd:int">95</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>float</Type>
-        <Name>NumberSprite.X</Name>
-        <Value xsi:type="xsd:float">71.61905</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>NumberSprite.Y</Name>
-        <Value xsi:type="xsd:float">47.6190376</Value>
+        <Name>NumberSprite.Width</Name>
+        <Value xsi:type="xsd:float">35</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Level7</Name>
       <Variable>
-        <Type>int</Type>
-        <Name>NumberSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">105</Value>
+        <Type>bool</Type>
+        <Name>NumberSprite.FlipHorizontal</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <Category>Flip</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -538,36 +599,36 @@
       </Variable>
       <Variable>
         <Type>int</Type>
+        <Name>NumberSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">190</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>NumberSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">2180</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
         <Name>NumberSprite.Texture Width</Name>
-        <Value xsi:type="xsd:int">37</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>NumberSprite.FlipHorizontal</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <Category>Flip</Category>
+        <Value xsi:type="xsd:int">95</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>float</Type>
-        <Name>NumberSprite.X</Name>
-        <Value xsi:type="xsd:float">71.61905</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>NumberSprite.Y</Name>
-        <Value xsi:type="xsd:float">47.6190376</Value>
+        <Name>NumberSprite.Width</Name>
+        <Value xsi:type="xsd:float">35</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Level8</Name>
       <Variable>
-        <Type>int</Type>
-        <Name>NumberSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">105</Value>
+        <Type>bool</Type>
+        <Name>NumberSprite.FlipHorizontal</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <Category>Flip</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -578,36 +639,36 @@
       </Variable>
       <Variable>
         <Type>int</Type>
+        <Name>NumberSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">290</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>NumberSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">2180</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
         <Name>NumberSprite.Texture Width</Name>
-        <Value xsi:type="xsd:int">37</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>NumberSprite.FlipHorizontal</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <Category>Flip</Category>
+        <Value xsi:type="xsd:int">95</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>float</Type>
-        <Name>NumberSprite.X</Name>
-        <Value xsi:type="xsd:float">71.61905</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>NumberSprite.Y</Name>
-        <Value xsi:type="xsd:float">47.6190376</Value>
+        <Name>NumberSprite.Width</Name>
+        <Value xsi:type="xsd:float">35</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Level9</Name>
       <Variable>
-        <Type>int</Type>
-        <Name>NumberSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">105</Value>
+        <Type>bool</Type>
+        <Name>NumberSprite.FlipHorizontal</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <Category>Flip</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -618,27 +679,26 @@
       </Variable>
       <Variable>
         <Type>int</Type>
+        <Name>NumberSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">385</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>NumberSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">2180</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
         <Name>NumberSprite.Texture Width</Name>
-        <Value xsi:type="xsd:int">37</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>NumberSprite.FlipHorizontal</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <Category>Flip</Category>
+        <Value xsi:type="xsd:int">95</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>float</Type>
-        <Name>NumberSprite.X</Name>
-        <Value xsi:type="xsd:float">71.61905</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>NumberSprite.Y</Name>
-        <Value xsi:type="xsd:float">47.6190376</Value>
+        <Name>NumberSprite.Width</Name>
+        <Value xsi:type="xsd:float">35</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -664,20 +724,20 @@
       </Variable>
       <Variable>
         <Type>int</Type>
+        <Name>NumberSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">2055</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
         <Name>NumberSprite.Texture Width</Name>
         <Value xsi:type="xsd:int">150</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>float</Type>
-        <Name>NumberSprite.X</Name>
-        <Value xsi:type="xsd:float">31.6190453</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>NumberSprite.Y</Name>
-        <Value xsi:type="xsd:float">50.95237</Value>
+        <Name>NumberSprite.Width</Name>
+        <Value xsi:type="xsd:float">50</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

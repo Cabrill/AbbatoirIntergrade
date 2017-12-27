@@ -1,22 +1,20 @@
     using System.Linq;
     namespace AbbatoirIntergrade.GumRuntimes
     {
-        public partial class LevelFrameRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
+        public partial class SliderBarRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
             #region State Enums
             public enum VariableState
             {
                 Default
             }
-            public enum Lock
+            public enum SliderCategory
             {
-                Locked,
-                NotLocked
             }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Lock mCurrentLockState;
+            SliderCategory mCurrentSliderCategoryState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -31,44 +29,41 @@
                     switch(mCurrentVariableState)
                     {
                         case  VariableState.Default:
-                            Height = 50f;
+                            Height = 20f;
                             HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            Width = 50f;
+                            Width = 100f;
                             WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BackgroundSprite.Height = 100f;
-                            BackgroundSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
-                            BackgroundSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
-                            SetProperty("BackgroundSprite.SourceFile", "AllUIAssets.png");
-                            BackgroundSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
-                            BackgroundSprite.TextureHeight = 265;
-                            BackgroundSprite.TextureLeft = 0;
-                            BackgroundSprite.TextureTop = 2304;
-                            BackgroundSprite.TextureWidth = 249;
-                            BackgroundSprite.Width = 100f;
-                            BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ColoredRectangleInstance.Blue = 255;
+                            ColoredRectangleInstance.Green = 255;
+                            ColoredRectangleInstance.Height = 100f;
+                            ColoredRectangleInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ColoredRectangleInstance.Red = 0;
+                            ColoredRectangleInstance.Width = 100f;
+                            ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ThumbInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            SetProperty("ThumbInstance.SourceFile", "AllUIAssets.png");
+                            ThumbInstance.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                            ThumbInstance.TextureHeight = 101;
+                            ThumbInstance.TextureLeft = 3590;
+                            ThumbInstance.TextureTop = 2017;
+                            ThumbInstance.TextureWidth = 116;
+                            ThumbInstance.Width = 10f;
+                            ThumbInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             break;
                     }
                 }
             }
-            public Lock CurrentLockState
+            public SliderCategory CurrentSliderCategoryState
             {
                 get
                 {
-                    return mCurrentLockState;
+                    return mCurrentSliderCategoryState;
                 }
                 set
                 {
-                    mCurrentLockState = value;
-                    switch(mCurrentLockState)
+                    mCurrentSliderCategoryState = value;
+                    switch(mCurrentSliderCategoryState)
                     {
-                        case  Lock.Locked:
-                            BackgroundSprite.TextureLeft = 256;
-                            break;
-                        case  Lock.NotLocked:
-                            BackgroundSprite.TextureLeft = 0;
-                            break;
                     }
                 }
             }
@@ -82,34 +77,50 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
-                bool setBackgroundSpriteHeightFirstValue = false;
-                bool setBackgroundSpriteHeightSecondValue = false;
-                float BackgroundSpriteHeightFirstValue= 0;
-                float BackgroundSpriteHeightSecondValue= 0;
-                bool setBackgroundSpriteTextureHeightFirstValue = false;
-                bool setBackgroundSpriteTextureHeightSecondValue = false;
-                int BackgroundSpriteTextureHeightFirstValue= 0;
-                int BackgroundSpriteTextureHeightSecondValue= 0;
-                bool setBackgroundSpriteTextureLeftFirstValue = false;
-                bool setBackgroundSpriteTextureLeftSecondValue = false;
-                int BackgroundSpriteTextureLeftFirstValue= 0;
-                int BackgroundSpriteTextureLeftSecondValue= 0;
-                bool setBackgroundSpriteTextureTopFirstValue = false;
-                bool setBackgroundSpriteTextureTopSecondValue = false;
-                int BackgroundSpriteTextureTopFirstValue= 0;
-                int BackgroundSpriteTextureTopSecondValue= 0;
-                bool setBackgroundSpriteTextureWidthFirstValue = false;
-                bool setBackgroundSpriteTextureWidthSecondValue = false;
-                int BackgroundSpriteTextureWidthFirstValue= 0;
-                int BackgroundSpriteTextureWidthSecondValue= 0;
-                bool setBackgroundSpriteWidthFirstValue = false;
-                bool setBackgroundSpriteWidthSecondValue = false;
-                float BackgroundSpriteWidthFirstValue= 0;
-                float BackgroundSpriteWidthSecondValue= 0;
+                bool setColoredRectangleInstanceBlueFirstValue = false;
+                bool setColoredRectangleInstanceBlueSecondValue = false;
+                int ColoredRectangleInstanceBlueFirstValue= 0;
+                int ColoredRectangleInstanceBlueSecondValue= 0;
+                bool setColoredRectangleInstanceGreenFirstValue = false;
+                bool setColoredRectangleInstanceGreenSecondValue = false;
+                int ColoredRectangleInstanceGreenFirstValue= 0;
+                int ColoredRectangleInstanceGreenSecondValue= 0;
+                bool setColoredRectangleInstanceHeightFirstValue = false;
+                bool setColoredRectangleInstanceHeightSecondValue = false;
+                float ColoredRectangleInstanceHeightFirstValue= 0;
+                float ColoredRectangleInstanceHeightSecondValue= 0;
+                bool setColoredRectangleInstanceRedFirstValue = false;
+                bool setColoredRectangleInstanceRedSecondValue = false;
+                int ColoredRectangleInstanceRedFirstValue= 0;
+                int ColoredRectangleInstanceRedSecondValue= 0;
+                bool setColoredRectangleInstanceWidthFirstValue = false;
+                bool setColoredRectangleInstanceWidthSecondValue = false;
+                float ColoredRectangleInstanceWidthFirstValue= 0;
+                float ColoredRectangleInstanceWidthSecondValue= 0;
                 bool setHeightFirstValue = false;
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
                 float HeightSecondValue= 0;
+                bool setThumbInstanceTextureHeightFirstValue = false;
+                bool setThumbInstanceTextureHeightSecondValue = false;
+                int ThumbInstanceTextureHeightFirstValue= 0;
+                int ThumbInstanceTextureHeightSecondValue= 0;
+                bool setThumbInstanceTextureLeftFirstValue = false;
+                bool setThumbInstanceTextureLeftSecondValue = false;
+                int ThumbInstanceTextureLeftFirstValue= 0;
+                int ThumbInstanceTextureLeftSecondValue= 0;
+                bool setThumbInstanceTextureTopFirstValue = false;
+                bool setThumbInstanceTextureTopSecondValue = false;
+                int ThumbInstanceTextureTopFirstValue= 0;
+                int ThumbInstanceTextureTopSecondValue= 0;
+                bool setThumbInstanceTextureWidthFirstValue = false;
+                bool setThumbInstanceTextureWidthSecondValue = false;
+                int ThumbInstanceTextureWidthFirstValue= 0;
+                int ThumbInstanceTextureWidthSecondValue= 0;
+                bool setThumbInstanceWidthFirstValue = false;
+                bool setThumbInstanceWidthSecondValue = false;
+                float ThumbInstanceWidthFirstValue= 0;
+                float ThumbInstanceWidthSecondValue= 0;
                 bool setWidthFirstValue = false;
                 bool setWidthSecondValue = false;
                 float WidthFirstValue= 0;
@@ -117,144 +128,168 @@
                 switch(firstState)
                 {
                     case  VariableState.Default:
-                        setBackgroundSpriteHeightFirstValue = true;
-                        BackgroundSpriteHeightFirstValue = 100f;
+                        setColoredRectangleInstanceBlueFirstValue = true;
+                        ColoredRectangleInstanceBlueFirstValue = 255;
+                        setColoredRectangleInstanceGreenFirstValue = true;
+                        ColoredRectangleInstanceGreenFirstValue = 255;
+                        setColoredRectangleInstanceHeightFirstValue = true;
+                        ColoredRectangleInstanceHeightFirstValue = 100f;
                         if (interpolationValue < 1)
                         {
-                            this.BackgroundSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                            this.ColoredRectangleInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setColoredRectangleInstanceRedFirstValue = true;
+                        ColoredRectangleInstanceRedFirstValue = 0;
+                        setColoredRectangleInstanceWidthFirstValue = true;
+                        ColoredRectangleInstanceWidthFirstValue = 100f;
                         if (interpolationValue < 1)
                         {
-                            this.BackgroundSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            SetProperty("BackgroundSprite.SourceFile", "AllUIAssets.png");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.BackgroundSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
-                        }
-                        setBackgroundSpriteTextureHeightFirstValue = true;
-                        BackgroundSpriteTextureHeightFirstValue = 265;
-                        setBackgroundSpriteTextureLeftFirstValue = true;
-                        BackgroundSpriteTextureLeftFirstValue = 0;
-                        setBackgroundSpriteTextureTopFirstValue = true;
-                        BackgroundSpriteTextureTopFirstValue = 2304;
-                        setBackgroundSpriteTextureWidthFirstValue = true;
-                        BackgroundSpriteTextureWidthFirstValue = 249;
-                        setBackgroundSpriteWidthFirstValue = true;
-                        BackgroundSpriteWidthFirstValue = 100f;
-                        if (interpolationValue < 1)
-                        {
-                            this.BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setHeightFirstValue = true;
-                        HeightFirstValue = 50f;
+                        HeightFirstValue = 20f;
                         if (interpolationValue < 1)
                         {
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.ThumbInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("ThumbInstance.SourceFile", "AllUIAssets.png");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ThumbInstance.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                        }
+                        setThumbInstanceTextureHeightFirstValue = true;
+                        ThumbInstanceTextureHeightFirstValue = 101;
+                        setThumbInstanceTextureLeftFirstValue = true;
+                        ThumbInstanceTextureLeftFirstValue = 3590;
+                        setThumbInstanceTextureTopFirstValue = true;
+                        ThumbInstanceTextureTopFirstValue = 2017;
+                        setThumbInstanceTextureWidthFirstValue = true;
+                        ThumbInstanceTextureWidthFirstValue = 116;
+                        setThumbInstanceWidthFirstValue = true;
+                        ThumbInstanceWidthFirstValue = 10f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ThumbInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         setWidthFirstValue = true;
-                        WidthFirstValue = 50f;
+                        WidthFirstValue = 100f;
                         if (interpolationValue < 1)
                         {
                             this.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         break;
                 }
                 switch(secondState)
                 {
                     case  VariableState.Default:
-                        setBackgroundSpriteHeightSecondValue = true;
-                        BackgroundSpriteHeightSecondValue = 100f;
+                        setColoredRectangleInstanceBlueSecondValue = true;
+                        ColoredRectangleInstanceBlueSecondValue = 255;
+                        setColoredRectangleInstanceGreenSecondValue = true;
+                        ColoredRectangleInstanceGreenSecondValue = 255;
+                        setColoredRectangleInstanceHeightSecondValue = true;
+                        ColoredRectangleInstanceHeightSecondValue = 100f;
                         if (interpolationValue >= 1)
                         {
-                            this.BackgroundSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                            this.ColoredRectangleInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setColoredRectangleInstanceRedSecondValue = true;
+                        ColoredRectangleInstanceRedSecondValue = 0;
+                        setColoredRectangleInstanceWidthSecondValue = true;
+                        ColoredRectangleInstanceWidthSecondValue = 100f;
                         if (interpolationValue >= 1)
                         {
-                            this.BackgroundSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            SetProperty("BackgroundSprite.SourceFile", "AllUIAssets.png");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.BackgroundSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
-                        }
-                        setBackgroundSpriteTextureHeightSecondValue = true;
-                        BackgroundSpriteTextureHeightSecondValue = 265;
-                        setBackgroundSpriteTextureLeftSecondValue = true;
-                        BackgroundSpriteTextureLeftSecondValue = 0;
-                        setBackgroundSpriteTextureTopSecondValue = true;
-                        BackgroundSpriteTextureTopSecondValue = 2304;
-                        setBackgroundSpriteTextureWidthSecondValue = true;
-                        BackgroundSpriteTextureWidthSecondValue = 249;
-                        setBackgroundSpriteWidthSecondValue = true;
-                        BackgroundSpriteWidthSecondValue = 100f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setHeightSecondValue = true;
-                        HeightSecondValue = 50f;
+                        HeightSecondValue = 20f;
                         if (interpolationValue >= 1)
                         {
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ThumbInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("ThumbInstance.SourceFile", "AllUIAssets.png");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ThumbInstance.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                        }
+                        setThumbInstanceTextureHeightSecondValue = true;
+                        ThumbInstanceTextureHeightSecondValue = 101;
+                        setThumbInstanceTextureLeftSecondValue = true;
+                        ThumbInstanceTextureLeftSecondValue = 3590;
+                        setThumbInstanceTextureTopSecondValue = true;
+                        ThumbInstanceTextureTopSecondValue = 2017;
+                        setThumbInstanceTextureWidthSecondValue = true;
+                        ThumbInstanceTextureWidthSecondValue = 116;
+                        setThumbInstanceWidthSecondValue = true;
+                        ThumbInstanceWidthSecondValue = 10f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ThumbInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         setWidthSecondValue = true;
-                        WidthSecondValue = 50f;
+                        WidthSecondValue = 100f;
                         if (interpolationValue >= 1)
                         {
                             this.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
-                        if (interpolationValue >= 1)
-                        {
-                            this.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                        }
                         break;
                 }
-                if (setBackgroundSpriteHeightFirstValue && setBackgroundSpriteHeightSecondValue)
+                if (setColoredRectangleInstanceBlueFirstValue && setColoredRectangleInstanceBlueSecondValue)
                 {
-                    BackgroundSprite.Height = BackgroundSpriteHeightFirstValue * (1 - interpolationValue) + BackgroundSpriteHeightSecondValue * interpolationValue;
+                    ColoredRectangleInstance.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceBlueFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceBlueSecondValue * interpolationValue);
                 }
-                if (setBackgroundSpriteTextureHeightFirstValue && setBackgroundSpriteTextureHeightSecondValue)
+                if (setColoredRectangleInstanceGreenFirstValue && setColoredRectangleInstanceGreenSecondValue)
                 {
-                    BackgroundSprite.TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(BackgroundSpriteTextureHeightFirstValue* (1 - interpolationValue) + BackgroundSpriteTextureHeightSecondValue * interpolationValue);
+                    ColoredRectangleInstance.Green = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceGreenFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceGreenSecondValue * interpolationValue);
                 }
-                if (setBackgroundSpriteTextureLeftFirstValue && setBackgroundSpriteTextureLeftSecondValue)
+                if (setColoredRectangleInstanceHeightFirstValue && setColoredRectangleInstanceHeightSecondValue)
                 {
-                    BackgroundSprite.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(BackgroundSpriteTextureLeftFirstValue* (1 - interpolationValue) + BackgroundSpriteTextureLeftSecondValue * interpolationValue);
+                    ColoredRectangleInstance.Height = ColoredRectangleInstanceHeightFirstValue * (1 - interpolationValue) + ColoredRectangleInstanceHeightSecondValue * interpolationValue;
                 }
-                if (setBackgroundSpriteTextureTopFirstValue && setBackgroundSpriteTextureTopSecondValue)
+                if (setColoredRectangleInstanceRedFirstValue && setColoredRectangleInstanceRedSecondValue)
                 {
-                    BackgroundSprite.TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(BackgroundSpriteTextureTopFirstValue* (1 - interpolationValue) + BackgroundSpriteTextureTopSecondValue * interpolationValue);
+                    ColoredRectangleInstance.Red = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceRedFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceRedSecondValue * interpolationValue);
                 }
-                if (setBackgroundSpriteTextureWidthFirstValue && setBackgroundSpriteTextureWidthSecondValue)
+                if (setColoredRectangleInstanceWidthFirstValue && setColoredRectangleInstanceWidthSecondValue)
                 {
-                    BackgroundSprite.TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(BackgroundSpriteTextureWidthFirstValue* (1 - interpolationValue) + BackgroundSpriteTextureWidthSecondValue * interpolationValue);
-                }
-                if (setBackgroundSpriteWidthFirstValue && setBackgroundSpriteWidthSecondValue)
-                {
-                    BackgroundSprite.Width = BackgroundSpriteWidthFirstValue * (1 - interpolationValue) + BackgroundSpriteWidthSecondValue * interpolationValue;
+                    ColoredRectangleInstance.Width = ColoredRectangleInstanceWidthFirstValue * (1 - interpolationValue) + ColoredRectangleInstanceWidthSecondValue * interpolationValue;
                 }
                 if (setHeightFirstValue && setHeightSecondValue)
                 {
                     Height = HeightFirstValue * (1 - interpolationValue) + HeightSecondValue * interpolationValue;
+                }
+                if (setThumbInstanceTextureHeightFirstValue && setThumbInstanceTextureHeightSecondValue)
+                {
+                    ThumbInstance.TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(ThumbInstanceTextureHeightFirstValue* (1 - interpolationValue) + ThumbInstanceTextureHeightSecondValue * interpolationValue);
+                }
+                if (setThumbInstanceTextureLeftFirstValue && setThumbInstanceTextureLeftSecondValue)
+                {
+                    ThumbInstance.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(ThumbInstanceTextureLeftFirstValue* (1 - interpolationValue) + ThumbInstanceTextureLeftSecondValue * interpolationValue);
+                }
+                if (setThumbInstanceTextureTopFirstValue && setThumbInstanceTextureTopSecondValue)
+                {
+                    ThumbInstance.TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(ThumbInstanceTextureTopFirstValue* (1 - interpolationValue) + ThumbInstanceTextureTopSecondValue * interpolationValue);
+                }
+                if (setThumbInstanceTextureWidthFirstValue && setThumbInstanceTextureWidthSecondValue)
+                {
+                    ThumbInstance.TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(ThumbInstanceTextureWidthFirstValue* (1 - interpolationValue) + ThumbInstanceTextureWidthSecondValue * interpolationValue);
+                }
+                if (setThumbInstanceWidthFirstValue && setThumbInstanceWidthSecondValue)
+                {
+                    ThumbInstance.Width = ThumbInstanceWidthFirstValue * (1 - interpolationValue) + ThumbInstanceWidthSecondValue * interpolationValue;
                 }
                 if (setWidthFirstValue && setWidthSecondValue)
                 {
@@ -269,7 +304,7 @@
                     mCurrentVariableState = secondState;
                 }
             }
-            public void InterpolateBetween (Lock firstState, Lock secondState, float interpolationValue) 
+            public void InterpolateBetween (SliderCategory firstState, SliderCategory secondState, float interpolationValue) 
             {
                 #if DEBUG
                 if (float.IsNaN(interpolationValue))
@@ -277,48 +312,24 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
-                bool setBackgroundSpriteTextureLeftFirstValue = false;
-                bool setBackgroundSpriteTextureLeftSecondValue = false;
-                int BackgroundSpriteTextureLeftFirstValue= 0;
-                int BackgroundSpriteTextureLeftSecondValue= 0;
                 switch(firstState)
                 {
-                    case  Lock.Locked:
-                        setBackgroundSpriteTextureLeftFirstValue = true;
-                        BackgroundSpriteTextureLeftFirstValue = 256;
-                        break;
-                    case  Lock.NotLocked:
-                        setBackgroundSpriteTextureLeftFirstValue = true;
-                        BackgroundSpriteTextureLeftFirstValue = 0;
-                        break;
                 }
                 switch(secondState)
                 {
-                    case  Lock.Locked:
-                        setBackgroundSpriteTextureLeftSecondValue = true;
-                        BackgroundSpriteTextureLeftSecondValue = 256;
-                        break;
-                    case  Lock.NotLocked:
-                        setBackgroundSpriteTextureLeftSecondValue = true;
-                        BackgroundSpriteTextureLeftSecondValue = 0;
-                        break;
-                }
-                if (setBackgroundSpriteTextureLeftFirstValue && setBackgroundSpriteTextureLeftSecondValue)
-                {
-                    BackgroundSprite.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(BackgroundSpriteTextureLeftFirstValue* (1 - interpolationValue) + BackgroundSpriteTextureLeftSecondValue * interpolationValue);
                 }
                 if (interpolationValue < 1)
                 {
-                    mCurrentLockState = firstState;
+                    mCurrentSliderCategoryState = firstState;
                 }
                 else
                 {
-                    mCurrentLockState = secondState;
+                    mCurrentSliderCategoryState = secondState;
                 }
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.LevelFrameRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.LevelFrameRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.SliderBarRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.SliderBarRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -372,7 +383,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.LevelFrameRuntime.Lock fromState,AbbatoirIntergrade.GumRuntimes.LevelFrameRuntime.Lock toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.SliderBarRuntime.SliderCategory fromState,AbbatoirIntergrade.GumRuntimes.SliderBarRuntime.SliderCategory toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -388,10 +399,10 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (Lock toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (SliderCategory toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
             {
                 Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
-                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "Lock").States.First(item => item.Name == toState.ToString());
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "SliderCategory").States.First(item => item.Name == toState.ToString());
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
                 if (owner == null)
                 {
@@ -402,12 +413,12 @@
                     tweener.Owner = owner;
                 }
                 tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
-                tweener.Ended += ()=> this.CurrentLockState = toState;
+                tweener.Ended += ()=> this.CurrentSliderCategoryState = toState;
                 tweener.Start();
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (Lock toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (SliderCategory toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
             {
                 Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
                 Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
@@ -421,7 +432,7 @@
                     tweener.Owner = owner;
                 }
                 tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
-                tweener.Ended += ()=> this.CurrentLockState = toState;
+                tweener.Ended += ()=> this.CurrentSliderCategoryState = toState;
                 tweener.Start();
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
@@ -475,105 +486,129 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "X Units",
-                            Type = "PositionUnitType",
-                            Value = XUnits
+                            Name = "ColoredRectangleInstance.Blue",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Blue
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Y Units",
-                            Type = "PositionUnitType",
-                            Value = YUnits
+                            Name = "ColoredRectangleInstance.Green",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Green
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Height",
+                            Name = "ColoredRectangleInstance.Height",
                             Type = "float",
-                            Value = BackgroundSprite.Height
+                            Value = ColoredRectangleInstance.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Height Units",
+                            Name = "ColoredRectangleInstance.Height Units",
                             Type = "DimensionUnitType",
-                            Value = BackgroundSprite.HeightUnits
+                            Value = ColoredRectangleInstance.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Parent",
+                            Name = "ColoredRectangleInstance.Red",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Width",
+                            Type = "float",
+                            Value = ColoredRectangleInstance.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ColoredRectangleInstance.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ThumbInstance.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ThumbInstance.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ThumbInstance.SourceFile",
                             Type = "string",
-                            Value = BackgroundSprite.Parent
+                            Value = ThumbInstance.SourceFile
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.SourceFile",
-                            Type = "string",
-                            Value = BackgroundSprite.SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "BackgroundSprite.Texture Address",
+                            Name = "ThumbInstance.Texture Address",
                             Type = "TextureAddress",
-                            Value = BackgroundSprite.TextureAddress
+                            Value = ThumbInstance.TextureAddress
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Texture Height",
+                            Name = "ThumbInstance.Texture Height",
                             Type = "int",
-                            Value = BackgroundSprite.TextureHeight
+                            Value = ThumbInstance.TextureHeight
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Texture Left",
+                            Name = "ThumbInstance.Texture Left",
                             Type = "int",
-                            Value = BackgroundSprite.TextureLeft
+                            Value = ThumbInstance.TextureLeft
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Texture Top",
+                            Name = "ThumbInstance.Texture Top",
                             Type = "int",
-                            Value = BackgroundSprite.TextureTop
+                            Value = ThumbInstance.TextureTop
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Texture Width",
+                            Name = "ThumbInstance.Texture Width",
                             Type = "int",
-                            Value = BackgroundSprite.TextureWidth
+                            Value = ThumbInstance.TextureWidth
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Width",
+                            Name = "ThumbInstance.Width",
                             Type = "float",
-                            Value = BackgroundSprite.Width
+                            Value = ThumbInstance.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Width Units",
+                            Name = "ThumbInstance.Width Units",
                             Type = "DimensionUnitType",
-                            Value = BackgroundSprite.WidthUnits
+                            Value = ThumbInstance.WidthUnits
                         }
                         );
                         break;
@@ -591,7 +626,7 @@
                             SetsValue = true,
                             Name = "Height",
                             Type = "float",
-                            Value = Height + 50f
+                            Value = Height + 20f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -607,7 +642,7 @@
                             SetsValue = true,
                             Name = "Width",
                             Type = "float",
-                            Value = Width + 50f
+                            Value = Width + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -621,164 +656,148 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "X Units",
-                            Type = "PositionUnitType",
-                            Value = XUnits
+                            Name = "ColoredRectangleInstance.Blue",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Blue + 255
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Y Units",
-                            Type = "PositionUnitType",
-                            Value = YUnits
+                            Name = "ColoredRectangleInstance.Green",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Green + 255
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Height",
+                            Name = "ColoredRectangleInstance.Height",
                             Type = "float",
-                            Value = BackgroundSprite.Height + 100f
+                            Value = ColoredRectangleInstance.Height + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Height Units",
+                            Name = "ColoredRectangleInstance.Height Units",
                             Type = "DimensionUnitType",
-                            Value = BackgroundSprite.HeightUnits
+                            Value = ColoredRectangleInstance.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Parent",
+                            Name = "ColoredRectangleInstance.Red",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Width",
+                            Type = "float",
+                            Value = ColoredRectangleInstance.Width + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ColoredRectangleInstance.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ThumbInstance.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ThumbInstance.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ThumbInstance.SourceFile",
                             Type = "string",
-                            Value = BackgroundSprite.Parent
+                            Value = ThumbInstance.SourceFile
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.SourceFile",
-                            Type = "string",
-                            Value = BackgroundSprite.SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "BackgroundSprite.Texture Address",
+                            Name = "ThumbInstance.Texture Address",
                             Type = "TextureAddress",
-                            Value = BackgroundSprite.TextureAddress
+                            Value = ThumbInstance.TextureAddress
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Texture Height",
+                            Name = "ThumbInstance.Texture Height",
                             Type = "int",
-                            Value = BackgroundSprite.TextureHeight + 265
+                            Value = ThumbInstance.TextureHeight + 101
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Texture Left",
+                            Name = "ThumbInstance.Texture Left",
                             Type = "int",
-                            Value = BackgroundSprite.TextureLeft + 0
+                            Value = ThumbInstance.TextureLeft + 3590
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Texture Top",
+                            Name = "ThumbInstance.Texture Top",
                             Type = "int",
-                            Value = BackgroundSprite.TextureTop + 2304
+                            Value = ThumbInstance.TextureTop + 2017
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Texture Width",
+                            Name = "ThumbInstance.Texture Width",
                             Type = "int",
-                            Value = BackgroundSprite.TextureWidth + 249
+                            Value = ThumbInstance.TextureWidth + 116
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Width",
+                            Name = "ThumbInstance.Width",
                             Type = "float",
-                            Value = BackgroundSprite.Width + 100f
+                            Value = ThumbInstance.Width + 10f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Width Units",
+                            Name = "ThumbInstance.Width Units",
                             Type = "DimensionUnitType",
-                            Value = BackgroundSprite.WidthUnits
+                            Value = ThumbInstance.WidthUnits
                         }
                         );
                         break;
                 }
                 return newState;
             }
-            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (Lock state) 
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (SliderCategory state) 
             {
                 Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
                 switch(state)
                 {
-                    case  Lock.Locked:
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "BackgroundSprite.Texture Left",
-                            Type = "int",
-                            Value = BackgroundSprite.TextureLeft
-                        }
-                        );
-                        break;
-                    case  Lock.NotLocked:
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "BackgroundSprite.Texture Left",
-                            Type = "int",
-                            Value = BackgroundSprite.TextureLeft
-                        }
-                        );
-                        break;
                 }
                 return newState;
             }
-            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (Lock state) 
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (SliderCategory state) 
             {
                 Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
                 switch(state)
                 {
-                    case  Lock.Locked:
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "BackgroundSprite.Texture Left",
-                            Type = "int",
-                            Value = BackgroundSprite.TextureLeft + 256
-                        }
-                        );
-                        break;
-                    case  Lock.NotLocked:
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "BackgroundSprite.Texture Left",
-                            Type = "int",
-                            Value = BackgroundSprite.TextureLeft + 0
-                        }
-                        );
-                        break;
                 }
                 return newState;
             }
@@ -793,22 +812,21 @@
                     {
                         if (state.Name == "Default") this.mCurrentVariableState = VariableState.Default;
                     }
-                    else if (category.Name == "Lock")
+                    else if (category.Name == "SliderCategory")
                     {
-                        if(state.Name == "Locked") this.mCurrentLockState = Lock.Locked;
-                        if(state.Name == "NotLocked") this.mCurrentLockState = Lock.NotLocked;
                     }
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime BackgroundSprite { get; set; }
-            public LevelFrameRuntime (bool fullInstantiation = true) 
+            private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime ThumbInstance { get; set; }
+            public SliderBarRuntime (bool fullInstantiation = true) 
             	: base(false)
             {
                 this.ExposeChildrenEvents = false;
                 if (fullInstantiation)
                 {
-                    Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "frames/LevelFrame");
+                    Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "SliderBar");
                     this.ElementSave = elementSave;
                     string oldDirectory = FlatRedBall.IO.FileManager.RelativeDirectory;
                     FlatRedBall.IO.FileManager.RelativeDirectory = FlatRedBall.IO.FileManager.GetDirectory(Gum.Managers.ObjectFinder.Self.GumProjectSave.FullFileName);
@@ -829,7 +847,10 @@
             }
             private void AssignReferences () 
             {
-                BackgroundSprite = this.GetGraphicalUiElementByName("BackgroundSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
+                ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
+                ThumbInstance = this.GetGraphicalUiElementByName("ThumbInstance") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
+                FormsControl = new FlatRedBall.Forms.Controls.Slider();
+                FormsControl.Visual = this;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {
@@ -840,5 +861,7 @@
                 CustomInitialize();
             }
             partial void CustomInitialize();
+            public FlatRedBall.Forms.Controls.Slider FormsControl {get; private set;}
+            public override object FormsControlAsObject { get { return FormsControl; } }
         }
     }

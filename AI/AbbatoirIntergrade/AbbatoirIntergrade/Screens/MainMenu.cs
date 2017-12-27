@@ -19,19 +19,20 @@ namespace AbbatoirIntergrade.Screens
 	public partial class MainMenu
 	{
 
-		void CustomInitialize()
-		{
+	    void CustomInitialize()
+	    {
+#if WINDOWS || DESKTOP_GL
+	        FlatRedBallServices.IsWindowsCursorVisible = true;
+#endif
+	    }
 
+	    void CustomActivity(bool firstTimeCalled)
+	    {
+	        FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
 
-		}
+	    }
 
-		void CustomActivity(bool firstTimeCalled)
-		{
-
-
-		}
-
-		void CustomDestroy()
+        void CustomDestroy()
 		{
 
 

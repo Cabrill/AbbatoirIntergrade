@@ -13,15 +13,15 @@
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ScreenReference>
-    <Name>MapScreenGum</Name>
-    <ElementType>Screen</ElementType>
-  </ScreenReference>
-  <ScreenReference>
     <Name>LoadingScreenGum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ScreenReference>
     <Name>MainMenuGum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
+    <Name>MapScreenGum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ComponentReference>
@@ -117,7 +117,19 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
-    <Name>OptionsBox</Name>
+    <Name>MenuWindow</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>MessageBox</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>OptionsControls</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>SliderBar</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
@@ -130,6 +142,10 @@
   </ComponentReference>
   <ComponentReference>
     <Name>specificbuttons/LevelButton</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>specificbuttons/OptionsButton</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
@@ -172,7 +188,13 @@
     <Name>ButtonBehavior</Name>
   </BehaviorReference>
   <BehaviorReference>
+    <Name>CheckBoxBehavior</Name>
+  </BehaviorReference>
+  <BehaviorReference>
     <Name>ComboBoxBehavior</Name>
+  </BehaviorReference>
+  <BehaviorReference>
+    <Name>ListBoxBehavior</Name>
   </BehaviorReference>
   <BehaviorReference>
     <Name>ListBoxItemBehavior</Name>
@@ -185,6 +207,9 @@
   </BehaviorReference>
   <BehaviorReference>
     <Name>ScrollViewerBehavior</Name>
+  </BehaviorReference>
+  <BehaviorReference>
+    <Name>SliderBehavior</Name>
   </BehaviorReference>
   <BehaviorReference>
     <Name>TextBoxBehavior</Name>

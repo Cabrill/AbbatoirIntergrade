@@ -22,8 +22,8 @@ namespace AbbatoirIntergrade.Screens
         static bool HasBeenLoadedWithGlobalContentManager = false;
         #endif
         protected static Microsoft.Xna.Framework.Graphics.Texture2D worldmap;
+        protected static FlatRedBall.Gum.GumIdb MapScreenGum;
         
-        FlatRedBall.Gum.GumIdb gumIdb;
         public MapScreen () 
         	: base ("MapScreen")
         {
@@ -31,7 +31,6 @@ namespace AbbatoirIntergrade.Screens
         public override void Initialize (bool addToManagers) 
         {
             LoadStaticContent(ContentManagerName);
-            gumIdb = new FlatRedBall.Gum.GumIdb();
             
             
             PostInitialize();
@@ -43,7 +42,7 @@ namespace AbbatoirIntergrade.Screens
         }
         public override void AddToManagers () 
         {
-            FlatRedBall.SpriteManager.AddDrawableBatch(gumIdb);
+            MapScreenGum.InstanceInitialize(); FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged += MapScreenGum.HandleResolutionChanged;
             base.AddToManagers();
             AddToManagersBottomUp();
             CustomInitialize();
@@ -65,9 +64,10 @@ namespace AbbatoirIntergrade.Screens
         }
         public override void Destroy () 
         {
-            FlatRedBall.SpriteManager.RemoveDrawableBatch(gumIdb);
             base.Destroy();
             worldmap = null;
+            FlatRedBall.SpriteManager.RemoveDrawableBatch(MapScreenGum); FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged -= MapScreenGum.HandleResolutionChanged;
+            MapScreenGum = null;
             
             CustomDestroy();
         }
@@ -117,6 +117,7 @@ namespace AbbatoirIntergrade.Screens
             }
             #endif
             worldmap = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/mapscreen/worldmap.png", contentManagerName);
+            Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;  MapScreenGum = new FlatRedBall.Gum.GumIdb();  MapScreenGum.LoadFromFile("content/gumproject/screens/mapscreengum.gusx");  MapScreenGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false; MapScreenGum.Element.UpdateLayout(); MapScreenGum.Element.UpdateLayout();
             CustomLoadStaticContent(contentManagerName);
         }
         [System.Obsolete("Use GetFile instead")]
@@ -126,6 +127,8 @@ namespace AbbatoirIntergrade.Screens
             {
                 case  "worldmap":
                     return worldmap;
+                case  "MapScreenGum":
+                    return MapScreenGum;
             }
             return null;
         }
@@ -135,6 +138,8 @@ namespace AbbatoirIntergrade.Screens
             {
                 case  "worldmap":
                     return worldmap;
+                case  "MapScreenGum":
+                    return MapScreenGum;
             }
             return null;
         }
@@ -144,6 +149,8 @@ namespace AbbatoirIntergrade.Screens
             {
                 case  "worldmap":
                     return worldmap;
+                case  "MapScreenGum":
+                    return MapScreenGum;
             }
             return null;
         }

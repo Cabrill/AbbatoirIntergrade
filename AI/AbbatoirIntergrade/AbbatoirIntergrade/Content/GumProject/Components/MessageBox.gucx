@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ComponentSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>MessageBox</Name>
+  <BaseType>Container</BaseType>
+  <State>
+    <Name>Default</Name>
+    <Variable>
+      <Type>float</Type>
+      <Name>ChatFrameInstance.Height</Name>
+      <Value xsi:type="xsd:float">75</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ChatFrameInstance.Width</Name>
+      <Value xsi:type="xsd:float">90</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>ChatFrameInstance.X Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>ChatFrameInstance.X Units</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>ChatFrameInstance.Y Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>ChatFrameInstance.Y Units</Name>
+      <Value xsi:type="xsd:int">7</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Height</Name>
+      <Value xsi:type="xsd:float">50</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>State</Type>
+      <Name>State</Name>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Width</Name>
+      <Value xsi:type="xsd:float">50</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonTypeState</Type>
+      <Name>YesButton.ButtonTypeState</Name>
+      <Value xsi:type="xsd:string">Check</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>YesButton.Parent</Name>
+      <Value xsi:type="xsd:string">ChatFrameInstance</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>YesButton.X</Name>
+      <Value xsi:type="xsd:float">894</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>YesButton.Y</Name>
+      <Value xsi:type="xsd:float">342</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonTypeState</Type>
+      <Name>YesButton1.ButtonTypeState</Name>
+      <Value xsi:type="xsd:string">X</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>YesButton1.Parent</Name>
+      <Value xsi:type="xsd:string">ChatFrameInstance</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>YesButton1.X</Name>
+      <Value xsi:type="xsd:float">101</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>YesButton1.Y</Name>
+      <Value xsi:type="xsd:float">339</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+  </State>
+  <Instance>
+    <Name>ChatFrameInstance</Name>
+    <BaseType>frames/ChatFrame</BaseType>
+  </Instance>
+  <Instance>
+    <Name>YesButton</Name>
+    <BaseType>frames/ButtonFrame</BaseType>
+  </Instance>
+  <Instance>
+    <Name>YesButton1</Name>
+    <BaseType>frames/ButtonFrame</BaseType>
+  </Instance>
+  <Behaviors />
+</ComponentSave>

@@ -3,5 +3,33 @@
   <Name>MainMenuGum</Name>
   <State>
     <Name>Default</Name>
+    <Variable>
+      <Type>float</Type>
+      <Name>OptionsControlsInstance.Height</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>OptionsControlsInstance.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>OptionsControlsInstance.Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>OptionsControlsInstance.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
   </State>
+  <Instance>
+    <Name>OptionsControlsInstance</Name>
+    <BaseType>OptionsControls</BaseType>
+  </Instance>
 </ScreenSave>

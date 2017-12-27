@@ -9,6 +9,7 @@ using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
+using FlatRedBall.Gui;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
 
@@ -21,15 +22,16 @@ namespace AbbatoirIntergrade.Screens
 
 		void CustomInitialize()
 		{
+#if WINDOWS || DESKTOP_GL
+		    FlatRedBallServices.IsWindowsCursorVisible = true;
+#endif
+        }
 
-
-		}
-
-		void CustomActivity(bool firstTimeCalled)
+        void CustomActivity(bool firstTimeCalled)
 		{
+		    FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
 
-
-		}
+        }
 
 		void CustomDestroy()
 		{

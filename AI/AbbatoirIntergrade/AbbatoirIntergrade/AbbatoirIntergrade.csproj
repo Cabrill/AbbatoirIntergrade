@@ -258,11 +258,14 @@
     <Compile Include="GameClasses\BaseClasses\BaseLevel.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="GumRuntimes\Behaviors\IButtonBehavior.Generated.cs" />
+    <Compile Include="GumRuntimes\Behaviors\ICheckBoxBehavior.Generated.cs" />
     <Compile Include="GumRuntimes\Behaviors\IComboBoxBehavior.Generated.cs" />
+    <Compile Include="GumRuntimes\Behaviors\IListBoxBehavior.Generated.cs" />
     <Compile Include="GumRuntimes\Behaviors\IListBoxItemBehavior.Generated.cs" />
     <Compile Include="GumRuntimes\Behaviors\IRadioButtonBehavior.Generated.cs" />
     <Compile Include="GumRuntimes\Behaviors\IScrollBarBehavior.Generated.cs" />
     <Compile Include="GumRuntimes\Behaviors\IScrollViewerBehavior.Generated.cs" />
+    <Compile Include="GumRuntimes\Behaviors\ISliderBehavior.Generated.cs" />
     <Compile Include="GumRuntimes\Behaviors\ITextBoxBehavior.Generated.cs" />
     <Compile Include="GumRuntimes\Behaviors\IToggleBehavior.Generated.cs" />
     <Compile Include="GumRuntimes\BuildMenuRuntime.cs" />
@@ -291,7 +294,6 @@
     <Compile Include="GumRuntimes\frames\LargeInfoFrameRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\frames\LevelFrameRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\frames\MenuFrameRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\frames\MessageBoxRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\frames\MessageFrameRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\frames\SevenButtonFrameRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\frames\StyleBarRuntime.Generated.cs" />
@@ -325,9 +327,12 @@
     <Compile Include="GumRuntimes\LoadingScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MapScreenGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\MenuWindowRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\MessageBoxRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\OptionsBoxRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\OptionsControlsRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\SliderBarRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SpecificButtons\BuildButtonRuntime.cs" />
     <Compile Include="GumRuntimes\SpecificButtons\BuildButtonRuntime.Generated.cs">
       <DependentUpon>BuildButtonRuntime.cs</DependentUpon>
@@ -339,6 +344,7 @@
       <DependentUpon>CloseChatButtonRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\specificbuttons\LevelButtonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\specificbuttons\OptionsButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\SettingsButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\StartGameButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
@@ -372,7 +378,7 @@
     </Compile>
     <Compile Include="Screens\MapScreen.cs" />
     <Compile Include="Screens\MapScreen.Generated.cs">
-      <DependentUpon>mapscreen.cs</DependentUpon>
+      <DependentUpon>MapScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\LoadingScreen.cs" />
     <Compile Include="Screens\LoadingScreen.Generated.cs">
@@ -670,9 +676,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>LivesPointsDisplay</Name>
     </None>
-    <None Include="content\gumproject\components\optionsbox.gucx">
+    <None Include="content\gumproject\components\menuwindow.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>OptionsBox</Name>
+      <Name>MenuWindow</Name>
+    </None>
+    <None Include="content\gumproject\components\messagebox.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>MessageBox</Name>
+    </None>
+    <None Include="content\gumproject\components\optionscontrols.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>OptionsControls</Name>
+    </None>
+    <None Include="content\gumproject\components\sliderbar.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SliderBar</Name>
     </None>
     <None Include="content\gumproject\components\specificbuttons\buildbutton.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -685,6 +703,10 @@
     <None Include="content\gumproject\components\specificbuttons\levelbutton.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>LevelButton</Name>
+    </None>
+    <None Include="content\gumproject\components\specificbuttons\optionsbutton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>OptionsButton</Name>
     </None>
     <None Include="content\gumproject\components\technologytree.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

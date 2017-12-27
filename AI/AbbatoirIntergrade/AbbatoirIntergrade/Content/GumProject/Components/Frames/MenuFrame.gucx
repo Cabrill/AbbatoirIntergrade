@@ -19,7 +19,6 @@
     <Variable>
       <Type>string</Type>
       <Name>BackgroundSprite.Parent</Name>
-      <Value xsi:type="xsd:string">BackgroundContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -81,6 +80,11 @@
       <Type>DimensionUnitType</Type>
       <Name>Height Units</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>Parent</Name>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
