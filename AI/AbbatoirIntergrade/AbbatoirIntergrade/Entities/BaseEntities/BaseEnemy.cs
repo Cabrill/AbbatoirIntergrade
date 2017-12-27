@@ -294,5 +294,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             _AddedToLayers = true;
 	    }
+
+	    public void HandleDrowning()
+	    {
+	        HealthRemaining = 0;
+            Velocity = Vector3.Zero;
+	    }
 	}
 }

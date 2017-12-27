@@ -59,6 +59,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
         public float ZHeight;
         public int Index { get; set; }
         public bool Used { get; set; }
+        protected global::RenderingLibrary.Graphics.Layer AboveEverythingLayerGum;
         private FlatRedBall.Math.Geometry.ShapeCollection mGeneratedCollision;
         public FlatRedBall.Math.Geometry.ShapeCollection Collision
         {
@@ -98,13 +99,13 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
         {
             LayerProvidedByContainer = layerToAddTo;
             FlatRedBall.SpriteManager.AddPositionedObject(this);
-            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mCircleInstance, LayerProvidedByContainer);
+            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mCircleInstance, FlatRedBall.SpriteManager.TopLayer);
         }
         public virtual void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
             LayerProvidedByContainer = layerToAddTo;
             FlatRedBall.SpriteManager.AddPositionedObject(this);
-            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mCircleInstance, LayerProvidedByContainer);
+            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mCircleInstance, FlatRedBall.SpriteManager.TopLayer);
             AddToManagersBottomUp(layerToAddTo);
             CustomInitialize();
         }

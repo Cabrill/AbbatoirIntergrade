@@ -20,9 +20,14 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
         /// </summary>
 		private void CustomInitialize()
 		{
-
-
-		}
+#if DEBUG
+            if (true) CircleInstance.Visible = DebugVariables.ShowDebugShapes;
+            else
+#endif
+            {
+                CircleInstance.Visible = false;
+            }
+        }
 
 		private void CustomActivity()
 		{

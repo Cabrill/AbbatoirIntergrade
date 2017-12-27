@@ -20,9 +20,14 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
         /// </summary>
 		private void CustomInitialize()
 		{
-
-
-		}
+#if DEBUG
+		    if (true) AxisAlignedRectangleInstance.Visible = DebugVariables.ShowDebugShapes;
+		    else
+#endif
+		    {
+		        AxisAlignedRectangleInstance.Visible = false;
+		    }
+        }
 
 		private void CustomActivity()
 		{

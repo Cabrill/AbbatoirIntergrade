@@ -38,6 +38,7 @@ namespace AbbatoirIntergrade.Screens
 
         private BaseLevel CurrentLevel;
         private Polygon Pathing;
+        private List<Polygon> WaterShapes;
         private DateTime currentLevelDateTime;
 
         private GameMode CurrentGameMode = GameMode.Normal;
@@ -186,9 +187,43 @@ namespace AbbatoirIntergrade.Screens
                 place.Z = 2;
                 place.SetRelativeFromAbsolute();
             }
-            Pathing = Chapter1.ShapeCollections.FirstOrDefault()?.Polygons.FirstOrDefault();
+            foreach (var circle in TileCollisionCircleList)
+            {
+                if (circle.CircleInstanceRadius > 64)
+                {
+                    circle.X += circle.CircleInstanceRadius / 2;
+                    circle.Y += circle.CircleInstanceRadius / 2;
+                }
+                circle.AttachTo(Chapter1);
+                circle.SetRelativeFromAbsolute();
+            }
+            foreach (var rect in TileCollisionRectangleList)
+            {
+                if (rect.AxisAlignedRectangleInstanceWidth > 128)
+                {
+                    rect.X += rect.AxisAlignedRectangleInstanceWidth / 2-64;
+                }
+                if (rect.AxisAlignedRectangleInstanceHeight > 128)
+                {
+                    rect.Y += rect.AxisAlignedRectangleInstanceHeight / 2-64;
+                }
+                rect.AttachTo(Chapter1);
+                rect.SetRelativeFromAbsolute();
+            }
+
+            WaterShapes = Chapter1.ShapeCollections.FirstOrDefault(sc => sc.Name == "Water")?.Polygons.ToList();
+            if (WaterShapes != null)
+            {
+                foreach (var shape in WaterShapes)
+                {
+                    shape.AttachTo(Chapter1);
+                    shape.SetRelativeFromAbsolute();
+                }
+            }
+
+            Pathing = Chapter1.ShapeCollections.FirstOrDefault(sc => sc.Name == "Pathing")?.Polygons.FirstOrDefault();
             Pathing?.AttachTo(Chapter1);
-            Pathing.SetRelativeFromAbsolute();
+            Pathing?.SetRelativeFromAbsolute();
             Chapter1.AddToManagers(WorldLayer);
 
             //This centers the map in the middle of the screen
@@ -214,10 +249,6 @@ namespace AbbatoirIntergrade.Screens
         #endregion
 
         #region Activity
-
-        //private bool isDragging = false;
-        //private float startX;
-        //private float startY;
         void CustomActivity(bool firstTimeCalled)
         {
             FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
@@ -228,52 +259,10 @@ namespace AbbatoirIntergrade.Screens
             //UpdateMusic();
             UpdateGameModeActivity();
 
-            //if (InputManager.Mouse.ScrollWheel.Velocity != 0)
-            //{
-            //    CameraZoomManager.PerformZoom(GuiManager.Cursor.WorldXAt(1), GuiManager.Cursor.WorldYAt(1), -InputManager.Mouse.ScrollWheelChange/10);
-            //    Camera.Main.ForceUpdateDependencies();
-            //    //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
-            //    HorizonBoxInstance.ReactToCameraChange();
-            //    AdjustLayerOrthoValues();
-            //}
 
             HandleTouchActivity();
             SelectedItemActivity();
             BuildingStatusActivity();
-
-            //if (GuiManager.Cursor.PrimaryDown && selectedObject == null && GuiManager.Cursor.WindowPushed == null)
-            //{
-            //    if (!isDragging)
-            //    {
-            //        startX = GuiManager.Cursor.ScreenX;
-            //        startY = GuiManager.Cursor.ScreenY;
-            //        isDragging = true;
-            //    }
-            //    const float cameraMoveSpeed = 0.25f;
-
-            //    var x = GuiManager.Cursor.ScreenX;
-            //    var y = GuiManager.Cursor.ScreenY;
-
-            //    var newX = Camera.Main.X - ((x - startX) * cameraMoveSpeed / CameraZoomManager.GumCoordOffset);
-            //    var newY = Camera.Main.Y + ((y - startY) * cameraMoveSpeed / CameraZoomManager.GumCoordOffset);
-
-            //    var effectiveScreenLimitX = (CameraZoomManager.OriginalOrthogonalWidth - Camera.Main.OrthogonalWidth) /
-            //                                2;
-            //    var effectiveScreenLimitY =
-            //        (CameraZoomManager.OriginalOrthogonalHeight - Camera.Main.OrthogonalHeight) / 2;
-
-            //    newX = MathHelper.Clamp(newX, -effectiveScreenLimitX, effectiveScreenLimitX);
-            //    newY = MathHelper.Clamp(newY, -effectiveScreenLimitY, effectiveScreenLimitY);
-
-            //    Camera.Main.X = newX;
-            //    Camera.Main.Y = newY;
-
-            //    //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
-            //    Camera.Main.ForceUpdateDependencies();
-            //    HorizonBoxInstance.ReactToCameraChange();
-            //}
-            //else isDragging = false;
-
 
             var gameplayOccuring = !IsPaused && GameHasStarted;
             if (gameplayOccuring)
@@ -425,7 +414,7 @@ namespace AbbatoirIntergrade.Screens
         }
     
 
-    private void EnemyStatusActivity()
+        private void EnemyStatusActivity()
 	    {
 	        for (var i = AllEnemiesList.Count; i > 0; i--)
 	        {
@@ -462,6 +451,38 @@ namespace AbbatoirIntergrade.Screens
 
 	                enemy.CircleInstance.CollideAgainstBounce(structure.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
 	                    elasticity: 0.1f);
+	            }
+
+                //Collide enemies against rectangle collisions
+	            for (var j = TileCollisionRectangleList.Count(); j > 0; j--)
+	            {
+	                var rect = TileCollisionRectangleList[j - 1];
+
+	                enemy.CircleInstance.CollideAgainstBounce(rect.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
+	                    elasticity: 0.1f);
+	            }
+
+	            //Collide enemies against circle collisions
+	            for (var j = TileCollisionCircleList.Count(); j > 0; j--)
+	            {
+	                var circle = TileCollisionCircleList[j - 1];
+
+	                if (circle.Altitude > enemy.Altitude) continue;
+	                if (circle.Altitude + circle.ZHeight > enemy.Altitude) continue;
+
+	                enemy.CircleInstance.CollideAgainstBounce(circle.CircleInstance, thisMass: 0f, otherMass: 1f,
+	                    elasticity: 0.5f);
+	            }
+                
+                //Collide enemies against water
+	            if (WaterShapes == null) continue;
+	            if (enemy.Altitude > 0) continue;
+	            foreach (var shape in WaterShapes)
+	            {
+	                if (enemy.CircleInstance.CollideAgainst(shape))
+	                {
+	                    enemy.HandleDrowning();
+	                }
 	            }
 	        }
 	    }

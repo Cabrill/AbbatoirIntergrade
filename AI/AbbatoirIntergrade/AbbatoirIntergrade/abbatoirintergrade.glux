@@ -9105,6 +9105,7 @@
           <IncludeInIClickable>false</IncludeInIClickable>
           <CallActivity>false</CallActivity>
           <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn>Top Layer (Engine Layer)</LayerOn>
         </NamedObjectSave>
       </NamedObjects>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
@@ -9202,6 +9203,7 @@
           <IncludeInIClickable>false</IncludeInIClickable>
           <CallActivity>false</CallActivity>
           <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn>Top Layer (Engine Layer)</LayerOn>
         </NamedObjectSave>
       </NamedObjects>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
