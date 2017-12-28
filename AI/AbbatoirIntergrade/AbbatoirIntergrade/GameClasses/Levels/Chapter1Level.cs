@@ -17,11 +17,5 @@ namespace AbbatoirIntergrade.GameClasses.Levels
         public override DateTime StartTime => new DateTime(2017, 10, 21, 6, 0, 0);
         public override int StartingLives => 30;
         public override List<BaseWave> Waves { get; }
-
-        public Chapter1Level(FlatRedBall.Math.PositionedObjectList<BaseEnemy> enemyList, Layer layerForEnemies) : base(enemyList, layerForEnemies)
-        {
-            
-        }
-
     }
 }

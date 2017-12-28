@@ -31,9 +31,9 @@
                     switch(mCurrentVariableState)
                     {
                         case  VariableState.Default:
-                            SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            SetProperty("SpriteInstance.SourceFile", "../Screens/MapScreen/worldmap.png");
-                            SpriteInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            BackgroundMapSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            SetProperty("BackgroundMapSprite.SourceFile", "../Screens/MapScreen/worldmap.png");
+                            BackgroundMapSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             TechnologyTreeInstance.Visible = false;
                             LevelButtonInstance1.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level1;
                             LevelButtonInstance1.X = 128f;
@@ -300,6 +300,18 @@
                 switch(firstState)
                 {
                     case  VariableState.Default:
+                        if (interpolationValue < 1)
+                        {
+                            this.BackgroundMapSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("BackgroundMapSprite.SourceFile", "../Screens/MapScreen/worldmap.png");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.BackgroundMapSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         setLevelButtonInstance1CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance1CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level1;
                         setLevelButtonInstance1XFirstValue = true;
@@ -402,18 +414,6 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            SetProperty("SpriteInstance.SourceFile", "../Screens/MapScreen/worldmap.png");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.SpriteInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
                             this.TechnologyTreeInstance.Visible = false;
                         }
                         break;
@@ -421,6 +421,18 @@
                 switch(secondState)
                 {
                     case  VariableState.Default:
+                        if (interpolationValue >= 1)
+                        {
+                            this.BackgroundMapSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("BackgroundMapSprite.SourceFile", "../Screens/MapScreen/worldmap.png");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.BackgroundMapSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         setLevelButtonInstance1CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance1CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level1;
                         setLevelButtonInstance1XSecondValue = true;
@@ -520,18 +532,6 @@
                         if (interpolationValue >= 1)
                         {
                             this.ScreenDimRectangle.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            SetProperty("SpriteInstance.SourceFile", "../Screens/MapScreen/worldmap.png");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.SpriteInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1143,25 +1143,25 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "SpriteInstance.Height Units",
+                            Name = "BackgroundMapSprite.Height Units",
                             Type = "DimensionUnitType",
-                            Value = SpriteInstance.HeightUnits
+                            Value = BackgroundMapSprite.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "SpriteInstance.SourceFile",
+                            Name = "BackgroundMapSprite.SourceFile",
                             Type = "string",
-                            Value = SpriteInstance.SourceFile
+                            Value = BackgroundMapSprite.SourceFile
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "SpriteInstance.Width Units",
+                            Name = "BackgroundMapSprite.Width Units",
                             Type = "DimensionUnitType",
-                            Value = SpriteInstance.WidthUnits
+                            Value = BackgroundMapSprite.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1537,25 +1537,25 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "SpriteInstance.Height Units",
+                            Name = "BackgroundMapSprite.Height Units",
                             Type = "DimensionUnitType",
-                            Value = SpriteInstance.HeightUnits
+                            Value = BackgroundMapSprite.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "SpriteInstance.SourceFile",
+                            Name = "BackgroundMapSprite.SourceFile",
                             Type = "string",
-                            Value = SpriteInstance.SourceFile
+                            Value = BackgroundMapSprite.SourceFile
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "SpriteInstance.Width Units",
+                            Name = "BackgroundMapSprite.Width Units",
                             Type = "DimensionUnitType",
-                            Value = SpriteInstance.WidthUnits
+                            Value = BackgroundMapSprite.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2509,7 +2509,7 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime BackgroundMapSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TechnologyTreeRuntime TechnologyTreeInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance1 { get; set; }
             private AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance2 { get; set; }
@@ -2549,7 +2549,7 @@
             }
             private void AssignReferences () 
             {
-                SpriteInstance = this.GetGraphicalUiElementByName("SpriteInstance") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
+                BackgroundMapSprite = this.GetGraphicalUiElementByName("BackgroundMapSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 TechnologyTreeInstance = this.GetGraphicalUiElementByName("TechnologyTreeInstance") as AbbatoirIntergrade.GumRuntimes.TechnologyTreeRuntime;
                 LevelButtonInstance1 = this.GetGraphicalUiElementByName("LevelButtonInstance1") as AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime;
                 LevelButtonInstance2 = this.GetGraphicalUiElementByName("LevelButtonInstance2") as AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime;

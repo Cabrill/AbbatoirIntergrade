@@ -28,13 +28,18 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         
         protected FlatRedBall.Math.PositionedObjectList<BaseEnemy> _enemyList;
 
-        protected BaseLevel(FlatRedBall.Math.PositionedObjectList<BaseEnemy> enemyList, Layer layerForEnemies)
+        protected BaseLevel()
         {
-            this._layerForEnemies = layerForEnemies;
-            _wavesSent = 0;
-            _enemyList = enemyList;
+            _wavesSent = 0;   
             _lastEnemyWave = DateTime.MinValue;
             RemainingLives = StartingLives;
+        }
+
+        public void SetEnemiesAndLayer(FlatRedBall.Math.PositionedObjectList<BaseEnemy> enemyList,
+            Layer layerForEnemies)
+        {
+            _enemyList = enemyList;
+            this._layerForEnemies = layerForEnemies;
         }
         
         /// <summary>

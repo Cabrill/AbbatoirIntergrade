@@ -24,6 +24,7 @@ namespace AbbatoirIntergrade.Screens
         protected static Microsoft.Xna.Framework.Graphics.Texture2D worldmap;
         protected static FlatRedBall.Gum.GumIdb MapScreenGum;
         
+        private FlatRedBall.Gum.GumIdb MapScreenGumInstance;
         public MapScreen () 
         	: base ("MapScreen")
         {
@@ -31,6 +32,7 @@ namespace AbbatoirIntergrade.Screens
         public override void Initialize (bool addToManagers) 
         {
             LoadStaticContent(ContentManagerName);
+            MapScreenGumInstance = MapScreenGum;
             
             
             PostInitialize();

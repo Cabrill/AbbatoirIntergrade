@@ -346,7 +346,10 @@
     <Compile Include="GumRuntimes\specificbuttons\CloseChatButtonRuntime.Generated.cs">
       <DependentUpon>CloseChatButtonRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\specificbuttons\LevelButtonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\SpecificButtons\LevelButtonRuntime.cs" />
+    <Compile Include="GumRuntimes\specificbuttons\LevelButtonRuntime.Generated.cs">
+      <DependentUpon>LevelButtonRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\specificbuttons\OptionsButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\SettingsButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\StartGameButtonRuntime.Generated.cs" />
@@ -383,6 +386,7 @@
     <Compile Include="StateInterpolation\Tweener.cs" />
     <Compile Include="StateInterpolation\TweenerManager.cs" />
     <Compile Include="StaticManagers\CameraZoomManager.cs" />
+    <Compile Include="StaticManagers\GameStateManager.cs" />
     <Compile Include="StaticManagers\PlayerDataManager.cs" />
     <Compile Include="StaticManagers\WaterManager.cs" />
     <Compile Include="Screens\GameScreen.BuildButtons.cs">

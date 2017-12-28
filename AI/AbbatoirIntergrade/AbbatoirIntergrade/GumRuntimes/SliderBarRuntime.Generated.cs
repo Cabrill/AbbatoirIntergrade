@@ -35,12 +35,14 @@
                             WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ColoredRectangleInstance.Blue = 255;
                             ColoredRectangleInstance.Green = 255;
-                            ColoredRectangleInstance.Height = 100f;
+                            ColoredRectangleInstance.Height = 50f;
                             ColoredRectangleInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ColoredRectangleInstance.Red = 0;
                             ColoredRectangleInstance.Width = 100f;
                             ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ThumbInstance.Height = 100f;
+                            ColoredRectangleInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            ColoredRectangleInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            ThumbInstance.Height = 50f;
                             ThumbInstance.Width = 115f;
                             ThumbInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                             ThumbInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
@@ -118,7 +120,7 @@
                         setColoredRectangleInstanceGreenFirstValue = true;
                         ColoredRectangleInstanceGreenFirstValue = 255;
                         setColoredRectangleInstanceHeightFirstValue = true;
-                        ColoredRectangleInstanceHeightFirstValue = 100f;
+                        ColoredRectangleInstanceHeightFirstValue = 50f;
                         if (interpolationValue < 1)
                         {
                             this.ColoredRectangleInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -131,6 +133,14 @@
                         {
                             this.ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.ColoredRectangleInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ColoredRectangleInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
                         setHeightFirstValue = true;
                         HeightFirstValue = 20f;
                         if (interpolationValue < 1)
@@ -138,7 +148,7 @@
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setThumbInstanceHeightFirstValue = true;
-                        ThumbInstanceHeightFirstValue = 100f;
+                        ThumbInstanceHeightFirstValue = 50f;
                         setThumbInstanceWidthFirstValue = true;
                         ThumbInstanceWidthFirstValue = 115f;
                         if (interpolationValue < 1)
@@ -173,7 +183,7 @@
                         setColoredRectangleInstanceGreenSecondValue = true;
                         ColoredRectangleInstanceGreenSecondValue = 255;
                         setColoredRectangleInstanceHeightSecondValue = true;
-                        ColoredRectangleInstanceHeightSecondValue = 100f;
+                        ColoredRectangleInstanceHeightSecondValue = 50f;
                         if (interpolationValue >= 1)
                         {
                             this.ColoredRectangleInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -186,6 +196,14 @@
                         {
                             this.ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ColoredRectangleInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ColoredRectangleInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
                         setHeightSecondValue = true;
                         HeightSecondValue = 20f;
                         if (interpolationValue >= 1)
@@ -193,7 +211,7 @@
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setThumbInstanceHeightSecondValue = true;
-                        ThumbInstanceHeightSecondValue = 100f;
+                        ThumbInstanceHeightSecondValue = 50f;
                         setThumbInstanceWidthSecondValue = true;
                         ThumbInstanceWidthSecondValue = 115f;
                         if (interpolationValue >= 1)
@@ -504,6 +522,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "ColoredRectangleInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = ColoredRectangleInstance.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Y Units",
+                            Type = "PositionUnitType",
+                            Value = ColoredRectangleInstance.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ThumbInstance.Height",
                             Type = "float",
                             Value = ThumbInstance.Height
@@ -612,7 +646,7 @@
                             SetsValue = true,
                             Name = "ColoredRectangleInstance.Height",
                             Type = "float",
-                            Value = ColoredRectangleInstance.Height + 100f
+                            Value = ColoredRectangleInstance.Height + 50f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -650,9 +684,25 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "ColoredRectangleInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = ColoredRectangleInstance.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Y Units",
+                            Type = "PositionUnitType",
+                            Value = ColoredRectangleInstance.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ThumbInstance.Height",
                             Type = "float",
-                            Value = ThumbInstance.Height + 100f
+                            Value = ThumbInstance.Height + 50f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

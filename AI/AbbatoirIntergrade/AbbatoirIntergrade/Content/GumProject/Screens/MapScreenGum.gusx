@@ -280,20 +280,20 @@
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
-      <Name>SpriteInstance.Height Units</Name>
+      <Name>BackgroundMapSprite.Height Units</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <IsFile>true</IsFile>
       <Type>string</Type>
-      <Name>SpriteInstance.SourceFile</Name>
+      <Name>BackgroundMapSprite.SourceFile</Name>
       <Value xsi:type="xsd:string">../Screens/MapScreen/worldmap.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
-      <Name>SpriteInstance.Width Units</Name>
+      <Name>BackgroundMapSprite.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -525,7 +525,7 @@
     </State>
   </Category>
   <Instance>
-    <Name>SpriteInstance</Name>
+    <Name>BackgroundMapSprite</Name>
     <BaseType>Sprite</BaseType>
   </Instance>
   <Instance>

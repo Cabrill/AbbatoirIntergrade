@@ -26,19 +26,41 @@
                     {
                         case  VariableState.Default:
                             ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
+                            Height = 50f;
+                            HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            Width = 50f;
+                            WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             WrapsChildren = true;
-                            TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer");
+                            SetProperty("SoundText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            SoundText.FontScale = 1f;
+                            SoundText.Height = 20f;
+                            SoundText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            SoundText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer");
+                            SoundText.Text = "Sound Volume";
+                            SoundText.UseCustomFont = true;
+                            SoundText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            SoundText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             NamesContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                             NamesContainer.Height = 100f;
                             NamesContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             NamesContainer.Width = 50f;
                             NamesContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            SliderBarInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer");
+                            SoundSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer");
                             OptionContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                             OptionContainer.Height = 100f;
                             OptionContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             OptionContainer.Width = 50f;
                             OptionContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            SetProperty("MusicText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            MusicText.FontScale = 1f;
+                            MusicText.Height = 20f;
+                            MusicText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            MusicText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer");
+                            MusicText.Text = "Music Volume";
+                            MusicText.UseCustomFont = true;
+                            MusicText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            MusicText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            MusicSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer");
                             break;
                     }
                 }
@@ -53,6 +75,18 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
+                bool setHeightFirstValue = false;
+                bool setHeightSecondValue = false;
+                float HeightFirstValue= 0;
+                float HeightSecondValue= 0;
+                bool setMusicTextFontScaleFirstValue = false;
+                bool setMusicTextFontScaleSecondValue = false;
+                float MusicTextFontScaleFirstValue= 0;
+                float MusicTextFontScaleSecondValue= 0;
+                bool setMusicTextHeightFirstValue = false;
+                bool setMusicTextHeightSecondValue = false;
+                float MusicTextHeightFirstValue= 0;
+                float MusicTextHeightSecondValue= 0;
                 bool setNamesContainerHeightFirstValue = false;
                 bool setNamesContainerHeightSecondValue = false;
                 float NamesContainerHeightFirstValue= 0;
@@ -69,12 +103,66 @@
                 bool setOptionContainerWidthSecondValue = false;
                 float OptionContainerWidthFirstValue= 0;
                 float OptionContainerWidthSecondValue= 0;
+                bool setSoundTextFontScaleFirstValue = false;
+                bool setSoundTextFontScaleSecondValue = false;
+                float SoundTextFontScaleFirstValue= 0;
+                float SoundTextFontScaleSecondValue= 0;
+                bool setSoundTextHeightFirstValue = false;
+                bool setSoundTextHeightSecondValue = false;
+                float SoundTextHeightFirstValue= 0;
+                float SoundTextHeightSecondValue= 0;
+                bool setWidthFirstValue = false;
+                bool setWidthSecondValue = false;
+                float WidthFirstValue= 0;
+                float WidthSecondValue= 0;
                 switch(firstState)
                 {
                     case  VariableState.Default:
                         if (interpolationValue < 1)
                         {
                             this.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
+                        }
+                        setHeightFirstValue = true;
+                        HeightFirstValue = 50f;
+                        if (interpolationValue < 1)
+                        {
+                            this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.MusicSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("MusicText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
+                        setMusicTextFontScaleFirstValue = true;
+                        MusicTextFontScaleFirstValue = 1f;
+                        setMusicTextHeightFirstValue = true;
+                        MusicTextHeightFirstValue = 20f;
+                        if (interpolationValue < 1)
+                        {
+                            this.MusicText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.MusicText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.MusicText.Text = "Music Volume";
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.MusicText.UseCustomFont = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.MusicText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.MusicText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
@@ -110,11 +198,45 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.SliderBarInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer");
+                            this.SoundSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer");
                         }
                         if (interpolationValue < 1)
                         {
-                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer");
+                            SetProperty("SoundText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
+                        setSoundTextFontScaleFirstValue = true;
+                        SoundTextFontScaleFirstValue = 1f;
+                        setSoundTextHeightFirstValue = true;
+                        SoundTextHeightFirstValue = 20f;
+                        if (interpolationValue < 1)
+                        {
+                            this.SoundText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.SoundText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.SoundText.Text = "Sound Volume";
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.SoundText.UseCustomFont = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.SoundText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.SoundText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setWidthFirstValue = true;
+                        WidthFirstValue = 50f;
+                        if (interpolationValue < 1)
+                        {
+                            this.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
@@ -128,6 +250,48 @@
                         if (interpolationValue >= 1)
                         {
                             this.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
+                        }
+                        setHeightSecondValue = true;
+                        HeightSecondValue = 50f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.MusicSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("MusicText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
+                        setMusicTextFontScaleSecondValue = true;
+                        MusicTextFontScaleSecondValue = 1f;
+                        setMusicTextHeightSecondValue = true;
+                        MusicTextHeightSecondValue = 20f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.MusicText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.MusicText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.MusicText.Text = "Music Volume";
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.MusicText.UseCustomFont = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.MusicText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.MusicText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -163,17 +327,63 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.SliderBarInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer");
+                            this.SoundSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer");
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer");
+                            SetProperty("SoundText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
+                        setSoundTextFontScaleSecondValue = true;
+                        SoundTextFontScaleSecondValue = 1f;
+                        setSoundTextHeightSecondValue = true;
+                        SoundTextHeightSecondValue = 20f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.SoundText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.SoundText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.SoundText.Text = "Sound Volume";
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.SoundText.UseCustomFont = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.SoundText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.SoundText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setWidthSecondValue = true;
+                        WidthSecondValue = 50f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
                             this.WrapsChildren = true;
                         }
                         break;
+                }
+                if (setHeightFirstValue && setHeightSecondValue)
+                {
+                    Height = HeightFirstValue * (1 - interpolationValue) + HeightSecondValue * interpolationValue;
+                }
+                if (setMusicTextFontScaleFirstValue && setMusicTextFontScaleSecondValue)
+                {
+                    MusicText.FontScale = MusicTextFontScaleFirstValue * (1 - interpolationValue) + MusicTextFontScaleSecondValue * interpolationValue;
+                }
+                if (setMusicTextHeightFirstValue && setMusicTextHeightSecondValue)
+                {
+                    MusicText.Height = MusicTextHeightFirstValue * (1 - interpolationValue) + MusicTextHeightSecondValue * interpolationValue;
                 }
                 if (setNamesContainerHeightFirstValue && setNamesContainerHeightSecondValue)
                 {
@@ -190,6 +400,18 @@
                 if (setOptionContainerWidthFirstValue && setOptionContainerWidthSecondValue)
                 {
                     OptionContainer.Width = OptionContainerWidthFirstValue * (1 - interpolationValue) + OptionContainerWidthSecondValue * interpolationValue;
+                }
+                if (setSoundTextFontScaleFirstValue && setSoundTextFontScaleSecondValue)
+                {
+                    SoundText.FontScale = SoundTextFontScaleFirstValue * (1 - interpolationValue) + SoundTextFontScaleSecondValue * interpolationValue;
+                }
+                if (setSoundTextHeightFirstValue && setSoundTextHeightSecondValue)
+                {
+                    SoundText.Height = SoundTextHeightFirstValue * (1 - interpolationValue) + SoundTextHeightSecondValue * interpolationValue;
+                }
+                if (setWidthFirstValue && setWidthSecondValue)
+                {
+                    Width = WidthFirstValue * (1 - interpolationValue) + WidthSecondValue * interpolationValue;
                 }
                 if (interpolationValue < 1)
                 {
@@ -262,7 +484,8 @@
             public override void StopAnimations () 
             {
                 base.StopAnimations();
-                SliderBarInstance.StopAnimations();
+                SoundSlider.StopAnimations();
+                MusicSlider.StopAnimations();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -282,6 +505,38 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Height",
+                            Type = "float",
+                            Value = Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Height Units",
+                            Type = "DimensionUnitType",
+                            Value = HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Width",
+                            Type = "float",
+                            Value = Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Width Units",
+                            Type = "DimensionUnitType",
+                            Value = WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "Wraps Children",
                             Type = "bool",
                             Value = WrapsChildren
@@ -290,9 +545,73 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.Parent",
+                            Name = "SoundText.CustomFontFile",
                             Type = "string",
-                            Value = TextInstance.Parent
+                            Value = SoundText.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SoundText.Font Scale",
+                            Type = "float",
+                            Value = SoundText.FontScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SoundText.Height",
+                            Type = "float",
+                            Value = SoundText.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SoundText.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = SoundText.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SoundText.Parent",
+                            Type = "string",
+                            Value = SoundText.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SoundText.Text",
+                            Type = "string",
+                            Value = SoundText.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SoundText.UseCustomFont",
+                            Type = "bool",
+                            Value = SoundText.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SoundText.VerticalAlignment",
+                            Type = "VerticalAlignment",
+                            Value = SoundText.VerticalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SoundText.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = SoundText.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -338,9 +657,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "SliderBarInstance.Parent",
+                            Name = "SoundSlider.Parent",
                             Type = "string",
-                            Value = SliderBarInstance.Parent
+                            Value = SoundSlider.Parent
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -383,6 +702,86 @@
                             Value = OptionContainer.WidthUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.CustomFontFile",
+                            Type = "string",
+                            Value = MusicText.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.Font Scale",
+                            Type = "float",
+                            Value = MusicText.FontScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.Height",
+                            Type = "float",
+                            Value = MusicText.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = MusicText.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.Parent",
+                            Type = "string",
+                            Value = MusicText.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.Text",
+                            Type = "string",
+                            Value = MusicText.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.UseCustomFont",
+                            Type = "bool",
+                            Value = MusicText.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.VerticalAlignment",
+                            Type = "VerticalAlignment",
+                            Value = MusicText.VerticalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = MusicText.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicSlider.Parent",
+                            Type = "string",
+                            Value = MusicSlider.Parent
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -404,6 +803,38 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Height",
+                            Type = "float",
+                            Value = Height + 50f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Height Units",
+                            Type = "DimensionUnitType",
+                            Value = HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Width",
+                            Type = "float",
+                            Value = Width + 50f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Width Units",
+                            Type = "DimensionUnitType",
+                            Value = WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "Wraps Children",
                             Type = "bool",
                             Value = WrapsChildren
@@ -412,9 +843,73 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.Parent",
+                            Name = "SoundText.CustomFontFile",
                             Type = "string",
-                            Value = TextInstance.Parent
+                            Value = SoundText.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SoundText.Font Scale",
+                            Type = "float",
+                            Value = SoundText.FontScale + 1f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SoundText.Height",
+                            Type = "float",
+                            Value = SoundText.Height + 20f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SoundText.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = SoundText.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SoundText.Parent",
+                            Type = "string",
+                            Value = SoundText.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SoundText.Text",
+                            Type = "string",
+                            Value = SoundText.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SoundText.UseCustomFont",
+                            Type = "bool",
+                            Value = SoundText.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SoundText.VerticalAlignment",
+                            Type = "VerticalAlignment",
+                            Value = SoundText.VerticalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SoundText.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = SoundText.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -460,9 +955,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "SliderBarInstance.Parent",
+                            Name = "SoundSlider.Parent",
                             Type = "string",
-                            Value = SliderBarInstance.Parent
+                            Value = SoundSlider.Parent
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -505,6 +1000,86 @@
                             Value = OptionContainer.WidthUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.CustomFontFile",
+                            Type = "string",
+                            Value = MusicText.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.Font Scale",
+                            Type = "float",
+                            Value = MusicText.FontScale + 1f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.Height",
+                            Type = "float",
+                            Value = MusicText.Height + 20f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = MusicText.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.Parent",
+                            Type = "string",
+                            Value = MusicText.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.Text",
+                            Type = "string",
+                            Value = MusicText.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.UseCustomFont",
+                            Type = "bool",
+                            Value = MusicText.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.VerticalAlignment",
+                            Type = "VerticalAlignment",
+                            Value = MusicText.VerticalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicText.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = MusicText.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MusicSlider.Parent",
+                            Type = "string",
+                            Value = MusicSlider.Parent
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -523,10 +1098,12 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.TextRuntime SoundText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime NamesContainer { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.SliderBarRuntime SliderBarInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SliderBarRuntime SoundSlider { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime OptionContainer { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.TextRuntime MusicText { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SliderBarRuntime MusicSlider { get; set; }
             public OptionsControlsRuntime (bool fullInstantiation = true) 
             	: base(false)
             {
@@ -554,10 +1131,12 @@
             }
             private void AssignReferences () 
             {
-                TextInstance = this.GetGraphicalUiElementByName("TextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+                SoundText = this.GetGraphicalUiElementByName("SoundText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 NamesContainer = this.GetGraphicalUiElementByName("NamesContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
-                SliderBarInstance = this.GetGraphicalUiElementByName("SliderBarInstance") as AbbatoirIntergrade.GumRuntimes.SliderBarRuntime;
+                SoundSlider = this.GetGraphicalUiElementByName("SoundSlider") as AbbatoirIntergrade.GumRuntimes.SliderBarRuntime;
                 OptionContainer = this.GetGraphicalUiElementByName("OptionContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
+                MusicText = this.GetGraphicalUiElementByName("MusicText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+                MusicSlider = this.GetGraphicalUiElementByName("MusicSlider") as AbbatoirIntergrade.GumRuntimes.SliderBarRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

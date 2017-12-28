@@ -65,7 +65,8 @@ namespace AbbatoirIntergrade.Screens
             resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
             //TODO:  Set these values by loading a level
-            CurrentLevel = new Chapter1Level(AllEnemiesList, WorldLayer);
+            CurrentLevel = GameStateManager.CurrentLevel;
+            CurrentLevel.SetEnemiesAndLayer(AllEnemiesList, WorldLayer);
             currentLevelDateTime = CurrentLevel.StartTime;
 
             InitializeFactories();
