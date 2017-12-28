@@ -11,7 +11,11 @@
             public enum MenuDisplay
             {
                 MenuHidden,
-                MenuShown
+                MenuShown,
+                MenuShow1,
+                MenuShow2,
+                MenuShow3,
+                MenuShow4
             }
             #endregion
             #region State Fields
@@ -35,38 +39,46 @@
                             SetProperty("BackgroundMapSprite.SourceFile", "../Screens/MapScreen/worldmap.png");
                             BackgroundMapSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             TechnologyTreeInstance.Visible = false;
+                            LevelButtonInstance1.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance1.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level1;
                             LevelButtonInstance1.X = 128f;
                             LevelButtonInstance1.Y = 1258f;
+                            LevelButtonInstance2.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance2.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level2;
                             LevelButtonInstance2.X = 98f;
                             LevelButtonInstance2.Y = 918f;
+                            LevelButtonInstance3.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance3.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level3;
                             LevelButtonInstance3.X = 268f;
                             LevelButtonInstance3.Y = 626f;
+                            LevelButtonInstance4.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance4.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level4;
                             LevelButtonInstance4.X = 540f;
                             LevelButtonInstance4.Y = 408f;
+                            LevelButtonInstance5.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance5.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level5;
                             LevelButtonInstance5.X = 926f;
                             LevelButtonInstance5.Y = 370f;
+                            LevelButtonInstance6.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance6.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level6;
                             LevelButtonInstance6.X = 1268f;
                             LevelButtonInstance6.Y = 552f;
+                            LevelButtonInstance7.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance7.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level7;
                             LevelButtonInstance7.X = 1614f;
                             LevelButtonInstance7.Y = 716f;
+                            LevelButtonInstance8.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance8.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level8;
                             LevelButtonInstance8.X = 1880f;
                             LevelButtonInstance8.Y = 576f;
+                            LevelButtonInstance9.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance9.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level9;
                             LevelButtonInstance9.X = 2082f;
                             LevelButtonInstance9.Y = 334f;
+                            LevelButtonInstance10.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance10.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level10;
                             LevelButtonInstance10.X = 2328f;
                             LevelButtonInstance10.Y = 248f;
-                            OptionsButtonInstance.Height = 10.08334f;
-                            OptionsButtonInstance.Width = 5.703125f;
                             ScreenDimRectangle.Alpha = 120;
                             ScreenDimRectangle.Blue = 0;
                             ScreenDimRectangle.Green = 0;
@@ -79,6 +91,26 @@
                             MenuWindowInstance.ButtonType2State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Disabled;
                             MenuWindowInstance.ButtonType3State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Disabled;
                             MenuWindowInstance.ButtonType4State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Play;
+                            MenuWindowInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            MenuWindowInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            MenuWindowInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            MenuWindowInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            StyleBarInstance.Height = 5f;
+                            StyleBarInstance.Visible = false;
+                            StyleBarInstance.Width = 5f;
+                            StyleBarInstance.X = 50f;
+                            StyleBarInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            StyleBarInstance.Y = 50f;
+                            StyleBarInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            OptionsButtonInstance.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Menu;
+                            OptionsButtonInstance.Height = 10.69444f;
+                            OptionsButtonInstance.Width = 6.078125f;
+                            OptionsButtonInstance.X = 3.039063f;
+                            OptionsButtonInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            OptionsButtonInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            OptionsButtonInstance.Y = 5.347222f;
+                            OptionsButtonInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            OptionsButtonInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             break;
                     }
                 }
@@ -95,42 +127,70 @@
                     switch(mCurrentMenuDisplayState)
                     {
                         case  MenuDisplay.MenuHidden:
-                            LevelButtonInstance1.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance1.X = 102f;
-                            LevelButtonInstance1.Y = 1236f;
-                            LevelButtonInstance2.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance3.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance4.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance5.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance6.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance7.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance7.X = 1568f;
-                            LevelButtonInstance7.Y = 724f;
-                            LevelButtonInstance8.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance9.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance10.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            OptionsButtonInstance.Visible = true;
+                            ScreenDimRectangle.Alpha = 120;
                             ScreenDimRectangle.Visible = false;
                             MenuWindowInstance.Visible = false;
+                            StyleBarInstance.Height = 5f;
+                            StyleBarInstance.Visible = false;
+                            StyleBarInstance.Width = 5f;
+                            OptionsButtonInstance.Visible = true;
+                            OptionsButtonInstance.X = 3.039063f;
+                            OptionsButtonInstance.Y = 5.347222f;
                             break;
                         case  MenuDisplay.MenuShown:
-                            LevelButtonInstance1.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance1.X = 128f;
-                            LevelButtonInstance1.Y = 1258f;
-                            LevelButtonInstance2.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance3.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance4.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance5.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance6.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance7.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance7.X = 1614f;
-                            LevelButtonInstance7.Y = 716f;
-                            LevelButtonInstance8.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance9.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            LevelButtonInstance10.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                            OptionsButtonInstance.Visible = false;
+                            ScreenDimRectangle.Alpha = 120;
                             ScreenDimRectangle.Visible = true;
                             MenuWindowInstance.Visible = true;
+                            StyleBarInstance.Height = 5f;
+                            StyleBarInstance.Visible = false;
+                            StyleBarInstance.Width = 5f;
+                            OptionsButtonInstance.Visible = false;
+                            OptionsButtonInstance.X = 3.039063f;
+                            OptionsButtonInstance.Y = 5.347222f;
+                            break;
+                        case  MenuDisplay.MenuShow1:
+                            ScreenDimRectangle.Alpha = 0;
+                            ScreenDimRectangle.Visible = true;
+                            MenuWindowInstance.Visible = false;
+                            StyleBarInstance.Height = 5f;
+                            StyleBarInstance.Visible = false;
+                            StyleBarInstance.Width = 5f;
+                            OptionsButtonInstance.Visible = true;
+                            OptionsButtonInstance.X = 50f;
+                            OptionsButtonInstance.Y = 50f;
+                            break;
+                        case  MenuDisplay.MenuShow2:
+                            ScreenDimRectangle.Alpha = 30;
+                            ScreenDimRectangle.Visible = true;
+                            MenuWindowInstance.Visible = false;
+                            StyleBarInstance.Height = 5f;
+                            StyleBarInstance.Visible = true;
+                            StyleBarInstance.Width = 5f;
+                            OptionsButtonInstance.Visible = false;
+                            OptionsButtonInstance.X = 50f;
+                            OptionsButtonInstance.Y = 50f;
+                            break;
+                        case  MenuDisplay.MenuShow3:
+                            ScreenDimRectangle.Alpha = 60;
+                            ScreenDimRectangle.Visible = true;
+                            MenuWindowInstance.Visible = false;
+                            StyleBarInstance.Height = 5f;
+                            StyleBarInstance.Visible = true;
+                            StyleBarInstance.Width = 47f;
+                            OptionsButtonInstance.Visible = false;
+                            OptionsButtonInstance.X = 3.039063f;
+                            OptionsButtonInstance.Y = 5.347222f;
+                            break;
+                        case  MenuDisplay.MenuShow4:
+                            ScreenDimRectangle.Alpha = 90;
+                            ScreenDimRectangle.Visible = true;
+                            MenuWindowInstance.Visible = false;
+                            StyleBarInstance.Height = 100f;
+                            StyleBarInstance.Visible = true;
+                            StyleBarInstance.Width = 47f;
+                            OptionsButtonInstance.Visible = false;
+                            OptionsButtonInstance.X = 3.039063f;
+                            OptionsButtonInstance.Y = 5.347222f;
                             break;
                     }
                 }
@@ -145,6 +205,10 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
+                bool setLevelButtonInstance1CurrentButtonCategoryStateFirstValue = false;
+                bool setLevelButtonInstance1CurrentButtonCategoryStateSecondValue = false;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance1CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance1CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
                 bool setLevelButtonInstance1CurrentLevelNumberStateFirstValue = false;
                 bool setLevelButtonInstance1CurrentLevelNumberStateSecondValue = false;
                 LevelButtonRuntime.LevelNumber LevelButtonInstance1CurrentLevelNumberStateFirstValue= LevelButtonRuntime.LevelNumber.Level1;
@@ -157,6 +221,10 @@
                 bool setLevelButtonInstance1YSecondValue = false;
                 float LevelButtonInstance1YFirstValue= 0;
                 float LevelButtonInstance1YSecondValue= 0;
+                bool setLevelButtonInstance10CurrentButtonCategoryStateFirstValue = false;
+                bool setLevelButtonInstance10CurrentButtonCategoryStateSecondValue = false;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance10CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance10CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
                 bool setLevelButtonInstance10CurrentLevelNumberStateFirstValue = false;
                 bool setLevelButtonInstance10CurrentLevelNumberStateSecondValue = false;
                 LevelButtonRuntime.LevelNumber LevelButtonInstance10CurrentLevelNumberStateFirstValue= LevelButtonRuntime.LevelNumber.Level1;
@@ -169,6 +237,10 @@
                 bool setLevelButtonInstance10YSecondValue = false;
                 float LevelButtonInstance10YFirstValue= 0;
                 float LevelButtonInstance10YSecondValue= 0;
+                bool setLevelButtonInstance2CurrentButtonCategoryStateFirstValue = false;
+                bool setLevelButtonInstance2CurrentButtonCategoryStateSecondValue = false;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance2CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance2CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
                 bool setLevelButtonInstance2CurrentLevelNumberStateFirstValue = false;
                 bool setLevelButtonInstance2CurrentLevelNumberStateSecondValue = false;
                 LevelButtonRuntime.LevelNumber LevelButtonInstance2CurrentLevelNumberStateFirstValue= LevelButtonRuntime.LevelNumber.Level1;
@@ -181,6 +253,10 @@
                 bool setLevelButtonInstance2YSecondValue = false;
                 float LevelButtonInstance2YFirstValue= 0;
                 float LevelButtonInstance2YSecondValue= 0;
+                bool setLevelButtonInstance3CurrentButtonCategoryStateFirstValue = false;
+                bool setLevelButtonInstance3CurrentButtonCategoryStateSecondValue = false;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance3CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance3CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
                 bool setLevelButtonInstance3CurrentLevelNumberStateFirstValue = false;
                 bool setLevelButtonInstance3CurrentLevelNumberStateSecondValue = false;
                 LevelButtonRuntime.LevelNumber LevelButtonInstance3CurrentLevelNumberStateFirstValue= LevelButtonRuntime.LevelNumber.Level1;
@@ -193,6 +269,10 @@
                 bool setLevelButtonInstance3YSecondValue = false;
                 float LevelButtonInstance3YFirstValue= 0;
                 float LevelButtonInstance3YSecondValue= 0;
+                bool setLevelButtonInstance4CurrentButtonCategoryStateFirstValue = false;
+                bool setLevelButtonInstance4CurrentButtonCategoryStateSecondValue = false;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance4CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance4CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
                 bool setLevelButtonInstance4CurrentLevelNumberStateFirstValue = false;
                 bool setLevelButtonInstance4CurrentLevelNumberStateSecondValue = false;
                 LevelButtonRuntime.LevelNumber LevelButtonInstance4CurrentLevelNumberStateFirstValue= LevelButtonRuntime.LevelNumber.Level1;
@@ -205,6 +285,10 @@
                 bool setLevelButtonInstance4YSecondValue = false;
                 float LevelButtonInstance4YFirstValue= 0;
                 float LevelButtonInstance4YSecondValue= 0;
+                bool setLevelButtonInstance5CurrentButtonCategoryStateFirstValue = false;
+                bool setLevelButtonInstance5CurrentButtonCategoryStateSecondValue = false;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance5CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance5CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
                 bool setLevelButtonInstance5CurrentLevelNumberStateFirstValue = false;
                 bool setLevelButtonInstance5CurrentLevelNumberStateSecondValue = false;
                 LevelButtonRuntime.LevelNumber LevelButtonInstance5CurrentLevelNumberStateFirstValue= LevelButtonRuntime.LevelNumber.Level1;
@@ -217,6 +301,10 @@
                 bool setLevelButtonInstance5YSecondValue = false;
                 float LevelButtonInstance5YFirstValue= 0;
                 float LevelButtonInstance5YSecondValue= 0;
+                bool setLevelButtonInstance6CurrentButtonCategoryStateFirstValue = false;
+                bool setLevelButtonInstance6CurrentButtonCategoryStateSecondValue = false;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance6CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance6CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
                 bool setLevelButtonInstance6CurrentLevelNumberStateFirstValue = false;
                 bool setLevelButtonInstance6CurrentLevelNumberStateSecondValue = false;
                 LevelButtonRuntime.LevelNumber LevelButtonInstance6CurrentLevelNumberStateFirstValue= LevelButtonRuntime.LevelNumber.Level1;
@@ -229,6 +317,10 @@
                 bool setLevelButtonInstance6YSecondValue = false;
                 float LevelButtonInstance6YFirstValue= 0;
                 float LevelButtonInstance6YSecondValue= 0;
+                bool setLevelButtonInstance7CurrentButtonCategoryStateFirstValue = false;
+                bool setLevelButtonInstance7CurrentButtonCategoryStateSecondValue = false;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance7CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance7CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
                 bool setLevelButtonInstance7CurrentLevelNumberStateFirstValue = false;
                 bool setLevelButtonInstance7CurrentLevelNumberStateSecondValue = false;
                 LevelButtonRuntime.LevelNumber LevelButtonInstance7CurrentLevelNumberStateFirstValue= LevelButtonRuntime.LevelNumber.Level1;
@@ -241,6 +333,10 @@
                 bool setLevelButtonInstance7YSecondValue = false;
                 float LevelButtonInstance7YFirstValue= 0;
                 float LevelButtonInstance7YSecondValue= 0;
+                bool setLevelButtonInstance8CurrentButtonCategoryStateFirstValue = false;
+                bool setLevelButtonInstance8CurrentButtonCategoryStateSecondValue = false;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance8CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance8CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
                 bool setLevelButtonInstance8CurrentLevelNumberStateFirstValue = false;
                 bool setLevelButtonInstance8CurrentLevelNumberStateSecondValue = false;
                 LevelButtonRuntime.LevelNumber LevelButtonInstance8CurrentLevelNumberStateFirstValue= LevelButtonRuntime.LevelNumber.Level1;
@@ -253,6 +349,10 @@
                 bool setLevelButtonInstance8YSecondValue = false;
                 float LevelButtonInstance8YFirstValue= 0;
                 float LevelButtonInstance8YSecondValue= 0;
+                bool setLevelButtonInstance9CurrentButtonCategoryStateFirstValue = false;
+                bool setLevelButtonInstance9CurrentButtonCategoryStateSecondValue = false;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance9CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
+                LevelButtonRuntime.ButtonCategory LevelButtonInstance9CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
                 bool setLevelButtonInstance9CurrentLevelNumberStateFirstValue = false;
                 bool setLevelButtonInstance9CurrentLevelNumberStateSecondValue = false;
                 LevelButtonRuntime.LevelNumber LevelButtonInstance9CurrentLevelNumberStateFirstValue= LevelButtonRuntime.LevelNumber.Level1;
@@ -265,6 +365,10 @@
                 bool setLevelButtonInstance9YSecondValue = false;
                 float LevelButtonInstance9YFirstValue= 0;
                 float LevelButtonInstance9YSecondValue= 0;
+                bool setOptionsButtonInstanceCurrentButtonTypeStateFirstValue = false;
+                bool setOptionsButtonInstanceCurrentButtonTypeStateSecondValue = false;
+                ButtonFrameRuntime.ButtonType OptionsButtonInstanceCurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
+                ButtonFrameRuntime.ButtonType OptionsButtonInstanceCurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
                 bool setOptionsButtonInstanceHeightFirstValue = false;
                 bool setOptionsButtonInstanceHeightSecondValue = false;
                 float OptionsButtonInstanceHeightFirstValue= 0;
@@ -273,6 +377,14 @@
                 bool setOptionsButtonInstanceWidthSecondValue = false;
                 float OptionsButtonInstanceWidthFirstValue= 0;
                 float OptionsButtonInstanceWidthSecondValue= 0;
+                bool setOptionsButtonInstanceXFirstValue = false;
+                bool setOptionsButtonInstanceXSecondValue = false;
+                float OptionsButtonInstanceXFirstValue= 0;
+                float OptionsButtonInstanceXSecondValue= 0;
+                bool setOptionsButtonInstanceYFirstValue = false;
+                bool setOptionsButtonInstanceYSecondValue = false;
+                float OptionsButtonInstanceYFirstValue= 0;
+                float OptionsButtonInstanceYSecondValue= 0;
                 bool setScreenDimRectangleAlphaFirstValue = false;
                 bool setScreenDimRectangleAlphaSecondValue = false;
                 int ScreenDimRectangleAlphaFirstValue= 0;
@@ -297,6 +409,22 @@
                 bool setScreenDimRectangleWidthSecondValue = false;
                 float ScreenDimRectangleWidthFirstValue= 0;
                 float ScreenDimRectangleWidthSecondValue= 0;
+                bool setStyleBarInstanceHeightFirstValue = false;
+                bool setStyleBarInstanceHeightSecondValue = false;
+                float StyleBarInstanceHeightFirstValue= 0;
+                float StyleBarInstanceHeightSecondValue= 0;
+                bool setStyleBarInstanceWidthFirstValue = false;
+                bool setStyleBarInstanceWidthSecondValue = false;
+                float StyleBarInstanceWidthFirstValue= 0;
+                float StyleBarInstanceWidthSecondValue= 0;
+                bool setStyleBarInstanceXFirstValue = false;
+                bool setStyleBarInstanceXSecondValue = false;
+                float StyleBarInstanceXFirstValue= 0;
+                float StyleBarInstanceXSecondValue= 0;
+                bool setStyleBarInstanceYFirstValue = false;
+                bool setStyleBarInstanceYSecondValue = false;
+                float StyleBarInstanceYFirstValue= 0;
+                float StyleBarInstanceYSecondValue= 0;
                 switch(firstState)
                 {
                     case  VariableState.Default:
@@ -312,60 +440,80 @@
                         {
                             this.BackgroundMapSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setLevelButtonInstance1CurrentButtonCategoryStateFirstValue = true;
+                        LevelButtonInstance1CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance1CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance1CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level1;
                         setLevelButtonInstance1XFirstValue = true;
                         LevelButtonInstance1XFirstValue = 128f;
                         setLevelButtonInstance1YFirstValue = true;
                         LevelButtonInstance1YFirstValue = 1258f;
+                        setLevelButtonInstance10CurrentButtonCategoryStateFirstValue = true;
+                        LevelButtonInstance10CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance10CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance10CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level10;
                         setLevelButtonInstance10XFirstValue = true;
                         LevelButtonInstance10XFirstValue = 2328f;
                         setLevelButtonInstance10YFirstValue = true;
                         LevelButtonInstance10YFirstValue = 248f;
+                        setLevelButtonInstance2CurrentButtonCategoryStateFirstValue = true;
+                        LevelButtonInstance2CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance2CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance2CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level2;
                         setLevelButtonInstance2XFirstValue = true;
                         LevelButtonInstance2XFirstValue = 98f;
                         setLevelButtonInstance2YFirstValue = true;
                         LevelButtonInstance2YFirstValue = 918f;
+                        setLevelButtonInstance3CurrentButtonCategoryStateFirstValue = true;
+                        LevelButtonInstance3CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance3CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance3CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level3;
                         setLevelButtonInstance3XFirstValue = true;
                         LevelButtonInstance3XFirstValue = 268f;
                         setLevelButtonInstance3YFirstValue = true;
                         LevelButtonInstance3YFirstValue = 626f;
+                        setLevelButtonInstance4CurrentButtonCategoryStateFirstValue = true;
+                        LevelButtonInstance4CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance4CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance4CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level4;
                         setLevelButtonInstance4XFirstValue = true;
                         LevelButtonInstance4XFirstValue = 540f;
                         setLevelButtonInstance4YFirstValue = true;
                         LevelButtonInstance4YFirstValue = 408f;
+                        setLevelButtonInstance5CurrentButtonCategoryStateFirstValue = true;
+                        LevelButtonInstance5CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance5CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance5CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level5;
                         setLevelButtonInstance5XFirstValue = true;
                         LevelButtonInstance5XFirstValue = 926f;
                         setLevelButtonInstance5YFirstValue = true;
                         LevelButtonInstance5YFirstValue = 370f;
+                        setLevelButtonInstance6CurrentButtonCategoryStateFirstValue = true;
+                        LevelButtonInstance6CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance6CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance6CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level6;
                         setLevelButtonInstance6XFirstValue = true;
                         LevelButtonInstance6XFirstValue = 1268f;
                         setLevelButtonInstance6YFirstValue = true;
                         LevelButtonInstance6YFirstValue = 552f;
+                        setLevelButtonInstance7CurrentButtonCategoryStateFirstValue = true;
+                        LevelButtonInstance7CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance7CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance7CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level7;
                         setLevelButtonInstance7XFirstValue = true;
                         LevelButtonInstance7XFirstValue = 1614f;
                         setLevelButtonInstance7YFirstValue = true;
                         LevelButtonInstance7YFirstValue = 716f;
+                        setLevelButtonInstance8CurrentButtonCategoryStateFirstValue = true;
+                        LevelButtonInstance8CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance8CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance8CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level8;
                         setLevelButtonInstance8XFirstValue = true;
                         LevelButtonInstance8XFirstValue = 1880f;
                         setLevelButtonInstance8YFirstValue = true;
                         LevelButtonInstance8YFirstValue = 576f;
+                        setLevelButtonInstance9CurrentButtonCategoryStateFirstValue = true;
+                        LevelButtonInstance9CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance9CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance9CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level9;
                         setLevelButtonInstance9XFirstValue = true;
@@ -388,10 +536,48 @@
                         {
                             this.MenuWindowInstance.ButtonType4State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Play;
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.MenuWindowInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.MenuWindowInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.MenuWindowInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.MenuWindowInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        setOptionsButtonInstanceCurrentButtonTypeStateFirstValue = true;
+                        OptionsButtonInstanceCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Menu;
                         setOptionsButtonInstanceHeightFirstValue = true;
-                        OptionsButtonInstanceHeightFirstValue = 10.08334f;
+                        OptionsButtonInstanceHeightFirstValue = 10.69444f;
                         setOptionsButtonInstanceWidthFirstValue = true;
-                        OptionsButtonInstanceWidthFirstValue = 5.703125f;
+                        OptionsButtonInstanceWidthFirstValue = 6.078125f;
+                        setOptionsButtonInstanceXFirstValue = true;
+                        OptionsButtonInstanceXFirstValue = 3.039063f;
+                        if (interpolationValue < 1)
+                        {
+                            this.OptionsButtonInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.OptionsButtonInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        setOptionsButtonInstanceYFirstValue = true;
+                        OptionsButtonInstanceYFirstValue = 5.347222f;
+                        if (interpolationValue < 1)
+                        {
+                            this.OptionsButtonInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.OptionsButtonInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
                         setScreenDimRectangleAlphaFirstValue = true;
                         ScreenDimRectangleAlphaFirstValue = 120;
                         setScreenDimRectangleBlueFirstValue = true;
@@ -411,6 +597,26 @@
                         if (interpolationValue < 1)
                         {
                             this.ScreenDimRectangle.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setStyleBarInstanceHeightFirstValue = true;
+                        StyleBarInstanceHeightFirstValue = 5f;
+                        if (interpolationValue < 1)
+                        {
+                            this.StyleBarInstance.Visible = false;
+                        }
+                        setStyleBarInstanceWidthFirstValue = true;
+                        StyleBarInstanceWidthFirstValue = 5f;
+                        setStyleBarInstanceXFirstValue = true;
+                        StyleBarInstanceXFirstValue = 50f;
+                        if (interpolationValue < 1)
+                        {
+                            this.StyleBarInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        setStyleBarInstanceYFirstValue = true;
+                        StyleBarInstanceYFirstValue = 50f;
+                        if (interpolationValue < 1)
+                        {
+                            this.StyleBarInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         if (interpolationValue < 1)
                         {
@@ -433,60 +639,80 @@
                         {
                             this.BackgroundMapSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setLevelButtonInstance1CurrentButtonCategoryStateSecondValue = true;
+                        LevelButtonInstance1CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance1CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance1CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level1;
                         setLevelButtonInstance1XSecondValue = true;
                         LevelButtonInstance1XSecondValue = 128f;
                         setLevelButtonInstance1YSecondValue = true;
                         LevelButtonInstance1YSecondValue = 1258f;
+                        setLevelButtonInstance10CurrentButtonCategoryStateSecondValue = true;
+                        LevelButtonInstance10CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance10CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance10CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level10;
                         setLevelButtonInstance10XSecondValue = true;
                         LevelButtonInstance10XSecondValue = 2328f;
                         setLevelButtonInstance10YSecondValue = true;
                         LevelButtonInstance10YSecondValue = 248f;
+                        setLevelButtonInstance2CurrentButtonCategoryStateSecondValue = true;
+                        LevelButtonInstance2CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance2CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance2CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level2;
                         setLevelButtonInstance2XSecondValue = true;
                         LevelButtonInstance2XSecondValue = 98f;
                         setLevelButtonInstance2YSecondValue = true;
                         LevelButtonInstance2YSecondValue = 918f;
+                        setLevelButtonInstance3CurrentButtonCategoryStateSecondValue = true;
+                        LevelButtonInstance3CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance3CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance3CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level3;
                         setLevelButtonInstance3XSecondValue = true;
                         LevelButtonInstance3XSecondValue = 268f;
                         setLevelButtonInstance3YSecondValue = true;
                         LevelButtonInstance3YSecondValue = 626f;
+                        setLevelButtonInstance4CurrentButtonCategoryStateSecondValue = true;
+                        LevelButtonInstance4CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance4CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance4CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level4;
                         setLevelButtonInstance4XSecondValue = true;
                         LevelButtonInstance4XSecondValue = 540f;
                         setLevelButtonInstance4YSecondValue = true;
                         LevelButtonInstance4YSecondValue = 408f;
+                        setLevelButtonInstance5CurrentButtonCategoryStateSecondValue = true;
+                        LevelButtonInstance5CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance5CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance5CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level5;
                         setLevelButtonInstance5XSecondValue = true;
                         LevelButtonInstance5XSecondValue = 926f;
                         setLevelButtonInstance5YSecondValue = true;
                         LevelButtonInstance5YSecondValue = 370f;
+                        setLevelButtonInstance6CurrentButtonCategoryStateSecondValue = true;
+                        LevelButtonInstance6CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance6CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance6CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level6;
                         setLevelButtonInstance6XSecondValue = true;
                         LevelButtonInstance6XSecondValue = 1268f;
                         setLevelButtonInstance6YSecondValue = true;
                         LevelButtonInstance6YSecondValue = 552f;
+                        setLevelButtonInstance7CurrentButtonCategoryStateSecondValue = true;
+                        LevelButtonInstance7CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance7CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance7CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level7;
                         setLevelButtonInstance7XSecondValue = true;
                         LevelButtonInstance7XSecondValue = 1614f;
                         setLevelButtonInstance7YSecondValue = true;
                         LevelButtonInstance7YSecondValue = 716f;
+                        setLevelButtonInstance8CurrentButtonCategoryStateSecondValue = true;
+                        LevelButtonInstance8CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance8CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance8CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level8;
                         setLevelButtonInstance8XSecondValue = true;
                         LevelButtonInstance8XSecondValue = 1880f;
                         setLevelButtonInstance8YSecondValue = true;
                         LevelButtonInstance8YSecondValue = 576f;
+                        setLevelButtonInstance9CurrentButtonCategoryStateSecondValue = true;
+                        LevelButtonInstance9CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance9CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance9CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level9;
                         setLevelButtonInstance9XSecondValue = true;
@@ -509,10 +735,48 @@
                         {
                             this.MenuWindowInstance.ButtonType4State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Play;
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            this.MenuWindowInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.MenuWindowInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.MenuWindowInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.MenuWindowInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        setOptionsButtonInstanceCurrentButtonTypeStateSecondValue = true;
+                        OptionsButtonInstanceCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Menu;
                         setOptionsButtonInstanceHeightSecondValue = true;
-                        OptionsButtonInstanceHeightSecondValue = 10.08334f;
+                        OptionsButtonInstanceHeightSecondValue = 10.69444f;
                         setOptionsButtonInstanceWidthSecondValue = true;
-                        OptionsButtonInstanceWidthSecondValue = 5.703125f;
+                        OptionsButtonInstanceWidthSecondValue = 6.078125f;
+                        setOptionsButtonInstanceXSecondValue = true;
+                        OptionsButtonInstanceXSecondValue = 3.039063f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.OptionsButtonInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.OptionsButtonInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        setOptionsButtonInstanceYSecondValue = true;
+                        OptionsButtonInstanceYSecondValue = 5.347222f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.OptionsButtonInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.OptionsButtonInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
                         setScreenDimRectangleAlphaSecondValue = true;
                         ScreenDimRectangleAlphaSecondValue = 120;
                         setScreenDimRectangleBlueSecondValue = true;
@@ -533,11 +797,35 @@
                         {
                             this.ScreenDimRectangle.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setStyleBarInstanceHeightSecondValue = true;
+                        StyleBarInstanceHeightSecondValue = 5f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.StyleBarInstance.Visible = false;
+                        }
+                        setStyleBarInstanceWidthSecondValue = true;
+                        StyleBarInstanceWidthSecondValue = 5f;
+                        setStyleBarInstanceXSecondValue = true;
+                        StyleBarInstanceXSecondValue = 50f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.StyleBarInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        setStyleBarInstanceYSecondValue = true;
+                        StyleBarInstanceYSecondValue = 50f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.StyleBarInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
                         if (interpolationValue >= 1)
                         {
                             this.TechnologyTreeInstance.Visible = false;
                         }
                         break;
+                }
+                if (setLevelButtonInstance1CurrentButtonCategoryStateFirstValue && setLevelButtonInstance1CurrentButtonCategoryStateSecondValue)
+                {
+                    LevelButtonInstance1.InterpolateBetween(LevelButtonInstance1CurrentButtonCategoryStateFirstValue, LevelButtonInstance1CurrentButtonCategoryStateSecondValue, interpolationValue);
                 }
                 if (setLevelButtonInstance1CurrentLevelNumberStateFirstValue && setLevelButtonInstance1CurrentLevelNumberStateSecondValue)
                 {
@@ -551,6 +839,10 @@
                 {
                     LevelButtonInstance1.Y = LevelButtonInstance1YFirstValue * (1 - interpolationValue) + LevelButtonInstance1YSecondValue * interpolationValue;
                 }
+                if (setLevelButtonInstance10CurrentButtonCategoryStateFirstValue && setLevelButtonInstance10CurrentButtonCategoryStateSecondValue)
+                {
+                    LevelButtonInstance10.InterpolateBetween(LevelButtonInstance10CurrentButtonCategoryStateFirstValue, LevelButtonInstance10CurrentButtonCategoryStateSecondValue, interpolationValue);
+                }
                 if (setLevelButtonInstance10CurrentLevelNumberStateFirstValue && setLevelButtonInstance10CurrentLevelNumberStateSecondValue)
                 {
                     LevelButtonInstance10.InterpolateBetween(LevelButtonInstance10CurrentLevelNumberStateFirstValue, LevelButtonInstance10CurrentLevelNumberStateSecondValue, interpolationValue);
@@ -562,6 +854,10 @@
                 if (setLevelButtonInstance10YFirstValue && setLevelButtonInstance10YSecondValue)
                 {
                     LevelButtonInstance10.Y = LevelButtonInstance10YFirstValue * (1 - interpolationValue) + LevelButtonInstance10YSecondValue * interpolationValue;
+                }
+                if (setLevelButtonInstance2CurrentButtonCategoryStateFirstValue && setLevelButtonInstance2CurrentButtonCategoryStateSecondValue)
+                {
+                    LevelButtonInstance2.InterpolateBetween(LevelButtonInstance2CurrentButtonCategoryStateFirstValue, LevelButtonInstance2CurrentButtonCategoryStateSecondValue, interpolationValue);
                 }
                 if (setLevelButtonInstance2CurrentLevelNumberStateFirstValue && setLevelButtonInstance2CurrentLevelNumberStateSecondValue)
                 {
@@ -575,6 +871,10 @@
                 {
                     LevelButtonInstance2.Y = LevelButtonInstance2YFirstValue * (1 - interpolationValue) + LevelButtonInstance2YSecondValue * interpolationValue;
                 }
+                if (setLevelButtonInstance3CurrentButtonCategoryStateFirstValue && setLevelButtonInstance3CurrentButtonCategoryStateSecondValue)
+                {
+                    LevelButtonInstance3.InterpolateBetween(LevelButtonInstance3CurrentButtonCategoryStateFirstValue, LevelButtonInstance3CurrentButtonCategoryStateSecondValue, interpolationValue);
+                }
                 if (setLevelButtonInstance3CurrentLevelNumberStateFirstValue && setLevelButtonInstance3CurrentLevelNumberStateSecondValue)
                 {
                     LevelButtonInstance3.InterpolateBetween(LevelButtonInstance3CurrentLevelNumberStateFirstValue, LevelButtonInstance3CurrentLevelNumberStateSecondValue, interpolationValue);
@@ -586,6 +886,10 @@
                 if (setLevelButtonInstance3YFirstValue && setLevelButtonInstance3YSecondValue)
                 {
                     LevelButtonInstance3.Y = LevelButtonInstance3YFirstValue * (1 - interpolationValue) + LevelButtonInstance3YSecondValue * interpolationValue;
+                }
+                if (setLevelButtonInstance4CurrentButtonCategoryStateFirstValue && setLevelButtonInstance4CurrentButtonCategoryStateSecondValue)
+                {
+                    LevelButtonInstance4.InterpolateBetween(LevelButtonInstance4CurrentButtonCategoryStateFirstValue, LevelButtonInstance4CurrentButtonCategoryStateSecondValue, interpolationValue);
                 }
                 if (setLevelButtonInstance4CurrentLevelNumberStateFirstValue && setLevelButtonInstance4CurrentLevelNumberStateSecondValue)
                 {
@@ -599,6 +903,10 @@
                 {
                     LevelButtonInstance4.Y = LevelButtonInstance4YFirstValue * (1 - interpolationValue) + LevelButtonInstance4YSecondValue * interpolationValue;
                 }
+                if (setLevelButtonInstance5CurrentButtonCategoryStateFirstValue && setLevelButtonInstance5CurrentButtonCategoryStateSecondValue)
+                {
+                    LevelButtonInstance5.InterpolateBetween(LevelButtonInstance5CurrentButtonCategoryStateFirstValue, LevelButtonInstance5CurrentButtonCategoryStateSecondValue, interpolationValue);
+                }
                 if (setLevelButtonInstance5CurrentLevelNumberStateFirstValue && setLevelButtonInstance5CurrentLevelNumberStateSecondValue)
                 {
                     LevelButtonInstance5.InterpolateBetween(LevelButtonInstance5CurrentLevelNumberStateFirstValue, LevelButtonInstance5CurrentLevelNumberStateSecondValue, interpolationValue);
@@ -610,6 +918,10 @@
                 if (setLevelButtonInstance5YFirstValue && setLevelButtonInstance5YSecondValue)
                 {
                     LevelButtonInstance5.Y = LevelButtonInstance5YFirstValue * (1 - interpolationValue) + LevelButtonInstance5YSecondValue * interpolationValue;
+                }
+                if (setLevelButtonInstance6CurrentButtonCategoryStateFirstValue && setLevelButtonInstance6CurrentButtonCategoryStateSecondValue)
+                {
+                    LevelButtonInstance6.InterpolateBetween(LevelButtonInstance6CurrentButtonCategoryStateFirstValue, LevelButtonInstance6CurrentButtonCategoryStateSecondValue, interpolationValue);
                 }
                 if (setLevelButtonInstance6CurrentLevelNumberStateFirstValue && setLevelButtonInstance6CurrentLevelNumberStateSecondValue)
                 {
@@ -623,6 +935,10 @@
                 {
                     LevelButtonInstance6.Y = LevelButtonInstance6YFirstValue * (1 - interpolationValue) + LevelButtonInstance6YSecondValue * interpolationValue;
                 }
+                if (setLevelButtonInstance7CurrentButtonCategoryStateFirstValue && setLevelButtonInstance7CurrentButtonCategoryStateSecondValue)
+                {
+                    LevelButtonInstance7.InterpolateBetween(LevelButtonInstance7CurrentButtonCategoryStateFirstValue, LevelButtonInstance7CurrentButtonCategoryStateSecondValue, interpolationValue);
+                }
                 if (setLevelButtonInstance7CurrentLevelNumberStateFirstValue && setLevelButtonInstance7CurrentLevelNumberStateSecondValue)
                 {
                     LevelButtonInstance7.InterpolateBetween(LevelButtonInstance7CurrentLevelNumberStateFirstValue, LevelButtonInstance7CurrentLevelNumberStateSecondValue, interpolationValue);
@@ -634,6 +950,10 @@
                 if (setLevelButtonInstance7YFirstValue && setLevelButtonInstance7YSecondValue)
                 {
                     LevelButtonInstance7.Y = LevelButtonInstance7YFirstValue * (1 - interpolationValue) + LevelButtonInstance7YSecondValue * interpolationValue;
+                }
+                if (setLevelButtonInstance8CurrentButtonCategoryStateFirstValue && setLevelButtonInstance8CurrentButtonCategoryStateSecondValue)
+                {
+                    LevelButtonInstance8.InterpolateBetween(LevelButtonInstance8CurrentButtonCategoryStateFirstValue, LevelButtonInstance8CurrentButtonCategoryStateSecondValue, interpolationValue);
                 }
                 if (setLevelButtonInstance8CurrentLevelNumberStateFirstValue && setLevelButtonInstance8CurrentLevelNumberStateSecondValue)
                 {
@@ -647,6 +967,10 @@
                 {
                     LevelButtonInstance8.Y = LevelButtonInstance8YFirstValue * (1 - interpolationValue) + LevelButtonInstance8YSecondValue * interpolationValue;
                 }
+                if (setLevelButtonInstance9CurrentButtonCategoryStateFirstValue && setLevelButtonInstance9CurrentButtonCategoryStateSecondValue)
+                {
+                    LevelButtonInstance9.InterpolateBetween(LevelButtonInstance9CurrentButtonCategoryStateFirstValue, LevelButtonInstance9CurrentButtonCategoryStateSecondValue, interpolationValue);
+                }
                 if (setLevelButtonInstance9CurrentLevelNumberStateFirstValue && setLevelButtonInstance9CurrentLevelNumberStateSecondValue)
                 {
                     LevelButtonInstance9.InterpolateBetween(LevelButtonInstance9CurrentLevelNumberStateFirstValue, LevelButtonInstance9CurrentLevelNumberStateSecondValue, interpolationValue);
@@ -659,6 +983,10 @@
                 {
                     LevelButtonInstance9.Y = LevelButtonInstance9YFirstValue * (1 - interpolationValue) + LevelButtonInstance9YSecondValue * interpolationValue;
                 }
+                if (setOptionsButtonInstanceCurrentButtonTypeStateFirstValue && setOptionsButtonInstanceCurrentButtonTypeStateSecondValue)
+                {
+                    OptionsButtonInstance.InterpolateBetween(OptionsButtonInstanceCurrentButtonTypeStateFirstValue, OptionsButtonInstanceCurrentButtonTypeStateSecondValue, interpolationValue);
+                }
                 if (setOptionsButtonInstanceHeightFirstValue && setOptionsButtonInstanceHeightSecondValue)
                 {
                     OptionsButtonInstance.Height = OptionsButtonInstanceHeightFirstValue * (1 - interpolationValue) + OptionsButtonInstanceHeightSecondValue * interpolationValue;
@@ -666,6 +994,14 @@
                 if (setOptionsButtonInstanceWidthFirstValue && setOptionsButtonInstanceWidthSecondValue)
                 {
                     OptionsButtonInstance.Width = OptionsButtonInstanceWidthFirstValue * (1 - interpolationValue) + OptionsButtonInstanceWidthSecondValue * interpolationValue;
+                }
+                if (setOptionsButtonInstanceXFirstValue && setOptionsButtonInstanceXSecondValue)
+                {
+                    OptionsButtonInstance.X = OptionsButtonInstanceXFirstValue * (1 - interpolationValue) + OptionsButtonInstanceXSecondValue * interpolationValue;
+                }
+                if (setOptionsButtonInstanceYFirstValue && setOptionsButtonInstanceYSecondValue)
+                {
+                    OptionsButtonInstance.Y = OptionsButtonInstanceYFirstValue * (1 - interpolationValue) + OptionsButtonInstanceYSecondValue * interpolationValue;
                 }
                 if (setScreenDimRectangleAlphaFirstValue && setScreenDimRectangleAlphaSecondValue)
                 {
@@ -691,6 +1027,22 @@
                 {
                     ScreenDimRectangle.Width = ScreenDimRectangleWidthFirstValue * (1 - interpolationValue) + ScreenDimRectangleWidthSecondValue * interpolationValue;
                 }
+                if (setStyleBarInstanceHeightFirstValue && setStyleBarInstanceHeightSecondValue)
+                {
+                    StyleBarInstance.Height = StyleBarInstanceHeightFirstValue * (1 - interpolationValue) + StyleBarInstanceHeightSecondValue * interpolationValue;
+                }
+                if (setStyleBarInstanceWidthFirstValue && setStyleBarInstanceWidthSecondValue)
+                {
+                    StyleBarInstance.Width = StyleBarInstanceWidthFirstValue * (1 - interpolationValue) + StyleBarInstanceWidthSecondValue * interpolationValue;
+                }
+                if (setStyleBarInstanceXFirstValue && setStyleBarInstanceXSecondValue)
+                {
+                    StyleBarInstance.X = StyleBarInstanceXFirstValue * (1 - interpolationValue) + StyleBarInstanceXSecondValue * interpolationValue;
+                }
+                if (setStyleBarInstanceYFirstValue && setStyleBarInstanceYSecondValue)
+                {
+                    StyleBarInstance.Y = StyleBarInstanceYFirstValue * (1 - interpolationValue) + StyleBarInstanceYSecondValue * interpolationValue;
+                }
                 if (interpolationValue < 1)
                 {
                     mCurrentVariableState = firstState;
@@ -708,93 +1060,29 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
-                bool setLevelButtonInstance1CurrentButtonCategoryStateFirstValue = false;
-                bool setLevelButtonInstance1CurrentButtonCategoryStateSecondValue = false;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance1CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance1CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                bool setLevelButtonInstance1XFirstValue = false;
-                bool setLevelButtonInstance1XSecondValue = false;
-                float LevelButtonInstance1XFirstValue= 0;
-                float LevelButtonInstance1XSecondValue= 0;
-                bool setLevelButtonInstance1YFirstValue = false;
-                bool setLevelButtonInstance1YSecondValue = false;
-                float LevelButtonInstance1YFirstValue= 0;
-                float LevelButtonInstance1YSecondValue= 0;
-                bool setLevelButtonInstance10CurrentButtonCategoryStateFirstValue = false;
-                bool setLevelButtonInstance10CurrentButtonCategoryStateSecondValue = false;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance10CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance10CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                bool setLevelButtonInstance2CurrentButtonCategoryStateFirstValue = false;
-                bool setLevelButtonInstance2CurrentButtonCategoryStateSecondValue = false;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance2CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance2CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                bool setLevelButtonInstance3CurrentButtonCategoryStateFirstValue = false;
-                bool setLevelButtonInstance3CurrentButtonCategoryStateSecondValue = false;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance3CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance3CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                bool setLevelButtonInstance4CurrentButtonCategoryStateFirstValue = false;
-                bool setLevelButtonInstance4CurrentButtonCategoryStateSecondValue = false;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance4CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance4CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                bool setLevelButtonInstance5CurrentButtonCategoryStateFirstValue = false;
-                bool setLevelButtonInstance5CurrentButtonCategoryStateSecondValue = false;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance5CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance5CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                bool setLevelButtonInstance6CurrentButtonCategoryStateFirstValue = false;
-                bool setLevelButtonInstance6CurrentButtonCategoryStateSecondValue = false;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance6CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance6CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                bool setLevelButtonInstance7CurrentButtonCategoryStateFirstValue = false;
-                bool setLevelButtonInstance7CurrentButtonCategoryStateSecondValue = false;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance7CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance7CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                bool setLevelButtonInstance7XFirstValue = false;
-                bool setLevelButtonInstance7XSecondValue = false;
-                float LevelButtonInstance7XFirstValue= 0;
-                float LevelButtonInstance7XSecondValue= 0;
-                bool setLevelButtonInstance7YFirstValue = false;
-                bool setLevelButtonInstance7YSecondValue = false;
-                float LevelButtonInstance7YFirstValue= 0;
-                float LevelButtonInstance7YSecondValue= 0;
-                bool setLevelButtonInstance8CurrentButtonCategoryStateFirstValue = false;
-                bool setLevelButtonInstance8CurrentButtonCategoryStateSecondValue = false;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance8CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance8CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                bool setLevelButtonInstance9CurrentButtonCategoryStateFirstValue = false;
-                bool setLevelButtonInstance9CurrentButtonCategoryStateSecondValue = false;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance9CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
-                LevelButtonRuntime.ButtonCategory LevelButtonInstance9CurrentButtonCategoryStateSecondValue= LevelButtonRuntime.ButtonCategory.Enabled;
+                bool setOptionsButtonInstanceXFirstValue = false;
+                bool setOptionsButtonInstanceXSecondValue = false;
+                float OptionsButtonInstanceXFirstValue= 0;
+                float OptionsButtonInstanceXSecondValue= 0;
+                bool setOptionsButtonInstanceYFirstValue = false;
+                bool setOptionsButtonInstanceYSecondValue = false;
+                float OptionsButtonInstanceYFirstValue= 0;
+                float OptionsButtonInstanceYSecondValue= 0;
+                bool setScreenDimRectangleAlphaFirstValue = false;
+                bool setScreenDimRectangleAlphaSecondValue = false;
+                int ScreenDimRectangleAlphaFirstValue= 0;
+                int ScreenDimRectangleAlphaSecondValue= 0;
+                bool setStyleBarInstanceHeightFirstValue = false;
+                bool setStyleBarInstanceHeightSecondValue = false;
+                float StyleBarInstanceHeightFirstValue= 0;
+                float StyleBarInstanceHeightSecondValue= 0;
+                bool setStyleBarInstanceWidthFirstValue = false;
+                bool setStyleBarInstanceWidthSecondValue = false;
+                float StyleBarInstanceWidthFirstValue= 0;
+                float StyleBarInstanceWidthSecondValue= 0;
                 switch(firstState)
                 {
                     case  MenuDisplay.MenuHidden:
-                        setLevelButtonInstance1CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance1CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance1XFirstValue = true;
-                        LevelButtonInstance1XFirstValue = 102f;
-                        setLevelButtonInstance1YFirstValue = true;
-                        LevelButtonInstance1YFirstValue = 1236f;
-                        setLevelButtonInstance10CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance10CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance2CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance2CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance3CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance3CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance4CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance4CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance5CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance5CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance6CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance6CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance7CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance7CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance7XFirstValue = true;
-                        LevelButtonInstance7XFirstValue = 1568f;
-                        setLevelButtonInstance7YFirstValue = true;
-                        LevelButtonInstance7YFirstValue = 724f;
-                        setLevelButtonInstance8CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance8CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance9CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance9CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         if (interpolationValue < 1)
                         {
                             this.MenuWindowInstance.Visible = false;
@@ -803,40 +1091,26 @@
                         {
                             this.OptionsButtonInstance.Visible = true;
                         }
+                        setOptionsButtonInstanceXFirstValue = true;
+                        OptionsButtonInstanceXFirstValue = 3.039063f;
+                        setOptionsButtonInstanceYFirstValue = true;
+                        OptionsButtonInstanceYFirstValue = 5.347222f;
+                        setScreenDimRectangleAlphaFirstValue = true;
+                        ScreenDimRectangleAlphaFirstValue = 120;
                         if (interpolationValue < 1)
                         {
                             this.ScreenDimRectangle.Visible = false;
                         }
+                        setStyleBarInstanceHeightFirstValue = true;
+                        StyleBarInstanceHeightFirstValue = 5f;
+                        if (interpolationValue < 1)
+                        {
+                            this.StyleBarInstance.Visible = false;
+                        }
+                        setStyleBarInstanceWidthFirstValue = true;
+                        StyleBarInstanceWidthFirstValue = 5f;
                         break;
                     case  MenuDisplay.MenuShown:
-                        setLevelButtonInstance1CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance1CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance1XFirstValue = true;
-                        LevelButtonInstance1XFirstValue = 128f;
-                        setLevelButtonInstance1YFirstValue = true;
-                        LevelButtonInstance1YFirstValue = 1258f;
-                        setLevelButtonInstance10CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance10CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance2CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance2CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance3CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance3CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance4CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance4CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance5CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance5CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance6CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance6CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance7CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance7CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance7XFirstValue = true;
-                        LevelButtonInstance7XFirstValue = 1614f;
-                        setLevelButtonInstance7YFirstValue = true;
-                        LevelButtonInstance7YFirstValue = 716f;
-                        setLevelButtonInstance8CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance8CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance9CurrentButtonCategoryStateFirstValue = true;
-                        LevelButtonInstance9CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         if (interpolationValue < 1)
                         {
                             this.MenuWindowInstance.Visible = true;
@@ -845,43 +1119,141 @@
                         {
                             this.OptionsButtonInstance.Visible = false;
                         }
+                        setOptionsButtonInstanceXFirstValue = true;
+                        OptionsButtonInstanceXFirstValue = 3.039063f;
+                        setOptionsButtonInstanceYFirstValue = true;
+                        OptionsButtonInstanceYFirstValue = 5.347222f;
+                        setScreenDimRectangleAlphaFirstValue = true;
+                        ScreenDimRectangleAlphaFirstValue = 120;
                         if (interpolationValue < 1)
                         {
                             this.ScreenDimRectangle.Visible = true;
                         }
+                        setStyleBarInstanceHeightFirstValue = true;
+                        StyleBarInstanceHeightFirstValue = 5f;
+                        if (interpolationValue < 1)
+                        {
+                            this.StyleBarInstance.Visible = false;
+                        }
+                        setStyleBarInstanceWidthFirstValue = true;
+                        StyleBarInstanceWidthFirstValue = 5f;
+                        break;
+                    case  MenuDisplay.MenuShow1:
+                        if (interpolationValue < 1)
+                        {
+                            this.MenuWindowInstance.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.OptionsButtonInstance.Visible = true;
+                        }
+                        setOptionsButtonInstanceXFirstValue = true;
+                        OptionsButtonInstanceXFirstValue = 50f;
+                        setOptionsButtonInstanceYFirstValue = true;
+                        OptionsButtonInstanceYFirstValue = 50f;
+                        setScreenDimRectangleAlphaFirstValue = true;
+                        ScreenDimRectangleAlphaFirstValue = 0;
+                        if (interpolationValue < 1)
+                        {
+                            this.ScreenDimRectangle.Visible = true;
+                        }
+                        setStyleBarInstanceHeightFirstValue = true;
+                        StyleBarInstanceHeightFirstValue = 5f;
+                        if (interpolationValue < 1)
+                        {
+                            this.StyleBarInstance.Visible = false;
+                        }
+                        setStyleBarInstanceWidthFirstValue = true;
+                        StyleBarInstanceWidthFirstValue = 5f;
+                        break;
+                    case  MenuDisplay.MenuShow2:
+                        if (interpolationValue < 1)
+                        {
+                            this.MenuWindowInstance.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.OptionsButtonInstance.Visible = false;
+                        }
+                        setOptionsButtonInstanceXFirstValue = true;
+                        OptionsButtonInstanceXFirstValue = 50f;
+                        setOptionsButtonInstanceYFirstValue = true;
+                        OptionsButtonInstanceYFirstValue = 50f;
+                        setScreenDimRectangleAlphaFirstValue = true;
+                        ScreenDimRectangleAlphaFirstValue = 30;
+                        if (interpolationValue < 1)
+                        {
+                            this.ScreenDimRectangle.Visible = true;
+                        }
+                        setStyleBarInstanceHeightFirstValue = true;
+                        StyleBarInstanceHeightFirstValue = 5f;
+                        if (interpolationValue < 1)
+                        {
+                            this.StyleBarInstance.Visible = true;
+                        }
+                        setStyleBarInstanceWidthFirstValue = true;
+                        StyleBarInstanceWidthFirstValue = 5f;
+                        break;
+                    case  MenuDisplay.MenuShow3:
+                        if (interpolationValue < 1)
+                        {
+                            this.MenuWindowInstance.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.OptionsButtonInstance.Visible = false;
+                        }
+                        setOptionsButtonInstanceXFirstValue = true;
+                        OptionsButtonInstanceXFirstValue = 3.039063f;
+                        setOptionsButtonInstanceYFirstValue = true;
+                        OptionsButtonInstanceYFirstValue = 5.347222f;
+                        setScreenDimRectangleAlphaFirstValue = true;
+                        ScreenDimRectangleAlphaFirstValue = 60;
+                        if (interpolationValue < 1)
+                        {
+                            this.ScreenDimRectangle.Visible = true;
+                        }
+                        setStyleBarInstanceHeightFirstValue = true;
+                        StyleBarInstanceHeightFirstValue = 5f;
+                        if (interpolationValue < 1)
+                        {
+                            this.StyleBarInstance.Visible = true;
+                        }
+                        setStyleBarInstanceWidthFirstValue = true;
+                        StyleBarInstanceWidthFirstValue = 47f;
+                        break;
+                    case  MenuDisplay.MenuShow4:
+                        if (interpolationValue < 1)
+                        {
+                            this.MenuWindowInstance.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.OptionsButtonInstance.Visible = false;
+                        }
+                        setOptionsButtonInstanceXFirstValue = true;
+                        OptionsButtonInstanceXFirstValue = 3.039063f;
+                        setOptionsButtonInstanceYFirstValue = true;
+                        OptionsButtonInstanceYFirstValue = 5.347222f;
+                        setScreenDimRectangleAlphaFirstValue = true;
+                        ScreenDimRectangleAlphaFirstValue = 90;
+                        if (interpolationValue < 1)
+                        {
+                            this.ScreenDimRectangle.Visible = true;
+                        }
+                        setStyleBarInstanceHeightFirstValue = true;
+                        StyleBarInstanceHeightFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.StyleBarInstance.Visible = true;
+                        }
+                        setStyleBarInstanceWidthFirstValue = true;
+                        StyleBarInstanceWidthFirstValue = 47f;
                         break;
                 }
                 switch(secondState)
                 {
                     case  MenuDisplay.MenuHidden:
-                        setLevelButtonInstance1CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance1CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance1XSecondValue = true;
-                        LevelButtonInstance1XSecondValue = 102f;
-                        setLevelButtonInstance1YSecondValue = true;
-                        LevelButtonInstance1YSecondValue = 1236f;
-                        setLevelButtonInstance10CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance10CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance2CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance2CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance3CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance3CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance4CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance4CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance5CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance5CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance6CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance6CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance7CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance7CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance7XSecondValue = true;
-                        LevelButtonInstance7XSecondValue = 1568f;
-                        setLevelButtonInstance7YSecondValue = true;
-                        LevelButtonInstance7YSecondValue = 724f;
-                        setLevelButtonInstance8CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance8CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance9CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance9CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         if (interpolationValue >= 1)
                         {
                             this.MenuWindowInstance.Visible = false;
@@ -890,40 +1262,26 @@
                         {
                             this.OptionsButtonInstance.Visible = true;
                         }
+                        setOptionsButtonInstanceXSecondValue = true;
+                        OptionsButtonInstanceXSecondValue = 3.039063f;
+                        setOptionsButtonInstanceYSecondValue = true;
+                        OptionsButtonInstanceYSecondValue = 5.347222f;
+                        setScreenDimRectangleAlphaSecondValue = true;
+                        ScreenDimRectangleAlphaSecondValue = 120;
                         if (interpolationValue >= 1)
                         {
                             this.ScreenDimRectangle.Visible = false;
                         }
+                        setStyleBarInstanceHeightSecondValue = true;
+                        StyleBarInstanceHeightSecondValue = 5f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.StyleBarInstance.Visible = false;
+                        }
+                        setStyleBarInstanceWidthSecondValue = true;
+                        StyleBarInstanceWidthSecondValue = 5f;
                         break;
                     case  MenuDisplay.MenuShown:
-                        setLevelButtonInstance1CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance1CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance1XSecondValue = true;
-                        LevelButtonInstance1XSecondValue = 128f;
-                        setLevelButtonInstance1YSecondValue = true;
-                        LevelButtonInstance1YSecondValue = 1258f;
-                        setLevelButtonInstance10CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance10CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance2CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance2CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance3CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance3CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance4CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance4CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance5CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance5CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance6CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance6CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance7CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance7CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance7XSecondValue = true;
-                        LevelButtonInstance7XSecondValue = 1614f;
-                        setLevelButtonInstance7YSecondValue = true;
-                        LevelButtonInstance7YSecondValue = 716f;
-                        setLevelButtonInstance8CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance8CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
-                        setLevelButtonInstance9CurrentButtonCategoryStateSecondValue = true;
-                        LevelButtonInstance9CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         if (interpolationValue >= 1)
                         {
                             this.MenuWindowInstance.Visible = true;
@@ -932,67 +1290,157 @@
                         {
                             this.OptionsButtonInstance.Visible = false;
                         }
+                        setOptionsButtonInstanceXSecondValue = true;
+                        OptionsButtonInstanceXSecondValue = 3.039063f;
+                        setOptionsButtonInstanceYSecondValue = true;
+                        OptionsButtonInstanceYSecondValue = 5.347222f;
+                        setScreenDimRectangleAlphaSecondValue = true;
+                        ScreenDimRectangleAlphaSecondValue = 120;
                         if (interpolationValue >= 1)
                         {
                             this.ScreenDimRectangle.Visible = true;
                         }
+                        setStyleBarInstanceHeightSecondValue = true;
+                        StyleBarInstanceHeightSecondValue = 5f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.StyleBarInstance.Visible = false;
+                        }
+                        setStyleBarInstanceWidthSecondValue = true;
+                        StyleBarInstanceWidthSecondValue = 5f;
+                        break;
+                    case  MenuDisplay.MenuShow1:
+                        if (interpolationValue >= 1)
+                        {
+                            this.MenuWindowInstance.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.OptionsButtonInstance.Visible = true;
+                        }
+                        setOptionsButtonInstanceXSecondValue = true;
+                        OptionsButtonInstanceXSecondValue = 50f;
+                        setOptionsButtonInstanceYSecondValue = true;
+                        OptionsButtonInstanceYSecondValue = 50f;
+                        setScreenDimRectangleAlphaSecondValue = true;
+                        ScreenDimRectangleAlphaSecondValue = 0;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ScreenDimRectangle.Visible = true;
+                        }
+                        setStyleBarInstanceHeightSecondValue = true;
+                        StyleBarInstanceHeightSecondValue = 5f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.StyleBarInstance.Visible = false;
+                        }
+                        setStyleBarInstanceWidthSecondValue = true;
+                        StyleBarInstanceWidthSecondValue = 5f;
+                        break;
+                    case  MenuDisplay.MenuShow2:
+                        if (interpolationValue >= 1)
+                        {
+                            this.MenuWindowInstance.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.OptionsButtonInstance.Visible = false;
+                        }
+                        setOptionsButtonInstanceXSecondValue = true;
+                        OptionsButtonInstanceXSecondValue = 50f;
+                        setOptionsButtonInstanceYSecondValue = true;
+                        OptionsButtonInstanceYSecondValue = 50f;
+                        setScreenDimRectangleAlphaSecondValue = true;
+                        ScreenDimRectangleAlphaSecondValue = 30;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ScreenDimRectangle.Visible = true;
+                        }
+                        setStyleBarInstanceHeightSecondValue = true;
+                        StyleBarInstanceHeightSecondValue = 5f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.StyleBarInstance.Visible = true;
+                        }
+                        setStyleBarInstanceWidthSecondValue = true;
+                        StyleBarInstanceWidthSecondValue = 5f;
+                        break;
+                    case  MenuDisplay.MenuShow3:
+                        if (interpolationValue >= 1)
+                        {
+                            this.MenuWindowInstance.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.OptionsButtonInstance.Visible = false;
+                        }
+                        setOptionsButtonInstanceXSecondValue = true;
+                        OptionsButtonInstanceXSecondValue = 3.039063f;
+                        setOptionsButtonInstanceYSecondValue = true;
+                        OptionsButtonInstanceYSecondValue = 5.347222f;
+                        setScreenDimRectangleAlphaSecondValue = true;
+                        ScreenDimRectangleAlphaSecondValue = 60;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ScreenDimRectangle.Visible = true;
+                        }
+                        setStyleBarInstanceHeightSecondValue = true;
+                        StyleBarInstanceHeightSecondValue = 5f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.StyleBarInstance.Visible = true;
+                        }
+                        setStyleBarInstanceWidthSecondValue = true;
+                        StyleBarInstanceWidthSecondValue = 47f;
+                        break;
+                    case  MenuDisplay.MenuShow4:
+                        if (interpolationValue >= 1)
+                        {
+                            this.MenuWindowInstance.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.OptionsButtonInstance.Visible = false;
+                        }
+                        setOptionsButtonInstanceXSecondValue = true;
+                        OptionsButtonInstanceXSecondValue = 3.039063f;
+                        setOptionsButtonInstanceYSecondValue = true;
+                        OptionsButtonInstanceYSecondValue = 5.347222f;
+                        setScreenDimRectangleAlphaSecondValue = true;
+                        ScreenDimRectangleAlphaSecondValue = 90;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ScreenDimRectangle.Visible = true;
+                        }
+                        setStyleBarInstanceHeightSecondValue = true;
+                        StyleBarInstanceHeightSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.StyleBarInstance.Visible = true;
+                        }
+                        setStyleBarInstanceWidthSecondValue = true;
+                        StyleBarInstanceWidthSecondValue = 47f;
                         break;
                 }
-                if (setLevelButtonInstance1CurrentButtonCategoryStateFirstValue && setLevelButtonInstance1CurrentButtonCategoryStateSecondValue)
+                if (setOptionsButtonInstanceXFirstValue && setOptionsButtonInstanceXSecondValue)
                 {
-                    LevelButtonInstance1.InterpolateBetween(LevelButtonInstance1CurrentButtonCategoryStateFirstValue, LevelButtonInstance1CurrentButtonCategoryStateSecondValue, interpolationValue);
+                    OptionsButtonInstance.X = OptionsButtonInstanceXFirstValue * (1 - interpolationValue) + OptionsButtonInstanceXSecondValue * interpolationValue;
                 }
-                if (setLevelButtonInstance1XFirstValue && setLevelButtonInstance1XSecondValue)
+                if (setOptionsButtonInstanceYFirstValue && setOptionsButtonInstanceYSecondValue)
                 {
-                    LevelButtonInstance1.X = LevelButtonInstance1XFirstValue * (1 - interpolationValue) + LevelButtonInstance1XSecondValue * interpolationValue;
+                    OptionsButtonInstance.Y = OptionsButtonInstanceYFirstValue * (1 - interpolationValue) + OptionsButtonInstanceYSecondValue * interpolationValue;
                 }
-                if (setLevelButtonInstance1YFirstValue && setLevelButtonInstance1YSecondValue)
+                if (setScreenDimRectangleAlphaFirstValue && setScreenDimRectangleAlphaSecondValue)
                 {
-                    LevelButtonInstance1.Y = LevelButtonInstance1YFirstValue * (1 - interpolationValue) + LevelButtonInstance1YSecondValue * interpolationValue;
+                    ScreenDimRectangle.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(ScreenDimRectangleAlphaFirstValue* (1 - interpolationValue) + ScreenDimRectangleAlphaSecondValue * interpolationValue);
                 }
-                if (setLevelButtonInstance10CurrentButtonCategoryStateFirstValue && setLevelButtonInstance10CurrentButtonCategoryStateSecondValue)
+                if (setStyleBarInstanceHeightFirstValue && setStyleBarInstanceHeightSecondValue)
                 {
-                    LevelButtonInstance10.InterpolateBetween(LevelButtonInstance10CurrentButtonCategoryStateFirstValue, LevelButtonInstance10CurrentButtonCategoryStateSecondValue, interpolationValue);
+                    StyleBarInstance.Height = StyleBarInstanceHeightFirstValue * (1 - interpolationValue) + StyleBarInstanceHeightSecondValue * interpolationValue;
                 }
-                if (setLevelButtonInstance2CurrentButtonCategoryStateFirstValue && setLevelButtonInstance2CurrentButtonCategoryStateSecondValue)
+                if (setStyleBarInstanceWidthFirstValue && setStyleBarInstanceWidthSecondValue)
                 {
-                    LevelButtonInstance2.InterpolateBetween(LevelButtonInstance2CurrentButtonCategoryStateFirstValue, LevelButtonInstance2CurrentButtonCategoryStateSecondValue, interpolationValue);
-                }
-                if (setLevelButtonInstance3CurrentButtonCategoryStateFirstValue && setLevelButtonInstance3CurrentButtonCategoryStateSecondValue)
-                {
-                    LevelButtonInstance3.InterpolateBetween(LevelButtonInstance3CurrentButtonCategoryStateFirstValue, LevelButtonInstance3CurrentButtonCategoryStateSecondValue, interpolationValue);
-                }
-                if (setLevelButtonInstance4CurrentButtonCategoryStateFirstValue && setLevelButtonInstance4CurrentButtonCategoryStateSecondValue)
-                {
-                    LevelButtonInstance4.InterpolateBetween(LevelButtonInstance4CurrentButtonCategoryStateFirstValue, LevelButtonInstance4CurrentButtonCategoryStateSecondValue, interpolationValue);
-                }
-                if (setLevelButtonInstance5CurrentButtonCategoryStateFirstValue && setLevelButtonInstance5CurrentButtonCategoryStateSecondValue)
-                {
-                    LevelButtonInstance5.InterpolateBetween(LevelButtonInstance5CurrentButtonCategoryStateFirstValue, LevelButtonInstance5CurrentButtonCategoryStateSecondValue, interpolationValue);
-                }
-                if (setLevelButtonInstance6CurrentButtonCategoryStateFirstValue && setLevelButtonInstance6CurrentButtonCategoryStateSecondValue)
-                {
-                    LevelButtonInstance6.InterpolateBetween(LevelButtonInstance6CurrentButtonCategoryStateFirstValue, LevelButtonInstance6CurrentButtonCategoryStateSecondValue, interpolationValue);
-                }
-                if (setLevelButtonInstance7CurrentButtonCategoryStateFirstValue && setLevelButtonInstance7CurrentButtonCategoryStateSecondValue)
-                {
-                    LevelButtonInstance7.InterpolateBetween(LevelButtonInstance7CurrentButtonCategoryStateFirstValue, LevelButtonInstance7CurrentButtonCategoryStateSecondValue, interpolationValue);
-                }
-                if (setLevelButtonInstance7XFirstValue && setLevelButtonInstance7XSecondValue)
-                {
-                    LevelButtonInstance7.X = LevelButtonInstance7XFirstValue * (1 - interpolationValue) + LevelButtonInstance7XSecondValue * interpolationValue;
-                }
-                if (setLevelButtonInstance7YFirstValue && setLevelButtonInstance7YSecondValue)
-                {
-                    LevelButtonInstance7.Y = LevelButtonInstance7YFirstValue * (1 - interpolationValue) + LevelButtonInstance7YSecondValue * interpolationValue;
-                }
-                if (setLevelButtonInstance8CurrentButtonCategoryStateFirstValue && setLevelButtonInstance8CurrentButtonCategoryStateSecondValue)
-                {
-                    LevelButtonInstance8.InterpolateBetween(LevelButtonInstance8CurrentButtonCategoryStateFirstValue, LevelButtonInstance8CurrentButtonCategoryStateSecondValue, interpolationValue);
-                }
-                if (setLevelButtonInstance9CurrentButtonCategoryStateFirstValue && setLevelButtonInstance9CurrentButtonCategoryStateSecondValue)
-                {
-                    LevelButtonInstance9.InterpolateBetween(LevelButtonInstance9CurrentButtonCategoryStateFirstValue, LevelButtonInstance9CurrentButtonCategoryStateSecondValue, interpolationValue);
+                    StyleBarInstance.Width = StyleBarInstanceWidthFirstValue * (1 - interpolationValue) + StyleBarInstanceWidthSecondValue * interpolationValue;
                 }
                 if (interpolationValue < 1)
                 {
@@ -1115,6 +1563,352 @@
             }
             #endregion
             #region State Animations
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> ShowMenuAnimationInstructions (object target) 
+            {
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction( ()=> this.CurrentMenuDisplayState = MenuDisplay.MenuHidden);
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(MenuDisplay.MenuShow1, 0.3f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, ShowMenuAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(MenuDisplay.MenuShow2, 0.09999999f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, FlatRedBall.Glue.StateInterpolation.Easing.InOut, ShowMenuAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.3f;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(MenuDisplay.MenuShow3, 0.09999999f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, FlatRedBall.Glue.StateInterpolation.Easing.InOut, ShowMenuAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.4f;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(MenuDisplay.MenuShow4, 0.1f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, FlatRedBall.Glue.StateInterpolation.Easing.InOut, ShowMenuAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.5f;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(MenuDisplay.MenuShown, 0.09999996f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, FlatRedBall.Glue.StateInterpolation.Easing.InOut, ShowMenuAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.6f;
+                    yield return toReturn;
+                }
+            }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> ShowMenuAnimationRelativeInstructions (object target) 
+            {
+                {
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuHidden").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShow1").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(MenuDisplay.MenuShow1);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.3f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShow1").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShow2").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(MenuDisplay.MenuShow2);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.09999999f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.3f;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShow2").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShow3").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(MenuDisplay.MenuShow3);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.09999999f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.4f;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShow3").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShow4").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(MenuDisplay.MenuShow4);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.1f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.5f;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShow4").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShown").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(MenuDisplay.MenuShown);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.09999996f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.6f;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation showMenuAnimation;
+            public FlatRedBall.Gum.Animation.GumAnimation ShowMenuAnimation
+            {
+                get
+                {
+                    if (showMenuAnimation == null)
+                    {
+                        showMenuAnimation = new FlatRedBall.Gum.Animation.GumAnimation(0.7f, ShowMenuAnimationInstructions);
+                    }
+                    return showMenuAnimation;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation showMenuAnimationRelative;
+            public FlatRedBall.Gum.Animation.GumAnimation ShowMenuAnimationRelative
+            {
+                get
+                {
+                    if (showMenuAnimationRelative == null)
+                    {
+                        showMenuAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(0.7f, ShowMenuAnimationRelativeInstructions);
+                    }
+                    return showMenuAnimationRelative;
+                }
+            }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> HideMenuAnimationInstructions (object target) 
+            {
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction( ()=> this.CurrentMenuDisplayState = MenuDisplay.MenuShown);
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(MenuDisplay.MenuShow4, 0.1f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, FlatRedBall.Glue.StateInterpolation.Easing.InOut, HideMenuAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(MenuDisplay.MenuShow3, 0.1f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, FlatRedBall.Glue.StateInterpolation.Easing.InOut, HideMenuAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.1f;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(MenuDisplay.MenuShow2, 0.1f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, FlatRedBall.Glue.StateInterpolation.Easing.InOut, HideMenuAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.2f;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(MenuDisplay.MenuShow1, 0.09999999f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, FlatRedBall.Glue.StateInterpolation.Easing.InOut, HideMenuAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.3f;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(MenuDisplay.MenuHidden, 0.3f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, FlatRedBall.Glue.StateInterpolation.Easing.InOut, HideMenuAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.4f;
+                    yield return toReturn;
+                }
+            }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> HideMenuAnimationRelativeInstructions (object target) 
+            {
+                {
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShown").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShow4").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(MenuDisplay.MenuShow4);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.1f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShow4").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShow3").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(MenuDisplay.MenuShow3);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.1f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.1f;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShow3").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShow2").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(MenuDisplay.MenuShow2);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.1f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.2f;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShow2").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShow1").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(MenuDisplay.MenuShow1);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.09999999f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.3f;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuShow1").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "MenuDisplay/MenuHidden").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(MenuDisplay.MenuHidden);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.3f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.4f;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation hideMenuAnimation;
+            public FlatRedBall.Gum.Animation.GumAnimation HideMenuAnimation
+            {
+                get
+                {
+                    if (hideMenuAnimation == null)
+                    {
+                        hideMenuAnimation = new FlatRedBall.Gum.Animation.GumAnimation(0.7f, HideMenuAnimationInstructions);
+                    }
+                    return hideMenuAnimation;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation hideMenuAnimationRelative;
+            public FlatRedBall.Gum.Animation.GumAnimation HideMenuAnimationRelative
+            {
+                get
+                {
+                    if (hideMenuAnimationRelative == null)
+                    {
+                        hideMenuAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(0.7f, HideMenuAnimationRelativeInstructions);
+                    }
+                    return hideMenuAnimationRelative;
+                }
+            }
             #endregion
             public override void StopAnimations () 
             {
@@ -1130,8 +1924,11 @@
                 LevelButtonInstance8.StopAnimations();
                 LevelButtonInstance9.StopAnimations();
                 LevelButtonInstance10.StopAnimations();
-                OptionsButtonInstance.StopAnimations();
                 MenuWindowInstance.StopAnimations();
+                StyleBarInstance.StopAnimations();
+                OptionsButtonInstance.StopAnimations();
+                ShowMenuAnimation.Stop();
+                HideMenuAnimation.Stop();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -1175,6 +1972,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "LevelButtonInstance1.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance1.CurrentButtonCategoryState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "LevelButtonInstance1.LevelNumberState",
                             Type = "LevelNumberState",
                             Value = LevelButtonInstance1.CurrentLevelNumberState
@@ -1194,6 +1999,14 @@
                             Name = "LevelButtonInstance1.Y",
                             Type = "float",
                             Value = LevelButtonInstance1.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LevelButtonInstance2.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance2.CurrentButtonCategoryState
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1223,6 +2036,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "LevelButtonInstance3.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance3.CurrentButtonCategoryState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "LevelButtonInstance3.LevelNumberState",
                             Type = "LevelNumberState",
                             Value = LevelButtonInstance3.CurrentLevelNumberState
@@ -1242,6 +2063,14 @@
                             Name = "LevelButtonInstance3.Y",
                             Type = "float",
                             Value = LevelButtonInstance3.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LevelButtonInstance4.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance4.CurrentButtonCategoryState
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1271,6 +2100,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "LevelButtonInstance5.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance5.CurrentButtonCategoryState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "LevelButtonInstance5.LevelNumberState",
                             Type = "LevelNumberState",
                             Value = LevelButtonInstance5.CurrentLevelNumberState
@@ -1290,6 +2127,14 @@
                             Name = "LevelButtonInstance5.Y",
                             Type = "float",
                             Value = LevelButtonInstance5.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LevelButtonInstance6.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance6.CurrentButtonCategoryState
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1319,6 +2164,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "LevelButtonInstance7.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance7.CurrentButtonCategoryState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "LevelButtonInstance7.LevelNumberState",
                             Type = "LevelNumberState",
                             Value = LevelButtonInstance7.CurrentLevelNumberState
@@ -1338,6 +2191,14 @@
                             Name = "LevelButtonInstance7.Y",
                             Type = "float",
                             Value = LevelButtonInstance7.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LevelButtonInstance8.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance8.CurrentButtonCategoryState
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1367,6 +2228,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "LevelButtonInstance9.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance9.CurrentButtonCategoryState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "LevelButtonInstance9.LevelNumberState",
                             Type = "LevelNumberState",
                             Value = LevelButtonInstance9.CurrentLevelNumberState
@@ -1391,6 +2260,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "LevelButtonInstance10.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance10.CurrentButtonCategoryState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "LevelButtonInstance10.LevelNumberState",
                             Type = "LevelNumberState",
                             Value = LevelButtonInstance10.CurrentLevelNumberState
@@ -1410,22 +2287,6 @@
                             Name = "LevelButtonInstance10.Y",
                             Type = "float",
                             Value = LevelButtonInstance10.Y
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OptionsButtonInstance.Height",
-                            Type = "float",
-                            Value = OptionsButtonInstance.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OptionsButtonInstance.Width",
-                            Type = "float",
-                            Value = OptionsButtonInstance.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1524,6 +2385,166 @@
                             Value = MenuWindowInstance.ButtonType4State
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = MenuWindowInstance.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.X Units",
+                            Type = "PositionUnitType",
+                            Value = MenuWindowInstance.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = MenuWindowInstance.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.Y Units",
+                            Type = "PositionUnitType",
+                            Value = MenuWindowInstance.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Height",
+                            Type = "float",
+                            Value = StyleBarInstance.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Visible",
+                            Type = "bool",
+                            Value = StyleBarInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Width",
+                            Type = "float",
+                            Value = StyleBarInstance.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.X",
+                            Type = "float",
+                            Value = StyleBarInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = StyleBarInstance.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Y",
+                            Type = "float",
+                            Value = StyleBarInstance.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = StyleBarInstance.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.ButtonTypeState",
+                            Type = "ButtonTypeState",
+                            Value = OptionsButtonInstance.CurrentButtonTypeState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Height",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Width",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X",
+                            Type = "float",
+                            Value = OptionsButtonInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = OptionsButtonInstance.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X Units",
+                            Type = "PositionUnitType",
+                            Value = OptionsButtonInstance.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = OptionsButtonInstance.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y Units",
+                            Type = "PositionUnitType",
+                            Value = OptionsButtonInstance.YUnits
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -1569,6 +2590,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "LevelButtonInstance1.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance1.CurrentButtonCategoryState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "LevelButtonInstance1.LevelNumberState",
                             Type = "LevelNumberState",
                             Value = LevelButtonInstance1.CurrentLevelNumberState
@@ -1588,6 +2617,14 @@
                             Name = "LevelButtonInstance1.Y",
                             Type = "float",
                             Value = LevelButtonInstance1.Y + 1258f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LevelButtonInstance2.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance2.CurrentButtonCategoryState
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1617,6 +2654,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "LevelButtonInstance3.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance3.CurrentButtonCategoryState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "LevelButtonInstance3.LevelNumberState",
                             Type = "LevelNumberState",
                             Value = LevelButtonInstance3.CurrentLevelNumberState
@@ -1636,6 +2681,14 @@
                             Name = "LevelButtonInstance3.Y",
                             Type = "float",
                             Value = LevelButtonInstance3.Y + 626f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LevelButtonInstance4.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance4.CurrentButtonCategoryState
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1665,6 +2718,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "LevelButtonInstance5.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance5.CurrentButtonCategoryState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "LevelButtonInstance5.LevelNumberState",
                             Type = "LevelNumberState",
                             Value = LevelButtonInstance5.CurrentLevelNumberState
@@ -1684,6 +2745,14 @@
                             Name = "LevelButtonInstance5.Y",
                             Type = "float",
                             Value = LevelButtonInstance5.Y + 370f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LevelButtonInstance6.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance6.CurrentButtonCategoryState
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1713,6 +2782,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "LevelButtonInstance7.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance7.CurrentButtonCategoryState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "LevelButtonInstance7.LevelNumberState",
                             Type = "LevelNumberState",
                             Value = LevelButtonInstance7.CurrentLevelNumberState
@@ -1732,6 +2809,14 @@
                             Name = "LevelButtonInstance7.Y",
                             Type = "float",
                             Value = LevelButtonInstance7.Y + 716f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LevelButtonInstance8.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance8.CurrentButtonCategoryState
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1761,6 +2846,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "LevelButtonInstance9.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance9.CurrentButtonCategoryState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "LevelButtonInstance9.LevelNumberState",
                             Type = "LevelNumberState",
                             Value = LevelButtonInstance9.CurrentLevelNumberState
@@ -1785,6 +2878,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "LevelButtonInstance10.ButtonCategoryState",
+                            Type = "ButtonCategoryState",
+                            Value = LevelButtonInstance10.CurrentButtonCategoryState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "LevelButtonInstance10.LevelNumberState",
                             Type = "LevelNumberState",
                             Value = LevelButtonInstance10.CurrentLevelNumberState
@@ -1804,22 +2905,6 @@
                             Name = "LevelButtonInstance10.Y",
                             Type = "float",
                             Value = LevelButtonInstance10.Y + 248f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OptionsButtonInstance.Height",
-                            Type = "float",
-                            Value = OptionsButtonInstance.Height + 10.08334f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OptionsButtonInstance.Width",
-                            Type = "float",
-                            Value = OptionsButtonInstance.Width + 5.703125f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1918,6 +3003,166 @@
                             Value = MenuWindowInstance.ButtonType4State
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = MenuWindowInstance.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.X Units",
+                            Type = "PositionUnitType",
+                            Value = MenuWindowInstance.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = MenuWindowInstance.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.Y Units",
+                            Type = "PositionUnitType",
+                            Value = MenuWindowInstance.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Height",
+                            Type = "float",
+                            Value = StyleBarInstance.Height + 5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Visible",
+                            Type = "bool",
+                            Value = StyleBarInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Width",
+                            Type = "float",
+                            Value = StyleBarInstance.Width + 5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.X",
+                            Type = "float",
+                            Value = StyleBarInstance.X + 50f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = StyleBarInstance.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Y",
+                            Type = "float",
+                            Value = StyleBarInstance.Y + 50f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = StyleBarInstance.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.ButtonTypeState",
+                            Type = "ButtonTypeState",
+                            Value = OptionsButtonInstance.CurrentButtonTypeState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Height",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Height + 10.69444f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Width",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Width + 6.078125f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X",
+                            Type = "float",
+                            Value = OptionsButtonInstance.X + 3.039063f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = OptionsButtonInstance.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X Units",
+                            Type = "PositionUnitType",
+                            Value = OptionsButtonInstance.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Y + 5.347222f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = OptionsButtonInstance.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y Units",
+                            Type = "PositionUnitType",
+                            Value = OptionsButtonInstance.YUnits
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -1931,121 +3176,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LevelButtonInstance1.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance1.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance1.X",
-                            Type = "float",
-                            Value = LevelButtonInstance1.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance1.Y",
-                            Type = "float",
-                            Value = LevelButtonInstance1.Y
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance2.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance2.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance3.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance3.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance4.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance4.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance5.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance5.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance6.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance6.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance7.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance7.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance7.X",
-                            Type = "float",
-                            Value = LevelButtonInstance7.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance7.Y",
-                            Type = "float",
-                            Value = LevelButtonInstance7.Y
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance8.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance8.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance9.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance9.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance10.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance10.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OptionsButtonInstance.Visible",
-                            Type = "bool",
-                            Value = OptionsButtonInstance.Visible
+                            Name = "ScreenDimRectangle.Alpha",
+                            Type = "int",
+                            Value = ScreenDimRectangle.Alpha
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2062,6 +3195,54 @@
                             Name = "MenuWindowInstance.Visible",
                             Type = "bool",
                             Value = MenuWindowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Height",
+                            Type = "float",
+                            Value = StyleBarInstance.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Visible",
+                            Type = "bool",
+                            Value = StyleBarInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Width",
+                            Type = "float",
+                            Value = StyleBarInstance.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsButtonInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X",
+                            Type = "float",
+                            Value = OptionsButtonInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Y
                         }
                         );
                         break;
@@ -2069,121 +3250,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LevelButtonInstance1.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance1.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance1.X",
-                            Type = "float",
-                            Value = LevelButtonInstance1.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance1.Y",
-                            Type = "float",
-                            Value = LevelButtonInstance1.Y
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance2.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance2.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance3.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance3.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance4.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance4.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance5.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance5.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance6.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance6.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance7.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance7.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance7.X",
-                            Type = "float",
-                            Value = LevelButtonInstance7.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance7.Y",
-                            Type = "float",
-                            Value = LevelButtonInstance7.Y
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance8.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance8.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance9.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance9.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance10.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance10.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OptionsButtonInstance.Visible",
-                            Type = "bool",
-                            Value = OptionsButtonInstance.Visible
+                            Name = "ScreenDimRectangle.Alpha",
+                            Type = "int",
+                            Value = ScreenDimRectangle.Alpha
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2200,6 +3269,350 @@
                             Name = "MenuWindowInstance.Visible",
                             Type = "bool",
                             Value = MenuWindowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Height",
+                            Type = "float",
+                            Value = StyleBarInstance.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Visible",
+                            Type = "bool",
+                            Value = StyleBarInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Width",
+                            Type = "float",
+                            Value = StyleBarInstance.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsButtonInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X",
+                            Type = "float",
+                            Value = OptionsButtonInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Y
+                        }
+                        );
+                        break;
+                    case  MenuDisplay.MenuShow1:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenDimRectangle.Alpha",
+                            Type = "int",
+                            Value = ScreenDimRectangle.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenDimRectangle.Visible",
+                            Type = "bool",
+                            Value = ScreenDimRectangle.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.Visible",
+                            Type = "bool",
+                            Value = MenuWindowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Height",
+                            Type = "float",
+                            Value = StyleBarInstance.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Visible",
+                            Type = "bool",
+                            Value = StyleBarInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Width",
+                            Type = "float",
+                            Value = StyleBarInstance.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsButtonInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X",
+                            Type = "float",
+                            Value = OptionsButtonInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Y
+                        }
+                        );
+                        break;
+                    case  MenuDisplay.MenuShow2:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenDimRectangle.Alpha",
+                            Type = "int",
+                            Value = ScreenDimRectangle.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenDimRectangle.Visible",
+                            Type = "bool",
+                            Value = ScreenDimRectangle.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.Visible",
+                            Type = "bool",
+                            Value = MenuWindowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Height",
+                            Type = "float",
+                            Value = StyleBarInstance.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Visible",
+                            Type = "bool",
+                            Value = StyleBarInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Width",
+                            Type = "float",
+                            Value = StyleBarInstance.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsButtonInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X",
+                            Type = "float",
+                            Value = OptionsButtonInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Y
+                        }
+                        );
+                        break;
+                    case  MenuDisplay.MenuShow3:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenDimRectangle.Alpha",
+                            Type = "int",
+                            Value = ScreenDimRectangle.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenDimRectangle.Visible",
+                            Type = "bool",
+                            Value = ScreenDimRectangle.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.Visible",
+                            Type = "bool",
+                            Value = MenuWindowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Height",
+                            Type = "float",
+                            Value = StyleBarInstance.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Visible",
+                            Type = "bool",
+                            Value = StyleBarInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Width",
+                            Type = "float",
+                            Value = StyleBarInstance.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsButtonInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X",
+                            Type = "float",
+                            Value = OptionsButtonInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Y
+                        }
+                        );
+                        break;
+                    case  MenuDisplay.MenuShow4:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenDimRectangle.Alpha",
+                            Type = "int",
+                            Value = ScreenDimRectangle.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenDimRectangle.Visible",
+                            Type = "bool",
+                            Value = ScreenDimRectangle.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.Visible",
+                            Type = "bool",
+                            Value = MenuWindowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Height",
+                            Type = "float",
+                            Value = StyleBarInstance.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Visible",
+                            Type = "bool",
+                            Value = StyleBarInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Width",
+                            Type = "float",
+                            Value = StyleBarInstance.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsButtonInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X",
+                            Type = "float",
+                            Value = OptionsButtonInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Y
                         }
                         );
                         break;
@@ -2215,121 +3628,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LevelButtonInstance1.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance1.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance1.X",
-                            Type = "float",
-                            Value = LevelButtonInstance1.X + 102f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance1.Y",
-                            Type = "float",
-                            Value = LevelButtonInstance1.Y + 1236f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance2.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance2.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance3.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance3.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance4.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance4.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance5.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance5.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance6.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance6.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance7.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance7.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance7.X",
-                            Type = "float",
-                            Value = LevelButtonInstance7.X + 1568f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance7.Y",
-                            Type = "float",
-                            Value = LevelButtonInstance7.Y + 724f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance8.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance8.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance9.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance9.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance10.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance10.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OptionsButtonInstance.Visible",
-                            Type = "bool",
-                            Value = OptionsButtonInstance.Visible
+                            Name = "ScreenDimRectangle.Alpha",
+                            Type = "int",
+                            Value = ScreenDimRectangle.Alpha + 120
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2346,6 +3647,54 @@
                             Name = "MenuWindowInstance.Visible",
                             Type = "bool",
                             Value = MenuWindowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Height",
+                            Type = "float",
+                            Value = StyleBarInstance.Height + 5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Visible",
+                            Type = "bool",
+                            Value = StyleBarInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Width",
+                            Type = "float",
+                            Value = StyleBarInstance.Width + 5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsButtonInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X",
+                            Type = "float",
+                            Value = OptionsButtonInstance.X + 3.039063f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Y + 5.347222f
                         }
                         );
                         break;
@@ -2353,121 +3702,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LevelButtonInstance1.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance1.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance1.X",
-                            Type = "float",
-                            Value = LevelButtonInstance1.X + 128f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance1.Y",
-                            Type = "float",
-                            Value = LevelButtonInstance1.Y + 1258f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance2.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance2.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance3.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance3.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance4.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance4.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance5.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance5.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance6.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance6.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance7.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance7.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance7.X",
-                            Type = "float",
-                            Value = LevelButtonInstance7.X + 1614f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance7.Y",
-                            Type = "float",
-                            Value = LevelButtonInstance7.Y + 716f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance8.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance8.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance9.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance9.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "LevelButtonInstance10.ButtonCategoryState",
-                            Type = "ButtonCategoryState",
-                            Value = LevelButtonInstance10.CurrentButtonCategoryState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OptionsButtonInstance.Visible",
-                            Type = "bool",
-                            Value = OptionsButtonInstance.Visible
+                            Name = "ScreenDimRectangle.Alpha",
+                            Type = "int",
+                            Value = ScreenDimRectangle.Alpha + 120
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2484,6 +3721,350 @@
                             Name = "MenuWindowInstance.Visible",
                             Type = "bool",
                             Value = MenuWindowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Height",
+                            Type = "float",
+                            Value = StyleBarInstance.Height + 5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Visible",
+                            Type = "bool",
+                            Value = StyleBarInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Width",
+                            Type = "float",
+                            Value = StyleBarInstance.Width + 5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsButtonInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X",
+                            Type = "float",
+                            Value = OptionsButtonInstance.X + 3.039063f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Y + 5.347222f
+                        }
+                        );
+                        break;
+                    case  MenuDisplay.MenuShow1:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenDimRectangle.Alpha",
+                            Type = "int",
+                            Value = ScreenDimRectangle.Alpha + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenDimRectangle.Visible",
+                            Type = "bool",
+                            Value = ScreenDimRectangle.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.Visible",
+                            Type = "bool",
+                            Value = MenuWindowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Height",
+                            Type = "float",
+                            Value = StyleBarInstance.Height + 5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Visible",
+                            Type = "bool",
+                            Value = StyleBarInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Width",
+                            Type = "float",
+                            Value = StyleBarInstance.Width + 5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsButtonInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X",
+                            Type = "float",
+                            Value = OptionsButtonInstance.X + 50f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Y + 50f
+                        }
+                        );
+                        break;
+                    case  MenuDisplay.MenuShow2:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenDimRectangle.Alpha",
+                            Type = "int",
+                            Value = ScreenDimRectangle.Alpha + 30
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenDimRectangle.Visible",
+                            Type = "bool",
+                            Value = ScreenDimRectangle.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.Visible",
+                            Type = "bool",
+                            Value = MenuWindowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Height",
+                            Type = "float",
+                            Value = StyleBarInstance.Height + 5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Visible",
+                            Type = "bool",
+                            Value = StyleBarInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Width",
+                            Type = "float",
+                            Value = StyleBarInstance.Width + 5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsButtonInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X",
+                            Type = "float",
+                            Value = OptionsButtonInstance.X + 50f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Y + 50f
+                        }
+                        );
+                        break;
+                    case  MenuDisplay.MenuShow3:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenDimRectangle.Alpha",
+                            Type = "int",
+                            Value = ScreenDimRectangle.Alpha + 60
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenDimRectangle.Visible",
+                            Type = "bool",
+                            Value = ScreenDimRectangle.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.Visible",
+                            Type = "bool",
+                            Value = MenuWindowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Height",
+                            Type = "float",
+                            Value = StyleBarInstance.Height + 5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Visible",
+                            Type = "bool",
+                            Value = StyleBarInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Width",
+                            Type = "float",
+                            Value = StyleBarInstance.Width + 47f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsButtonInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X",
+                            Type = "float",
+                            Value = OptionsButtonInstance.X + 3.039063f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Y + 5.347222f
+                        }
+                        );
+                        break;
+                    case  MenuDisplay.MenuShow4:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenDimRectangle.Alpha",
+                            Type = "int",
+                            Value = ScreenDimRectangle.Alpha + 90
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenDimRectangle.Visible",
+                            Type = "bool",
+                            Value = ScreenDimRectangle.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.Visible",
+                            Type = "bool",
+                            Value = MenuWindowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Height",
+                            Type = "float",
+                            Value = StyleBarInstance.Height + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Visible",
+                            Type = "bool",
+                            Value = StyleBarInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "StyleBarInstance.Width",
+                            Type = "float",
+                            Value = StyleBarInstance.Width + 47f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsButtonInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.X",
+                            Type = "float",
+                            Value = OptionsButtonInstance.X + 3.039063f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsButtonInstance.Y",
+                            Type = "float",
+                            Value = OptionsButtonInstance.Y + 5.347222f
                         }
                         );
                         break;
@@ -2505,6 +4086,10 @@
                     {
                         if(state.Name == "MenuHidden") this.mCurrentMenuDisplayState = MenuDisplay.MenuHidden;
                         if(state.Name == "MenuShown") this.mCurrentMenuDisplayState = MenuDisplay.MenuShown;
+                        if(state.Name == "MenuShow1") this.mCurrentMenuDisplayState = MenuDisplay.MenuShow1;
+                        if(state.Name == "MenuShow2") this.mCurrentMenuDisplayState = MenuDisplay.MenuShow2;
+                        if(state.Name == "MenuShow3") this.mCurrentMenuDisplayState = MenuDisplay.MenuShow3;
+                        if(state.Name == "MenuShow4") this.mCurrentMenuDisplayState = MenuDisplay.MenuShow4;
                     }
                 }
                 base.ApplyState(state);
@@ -2521,9 +4106,10 @@
             private AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance8 { get; set; }
             private AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance9 { get; set; }
             private AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance10 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.OptionsButtonRuntime OptionsButtonInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ScreenDimRectangle { get; set; }
             private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.StyleBarRuntime StyleBarInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime OptionsButtonInstance { get; set; }
             public MapScreenGumRuntime (bool fullInstantiation = true) 
             {
                 if (fullInstantiation)
@@ -2561,9 +4147,10 @@
                 LevelButtonInstance8 = this.GetGraphicalUiElementByName("LevelButtonInstance8") as AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime;
                 LevelButtonInstance9 = this.GetGraphicalUiElementByName("LevelButtonInstance9") as AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime;
                 LevelButtonInstance10 = this.GetGraphicalUiElementByName("LevelButtonInstance10") as AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime;
-                OptionsButtonInstance = this.GetGraphicalUiElementByName("OptionsButtonInstance") as AbbatoirIntergrade.GumRuntimes.OptionsButtonRuntime;
                 ScreenDimRectangle = this.GetGraphicalUiElementByName("ScreenDimRectangle") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 MenuWindowInstance = this.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
+                StyleBarInstance = this.GetGraphicalUiElementByName("StyleBarInstance") as AbbatoirIntergrade.GumRuntimes.StyleBarRuntime;
+                OptionsButtonInstance = this.GetGraphicalUiElementByName("OptionsButtonInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

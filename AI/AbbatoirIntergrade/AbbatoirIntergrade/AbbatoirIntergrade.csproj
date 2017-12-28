@@ -327,7 +327,10 @@
     <Compile Include="GumRuntimes\LoadingScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MapScreenGumRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\MenuWindowRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\MenuWindowRuntime.cs" />
+    <Compile Include="GumRuntimes\MenuWindowRuntime.Generated.cs">
+      <DependentUpon>MenuWindowRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\MessageBoxRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\OptionsControlsRuntime.Generated.cs" />
@@ -340,7 +343,6 @@
     <Compile Include="GumRuntimes\SpecificButtons\BuildButtonRuntime.Generated.cs">
       <DependentUpon>BuildButtonRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\SpecificButtons\ButtonFrame1Runtime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\CircleButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\CloseChatButtonRuntime.cs" />
     <Compile Include="GumRuntimes\specificbuttons\CloseChatButtonRuntime.Generated.cs">

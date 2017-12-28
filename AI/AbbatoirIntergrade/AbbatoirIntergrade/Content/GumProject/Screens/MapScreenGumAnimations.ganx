@@ -1,4 +1,93 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ElementAnimationsSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Animations />
+  <Animations>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>ShowMenu</Name>
+      <States>
+        <AnimatedStateSave>
+          <StateName>MenuDisplay/MenuHidden</StateName>
+          <Time>0</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>MenuDisplay/MenuShow1</StateName>
+          <Time>0.3</Time>
+          <InterpolationType>Exponential</InterpolationType>
+          <Easing>InOut</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>MenuDisplay/MenuShow2</StateName>
+          <Time>0.4</Time>
+          <InterpolationType>Exponential</InterpolationType>
+          <Easing>InOut</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>MenuDisplay/MenuShow3</StateName>
+          <Time>0.5</Time>
+          <InterpolationType>Exponential</InterpolationType>
+          <Easing>InOut</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>MenuDisplay/MenuShow4</StateName>
+          <Time>0.6</Time>
+          <InterpolationType>Exponential</InterpolationType>
+          <Easing>InOut</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>MenuDisplay/MenuShown</StateName>
+          <Time>0.7</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>In</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>HideMenu</Name>
+      <States>
+        <AnimatedStateSave>
+          <StateName>MenuDisplay/MenuShown</StateName>
+          <Time>0</Time>
+          <InterpolationType>Exponential</InterpolationType>
+          <Easing>InOut</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>MenuDisplay/MenuShow4</StateName>
+          <Time>0.1</Time>
+          <InterpolationType>Exponential</InterpolationType>
+          <Easing>InOut</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>MenuDisplay/MenuShow3</StateName>
+          <Time>0.2</Time>
+          <InterpolationType>Exponential</InterpolationType>
+          <Easing>InOut</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>MenuDisplay/MenuShow2</StateName>
+          <Time>0.3</Time>
+          <InterpolationType>Exponential</InterpolationType>
+          <Easing>InOut</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>MenuDisplay/MenuShow1</StateName>
+          <Time>0.4</Time>
+          <InterpolationType>Exponential</InterpolationType>
+          <Easing>InOut</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>MenuDisplay/MenuHidden</StateName>
+          <Time>0.7</Time>
+          <InterpolationType>Exponential</InterpolationType>
+          <Easing>InOut</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
+  </Animations>
 </ElementAnimationsSave>

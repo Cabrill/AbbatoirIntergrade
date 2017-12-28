@@ -702,6 +702,7 @@
             public OptionsButtonRuntime (bool fullInstantiation = true) 
             	: base(false)
             {
+                this.ExposeChildrenEvents = false;
                 if (fullInstantiation)
                 {
                     Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "specificbuttons/OptionsButton");

@@ -173,6 +173,54 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float</Type>
+      <Name>CloseButton.Height</Name>
+      <Value xsi:type="xsd:float">7</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>CloseButton.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CloseButton.Width</Name>
+      <Value xsi:type="xsd:float">4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>CloseButton.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CloseButton.X</Name>
+      <Value xsi:type="xsd:float">67.65625</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>CloseButton.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CloseButton.Y</Name>
+      <Value xsi:type="xsd:float">18.611105</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>CloseButton.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>bool</Type>
       <Name>HasEvents</Name>
       <Value xsi:type="xsd:boolean">false</Value>
@@ -269,6 +317,11 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>OptionsState</Type>
+      <Name>OptionsState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
       <Type>State</Type>
       <Name>State</Name>
       <SetsValue>true</SetsValue>
@@ -353,6 +406,27 @@
       <SetsValue>true</SetsValue>
     </Variable>
   </State>
+  <Category>
+    <Name>Options</Name>
+    <State>
+      <Name>Visible</Name>
+      <Variable>
+        <Type>bool</Type>
+        <Name>OptionsControlsInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Hidden</Name>
+      <Variable>
+        <Type>bool</Type>
+        <Name>OptionsControlsInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
   <Instance>
     <Name>MenuFrameInstance</Name>
     <BaseType>frames/MenuFrame</BaseType>
@@ -380,6 +454,10 @@
   <Instance>
     <Name>OptionsControlsInstance</Name>
     <BaseType>OptionsControls</BaseType>
+  </Instance>
+  <Instance>
+    <Name>CloseButton</Name>
+    <BaseType>specificbuttons/CloseChatButton</BaseType>
   </Instance>
   <Behaviors />
 </ComponentSave>

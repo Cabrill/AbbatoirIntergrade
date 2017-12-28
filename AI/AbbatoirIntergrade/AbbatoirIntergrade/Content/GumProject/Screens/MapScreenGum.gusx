@@ -4,6 +4,31 @@
   <State>
     <Name>Default</Name>
     <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>BackgroundMapSprite.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>BackgroundMapSprite.SourceFile</Name>
+      <Value xsi:type="xsd:string">../Screens/MapScreen/worldmap.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>BackgroundMapSprite.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonCategoryState</Type>
+      <Name>LevelButtonInstance1.ButtonCategoryState</Name>
+      <Value xsi:type="xsd:string">Enabled</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>LevelNumberState</Type>
       <Name>LevelButtonInstance1.LevelNumberState</Name>
       <Value xsi:type="xsd:string">Level1</Value>
@@ -19,6 +44,12 @@
       <Type>float</Type>
       <Name>LevelButtonInstance1.Y</Name>
       <Value xsi:type="xsd:float">1258</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonCategoryState</Type>
+      <Name>LevelButtonInstance10.ButtonCategoryState</Name>
+      <Value xsi:type="xsd:string">Enabled</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -40,6 +71,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>ButtonCategoryState</Type>
+      <Name>LevelButtonInstance2.ButtonCategoryState</Name>
+      <Value xsi:type="xsd:string">Enabled</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>LevelNumberState</Type>
       <Name>LevelButtonInstance2.LevelNumberState</Name>
       <Value xsi:type="xsd:string">Level2</Value>
@@ -55,6 +92,12 @@
       <Type>float</Type>
       <Name>LevelButtonInstance2.Y</Name>
       <Value xsi:type="xsd:float">918</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonCategoryState</Type>
+      <Name>LevelButtonInstance3.ButtonCategoryState</Name>
+      <Value xsi:type="xsd:string">Enabled</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -76,6 +119,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>ButtonCategoryState</Type>
+      <Name>LevelButtonInstance4.ButtonCategoryState</Name>
+      <Value xsi:type="xsd:string">Enabled</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>LevelNumberState</Type>
       <Name>LevelButtonInstance4.LevelNumberState</Name>
       <Value xsi:type="xsd:string">Level4</Value>
@@ -91,6 +140,12 @@
       <Type>float</Type>
       <Name>LevelButtonInstance4.Y</Name>
       <Value xsi:type="xsd:float">408</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonCategoryState</Type>
+      <Name>LevelButtonInstance5.ButtonCategoryState</Name>
+      <Value xsi:type="xsd:string">Enabled</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -112,6 +167,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>ButtonCategoryState</Type>
+      <Name>LevelButtonInstance6.ButtonCategoryState</Name>
+      <Value xsi:type="xsd:string">Enabled</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>LevelNumberState</Type>
       <Name>LevelButtonInstance6.LevelNumberState</Name>
       <Value xsi:type="xsd:string">Level6</Value>
@@ -127,6 +188,12 @@
       <Type>float</Type>
       <Name>LevelButtonInstance6.Y</Name>
       <Value xsi:type="xsd:float">552</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonCategoryState</Type>
+      <Name>LevelButtonInstance7.ButtonCategoryState</Name>
+      <Value xsi:type="xsd:string">Enabled</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -148,6 +215,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>ButtonCategoryState</Type>
+      <Name>LevelButtonInstance8.ButtonCategoryState</Name>
+      <Value xsi:type="xsd:string">Enabled</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>LevelNumberState</Type>
       <Name>LevelButtonInstance8.LevelNumberState</Name>
       <Value xsi:type="xsd:string">Level8</Value>
@@ -163,6 +236,12 @@
       <Type>float</Type>
       <Name>LevelButtonInstance8.Y</Name>
       <Value xsi:type="xsd:float">576</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonCategoryState</Type>
+      <Name>LevelButtonInstance9.ButtonCategoryState</Name>
+      <Value xsi:type="xsd:string">Enabled</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -186,7 +265,8 @@
     <Variable>
       <Type>MenuDisplayState</Type>
       <Name>MenuDisplayState</Name>
-      <SetsValue>false</SetsValue>
+      <Value xsi:type="xsd:string">MenuHidden</Value>
+      <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>ButtonTypeState</Type>
@@ -219,15 +299,81 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>MenuWindowInstance.X Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>MenuWindowInstance.X Units</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>MenuWindowInstance.Y Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>MenuWindowInstance.Y Units</Name>
+      <Value xsi:type="xsd:int">7</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonTypeState</Type>
+      <Name>OptionsButtonInstance.ButtonTypeState</Name>
+      <Value xsi:type="xsd:string">Menu</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>OptionsButtonInstance.Height</Name>
-      <Value xsi:type="xsd:float">10.0833359</Value>
+      <Value xsi:type="xsd:float">10.6944447</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>OptionsButtonInstance.Width</Name>
-      <Value xsi:type="xsd:float">5.703125</Value>
+      <Value xsi:type="xsd:float">6.078125</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>OptionsButtonInstance.X</Name>
+      <Value xsi:type="xsd:float">3.0390625</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>OptionsButtonInstance.X Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>OptionsButtonInstance.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>OptionsButtonInstance.Y</Name>
+      <Value xsi:type="xsd:float">5.34722233</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>OptionsButtonInstance.Y Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>OptionsButtonInstance.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -279,21 +425,44 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>BackgroundMapSprite.Height Units</Name>
+      <Type>float</Type>
+      <Name>StyleBarInstance.Height</Name>
+      <Value xsi:type="xsd:float">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>StyleBarInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>StyleBarInstance.Width</Name>
+      <Value xsi:type="xsd:float">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>StyleBarInstance.X</Name>
+      <Value xsi:type="xsd:float">50</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>StyleBarInstance.X Origin</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <IsFile>true</IsFile>
-      <Type>string</Type>
-      <Name>BackgroundMapSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../Screens/MapScreen/worldmap.png</Value>
+      <Type>float</Type>
+      <Name>StyleBarInstance.Y</Name>
+      <Value xsi:type="xsd:float">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>BackgroundMapSprite.Width Units</Name>
+      <Type>VerticalAlignment</Type>
+      <Name>StyleBarInstance.Y Origin</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -316,87 +485,9 @@
     <State>
       <Name>MenuHidden</Name>
       <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance1.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>LevelButtonInstance1.X</Name>
-        <Value xsi:type="xsd:float">102</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>LevelButtonInstance1.Y</Name>
-        <Value xsi:type="xsd:float">1236</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance10.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance2.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance3.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance4.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance5.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance6.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance7.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>LevelButtonInstance7.X</Name>
-        <Value xsi:type="xsd:float">1568</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>LevelButtonInstance7.Y</Name>
-        <Value xsi:type="xsd:float">724</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance8.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance9.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
+        <Type>MenuDisplayState</Type>
+        <Name>MenuDisplayState</Name>
+        <Value xsi:type="xsd:string">MenuHidden</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -412,96 +503,54 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
+        <Type>float</Type>
+        <Name>OptionsButtonInstance.X</Name>
+        <Value xsi:type="xsd:float">3.0390625</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>OptionsButtonInstance.Y</Name>
+        <Value xsi:type="xsd:float">5.34722233</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ScreenDimRectangle.Alpha</Name>
+        <Value xsi:type="xsd:int">120</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>bool</Type>
         <Name>ScreenDimRectangle.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>StyleBarInstance.Height</Name>
+        <Value xsi:type="xsd:float">5</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>StyleBarInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>StyleBarInstance.Width</Name>
+        <Value xsi:type="xsd:float">5</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>MenuShown</Name>
       <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance1.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>LevelButtonInstance1.X</Name>
-        <Value xsi:type="xsd:float">128</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>LevelButtonInstance1.Y</Name>
-        <Value xsi:type="xsd:float">1258</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance10.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance2.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance3.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance4.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance5.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance6.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance7.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>LevelButtonInstance7.X</Name>
-        <Value xsi:type="xsd:float">1614</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>LevelButtonInstance7.Y</Name>
-        <Value xsi:type="xsd:float">716</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance8.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ButtonCategoryState</Type>
-        <Name>LevelButtonInstance9.ButtonCategoryState</Name>
-        <Value xsi:type="xsd:string">Enabled</Value>
+        <Type>MenuDisplayState</Type>
+        <Name>MenuDisplayState</Name>
+        <Value xsi:type="xsd:string">MenuHidden</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -517,9 +566,297 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
+        <Type>float</Type>
+        <Name>OptionsButtonInstance.X</Name>
+        <Value xsi:type="xsd:float">3.0390625</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>OptionsButtonInstance.Y</Name>
+        <Value xsi:type="xsd:float">5.34722233</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ScreenDimRectangle.Alpha</Name>
+        <Value xsi:type="xsd:int">120</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>bool</Type>
         <Name>ScreenDimRectangle.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>StyleBarInstance.Height</Name>
+        <Value xsi:type="xsd:float">5</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>StyleBarInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>StyleBarInstance.Width</Name>
+        <Value xsi:type="xsd:float">5</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>MenuShow1</Name>
+      <Variable>
+        <Type>MenuDisplayState</Type>
+        <Name>MenuDisplayState</Name>
+        <Value xsi:type="xsd:string">MenuHidden</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>MenuWindowInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>OptionsButtonInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>OptionsButtonInstance.X</Name>
+        <Value xsi:type="xsd:float">50</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>OptionsButtonInstance.Y</Name>
+        <Value xsi:type="xsd:float">50</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ScreenDimRectangle.Alpha</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>ScreenDimRectangle.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>StyleBarInstance.Height</Name>
+        <Value xsi:type="xsd:float">5</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>StyleBarInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>StyleBarInstance.Width</Name>
+        <Value xsi:type="xsd:float">5</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>MenuShow2</Name>
+      <Variable>
+        <Type>MenuDisplayState</Type>
+        <Name>MenuDisplayState</Name>
+        <Value xsi:type="xsd:string">MenuHidden</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>MenuWindowInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>OptionsButtonInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>OptionsButtonInstance.X</Name>
+        <Value xsi:type="xsd:float">50</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>OptionsButtonInstance.Y</Name>
+        <Value xsi:type="xsd:float">50</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ScreenDimRectangle.Alpha</Name>
+        <Value xsi:type="xsd:int">30</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>ScreenDimRectangle.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>StyleBarInstance.Height</Name>
+        <Value xsi:type="xsd:float">5</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>StyleBarInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>StyleBarInstance.Width</Name>
+        <Value xsi:type="xsd:float">5</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>MenuShow3</Name>
+      <Variable>
+        <Type>MenuDisplayState</Type>
+        <Name>MenuDisplayState</Name>
+        <Value xsi:type="xsd:string">MenuHidden</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>MenuWindowInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>OptionsButtonInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>OptionsButtonInstance.X</Name>
+        <Value xsi:type="xsd:float">3.0390625</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>OptionsButtonInstance.Y</Name>
+        <Value xsi:type="xsd:float">5.34722233</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ScreenDimRectangle.Alpha</Name>
+        <Value xsi:type="xsd:int">60</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>ScreenDimRectangle.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>StyleBarInstance.Height</Name>
+        <Value xsi:type="xsd:float">5</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>StyleBarInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>StyleBarInstance.Width</Name>
+        <Value xsi:type="xsd:float">47</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>MenuShow4</Name>
+      <Variable>
+        <Type>MenuDisplayState</Type>
+        <Name>MenuDisplayState</Name>
+        <Value xsi:type="xsd:string">MenuHidden</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>MenuWindowInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>OptionsButtonInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>OptionsButtonInstance.X</Name>
+        <Value xsi:type="xsd:float">3.0390625</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>OptionsButtonInstance.Y</Name>
+        <Value xsi:type="xsd:float">5.34722233</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ScreenDimRectangle.Alpha</Name>
+        <Value xsi:type="xsd:int">90</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>ScreenDimRectangle.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>StyleBarInstance.Height</Name>
+        <Value xsi:type="xsd:float">100</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>StyleBarInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>StyleBarInstance.Width</Name>
+        <Value xsi:type="xsd:float">47</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -573,15 +910,19 @@
     <BaseType>specificbuttons/LevelButton</BaseType>
   </Instance>
   <Instance>
-    <Name>OptionsButtonInstance</Name>
-    <BaseType>specificbuttons/OptionsButton</BaseType>
-  </Instance>
-  <Instance>
     <Name>ScreenDimRectangle</Name>
     <BaseType>ColoredRectangle</BaseType>
   </Instance>
   <Instance>
     <Name>MenuWindowInstance</Name>
     <BaseType>MenuWindow</BaseType>
+  </Instance>
+  <Instance>
+    <Name>StyleBarInstance</Name>
+    <BaseType>frames/StyleBar</BaseType>
+  </Instance>
+  <Instance>
+    <Name>OptionsButtonInstance</Name>
+    <BaseType>frames/ButtonFrame</BaseType>
   </Instance>
 </ScreenSave>

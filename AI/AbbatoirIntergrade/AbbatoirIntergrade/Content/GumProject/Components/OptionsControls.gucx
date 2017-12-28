@@ -29,6 +29,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>string</Type>
+      <Name>MusicSlider.Parent</Name>
+      <Value xsi:type="xsd:string">OptionContainer</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>MusicText.CustomFontFile</Name>
@@ -225,12 +231,6 @@
       <Type>bool</Type>
       <Name>Wraps Children</Name>
       <Value xsi:type="xsd:boolean">true</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>MusicSlider.Parent</Name>
-      <Value xsi:type="xsd:string">OptionContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
   </State>

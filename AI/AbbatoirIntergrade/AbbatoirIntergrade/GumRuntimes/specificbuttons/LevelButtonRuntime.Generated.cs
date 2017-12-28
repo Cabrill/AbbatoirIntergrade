@@ -101,21 +101,33 @@
                         case  ButtonCategory.Enabled:
                             FrameSprite.TextureLeft = 0;
                             HighlightSprite.Visible = false;
+                            NumberSprite.Blue = 255;
+                            NumberSprite.Green = 255;
+                            NumberSprite.Red = 255;
                             NumberSprite.Visible = true;
                             break;
                         case  ButtonCategory.Disabled:
                             FrameSprite.TextureLeft = 256;
                             HighlightSprite.Visible = false;
+                            NumberSprite.Blue = 255;
+                            NumberSprite.Green = 255;
+                            NumberSprite.Red = 255;
                             NumberSprite.Visible = false;
                             break;
                         case  ButtonCategory.Highlighted:
                             FrameSprite.TextureLeft = 0;
                             HighlightSprite.Visible = true;
+                            NumberSprite.Blue = 255;
+                            NumberSprite.Green = 255;
+                            NumberSprite.Red = 255;
                             NumberSprite.Visible = true;
                             break;
                         case  ButtonCategory.Pushed:
                             FrameSprite.TextureLeft = 0;
                             HighlightSprite.Visible = true;
+                            NumberSprite.Blue = 0;
+                            NumberSprite.Green = 255;
+                            NumberSprite.Red = 255;
                             NumberSprite.Visible = true;
                             break;
                     }
@@ -616,6 +628,18 @@
                 bool setFrameSpriteTextureLeftSecondValue = false;
                 int FrameSpriteTextureLeftFirstValue= 0;
                 int FrameSpriteTextureLeftSecondValue= 0;
+                bool setNumberSpriteBlueFirstValue = false;
+                bool setNumberSpriteBlueSecondValue = false;
+                int NumberSpriteBlueFirstValue= 0;
+                int NumberSpriteBlueSecondValue= 0;
+                bool setNumberSpriteGreenFirstValue = false;
+                bool setNumberSpriteGreenSecondValue = false;
+                int NumberSpriteGreenFirstValue= 0;
+                int NumberSpriteGreenSecondValue= 0;
+                bool setNumberSpriteRedFirstValue = false;
+                bool setNumberSpriteRedSecondValue = false;
+                int NumberSpriteRedFirstValue= 0;
+                int NumberSpriteRedSecondValue= 0;
                 switch(firstState)
                 {
                     case  ButtonCategory.Enabled:
@@ -625,6 +649,12 @@
                         {
                             this.HighlightSprite.Visible = false;
                         }
+                        setNumberSpriteBlueFirstValue = true;
+                        NumberSpriteBlueFirstValue = 255;
+                        setNumberSpriteGreenFirstValue = true;
+                        NumberSpriteGreenFirstValue = 255;
+                        setNumberSpriteRedFirstValue = true;
+                        NumberSpriteRedFirstValue = 255;
                         if (interpolationValue < 1)
                         {
                             this.NumberSprite.Visible = true;
@@ -637,6 +667,12 @@
                         {
                             this.HighlightSprite.Visible = false;
                         }
+                        setNumberSpriteBlueFirstValue = true;
+                        NumberSpriteBlueFirstValue = 255;
+                        setNumberSpriteGreenFirstValue = true;
+                        NumberSpriteGreenFirstValue = 255;
+                        setNumberSpriteRedFirstValue = true;
+                        NumberSpriteRedFirstValue = 255;
                         if (interpolationValue < 1)
                         {
                             this.NumberSprite.Visible = false;
@@ -649,6 +685,12 @@
                         {
                             this.HighlightSprite.Visible = true;
                         }
+                        setNumberSpriteBlueFirstValue = true;
+                        NumberSpriteBlueFirstValue = 255;
+                        setNumberSpriteGreenFirstValue = true;
+                        NumberSpriteGreenFirstValue = 255;
+                        setNumberSpriteRedFirstValue = true;
+                        NumberSpriteRedFirstValue = 255;
                         if (interpolationValue < 1)
                         {
                             this.NumberSprite.Visible = true;
@@ -661,6 +703,12 @@
                         {
                             this.HighlightSprite.Visible = true;
                         }
+                        setNumberSpriteBlueFirstValue = true;
+                        NumberSpriteBlueFirstValue = 0;
+                        setNumberSpriteGreenFirstValue = true;
+                        NumberSpriteGreenFirstValue = 255;
+                        setNumberSpriteRedFirstValue = true;
+                        NumberSpriteRedFirstValue = 255;
                         if (interpolationValue < 1)
                         {
                             this.NumberSprite.Visible = true;
@@ -676,6 +724,12 @@
                         {
                             this.HighlightSprite.Visible = false;
                         }
+                        setNumberSpriteBlueSecondValue = true;
+                        NumberSpriteBlueSecondValue = 255;
+                        setNumberSpriteGreenSecondValue = true;
+                        NumberSpriteGreenSecondValue = 255;
+                        setNumberSpriteRedSecondValue = true;
+                        NumberSpriteRedSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
                             this.NumberSprite.Visible = true;
@@ -688,6 +742,12 @@
                         {
                             this.HighlightSprite.Visible = false;
                         }
+                        setNumberSpriteBlueSecondValue = true;
+                        NumberSpriteBlueSecondValue = 255;
+                        setNumberSpriteGreenSecondValue = true;
+                        NumberSpriteGreenSecondValue = 255;
+                        setNumberSpriteRedSecondValue = true;
+                        NumberSpriteRedSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
                             this.NumberSprite.Visible = false;
@@ -700,6 +760,12 @@
                         {
                             this.HighlightSprite.Visible = true;
                         }
+                        setNumberSpriteBlueSecondValue = true;
+                        NumberSpriteBlueSecondValue = 255;
+                        setNumberSpriteGreenSecondValue = true;
+                        NumberSpriteGreenSecondValue = 255;
+                        setNumberSpriteRedSecondValue = true;
+                        NumberSpriteRedSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
                             this.NumberSprite.Visible = true;
@@ -712,6 +778,12 @@
                         {
                             this.HighlightSprite.Visible = true;
                         }
+                        setNumberSpriteBlueSecondValue = true;
+                        NumberSpriteBlueSecondValue = 0;
+                        setNumberSpriteGreenSecondValue = true;
+                        NumberSpriteGreenSecondValue = 255;
+                        setNumberSpriteRedSecondValue = true;
+                        NumberSpriteRedSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
                             this.NumberSprite.Visible = true;
@@ -721,6 +793,18 @@
                 if (setFrameSpriteTextureLeftFirstValue && setFrameSpriteTextureLeftSecondValue)
                 {
                     FrameSprite.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(FrameSpriteTextureLeftFirstValue* (1 - interpolationValue) + FrameSpriteTextureLeftSecondValue * interpolationValue);
+                }
+                if (setNumberSpriteBlueFirstValue && setNumberSpriteBlueSecondValue)
+                {
+                    NumberSprite.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(NumberSpriteBlueFirstValue* (1 - interpolationValue) + NumberSpriteBlueSecondValue * interpolationValue);
+                }
+                if (setNumberSpriteGreenFirstValue && setNumberSpriteGreenSecondValue)
+                {
+                    NumberSprite.Green = FlatRedBall.Math.MathFunctions.RoundToInt(NumberSpriteGreenFirstValue* (1 - interpolationValue) + NumberSpriteGreenSecondValue * interpolationValue);
+                }
+                if (setNumberSpriteRedFirstValue && setNumberSpriteRedSecondValue)
+                {
+                    NumberSprite.Red = FlatRedBall.Math.MathFunctions.RoundToInt(NumberSpriteRedFirstValue* (1 - interpolationValue) + NumberSpriteRedSecondValue * interpolationValue);
                 }
                 if (interpolationValue < 1)
                 {
@@ -1907,6 +1991,30 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "NumberSprite.Blue",
+                            Type = "int",
+                            Value = NumberSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Green",
+                            Type = "int",
+                            Value = NumberSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Red",
+                            Type = "int",
+                            Value = NumberSprite.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "NumberSprite.Visible",
                             Type = "bool",
                             Value = NumberSprite.Visible
@@ -1928,6 +2036,30 @@
                             Name = "HighlightSprite.Visible",
                             Type = "bool",
                             Value = HighlightSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Blue",
+                            Type = "int",
+                            Value = NumberSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Green",
+                            Type = "int",
+                            Value = NumberSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Red",
+                            Type = "int",
+                            Value = NumberSprite.Red
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1959,6 +2091,30 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "NumberSprite.Blue",
+                            Type = "int",
+                            Value = NumberSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Green",
+                            Type = "int",
+                            Value = NumberSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Red",
+                            Type = "int",
+                            Value = NumberSprite.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "NumberSprite.Visible",
                             Type = "bool",
                             Value = NumberSprite.Visible
@@ -1980,6 +2136,30 @@
                             Name = "HighlightSprite.Visible",
                             Type = "bool",
                             Value = HighlightSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Blue",
+                            Type = "int",
+                            Value = NumberSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Green",
+                            Type = "int",
+                            Value = NumberSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Red",
+                            Type = "int",
+                            Value = NumberSprite.Red
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2019,6 +2199,30 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "NumberSprite.Blue",
+                            Type = "int",
+                            Value = NumberSprite.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Green",
+                            Type = "int",
+                            Value = NumberSprite.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Red",
+                            Type = "int",
+                            Value = NumberSprite.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "NumberSprite.Visible",
                             Type = "bool",
                             Value = NumberSprite.Visible
@@ -2040,6 +2244,30 @@
                             Name = "HighlightSprite.Visible",
                             Type = "bool",
                             Value = HighlightSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Blue",
+                            Type = "int",
+                            Value = NumberSprite.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Green",
+                            Type = "int",
+                            Value = NumberSprite.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Red",
+                            Type = "int",
+                            Value = NumberSprite.Red + 255
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2071,6 +2299,30 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "NumberSprite.Blue",
+                            Type = "int",
+                            Value = NumberSprite.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Green",
+                            Type = "int",
+                            Value = NumberSprite.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Red",
+                            Type = "int",
+                            Value = NumberSprite.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "NumberSprite.Visible",
                             Type = "bool",
                             Value = NumberSprite.Visible
@@ -2092,6 +2344,30 @@
                             Name = "HighlightSprite.Visible",
                             Type = "bool",
                             Value = HighlightSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Blue",
+                            Type = "int",
+                            Value = NumberSprite.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Green",
+                            Type = "int",
+                            Value = NumberSprite.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NumberSprite.Red",
+                            Type = "int",
+                            Value = NumberSprite.Red + 255
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3162,6 +3438,7 @@
             public LevelButtonRuntime (bool fullInstantiation = true) 
             	: base(false)
             {
+                this.ExposeChildrenEvents = false;
                 if (fullInstantiation)
                 {
                     Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "specificbuttons/LevelButton");
@@ -3188,6 +3465,8 @@
                 FrameSprite = this.GetGraphicalUiElementByName("FrameSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 HighlightSprite = this.GetGraphicalUiElementByName("HighlightSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 NumberSprite = this.GetGraphicalUiElementByName("NumberSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
+                FormsControl = new FlatRedBall.Forms.Controls.Button();
+                FormsControl.Visual = this;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {
@@ -3198,5 +3477,7 @@
                 CustomInitialize();
             }
             partial void CustomInitialize();
+            public FlatRedBall.Forms.Controls.Button FormsControl {get; private set;}
+            public override object FormsControlAsObject { get { return FormsControl; } }
         }
     }

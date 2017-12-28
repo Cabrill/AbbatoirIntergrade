@@ -8,9 +8,15 @@
             {
                 Default
             }
+            public enum Options
+            {
+                Visible,
+                Hidden
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
+            Options mCurrentOptionsState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -73,6 +79,34 @@
                             OptionsControlsInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             OptionsControlsInstance.Y = 16.62892f;
                             OptionsControlsInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            CloseButton.Height = 7f;
+                            CloseButton.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            CloseButton.Width = 4f;
+                            CloseButton.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            CloseButton.X = 67.65625f;
+                            CloseButton.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            CloseButton.Y = 18.6111f;
+                            CloseButton.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            break;
+                    }
+                }
+            }
+            public Options CurrentOptionsState
+            {
+                get
+                {
+                    return mCurrentOptionsState;
+                }
+                set
+                {
+                    mCurrentOptionsState = value;
+                    switch(mCurrentOptionsState)
+                    {
+                        case  Options.Visible:
+                            OptionsControlsInstance.Visible = true;
+                            break;
+                        case  Options.Hidden:
+                            OptionsControlsInstance.Visible = false;
                             break;
                     }
                 }
@@ -151,6 +185,22 @@
                 bool setButtonFrameInstance3YSecondValue = false;
                 float ButtonFrameInstance3YFirstValue= 0;
                 float ButtonFrameInstance3YSecondValue= 0;
+                bool setCloseButtonHeightFirstValue = false;
+                bool setCloseButtonHeightSecondValue = false;
+                float CloseButtonHeightFirstValue= 0;
+                float CloseButtonHeightSecondValue= 0;
+                bool setCloseButtonWidthFirstValue = false;
+                bool setCloseButtonWidthSecondValue = false;
+                float CloseButtonWidthFirstValue= 0;
+                float CloseButtonWidthSecondValue= 0;
+                bool setCloseButtonXFirstValue = false;
+                bool setCloseButtonXSecondValue = false;
+                float CloseButtonXFirstValue= 0;
+                float CloseButtonXSecondValue= 0;
+                bool setCloseButtonYFirstValue = false;
+                bool setCloseButtonYSecondValue = false;
+                float CloseButtonYFirstValue= 0;
+                float CloseButtonYSecondValue= 0;
                 bool setHeightFirstValue = false;
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
@@ -261,6 +311,30 @@
                         if (interpolationValue < 1)
                         {
                             this.ButtonFrameInstance3.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        setCloseButtonHeightFirstValue = true;
+                        CloseButtonHeightFirstValue = 7f;
+                        if (interpolationValue < 1)
+                        {
+                            this.CloseButton.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setCloseButtonWidthFirstValue = true;
+                        CloseButtonWidthFirstValue = 4f;
+                        if (interpolationValue < 1)
+                        {
+                            this.CloseButton.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setCloseButtonXFirstValue = true;
+                        CloseButtonXFirstValue = 67.65625f;
+                        if (interpolationValue < 1)
+                        {
+                            this.CloseButton.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        setCloseButtonYFirstValue = true;
+                        CloseButtonYFirstValue = 18.6111f;
+                        if (interpolationValue < 1)
+                        {
+                            this.CloseButton.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setHeightFirstValue = true;
                         HeightFirstValue = 100f;
@@ -405,6 +479,30 @@
                         {
                             this.ButtonFrameInstance3.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
+                        setCloseButtonHeightSecondValue = true;
+                        CloseButtonHeightSecondValue = 7f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloseButton.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setCloseButtonWidthSecondValue = true;
+                        CloseButtonWidthSecondValue = 4f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloseButton.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setCloseButtonXSecondValue = true;
+                        CloseButtonXSecondValue = 67.65625f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloseButton.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        setCloseButtonYSecondValue = true;
+                        CloseButtonYSecondValue = 18.6111f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloseButton.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
                         setHeightSecondValue = true;
                         HeightSecondValue = 100f;
                         if (interpolationValue >= 1)
@@ -545,6 +643,22 @@
                 {
                     ButtonFrameInstance3.Y = ButtonFrameInstance3YFirstValue * (1 - interpolationValue) + ButtonFrameInstance3YSecondValue * interpolationValue;
                 }
+                if (setCloseButtonHeightFirstValue && setCloseButtonHeightSecondValue)
+                {
+                    CloseButton.Height = CloseButtonHeightFirstValue * (1 - interpolationValue) + CloseButtonHeightSecondValue * interpolationValue;
+                }
+                if (setCloseButtonWidthFirstValue && setCloseButtonWidthSecondValue)
+                {
+                    CloseButton.Width = CloseButtonWidthFirstValue * (1 - interpolationValue) + CloseButtonWidthSecondValue * interpolationValue;
+                }
+                if (setCloseButtonXFirstValue && setCloseButtonXSecondValue)
+                {
+                    CloseButton.X = CloseButtonXFirstValue * (1 - interpolationValue) + CloseButtonXSecondValue * interpolationValue;
+                }
+                if (setCloseButtonYFirstValue && setCloseButtonYSecondValue)
+                {
+                    CloseButton.Y = CloseButtonYFirstValue * (1 - interpolationValue) + CloseButtonYSecondValue * interpolationValue;
+                }
                 if (setHeightFirstValue && setHeightSecondValue)
                 {
                     Height = HeightFirstValue * (1 - interpolationValue) + HeightSecondValue * interpolationValue;
@@ -596,6 +710,53 @@
                 else
                 {
                     mCurrentVariableState = secondState;
+                }
+            }
+            public void InterpolateBetween (Options firstState, Options secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                switch(firstState)
+                {
+                    case  Options.Visible:
+                        if (interpolationValue < 1)
+                        {
+                            this.OptionsControlsInstance.Visible = true;
+                        }
+                        break;
+                    case  Options.Hidden:
+                        if (interpolationValue < 1)
+                        {
+                            this.OptionsControlsInstance.Visible = false;
+                        }
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  Options.Visible:
+                        if (interpolationValue >= 1)
+                        {
+                            this.OptionsControlsInstance.Visible = true;
+                        }
+                        break;
+                    case  Options.Hidden:
+                        if (interpolationValue >= 1)
+                        {
+                            this.OptionsControlsInstance.Visible = false;
+                        }
+                        break;
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentOptionsState = firstState;
+                }
+                else
+                {
+                    mCurrentOptionsState = secondState;
                 }
             }
             #endregion
@@ -654,6 +815,60 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime.Options fromState,AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime.Options toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (Options toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "Options").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentOptionsState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (Options toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentOptionsState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
             #endregion
             #region State Animations
             #endregion
@@ -666,6 +881,7 @@
                 ButtonFrameInstance2.StopAnimations();
                 ButtonFrameInstance3.StopAnimations();
                 OptionsControlsInstance.StopAnimations();
+                CloseButton.StopAnimations();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -1056,6 +1272,70 @@
                             Name = "OptionsControlsInstance.Y Units",
                             Type = "PositionUnitType",
                             Value = OptionsControlsInstance.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloseButton.Height",
+                            Type = "float",
+                            Value = CloseButton.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloseButton.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = CloseButton.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloseButton.Width",
+                            Type = "float",
+                            Value = CloseButton.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloseButton.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = CloseButton.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloseButton.X",
+                            Type = "float",
+                            Value = CloseButton.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloseButton.X Units",
+                            Type = "PositionUnitType",
+                            Value = CloseButton.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloseButton.Y",
+                            Type = "float",
+                            Value = CloseButton.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloseButton.Y Units",
+                            Type = "PositionUnitType",
+                            Value = CloseButton.YUnits
                         }
                         );
                         break;
@@ -1452,6 +1732,126 @@
                             Value = OptionsControlsInstance.YUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloseButton.Height",
+                            Type = "float",
+                            Value = CloseButton.Height + 7f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloseButton.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = CloseButton.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloseButton.Width",
+                            Type = "float",
+                            Value = CloseButton.Width + 4f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloseButton.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = CloseButton.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloseButton.X",
+                            Type = "float",
+                            Value = CloseButton.X + 67.65625f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloseButton.X Units",
+                            Type = "PositionUnitType",
+                            Value = CloseButton.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloseButton.Y",
+                            Type = "float",
+                            Value = CloseButton.Y + 18.6111f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloseButton.Y Units",
+                            Type = "PositionUnitType",
+                            Value = CloseButton.YUnits
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (Options state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Options.Visible:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsControlsInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsControlsInstance.Visible
+                        }
+                        );
+                        break;
+                    case  Options.Hidden:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsControlsInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsControlsInstance.Visible
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (Options state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Options.Visible:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsControlsInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsControlsInstance.Visible
+                        }
+                        );
+                        break;
+                    case  Options.Hidden:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsControlsInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsControlsInstance.Visible
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -1467,6 +1867,11 @@
                     {
                         if (state.Name == "Default") this.mCurrentVariableState = VariableState.Default;
                     }
+                    else if (category.Name == "Options")
+                    {
+                        if(state.Name == "Visible") this.mCurrentOptionsState = Options.Visible;
+                        if(state.Name == "Hidden") this.mCurrentOptionsState = Options.Hidden;
+                    }
                 }
                 base.ApplyState(state);
             }
@@ -1477,6 +1882,7 @@
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance3 { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime VersionText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime OptionsControlsInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime CloseButton { get; set; }
             public ButtonFrameRuntime.ButtonType ButtonType1State
             {
                 get
@@ -1575,6 +1981,7 @@
                 ButtonFrameInstance3 = this.GetGraphicalUiElementByName("ButtonFrameInstance3") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
                 VersionText = this.GetGraphicalUiElementByName("VersionText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 OptionsControlsInstance = this.GetGraphicalUiElementByName("OptionsControlsInstance") as AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime;
+                CloseButton = this.GetGraphicalUiElementByName("CloseButton") as AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

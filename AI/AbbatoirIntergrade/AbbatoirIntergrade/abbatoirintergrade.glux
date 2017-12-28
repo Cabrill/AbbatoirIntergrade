@@ -406,7 +406,7 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/MapScreenGum.gusx</SourceFile>
-          <SourceName>Entire File (GumIdb)</SourceName>
+          <SourceName>this (AbbatoirIntergrade.GumRuntimes.MapScreenGumRuntime)</SourceName>
           <InstanceName>MapScreenGumInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>

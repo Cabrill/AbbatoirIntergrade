@@ -24,7 +24,7 @@ namespace AbbatoirIntergrade.Screens
         protected static Microsoft.Xna.Framework.Graphics.Texture2D worldmap;
         protected static FlatRedBall.Gum.GumIdb MapScreenGum;
         
-        private FlatRedBall.Gum.GumIdb MapScreenGumInstance;
+        private AbbatoirIntergrade.GumRuntimes.MapScreenGumRuntime MapScreenGumInstance;
         public MapScreen () 
         	: base ("MapScreen")
         {
@@ -32,7 +32,7 @@ namespace AbbatoirIntergrade.Screens
         public override void Initialize (bool addToManagers) 
         {
             LoadStaticContent(ContentManagerName);
-            MapScreenGumInstance = MapScreenGum;
+            MapScreenGumInstance = MapScreenGum.GetGraphicalUiElementByName("this") as AbbatoirIntergrade.GumRuntimes.MapScreenGumRuntime;
             
             
             PostInitialize();
@@ -71,6 +71,10 @@ namespace AbbatoirIntergrade.Screens
             FlatRedBall.SpriteManager.RemoveDrawableBatch(MapScreenGum); FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged -= MapScreenGum.HandleResolutionChanged;
             MapScreenGum = null;
             
+            if (MapScreenGumInstance != null)
+            {
+                MapScreenGumInstance.RemoveFromManagers();
+            }
             CustomDestroy();
         }
         public virtual void PostInitialize () 
@@ -86,6 +90,10 @@ namespace AbbatoirIntergrade.Screens
         }
         public virtual void RemoveFromManagers () 
         {
+            if (MapScreenGumInstance != null)
+            {
+                MapScreenGumInstance.RemoveFromManagers();
+            }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 
         {

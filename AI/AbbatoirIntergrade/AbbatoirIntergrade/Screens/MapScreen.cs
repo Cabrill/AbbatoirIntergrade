@@ -28,7 +28,8 @@ namespace AbbatoirIntergrade.Screens
 #if WINDOWS || DESKTOP_GL
 		    FlatRedBallServices.IsWindowsCursorVisible = true;
 #endif
-		    AssignLevelsToMapButtons();
+            
+		    AssignClickEventsToButtons();
 		}
 
 	    void CustomActivity(bool firstTimeCalled)
@@ -49,30 +50,51 @@ namespace AbbatoirIntergrade.Screens
 
         }
 
-	    private void AssignLevelsToMapButtons()
+	    private void AssignClickEventsToButtons()
 	    {
-	        foreach (var element in MapScreenGumInstance.Element.ContainedElements)
+	        foreach (var element in MapScreenGumInstance.ContainedElements)
 	        {
 	            if (element is LevelButtonRuntime levelButton)
 	            {
 	                levelButton.Click += LoadLevel;
 	            }
+	            if (element is ButtonFrameRuntime optionsButton)
+	            {
+	                optionsButton.Click += ShowMenu;
+	            }
+	            if (element is MenuWindowRuntime menuWindow)
+	            {
+	                menuWindow.AssignEventToCloseButton(window => MapScreenGumInstance.HideMenuAnimation.Play(this));
+	            }
 	        }
+	    }
+
+	    private void ShowMenu(IWindow window)
+	    {
+	        MapScreenGumInstance.ShowMenuAnimation.Play(this);
 	    }
 
 	    private void LoadLevel(IWindow window)
 	    {
+            //Don't react to level button presses if menu is open
+	        if (MapScreenGumInstance.CurrentMenuDisplayState != MapScreenGumRuntime.MenuDisplay.MenuHidden) return;
+
 	        var windowAsLevelButton = window as LevelButtonRuntime;
+
+            //Don't do anything if level is disabled
+	        if (windowAsLevelButton == null || windowAsLevelButton.CurrentButtonCategoryState ==
+	            LevelButtonRuntime.ButtonCategory.Disabled) return;
+
 	        var levelName = windowAsLevelButton.LevelName;
 	        var assembly = Assembly.GetExecutingAssembly();
 
 	        var type = assembly.GetTypes()
 	            .First(t => t.Name == levelName);
 
-	        var level =  (BaseLevel)Activator.CreateInstance(type);
+	        var level = (BaseLevel) Activator.CreateInstance(type);
 
 	        GameStateManager.CurrentLevel = level;
-            this.MoveToScreen(typeof(GameScreen));
+	        this.MoveToScreen(typeof(GameScreen));
 	    }
 	}
 }
