@@ -43,6 +43,7 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("specificbuttons/LevelButton", typeof(AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("specificbuttons/OptionsButton", typeof(AbbatoirIntergrade.GumRuntimes.OptionsButtonRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("TechnologyTree", typeof(AbbatoirIntergrade.GumRuntimes.TechnologyTreeRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Thumb", typeof(AbbatoirIntergrade.GumRuntimes.ThumbRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("GameScreenGum", typeof(AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("LoadingScreenGum", typeof(AbbatoirIntergrade.GumRuntimes.LoadingScreenGumRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MainMenuGum", typeof(AbbatoirIntergrade.GumRuntimes.MainMenuGumRuntime));

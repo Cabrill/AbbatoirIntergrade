@@ -40,15 +40,12 @@
                             ColoredRectangleInstance.Red = 0;
                             ColoredRectangleInstance.Width = 100f;
                             ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ThumbInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            SetProperty("ThumbInstance.SourceFile", "AllUIAssets.png");
-                            ThumbInstance.TextureAddress = Gum.Managers.TextureAddress.Custom;
-                            ThumbInstance.TextureHeight = 101;
-                            ThumbInstance.TextureLeft = 3590;
-                            ThumbInstance.TextureTop = 2017;
-                            ThumbInstance.TextureWidth = 116;
-                            ThumbInstance.Width = 10f;
-                            ThumbInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ThumbInstance.Height = 100f;
+                            ThumbInstance.Width = 115f;
+                            ThumbInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                            ThumbInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            ThumbInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                            ThumbInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             break;
                     }
                 }
@@ -101,22 +98,10 @@
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
                 float HeightSecondValue= 0;
-                bool setThumbInstanceTextureHeightFirstValue = false;
-                bool setThumbInstanceTextureHeightSecondValue = false;
-                int ThumbInstanceTextureHeightFirstValue= 0;
-                int ThumbInstanceTextureHeightSecondValue= 0;
-                bool setThumbInstanceTextureLeftFirstValue = false;
-                bool setThumbInstanceTextureLeftSecondValue = false;
-                int ThumbInstanceTextureLeftFirstValue= 0;
-                int ThumbInstanceTextureLeftSecondValue= 0;
-                bool setThumbInstanceTextureTopFirstValue = false;
-                bool setThumbInstanceTextureTopSecondValue = false;
-                int ThumbInstanceTextureTopFirstValue= 0;
-                int ThumbInstanceTextureTopSecondValue= 0;
-                bool setThumbInstanceTextureWidthFirstValue = false;
-                bool setThumbInstanceTextureWidthSecondValue = false;
-                int ThumbInstanceTextureWidthFirstValue= 0;
-                int ThumbInstanceTextureWidthSecondValue= 0;
+                bool setThumbInstanceHeightFirstValue = false;
+                bool setThumbInstanceHeightSecondValue = false;
+                float ThumbInstanceHeightFirstValue= 0;
+                float ThumbInstanceHeightSecondValue= 0;
                 bool setThumbInstanceWidthFirstValue = false;
                 bool setThumbInstanceWidthSecondValue = false;
                 float ThumbInstanceWidthFirstValue= 0;
@@ -152,31 +137,25 @@
                         {
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
-                        if (interpolationValue < 1)
-                        {
-                            this.ThumbInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            SetProperty("ThumbInstance.SourceFile", "AllUIAssets.png");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.ThumbInstance.TextureAddress = Gum.Managers.TextureAddress.Custom;
-                        }
-                        setThumbInstanceTextureHeightFirstValue = true;
-                        ThumbInstanceTextureHeightFirstValue = 101;
-                        setThumbInstanceTextureLeftFirstValue = true;
-                        ThumbInstanceTextureLeftFirstValue = 3590;
-                        setThumbInstanceTextureTopFirstValue = true;
-                        ThumbInstanceTextureTopFirstValue = 2017;
-                        setThumbInstanceTextureWidthFirstValue = true;
-                        ThumbInstanceTextureWidthFirstValue = 116;
+                        setThumbInstanceHeightFirstValue = true;
+                        ThumbInstanceHeightFirstValue = 100f;
                         setThumbInstanceWidthFirstValue = true;
-                        ThumbInstanceWidthFirstValue = 10f;
+                        ThumbInstanceWidthFirstValue = 115f;
                         if (interpolationValue < 1)
                         {
-                            this.ThumbInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.ThumbInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ThumbInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ThumbInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ThumbInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setWidthFirstValue = true;
                         WidthFirstValue = 100f;
@@ -213,31 +192,25 @@
                         {
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
-                        if (interpolationValue >= 1)
-                        {
-                            this.ThumbInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            SetProperty("ThumbInstance.SourceFile", "AllUIAssets.png");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.ThumbInstance.TextureAddress = Gum.Managers.TextureAddress.Custom;
-                        }
-                        setThumbInstanceTextureHeightSecondValue = true;
-                        ThumbInstanceTextureHeightSecondValue = 101;
-                        setThumbInstanceTextureLeftSecondValue = true;
-                        ThumbInstanceTextureLeftSecondValue = 3590;
-                        setThumbInstanceTextureTopSecondValue = true;
-                        ThumbInstanceTextureTopSecondValue = 2017;
-                        setThumbInstanceTextureWidthSecondValue = true;
-                        ThumbInstanceTextureWidthSecondValue = 116;
+                        setThumbInstanceHeightSecondValue = true;
+                        ThumbInstanceHeightSecondValue = 100f;
                         setThumbInstanceWidthSecondValue = true;
-                        ThumbInstanceWidthSecondValue = 10f;
+                        ThumbInstanceWidthSecondValue = 115f;
                         if (interpolationValue >= 1)
                         {
-                            this.ThumbInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.ThumbInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ThumbInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ThumbInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ThumbInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setWidthSecondValue = true;
                         WidthSecondValue = 100f;
@@ -271,21 +244,9 @@
                 {
                     Height = HeightFirstValue * (1 - interpolationValue) + HeightSecondValue * interpolationValue;
                 }
-                if (setThumbInstanceTextureHeightFirstValue && setThumbInstanceTextureHeightSecondValue)
+                if (setThumbInstanceHeightFirstValue && setThumbInstanceHeightSecondValue)
                 {
-                    ThumbInstance.TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(ThumbInstanceTextureHeightFirstValue* (1 - interpolationValue) + ThumbInstanceTextureHeightSecondValue * interpolationValue);
-                }
-                if (setThumbInstanceTextureLeftFirstValue && setThumbInstanceTextureLeftSecondValue)
-                {
-                    ThumbInstance.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(ThumbInstanceTextureLeftFirstValue* (1 - interpolationValue) + ThumbInstanceTextureLeftSecondValue * interpolationValue);
-                }
-                if (setThumbInstanceTextureTopFirstValue && setThumbInstanceTextureTopSecondValue)
-                {
-                    ThumbInstance.TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(ThumbInstanceTextureTopFirstValue* (1 - interpolationValue) + ThumbInstanceTextureTopSecondValue * interpolationValue);
-                }
-                if (setThumbInstanceTextureWidthFirstValue && setThumbInstanceTextureWidthSecondValue)
-                {
-                    ThumbInstance.TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(ThumbInstanceTextureWidthFirstValue* (1 - interpolationValue) + ThumbInstanceTextureWidthSecondValue * interpolationValue);
+                    ThumbInstance.Height = ThumbInstanceHeightFirstValue * (1 - interpolationValue) + ThumbInstanceHeightSecondValue * interpolationValue;
                 }
                 if (setThumbInstanceWidthFirstValue && setThumbInstanceWidthSecondValue)
                 {
@@ -443,6 +404,7 @@
             public override void StopAnimations () 
             {
                 base.StopAnimations();
+                ThumbInstance.StopAnimations();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -542,57 +504,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ThumbInstance.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = ThumbInstance.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ThumbInstance.SourceFile",
-                            Type = "string",
-                            Value = ThumbInstance.SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ThumbInstance.Texture Address",
-                            Type = "TextureAddress",
-                            Value = ThumbInstance.TextureAddress
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ThumbInstance.Texture Height",
-                            Type = "int",
-                            Value = ThumbInstance.TextureHeight
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ThumbInstance.Texture Left",
-                            Type = "int",
-                            Value = ThumbInstance.TextureLeft
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ThumbInstance.Texture Top",
-                            Type = "int",
-                            Value = ThumbInstance.TextureTop
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ThumbInstance.Texture Width",
-                            Type = "int",
-                            Value = ThumbInstance.TextureWidth
+                            Name = "ThumbInstance.Height",
+                            Type = "float",
+                            Value = ThumbInstance.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -609,6 +523,30 @@
                             Name = "ThumbInstance.Width Units",
                             Type = "DimensionUnitType",
                             Value = ThumbInstance.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ThumbInstance.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = ThumbInstance.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ThumbInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = ThumbInstance.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ThumbInstance.Y Units",
+                            Type = "PositionUnitType",
+                            Value = ThumbInstance.YUnits
                         }
                         );
                         break;
@@ -712,57 +650,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ThumbInstance.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = ThumbInstance.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ThumbInstance.SourceFile",
-                            Type = "string",
-                            Value = ThumbInstance.SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ThumbInstance.Texture Address",
-                            Type = "TextureAddress",
-                            Value = ThumbInstance.TextureAddress
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ThumbInstance.Texture Height",
-                            Type = "int",
-                            Value = ThumbInstance.TextureHeight + 101
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ThumbInstance.Texture Left",
-                            Type = "int",
-                            Value = ThumbInstance.TextureLeft + 3590
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ThumbInstance.Texture Top",
-                            Type = "int",
-                            Value = ThumbInstance.TextureTop + 2017
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ThumbInstance.Texture Width",
-                            Type = "int",
-                            Value = ThumbInstance.TextureWidth + 116
+                            Name = "ThumbInstance.Height",
+                            Type = "float",
+                            Value = ThumbInstance.Height + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -770,7 +660,7 @@
                             SetsValue = true,
                             Name = "ThumbInstance.Width",
                             Type = "float",
-                            Value = ThumbInstance.Width + 10f
+                            Value = ThumbInstance.Width + 115f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -779,6 +669,30 @@
                             Name = "ThumbInstance.Width Units",
                             Type = "DimensionUnitType",
                             Value = ThumbInstance.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ThumbInstance.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = ThumbInstance.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ThumbInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = ThumbInstance.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ThumbInstance.Y Units",
+                            Type = "PositionUnitType",
+                            Value = ThumbInstance.YUnits
                         }
                         );
                         break;
@@ -819,11 +733,12 @@
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime ThumbInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ThumbRuntime ThumbInstance { get; set; }
+            public event FlatRedBall.Gui.WindowEvent ThumbInstanceClick;
             public SliderBarRuntime (bool fullInstantiation = true) 
             	: base(false)
             {
-                this.ExposeChildrenEvents = false;
+                this.ExposeChildrenEvents = true;
                 if (fullInstantiation)
                 {
                     Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "SliderBar");
@@ -848,7 +763,8 @@
             private void AssignReferences () 
             {
                 ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
-                ThumbInstance = this.GetGraphicalUiElementByName("ThumbInstance") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
+                ThumbInstance = this.GetGraphicalUiElementByName("ThumbInstance") as AbbatoirIntergrade.GumRuntimes.ThumbRuntime;
+                ThumbInstance.Click += (unused) => ThumbInstanceClick?.Invoke(this);
                 FormsControl = new FlatRedBall.Forms.Controls.Slider();
                 FormsControl.Visual = this;
             }
