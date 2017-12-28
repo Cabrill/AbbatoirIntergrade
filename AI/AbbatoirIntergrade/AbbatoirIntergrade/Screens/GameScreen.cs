@@ -37,6 +37,7 @@ namespace AbbatoirIntergrade.Screens
         };
 
         private BaseLevel CurrentLevel;
+        private FlatRedBall.TileGraphics.LayeredTileMap currentMap;
         private Polygon Pathing;
         private List<Polygon> WaterShapes;
         private DateTime currentLevelDateTime;
@@ -178,12 +179,13 @@ namespace AbbatoirIntergrade.Screens
         
         void LoadTiledMap()
         {
-            FlatRedBall.TileEntities.TileEntityInstantiator.CreateEntitiesFrom(Chapter1);
+            currentMap = GetFile(CurrentLevel.MapName) as FlatRedBall.TileGraphics.LayeredTileMap;
+            FlatRedBall.TileEntities.TileEntityInstantiator.CreateEntitiesFrom(currentMap);
 
             foreach (var place in StructurePlacementList)
             {
                 place.OnClick += OnClick;
-                place.AttachTo(Chapter1);
+                place.AttachTo(currentMap);
                 place.Z = 2;
                 place.SetRelativeFromAbsolute();
             }
@@ -194,7 +196,7 @@ namespace AbbatoirIntergrade.Screens
                     circle.X += circle.CircleInstanceRadius / 2;
                     circle.Y += circle.CircleInstanceRadius / 2;
                 }
-                circle.AttachTo(Chapter1);
+                circle.AttachTo(currentMap);
                 circle.SetRelativeFromAbsolute();
             }
             foreach (var rect in TileCollisionRectangleList)
@@ -207,31 +209,31 @@ namespace AbbatoirIntergrade.Screens
                 {
                     rect.Y += rect.AxisAlignedRectangleInstanceHeight / 2-64;
                 }
-                rect.AttachTo(Chapter1);
+                rect.AttachTo(currentMap);
                 rect.SetRelativeFromAbsolute();
             }
 
-            WaterShapes = Chapter1.ShapeCollections.FirstOrDefault(sc => sc.Name == "Water")?.Polygons.ToList();
+            WaterShapes = currentMap.ShapeCollections.FirstOrDefault(sc => sc.Name == "Water")?.Polygons.ToList();
             if (WaterShapes != null)
             {
                 foreach (var shape in WaterShapes)
                 {
-                    shape.AttachTo(Chapter1);
+                    shape.AttachTo(currentMap);
                     shape.SetRelativeFromAbsolute();
                 }
             }
 
-            Pathing = Chapter1.ShapeCollections.FirstOrDefault(sc => sc.Name == "Pathing")?.Polygons.FirstOrDefault();
-            Pathing?.AttachTo(Chapter1);
+            Pathing = currentMap.ShapeCollections.FirstOrDefault(sc => sc.Name == "Pathing")?.Polygons.FirstOrDefault();
+            Pathing?.AttachTo(currentMap);
             Pathing?.SetRelativeFromAbsolute();
-            Chapter1.AddToManagers(WorldLayer);
+            currentMap.AddToManagers(WorldLayer);
 
             //This centers the map in the middle of the screen
-            
-            Chapter1.Position.X = -Chapter1.Width / 2;
 
-            Chapter1.Position.Y = -(Camera.Main.OrthogonalHeight / 2 - Chapter1.Height);
-            Chapter1.Z = -1f;
+            currentMap.Position.X = -currentMap.Width / 2;
+
+            currentMap.Position.Y = -(Camera.Main.OrthogonalHeight / 2 - currentMap.Height);
+            currentMap.Z = -1f;
 
             //ShapeManager.AddPolygon(pathing);
             ShapeManager.AddToLayer(Pathing, WorldLayer);

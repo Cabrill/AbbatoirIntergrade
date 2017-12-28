@@ -13,6 +13,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
 {
     class Chapter1Level : BaseLevel
     {
+        public override string MapName => "Chapter1";
         public override DateTime StartTime => new DateTime(2017, 10, 21, 6, 0, 0);
         public override int StartingLives => 30;
         public override List<BaseWave> Waves { get; }

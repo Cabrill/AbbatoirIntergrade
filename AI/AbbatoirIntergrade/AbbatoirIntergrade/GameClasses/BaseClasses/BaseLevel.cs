@@ -14,6 +14,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 {
     public abstract class BaseLevel
     {
+        public abstract string MapName { get; }
         public abstract DateTime StartTime { get; }
         public abstract List<BaseWave> Waves { get; }
 
