@@ -498,6 +498,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             try
             {
                 attackSound.Play();
+                
             }
             catch (Exception) { }
         }

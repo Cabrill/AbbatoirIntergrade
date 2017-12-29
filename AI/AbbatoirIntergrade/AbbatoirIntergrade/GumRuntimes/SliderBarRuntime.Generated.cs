@@ -33,6 +33,17 @@
                             HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             Width = 100f;
                             WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            BackgroundRectangle.Blue = 0;
+                            BackgroundRectangle.Green = 0;
+                            BackgroundRectangle.Height = 54f;
+                            BackgroundRectangle.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            BackgroundRectangle.Red = 0;
+                            BackgroundRectangle.Width = 8f;
+                            BackgroundRectangle.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
+                            BackgroundRectangle.X = -4f;
+                            BackgroundRectangle.Y = 50f;
+                            BackgroundRectangle.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            BackgroundRectangle.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             ColoredRectangleInstance.Blue = 255;
                             ColoredRectangleInstance.Green = 255;
                             ColoredRectangleInstance.Height = 50f;
@@ -42,7 +53,7 @@
                             ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ColoredRectangleInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             ColoredRectangleInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                            ThumbInstance.Height = 50f;
+                            ThumbInstance.Height = 40f;
                             ThumbInstance.Width = 115f;
                             ThumbInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                             ThumbInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
@@ -76,6 +87,34 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
+                bool setBackgroundRectangleBlueFirstValue = false;
+                bool setBackgroundRectangleBlueSecondValue = false;
+                int BackgroundRectangleBlueFirstValue= 0;
+                int BackgroundRectangleBlueSecondValue= 0;
+                bool setBackgroundRectangleGreenFirstValue = false;
+                bool setBackgroundRectangleGreenSecondValue = false;
+                int BackgroundRectangleGreenFirstValue= 0;
+                int BackgroundRectangleGreenSecondValue= 0;
+                bool setBackgroundRectangleHeightFirstValue = false;
+                bool setBackgroundRectangleHeightSecondValue = false;
+                float BackgroundRectangleHeightFirstValue= 0;
+                float BackgroundRectangleHeightSecondValue= 0;
+                bool setBackgroundRectangleRedFirstValue = false;
+                bool setBackgroundRectangleRedSecondValue = false;
+                int BackgroundRectangleRedFirstValue= 0;
+                int BackgroundRectangleRedSecondValue= 0;
+                bool setBackgroundRectangleWidthFirstValue = false;
+                bool setBackgroundRectangleWidthSecondValue = false;
+                float BackgroundRectangleWidthFirstValue= 0;
+                float BackgroundRectangleWidthSecondValue= 0;
+                bool setBackgroundRectangleXFirstValue = false;
+                bool setBackgroundRectangleXSecondValue = false;
+                float BackgroundRectangleXFirstValue= 0;
+                float BackgroundRectangleXSecondValue= 0;
+                bool setBackgroundRectangleYFirstValue = false;
+                bool setBackgroundRectangleYSecondValue = false;
+                float BackgroundRectangleYFirstValue= 0;
+                float BackgroundRectangleYSecondValue= 0;
                 bool setColoredRectangleInstanceBlueFirstValue = false;
                 bool setColoredRectangleInstanceBlueSecondValue = false;
                 int ColoredRectangleInstanceBlueFirstValue= 0;
@@ -115,6 +154,36 @@
                 switch(firstState)
                 {
                     case  VariableState.Default:
+                        setBackgroundRectangleBlueFirstValue = true;
+                        BackgroundRectangleBlueFirstValue = 0;
+                        setBackgroundRectangleGreenFirstValue = true;
+                        BackgroundRectangleGreenFirstValue = 0;
+                        setBackgroundRectangleHeightFirstValue = true;
+                        BackgroundRectangleHeightFirstValue = 54f;
+                        if (interpolationValue < 1)
+                        {
+                            this.BackgroundRectangle.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setBackgroundRectangleRedFirstValue = true;
+                        BackgroundRectangleRedFirstValue = 0;
+                        setBackgroundRectangleWidthFirstValue = true;
+                        BackgroundRectangleWidthFirstValue = 8f;
+                        if (interpolationValue < 1)
+                        {
+                            this.BackgroundRectangle.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
+                        }
+                        setBackgroundRectangleXFirstValue = true;
+                        BackgroundRectangleXFirstValue = -4f;
+                        setBackgroundRectangleYFirstValue = true;
+                        BackgroundRectangleYFirstValue = 50f;
+                        if (interpolationValue < 1)
+                        {
+                            this.BackgroundRectangle.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.BackgroundRectangle.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
                         setColoredRectangleInstanceBlueFirstValue = true;
                         ColoredRectangleInstanceBlueFirstValue = 255;
                         setColoredRectangleInstanceGreenFirstValue = true;
@@ -148,7 +217,7 @@
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setThumbInstanceHeightFirstValue = true;
-                        ThumbInstanceHeightFirstValue = 50f;
+                        ThumbInstanceHeightFirstValue = 40f;
                         setThumbInstanceWidthFirstValue = true;
                         ThumbInstanceWidthFirstValue = 115f;
                         if (interpolationValue < 1)
@@ -178,6 +247,36 @@
                 switch(secondState)
                 {
                     case  VariableState.Default:
+                        setBackgroundRectangleBlueSecondValue = true;
+                        BackgroundRectangleBlueSecondValue = 0;
+                        setBackgroundRectangleGreenSecondValue = true;
+                        BackgroundRectangleGreenSecondValue = 0;
+                        setBackgroundRectangleHeightSecondValue = true;
+                        BackgroundRectangleHeightSecondValue = 54f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.BackgroundRectangle.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setBackgroundRectangleRedSecondValue = true;
+                        BackgroundRectangleRedSecondValue = 0;
+                        setBackgroundRectangleWidthSecondValue = true;
+                        BackgroundRectangleWidthSecondValue = 8f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.BackgroundRectangle.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
+                        }
+                        setBackgroundRectangleXSecondValue = true;
+                        BackgroundRectangleXSecondValue = -4f;
+                        setBackgroundRectangleYSecondValue = true;
+                        BackgroundRectangleYSecondValue = 50f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.BackgroundRectangle.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.BackgroundRectangle.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
                         setColoredRectangleInstanceBlueSecondValue = true;
                         ColoredRectangleInstanceBlueSecondValue = 255;
                         setColoredRectangleInstanceGreenSecondValue = true;
@@ -211,7 +310,7 @@
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setThumbInstanceHeightSecondValue = true;
-                        ThumbInstanceHeightSecondValue = 50f;
+                        ThumbInstanceHeightSecondValue = 40f;
                         setThumbInstanceWidthSecondValue = true;
                         ThumbInstanceWidthSecondValue = 115f;
                         if (interpolationValue >= 1)
@@ -237,6 +336,34 @@
                             this.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         break;
+                }
+                if (setBackgroundRectangleBlueFirstValue && setBackgroundRectangleBlueSecondValue)
+                {
+                    BackgroundRectangle.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(BackgroundRectangleBlueFirstValue* (1 - interpolationValue) + BackgroundRectangleBlueSecondValue * interpolationValue);
+                }
+                if (setBackgroundRectangleGreenFirstValue && setBackgroundRectangleGreenSecondValue)
+                {
+                    BackgroundRectangle.Green = FlatRedBall.Math.MathFunctions.RoundToInt(BackgroundRectangleGreenFirstValue* (1 - interpolationValue) + BackgroundRectangleGreenSecondValue * interpolationValue);
+                }
+                if (setBackgroundRectangleHeightFirstValue && setBackgroundRectangleHeightSecondValue)
+                {
+                    BackgroundRectangle.Height = BackgroundRectangleHeightFirstValue * (1 - interpolationValue) + BackgroundRectangleHeightSecondValue * interpolationValue;
+                }
+                if (setBackgroundRectangleRedFirstValue && setBackgroundRectangleRedSecondValue)
+                {
+                    BackgroundRectangle.Red = FlatRedBall.Math.MathFunctions.RoundToInt(BackgroundRectangleRedFirstValue* (1 - interpolationValue) + BackgroundRectangleRedSecondValue * interpolationValue);
+                }
+                if (setBackgroundRectangleWidthFirstValue && setBackgroundRectangleWidthSecondValue)
+                {
+                    BackgroundRectangle.Width = BackgroundRectangleWidthFirstValue * (1 - interpolationValue) + BackgroundRectangleWidthSecondValue * interpolationValue;
+                }
+                if (setBackgroundRectangleXFirstValue && setBackgroundRectangleXSecondValue)
+                {
+                    BackgroundRectangle.X = BackgroundRectangleXFirstValue * (1 - interpolationValue) + BackgroundRectangleXSecondValue * interpolationValue;
+                }
+                if (setBackgroundRectangleYFirstValue && setBackgroundRectangleYSecondValue)
+                {
+                    BackgroundRectangle.Y = BackgroundRectangleYFirstValue * (1 - interpolationValue) + BackgroundRectangleYSecondValue * interpolationValue;
                 }
                 if (setColoredRectangleInstanceBlueFirstValue && setColoredRectangleInstanceBlueSecondValue)
                 {
@@ -466,6 +593,94 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "BackgroundRectangle.Blue",
+                            Type = "int",
+                            Value = BackgroundRectangle.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Green",
+                            Type = "int",
+                            Value = BackgroundRectangle.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Height",
+                            Type = "float",
+                            Value = BackgroundRectangle.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = BackgroundRectangle.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Red",
+                            Type = "int",
+                            Value = BackgroundRectangle.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Width",
+                            Type = "float",
+                            Value = BackgroundRectangle.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = BackgroundRectangle.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.X",
+                            Type = "float",
+                            Value = BackgroundRectangle.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Y",
+                            Type = "float",
+                            Value = BackgroundRectangle.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = BackgroundRectangle.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Y Units",
+                            Type = "PositionUnitType",
+                            Value = BackgroundRectangle.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ColoredRectangleInstance.Blue",
                             Type = "int",
                             Value = ColoredRectangleInstance.Blue
@@ -628,6 +843,94 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "BackgroundRectangle.Blue",
+                            Type = "int",
+                            Value = BackgroundRectangle.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Green",
+                            Type = "int",
+                            Value = BackgroundRectangle.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Height",
+                            Type = "float",
+                            Value = BackgroundRectangle.Height + 54f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = BackgroundRectangle.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Red",
+                            Type = "int",
+                            Value = BackgroundRectangle.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Width",
+                            Type = "float",
+                            Value = BackgroundRectangle.Width + 8f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = BackgroundRectangle.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.X",
+                            Type = "float",
+                            Value = BackgroundRectangle.X + -4f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Y",
+                            Type = "float",
+                            Value = BackgroundRectangle.Y + 50f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = BackgroundRectangle.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundRectangle.Y Units",
+                            Type = "PositionUnitType",
+                            Value = BackgroundRectangle.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ColoredRectangleInstance.Blue",
                             Type = "int",
                             Value = ColoredRectangleInstance.Blue + 255
@@ -702,7 +1005,7 @@
                             SetsValue = true,
                             Name = "ThumbInstance.Height",
                             Type = "float",
-                            Value = ThumbInstance.Height + 50f
+                            Value = ThumbInstance.Height + 40f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -782,9 +1085,42 @@
                 }
                 base.ApplyState(state);
             }
+            private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime BackgroundRectangle { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ThumbRuntime ThumbInstance { get; set; }
+            public int ColoredRectangleBlue
+            {
+                get
+                {
+                    return ColoredRectangleInstance.Blue;
+                }
+                set
+                {
+                    if (ColoredRectangleInstance.Blue != value)
+                    {
+                        ColoredRectangleInstance.Blue = value;
+                        ColoredRectangleBlueChanged?.Invoke(this, null);
+                    }
+                }
+            }
+            public int ColoredRectangleGreen
+            {
+                get
+                {
+                    return ColoredRectangleInstance.Green;
+                }
+                set
+                {
+                    if (ColoredRectangleInstance.Green != value)
+                    {
+                        ColoredRectangleInstance.Green = value;
+                        ColoredRectangleGreenChanged?.Invoke(this, null);
+                    }
+                }
+            }
             public event FlatRedBall.Gui.WindowEvent ThumbInstanceClick;
+            public event System.EventHandler ColoredRectangleBlueChanged;
+            public event System.EventHandler ColoredRectangleGreenChanged;
             public SliderBarRuntime (bool fullInstantiation = true) 
             	: base(false)
             {
@@ -812,6 +1148,7 @@
             }
             private void AssignReferences () 
             {
+                BackgroundRectangle = this.GetGraphicalUiElementByName("BackgroundRectangle") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 ThumbInstance = this.GetGraphicalUiElementByName("ThumbInstance") as AbbatoirIntergrade.GumRuntimes.ThumbRuntime;
                 ThumbInstance.Click += (unused) => ThumbInstanceClick?.Invoke(this);

@@ -25,6 +25,7 @@ namespace AbbatoirIntergrade.Screens
         protected static FlatRedBall.Gum.GumIdb MapScreenGum;
         
         private AbbatoirIntergrade.GumRuntimes.MapScreenGumRuntime MapScreenGumInstance;
+        private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance;
         public MapScreen () 
         	: base ("MapScreen")
         {
@@ -33,6 +34,7 @@ namespace AbbatoirIntergrade.Screens
         {
             LoadStaticContent(ContentManagerName);
             MapScreenGumInstance = MapScreenGum.GetGraphicalUiElementByName("this") as AbbatoirIntergrade.GumRuntimes.MapScreenGumRuntime;
+            MenuWindowInstance = MapScreenGum.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
             
             
             PostInitialize();
@@ -75,6 +77,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 MapScreenGumInstance.RemoveFromManagers();
             }
+            if (MenuWindowInstance != null)
+            {
+                MenuWindowInstance.RemoveFromManagers();
+            }
             CustomDestroy();
         }
         public virtual void PostInitialize () 
@@ -93,6 +99,10 @@ namespace AbbatoirIntergrade.Screens
             if (MapScreenGumInstance != null)
             {
                 MapScreenGumInstance.RemoveFromManagers();
+            }
+            if (MenuWindowInstance != null)
+            {
+                MenuWindowInstance.RemoveFromManagers();
             }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 

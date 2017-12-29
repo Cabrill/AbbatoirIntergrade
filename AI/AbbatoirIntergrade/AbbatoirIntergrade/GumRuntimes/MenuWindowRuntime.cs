@@ -38,5 +38,10 @@ namespace AbbatoirIntergrade.GumRuntimes
         {
             ButtonFrameInstance3.Click += assignedEvent.Invoke;
         }
+
+        public void RefreshOptions()
+        {
+            OptionsControlsInstance.RefreshValues();
+        }
     }
 }

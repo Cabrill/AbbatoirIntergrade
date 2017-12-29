@@ -71,6 +71,7 @@ namespace AbbatoirIntergrade.Screens
 
 	    private void ShowMenu(IWindow window)
 	    {
+            MenuWindowInstance.RefreshOptions();
 	        MapScreenGumInstance.ShowMenuAnimation.Play(this);
 	    }
 

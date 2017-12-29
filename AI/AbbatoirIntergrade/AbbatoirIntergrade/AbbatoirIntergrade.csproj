@@ -333,7 +333,10 @@
     </Compile>
     <Compile Include="GumRuntimes\MessageBoxRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\OptionsControlsRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\OptionsControlsRuntime.cs" />
+    <Compile Include="GumRuntimes\OptionsControlsRuntime.Generated.cs">
+      <DependentUpon>OptionsControlsRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SliderBarRuntime.cs" />
     <Compile Include="GumRuntimes\SliderBarRuntime.Generated.cs">
@@ -372,25 +375,9 @@
     <Compile Include="Screens\GameScreen.Generated.Event.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="StateInterpolation\Back.cs" />
-    <Compile Include="StateInterpolation\Bounce.cs" />
-    <Compile Include="StateInterpolation\Circular.cs" />
-    <Compile Include="StateInterpolation\Cubic.cs" />
-    <Compile Include="StateInterpolation\Elastic.cs" />
-    <Compile Include="StateInterpolation\Exponential.cs" />
-    <Compile Include="StateInterpolation\Instant.cs" />
-    <Compile Include="StateInterpolation\Linear.cs" />
-    <Compile Include="StateInterpolation\Quadratic.cs" />
-    <Compile Include="StateInterpolation\Quartic.cs" />
-    <Compile Include="StateInterpolation\Quintic.cs" />
-    <Compile Include="StateInterpolation\ShakeTweener.cs" />
-    <Compile Include="StateInterpolation\Sinusoidal.cs" />
-    <Compile Include="StateInterpolation\Tweener.cs" />
-    <Compile Include="StateInterpolation\TweenerManager.cs" />
     <Compile Include="StaticManagers\CameraZoomManager.cs" />
     <Compile Include="StaticManagers\GameStateManager.cs" />
     <Compile Include="StaticManagers\PlayerDataManager.cs" />
-    <Compile Include="StaticManagers\WaterManager.cs" />
     <Compile Include="Screens\GameScreen.BuildButtons.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
@@ -414,8 +401,8 @@
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Setup\CameraSetup.cs" />
+    <Compile Include="StaticManagers\SoundManager.cs" />
     <Compile Include="StaticManagers\SunlightManager.cs" />
-    <Compile Include="StaticManagers\WindManager.cs" />
     <Compile Include="SunMoonCalculations\MoonIllumination.cs" />
     <Compile Include="SunMoonCalculations\MoonPosition.cs" />
     <Compile Include="SunMoonCalculations\MoonTimes.cs" />

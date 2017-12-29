@@ -166,7 +166,6 @@ namespace AbbatoirIntergrade.Screens
         private void InitializeManagers()
         {
             SunlightManager.Initialize(HorizonBoxInstance, currentLevelDateTime);
-            WindManager.Initialize(currentLevelDateTime);
         }
 
         private void InitializeBaseEntities()
@@ -278,7 +277,6 @@ namespace AbbatoirIntergrade.Screens
 
                 HorizonBoxInstance.Update(currentLevelDateTime);
 
-                WindManager.Update(currentLevelDateTime);
                 SunlightManager.UpdateConditions(currentLevelDateTime);
 
                 EnemyStatusActivity();
