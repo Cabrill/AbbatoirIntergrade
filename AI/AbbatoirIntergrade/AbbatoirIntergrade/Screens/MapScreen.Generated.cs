@@ -26,6 +26,7 @@ namespace AbbatoirIntergrade.Screens
         
         private AbbatoirIntergrade.GumRuntimes.MapScreenGumRuntime MapScreenGumInstance;
         private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance;
+        private AbbatoirIntergrade.GumRuntimes.ScrollerViewRuntime ChatHistoryScroller;
         public MapScreen () 
         	: base ("MapScreen")
         {
@@ -35,6 +36,7 @@ namespace AbbatoirIntergrade.Screens
             LoadStaticContent(ContentManagerName);
             MapScreenGumInstance = MapScreenGum.GetGraphicalUiElementByName("this") as AbbatoirIntergrade.GumRuntimes.MapScreenGumRuntime;
             MenuWindowInstance = MapScreenGum.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
+            ChatHistoryScroller = MapScreenGum.GetGraphicalUiElementByName("ChatHistoryScroller") as AbbatoirIntergrade.GumRuntimes.ScrollerViewRuntime;
             
             
             PostInitialize();
@@ -81,6 +83,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 MenuWindowInstance.RemoveFromManagers();
             }
+            if (ChatHistoryScroller != null)
+            {
+                ChatHistoryScroller.RemoveFromManagers();
+            }
             CustomDestroy();
         }
         public virtual void PostInitialize () 
@@ -103,6 +109,10 @@ namespace AbbatoirIntergrade.Screens
             if (MenuWindowInstance != null)
             {
                 MenuWindowInstance.RemoveFromManagers();
+            }
+            if (ChatHistoryScroller != null)
+            {
+                ChatHistoryScroller.RemoveFromManagers();
             }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 

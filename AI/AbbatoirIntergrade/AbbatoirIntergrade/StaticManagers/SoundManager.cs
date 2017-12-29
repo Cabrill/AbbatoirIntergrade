@@ -18,7 +18,7 @@ namespace AbbatoirIntergrade.StaticManagers
             set
             {
                 _soundVolumeVolumeLevel = value;
-                effectiveSoundVolumeLevel = GetSmoothedVolumeLevel(value);
+                effectiveSoundVolumeLevel = getSmoothedVolumeLevel(value);
             }
     }
 
@@ -29,7 +29,7 @@ namespace AbbatoirIntergrade.StaticManagers
             set
             {
                 _musicVolumeLevel = value;
-                effectiveMusicVolumeLevel = GetSmoothedVolumeLevel(value);
+                effectiveMusicVolumeLevel = getSmoothedVolumeLevel(value);
                 MediaPlayer.Volume = effectiveMusicVolumeLevel;
             }
         }
@@ -71,7 +71,7 @@ namespace AbbatoirIntergrade.StaticManagers
 
         private const double a = 1e-3;
         private const double b = 6.908;
-        private static float GetSmoothedVolumeLevel(double value)
+        private static float getSmoothedVolumeLevel(double value)
         {
             var x = value / 100f;
             

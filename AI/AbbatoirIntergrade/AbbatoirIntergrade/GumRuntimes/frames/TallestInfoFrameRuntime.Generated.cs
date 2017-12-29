@@ -31,19 +31,18 @@
                             WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BackgroundSprite.Height = 68.01348f;
+                            BackgroundSprite.Height = 100f;
                             BackgroundSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            BackgroundSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
                             SetProperty("BackgroundSprite.SourceFile", "AllUIAssets.png");
                             BackgroundSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             BackgroundSprite.TextureHeight = 1492;
                             BackgroundSprite.TextureLeft = 2560;
                             BackgroundSprite.TextureTop = 2464;
                             BackgroundSprite.TextureWidth = 860;
-                            BackgroundSprite.Width = 24.95265f;
-                            BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            BackgroundSprite.X = 858f;
-                            BackgroundSprite.Y = 155f;
+                            BackgroundSprite.Width = 57.64f;
+                            BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                            BackgroundSprite.X = 0f;
+                            BackgroundSprite.Y = 0f;
                             break;
                     }
                 }
@@ -102,14 +101,10 @@
                 {
                     case  VariableState.Default:
                         setBackgroundSpriteHeightFirstValue = true;
-                        BackgroundSpriteHeightFirstValue = 68.01348f;
+                        BackgroundSpriteHeightFirstValue = 100f;
                         if (interpolationValue < 1)
                         {
                             this.BackgroundSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.BackgroundSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
                         }
                         if (interpolationValue < 1)
                         {
@@ -128,15 +123,15 @@
                         setBackgroundSpriteTextureWidthFirstValue = true;
                         BackgroundSpriteTextureWidthFirstValue = 860;
                         setBackgroundSpriteWidthFirstValue = true;
-                        BackgroundSpriteWidthFirstValue = 24.95265f;
+                        BackgroundSpriteWidthFirstValue = 57.64f;
                         if (interpolationValue < 1)
                         {
-                            this.BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                         }
                         setBackgroundSpriteXFirstValue = true;
-                        BackgroundSpriteXFirstValue = 858f;
+                        BackgroundSpriteXFirstValue = 0f;
                         setBackgroundSpriteYFirstValue = true;
-                        BackgroundSpriteYFirstValue = 155f;
+                        BackgroundSpriteYFirstValue = 0f;
                         setHeightFirstValue = true;
                         HeightFirstValue = 100f;
                         if (interpolationValue < 1)
@@ -163,14 +158,10 @@
                 {
                     case  VariableState.Default:
                         setBackgroundSpriteHeightSecondValue = true;
-                        BackgroundSpriteHeightSecondValue = 68.01348f;
+                        BackgroundSpriteHeightSecondValue = 100f;
                         if (interpolationValue >= 1)
                         {
                             this.BackgroundSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.BackgroundSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
                         }
                         if (interpolationValue >= 1)
                         {
@@ -189,15 +180,15 @@
                         setBackgroundSpriteTextureWidthSecondValue = true;
                         BackgroundSpriteTextureWidthSecondValue = 860;
                         setBackgroundSpriteWidthSecondValue = true;
-                        BackgroundSpriteWidthSecondValue = 24.95265f;
+                        BackgroundSpriteWidthSecondValue = 57.64f;
                         if (interpolationValue >= 1)
                         {
-                            this.BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                         }
                         setBackgroundSpriteXSecondValue = true;
-                        BackgroundSpriteXSecondValue = 858f;
+                        BackgroundSpriteXSecondValue = 0f;
                         setBackgroundSpriteYSecondValue = true;
-                        BackgroundSpriteYSecondValue = 155f;
+                        BackgroundSpriteYSecondValue = 0f;
                         setHeightSecondValue = true;
                         HeightSecondValue = 100f;
                         if (interpolationValue >= 1)
@@ -406,14 +397,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Parent",
-                            Type = "string",
-                            Value = BackgroundSprite.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "BackgroundSprite.SourceFile",
                             Type = "string",
                             Value = BackgroundSprite.SourceFile
@@ -554,7 +537,7 @@
                             SetsValue = true,
                             Name = "BackgroundSprite.Height",
                             Type = "float",
-                            Value = BackgroundSprite.Height + 68.01348f
+                            Value = BackgroundSprite.Height + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -563,14 +546,6 @@
                             Name = "BackgroundSprite.Height Units",
                             Type = "DimensionUnitType",
                             Value = BackgroundSprite.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "BackgroundSprite.Parent",
-                            Type = "string",
-                            Value = BackgroundSprite.Parent
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -626,7 +601,7 @@
                             SetsValue = true,
                             Name = "BackgroundSprite.Width",
                             Type = "float",
-                            Value = BackgroundSprite.Width + 24.95265f
+                            Value = BackgroundSprite.Width + 57.64f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -642,7 +617,7 @@
                             SetsValue = true,
                             Name = "BackgroundSprite.X",
                             Type = "float",
-                            Value = BackgroundSprite.X + 858f
+                            Value = BackgroundSprite.X + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -650,7 +625,7 @@
                             SetsValue = true,
                             Name = "BackgroundSprite.Y",
                             Type = "float",
-                            Value = BackgroundSprite.Y + 155f
+                            Value = BackgroundSprite.Y + 0f
                         }
                         );
                         break;

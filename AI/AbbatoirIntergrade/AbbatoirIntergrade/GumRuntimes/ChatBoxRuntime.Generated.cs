@@ -77,7 +77,8 @@
                             ColoredRectangleInstance.Y = 50.04165f;
                             ColoredRectangleInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             ColoredRectangleInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ChatOption0.Height = 33.333f;
+                            ChatOption0.Height = 0f;
+                            ChatOption0.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                             ChatOption0.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
                             ChatOption0.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer");
                             ChatOption0.Width = 100f;
@@ -94,11 +95,11 @@
                             CurrentText.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             CurrentText.Y = 2.029169f;
                             CurrentText.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ChatOption1.Height = 33.334f;
+                            ChatOption1.Height = 0f;
                             ChatOption1.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
                             ChatOption1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer");
                             ChatOption1.Width = 100f;
-                            ChatOption2.Height = 33.333f;
+                            ChatOption2.Height = 0f;
                             ChatOption2.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
                             ChatOption2.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer");
                             ChatOption2.Width = 100f;
@@ -108,6 +109,7 @@
                             ResponseContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatContainer");
                             ResponseContainer.Width = 100f;
                             ResponseContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ResponseContainer.WrapsChildren = false;
                             ResponseContainer.X = 0f;
                             ResponseContainer.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             ResponseContainer.Y = 0f;
@@ -588,7 +590,11 @@
                             this.ChatFrameInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         setChatOption0HeightFirstValue = true;
-                        ChatOption0HeightFirstValue = 33.333f;
+                        ChatOption0HeightFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatOption0.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
                         setChatOption0CurrentHighlightStateFirstValue = true;
                         ChatOption0CurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue < 1)
@@ -602,7 +608,7 @@
                         setChatOption0YFirstValue = true;
                         ChatOption0YFirstValue = 0f;
                         setChatOption1HeightFirstValue = true;
-                        ChatOption1HeightFirstValue = 33.334f;
+                        ChatOption1HeightFirstValue = 0f;
                         setChatOption1CurrentHighlightStateFirstValue = true;
                         ChatOption1CurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue < 1)
@@ -612,7 +618,7 @@
                         setChatOption1WidthFirstValue = true;
                         ChatOption1WidthFirstValue = 100f;
                         setChatOption2HeightFirstValue = true;
-                        ChatOption2HeightFirstValue = 33.333f;
+                        ChatOption2HeightFirstValue = 0f;
                         setChatOption2CurrentHighlightStateFirstValue = true;
                         ChatOption2CurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue < 1)
@@ -766,6 +772,10 @@
                         if (interpolationValue < 1)
                         {
                             this.ResponseContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ResponseContainer.WrapsChildren = false;
                         }
                         setResponseContainerXFirstValue = true;
                         ResponseContainerXFirstValue = 0f;
@@ -929,7 +939,11 @@
                             this.ChatFrameInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         setChatOption0HeightSecondValue = true;
-                        ChatOption0HeightSecondValue = 33.333f;
+                        ChatOption0HeightSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatOption0.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
                         setChatOption0CurrentHighlightStateSecondValue = true;
                         ChatOption0CurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue >= 1)
@@ -943,7 +957,7 @@
                         setChatOption0YSecondValue = true;
                         ChatOption0YSecondValue = 0f;
                         setChatOption1HeightSecondValue = true;
-                        ChatOption1HeightSecondValue = 33.334f;
+                        ChatOption1HeightSecondValue = 0f;
                         setChatOption1CurrentHighlightStateSecondValue = true;
                         ChatOption1CurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue >= 1)
@@ -953,7 +967,7 @@
                         setChatOption1WidthSecondValue = true;
                         ChatOption1WidthSecondValue = 100f;
                         setChatOption2HeightSecondValue = true;
-                        ChatOption2HeightSecondValue = 33.333f;
+                        ChatOption2HeightSecondValue = 0f;
                         setChatOption2CurrentHighlightStateSecondValue = true;
                         ChatOption2CurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue >= 1)
@@ -1107,6 +1121,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.ResponseContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ResponseContainer.WrapsChildren = false;
                         }
                         setResponseContainerXSecondValue = true;
                         ResponseContainerXSecondValue = 0f;
@@ -3061,6 +3079,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "ChatOption0.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ChatOption0.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ChatOption0.HighlightState",
                             Type = "HighlightState",
                             Value = ChatOption0.CurrentHighlightState
@@ -3296,6 +3322,14 @@
                             Name = "ResponseContainer.Width Units",
                             Type = "DimensionUnitType",
                             Value = ResponseContainer.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResponseContainer.Wraps Children",
+                            Type = "bool",
+                            Value = ResponseContainer.WrapsChildren
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3961,7 +3995,15 @@
                             SetsValue = true,
                             Name = "ChatOption0.Height",
                             Type = "float",
-                            Value = ChatOption0.Height + 33.333f
+                            Value = ChatOption0.Height + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatOption0.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ChatOption0.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4097,7 +4139,7 @@
                             SetsValue = true,
                             Name = "ChatOption1.Height",
                             Type = "float",
-                            Value = ChatOption1.Height + 33.334f
+                            Value = ChatOption1.Height + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4129,7 +4171,7 @@
                             SetsValue = true,
                             Name = "ChatOption2.Height",
                             Type = "float",
-                            Value = ChatOption2.Height + 33.333f
+                            Value = ChatOption2.Height + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4202,6 +4244,14 @@
                             Name = "ResponseContainer.Width Units",
                             Type = "DimensionUnitType",
                             Value = ResponseContainer.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResponseContainer.Wraps Children",
+                            Type = "bool",
+                            Value = ResponseContainer.WrapsChildren
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

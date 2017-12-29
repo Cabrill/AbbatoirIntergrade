@@ -31,18 +31,23 @@
                     switch(mCurrentVariableState)
                     {
                         case  VariableState.Default:
-                            Height = 76.66667f;
-                            HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            Width = 71.71875f;
+                            Height = 0f;
+                            HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            Width = 80f;
                             WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ChatOptionFrameInstance.Height = 100f;
+                            ChatOptionFrameInstance.Height = 46f;
+                            ChatOptionFrameInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                             ChatOptionFrameInstance.Width = 100f;
+                            ChatOptionFrameInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ChatOptionFrameInstance.X = 0f;
+                            ChatOptionFrameInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                            ChatOptionFrameInstance.Y = 0f;
+                            ChatOptionFrameInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                             TextInstance.Font = "Sylfaen";
                             TextInstance.FontSize = 30;
-                            TextInstance.Height = -75f;
-                            TextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
+                            TextInstance.Height = 0f;
+                            TextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatOptionFrameInstance");
                             TextInstance.Width = -80f;
                             TextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             TextInstance.X = 40f;
@@ -97,6 +102,14 @@
                 bool setChatOptionFrameInstanceWidthSecondValue = false;
                 float ChatOptionFrameInstanceWidthFirstValue= 0;
                 float ChatOptionFrameInstanceWidthSecondValue= 0;
+                bool setChatOptionFrameInstanceXFirstValue = false;
+                bool setChatOptionFrameInstanceXSecondValue = false;
+                float ChatOptionFrameInstanceXFirstValue= 0;
+                float ChatOptionFrameInstanceXSecondValue= 0;
+                bool setChatOptionFrameInstanceYFirstValue = false;
+                bool setChatOptionFrameInstanceYSecondValue = false;
+                float ChatOptionFrameInstanceYFirstValue= 0;
+                float ChatOptionFrameInstanceYSecondValue= 0;
                 bool setHeightFirstValue = false;
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
@@ -129,14 +142,34 @@
                 {
                     case  VariableState.Default:
                         setChatOptionFrameInstanceHeightFirstValue = true;
-                        ChatOptionFrameInstanceHeightFirstValue = 100f;
-                        setChatOptionFrameInstanceWidthFirstValue = true;
-                        ChatOptionFrameInstanceWidthFirstValue = 100f;
-                        setHeightFirstValue = true;
-                        HeightFirstValue = 76.66667f;
+                        ChatOptionFrameInstanceHeightFirstValue = 46f;
                         if (interpolationValue < 1)
                         {
-                            this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.ChatOptionFrameInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        setChatOptionFrameInstanceWidthFirstValue = true;
+                        ChatOptionFrameInstanceWidthFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatOptionFrameInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setChatOptionFrameInstanceXFirstValue = true;
+                        ChatOptionFrameInstanceXFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatOptionFrameInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                        }
+                        setChatOptionFrameInstanceYFirstValue = true;
+                        ChatOptionFrameInstanceYFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatOptionFrameInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                        }
+                        setHeightFirstValue = true;
+                        HeightFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                         }
                         if (interpolationValue < 1)
                         {
@@ -145,10 +178,14 @@
                         setTextInstanceFontSizeFirstValue = true;
                         TextInstanceFontSizeFirstValue = 30;
                         setTextInstanceHeightFirstValue = true;
-                        TextInstanceHeightFirstValue = -75f;
+                        TextInstanceHeightFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
-                            this.TextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
+                            this.TextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatOptionFrameInstance");
                         }
                         setTextInstanceWidthFirstValue = true;
                         TextInstanceWidthFirstValue = -80f;
@@ -169,18 +206,10 @@
                             this.TextInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setWidthFirstValue = true;
-                        WidthFirstValue = 71.71875f;
+                        WidthFirstValue = 80f;
                         if (interpolationValue < 1)
                         {
                             this.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         break;
                 }
@@ -188,14 +217,34 @@
                 {
                     case  VariableState.Default:
                         setChatOptionFrameInstanceHeightSecondValue = true;
-                        ChatOptionFrameInstanceHeightSecondValue = 100f;
-                        setChatOptionFrameInstanceWidthSecondValue = true;
-                        ChatOptionFrameInstanceWidthSecondValue = 100f;
-                        setHeightSecondValue = true;
-                        HeightSecondValue = 76.66667f;
+                        ChatOptionFrameInstanceHeightSecondValue = 46f;
                         if (interpolationValue >= 1)
                         {
-                            this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.ChatOptionFrameInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        setChatOptionFrameInstanceWidthSecondValue = true;
+                        ChatOptionFrameInstanceWidthSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatOptionFrameInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setChatOptionFrameInstanceXSecondValue = true;
+                        ChatOptionFrameInstanceXSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatOptionFrameInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                        }
+                        setChatOptionFrameInstanceYSecondValue = true;
+                        ChatOptionFrameInstanceYSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatOptionFrameInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                        }
+                        setHeightSecondValue = true;
+                        HeightSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -204,10 +253,14 @@
                         setTextInstanceFontSizeSecondValue = true;
                         TextInstanceFontSizeSecondValue = 30;
                         setTextInstanceHeightSecondValue = true;
-                        TextInstanceHeightSecondValue = -75f;
+                        TextInstanceHeightSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
-                            this.TextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
+                            this.TextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatOptionFrameInstance");
                         }
                         setTextInstanceWidthSecondValue = true;
                         TextInstanceWidthSecondValue = -80f;
@@ -228,18 +281,10 @@
                             this.TextInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setWidthSecondValue = true;
-                        WidthSecondValue = 71.71875f;
+                        WidthSecondValue = 80f;
                         if (interpolationValue >= 1)
                         {
                             this.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         break;
                 }
@@ -250,6 +295,14 @@
                 if (setChatOptionFrameInstanceWidthFirstValue && setChatOptionFrameInstanceWidthSecondValue)
                 {
                     ChatOptionFrameInstance.Width = ChatOptionFrameInstanceWidthFirstValue * (1 - interpolationValue) + ChatOptionFrameInstanceWidthSecondValue * interpolationValue;
+                }
+                if (setChatOptionFrameInstanceXFirstValue && setChatOptionFrameInstanceXSecondValue)
+                {
+                    ChatOptionFrameInstance.X = ChatOptionFrameInstanceXFirstValue * (1 - interpolationValue) + ChatOptionFrameInstanceXSecondValue * interpolationValue;
+                }
+                if (setChatOptionFrameInstanceYFirstValue && setChatOptionFrameInstanceYSecondValue)
+                {
+                    ChatOptionFrameInstance.Y = ChatOptionFrameInstanceYFirstValue * (1 - interpolationValue) + ChatOptionFrameInstanceYSecondValue * interpolationValue;
                 }
                 if (setHeightFirstValue && setHeightSecondValue)
                 {
@@ -543,22 +596,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "X Units",
-                            Type = "PositionUnitType",
-                            Value = XUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Y Units",
-                            Type = "PositionUnitType",
-                            Value = YUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "ChatOptionFrameInstance.Height",
                             Type = "float",
                             Value = ChatOptionFrameInstance.Height
@@ -567,9 +604,57 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "ChatOptionFrameInstance.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ChatOptionFrameInstance.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ChatOptionFrameInstance.Width",
                             Type = "float",
                             Value = ChatOptionFrameInstance.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatOptionFrameInstance.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ChatOptionFrameInstance.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatOptionFrameInstance.X",
+                            Type = "float",
+                            Value = ChatOptionFrameInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatOptionFrameInstance.X Units",
+                            Type = "PositionUnitType",
+                            Value = ChatOptionFrameInstance.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatOptionFrameInstance.Y",
+                            Type = "float",
+                            Value = ChatOptionFrameInstance.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatOptionFrameInstance.Y Units",
+                            Type = "PositionUnitType",
+                            Value = ChatOptionFrameInstance.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -602,6 +687,14 @@
                             Name = "TextInstance.Height Units",
                             Type = "DimensionUnitType",
                             Value = TextInstance.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Parent",
+                            Type = "string",
+                            Value = TextInstance.Parent
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -667,7 +760,7 @@
                             SetsValue = true,
                             Name = "Height",
                             Type = "float",
-                            Value = Height + 76.66667f
+                            Value = Height + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -683,7 +776,7 @@
                             SetsValue = true,
                             Name = "Width",
                             Type = "float",
-                            Value = Width + 71.71875f
+                            Value = Width + 80f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -697,25 +790,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "X Units",
-                            Type = "PositionUnitType",
-                            Value = XUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Y Units",
-                            Type = "PositionUnitType",
-                            Value = YUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "ChatOptionFrameInstance.Height",
                             Type = "float",
-                            Value = ChatOptionFrameInstance.Height + 100f
+                            Value = ChatOptionFrameInstance.Height + 46f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatOptionFrameInstance.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ChatOptionFrameInstance.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -724,6 +809,46 @@
                             Name = "ChatOptionFrameInstance.Width",
                             Type = "float",
                             Value = ChatOptionFrameInstance.Width + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatOptionFrameInstance.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ChatOptionFrameInstance.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatOptionFrameInstance.X",
+                            Type = "float",
+                            Value = ChatOptionFrameInstance.X + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatOptionFrameInstance.X Units",
+                            Type = "PositionUnitType",
+                            Value = ChatOptionFrameInstance.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatOptionFrameInstance.Y",
+                            Type = "float",
+                            Value = ChatOptionFrameInstance.Y + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatOptionFrameInstance.Y Units",
+                            Type = "PositionUnitType",
+                            Value = ChatOptionFrameInstance.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -747,7 +872,7 @@
                             SetsValue = true,
                             Name = "TextInstance.Height",
                             Type = "float",
-                            Value = TextInstance.Height + -75f
+                            Value = TextInstance.Height + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -756,6 +881,14 @@
                             Name = "TextInstance.Height Units",
                             Type = "DimensionUnitType",
                             Value = TextInstance.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Parent",
+                            Type = "string",
+                            Value = TextInstance.Parent
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1002,6 +1135,7 @@
             public ChatOptionRuntime (bool fullInstantiation = true) 
             	: base(false)
             {
+                this.HasEvents = true;
                 this.ExposeChildrenEvents = false;
                 if (fullInstantiation)
                 {

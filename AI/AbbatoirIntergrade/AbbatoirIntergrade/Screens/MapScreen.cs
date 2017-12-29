@@ -15,7 +15,8 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Gui;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
-
+using Gum.Converters;
+using RenderingLibrary.Graphics;
 
 
 namespace AbbatoirIntergrade.Screens
@@ -30,7 +31,29 @@ namespace AbbatoirIntergrade.Screens
 #endif
             
 		    AssignClickEventsToButtons();
+
+		    FillChatHistory();
 		}
+
+	    private void FillChatHistory()
+	    {
+	        for (int i = 0; i < 50; i++)
+	        {
+	            var chatOption = new ChatOptionRuntime(true);
+	            chatOption.ChatText = "Hello to you and to me, this is message # " + i;
+                if (i % 2 == 0)
+                { 
+	                chatOption.XOrigin = HorizontalAlignment.Left;
+                    chatOption.XUnits = GeneralUnitType.PixelsFromSmall;
+                }
+                else
+                {
+                    chatOption.XOrigin = HorizontalAlignment.Right;
+                    chatOption.XUnits = GeneralUnitType.PixelsFromLarge;
+                }
+	            chatOption.Parent = ChatHistoryScroller.FormsControl.InnerPanel;
+	        }
+	    }
 
 	    void CustomActivity(bool firstTimeCalled)
 		{

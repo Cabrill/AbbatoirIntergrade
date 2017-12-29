@@ -421,6 +421,15 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/MapScreenGum.gusx</SourceFile>
+          <SourceName>ChatHistoryScroller (AbbatoirIntergrade.GumRuntimes.ScrollerViewRuntime)</SourceName>
+          <InstanceName>ChatHistoryScroller</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
     </ScreenSave>
   </Screens>

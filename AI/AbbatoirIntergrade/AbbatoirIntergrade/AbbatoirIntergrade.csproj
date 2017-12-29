@@ -276,6 +276,7 @@
       <DependentUpon>ChatBoxRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\ChatBoxRuntime.cs" />
+    <Compile Include="GumRuntimes\ChatHistoryRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.cs" />
     <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.Generated.cs">
@@ -338,6 +339,8 @@
       <DependentUpon>OptionsControlsRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ScrollerViewRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ScrollThumbRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SliderBarRuntime.cs" />
     <Compile Include="GumRuntimes\SliderBarRuntime.Generated.cs">
       <DependentUpon>SliderBarRuntime.cs</DependentUpon>
@@ -358,10 +361,12 @@
     <Compile Include="GumRuntimes\specificbuttons\OptionsButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\SettingsButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\StartGameButtonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\specificbuttons\UpDownButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TechnologyTreeRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TextRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ThumbRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\VerticalScrollBarRuntime.Generated.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />
     <Compile Include="Performance\PoolList.Generated.cs" />
     <Compile Include="Program.cs" />
@@ -604,6 +609,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ChatBox</Name>
     </None>
+    <None Include="content\gumproject\components\chathistory.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ChatHistory</Name>
+    </None>
     <None Include="content\gumproject\components\coloredbars\resourcebar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ResourceBar</Name>
@@ -700,6 +709,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>OptionsControls</Name>
     </None>
+    <None Include="content\gumproject\components\scrollerview.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ScrollerView</Name>
+    </None>
+    <None Include="content\gumproject\components\scrollthumb.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ScrollThumb</Name>
+    </None>
     <None Include="content\gumproject\components\sliderbar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SliderBar</Name>
@@ -720,6 +737,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>OptionsButton</Name>
     </None>
+    <None Include="content\gumproject\components\specificbuttons\updownbutton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>UpDownButton</Name>
+    </None>
     <None Include="content\gumproject\components\technologytree.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>TechnologyTree</Name>
@@ -727,6 +748,10 @@
     <None Include="content\gumproject\components\thumb.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Thumb</Name>
+    </None>
+    <None Include="content\gumproject\components\verticalscrollbar.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>VerticalScrollBar</Name>
     </None>
     <None Include="content\gumproject\fontcache\font18arial.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

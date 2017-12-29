@@ -111,6 +111,9 @@
                             OptionsButtonInstance.Y = 5.347222f;
                             OptionsButtonInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             OptionsButtonInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            ChatHistoryScroller.Width = 33f;
+                            ChatHistoryScroller.X = 31.48438f;
+                            ChatHistoryScroller.Y = 0f;
                             break;
                     }
                 }
@@ -205,6 +208,18 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
+                bool setChatHistoryScrollerWidthFirstValue = false;
+                bool setChatHistoryScrollerWidthSecondValue = false;
+                float ChatHistoryScrollerWidthFirstValue= 0;
+                float ChatHistoryScrollerWidthSecondValue= 0;
+                bool setChatHistoryScrollerXFirstValue = false;
+                bool setChatHistoryScrollerXSecondValue = false;
+                float ChatHistoryScrollerXFirstValue= 0;
+                float ChatHistoryScrollerXSecondValue= 0;
+                bool setChatHistoryScrollerYFirstValue = false;
+                bool setChatHistoryScrollerYSecondValue = false;
+                float ChatHistoryScrollerYFirstValue= 0;
+                float ChatHistoryScrollerYSecondValue= 0;
                 bool setLevelButtonInstance1CurrentButtonCategoryStateFirstValue = false;
                 bool setLevelButtonInstance1CurrentButtonCategoryStateSecondValue = false;
                 LevelButtonRuntime.ButtonCategory LevelButtonInstance1CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
@@ -440,6 +455,12 @@
                         {
                             this.BackgroundMapSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setChatHistoryScrollerWidthFirstValue = true;
+                        ChatHistoryScrollerWidthFirstValue = 33f;
+                        setChatHistoryScrollerXFirstValue = true;
+                        ChatHistoryScrollerXFirstValue = 31.48438f;
+                        setChatHistoryScrollerYFirstValue = true;
+                        ChatHistoryScrollerYFirstValue = 0f;
                         setLevelButtonInstance1CurrentButtonCategoryStateFirstValue = true;
                         LevelButtonInstance1CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance1CurrentLevelNumberStateFirstValue = true;
@@ -639,6 +660,12 @@
                         {
                             this.BackgroundMapSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setChatHistoryScrollerWidthSecondValue = true;
+                        ChatHistoryScrollerWidthSecondValue = 33f;
+                        setChatHistoryScrollerXSecondValue = true;
+                        ChatHistoryScrollerXSecondValue = 31.48438f;
+                        setChatHistoryScrollerYSecondValue = true;
+                        ChatHistoryScrollerYSecondValue = 0f;
                         setLevelButtonInstance1CurrentButtonCategoryStateSecondValue = true;
                         LevelButtonInstance1CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance1CurrentLevelNumberStateSecondValue = true;
@@ -822,6 +849,18 @@
                             this.TechnologyTreeInstance.Visible = false;
                         }
                         break;
+                }
+                if (setChatHistoryScrollerWidthFirstValue && setChatHistoryScrollerWidthSecondValue)
+                {
+                    ChatHistoryScroller.Width = ChatHistoryScrollerWidthFirstValue * (1 - interpolationValue) + ChatHistoryScrollerWidthSecondValue * interpolationValue;
+                }
+                if (setChatHistoryScrollerXFirstValue && setChatHistoryScrollerXSecondValue)
+                {
+                    ChatHistoryScroller.X = ChatHistoryScrollerXFirstValue * (1 - interpolationValue) + ChatHistoryScrollerXSecondValue * interpolationValue;
+                }
+                if (setChatHistoryScrollerYFirstValue && setChatHistoryScrollerYSecondValue)
+                {
+                    ChatHistoryScroller.Y = ChatHistoryScrollerYFirstValue * (1 - interpolationValue) + ChatHistoryScrollerYSecondValue * interpolationValue;
                 }
                 if (setLevelButtonInstance1CurrentButtonCategoryStateFirstValue && setLevelButtonInstance1CurrentButtonCategoryStateSecondValue)
                 {
@@ -1927,6 +1966,7 @@
                 MenuWindowInstance.StopAnimations();
                 StyleBarInstance.StopAnimations();
                 OptionsButtonInstance.StopAnimations();
+                ChatHistoryScroller.StopAnimations();
                 ShowMenuAnimation.Stop();
                 HideMenuAnimation.Stop();
             }
@@ -2545,6 +2585,30 @@
                             Value = OptionsButtonInstance.YUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryScroller.Width",
+                            Type = "float",
+                            Value = ChatHistoryScroller.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryScroller.X",
+                            Type = "float",
+                            Value = ChatHistoryScroller.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryScroller.Y",
+                            Type = "float",
+                            Value = ChatHistoryScroller.Y
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -3161,6 +3225,30 @@
                             Name = "OptionsButtonInstance.Y Units",
                             Type = "PositionUnitType",
                             Value = OptionsButtonInstance.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryScroller.Width",
+                            Type = "float",
+                            Value = ChatHistoryScroller.Width + 33f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryScroller.X",
+                            Type = "float",
+                            Value = ChatHistoryScroller.X + 31.48438f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryScroller.Y",
+                            Type = "float",
+                            Value = ChatHistoryScroller.Y + 0f
                         }
                         );
                         break;
@@ -4110,6 +4198,7 @@
             private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.StyleBarRuntime StyleBarInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime OptionsButtonInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ScrollerViewRuntime ChatHistoryScroller { get; set; }
             public MapScreenGumRuntime (bool fullInstantiation = true) 
             {
                 if (fullInstantiation)
@@ -4151,6 +4240,7 @@
                 MenuWindowInstance = this.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
                 StyleBarInstance = this.GetGraphicalUiElementByName("StyleBarInstance") as AbbatoirIntergrade.GumRuntimes.StyleBarRuntime;
                 OptionsButtonInstance = this.GetGraphicalUiElementByName("OptionsButtonInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
+                ChatHistoryScroller = this.GetGraphicalUiElementByName("ChatHistoryScroller") as AbbatoirIntergrade.GumRuntimes.ScrollerViewRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

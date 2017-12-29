@@ -7,7 +7,7 @@
     <Variable>
       <Type>float</Type>
       <Name>BackgroundSprite.Height</Name>
-      <Value xsi:type="xsd:float">68.01348</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -19,7 +19,6 @@
     <Variable>
       <Type>string</Type>
       <Name>BackgroundSprite.Parent</Name>
-      <Value xsi:type="xsd:string">BackgroundContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -62,25 +61,25 @@
     <Variable>
       <Type>float</Type>
       <Name>BackgroundSprite.Width</Name>
-      <Value xsi:type="xsd:float">24.9526539</Value>
+      <Value xsi:type="xsd:float">57.64</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>BackgroundSprite.Width Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>BackgroundSprite.X</Name>
-      <Value xsi:type="xsd:float">858</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>BackgroundSprite.Y</Name>
-      <Value xsi:type="xsd:float">155</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -93,6 +92,11 @@
       <Type>DimensionUnitType</Type>
       <Name>Height Units</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>Parent</Name>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

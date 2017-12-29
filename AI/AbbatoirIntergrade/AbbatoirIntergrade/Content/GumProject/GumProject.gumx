@@ -33,6 +33,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>ChatHistory</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>coloredbars/ResourceBar</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
@@ -129,6 +133,14 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>ScrollerView</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>ScrollThumb</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>SliderBar</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
@@ -149,11 +161,19 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>specificbuttons/UpDownButton</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>TechnologyTree</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
     <Name>Thumb</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>VerticalScrollBar</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <StandardElementReference>

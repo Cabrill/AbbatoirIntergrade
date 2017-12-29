@@ -131,7 +131,13 @@
     <Variable>
       <Type>float</Type>
       <Name>ChatOption0.Height</Name>
-      <Value xsi:type="xsd:float">33.333</Value>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>ChatOption0.Height Units</Name>
+      <Value xsi:type="xsd:int">4</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -179,7 +185,7 @@
     <Variable>
       <Type>float</Type>
       <Name>ChatOption1.Height</Name>
-      <Value xsi:type="xsd:float">33.334</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -215,7 +221,7 @@
     <Variable>
       <Type>float</Type>
       <Name>ChatOption2.Height</Name>
-      <Value xsi:type="xsd:float">33.333</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -544,6 +550,12 @@
       <Type>DimensionUnitType</Type>
       <Name>ResponseContainer.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>ResponseContainer.Wraps Children</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

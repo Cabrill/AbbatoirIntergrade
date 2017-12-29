@@ -23,6 +23,24 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float</Type>
+      <Name>ChatHistoryScroller.Width</Name>
+      <Value xsi:type="xsd:float">33</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ChatHistoryScroller.X</Name>
+      <Value xsi:type="xsd:float">31.484375</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ChatHistoryScroller.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>ButtonCategoryState</Type>
       <Name>LevelButtonInstance1.ButtonCategoryState</Name>
       <Value xsi:type="xsd:string">Enabled</Value>
@@ -924,5 +942,9 @@
   <Instance>
     <Name>OptionsButtonInstance</Name>
     <BaseType>frames/ButtonFrame</BaseType>
+  </Instance>
+  <Instance>
+    <Name>ChatHistoryScroller</Name>
+    <BaseType>ScrollerView</BaseType>
   </Instance>
 </ScreenSave>
