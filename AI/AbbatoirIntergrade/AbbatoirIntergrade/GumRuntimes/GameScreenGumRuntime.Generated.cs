@@ -65,6 +65,7 @@
                     {
                         case  ChatHistoryShowing.ChatHistoryHidden:
                             ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatOpen;
+                            ChatBoxInstance.RecentResponseContainerVisible = false;
                             ChatBoxInstance.Visible = true;
                             ChatBoxInstance.Width = 50f;
                             ChatBoxInstance.X = 0f;
@@ -73,6 +74,7 @@
                             break;
                         case  ChatHistoryShowing.ChatHistoryShow1:
                             ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear4;
+                            ChatBoxInstance.RecentResponseContainerVisible = false;
                             ChatBoxInstance.Visible = true;
                             ChatBoxInstance.Width = 50f;
                             ChatBoxInstance.X = 0f;
@@ -81,6 +83,8 @@
                             break;
                         case  ChatHistoryShowing.ChatHistoryShow2:
                             ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear3;
+                            ChatBoxInstance.ChatContainerVisible = false;
+                            ChatBoxInstance.RecentResponseContainerVisible = false;
                             ChatBoxInstance.Visible = true;
                             ChatBoxInstance.Width = 50f;
                             ChatBoxInstance.X = 0f;
@@ -89,6 +93,7 @@
                             break;
                         case  ChatHistoryShowing.ChatHistoryShow3:
                             ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear2;
+                            ChatBoxInstance.RecentResponseContainerVisible = false;
                             ChatBoxInstance.Visible = true;
                             ChatBoxInstance.Width = 50f;
                             ChatBoxInstance.X = 0f;
@@ -97,6 +102,7 @@
                             break;
                         case  ChatHistoryShowing.ChatHistoryShow4:
                             ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear2;
+                            ChatBoxInstance.RecentResponseContainerVisible = false;
                             ChatBoxInstance.Visible = true;
                             ChatBoxInstance.Width = 33.20313f;
                             ChatBoxInstance.X = 10f;
@@ -105,6 +111,7 @@
                             break;
                         case  ChatHistoryShowing.ChatHistoryShown:
                             ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatOpen;
+                            ChatBoxInstance.RecentResponseContainerVisible = false;
                             ChatBoxInstance.Visible = false;
                             ChatBoxInstance.Width = 33.20313f;
                             ChatBoxInstance.X = 10f;
@@ -302,6 +309,10 @@
                         ChatBoxInstanceCurrentAppearanceStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatOpen;
                         if (interpolationValue < 1)
                         {
+                            this.ChatBoxInstance.RecentResponseContainerVisible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.ChatBoxInstance.Visible = true;
                         }
                         setChatBoxInstanceWidthFirstValue = true;
@@ -318,6 +329,10 @@
                     case  ChatHistoryShowing.ChatHistoryShow1:
                         setChatBoxInstanceCurrentAppearanceStateFirstValue = true;
                         ChatBoxInstanceCurrentAppearanceStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear4;
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatBoxInstance.RecentResponseContainerVisible = false;
+                        }
                         if (interpolationValue < 1)
                         {
                             this.ChatBoxInstance.Visible = true;
@@ -338,6 +353,14 @@
                         ChatBoxInstanceCurrentAppearanceStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear3;
                         if (interpolationValue < 1)
                         {
+                            this.ChatBoxInstance.ChatContainerVisible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatBoxInstance.RecentResponseContainerVisible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.ChatBoxInstance.Visible = true;
                         }
                         setChatBoxInstanceWidthFirstValue = true;
@@ -354,6 +377,10 @@
                     case  ChatHistoryShowing.ChatHistoryShow3:
                         setChatBoxInstanceCurrentAppearanceStateFirstValue = true;
                         ChatBoxInstanceCurrentAppearanceStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear2;
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatBoxInstance.RecentResponseContainerVisible = false;
+                        }
                         if (interpolationValue < 1)
                         {
                             this.ChatBoxInstance.Visible = true;
@@ -374,6 +401,10 @@
                         ChatBoxInstanceCurrentAppearanceStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear2;
                         if (interpolationValue < 1)
                         {
+                            this.ChatBoxInstance.RecentResponseContainerVisible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.ChatBoxInstance.Visible = true;
                         }
                         setChatBoxInstanceWidthFirstValue = true;
@@ -390,6 +421,10 @@
                     case  ChatHistoryShowing.ChatHistoryShown:
                         setChatBoxInstanceCurrentAppearanceStateFirstValue = true;
                         ChatBoxInstanceCurrentAppearanceStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatOpen;
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatBoxInstance.RecentResponseContainerVisible = false;
+                        }
                         if (interpolationValue < 1)
                         {
                             this.ChatBoxInstance.Visible = false;
@@ -413,6 +448,10 @@
                         ChatBoxInstanceCurrentAppearanceStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatOpen;
                         if (interpolationValue >= 1)
                         {
+                            this.ChatBoxInstance.RecentResponseContainerVisible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
                             this.ChatBoxInstance.Visible = true;
                         }
                         setChatBoxInstanceWidthSecondValue = true;
@@ -429,6 +468,10 @@
                     case  ChatHistoryShowing.ChatHistoryShow1:
                         setChatBoxInstanceCurrentAppearanceStateSecondValue = true;
                         ChatBoxInstanceCurrentAppearanceStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear4;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatBoxInstance.RecentResponseContainerVisible = false;
+                        }
                         if (interpolationValue >= 1)
                         {
                             this.ChatBoxInstance.Visible = true;
@@ -449,6 +492,14 @@
                         ChatBoxInstanceCurrentAppearanceStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear3;
                         if (interpolationValue >= 1)
                         {
+                            this.ChatBoxInstance.ChatContainerVisible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatBoxInstance.RecentResponseContainerVisible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
                             this.ChatBoxInstance.Visible = true;
                         }
                         setChatBoxInstanceWidthSecondValue = true;
@@ -465,6 +516,10 @@
                     case  ChatHistoryShowing.ChatHistoryShow3:
                         setChatBoxInstanceCurrentAppearanceStateSecondValue = true;
                         ChatBoxInstanceCurrentAppearanceStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear2;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatBoxInstance.RecentResponseContainerVisible = false;
+                        }
                         if (interpolationValue >= 1)
                         {
                             this.ChatBoxInstance.Visible = true;
@@ -485,6 +540,10 @@
                         ChatBoxInstanceCurrentAppearanceStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear2;
                         if (interpolationValue >= 1)
                         {
+                            this.ChatBoxInstance.RecentResponseContainerVisible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
                             this.ChatBoxInstance.Visible = true;
                         }
                         setChatBoxInstanceWidthSecondValue = true;
@@ -501,6 +560,10 @@
                     case  ChatHistoryShowing.ChatHistoryShown:
                         setChatBoxInstanceCurrentAppearanceStateSecondValue = true;
                         ChatBoxInstanceCurrentAppearanceStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatOpen;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatBoxInstance.RecentResponseContainerVisible = false;
+                        }
                         if (interpolationValue >= 1)
                         {
                             this.ChatBoxInstance.Visible = false;
@@ -983,7 +1046,8 @@
                 {
                     if (hideChatHistoryAnimation == null)
                     {
-                        hideChatHistoryAnimation = new FlatRedBall.Gum.Animation.GumAnimation(0.5f, HideChatHistoryAnimationInstructions);
+                        hideChatHistoryAnimation = new FlatRedBall.Gum.Animation.GumAnimation(0.51f, HideChatHistoryAnimationInstructions);
+                        hideChatHistoryAnimation.AddEvent("SetupResponseAvailability", 0.51f);
                     }
                     return hideChatHistoryAnimation;
                 }
@@ -995,7 +1059,8 @@
                 {
                     if (hideChatHistoryAnimationRelative == null)
                     {
-                        hideChatHistoryAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(0.5f, HideChatHistoryAnimationRelativeInstructions);
+                        hideChatHistoryAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(0.51f, HideChatHistoryAnimationRelativeInstructions);
+                        hideChatHistoryAnimationRelative.AddEvent("SetupResponseAvailability", 0.51f);
                     }
                     return hideChatHistoryAnimationRelative;
                 }
@@ -1260,6 +1325,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "ChatBoxInstance.RecentResponseContainerVisible",
+                            Type = "bool",
+                            Value = ChatBoxInstance.RecentResponseContainerVisible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ChatBoxInstance.Visible",
                             Type = "bool",
                             Value = ChatBoxInstance.Visible
@@ -1305,6 +1378,14 @@
                             Name = "ChatBoxInstance.AppearanceState",
                             Type = "Appearance",
                             Value = ChatBoxInstance.CurrentAppearanceState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatBoxInstance.RecentResponseContainerVisible",
+                            Type = "bool",
+                            Value = ChatBoxInstance.RecentResponseContainerVisible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1360,6 +1441,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "ChatBoxInstance.ChatContainerVisible",
+                            Type = "bool",
+                            Value = ChatBoxInstance.ChatContainerVisible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatBoxInstance.RecentResponseContainerVisible",
+                            Type = "bool",
+                            Value = ChatBoxInstance.RecentResponseContainerVisible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ChatBoxInstance.Visible",
                             Type = "bool",
                             Value = ChatBoxInstance.Visible
@@ -1405,6 +1502,14 @@
                             Name = "ChatBoxInstance.AppearanceState",
                             Type = "Appearance",
                             Value = ChatBoxInstance.CurrentAppearanceState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatBoxInstance.RecentResponseContainerVisible",
+                            Type = "bool",
+                            Value = ChatBoxInstance.RecentResponseContainerVisible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1460,6 +1565,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "ChatBoxInstance.RecentResponseContainerVisible",
+                            Type = "bool",
+                            Value = ChatBoxInstance.RecentResponseContainerVisible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ChatBoxInstance.Visible",
                             Type = "bool",
                             Value = ChatBoxInstance.Visible
@@ -1505,6 +1618,14 @@
                             Name = "ChatBoxInstance.AppearanceState",
                             Type = "Appearance",
                             Value = ChatBoxInstance.CurrentAppearanceState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatBoxInstance.RecentResponseContainerVisible",
+                            Type = "bool",
+                            Value = ChatBoxInstance.RecentResponseContainerVisible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1568,6 +1689,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "ChatBoxInstance.RecentResponseContainerVisible",
+                            Type = "bool",
+                            Value = ChatBoxInstance.RecentResponseContainerVisible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ChatBoxInstance.Visible",
                             Type = "bool",
                             Value = ChatBoxInstance.Visible
@@ -1613,6 +1742,14 @@
                             Name = "ChatBoxInstance.AppearanceState",
                             Type = "Appearance",
                             Value = ChatBoxInstance.CurrentAppearanceState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatBoxInstance.RecentResponseContainerVisible",
+                            Type = "bool",
+                            Value = ChatBoxInstance.RecentResponseContainerVisible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1668,6 +1805,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "ChatBoxInstance.ChatContainerVisible",
+                            Type = "bool",
+                            Value = ChatBoxInstance.ChatContainerVisible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatBoxInstance.RecentResponseContainerVisible",
+                            Type = "bool",
+                            Value = ChatBoxInstance.RecentResponseContainerVisible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ChatBoxInstance.Visible",
                             Type = "bool",
                             Value = ChatBoxInstance.Visible
@@ -1713,6 +1866,14 @@
                             Name = "ChatBoxInstance.AppearanceState",
                             Type = "Appearance",
                             Value = ChatBoxInstance.CurrentAppearanceState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatBoxInstance.RecentResponseContainerVisible",
+                            Type = "bool",
+                            Value = ChatBoxInstance.RecentResponseContainerVisible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1768,6 +1929,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "ChatBoxInstance.RecentResponseContainerVisible",
+                            Type = "bool",
+                            Value = ChatBoxInstance.RecentResponseContainerVisible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ChatBoxInstance.Visible",
                             Type = "bool",
                             Value = ChatBoxInstance.Visible
@@ -1813,6 +1982,14 @@
                             Name = "ChatBoxInstance.AppearanceState",
                             Type = "Appearance",
                             Value = ChatBoxInstance.CurrentAppearanceState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatBoxInstance.RecentResponseContainerVisible",
+                            Type = "bool",
+                            Value = ChatBoxInstance.RecentResponseContainerVisible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

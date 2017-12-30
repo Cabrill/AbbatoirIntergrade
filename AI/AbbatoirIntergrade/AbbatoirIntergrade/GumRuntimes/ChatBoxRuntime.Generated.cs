@@ -21,13 +21,20 @@
             {
                 NewMessage,
                 NoMessage,
-                Highlighted
+                NoMessageHighlighted,
+                NewMessageHighlighted
+            }
+            public enum ResponseAvailability
+            {
+                AwaitingResponse,
+                AlreadyResponded
             }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
             Appearance mCurrentAppearanceState;
             MessageIndicator mCurrentMessageIndicatorState;
+            ResponseAvailability mCurrentResponseAvailabilityState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -163,6 +170,22 @@
                             ChatHistoryButton.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             ChatHistoryButton.Y = 15.46297f;
                             ChatHistoryButton.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            RecentResponseContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
+                            RecentResponseContainer.Height = 82f;
+                            RecentResponseContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            RecentResponseContainer.Visible = false;
+                            RecentResponseContainer.Width = 80f;
+                            RecentResponseContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            RecentResponseContainer.X = 9.5f;
+                            RecentResponseContainer.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            RecentResponseContainer.Y = 10f;
+                            RecentResponseContainer.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            DialogueShownChatOption.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.Highlighted;
+                            DialogueShownChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer");
+                            ResponseChosenChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer");
+                            ResponseChosenChatOption.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                            ResponseChosenChatOption.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                            ResponseChosenChatOption.Y = 5f;
                             break;
                     }
                 }
@@ -191,7 +214,7 @@
                             ColoredRectangleInstance.Visible = true;
                             CurrentText.Visible = true;
                             ResponseContainer.Visible = true;
-                            ChatContainer.Visible = true;
+                            ChatContainer.Visible = false;
                             CloseChatButtonInstance.Visible = true;
                             MessageBox.Visible = false;
                             TextInstance.Visible = false;
@@ -210,7 +233,7 @@
                             ColoredRectangleInstance.Visible = false;
                             CurrentText.Visible = false;
                             ResponseContainer.Visible = false;
-                            ChatContainer.Visible = true;
+                            ChatContainer.Visible = false;
                             CloseChatButtonInstance.Visible = false;
                             MessageBox.Visible = false;
                             TextInstance.Visible = false;
@@ -229,7 +252,7 @@
                             ColoredRectangleInstance.Visible = false;
                             CurrentText.Visible = false;
                             ResponseContainer.Visible = false;
-                            ChatContainer.Visible = true;
+                            ChatContainer.Visible = false;
                             CloseChatButtonInstance.Visible = false;
                             MessageBox.Visible = false;
                             TextInstance.Visible = false;
@@ -289,7 +312,7 @@
                             ChatContainer.Visible = false;
                             CloseChatButtonInstance.Visible = false;
                             MessageBox.Visible = true;
-                            TextInstance.Visible = true;
+                            TextInstance.Visible = false;
                             ChatHistoryButton.Visible = false;
                             break;
                     }
@@ -308,15 +331,53 @@
                     {
                         case  MessageIndicator.NewMessage:
                             MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Blue;
+                            TextInstance.Blue = 0;
+                            TextInstance.Green = 0;
+                            TextInstance.Red = 0;
                             TextInstance.Visible = true;
                             break;
                         case  MessageIndicator.NoMessage:
                             MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Black;
+                            TextInstance.Blue = 255;
+                            TextInstance.Green = 255;
+                            TextInstance.Red = 255;
                             TextInstance.Visible = false;
                             break;
-                        case  MessageIndicator.Highlighted:
+                        case  MessageIndicator.NoMessageHighlighted:
                             MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
+                            TextInstance.Blue = 255;
+                            TextInstance.Green = 255;
+                            TextInstance.Red = 255;
                             TextInstance.Visible = false;
+                            break;
+                        case  MessageIndicator.NewMessageHighlighted:
+                            MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
+                            TextInstance.Blue = 255;
+                            TextInstance.Green = 255;
+                            TextInstance.Red = 255;
+                            TextInstance.Visible = true;
+                            break;
+                    }
+                }
+            }
+            public ResponseAvailability CurrentResponseAvailabilityState
+            {
+                get
+                {
+                    return mCurrentResponseAvailabilityState;
+                }
+                set
+                {
+                    mCurrentResponseAvailabilityState = value;
+                    switch(mCurrentResponseAvailabilityState)
+                    {
+                        case  ResponseAvailability.AwaitingResponse:
+                            ChatContainer.Visible = true;
+                            RecentResponseContainer.Visible = false;
+                            break;
+                        case  ResponseAvailability.AlreadyResponded:
+                            ChatContainer.Visible = false;
+                            RecentResponseContainer.Visible = true;
                             break;
                     }
                 }
@@ -495,6 +556,10 @@
                 bool setCurrentTextYSecondValue = false;
                 float CurrentTextYFirstValue= 0;
                 float CurrentTextYSecondValue= 0;
+                bool setDialogueShownChatOptionCurrentHighlightStateFirstValue = false;
+                bool setDialogueShownChatOptionCurrentHighlightStateSecondValue = false;
+                ChatOptionRuntime.Highlight DialogueShownChatOptionCurrentHighlightStateFirstValue= ChatOptionRuntime.Highlight.Highlighted;
+                ChatOptionRuntime.Highlight DialogueShownChatOptionCurrentHighlightStateSecondValue= ChatOptionRuntime.Highlight.Highlighted;
                 bool setHeightFirstValue = false;
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
@@ -519,6 +584,26 @@
                 bool setMessageBoxYSecondValue = false;
                 float MessageBoxYFirstValue= 0;
                 float MessageBoxYSecondValue= 0;
+                bool setRecentResponseContainerHeightFirstValue = false;
+                bool setRecentResponseContainerHeightSecondValue = false;
+                float RecentResponseContainerHeightFirstValue= 0;
+                float RecentResponseContainerHeightSecondValue= 0;
+                bool setRecentResponseContainerWidthFirstValue = false;
+                bool setRecentResponseContainerWidthSecondValue = false;
+                float RecentResponseContainerWidthFirstValue= 0;
+                float RecentResponseContainerWidthSecondValue= 0;
+                bool setRecentResponseContainerXFirstValue = false;
+                bool setRecentResponseContainerXSecondValue = false;
+                float RecentResponseContainerXFirstValue= 0;
+                float RecentResponseContainerXSecondValue= 0;
+                bool setRecentResponseContainerYFirstValue = false;
+                bool setRecentResponseContainerYSecondValue = false;
+                float RecentResponseContainerYFirstValue= 0;
+                float RecentResponseContainerYSecondValue= 0;
+                bool setResponseChosenChatOptionYFirstValue = false;
+                bool setResponseChosenChatOptionYSecondValue = false;
+                float ResponseChosenChatOptionYFirstValue= 0;
+                float ResponseChosenChatOptionYSecondValue= 0;
                 bool setResponseContainerHeightFirstValue = false;
                 bool setResponseContainerHeightSecondValue = false;
                 float ResponseContainerHeightFirstValue= 0;
@@ -776,6 +861,12 @@
                         {
                             this.CurrentText.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
+                        setDialogueShownChatOptionCurrentHighlightStateFirstValue = true;
+                        DialogueShownChatOptionCurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.Highlighted;
+                        if (interpolationValue < 1)
+                        {
+                            this.DialogueShownChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer");
+                        }
                         setHeightFirstValue = true;
                         HeightFirstValue = 50f;
                         if (interpolationValue < 1)
@@ -804,6 +895,52 @@
                         {
                             this.MessageBox.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.RecentResponseContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
+                        }
+                        setRecentResponseContainerHeightFirstValue = true;
+                        RecentResponseContainerHeightFirstValue = 82f;
+                        if (interpolationValue < 1)
+                        {
+                            this.RecentResponseContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.RecentResponseContainer.Visible = false;
+                        }
+                        setRecentResponseContainerWidthFirstValue = true;
+                        RecentResponseContainerWidthFirstValue = 80f;
+                        if (interpolationValue < 1)
+                        {
+                            this.RecentResponseContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setRecentResponseContainerXFirstValue = true;
+                        RecentResponseContainerXFirstValue = 9.5f;
+                        if (interpolationValue < 1)
+                        {
+                            this.RecentResponseContainer.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        setRecentResponseContainerYFirstValue = true;
+                        RecentResponseContainerYFirstValue = 10f;
+                        if (interpolationValue < 1)
+                        {
+                            this.RecentResponseContainer.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ResponseChosenChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ResponseChosenChatOption.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ResponseChosenChatOption.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
+                        setResponseChosenChatOptionYFirstValue = true;
+                        ResponseChosenChatOptionYFirstValue = 5f;
                         if (interpolationValue < 1)
                         {
                             this.ResponseContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
@@ -1143,6 +1280,12 @@
                         {
                             this.CurrentText.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
+                        setDialogueShownChatOptionCurrentHighlightStateSecondValue = true;
+                        DialogueShownChatOptionCurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.Highlighted;
+                        if (interpolationValue >= 1)
+                        {
+                            this.DialogueShownChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer");
+                        }
                         setHeightSecondValue = true;
                         HeightSecondValue = 50f;
                         if (interpolationValue >= 1)
@@ -1171,6 +1314,52 @@
                         {
                             this.MessageBox.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            this.RecentResponseContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
+                        }
+                        setRecentResponseContainerHeightSecondValue = true;
+                        RecentResponseContainerHeightSecondValue = 82f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.RecentResponseContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.RecentResponseContainer.Visible = false;
+                        }
+                        setRecentResponseContainerWidthSecondValue = true;
+                        RecentResponseContainerWidthSecondValue = 80f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.RecentResponseContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setRecentResponseContainerXSecondValue = true;
+                        RecentResponseContainerXSecondValue = 9.5f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.RecentResponseContainer.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        setRecentResponseContainerYSecondValue = true;
+                        RecentResponseContainerYSecondValue = 10f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.RecentResponseContainer.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ResponseChosenChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ResponseChosenChatOption.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ResponseChosenChatOption.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
+                        setResponseChosenChatOptionYSecondValue = true;
+                        ResponseChosenChatOptionYSecondValue = 5f;
                         if (interpolationValue >= 1)
                         {
                             this.ResponseContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
@@ -1473,6 +1662,10 @@
                 {
                     CurrentText.Y = CurrentTextYFirstValue * (1 - interpolationValue) + CurrentTextYSecondValue * interpolationValue;
                 }
+                if (setDialogueShownChatOptionCurrentHighlightStateFirstValue && setDialogueShownChatOptionCurrentHighlightStateSecondValue)
+                {
+                    DialogueShownChatOption.InterpolateBetween(DialogueShownChatOptionCurrentHighlightStateFirstValue, DialogueShownChatOptionCurrentHighlightStateSecondValue, interpolationValue);
+                }
                 if (setHeightFirstValue && setHeightSecondValue)
                 {
                     Height = HeightFirstValue * (1 - interpolationValue) + HeightSecondValue * interpolationValue;
@@ -1496,6 +1689,26 @@
                 if (setMessageBoxYFirstValue && setMessageBoxYSecondValue)
                 {
                     MessageBox.Y = MessageBoxYFirstValue * (1 - interpolationValue) + MessageBoxYSecondValue * interpolationValue;
+                }
+                if (setRecentResponseContainerHeightFirstValue && setRecentResponseContainerHeightSecondValue)
+                {
+                    RecentResponseContainer.Height = RecentResponseContainerHeightFirstValue * (1 - interpolationValue) + RecentResponseContainerHeightSecondValue * interpolationValue;
+                }
+                if (setRecentResponseContainerWidthFirstValue && setRecentResponseContainerWidthSecondValue)
+                {
+                    RecentResponseContainer.Width = RecentResponseContainerWidthFirstValue * (1 - interpolationValue) + RecentResponseContainerWidthSecondValue * interpolationValue;
+                }
+                if (setRecentResponseContainerXFirstValue && setRecentResponseContainerXSecondValue)
+                {
+                    RecentResponseContainer.X = RecentResponseContainerXFirstValue * (1 - interpolationValue) + RecentResponseContainerXSecondValue * interpolationValue;
+                }
+                if (setRecentResponseContainerYFirstValue && setRecentResponseContainerYSecondValue)
+                {
+                    RecentResponseContainer.Y = RecentResponseContainerYFirstValue * (1 - interpolationValue) + RecentResponseContainerYSecondValue * interpolationValue;
+                }
+                if (setResponseChosenChatOptionYFirstValue && setResponseChosenChatOptionYSecondValue)
+                {
+                    ResponseChosenChatOption.Y = ResponseChosenChatOptionYFirstValue * (1 - interpolationValue) + ResponseChosenChatOptionYSecondValue * interpolationValue;
                 }
                 if (setResponseContainerHeightFirstValue && setResponseContainerHeightSecondValue)
                 {
@@ -1603,7 +1816,7 @@
                     case  Appearance.ChatOpen:
                         if (interpolationValue < 1)
                         {
-                            this.ChatContainer.Visible = true;
+                            this.ChatContainer.Visible = false;
                         }
                         setChatFrameInstanceHeightFirstValue = true;
                         ChatFrameInstanceHeightFirstValue = 100f;
@@ -1659,7 +1872,7 @@
                     case  Appearance.Appear1:
                         if (interpolationValue < 1)
                         {
-                            this.ChatContainer.Visible = true;
+                            this.ChatContainer.Visible = false;
                         }
                         setChatFrameInstanceHeightFirstValue = true;
                         ChatFrameInstanceHeightFirstValue = 5f;
@@ -1715,7 +1928,7 @@
                     case  Appearance.Appear2:
                         if (interpolationValue < 1)
                         {
-                            this.ChatContainer.Visible = true;
+                            this.ChatContainer.Visible = false;
                         }
                         setChatFrameInstanceHeightFirstValue = true;
                         ChatFrameInstanceHeightFirstValue = 5f;
@@ -1933,7 +2146,7 @@
                         StyleBarInstanceYFirstValue = 90f;
                         if (interpolationValue < 1)
                         {
-                            this.TextInstance.Visible = true;
+                            this.TextInstance.Visible = false;
                         }
                         break;
                 }
@@ -1942,7 +2155,7 @@
                     case  Appearance.ChatOpen:
                         if (interpolationValue >= 1)
                         {
-                            this.ChatContainer.Visible = true;
+                            this.ChatContainer.Visible = false;
                         }
                         setChatFrameInstanceHeightSecondValue = true;
                         ChatFrameInstanceHeightSecondValue = 100f;
@@ -1998,7 +2211,7 @@
                     case  Appearance.Appear1:
                         if (interpolationValue >= 1)
                         {
-                            this.ChatContainer.Visible = true;
+                            this.ChatContainer.Visible = false;
                         }
                         setChatFrameInstanceHeightSecondValue = true;
                         ChatFrameInstanceHeightSecondValue = 5f;
@@ -2054,7 +2267,7 @@
                     case  Appearance.Appear2:
                         if (interpolationValue >= 1)
                         {
-                            this.ChatContainer.Visible = true;
+                            this.ChatContainer.Visible = false;
                         }
                         setChatFrameInstanceHeightSecondValue = true;
                         ChatFrameInstanceHeightSecondValue = 5f;
@@ -2272,7 +2485,7 @@
                         StyleBarInstanceYSecondValue = 90f;
                         if (interpolationValue >= 1)
                         {
-                            this.TextInstance.Visible = true;
+                            this.TextInstance.Visible = false;
                         }
                         break;
                 }
@@ -2325,11 +2538,29 @@
                 bool setMessageBoxCurrentColorStateStateSecondValue = false;
                 GlowingBoxRuntime.ColorState MessageBoxCurrentColorStateStateFirstValue= GlowingBoxRuntime.ColorState.Red;
                 GlowingBoxRuntime.ColorState MessageBoxCurrentColorStateStateSecondValue= GlowingBoxRuntime.ColorState.Red;
+                bool setTextInstanceBlueFirstValue = false;
+                bool setTextInstanceBlueSecondValue = false;
+                int TextInstanceBlueFirstValue= 0;
+                int TextInstanceBlueSecondValue= 0;
+                bool setTextInstanceGreenFirstValue = false;
+                bool setTextInstanceGreenSecondValue = false;
+                int TextInstanceGreenFirstValue= 0;
+                int TextInstanceGreenSecondValue= 0;
+                bool setTextInstanceRedFirstValue = false;
+                bool setTextInstanceRedSecondValue = false;
+                int TextInstanceRedFirstValue= 0;
+                int TextInstanceRedSecondValue= 0;
                 switch(firstState)
                 {
                     case  MessageIndicator.NewMessage:
                         setMessageBoxCurrentColorStateStateFirstValue = true;
                         MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Blue;
+                        setTextInstanceBlueFirstValue = true;
+                        TextInstanceBlueFirstValue = 0;
+                        setTextInstanceGreenFirstValue = true;
+                        TextInstanceGreenFirstValue = 0;
+                        setTextInstanceRedFirstValue = true;
+                        TextInstanceRedFirstValue = 0;
                         if (interpolationValue < 1)
                         {
                             this.TextInstance.Visible = true;
@@ -2338,17 +2569,43 @@
                     case  MessageIndicator.NoMessage:
                         setMessageBoxCurrentColorStateStateFirstValue = true;
                         MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Black;
+                        setTextInstanceBlueFirstValue = true;
+                        TextInstanceBlueFirstValue = 255;
+                        setTextInstanceGreenFirstValue = true;
+                        TextInstanceGreenFirstValue = 255;
+                        setTextInstanceRedFirstValue = true;
+                        TextInstanceRedFirstValue = 255;
                         if (interpolationValue < 1)
                         {
                             this.TextInstance.Visible = false;
                         }
                         break;
-                    case  MessageIndicator.Highlighted:
+                    case  MessageIndicator.NoMessageHighlighted:
                         setMessageBoxCurrentColorStateStateFirstValue = true;
                         MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
+                        setTextInstanceBlueFirstValue = true;
+                        TextInstanceBlueFirstValue = 255;
+                        setTextInstanceGreenFirstValue = true;
+                        TextInstanceGreenFirstValue = 255;
+                        setTextInstanceRedFirstValue = true;
+                        TextInstanceRedFirstValue = 255;
                         if (interpolationValue < 1)
                         {
                             this.TextInstance.Visible = false;
+                        }
+                        break;
+                    case  MessageIndicator.NewMessageHighlighted:
+                        setMessageBoxCurrentColorStateStateFirstValue = true;
+                        MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
+                        setTextInstanceBlueFirstValue = true;
+                        TextInstanceBlueFirstValue = 255;
+                        setTextInstanceGreenFirstValue = true;
+                        TextInstanceGreenFirstValue = 255;
+                        setTextInstanceRedFirstValue = true;
+                        TextInstanceRedFirstValue = 255;
+                        if (interpolationValue < 1)
+                        {
+                            this.TextInstance.Visible = true;
                         }
                         break;
                 }
@@ -2357,6 +2614,12 @@
                     case  MessageIndicator.NewMessage:
                         setMessageBoxCurrentColorStateStateSecondValue = true;
                         MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Blue;
+                        setTextInstanceBlueSecondValue = true;
+                        TextInstanceBlueSecondValue = 0;
+                        setTextInstanceGreenSecondValue = true;
+                        TextInstanceGreenSecondValue = 0;
+                        setTextInstanceRedSecondValue = true;
+                        TextInstanceRedSecondValue = 0;
                         if (interpolationValue >= 1)
                         {
                             this.TextInstance.Visible = true;
@@ -2365,23 +2628,61 @@
                     case  MessageIndicator.NoMessage:
                         setMessageBoxCurrentColorStateStateSecondValue = true;
                         MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Black;
+                        setTextInstanceBlueSecondValue = true;
+                        TextInstanceBlueSecondValue = 255;
+                        setTextInstanceGreenSecondValue = true;
+                        TextInstanceGreenSecondValue = 255;
+                        setTextInstanceRedSecondValue = true;
+                        TextInstanceRedSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
                             this.TextInstance.Visible = false;
                         }
                         break;
-                    case  MessageIndicator.Highlighted:
+                    case  MessageIndicator.NoMessageHighlighted:
                         setMessageBoxCurrentColorStateStateSecondValue = true;
                         MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
+                        setTextInstanceBlueSecondValue = true;
+                        TextInstanceBlueSecondValue = 255;
+                        setTextInstanceGreenSecondValue = true;
+                        TextInstanceGreenSecondValue = 255;
+                        setTextInstanceRedSecondValue = true;
+                        TextInstanceRedSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
                             this.TextInstance.Visible = false;
+                        }
+                        break;
+                    case  MessageIndicator.NewMessageHighlighted:
+                        setMessageBoxCurrentColorStateStateSecondValue = true;
+                        MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
+                        setTextInstanceBlueSecondValue = true;
+                        TextInstanceBlueSecondValue = 255;
+                        setTextInstanceGreenSecondValue = true;
+                        TextInstanceGreenSecondValue = 255;
+                        setTextInstanceRedSecondValue = true;
+                        TextInstanceRedSecondValue = 255;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TextInstance.Visible = true;
                         }
                         break;
                 }
                 if (setMessageBoxCurrentColorStateStateFirstValue && setMessageBoxCurrentColorStateStateSecondValue)
                 {
                     MessageBox.InterpolateBetween(MessageBoxCurrentColorStateStateFirstValue, MessageBoxCurrentColorStateStateSecondValue, interpolationValue);
+                }
+                if (setTextInstanceBlueFirstValue && setTextInstanceBlueSecondValue)
+                {
+                    TextInstance.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(TextInstanceBlueFirstValue* (1 - interpolationValue) + TextInstanceBlueSecondValue * interpolationValue);
+                }
+                if (setTextInstanceGreenFirstValue && setTextInstanceGreenSecondValue)
+                {
+                    TextInstance.Green = FlatRedBall.Math.MathFunctions.RoundToInt(TextInstanceGreenFirstValue* (1 - interpolationValue) + TextInstanceGreenSecondValue * interpolationValue);
+                }
+                if (setTextInstanceRedFirstValue && setTextInstanceRedSecondValue)
+                {
+                    TextInstance.Red = FlatRedBall.Math.MathFunctions.RoundToInt(TextInstanceRedFirstValue* (1 - interpolationValue) + TextInstanceRedSecondValue * interpolationValue);
                 }
                 if (interpolationValue < 1)
                 {
@@ -2390,6 +2691,69 @@
                 else
                 {
                     mCurrentMessageIndicatorState = secondState;
+                }
+            }
+            public void InterpolateBetween (ResponseAvailability firstState, ResponseAvailability secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                switch(firstState)
+                {
+                    case  ResponseAvailability.AwaitingResponse:
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatContainer.Visible = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.RecentResponseContainer.Visible = false;
+                        }
+                        break;
+                    case  ResponseAvailability.AlreadyResponded:
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatContainer.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.RecentResponseContainer.Visible = true;
+                        }
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  ResponseAvailability.AwaitingResponse:
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatContainer.Visible = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.RecentResponseContainer.Visible = false;
+                        }
+                        break;
+                    case  ResponseAvailability.AlreadyResponded:
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatContainer.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.RecentResponseContainer.Visible = true;
+                        }
+                        break;
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentResponseAvailabilityState = firstState;
+                }
+                else
+                {
+                    mCurrentResponseAvailabilityState = secondState;
                 }
             }
             #endregion
@@ -2556,6 +2920,60 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.ResponseAvailability fromState,AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.ResponseAvailability toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (ResponseAvailability toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "ResponseAvailability").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentResponseAvailabilityState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (ResponseAvailability toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentResponseAvailabilityState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
             #endregion
             #region State Animations
             private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> AppearAnimationInstructions (object target) 
@@ -2715,6 +3133,7 @@
                     if (appearAnimation == null)
                     {
                         appearAnimation = new FlatRedBall.Gum.Animation.GumAnimation(0.75f, AppearAnimationInstructions);
+                        appearAnimation.AddEvent("ChatOpen", 0.74f);
                     }
                     return appearAnimation;
                 }
@@ -2727,6 +3146,7 @@
                     if (appearAnimationRelative == null)
                     {
                         appearAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(0.75f, AppearAnimationRelativeInstructions);
+                        appearAnimationRelative.AddEvent("ChatOpen", 0.74f);
                     }
                     return appearAnimationRelative;
                 }
@@ -2887,7 +3307,8 @@
                 {
                     if (disappearAnimation == null)
                     {
-                        disappearAnimation = new FlatRedBall.Gum.Animation.GumAnimation(0.61f, DisappearAnimationInstructions);
+                        disappearAnimation = new FlatRedBall.Gum.Animation.GumAnimation(0.62f, DisappearAnimationInstructions);
+                        disappearAnimation.AddEvent("ChatClosed", 0.62f);
                     }
                     return disappearAnimation;
                 }
@@ -2899,7 +3320,8 @@
                 {
                     if (disappearAnimationRelative == null)
                     {
-                        disappearAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(0.61f, DisappearAnimationRelativeInstructions);
+                        disappearAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(0.62f, DisappearAnimationRelativeInstructions);
+                        disappearAnimationRelative.AddEvent("ChatClosed", 0.62f);
                     }
                     return disappearAnimationRelative;
                 }
@@ -2916,6 +3338,8 @@
                 CloseChatButtonInstance.StopAnimations();
                 MessageBox.StopAnimations();
                 ChatHistoryButton.StopAnimations();
+                DialogueShownChatOption.StopAnimations();
+                ResponseChosenChatOption.StopAnimations();
                 AppearAnimation.Stop();
                 DisappearAnimation.Stop();
             }
@@ -3894,6 +4318,134 @@
                             Value = ChatHistoryButton.YUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = RecentResponseContainer.ChildrenLayout
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Height",
+                            Type = "float",
+                            Value = RecentResponseContainer.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = RecentResponseContainer.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Width",
+                            Type = "float",
+                            Value = RecentResponseContainer.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = RecentResponseContainer.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.X",
+                            Type = "float",
+                            Value = RecentResponseContainer.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.X Units",
+                            Type = "PositionUnitType",
+                            Value = RecentResponseContainer.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Y",
+                            Type = "float",
+                            Value = RecentResponseContainer.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Y Units",
+                            Type = "PositionUnitType",
+                            Value = RecentResponseContainer.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DialogueShownChatOption.HighlightState",
+                            Type = "HighlightState",
+                            Value = DialogueShownChatOption.CurrentHighlightState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DialogueShownChatOption.Parent",
+                            Type = "string",
+                            Value = DialogueShownChatOption.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResponseChosenChatOption.Parent",
+                            Type = "string",
+                            Value = ResponseChosenChatOption.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResponseChosenChatOption.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = ResponseChosenChatOption.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResponseChosenChatOption.X Units",
+                            Type = "PositionUnitType",
+                            Value = ResponseChosenChatOption.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResponseChosenChatOption.Y",
+                            Type = "float",
+                            Value = ResponseChosenChatOption.Y
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -4870,6 +5422,134 @@
                             Name = "ChatHistoryButton.Y Units",
                             Type = "PositionUnitType",
                             Value = ChatHistoryButton.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = RecentResponseContainer.ChildrenLayout
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Height",
+                            Type = "float",
+                            Value = RecentResponseContainer.Height + 82f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = RecentResponseContainer.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Width",
+                            Type = "float",
+                            Value = RecentResponseContainer.Width + 80f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = RecentResponseContainer.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.X",
+                            Type = "float",
+                            Value = RecentResponseContainer.X + 9.5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.X Units",
+                            Type = "PositionUnitType",
+                            Value = RecentResponseContainer.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Y",
+                            Type = "float",
+                            Value = RecentResponseContainer.Y + 10f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Y Units",
+                            Type = "PositionUnitType",
+                            Value = RecentResponseContainer.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DialogueShownChatOption.HighlightState",
+                            Type = "HighlightState",
+                            Value = DialogueShownChatOption.CurrentHighlightState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DialogueShownChatOption.Parent",
+                            Type = "string",
+                            Value = DialogueShownChatOption.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResponseChosenChatOption.Parent",
+                            Type = "string",
+                            Value = ResponseChosenChatOption.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResponseChosenChatOption.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = ResponseChosenChatOption.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResponseChosenChatOption.X Units",
+                            Type = "PositionUnitType",
+                            Value = ResponseChosenChatOption.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResponseChosenChatOption.Y",
+                            Type = "float",
+                            Value = ResponseChosenChatOption.Y + 5f
                         }
                         );
                         break;
@@ -6565,6 +7245,30 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TextInstance.Blue",
+                            Type = "int",
+                            Value = TextInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Green",
+                            Type = "int",
+                            Value = TextInstance.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Red",
+                            Type = "int",
+                            Value = TextInstance.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TextInstance.Visible",
                             Type = "bool",
                             Value = TextInstance.Visible
@@ -6583,19 +7287,109 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TextInstance.Blue",
+                            Type = "int",
+                            Value = TextInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Green",
+                            Type = "int",
+                            Value = TextInstance.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Red",
+                            Type = "int",
+                            Value = TextInstance.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TextInstance.Visible",
                             Type = "bool",
                             Value = TextInstance.Visible
                         }
                         );
                         break;
-                    case  MessageIndicator.Highlighted:
+                    case  MessageIndicator.NoMessageHighlighted:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
                             Name = "MessageBox.ColorStateState",
                             Type = "ColorStateState",
                             Value = MessageBox.CurrentColorStateState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Blue",
+                            Type = "int",
+                            Value = TextInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Green",
+                            Type = "int",
+                            Value = TextInstance.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Red",
+                            Type = "int",
+                            Value = TextInstance.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Visible",
+                            Type = "bool",
+                            Value = TextInstance.Visible
+                        }
+                        );
+                        break;
+                    case  MessageIndicator.NewMessageHighlighted:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MessageBox.ColorStateState",
+                            Type = "ColorStateState",
+                            Value = MessageBox.CurrentColorStateState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Blue",
+                            Type = "int",
+                            Value = TextInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Green",
+                            Type = "int",
+                            Value = TextInstance.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Red",
+                            Type = "int",
+                            Value = TextInstance.Red
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -6627,6 +7421,30 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TextInstance.Blue",
+                            Type = "int",
+                            Value = TextInstance.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Green",
+                            Type = "int",
+                            Value = TextInstance.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Red",
+                            Type = "int",
+                            Value = TextInstance.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TextInstance.Visible",
                             Type = "bool",
                             Value = TextInstance.Visible
@@ -6645,13 +7463,37 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TextInstance.Blue",
+                            Type = "int",
+                            Value = TextInstance.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Green",
+                            Type = "int",
+                            Value = TextInstance.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Red",
+                            Type = "int",
+                            Value = TextInstance.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TextInstance.Visible",
                             Type = "bool",
                             Value = TextInstance.Visible
                         }
                         );
                         break;
-                    case  MessageIndicator.Highlighted:
+                    case  MessageIndicator.NoMessageHighlighted:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -6663,9 +7505,163 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TextInstance.Blue",
+                            Type = "int",
+                            Value = TextInstance.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Green",
+                            Type = "int",
+                            Value = TextInstance.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Red",
+                            Type = "int",
+                            Value = TextInstance.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TextInstance.Visible",
                             Type = "bool",
                             Value = TextInstance.Visible
+                        }
+                        );
+                        break;
+                    case  MessageIndicator.NewMessageHighlighted:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MessageBox.ColorStateState",
+                            Type = "ColorStateState",
+                            Value = MessageBox.CurrentColorStateState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Blue",
+                            Type = "int",
+                            Value = TextInstance.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Green",
+                            Type = "int",
+                            Value = TextInstance.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Red",
+                            Type = "int",
+                            Value = TextInstance.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Visible",
+                            Type = "bool",
+                            Value = TextInstance.Visible
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (ResponseAvailability state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  ResponseAvailability.AwaitingResponse:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatContainer.Visible",
+                            Type = "bool",
+                            Value = ChatContainer.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
+                        }
+                        );
+                        break;
+                    case  ResponseAvailability.AlreadyResponded:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatContainer.Visible",
+                            Type = "bool",
+                            Value = ChatContainer.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (ResponseAvailability state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  ResponseAvailability.AwaitingResponse:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatContainer.Visible",
+                            Type = "bool",
+                            Value = ChatContainer.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
+                        }
+                        );
+                        break;
+                    case  ResponseAvailability.AlreadyResponded:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatContainer.Visible",
+                            Type = "bool",
+                            Value = ChatContainer.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
                         }
                         );
                         break;
@@ -6696,7 +7692,13 @@
                     {
                         if(state.Name == "NewMessage") this.mCurrentMessageIndicatorState = MessageIndicator.NewMessage;
                         if(state.Name == "NoMessage") this.mCurrentMessageIndicatorState = MessageIndicator.NoMessage;
-                        if(state.Name == "Highlighted") this.mCurrentMessageIndicatorState = MessageIndicator.Highlighted;
+                        if(state.Name == "NoMessageHighlighted") this.mCurrentMessageIndicatorState = MessageIndicator.NoMessageHighlighted;
+                        if(state.Name == "NewMessageHighlighted") this.mCurrentMessageIndicatorState = MessageIndicator.NewMessageHighlighted;
+                    }
+                    else if (category.Name == "ResponseAvailability")
+                    {
+                        if(state.Name == "AwaitingResponse") this.mCurrentResponseAvailabilityState = ResponseAvailability.AwaitingResponse;
+                        if(state.Name == "AlreadyResponded") this.mCurrentResponseAvailabilityState = ResponseAvailability.AlreadyResponded;
                     }
                 }
                 base.ApplyState(state);
@@ -6714,6 +7716,41 @@
             private AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime MessageBox { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime ChatHistoryButton { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ContainerRuntime RecentResponseContainer { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime DialogueShownChatOption { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime ResponseChosenChatOption { get; set; }
+            public bool ChatContainerVisible
+            {
+                get
+                {
+                    return ChatContainer.Visible;
+                }
+                set
+                {
+                    if (ChatContainer.Visible != value)
+                    {
+                        ChatContainer.Visible = value;
+                        ChatContainerVisibleChanged?.Invoke(this, null);
+                    }
+                }
+            }
+            public bool RecentResponseContainerVisible
+            {
+                get
+                {
+                    return RecentResponseContainer.Visible;
+                }
+                set
+                {
+                    if (RecentResponseContainer.Visible != value)
+                    {
+                        RecentResponseContainer.Visible = value;
+                        RecentResponseContainerVisibleChanged?.Invoke(this, null);
+                    }
+                }
+            }
+            public event System.EventHandler ChatContainerVisibleChanged;
+            public event System.EventHandler RecentResponseContainerVisibleChanged;
             public ChatBoxRuntime (bool fullInstantiation = true) 
             	: base(false)
             {
@@ -6754,6 +7791,9 @@
                 MessageBox = this.GetGraphicalUiElementByName("MessageBox") as AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime;
                 TextInstance = this.GetGraphicalUiElementByName("TextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 ChatHistoryButton = this.GetGraphicalUiElementByName("ChatHistoryButton") as AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime;
+                RecentResponseContainer = this.GetGraphicalUiElementByName("RecentResponseContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
+                DialogueShownChatOption = this.GetGraphicalUiElementByName("DialogueShownChatOption") as AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime;
+                ResponseChosenChatOption = this.GetGraphicalUiElementByName("ResponseChosenChatOption") as AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

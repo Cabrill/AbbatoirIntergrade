@@ -67,6 +67,7 @@ namespace AbbatoirIntergrade.Screens
 
             //TODO:  Set these values by loading a level
             CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
+            CurrentLevel.OnNewWaveStart += UpdateDialogue;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList, WorldLayer);
             currentLevelDateTime = CurrentLevel.StartTime;
 
@@ -93,38 +94,9 @@ namespace AbbatoirIntergrade.Screens
             
             CreateNotificationPool();
 
-            LoadDialogue();
+            LoadInitialDialogue();
 
             GameHasStarted = true;
-        }
-
-        private void LoadDialogue()
-        {
-            var gameDialogue = GameStateManager.GameDialogue;
-            var firstDialogue = gameDialogue.DialogueList.FirstOrDefault(d => d.DisplayName == "Chapter1Start");
-            PlayerDataManager.AddShownDialogueId(firstDialogue.Id);
-            if (firstDialogue != null)
-            {
-                var dialogueOptions = gameDialogue.GetDialogueOptionsFor(firstDialogue);
-
-                ChatBoxInstance.UpdateDialogue(firstDialogue, dialogueOptions);
-                ChatBoxInstance.DialogueChosen += DialogueChosen;
-            }
-            
-        }
-
-        private void DialogueChosen(object sender, EventArgs eventArgs)
-        {
-            if (sender is ChatOptionRuntime chatoption)
-            {
-                var gameDialogue = GameStateManager.GameDialogue;
-                var chosenDialogue = chatoption.CurrentDialogue;
-                PlayerDataManager.AddChosenDialogueId(chosenDialogue.Id);
-                var newDialogue = gameDialogue.GetResponseFor(chosenDialogue);
-                PlayerDataManager.AddShownDialogueId(newDialogue.Id);
-                var dialogueOptions = gameDialogue.GetDialogueOptionsFor(newDialogue);
-                ChatBoxInstance.UpdateDialogue(newDialogue, dialogueOptions);
-            }
         }
 
         private void InitializeShaders()
@@ -602,49 +574,11 @@ namespace AbbatoirIntergrade.Screens
 
         private void HandleTouchActivity()
 	    {
-	        foreach (var gesture in InputManager.TouchScreen.LastFrameGestures)
-	        {
-	            if (gesture.GestureType == GestureType.Pinch)
-	            {
-	                CameraZoomManager.PerformZoom(gesture, InputManager.TouchScreen.PinchStarted);
-	                Camera.Main.ForceUpdateDependencies();
-                    //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
-                    HorizonBoxInstance.ReactToCameraChange();
-	                AdjustLayerOrthoValues();
-	            }
-                else if (GuiManager.Cursor.ObjectGrabbed == null && !InputManager.TouchScreen.IsPinching && (gesture.GestureType & (GestureType.FreeDrag | GestureType.HorizontalDrag |
-                                                 GestureType.VerticalDrag)) > 0)
-	            {
-	                const int cameraMoveSpeed = 1;
-	                var a = gesture.Position;
-
-	                // prior positions
-	                var aOld = gesture.Position - gesture.Delta;
-
-	                var newX = Camera.Main.X - ((a.X - aOld.X) * cameraMoveSpeed / CameraZoomManager.GumCoordOffset);
-	                var newY = Camera.Main.Y + ((a.Y - aOld.Y) * cameraMoveSpeed /  CameraZoomManager.GumCoordOffset);
-
-	                var effectiveScreenLimitX = (CameraZoomManager.OriginalOrthogonalWidth  - Camera.Main.OrthogonalWidth) / 2;
-	                var effectiveScreenLimitY = (CameraZoomManager.OriginalOrthogonalHeight - Camera.Main.OrthogonalHeight) / 2;
-
-                    newX = MathHelper.Clamp(newX, -effectiveScreenLimitX, effectiveScreenLimitX);
-	                newY = MathHelper.Clamp(newY, -effectiveScreenLimitY, effectiveScreenLimitY);
-
-	                Camera.Main.X = newX;
-	                Camera.Main.Y = newY;
-
-                    //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
-	                Camera.Main.ForceUpdateDependencies();
-                    HorizonBoxInstance.ReactToCameraChange();
-                }
-            }
-
 	        //User clicked a building button
 	        if (GuiManager.Cursor.PrimaryDown && GuiManager.Cursor.WindowPushed != null)
 	        {
 	            HandleBuildingButton();
 	        }
-
 
             //User just clicked/touched somewhere, and nothing is currently selected
             if ((GuiManager.Cursor.PrimaryClick || GuiManager.Cursor.PrimaryDown) &&
@@ -695,16 +629,6 @@ namespace AbbatoirIntergrade.Screens
                     }
 	            }
 	        }
-	        else if (GuiManager.Cursor.PrimaryDown && GuiManager.Cursor.ObjectGrabbed != null)
-	        {
-                var objectAsStructure = GuiManager.Cursor.ObjectGrabbed as BaseStructure;
-                var shouldAllowDrag = objectAsStructure != null && objectAsStructure.IsBeingPlaced;
-
-                if (shouldAllowDrag)
-                {
-                    GuiManager.Cursor.UpdateObjectGrabbedPosition();
-                }
-            }
 	        else if (!GuiManager.Cursor.PrimaryDown)
 	        {
 	            GuiManager.Cursor.ObjectGrabbed = null;
@@ -712,8 +636,68 @@ namespace AbbatoirIntergrade.Screens
 	    }
         #endregion
 
+        #region Chat Methods
+
+        private void LoadInitialDialogue()
+        {
+            var gameDialogue = GameStateManager.GameDialogue;
+            var firstDialogue = gameDialogue.DialogueList.First(d => d.DisplayName == CurrentLevel.MapName + "Start");
+
+            if (firstDialogue != null)
+            {
+                PlayerDataManager.AddShownDialogueId(firstDialogue.Id);
+
+                var dialogueOptions = gameDialogue.GetDialogueOptionsFor(firstDialogue);
+
+                ChatBoxInstance.UpdateDialogue(firstDialogue, dialogueOptions);
+                ChatBoxInstance.DialogueChosen += DialogueChosen;
+            }
+
+        }
+
+        private void UpdateDialogue(object sender, EventArgs eventArgs)
+        {
+            var gameDialogue = GameStateManager.GameDialogue;
+            var chosenDialogue = PlayerDataManager.LastChosenDialogueId;
+
+            if (chosenDialogue == "")
+            {
+                chosenDialogue = ChatBoxInstance.SilentDialogue?.Id;
+                if (!string.IsNullOrEmpty(chosenDialogue))
+                {
+                    PlayerDataManager.AddChosenDialogueId(chosenDialogue);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(chosenDialogue))
+            {
+                var newDialogue = gameDialogue.GetResponseFor(chosenDialogue);
+
+                if (newDialogue != null)
+                {
+                    var dialogueOptions = gameDialogue.GetDialogueOptionsFor(newDialogue);
+                    PlayerDataManager.AddShownDialogueId(newDialogue.Id);
+                    ChatBoxInstance.UpdateDialogue(newDialogue, dialogueOptions);
+                }
+            }
+        }
+
+        private void DialogueChosen(object sender, EventArgs eventArgs)
+        {
+            if (sender is ChatOptionRuntime chatoption)
+            {
+                var chosenDialogue = chatoption.CurrentDialogue;
+                PlayerDataManager.AddChosenDialogueId(chosenDialogue.Id);
+
+                ChatBoxInstance.CurrentMessageIndicatorState = ChatBoxRuntime.MessageIndicator.NoMessage;
+                ChatBoxInstance.DisappearAnimation.Play(this);
+            }
+        }
+    #endregion
+
+
         #region Other Methods
-	    private void CreateResourceNotification(BaseEnemy enemy)
+        private void CreateResourceNotification(BaseEnemy enemy)
 	    {
 
 	        var notification = resourceIncreaseNotificationList.FirstOrDefault(n => n.Visible == false);

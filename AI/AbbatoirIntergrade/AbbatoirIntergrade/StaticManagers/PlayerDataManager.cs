@@ -13,6 +13,7 @@ namespace AbbatoirIntergrade.StaticManagers
     {
         private static PlayerData Data { get; set; }
         private static string LastShownDialogueId;
+        public static string LastChosenDialogueId;
 
         public static List<Tuple<string, string>> DialogueHistory => Data.ShownDialogueIds;
 
@@ -26,7 +27,13 @@ namespace AbbatoirIntergrade.StaticManagers
             Data.AvailableTowers.Add(typeof(ElectricTower).AssemblyQualifiedName);
             Data.AvailableTowers.Add(typeof(ChemicalTower).AssemblyQualifiedName);
 
+            Reset();
+        }
+
+        public static void Reset()
+        {
             LastShownDialogueId = "";
+            LastChosenDialogueId = "";
         }
 
         public static void SaveData()
@@ -50,12 +57,14 @@ namespace AbbatoirIntergrade.StaticManagers
                 throw new NullReferenceException("Shown dialogue was missing!");
             }
 #endif
+            LastChosenDialogueId = id;
         }
 
         public static void AddShownDialogueId(string id)
         {
             Data.ShownDialogueIds.Add(Tuple.Create(id, ""));
             LastShownDialogueId = id;
+            LastChosenDialogueId = "";
         }
 
         public static List<Type> GetAvailableTowers()

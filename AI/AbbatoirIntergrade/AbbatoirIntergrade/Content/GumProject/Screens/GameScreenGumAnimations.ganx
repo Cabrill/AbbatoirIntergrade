@@ -87,7 +87,12 @@
         </AnimatedStateSave>
       </States>
       <Animations />
-      <Events />
+      <Events>
+        <NamedEventSave>
+          <Name>SetupResponseAvailability</Name>
+          <Time>0.51</Time>
+        </NamedEventSave>
+      </Events>
     </AnimationSave>
   </Animations>
 </ElementAnimationsSave>

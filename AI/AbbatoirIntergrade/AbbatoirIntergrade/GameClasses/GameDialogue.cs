@@ -26,6 +26,18 @@ namespace AbbatoirIntergrade.GameClasses
         public Dialogue GetResponseFor(Dialogue dialogue)
         {
             var connection = ConnectionList.FirstOrDefault(c => c.Source.IdRef == dialogue.Id);
+            if (connection == null) return null;
+
+            var response = DialogueList.FirstOrDefault(d => connection.Target.IdRef == d.Id);
+
+            return response;
+        }
+
+        public Dialogue GetResponseFor(string dialogueId)
+        {
+            var connection = ConnectionList.FirstOrDefault(c => c.Source.IdRef == dialogueId);
+            if (connection == null) return null;
+
             var response = DialogueList.FirstOrDefault(d => connection.Target.IdRef == d.Id);
 
             return response;

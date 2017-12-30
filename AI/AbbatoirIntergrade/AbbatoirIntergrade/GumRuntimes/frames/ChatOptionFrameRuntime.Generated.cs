@@ -54,12 +54,12 @@
                             Width = 8.223843f;
                             WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             WrapsChildren = false;
-                            X = -0.1339325f;
+                            X = 0f;
                             XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                            XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            Y = -0.008815452f;
+                            XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                            Y = 5f;
                             YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
-                            YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                             Middle.Alpha = 255;
                             Middle.Blue = 0;
                             Middle.Green = 30;
@@ -1488,24 +1488,24 @@
                             this.WrapsChildren = false;
                         }
                         setXFirstValue = true;
-                        XFirstValue = -0.1339325f;
+                        XFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
                             this.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setYFirstValue = true;
-                        YFirstValue = -0.008815452f;
+                        YFirstValue = 5f;
                         if (interpolationValue < 1)
                         {
                             this.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         break;
                 }
@@ -2029,24 +2029,24 @@
                             this.WrapsChildren = false;
                         }
                         setXSecondValue = true;
-                        XSecondValue = -0.1339325f;
+                        XSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
                             this.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setYSecondValue = true;
-                        YSecondValue = -0.008815452f;
+                        YSecondValue = 5f;
                         if (interpolationValue >= 1)
                         {
                             this.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         break;
                 }
@@ -5670,7 +5670,7 @@
                             SetsValue = true,
                             Name = "X",
                             Type = "float",
-                            Value = X + -0.1339325f
+                            Value = X + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -5694,7 +5694,7 @@
                             SetsValue = true,
                             Name = "Y",
                             Type = "float",
-                            Value = Y + -0.008815452f
+                            Value = Y + 5f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

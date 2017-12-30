@@ -13,7 +13,7 @@ namespace AbbatoirIntergrade.GumRuntimes
     public partial class ChatHistoryRuntime
     {
         public EventHandler CloseButtonClick;
-
+        
         partial void CustomInitialize()
         {
             CloseButton.Click += window => CloseButtonClick?.Invoke(CloseButton, null);

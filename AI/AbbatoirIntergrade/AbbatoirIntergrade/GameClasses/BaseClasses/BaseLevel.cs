@@ -20,7 +20,11 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 
         public virtual int StartingLives { get; } = 1;
 
+        public abstract List<EnemyTypes> AvailableEnemyTypes { get; }
+
         public int RemainingLives { get; set; }
+
+        public EventHandler OnNewWaveStart;
 
         private DateTime _lastEnemyWave;
         private Layer _layerForEnemies;
@@ -77,6 +81,8 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
             //    if (useBossMonster) HasSentBoss = true;
             //    leftRightToggle *= -1;
             //}
+
+            OnNewWaveStart?.Invoke(this, null);
         }
 
         public void Update(DateTime currentDateTime)

@@ -82,6 +82,7 @@ namespace AbbatoirIntergrade.Screens
                 if (GameScreenGumInstance.CurrentChatHistoryShowingState == GameScreenGumRuntime.ChatHistoryShowing.ChatHistoryShown)
                     GameScreenGumInstance.HideChatHistoryAnimation.Play();
             };
+            GameScreenGumInstance.HideChatHistoryAnimation.AddAction("SetupResponseAvailability", ChatBoxInstance.SetupResponseAvailability);
 
         }
 
