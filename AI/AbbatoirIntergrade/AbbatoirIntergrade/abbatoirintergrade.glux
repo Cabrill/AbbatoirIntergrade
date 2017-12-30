@@ -334,7 +334,7 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
-          <SourceName>ChatHistoryInstance (AbbatoirIntergrade.GumRuntimes.ScrollerViewRuntime)</SourceName>
+          <SourceName>ChatHistoryInstance (AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime)</SourceName>
           <InstanceName>ChatHistoryInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -443,8 +443,8 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/MapScreenGum.gusx</SourceFile>
-          <SourceName>ChatHistoryScroller (AbbatoirIntergrade.GumRuntimes.ScrollerViewRuntime)</SourceName>
-          <InstanceName>ChatHistoryScroller</InstanceName>
+          <SourceName>ChatHistoryInstance (AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime)</SourceName>
+          <InstanceName>ChatHistoryInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -12855,7 +12855,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\MapScreen</StartUpScreen>
+  <StartUpScreen>Screens\GameScreen</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>

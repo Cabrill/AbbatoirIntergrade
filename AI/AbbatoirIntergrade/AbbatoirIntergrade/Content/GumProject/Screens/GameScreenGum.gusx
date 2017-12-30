@@ -93,9 +93,9 @@
     <State>
       <Name>ChatHistoryHidden</Name>
       <Variable>
-        <Type>bool</Type>
-        <Name>ChatHistoryInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
+        <Type>Appearance</Type>
+        <Name>ChatBoxInstance.AppearanceState</Name>
+        <Value xsi:type="xsd:string">ChatOpen</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -105,9 +105,9 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>Appearance</Type>
-        <Name>ChatBoxInstance.AppearanceState</Name>
-        <Value xsi:type="xsd:string">ChatOpen</Value>
+        <Type>float</Type>
+        <Name>ChatBoxInstance.Width</Name>
+        <Value xsi:type="xsd:float">50</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -123,9 +123,9 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>ChatBoxInstance.Width</Name>
-        <Value xsi:type="xsd:float">50</Value>
+        <Type>bool</Type>
+        <Name>ChatHistoryInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -144,9 +144,9 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>bool</Type>
-        <Name>ChatHistoryInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
+        <Type>float</Type>
+        <Name>ChatBoxInstance.Width</Name>
+        <Value xsi:type="xsd:float">50</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -162,9 +162,9 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>ChatBoxInstance.Width</Name>
-        <Value xsi:type="xsd:float">50</Value>
+        <Type>bool</Type>
+        <Name>ChatHistoryInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -183,9 +183,9 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>bool</Type>
-        <Name>ChatHistoryInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
+        <Type>float</Type>
+        <Name>ChatBoxInstance.Width</Name>
+        <Value xsi:type="xsd:float">50</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -201,9 +201,9 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>ChatBoxInstance.Width</Name>
-        <Value xsi:type="xsd:float">50</Value>
+        <Type>bool</Type>
+        <Name>ChatHistoryInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -222,9 +222,9 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>bool</Type>
-        <Name>ChatHistoryInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
+        <Type>float</Type>
+        <Name>ChatBoxInstance.Width</Name>
+        <Value xsi:type="xsd:float">50</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -240,9 +240,9 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>ChatBoxInstance.Width</Name>
-        <Value xsi:type="xsd:float">50</Value>
+        <Type>bool</Type>
+        <Name>ChatHistoryInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -351,6 +351,6 @@
   </Instance>
   <Instance>
     <Name>ChatHistoryInstance</Name>
-    <BaseType>ScrollerView</BaseType>
+    <BaseType>ChatHistory</BaseType>
   </Instance>
 </ScreenSave>

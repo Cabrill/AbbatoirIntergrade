@@ -78,7 +78,7 @@ namespace AbbatoirIntergrade.Screens
         private AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime LivesPointsDisplayInstance;
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TileCollisionRectangle> TileCollisionRectangleList;
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TileCollisionCircle> TileCollisionCircleList;
-        private AbbatoirIntergrade.GumRuntimes.ScrollerViewRuntime ChatHistoryInstance;
+        private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime ChatHistoryInstance;
         private AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime GameScreenGumInstance;
         protected global::RenderingLibrary.Graphics.Layer BackgroundLayerGum;
         protected global::RenderingLibrary.Graphics.Layer WorldLayerGum;
@@ -128,7 +128,7 @@ namespace AbbatoirIntergrade.Screens
             TileCollisionRectangleList.Name = "TileCollisionRectangleList";
             TileCollisionCircleList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TileCollisionCircle>();
             TileCollisionCircleList.Name = "TileCollisionCircleList";
-            ChatHistoryInstance = GameScreenGum.GetGraphicalUiElementByName("ChatHistoryInstance") as AbbatoirIntergrade.GumRuntimes.ScrollerViewRuntime;
+            ChatHistoryInstance = GameScreenGum.GetGraphicalUiElementByName("ChatHistoryInstance") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
             GameScreenGumInstance = GameScreenGum.GetGraphicalUiElementByName("this") as AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime;
             
             

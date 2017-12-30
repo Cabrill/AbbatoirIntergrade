@@ -1141,6 +1141,21 @@
             }
             private AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime ChatOptionFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
+            public ChatOptionFrameRuntime.ColorState ChatColorState
+            {
+                get
+                {
+                    return ChatOptionFrameInstance.CurrentColorStateState;
+                }
+                set
+                {
+                    if (ChatOptionFrameInstance.CurrentColorStateState != value)
+                    {
+                        ChatOptionFrameInstance.CurrentColorStateState = value;
+                        ChatColorStateChanged?.Invoke(this, null);
+                    }
+                }
+            }
             public string ChatText
             {
                 get
@@ -1156,6 +1171,7 @@
                     }
                 }
             }
+            public event System.EventHandler ChatColorStateChanged;
             public event System.EventHandler ChatTextChanged;
             public ChatOptionRuntime (bool fullInstantiation = true) 
             	: base(false)

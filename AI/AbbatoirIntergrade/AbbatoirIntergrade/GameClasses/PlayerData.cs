@@ -21,9 +21,6 @@ namespace AbbatoirIntergrade.GameClasses
         public List<string> ChosenDialogueIds { get; set; } = new List<string>();
 
         [XmlElement("ShownDialogueIds")]
-        public List<string> ShownDialogueIds { get; set; } = new List<string>();
-
-        [XmlElement("LastDialogueId")]
-        public string LastDialogueId { get; set; }
+        public List<Tuple<string, string>> ShownDialogueIds { get; set; } = new List<Tuple<string, string>>();
     }
 }

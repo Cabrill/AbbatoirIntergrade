@@ -5,6 +5,12 @@
   <State>
     <Name>Default</Name>
     <Variable>
+      <Type>ColorStateState</Type>
+      <Name>ChatOptionFrameInstance.ColorStateState</Name>
+      <ExposedAsName>ChatColorState</ExposedAsName>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>ChatOptionFrameInstance.Height</Name>
       <Value xsi:type="xsd:float">46</Value>

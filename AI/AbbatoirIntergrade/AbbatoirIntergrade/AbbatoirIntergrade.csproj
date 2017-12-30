@@ -276,6 +276,10 @@
       <DependentUpon>ChatBoxRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\ChatBoxRuntime.cs" />
+    <Compile Include="GumRuntimes\ChatHistoryRuntime.cs" />
+    <Compile Include="GumRuntimes\ChatHistoryRuntime.Generated.cs">
+      <DependentUpon>ChatHistoryRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.cs" />
     <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.Generated.cs">
@@ -338,10 +342,6 @@
       <DependentUpon>OptionsControlsRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\ScrollerViewRuntime.cs" />
-    <Compile Include="GumRuntimes\ScrollerViewRuntime.Generated.cs">
-      <DependentUpon>ScrollerViewRuntime.cs</DependentUpon>
-    </Compile>
     <Compile Include="GumRuntimes\ScrollThumbRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SliderBarRuntime.cs" />
     <Compile Include="GumRuntimes\SliderBarRuntime.Generated.cs">
@@ -626,6 +626,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ChatBox</Name>
     </None>
+    <None Include="content\gumproject\components\chathistory.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ChatHistory</Name>
+    </None>
     <None Include="content\gumproject\components\coloredbars\resourcebar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ResourceBar</Name>
@@ -721,10 +725,6 @@
     <None Include="content\gumproject\components\optionscontrols.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>OptionsControls</Name>
-    </None>
-    <None Include="content\gumproject\components\scrollerview.gucx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>ScrollerView</Name>
     </None>
     <None Include="content\gumproject\components\scrollthumb.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -21,7 +21,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
+using RenderingLibrary;
+using RenderingLibrary.Math.Geometry;
 using Camera = FlatRedBall.Camera;
+using ShapeManager = FlatRedBall.Math.Geometry.ShapeManager;
 
 namespace AbbatoirIntergrade.Screens
 {
@@ -48,8 +51,6 @@ namespace AbbatoirIntergrade.Screens
 
         private List<ResourceIncreaseNotificationRuntime> resourceIncreaseNotificationList;
 
-        private GameDialogue gameDialogue;
-
         #endregion
 
         #region Initialization
@@ -65,7 +66,7 @@ namespace AbbatoirIntergrade.Screens
             resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
             //TODO:  Set these values by loading a level
-            CurrentLevel = GameStateManager.CurrentLevel;
+            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList, WorldLayer);
             currentLevelDateTime = CurrentLevel.StartTime;
 
@@ -99,17 +100,9 @@ namespace AbbatoirIntergrade.Screens
 
         private void LoadDialogue()
         {
-            string fileName = "content\\dialogue.xml";
-
-            var doesFileExist = FlatRedBall.IO.FileManager.FileExists(fileName);
-
-            if (doesFileExist)
-            {
-                gameDialogue = FlatRedBall.IO.FileManager.XmlDeserialize<GameDialogue>(fileName);
-            }
-
+            var gameDialogue = GameStateManager.GameDialogue;
             var firstDialogue = gameDialogue.DialogueList.FirstOrDefault(d => d.DisplayName == "Chapter1Start");
-
+            PlayerDataManager.AddShownDialogueId(firstDialogue.Id);
             if (firstDialogue != null)
             {
                 var dialogueOptions = gameDialogue.GetDialogueOptionsFor(firstDialogue);
@@ -124,8 +117,11 @@ namespace AbbatoirIntergrade.Screens
         {
             if (sender is ChatOptionRuntime chatoption)
             {
+                var gameDialogue = GameStateManager.GameDialogue;
                 var chosenDialogue = chatoption.CurrentDialogue;
+                PlayerDataManager.AddChosenDialogueId(chosenDialogue.Id);
                 var newDialogue = gameDialogue.GetResponseFor(chosenDialogue);
+                PlayerDataManager.AddShownDialogueId(newDialogue.Id);
                 var dialogueOptions = gameDialogue.GetDialogueOptionsFor(newDialogue);
                 ChatBoxInstance.UpdateDialogue(newDialogue, dialogueOptions);
             }

@@ -26,7 +26,7 @@ namespace AbbatoirIntergrade.Screens
         
         private AbbatoirIntergrade.GumRuntimes.MapScreenGumRuntime MapScreenGumInstance;
         private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance;
-        private AbbatoirIntergrade.GumRuntimes.ScrollerViewRuntime ChatHistoryScroller;
+        private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime ChatHistoryInstance;
         public MapScreen () 
         	: base ("MapScreen")
         {
@@ -36,7 +36,7 @@ namespace AbbatoirIntergrade.Screens
             LoadStaticContent(ContentManagerName);
             MapScreenGumInstance = MapScreenGum.GetGraphicalUiElementByName("this") as AbbatoirIntergrade.GumRuntimes.MapScreenGumRuntime;
             MenuWindowInstance = MapScreenGum.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
-            ChatHistoryScroller = MapScreenGum.GetGraphicalUiElementByName("ChatHistoryScroller") as AbbatoirIntergrade.GumRuntimes.ScrollerViewRuntime;
+            ChatHistoryInstance = MapScreenGum.GetGraphicalUiElementByName("ChatHistoryInstance") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
             
             
             PostInitialize();
@@ -83,9 +83,9 @@ namespace AbbatoirIntergrade.Screens
             {
                 MenuWindowInstance.RemoveFromManagers();
             }
-            if (ChatHistoryScroller != null)
+            if (ChatHistoryInstance != null)
             {
-                ChatHistoryScroller.RemoveFromManagers();
+                ChatHistoryInstance.RemoveFromManagers();
             }
             CustomDestroy();
         }
@@ -110,9 +110,9 @@ namespace AbbatoirIntergrade.Screens
             {
                 MenuWindowInstance.RemoveFromManagers();
             }
-            if (ChatHistoryScroller != null)
+            if (ChatHistoryInstance != null)
             {
-                ChatHistoryScroller.RemoveFromManagers();
+                ChatHistoryInstance.RemoveFromManagers();
             }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 

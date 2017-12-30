@@ -51,8 +51,8 @@ namespace AbbatoirIntergrade.Screens
                     chatOption.XOrigin = HorizontalAlignment.Right;
                     chatOption.XUnits = GeneralUnitType.PixelsFromLarge;
                 }
-	            chatOption.HasEvents = false;
-	            chatOption.Parent = ChatHistoryScroller.FormsControl.InnerPanel;
+	            //chatOption.HasEvents = false;
+	            chatOption.Parent = ChatHistoryInstance.FormsControl.InnerPanel;
 	        }
 	    }
 

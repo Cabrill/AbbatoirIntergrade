@@ -39,6 +39,7 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static void PlaySoundEffect(SoundEffectInstance effect, float pan = 0f)
         {
+            if (SoundVolumeLevel == 0) return;
             try
             {
                 effect.Volume = effectiveSoundVolumeLevel;
