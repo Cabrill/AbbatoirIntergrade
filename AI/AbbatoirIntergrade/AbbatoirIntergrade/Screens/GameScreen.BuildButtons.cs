@@ -51,8 +51,9 @@ namespace AbbatoirIntergrade.Screens
             }
         }
 
-        private void AssignBuildButtons()
+        private void AssignGumButtonEvents()
         {
+            //Assign buildings to build buttons
             var listOfTowerTypes = PlayerDataManager.GetAvailableTowers();
             var listOfTowers = new List<BaseStructure>();
             var listOfFactories = new List<IEntityFactory>();
@@ -69,6 +70,18 @@ namespace AbbatoirIntergrade.Screens
             {
                 listOfTowers[i].Destroy();
             }
+
+            ChatBoxInstance.ChatHistoryButtonClick += delegate(object sender, EventArgs args)
+            {
+                GameScreenGumInstance.ShowChatHistoryAnimation.Play();
+            };
+
+            ChatHistoryInstance.CloseButtonClick += delegate(object sender, EventArgs args)
+            {
+                if (GameScreenGumInstance.CurrentChatHistoryShowingState == GameScreenGumRuntime.ChatHistoryShowing.ChatHistoryShown)
+                    GameScreenGumInstance.HideChatHistoryAnimation.Play();
+            };
+
         }
 
         private object GetNewObject(Type t)

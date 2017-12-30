@@ -51,6 +51,7 @@ namespace AbbatoirIntergrade.Screens
                     chatOption.XOrigin = HorizontalAlignment.Right;
                     chatOption.XUnits = GeneralUnitType.PixelsFromLarge;
                 }
+	            chatOption.HasEvents = false;
 	            chatOption.Parent = ChatHistoryScroller.FormsControl.InnerPanel;
 	        }
 	    }
@@ -118,7 +119,8 @@ namespace AbbatoirIntergrade.Screens
 	        var level = (BaseLevel) Activator.CreateInstance(type);
 
 	        GameStateManager.CurrentLevel = level;
-	        this.MoveToScreen(typeof(GameScreen));
+            //LoadingScreen.TransitionToScreen(typeof(GameScreen));
+            MoveToScreen(typeof(GameScreen));
 	    }
 	}
 }

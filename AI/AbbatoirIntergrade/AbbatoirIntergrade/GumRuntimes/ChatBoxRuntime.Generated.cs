@@ -156,6 +156,13 @@
                             TextInstance.Y = 50f;
                             TextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             TextInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            ChatHistoryButton.Height = 56f;
+                            ChatHistoryButton.CurrentUpDownState = AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.UpDown.Up;
+                            ChatHistoryButton.Width = 66f;
+                            ChatHistoryButton.X = 4.244792f;
+                            ChatHistoryButton.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            ChatHistoryButton.Y = 15.46297f;
+                            ChatHistoryButton.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             break;
                     }
                 }
@@ -188,6 +195,7 @@
                             CloseChatButtonInstance.Visible = true;
                             MessageBox.Visible = false;
                             TextInstance.Visible = false;
+                            ChatHistoryButton.Visible = true;
                             break;
                         case  Appearance.Appear1:
                             ChatFrameInstance.Height = 5f;
@@ -206,6 +214,7 @@
                             CloseChatButtonInstance.Visible = false;
                             MessageBox.Visible = false;
                             TextInstance.Visible = false;
+                            ChatHistoryButton.Visible = false;
                             break;
                         case  Appearance.Appear2:
                             ChatFrameInstance.Height = 5f;
@@ -224,6 +233,7 @@
                             CloseChatButtonInstance.Visible = false;
                             MessageBox.Visible = false;
                             TextInstance.Visible = false;
+                            ChatHistoryButton.Visible = false;
                             break;
                         case  Appearance.Appear3:
                             ChatFrameInstance.Height = 5f;
@@ -242,6 +252,7 @@
                             CloseChatButtonInstance.Visible = false;
                             MessageBox.Visible = false;
                             TextInstance.Visible = false;
+                            ChatHistoryButton.Visible = false;
                             break;
                         case  Appearance.Appear4:
                             ChatFrameInstance.Height = 100f;
@@ -260,6 +271,7 @@
                             CloseChatButtonInstance.Visible = false;
                             MessageBox.Visible = false;
                             TextInstance.Visible = false;
+                            ChatHistoryButton.Visible = false;
                             break;
                         case  Appearance.ChatClosed:
                             ChatFrameInstance.Height = 100f;
@@ -278,6 +290,7 @@
                             CloseChatButtonInstance.Visible = false;
                             MessageBox.Visible = true;
                             TextInstance.Visible = true;
+                            ChatHistoryButton.Visible = false;
                             break;
                     }
                 }
@@ -350,6 +363,26 @@
                 bool setChatFrameInstanceYSecondValue = false;
                 float ChatFrameInstanceYFirstValue= 0;
                 float ChatFrameInstanceYSecondValue= 0;
+                bool setChatHistoryButtonHeightFirstValue = false;
+                bool setChatHistoryButtonHeightSecondValue = false;
+                float ChatHistoryButtonHeightFirstValue= 0;
+                float ChatHistoryButtonHeightSecondValue= 0;
+                bool setChatHistoryButtonCurrentUpDownStateFirstValue = false;
+                bool setChatHistoryButtonCurrentUpDownStateSecondValue = false;
+                UpDownButtonRuntime.UpDown ChatHistoryButtonCurrentUpDownStateFirstValue= UpDownButtonRuntime.UpDown.Up;
+                UpDownButtonRuntime.UpDown ChatHistoryButtonCurrentUpDownStateSecondValue= UpDownButtonRuntime.UpDown.Up;
+                bool setChatHistoryButtonWidthFirstValue = false;
+                bool setChatHistoryButtonWidthSecondValue = false;
+                float ChatHistoryButtonWidthFirstValue= 0;
+                float ChatHistoryButtonWidthSecondValue= 0;
+                bool setChatHistoryButtonXFirstValue = false;
+                bool setChatHistoryButtonXSecondValue = false;
+                float ChatHistoryButtonXFirstValue= 0;
+                float ChatHistoryButtonXSecondValue= 0;
+                bool setChatHistoryButtonYFirstValue = false;
+                bool setChatHistoryButtonYSecondValue = false;
+                float ChatHistoryButtonYFirstValue= 0;
+                float ChatHistoryButtonYSecondValue= 0;
                 bool setChatOption0HeightFirstValue = false;
                 bool setChatOption0HeightSecondValue = false;
                 float ChatOption0HeightFirstValue= 0;
@@ -588,6 +621,24 @@
                         if (interpolationValue < 1)
                         {
                             this.ChatFrameInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        setChatHistoryButtonHeightFirstValue = true;
+                        ChatHistoryButtonHeightFirstValue = 56f;
+                        setChatHistoryButtonCurrentUpDownStateFirstValue = true;
+                        ChatHistoryButtonCurrentUpDownStateFirstValue = AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.UpDown.Up;
+                        setChatHistoryButtonWidthFirstValue = true;
+                        ChatHistoryButtonWidthFirstValue = 66f;
+                        setChatHistoryButtonXFirstValue = true;
+                        ChatHistoryButtonXFirstValue = 4.244792f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatHistoryButton.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        setChatHistoryButtonYFirstValue = true;
+                        ChatHistoryButtonYFirstValue = 15.46297f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatHistoryButton.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setChatOption0HeightFirstValue = true;
                         ChatOption0HeightFirstValue = 0f;
@@ -938,6 +989,24 @@
                         {
                             this.ChatFrameInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
+                        setChatHistoryButtonHeightSecondValue = true;
+                        ChatHistoryButtonHeightSecondValue = 56f;
+                        setChatHistoryButtonCurrentUpDownStateSecondValue = true;
+                        ChatHistoryButtonCurrentUpDownStateSecondValue = AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.UpDown.Up;
+                        setChatHistoryButtonWidthSecondValue = true;
+                        ChatHistoryButtonWidthSecondValue = 66f;
+                        setChatHistoryButtonXSecondValue = true;
+                        ChatHistoryButtonXSecondValue = 4.244792f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatHistoryButton.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        setChatHistoryButtonYSecondValue = true;
+                        ChatHistoryButtonYSecondValue = 15.46297f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatHistoryButton.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
                         setChatOption0HeightSecondValue = true;
                         ChatOption0HeightSecondValue = 0f;
                         if (interpolationValue >= 1)
@@ -1272,6 +1341,26 @@
                 {
                     ChatFrameInstance.Y = ChatFrameInstanceYFirstValue * (1 - interpolationValue) + ChatFrameInstanceYSecondValue * interpolationValue;
                 }
+                if (setChatHistoryButtonHeightFirstValue && setChatHistoryButtonHeightSecondValue)
+                {
+                    ChatHistoryButton.Height = ChatHistoryButtonHeightFirstValue * (1 - interpolationValue) + ChatHistoryButtonHeightSecondValue * interpolationValue;
+                }
+                if (setChatHistoryButtonCurrentUpDownStateFirstValue && setChatHistoryButtonCurrentUpDownStateSecondValue)
+                {
+                    ChatHistoryButton.InterpolateBetween(ChatHistoryButtonCurrentUpDownStateFirstValue, ChatHistoryButtonCurrentUpDownStateSecondValue, interpolationValue);
+                }
+                if (setChatHistoryButtonWidthFirstValue && setChatHistoryButtonWidthSecondValue)
+                {
+                    ChatHistoryButton.Width = ChatHistoryButtonWidthFirstValue * (1 - interpolationValue) + ChatHistoryButtonWidthSecondValue * interpolationValue;
+                }
+                if (setChatHistoryButtonXFirstValue && setChatHistoryButtonXSecondValue)
+                {
+                    ChatHistoryButton.X = ChatHistoryButtonXFirstValue * (1 - interpolationValue) + ChatHistoryButtonXSecondValue * interpolationValue;
+                }
+                if (setChatHistoryButtonYFirstValue && setChatHistoryButtonYSecondValue)
+                {
+                    ChatHistoryButton.Y = ChatHistoryButtonYFirstValue * (1 - interpolationValue) + ChatHistoryButtonYSecondValue * interpolationValue;
+                }
                 if (setChatOption0HeightFirstValue && setChatOption0HeightSecondValue)
                 {
                     ChatOption0.Height = ChatOption0HeightFirstValue * (1 - interpolationValue) + ChatOption0HeightSecondValue * interpolationValue;
@@ -1524,6 +1613,10 @@
                         }
                         if (interpolationValue < 1)
                         {
+                            this.ChatHistoryButton.Visible = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.CloseChatButtonInstance.Visible = true;
                         }
                         setColoredRectangleInstanceAlphaFirstValue = true;
@@ -1573,6 +1666,10 @@
                         if (interpolationValue < 1)
                         {
                             this.ChatFrameInstance.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatHistoryButton.Visible = false;
                         }
                         if (interpolationValue < 1)
                         {
@@ -1628,6 +1725,10 @@
                         }
                         if (interpolationValue < 1)
                         {
+                            this.ChatHistoryButton.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.CloseChatButtonInstance.Visible = false;
                         }
                         setColoredRectangleInstanceAlphaFirstValue = true;
@@ -1677,6 +1778,10 @@
                         if (interpolationValue < 1)
                         {
                             this.ChatFrameInstance.Visible = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatHistoryButton.Visible = false;
                         }
                         if (interpolationValue < 1)
                         {
@@ -1732,6 +1837,10 @@
                         }
                         if (interpolationValue < 1)
                         {
+                            this.ChatHistoryButton.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.CloseChatButtonInstance.Visible = false;
                         }
                         setColoredRectangleInstanceAlphaFirstValue = true;
@@ -1781,6 +1890,10 @@
                         if (interpolationValue < 1)
                         {
                             this.ChatFrameInstance.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatHistoryButton.Visible = false;
                         }
                         if (interpolationValue < 1)
                         {
@@ -1839,6 +1952,10 @@
                         }
                         if (interpolationValue >= 1)
                         {
+                            this.ChatHistoryButton.Visible = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
                             this.CloseChatButtonInstance.Visible = true;
                         }
                         setColoredRectangleInstanceAlphaSecondValue = true;
@@ -1888,6 +2005,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.ChatFrameInstance.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatHistoryButton.Visible = false;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1943,6 +2064,10 @@
                         }
                         if (interpolationValue >= 1)
                         {
+                            this.ChatHistoryButton.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
                             this.CloseChatButtonInstance.Visible = false;
                         }
                         setColoredRectangleInstanceAlphaSecondValue = true;
@@ -1992,6 +2117,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.ChatFrameInstance.Visible = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatHistoryButton.Visible = false;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -2047,6 +2176,10 @@
                         }
                         if (interpolationValue >= 1)
                         {
+                            this.ChatHistoryButton.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
                             this.CloseChatButtonInstance.Visible = false;
                         }
                         setColoredRectangleInstanceAlphaSecondValue = true;
@@ -2096,6 +2229,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.ChatFrameInstance.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatHistoryButton.Visible = false;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -2778,6 +2915,7 @@
                 ChatOption2.StopAnimations();
                 CloseChatButtonInstance.StopAnimations();
                 MessageBox.StopAnimations();
+                ChatHistoryButton.StopAnimations();
                 AppearAnimation.Stop();
                 DisappearAnimation.Stop();
             }
@@ -3698,6 +3836,62 @@
                             Name = "TextInstance.Y Units",
                             Type = "PositionUnitType",
                             Value = TextInstance.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Height",
+                            Type = "float",
+                            Value = ChatHistoryButton.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.UpDownState",
+                            Type = "UpDownState",
+                            Value = ChatHistoryButton.CurrentUpDownState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Width",
+                            Type = "float",
+                            Value = ChatHistoryButton.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.X",
+                            Type = "float",
+                            Value = ChatHistoryButton.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.X Units",
+                            Type = "PositionUnitType",
+                            Value = ChatHistoryButton.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Y",
+                            Type = "float",
+                            Value = ChatHistoryButton.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Y Units",
+                            Type = "PositionUnitType",
+                            Value = ChatHistoryButton.YUnits
                         }
                         );
                         break;
@@ -4622,6 +4816,62 @@
                             Value = TextInstance.YUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Height",
+                            Type = "float",
+                            Value = ChatHistoryButton.Height + 56f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.UpDownState",
+                            Type = "UpDownState",
+                            Value = ChatHistoryButton.CurrentUpDownState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Width",
+                            Type = "float",
+                            Value = ChatHistoryButton.Width + 66f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.X",
+                            Type = "float",
+                            Value = ChatHistoryButton.X + 4.244792f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.X Units",
+                            Type = "PositionUnitType",
+                            Value = ChatHistoryButton.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Y",
+                            Type = "float",
+                            Value = ChatHistoryButton.Y + 15.46297f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Y Units",
+                            Type = "PositionUnitType",
+                            Value = ChatHistoryButton.YUnits
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -4760,6 +5010,14 @@
                             Value = TextInstance.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Visible",
+                            Type = "bool",
+                            Value = ChatHistoryButton.Visible
+                        }
+                        );
                         break;
                     case  Appearance.Appear1:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4888,6 +5146,14 @@
                             Name = "TextInstance.Visible",
                             Type = "bool",
                             Value = TextInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Visible",
+                            Type = "bool",
+                            Value = ChatHistoryButton.Visible
                         }
                         );
                         break;
@@ -5020,6 +5286,14 @@
                             Value = TextInstance.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Visible",
+                            Type = "bool",
+                            Value = ChatHistoryButton.Visible
+                        }
+                        );
                         break;
                     case  Appearance.Appear3:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -5148,6 +5422,14 @@
                             Name = "TextInstance.Visible",
                             Type = "bool",
                             Value = TextInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Visible",
+                            Type = "bool",
+                            Value = ChatHistoryButton.Visible
                         }
                         );
                         break;
@@ -5280,6 +5562,14 @@
                             Value = TextInstance.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Visible",
+                            Type = "bool",
+                            Value = ChatHistoryButton.Visible
+                        }
+                        );
                         break;
                     case  Appearance.ChatClosed:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -5408,6 +5698,14 @@
                             Name = "TextInstance.Visible",
                             Type = "bool",
                             Value = TextInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Visible",
+                            Type = "bool",
+                            Value = ChatHistoryButton.Visible
                         }
                         );
                         break;
@@ -5548,6 +5846,14 @@
                             Value = TextInstance.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Visible",
+                            Type = "bool",
+                            Value = ChatHistoryButton.Visible
+                        }
+                        );
                         break;
                     case  Appearance.Appear1:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -5676,6 +5982,14 @@
                             Name = "TextInstance.Visible",
                             Type = "bool",
                             Value = TextInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Visible",
+                            Type = "bool",
+                            Value = ChatHistoryButton.Visible
                         }
                         );
                         break;
@@ -5808,6 +6122,14 @@
                             Value = TextInstance.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Visible",
+                            Type = "bool",
+                            Value = ChatHistoryButton.Visible
+                        }
+                        );
                         break;
                     case  Appearance.Appear3:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -5936,6 +6258,14 @@
                             Name = "TextInstance.Visible",
                             Type = "bool",
                             Value = TextInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Visible",
+                            Type = "bool",
+                            Value = ChatHistoryButton.Visible
                         }
                         );
                         break;
@@ -6068,6 +6398,14 @@
                             Value = TextInstance.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Visible",
+                            Type = "bool",
+                            Value = ChatHistoryButton.Visible
+                        }
+                        );
                         break;
                     case  Appearance.ChatClosed:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -6196,6 +6534,14 @@
                             Name = "TextInstance.Visible",
                             Type = "bool",
                             Value = TextInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryButton.Visible",
+                            Type = "bool",
+                            Value = ChatHistoryButton.Visible
                         }
                         );
                         break;
@@ -6367,6 +6713,7 @@
             private AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime CloseChatButtonInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime MessageBox { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime ChatHistoryButton { get; set; }
             public ChatBoxRuntime (bool fullInstantiation = true) 
             	: base(false)
             {
@@ -6406,6 +6753,7 @@
                 CloseChatButtonInstance = this.GetGraphicalUiElementByName("CloseChatButtonInstance") as AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime;
                 MessageBox = this.GetGraphicalUiElementByName("MessageBox") as AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime;
                 TextInstance = this.GetGraphicalUiElementByName("TextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+                ChatHistoryButton = this.GetGraphicalUiElementByName("ChatHistoryButton") as AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

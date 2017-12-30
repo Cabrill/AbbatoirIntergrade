@@ -65,7 +65,7 @@
     <Variable>
       <Type>string</Type>
       <Name>TextInstance.Text</Name>
-      <Value xsi:type="xsd:string">Loading PowerCraft.
+      <Value xsi:type="xsd:string">Loading.
 Please Wait...</Value>
       <SetsValue>true</SetsValue>
     </Variable>

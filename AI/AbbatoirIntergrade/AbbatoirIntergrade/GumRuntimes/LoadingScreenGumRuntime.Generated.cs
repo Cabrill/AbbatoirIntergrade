@@ -34,7 +34,7 @@
                             TextInstance.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ColoredRectangleInstance");
                             TextInstance.Red = 255;
-                            TextInstance.Text = "Loading PowerCraft.\nPlease Wait...";
+                            TextInstance.Text = "Loading.\nPlease Wait...";
                             TextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             TextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             TextInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
@@ -107,7 +107,7 @@
                         TextInstanceRedFirstValue = 255;
                         if (interpolationValue < 1)
                         {
-                            this.TextInstance.Text = "Loading PowerCraft.\nPlease Wait...";
+                            this.TextInstance.Text = "Loading.\nPlease Wait...";
                         }
                         if (interpolationValue < 1)
                         {
@@ -160,7 +160,7 @@
                         TextInstanceRedSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
-                            this.TextInstance.Text = "Loading PowerCraft.\nPlease Wait...";
+                            this.TextInstance.Text = "Loading.\nPlease Wait...";
                         }
                         if (interpolationValue >= 1)
                         {

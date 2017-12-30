@@ -276,7 +276,6 @@
       <DependentUpon>ChatBoxRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\ChatBoxRuntime.cs" />
-    <Compile Include="GumRuntimes\ChatHistoryRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.cs" />
     <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.Generated.cs">
@@ -339,7 +338,10 @@
       <DependentUpon>OptionsControlsRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\ScrollerViewRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ScrollerViewRuntime.cs" />
+    <Compile Include="GumRuntimes\ScrollerViewRuntime.Generated.cs">
+      <DependentUpon>ScrollerViewRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\ScrollThumbRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SliderBarRuntime.cs" />
     <Compile Include="GumRuntimes\SliderBarRuntime.Generated.cs">
@@ -380,6 +382,21 @@
     <Compile Include="Screens\GameScreen.Generated.Event.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="StateInterpolation\Back.cs" />
+    <Compile Include="StateInterpolation\Bounce.cs" />
+    <Compile Include="StateInterpolation\Circular.cs" />
+    <Compile Include="StateInterpolation\Cubic.cs" />
+    <Compile Include="StateInterpolation\Elastic.cs" />
+    <Compile Include="StateInterpolation\Exponential.cs" />
+    <Compile Include="StateInterpolation\Instant.cs" />
+    <Compile Include="StateInterpolation\Linear.cs" />
+    <Compile Include="StateInterpolation\Quadratic.cs" />
+    <Compile Include="StateInterpolation\Quartic.cs" />
+    <Compile Include="StateInterpolation\Quintic.cs" />
+    <Compile Include="StateInterpolation\ShakeTweener.cs" />
+    <Compile Include="StateInterpolation\Sinusoidal.cs" />
+    <Compile Include="StateInterpolation\Tweener.cs" />
+    <Compile Include="StateInterpolation\TweenerManager.cs" />
     <Compile Include="StaticManagers\CameraZoomManager.cs" />
     <Compile Include="StaticManagers\GameStateManager.cs" />
     <Compile Include="StaticManagers\PlayerDataManager.cs" />
@@ -608,10 +625,6 @@
     <None Include="content\gumproject\components\chatbox.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ChatBox</Name>
-    </None>
-    <None Include="content\gumproject\components\chathistory.gucx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>ChatHistory</Name>
     </None>
     <None Include="content\gumproject\components\coloredbars\resourcebar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

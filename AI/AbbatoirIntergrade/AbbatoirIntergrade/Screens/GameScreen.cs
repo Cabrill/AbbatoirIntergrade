@@ -77,7 +77,7 @@ namespace AbbatoirIntergrade.Screens
 
             PlayerDataManager.LoadData();
 
-            AssignBuildButtons();
+            AssignGumButtonEvents();
 
             CameraZoomManager.Initialize();
             AdjustLayerOrthoValues();
@@ -93,8 +93,6 @@ namespace AbbatoirIntergrade.Screens
             CreateNotificationPool();
 
             LoadDialogue();
-
-            ChatBoxInstance.AppearAnimation.Play();
 
             GameHasStarted = true;
         }

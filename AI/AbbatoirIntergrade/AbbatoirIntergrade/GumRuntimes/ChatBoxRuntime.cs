@@ -12,6 +12,7 @@ namespace AbbatoirIntergrade.GumRuntimes
     {
         private Dialogue SilentDialogue;
         public EventHandler DialogueChosen;
+        public EventHandler ChatHistoryButtonClick;
 
         partial void CustomInitialize()
         {
@@ -23,6 +24,15 @@ namespace AbbatoirIntergrade.GumRuntimes
             ChatOption0.Click += ChatOptionOnClick;
             ChatOption1.Click += ChatOptionOnClick;
             ChatOption2.Click += ChatOptionOnClick;
+            ChatHistoryButton.Click += ChatHistoryButtonOnClick;
+        }
+
+        private void ChatHistoryButtonOnClick(IWindow window)
+        {
+            if (CurrentAppearanceState == Appearance.ChatOpen)
+            {
+                ChatHistoryButtonClick?.Invoke(window, null);
+            }
         }
 
         private void ChatOptionOnClick(IWindow window)
@@ -73,5 +83,7 @@ namespace AbbatoirIntergrade.GumRuntimes
             ChatOption1.SetDialogue(options.Count > 1 ? options[1] : null);
             ChatOption2.SetDialogue(options.Count > 2 ? options[2] : null);
         }
+
+        
     }
 }
