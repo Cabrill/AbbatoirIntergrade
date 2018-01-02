@@ -398,6 +398,7 @@
     <Compile Include="StateInterpolation\Tweener.cs" />
     <Compile Include="StateInterpolation\TweenerManager.cs" />
     <Compile Include="StaticManagers\CameraZoomManager.cs" />
+    <Compile Include="StaticManagers\EnemyFactories.cs" />
     <Compile Include="StaticManagers\GameStateManager.cs" />
     <Compile Include="StaticManagers\PlayerDataManager.cs" />
     <Compile Include="Screens\GameScreen.BuildButtons.cs">

@@ -68,7 +68,7 @@ namespace AbbatoirIntergrade.Screens
             //TODO:  Set these values by loading a level
             CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
             CurrentLevel.OnNewWaveStart += UpdateDialogue;
-            CurrentLevel.SetEnemiesAndLayer(AllEnemiesList, WorldLayer);
+            CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
             currentLevelDateTime = CurrentLevel.StartTime;
 
             InitializeFactories();
@@ -141,6 +141,7 @@ namespace AbbatoirIntergrade.Screens
             BasePlayerProjectile.Initialize(maxY);
             BaseStructure.Initialize(AllEnemiesList);
             BaseEnemy.Initialize(maxY);
+            EnemyFactories.SetGroundPathing(Pathing);
         }
         
         void LoadTiledMap()
@@ -237,7 +238,7 @@ namespace AbbatoirIntergrade.Screens
             {
                 UpdateGameTime();
 
-                CurrentLevel.Update(currentLevelDateTime);
+                CurrentLevel.Update();
 
                 InsolationFormulas.Instance.UpdateDateTime(currentLevelDateTime);
 
@@ -537,26 +538,22 @@ namespace AbbatoirIntergrade.Screens
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.Z))
 	        {
-	            var newAlien = Cow1EnemyFactory.CreateNew(WorldLayer);
-	            newAlien.FollowLine(Pathing);
-	        }
+	            EnemyFactories.CreateNew(EnemyTypes.Cow1);
+            }
 
             if (InputManager.Keyboard.KeyPushed(Keys.X))
 	        {
-	            var newAlien = Chicken1EnemyFactory.CreateNew(WorldLayer);
-                newAlien.FollowLine(Pathing);
-	        }
+	            EnemyFactories.CreateNew(EnemyTypes.Rabbit1);
+            }
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.C))
 	        {
-	            var newAlien = Sheep1EnemyFactory.CreateNew(WorldLayer);
-	            newAlien.FollowLine(Pathing);
+	            EnemyFactories.CreateNew(EnemyTypes.Sheep1);
             }
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.V))
 	        {
-	            var newAlien = Pig1EnemyFactory.CreateNew(WorldLayer);
-	            newAlien.FollowLine(Pathing);
+	            EnemyFactories.CreateNew(EnemyTypes.Pig1);
             }
 
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.Factories;
+using AbbatoirIntergrade.StaticManagers;
 
 namespace AbbatoirIntergrade.Screens
 {
@@ -70,7 +71,7 @@ namespace AbbatoirIntergrade.Screens
             Chicken1EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
-                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
                     enemy.OnDeath += CreateResourceNotification;
                 };
 
@@ -78,7 +79,7 @@ namespace AbbatoirIntergrade.Screens
             Chicken2EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
-                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
                     enemy.OnDeath += CreateResourceNotification;
                 };
 
@@ -86,7 +87,7 @@ namespace AbbatoirIntergrade.Screens
             Chicken3EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
-                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
                     enemy.OnDeath += CreateResourceNotification;
                 };
 
@@ -94,7 +95,7 @@ namespace AbbatoirIntergrade.Screens
             Cow1EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
-                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
                     enemy.OnDeath += CreateResourceNotification;
                 };
 
@@ -102,7 +103,7 @@ namespace AbbatoirIntergrade.Screens
             Cow2EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
-                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
                     enemy.OnDeath += CreateResourceNotification;
                 };
 
@@ -110,7 +111,7 @@ namespace AbbatoirIntergrade.Screens
             Cow3EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
-                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
                     enemy.OnDeath += CreateResourceNotification;
                 };
 
@@ -118,7 +119,7 @@ namespace AbbatoirIntergrade.Screens
             Pig1EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
-                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
                     enemy.OnDeath += CreateResourceNotification;
                 };
 
@@ -126,7 +127,7 @@ namespace AbbatoirIntergrade.Screens
             Pig2EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
-                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
                     enemy.OnDeath += CreateResourceNotification;
                 };
 
@@ -134,7 +135,7 @@ namespace AbbatoirIntergrade.Screens
             Pig3EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
-                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
                     enemy.OnDeath += CreateResourceNotification;
                 };
 
@@ -142,7 +143,7 @@ namespace AbbatoirIntergrade.Screens
             Sheep1EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
-                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
                     enemy.OnDeath += CreateResourceNotification;
                 };
 
@@ -150,7 +151,7 @@ namespace AbbatoirIntergrade.Screens
             Sheep2EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
-                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
                     enemy.OnDeath += CreateResourceNotification;
                 };
 
@@ -158,7 +159,7 @@ namespace AbbatoirIntergrade.Screens
             Sheep3EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
-                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
                     enemy.OnDeath += CreateResourceNotification;
                 };
 
@@ -166,7 +167,7 @@ namespace AbbatoirIntergrade.Screens
             Rabbit1EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
-                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
                     enemy.OnDeath += CreateResourceNotification;
                 };
 
@@ -174,7 +175,7 @@ namespace AbbatoirIntergrade.Screens
             Rabbit2EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
-                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
                     enemy.OnDeath += CreateResourceNotification;
                 };
 
@@ -182,7 +183,7 @@ namespace AbbatoirIntergrade.Screens
             Rabbit3EnemyFactory.EntitySpawned +=
                 enemy =>
                 {
-                    enemy.AddSpritesToLayers(LightLayer, InfoLayer);
+                    enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
                     enemy.OnDeath += CreateResourceNotification;
                 };
         }

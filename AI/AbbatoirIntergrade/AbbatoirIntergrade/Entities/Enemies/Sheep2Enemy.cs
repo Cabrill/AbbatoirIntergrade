@@ -25,9 +25,9 @@ namespace AbbatoirIntergrade.Entities.Enemies
 
 		}
 
-	    public void AddSpritesToLayers(FlatRedBall.Graphics.Layer darknessLayer, Layer hudLayer)
+	    public void AddSpritesToLayers(Layer worldLayer, Layer darknessLayer, Layer hudLayer)
 	    {
-	        base.AddSpritesToLayers(darknessLayer, hudLayer);
+	        base.AddSpritesToLayers(worldLayer, darknessLayer, hudLayer);
 
 	        if (HasLightSource)
 	        {

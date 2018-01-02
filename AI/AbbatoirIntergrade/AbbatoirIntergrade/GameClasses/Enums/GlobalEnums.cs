@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AbbatoirIntergrade.Entities.BaseEntities;
 
 namespace AbbatoirIntergrade
 {
@@ -34,4 +35,15 @@ namespace AbbatoirIntergrade
         Pig2,
         Pig3
     };
+
+    public static class EnumExtensions
+    {
+        public static int PointValue(this EnemyTypes enemyType)
+        {
+            var pointValue = 0;
+            int.TryParse(enemyType.ToString(), out pointValue);
+
+            return pointValue;
+        }
+    }
 }

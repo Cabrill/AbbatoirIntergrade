@@ -9,6 +9,7 @@ using AbbatoirIntergrade.Factories;
 using AbbatoirIntergrade.GameClasses.Interfaces;
 using AbbatoirIntergrade.GumRuntimes;
 using AbbatoirIntergrade.StaticManagers;
+using FlatRedBall;
 
 namespace AbbatoirIntergrade.GameClasses.BaseClasses
 {
@@ -17,104 +18,85 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         public abstract string MapName { get; }
         public abstract DateTime StartTime { get; }
         public abstract List<BaseWave> Waves { get; }
+        private List<BaseWave> _waves;
+        public int CurrentWaveNumber { get; private set; } = 0;
 
         public virtual int StartingLives { get; } = 1;
 
-        public abstract List<EnemyTypes> AvailableEnemyTypes { get; }
+        protected double SecondsBetweenWaves = 0;
+
+        private List<EnemyTypes> _availableEnemyTypes;
+
+        public virtual List<EnemyTypes> AvailableEnemyTypes
+        {
+            get
+            {
+                if (_availableEnemyTypes == null)
+                {
+                    _availableEnemyTypes = Waves.SelectMany(w => w.EnemyTypes).Distinct().ToList();
+                }
+                return _availableEnemyTypes;
+            }
+        }
 
         public int RemainingLives { get; set; }
 
         public EventHandler OnNewWaveStart;
 
-        private DateTime _lastEnemyWave;
-        private Layer _layerForEnemies;
-        private int _wavesSent;
-        
+        private double _lastEnemyWave = 0;
+
         protected FlatRedBall.Math.PositionedObjectList<BaseEnemy> _enemyList;
 
         protected BaseLevel()
         {
-            _wavesSent = 0;   
-            _lastEnemyWave = DateTime.MinValue;
+            _lastEnemyWave = 0;
             RemainingLives = StartingLives;
         }
 
-        public void SetEnemiesAndLayer(FlatRedBall.Math.PositionedObjectList<BaseEnemy> enemyList,
-            Layer layerForEnemies)
+        public void SetEnemiesAndLayer(FlatRedBall.Math.PositionedObjectList<BaseEnemy> enemyList)
         {
             _enemyList = enemyList;
-            this._layerForEnemies = layerForEnemies;
         }
         
-        /// <summary>
-        /// Decides whether the player has been defeated.  All levels end when the house has been destroyed, but
-        /// if there are additional defeat criteria then the derived Level should override this.
-        /// </summary>
-        /// <param name="currentDateTime">The current game time</param>
-        /// <returns></returns>
         public bool HasReachedDefeat()
         {
             return RemainingLives <= 0;
         }
 
-        /// <summary>
-        /// Creates enemies equal to the energy amount
-        /// </summary>
-        /// <param name="energyAmount">Amount of energy to spend in creating enemies</param>
         private void CreateEnemiesForWave()
         {
-            //if (EnergyToSpend < GameFormulas.Instance.MinimumEnergyCostForAnEnemy) return;
-
-            //var leftRightToggle = 1;
-            //while (EnergyToSpend >= GameFormulas.Instance.MinimumEnergyCostForAnEnemy)
-            //{
-            //    var newEnemy = GameFormulas.Instance.StrongestAffordableEnemy(ref EnergyToSpend, useBossMonster, _layerForEnemies);
-
-            //    if (currentAlienSides == AlienSides.Right || (currentAlienSides == AlienSides.Both && leftRightToggle > 0))
-            //    { 
-            //        newEnemy?.PlaceOnRightSide();
-            //    }
-            //    else if (currentAlienSides == AlienSides.Left || (currentAlienSides == AlienSides.Both && leftRightToggle < 0))
-            //    {
-            //        newEnemy?.PlaceOnLeftSide();
-            //    }
-            //    if (useBossMonster) HasSentBoss = true;
-            //    leftRightToggle *= -1;
-            //}
-
+            if (CurrentWaveNumber < Waves.Count)
+            {
+                Waves[CurrentWaveNumber].CreateEnemies();
+            }
+            else
+            {
+                GenerateWave().CreateEnemies();
+            }
+            CurrentWaveNumber++;
+            _lastEnemyWave = TimeManager.CurrentTime;
             OnNewWaveStart?.Invoke(this, null);
         }
 
-        public void Update(DateTime currentDateTime)
+        public void Update()
         {
-            if (_lastEnemyWave == DateTime.MinValue)
+            if (_lastEnemyWave == 0)
             {
-                _lastEnemyWave = currentDateTime;
+                CreateEnemiesForWave();
             }
-
-            //if (currentDateTime > _lastEnergyUpdate && (currentDateTime - _lastEnergyUpdate).Hours >= 1 && currentDateTime <= EndTime)
-            //{
-            //    var energyToSpend = 0f;
-
-            //    var wavesModifier = 1f;
-            //    if (_wavesSent < _wavesToEaseIntoDifficulty)
-            //    {
-            //        wavesModifier = (float) _wavesSent / _wavesToEaseIntoDifficulty;
-            //    }
-
-            //    energyToSpend = wavesModifier *
-            //                    GameFormulas.Instance.HourlyEnergyUsageFromCurveAndAvgValue(currentDateTime.Hour,
-            //                        AvgDailyEnergyUsage);
-
-            //    EnergyToSpend += energyToSpend;
-            //    _lastEnergyUpdate = currentDateTime;
-            //}
-
-            if (currentDateTime > _lastEnemyWave)
+            else if (TimeManager.SecondsSince(_lastEnemyWave) >= SecondsBetweenWaves && _enemyList.Count == 0)
             {
-                _lastEnemyWave = currentDateTime;
-                _wavesSent++;
+                CreateEnemiesForWave();
             }
+        }
+
+        private BaseWave GenerateWave()
+        {
+            //TODO:  AI generates wave using point system
+            var pointsAvailable = Waves.Last().PointValue + (CurrentWaveNumber - Waves.Count);
+            var enemiesInWave = new List<Tuple<int, EnemyTypes>>();
+
+            return new BaseWave(enemiesInWave);
         }
     }
 }

@@ -272,14 +272,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        Velocity = velocity;
 	    }
 
-	    protected void AddSpritesToLayers(FlatRedBall.Graphics.Layer darknessLayer, FlatRedBall.Graphics.Layer hudLayer)
+	    protected void AddSpritesToLayers(FlatRedBall.Graphics.Layer worldLayer, FlatRedBall.Graphics.Layer darknessLayer, FlatRedBall.Graphics.Layer hudLayer)
 	    {
-	        if (LayerProvidedByContainer != null)
-	        {
-	            LayerProvidedByContainer.Remove(CircleInstance);
-                LayerProvidedByContainer.Remove(LightSprite);
-            }
-
 	        if (_AddedToLayers)
 	        {
 	            darknessLayer.Remove(LightSprite);
@@ -288,8 +282,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 HealthBar.RelativePosition = Vector3.Zero;
 	        }
 
+            MoveToLayer(worldLayer);
 	        HealthBar.MoveToLayer(hudLayer);
-            FlatRedBall.SpriteManager.AddToLayer(LightSprite, darknessLayer);
+            SpriteManager.AddToLayer(LightSprite, darknessLayer);
 	        ShapeManager.AddToLayer(CircleInstance, hudLayer);
 
             _AddedToLayers = true;
