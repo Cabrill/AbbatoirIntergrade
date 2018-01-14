@@ -21,6 +21,6 @@ namespace AbbatoirIntergrade.GameClasses
         public List<string> ChosenDialogueIds { get; set; } = new List<string>();
 
         [XmlElement("ShownDialogueIds")]
-        public List<Tuple<string, string>> ShownDialogueIds { get; set; } = new List<Tuple<string, string>>();
+        public SerializableDictionary<string, string> ShownDialogueIds { get; set; } = new SerializableDictionary<string, string>();
     }
 }

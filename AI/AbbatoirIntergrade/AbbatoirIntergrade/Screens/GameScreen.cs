@@ -202,9 +202,16 @@ namespace AbbatoirIntergrade.Screens
             currentMap.Position.Y = -(Camera.Main.OrthogonalHeight / 2 - currentMap.Height);
             currentMap.Z = -1f;
 
-            //ShapeManager.AddPolygon(pathing);
+            Pathing?.UpdateDependencies(TimeManager.CurrentTime);
             ShapeManager.AddToLayer(Pathing, WorldLayer);
+
+#if DEBUG
+            if (DebugVariables.ShowDebugShapes) ShapeManager.AddPolygon(Pathing);
+            Pathing.Visible = true;
+#else
             Pathing.Visible = false;
+#endif
+
         }
 
         private void OnClick(object sender, EventArgs eventArgs)

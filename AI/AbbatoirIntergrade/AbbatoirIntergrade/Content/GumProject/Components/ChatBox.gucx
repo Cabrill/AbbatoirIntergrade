@@ -1019,6 +1019,13 @@
       </Variable>
       <Variable>
         <Type>bool</Type>
+        <Name>RecentResponseContainer.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
         <Name>ResponseContainer.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
@@ -1164,6 +1171,13 @@
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>RecentResponseContainer.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
+        <SetsValue>true</SetsValue>
+      </Variable>
     </State>
     <State>
       <Name>Appear2</Name>
@@ -1267,6 +1281,13 @@
         <Type>bool</Type>
         <Name>TextInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>RecentResponseContainer.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -1374,9 +1395,22 @@
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>RecentResponseContainer.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
+        <SetsValue>true</SetsValue>
+      </Variable>
     </State>
     <State>
       <Name>Appear4</Name>
+      <Variable>
+        <Type>bool</Type>
+        <Name>ChatContainer.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
       <Variable>
         <Type>float</Type>
         <Name>ChatFrameInstance.Height</Name>
@@ -1475,8 +1509,9 @@
       </Variable>
       <Variable>
         <Type>bool</Type>
-        <Name>ChatContainer.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
+        <Name>RecentResponseContainer.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -1544,6 +1579,12 @@
       </Variable>
       <Variable>
         <Type>bool</Type>
+        <Name>RecentResponseContainer.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
         <Name>ResponseContainer.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
@@ -1597,14 +1638,8 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>bool</Type>
-        <Name>TextInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>int</Type>
-        <Name>TextInstance.Red</Name>
+        <Name>TextInstance.Blue</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -1616,8 +1651,14 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TextInstance.Blue</Name>
+        <Name>TextInstance.Red</Name>
         <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>TextInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -1630,14 +1671,8 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>bool</Type>
-        <Name>TextInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>int</Type>
-        <Name>TextInstance.Red</Name>
+        <Name>TextInstance.Blue</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
@@ -1651,9 +1686,15 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TextInstance.Blue</Name>
+        <Name>TextInstance.Red</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>TextInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -1666,14 +1707,8 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>bool</Type>
-        <Name>TextInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>int</Type>
-        <Name>TextInstance.Red</Name>
+        <Name>TextInstance.Blue</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
@@ -1687,9 +1722,15 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TextInstance.Blue</Name>
+        <Name>TextInstance.Red</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>TextInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -1702,14 +1743,8 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>bool</Type>
-        <Name>TextInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>int</Type>
-        <Name>TextInstance.Red</Name>
+        <Name>TextInstance.Blue</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
@@ -1723,9 +1758,15 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TextInstance.Blue</Name>
+        <Name>TextInstance.Red</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>TextInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

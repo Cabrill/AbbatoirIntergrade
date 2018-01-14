@@ -43,13 +43,12 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 
         public EventHandler OnNewWaveStart;
 
-        private double _lastEnemyWave = 0;
+        private double? _lastEnemyWave;
 
         protected FlatRedBall.Math.PositionedObjectList<BaseEnemy> _enemyList;
 
         protected BaseLevel()
         {
-            _lastEnemyWave = 0;
             RemainingLives = StartingLives;
         }
 
@@ -80,11 +79,11 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 
         public void Update()
         {
-            if (_lastEnemyWave == 0)
+            if (!_lastEnemyWave.HasValue)
             {
                 CreateEnemiesForWave();
             }
-            else if (TimeManager.SecondsSince(_lastEnemyWave) >= SecondsBetweenWaves && _enemyList.Count == 0)
+            else if (TimeManager.SecondsSince(_lastEnemyWave.Value) >= SecondsBetweenWaves && _enemyList.Count == 0)
             {
                 CreateEnemiesForWave();
             }

@@ -33,6 +33,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>ChatHistory</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>coloredbars/ResourceBar</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
@@ -126,10 +130,6 @@
   </ComponentReference>
   <ComponentReference>
     <Name>OptionsControls</Name>
-    <ElementType>Component</ElementType>
-  </ComponentReference>
-  <ComponentReference>
-    <Name>ChatHistory</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>

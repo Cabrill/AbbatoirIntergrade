@@ -29,7 +29,7 @@ namespace AbbatoirIntergrade.GumRuntimes
             foreach (var dialogueTuple in dialogueHistory)
             {
                 var shownBox = new ChatOptionRuntime(true);
-                var shownDialogue = dialogue.DialogueList.FirstOrDefault(d => d.Id == dialogueTuple.Item1);
+                var shownDialogue = dialogue.DialogueList.FirstOrDefault(d => d.Id == dialogueTuple.Key);
                 shownBox.SetDialogue(shownDialogue);
                 shownBox.CurrentHighlightState = ChatOptionRuntime.Highlight.Highlighted;
                 shownBox.HasEvents = false;
@@ -37,10 +37,10 @@ namespace AbbatoirIntergrade.GumRuntimes
                 shownBox.XUnits = GeneralUnitType.PixelsFromLarge;
                 shownBox.Parent = InnerPanelInstance;
 
-                if (dialogueTuple.Item2 != "")
+                if (dialogueTuple.Value != "")
                 {
                     var responseBox = new ChatOptionRuntime(true);
-                    var responseDialogue = dialogue.DialogueList.FirstOrDefault(d => d.Id == dialogueTuple.Item2);
+                    var responseDialogue = dialogue.DialogueList.FirstOrDefault(d => d.Id == dialogueTuple.Value);
                     responseBox.SetDialogue(responseDialogue);
                     responseBox.ChatColorState = ChatOptionFrameRuntime.ColorState.Green;
                     responseBox.HasEvents = false;

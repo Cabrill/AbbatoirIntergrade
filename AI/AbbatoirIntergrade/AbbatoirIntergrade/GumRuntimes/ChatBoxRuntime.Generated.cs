@@ -219,6 +219,7 @@
                             MessageBox.Visible = false;
                             TextInstance.Visible = false;
                             ChatHistoryButton.Visible = true;
+                            RecentResponseContainer.Visible = false;
                             break;
                         case  Appearance.Appear1:
                             ChatFrameInstance.Height = 5f;
@@ -238,6 +239,7 @@
                             MessageBox.Visible = false;
                             TextInstance.Visible = false;
                             ChatHistoryButton.Visible = false;
+                            RecentResponseContainer.Visible = false;
                             break;
                         case  Appearance.Appear2:
                             ChatFrameInstance.Height = 5f;
@@ -257,6 +259,7 @@
                             MessageBox.Visible = false;
                             TextInstance.Visible = false;
                             ChatHistoryButton.Visible = false;
+                            RecentResponseContainer.Visible = false;
                             break;
                         case  Appearance.Appear3:
                             ChatFrameInstance.Height = 5f;
@@ -276,6 +279,7 @@
                             MessageBox.Visible = false;
                             TextInstance.Visible = false;
                             ChatHistoryButton.Visible = false;
+                            RecentResponseContainer.Visible = false;
                             break;
                         case  Appearance.Appear4:
                             ChatFrameInstance.Height = 100f;
@@ -295,6 +299,7 @@
                             MessageBox.Visible = false;
                             TextInstance.Visible = false;
                             ChatHistoryButton.Visible = false;
+                            RecentResponseContainer.Visible = false;
                             break;
                         case  Appearance.ChatClosed:
                             ChatFrameInstance.Height = 100f;
@@ -314,6 +319,7 @@
                             MessageBox.Visible = true;
                             TextInstance.Visible = false;
                             ChatHistoryButton.Visible = false;
+                            RecentResponseContainer.Visible = false;
                             break;
                     }
                 }
@@ -1850,6 +1856,10 @@
                         }
                         if (interpolationValue < 1)
                         {
+                            this.RecentResponseContainer.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.ResponseContainer.Visible = true;
                         }
                         setStyleBarInstanceHeightFirstValue = true;
@@ -1903,6 +1913,10 @@
                         if (interpolationValue < 1)
                         {
                             this.MessageBox.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.RecentResponseContainer.Visible = false;
                         }
                         if (interpolationValue < 1)
                         {
@@ -1962,6 +1976,10 @@
                         }
                         if (interpolationValue < 1)
                         {
+                            this.RecentResponseContainer.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.ResponseContainer.Visible = false;
                         }
                         setStyleBarInstanceHeightFirstValue = true;
@@ -2015,6 +2033,10 @@
                         if (interpolationValue < 1)
                         {
                             this.MessageBox.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.RecentResponseContainer.Visible = false;
                         }
                         if (interpolationValue < 1)
                         {
@@ -2074,6 +2096,10 @@
                         }
                         if (interpolationValue < 1)
                         {
+                            this.RecentResponseContainer.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.ResponseContainer.Visible = false;
                         }
                         setStyleBarInstanceHeightFirstValue = true;
@@ -2127,6 +2153,10 @@
                         if (interpolationValue < 1)
                         {
                             this.MessageBox.Visible = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.RecentResponseContainer.Visible = false;
                         }
                         if (interpolationValue < 1)
                         {
@@ -2189,6 +2219,10 @@
                         }
                         if (interpolationValue >= 1)
                         {
+                            this.RecentResponseContainer.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
                             this.ResponseContainer.Visible = true;
                         }
                         setStyleBarInstanceHeightSecondValue = true;
@@ -2242,6 +2276,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.MessageBox.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.RecentResponseContainer.Visible = false;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -2301,6 +2339,10 @@
                         }
                         if (interpolationValue >= 1)
                         {
+                            this.RecentResponseContainer.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
                             this.ResponseContainer.Visible = false;
                         }
                         setStyleBarInstanceHeightSecondValue = true;
@@ -2354,6 +2396,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.MessageBox.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.RecentResponseContainer.Visible = false;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -2413,6 +2459,10 @@
                         }
                         if (interpolationValue >= 1)
                         {
+                            this.RecentResponseContainer.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
                             this.ResponseContainer.Visible = false;
                         }
                         setStyleBarInstanceHeightSecondValue = true;
@@ -2466,6 +2516,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.MessageBox.Visible = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.RecentResponseContainer.Visible = false;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -5698,6 +5752,14 @@
                             Value = ChatHistoryButton.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
+                        }
+                        );
                         break;
                     case  Appearance.Appear1:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -5834,6 +5896,14 @@
                             Name = "ChatHistoryButton.Visible",
                             Type = "bool",
                             Value = ChatHistoryButton.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
                         }
                         );
                         break;
@@ -5974,6 +6044,14 @@
                             Value = ChatHistoryButton.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
+                        }
+                        );
                         break;
                     case  Appearance.Appear3:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -6110,6 +6188,14 @@
                             Name = "ChatHistoryButton.Visible",
                             Type = "bool",
                             Value = ChatHistoryButton.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
                         }
                         );
                         break;
@@ -6250,6 +6336,14 @@
                             Value = ChatHistoryButton.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
+                        }
+                        );
                         break;
                     case  Appearance.ChatClosed:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -6386,6 +6480,14 @@
                             Name = "ChatHistoryButton.Visible",
                             Type = "bool",
                             Value = ChatHistoryButton.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
                         }
                         );
                         break;
@@ -6534,6 +6636,14 @@
                             Value = ChatHistoryButton.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
+                        }
+                        );
                         break;
                     case  Appearance.Appear1:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -6670,6 +6780,14 @@
                             Name = "ChatHistoryButton.Visible",
                             Type = "bool",
                             Value = ChatHistoryButton.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
                         }
                         );
                         break;
@@ -6810,6 +6928,14 @@
                             Value = ChatHistoryButton.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
+                        }
+                        );
                         break;
                     case  Appearance.Appear3:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -6946,6 +7072,14 @@
                             Name = "ChatHistoryButton.Visible",
                             Type = "bool",
                             Value = ChatHistoryButton.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
                         }
                         );
                         break;
@@ -7086,6 +7220,14 @@
                             Value = ChatHistoryButton.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
+                        }
+                        );
                         break;
                     case  Appearance.ChatClosed:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -7222,6 +7364,14 @@
                             Name = "ChatHistoryButton.Visible",
                             Type = "bool",
                             Value = ChatHistoryButton.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RecentResponseContainer.Visible",
+                            Type = "bool",
+                            Value = RecentResponseContainer.Visible
                         }
                         );
                         break;

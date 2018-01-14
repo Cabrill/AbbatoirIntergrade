@@ -13,6 +13,7 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Text", typeof(AbbatoirIntergrade.GumRuntimes.TextRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("BuildMenu", typeof(AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ChatBox", typeof(AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ChatHistory", typeof(AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("coloredbars/ResourceBar", typeof(AbbatoirIntergrade.GumRuntimes.ResourceBarRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("frames/ButtonFrame", typeof(AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("frames/ChatFrame", typeof(AbbatoirIntergrade.GumRuntimes.ChatFrameRuntime));
@@ -37,7 +38,6 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MenuWindow", typeof(AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MessageBox", typeof(AbbatoirIntergrade.GumRuntimes.MessageBoxRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("OptionsControls", typeof(AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime));
-                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ChatHistory", typeof(AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ScrollThumb", typeof(AbbatoirIntergrade.GumRuntimes.ScrollThumbRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("SliderBar", typeof(AbbatoirIntergrade.GumRuntimes.SliderBarRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("SpecificButtons/BuildButton", typeof(AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime));

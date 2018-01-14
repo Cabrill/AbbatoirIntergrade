@@ -15,7 +15,7 @@ namespace AbbatoirIntergrade.StaticManagers
         private static string LastShownDialogueId;
         public static string LastChosenDialogueId;
 
-        public static List<Tuple<string, string>> DialogueHistory => Data.ShownDialogueIds;
+        public static SerializableDictionary<string, string> DialogueHistory => Data.ShownDialogueIds;
 
         public static void LoadData()
         {
@@ -43,13 +43,9 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static void AddChosenDialogueId(string id)
         {
-            var lastShownDialogue = Data.ShownDialogueIds.FirstOrDefault(s => s.Item1 == LastShownDialogueId);
-
-            if (lastShownDialogue != null)
+            if (Data.ShownDialogueIds.ContainsKey(LastShownDialogueId))
             {
-                var index = Data.ShownDialogueIds.IndexOf(lastShownDialogue);
-
-                Data.ShownDialogueIds[index] = Tuple.Create(lastShownDialogue.Item1, id);
+                Data.ShownDialogueIds[LastShownDialogueId] = id;
             }
 #if DEBUG
             else
@@ -62,7 +58,8 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static void AddShownDialogueId(string id)
         {
-            Data.ShownDialogueIds.Add(Tuple.Create(id, ""));
+            Data.ShownDialogueIds[id] = "";
+            //Data.ShownDialogueIds.Add(Tuple.Create(id, ""));
             LastShownDialogueId = id;
             LastChosenDialogueId = "";
         }

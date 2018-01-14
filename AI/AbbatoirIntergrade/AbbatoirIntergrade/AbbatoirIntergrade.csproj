@@ -382,21 +382,6 @@
     <Compile Include="Screens\GameScreen.Generated.Event.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="StateInterpolation\Back.cs" />
-    <Compile Include="StateInterpolation\Bounce.cs" />
-    <Compile Include="StateInterpolation\Circular.cs" />
-    <Compile Include="StateInterpolation\Cubic.cs" />
-    <Compile Include="StateInterpolation\Elastic.cs" />
-    <Compile Include="StateInterpolation\Exponential.cs" />
-    <Compile Include="StateInterpolation\Instant.cs" />
-    <Compile Include="StateInterpolation\Linear.cs" />
-    <Compile Include="StateInterpolation\Quadratic.cs" />
-    <Compile Include="StateInterpolation\Quartic.cs" />
-    <Compile Include="StateInterpolation\Quintic.cs" />
-    <Compile Include="StateInterpolation\ShakeTweener.cs" />
-    <Compile Include="StateInterpolation\Sinusoidal.cs" />
-    <Compile Include="StateInterpolation\Tweener.cs" />
-    <Compile Include="StateInterpolation\TweenerManager.cs" />
     <Compile Include="StaticManagers\CameraZoomManager.cs" />
     <Compile Include="StaticManagers\EnemyFactories.cs" />
     <Compile Include="StaticManagers\GameStateManager.cs" />
@@ -457,6 +442,8 @@
     <Compile Include="TileGraphics\TileNodeNetworkCreator.cs" />
     <Compile Include="TileGraphics\Tileset.cs" />
     <Compile Include="TileGraphics\TilesetExtensionMethods.cs" />
+    <Compile Include="UtilityClasses\SerializableDictionary.cs" />
+    <Compile Include="UtilityClasses\SerializableTuple.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework, Version=3.5.1.1679, Culture=neutral, processorArchitecture=MSIL">
