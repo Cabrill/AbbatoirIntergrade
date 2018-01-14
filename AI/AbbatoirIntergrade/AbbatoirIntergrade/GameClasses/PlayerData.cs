@@ -17,10 +17,13 @@ namespace AbbatoirIntergrade.GameClasses
         [XmlElement("LastChapter")]
         public int LastChapter { get; set; }
 
-        [XmlElement("ChosenDialogueIds")]
-        public List<string> ChosenDialogueIds { get; set; } = new List<string>();
+        [XmlIgnore]
+        public List<string> ChosenDialogueIds => DialogueShownChosen.Values.ToList();
 
-        [XmlElement("ShownDialogueIds")]
-        public SerializableDictionary<string, string> ShownDialogueIds { get; set; } = new SerializableDictionary<string, string>();
+        [XmlElement("DialogueShownChosen")]
+        public SerializableDictionary<string, string> DialogueShownChosen { get; set; } = new SerializableDictionary<string, string>();
+
+        [XmlElement("ChapterResults")]
+        public SerializableDictionary<string, int> ChapterResults { get; set; } = new SerializableDictionary<string, int>();
     }
 }

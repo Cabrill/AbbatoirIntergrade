@@ -15,9 +15,25 @@ namespace AbbatoirIntergrade.StaticManagers
         private static string LastShownDialogueId;
         public static string LastChosenDialogueId;
 
-        public static SerializableDictionary<string, string> DialogueHistory => Data.ShownDialogueIds;
+        public static SerializableDictionary<string, string> DialogueHistory => Data.DialogueShownChosen;
+
+        private const string SaveFileName = "PlayerSave.xml";
 
         public static void LoadData()
+        {
+            var doesFileExist = FlatRedBall.IO.FileManager.FileExists(SaveFileName);
+
+            if (doesFileExist)
+            {
+                Data = FlatRedBall.IO.FileManager.XmlDeserialize<PlayerData>(SaveFileName);
+            }
+            else
+            {
+                InitializeNewData();
+            }
+        }
+
+        private static void InitializeNewData()
         {
             Data = new PlayerData();
             Data.AvailableTowers.Add(typeof(PiercingTower).AssemblyQualifiedName);
@@ -38,14 +54,16 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static void SaveData()
         {
-            
+            FlatRedBall.IO.FileManager.XmlSerialize(Data, SaveFileName);
+
+            FlatRedBall.Debugging.Debugger.CommandLineWrite("Saved " + SaveFileName);
         }
 
         public static void AddChosenDialogueId(string id)
         {
-            if (Data.ShownDialogueIds.ContainsKey(LastShownDialogueId))
+            if (Data.DialogueShownChosen.ContainsKey(LastShownDialogueId))
             {
-                Data.ShownDialogueIds[LastShownDialogueId] = id;
+                Data.DialogueShownChosen[LastShownDialogueId] = id;
             }
 #if DEBUG
             else
@@ -58,8 +76,7 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static void AddShownDialogueId(string id)
         {
-            Data.ShownDialogueIds[id] = "";
-            //Data.ShownDialogueIds.Add(Tuple.Create(id, ""));
+            Data.DialogueShownChosen[id] = "";
             LastShownDialogueId = id;
             LastChosenDialogueId = "";
         }
@@ -78,6 +95,18 @@ namespace AbbatoirIntergrade.StaticManagers
             }
 
             return towerList;
+        }
+
+        public static void RecordChapterResults(string chapterName, int waveReached)
+        {
+            if (Data.ChapterResults.ContainsKey(chapterName))
+            {
+                Data.ChapterResults[chapterName] = waveReached;
+            }
+            else
+            {
+                Data.ChapterResults.Add(chapterName, waveReached);
+            }
         }
     }
 }

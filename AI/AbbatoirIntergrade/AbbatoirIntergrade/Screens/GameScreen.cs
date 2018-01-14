@@ -205,13 +205,15 @@ namespace AbbatoirIntergrade.Screens
             Pathing?.UpdateDependencies(TimeManager.CurrentTime);
             ShapeManager.AddToLayer(Pathing, WorldLayer);
 
+            if (Pathing != null)
+            {
 #if DEBUG
-            if (DebugVariables.ShowDebugShapes) ShapeManager.AddPolygon(Pathing);
-            Pathing.Visible = true;
+                if (DebugVariables.ShowDebugShapes) ShapeManager.AddPolygon(Pathing);
+                Pathing.Visible = true;
 #else
-            Pathing.Visible = false;
+                Pathing.Visible = false;
 #endif
-
+            }
         }
 
         private void OnClick(object sender, EventArgs eventArgs)
@@ -364,6 +366,9 @@ namespace AbbatoirIntergrade.Screens
             }
             catch (Exception){};
             ShowGameEndDisplay(playerWon: false);
+
+            PlayerDataManager.RecordChapterResults(CurrentLevel.MapName, CurrentLevel.CurrentWaveNumber);
+            PlayerDataManager.SaveData();
         }
 
         private void LevelVictory()
