@@ -19,6 +19,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         public abstract DateTime StartTime { get; }
         public abstract List<BaseWave> Waves { get; }
         private List<BaseWave> _waves;
+        public BaseWave LastWave;
         public int CurrentWaveNumber { get; private set; } = 0;
 
         public virtual int StartingLives { get; } = 1;
@@ -43,7 +44,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 
         public EventHandler OnNewWaveStart;
 
-        private double? _lastEnemyWave;
+        private double? _lastEnemyWaveTime;
 
         protected FlatRedBall.Math.PositionedObjectList<BaseEnemy> _enemyList;
 
@@ -64,26 +65,25 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 
         private void CreateEnemiesForWave()
         {
-            if (CurrentWaveNumber < Waves.Count)
-            {
-                Waves[CurrentWaveNumber].CreateEnemies();
-            }
-            else
-            {
-                GenerateWave().CreateEnemies();
-            }
+            BaseWave currentWave;
+            currentWave = CurrentWaveNumber < Waves.Count ? Waves[CurrentWaveNumber] : GenerateWave();
+            currentWave.CreateEnemies();
+            
             CurrentWaveNumber++;
-            _lastEnemyWave = TimeManager.CurrentTime;
+
+            LastWave = currentWave;
+            _lastEnemyWaveTime = TimeManager.CurrentTime;
+
             OnNewWaveStart?.Invoke(this, null);
         }
 
         public void Update()
         {
-            if (!_lastEnemyWave.HasValue)
+            if (!_lastEnemyWaveTime.HasValue)
             {
                 CreateEnemiesForWave();
             }
-            else if (TimeManager.SecondsSince(_lastEnemyWave.Value) >= SecondsBetweenWaves && _enemyList.Count == 0)
+            else if (TimeManager.SecondsSince(_lastEnemyWaveTime.Value) >= SecondsBetweenWaves && _enemyList.Count == 0)
             {
                 CreateEnemiesForWave();
             }

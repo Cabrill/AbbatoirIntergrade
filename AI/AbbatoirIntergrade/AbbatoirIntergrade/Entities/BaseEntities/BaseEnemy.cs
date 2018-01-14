@@ -12,7 +12,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	    private static float _maximumY;
 	    protected float _currentScale;
 
-	    private bool _AddedToLayers = false;
+        private bool _AddedToLayers = false;
 
         public event Action<BaseEnemy> OnDeath;
 	    public float Altitude { get; protected set; }
@@ -73,7 +73,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 		    HasReachedGoal = false;
 
-		    HealthBar.X = X;
+            HealthBar.X = X;
 		    HealthBar.Y = Y;
             HealthBar.SetRelativeY(SpriteInstance.Height);
             HealthBar.SetWidth(SpriteInstance.Width);
@@ -221,6 +221,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (Altitude <=0f && IsOnFinalFrameOfAnimation)
             {
                 OnDeath?.Invoke(this);
+                OnDeath -= OnDeath;
                 Destroy();
             }
 	    }
@@ -295,5 +296,5 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        HealthRemaining = 0;
             Velocity = Vector3.Zero;
 	    }
-	}
+    }
 }

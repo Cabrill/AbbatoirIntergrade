@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using AbbatoirIntergrade.Entities.BaseEntities;
 using AbbatoirIntergrade.Entities.Structures;
 using AbbatoirIntergrade.GameClasses;
+using AbbatoirIntergrade.MachineLearning.Models;
+using Accord.Neuro.Networks;
 
 namespace AbbatoirIntergrade.StaticManagers
 {

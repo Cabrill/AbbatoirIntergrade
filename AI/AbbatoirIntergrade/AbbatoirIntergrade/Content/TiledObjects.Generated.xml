@@ -267,7 +267,7 @@
     <property name="StructureDescription" type="string" />
     <property name="ProjectileSpeed" type="float" default="500" />
     <property name="RangedRadius" type="float" default="400" />
-    <property name="AttackDamage" type="float" default="1" />
+    <property name="AttackDamage" type="float" default="20" />
     <property name="SecondsBetweenFiring" type="float" default="0.5" />
     <property name="ProjectileAltitude" type="float" default="100" />
   </objecttype>

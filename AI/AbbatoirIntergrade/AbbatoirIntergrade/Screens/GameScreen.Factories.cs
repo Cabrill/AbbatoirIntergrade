@@ -72,7 +72,7 @@ namespace AbbatoirIntergrade.Screens
                 enemy =>
                 {
                     enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
-                    enemy.OnDeath += CreateResourceNotification;
+                    enemy.OnDeath += MachineLearningManager.UpdateWaveScore;
                 };
 
             Chicken2EnemyFactory.Initialize(ContentManagerName);
@@ -80,7 +80,7 @@ namespace AbbatoirIntergrade.Screens
                 enemy =>
                 {
                     enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
-                    enemy.OnDeath += CreateResourceNotification;
+                    enemy.OnDeath += MachineLearningManager.UpdateWaveScore;
                 };
 
             Chicken3EnemyFactory.Initialize(ContentManagerName);
@@ -88,7 +88,7 @@ namespace AbbatoirIntergrade.Screens
                 enemy =>
                 {
                     enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
-                    enemy.OnDeath += CreateResourceNotification;
+                    enemy.OnDeath += MachineLearningManager.UpdateWaveScore;
                 };
 
             Cow1EnemyFactory.Initialize(ContentManagerName);
@@ -96,7 +96,7 @@ namespace AbbatoirIntergrade.Screens
                 enemy =>
                 {
                     enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
-                    enemy.OnDeath += CreateResourceNotification;
+                    enemy.OnDeath += MachineLearningManager.UpdateWaveScore;
                 };
 
             Cow2EnemyFactory.Initialize(ContentManagerName);
@@ -104,7 +104,7 @@ namespace AbbatoirIntergrade.Screens
                 enemy =>
                 {
                     enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
-                    enemy.OnDeath += CreateResourceNotification;
+                    enemy.OnDeath += MachineLearningManager.UpdateWaveScore;
                 };
 
             Cow3EnemyFactory.Initialize(ContentManagerName);
@@ -112,7 +112,7 @@ namespace AbbatoirIntergrade.Screens
                 enemy =>
                 {
                     enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
-                    enemy.OnDeath += CreateResourceNotification;
+                    enemy.OnDeath += MachineLearningManager.UpdateWaveScore;
                 };
 
             Pig1EnemyFactory.Initialize(ContentManagerName);
@@ -120,7 +120,7 @@ namespace AbbatoirIntergrade.Screens
                 enemy =>
                 {
                     enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
-                    enemy.OnDeath += CreateResourceNotification;
+                    enemy.OnDeath += MachineLearningManager.UpdateWaveScore;
                 };
 
             Pig2EnemyFactory.Initialize(ContentManagerName);
@@ -128,7 +128,7 @@ namespace AbbatoirIntergrade.Screens
                 enemy =>
                 {
                     enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
-                    enemy.OnDeath += CreateResourceNotification;
+                    enemy.OnDeath += MachineLearningManager.UpdateWaveScore;
                 };
 
             Pig3EnemyFactory.Initialize(ContentManagerName);
@@ -136,7 +136,7 @@ namespace AbbatoirIntergrade.Screens
                 enemy =>
                 {
                     enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
-                    enemy.OnDeath += CreateResourceNotification;
+                    enemy.OnDeath += MachineLearningManager.UpdateWaveScore;
                 };
 
             Sheep1EnemyFactory.Initialize(ContentManagerName);
@@ -144,7 +144,7 @@ namespace AbbatoirIntergrade.Screens
                 enemy =>
                 {
                     enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
-                    enemy.OnDeath += CreateResourceNotification;
+                    enemy.OnDeath += MachineLearningManager.UpdateWaveScore;
                 };
 
             Sheep2EnemyFactory.Initialize(ContentManagerName);
@@ -152,7 +152,7 @@ namespace AbbatoirIntergrade.Screens
                 enemy =>
                 {
                     enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
-                    enemy.OnDeath += CreateResourceNotification;
+                    enemy.OnDeath += MachineLearningManager.UpdateWaveScore;
                 };
 
             Sheep3EnemyFactory.Initialize(ContentManagerName);
@@ -160,7 +160,7 @@ namespace AbbatoirIntergrade.Screens
                 enemy =>
                 {
                     enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
-                    enemy.OnDeath += CreateResourceNotification;
+                    enemy.OnDeath += MachineLearningManager.UpdateWaveScore;
                 };
 
             Rabbit1EnemyFactory.Initialize(ContentManagerName);
@@ -168,7 +168,7 @@ namespace AbbatoirIntergrade.Screens
                 enemy =>
                 {
                     enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
-                    enemy.OnDeath += CreateResourceNotification;
+                    enemy.OnDeath += MachineLearningManager.UpdateWaveScore;
                 };
 
             Rabbit2EnemyFactory.Initialize(ContentManagerName);
@@ -176,7 +176,7 @@ namespace AbbatoirIntergrade.Screens
                 enemy =>
                 {
                     enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
-                    enemy.OnDeath += CreateResourceNotification;
+                    enemy.OnDeath += MachineLearningManager.UpdateWaveScore;
                 };
 
             Rabbit3EnemyFactory.Initialize(ContentManagerName);
@@ -184,7 +184,7 @@ namespace AbbatoirIntergrade.Screens
                 enemy =>
                 {
                     enemy.AddSpritesToLayers(WorldLayer, LightLayer, InfoLayer);
-                    enemy.OnDeath += CreateResourceNotification;
+                    enemy.OnDeath += MachineLearningManager.UpdateWaveScore;
                 };
         }
     }

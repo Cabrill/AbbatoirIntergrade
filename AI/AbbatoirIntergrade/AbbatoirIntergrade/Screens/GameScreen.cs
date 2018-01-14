@@ -68,6 +68,7 @@ namespace AbbatoirIntergrade.Screens
             //TODO:  Set these values by loading a level
             CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
             CurrentLevel.OnNewWaveStart += UpdateDialogue;
+            CurrentLevel.OnNewWaveStart += MachineLearningManager.NotifyOfWaveStart;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
             currentLevelDateTime = CurrentLevel.StartTime;
 
@@ -162,6 +163,10 @@ namespace AbbatoirIntergrade.Screens
                 {
                     circle.X += circle.CircleInstanceRadius / 2;
                     circle.Y += circle.CircleInstanceRadius / 2;
+                } else if (circle.CircleInstanceRadius < 64)
+                {
+                    circle.X -= circle.CircleInstanceRadius / 2;
+                    circle.Y -= circle.CircleInstanceRadius / 2;
                 }
                 circle.AttachTo(currentMap);
                 circle.SetRelativeFromAbsolute();
@@ -205,15 +210,15 @@ namespace AbbatoirIntergrade.Screens
             Pathing?.UpdateDependencies(TimeManager.CurrentTime);
             ShapeManager.AddToLayer(Pathing, WorldLayer);
 
-            if (Pathing != null)
-            {
 #if DEBUG
-                if (DebugVariables.ShowDebugShapes) ShapeManager.AddPolygon(Pathing);
-                Pathing.Visible = true;
-#else
-                Pathing.Visible = false;
-#endif
+            if (DebugVariables.ShowDebugShapes)
+            {
+                ShapeManager.AddPolygon(Pathing);
             }
+#else
+            Pathing.Visible = false;
+#endif
+            MachineLearningManager.SetPathing(Pathing);
         }
 
         private void OnClick(object sender, EventArgs eventArgs)
