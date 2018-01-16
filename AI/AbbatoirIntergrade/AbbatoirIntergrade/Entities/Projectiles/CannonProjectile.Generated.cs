@@ -1,4 +1,4 @@
-#if ANDROID || IOS
+#if ANDROID || IOS || DESKTOP_GL
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
@@ -350,6 +350,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             base.Destroy();
             
+            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
         }

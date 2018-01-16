@@ -25,10 +25,7 @@
                     switch(mCurrentVariableState)
                     {
                         case  VariableState.Default:
-                            OptionsControlsInstance.Height = 100f;
-                            OptionsControlsInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            OptionsControlsInstance.Width = 100f;
-                            OptionsControlsInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            SetProperty("SpriteInstance.SourceFile", "../Screens/MainMenu/empty_building.png");
                             break;
                     }
                 }
@@ -43,55 +40,23 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
-                bool setOptionsControlsInstanceHeightFirstValue = false;
-                bool setOptionsControlsInstanceHeightSecondValue = false;
-                float OptionsControlsInstanceHeightFirstValue= 0;
-                float OptionsControlsInstanceHeightSecondValue= 0;
-                bool setOptionsControlsInstanceWidthFirstValue = false;
-                bool setOptionsControlsInstanceWidthSecondValue = false;
-                float OptionsControlsInstanceWidthFirstValue= 0;
-                float OptionsControlsInstanceWidthSecondValue= 0;
                 switch(firstState)
                 {
                     case  VariableState.Default:
-                        setOptionsControlsInstanceHeightFirstValue = true;
-                        OptionsControlsInstanceHeightFirstValue = 100f;
                         if (interpolationValue < 1)
                         {
-                            this.OptionsControlsInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setOptionsControlsInstanceWidthFirstValue = true;
-                        OptionsControlsInstanceWidthFirstValue = 100f;
-                        if (interpolationValue < 1)
-                        {
-                            this.OptionsControlsInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            SetProperty("SpriteInstance.SourceFile", "../Screens/MainMenu/empty_building.png");
                         }
                         break;
                 }
                 switch(secondState)
                 {
                     case  VariableState.Default:
-                        setOptionsControlsInstanceHeightSecondValue = true;
-                        OptionsControlsInstanceHeightSecondValue = 100f;
                         if (interpolationValue >= 1)
                         {
-                            this.OptionsControlsInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setOptionsControlsInstanceWidthSecondValue = true;
-                        OptionsControlsInstanceWidthSecondValue = 100f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.OptionsControlsInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            SetProperty("SpriteInstance.SourceFile", "../Screens/MainMenu/empty_building.png");
                         }
                         break;
-                }
-                if (setOptionsControlsInstanceHeightFirstValue && setOptionsControlsInstanceHeightSecondValue)
-                {
-                    OptionsControlsInstance.Height = OptionsControlsInstanceHeightFirstValue * (1 - interpolationValue) + OptionsControlsInstanceHeightSecondValue * interpolationValue;
-                }
-                if (setOptionsControlsInstanceWidthFirstValue && setOptionsControlsInstanceWidthSecondValue)
-                {
-                    OptionsControlsInstance.Width = OptionsControlsInstanceWidthFirstValue * (1 - interpolationValue) + OptionsControlsInstanceWidthSecondValue * interpolationValue;
                 }
                 if (interpolationValue < 1)
                 {
@@ -164,7 +129,6 @@
             public override void StopAnimations () 
             {
                 base.StopAnimations();
-                OptionsControlsInstance.StopAnimations();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -176,33 +140,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "OptionsControlsInstance.Height",
-                            Type = "float",
-                            Value = OptionsControlsInstance.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OptionsControlsInstance.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = OptionsControlsInstance.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OptionsControlsInstance.Width",
-                            Type = "float",
-                            Value = OptionsControlsInstance.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OptionsControlsInstance.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = OptionsControlsInstance.WidthUnits
+                            Name = "SpriteInstance.SourceFile",
+                            Type = "string",
+                            Value = SpriteInstance.SourceFile
                         }
                         );
                         break;
@@ -218,33 +158,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "OptionsControlsInstance.Height",
-                            Type = "float",
-                            Value = OptionsControlsInstance.Height + 100f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OptionsControlsInstance.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = OptionsControlsInstance.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OptionsControlsInstance.Width",
-                            Type = "float",
-                            Value = OptionsControlsInstance.Width + 100f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OptionsControlsInstance.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = OptionsControlsInstance.WidthUnits
+                            Name = "SpriteInstance.SourceFile",
+                            Type = "string",
+                            Value = SpriteInstance.SourceFile
                         }
                         );
                         break;
@@ -265,7 +181,7 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime OptionsControlsInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
             public MainMenuGumRuntime (bool fullInstantiation = true) 
             {
                 if (fullInstantiation)
@@ -291,7 +207,7 @@
             }
             private void AssignReferences () 
             {
-                OptionsControlsInstance = this.GetGraphicalUiElementByName("OptionsControlsInstance") as AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime;
+                SpriteInstance = this.GetGraphicalUiElementByName("SpriteInstance") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

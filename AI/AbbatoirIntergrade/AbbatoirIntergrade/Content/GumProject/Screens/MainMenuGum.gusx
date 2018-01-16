@@ -4,32 +4,90 @@
   <State>
     <Name>Default</Name>
     <Variable>
-      <Type>float</Type>
-      <Name>OptionsControlsInstance.Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>BackgroundSprite.SourceFile</Name>
+      <Value xsi:type="xsd:string">../Screens/MainMenu/empty_building.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>OptionsControlsInstance.Height Units</Name>
+      <Type>EyePositionState</Type>
+      <Name>LeftEye.EyePositionState</Name>
+      <Value xsi:type="xsd:string">Left</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>LeftEye.Y Origin</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>float</Type>
-      <Name>OptionsControlsInstance.Width</Name>
-      <Value xsi:type="xsd:float">100</Value>
+      <Type>PositionUnitType</Type>
+      <Name>LeftEye.Y Units</Name>
+      <Value xsi:type="xsd:int">7</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>OptionsControlsInstance.Width Units</Name>
+      <Type>EyePositionState</Type>
+      <Name>RightEye.EyePositionState</Name>
+      <Value xsi:type="xsd:string">Right</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>RightEye.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>RightEye.X Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>RightEye.X Units</Name>
+      <Value xsi:type="xsd:int">4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>RightEye.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>RightEye.Y Origin</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>RightEye.Y Units</Name>
+      <Value xsi:type="xsd:int">7</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <VariableList xsi:type="VariableListSaveOfString">
+      <Type>string</Type>
+      <Name>AnimationFrames</Name>
+      <IsFile>false</IsFile>
+      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+      <Value />
+    </VariableList>
   </State>
   <Instance>
-    <Name>OptionsControlsInstance</Name>
-    <BaseType>OptionsControls</BaseType>
+    <Name>BackgroundSprite</Name>
+    <BaseType>Sprite</BaseType>
+  </Instance>
+  <Instance>
+    <Name>LeftEye</Name>
+    <BaseType>unique/MainMenuEye</BaseType>
+  </Instance>
+  <Instance>
+    <Name>RightEye</Name>
+    <BaseType>unique/MainMenuEye</BaseType>
   </Instance>
 </ScreenSave>

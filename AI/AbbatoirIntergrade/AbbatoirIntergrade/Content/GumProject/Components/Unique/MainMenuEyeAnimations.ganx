@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ElementAnimationsSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Animations>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>OpenEye</Name>
+      <States>
+        <AnimatedStateSave>
+          <StateName>EyeOpening/Closed</StateName>
+          <Time>0</Time>
+          <InterpolationType>Quadratic</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>EyeOpening/Open</StateName>
+          <Time>0.5</Time>
+          <InterpolationType>Quadratic</InterpolationType>
+          <Easing>In</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>EyeOpening/Open</StateName>
+          <Time>0.9</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>EyeOpening/Blink</StateName>
+          <Time>1.1</Time>
+          <InterpolationType>Bounce</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>EyeOpening/Open</StateName>
+          <Time>1.3</Time>
+          <InterpolationType>Exponential</InterpolationType>
+          <Easing>In</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>EyeOpening/Open</StateName>
+          <Time>1.5</Time>
+          <InterpolationType>Quadratic</InterpolationType>
+          <Easing>In</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>EyeOpening/Blink</StateName>
+          <Time>1.55</Time>
+          <InterpolationType>Exponential</InterpolationType>
+          <Easing>InOut</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>EyeOpening/Open</StateName>
+          <Time>1.8</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>BlinkEye</Name>
+      <States>
+        <AnimatedStateSave>
+          <StateName>EyeOpening/Open</StateName>
+          <Time>0</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>EyeOpening/Blink</StateName>
+          <Time>0.1</Time>
+          <InterpolationType>Quadratic</InterpolationType>
+          <Easing>InOut</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>EyeOpening/Open</StateName>
+          <Time>0.2</Time>
+          <InterpolationType>Quadratic</InterpolationType>
+          <Easing>In</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
+  </Animations>
+</ElementAnimationsSave>

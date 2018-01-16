@@ -1,4 +1,4 @@
-#if ANDROID || IOS
+#if ANDROID || IOS || DESKTOP_GL
 // Android doesn't allow background loading. iOS doesn't allow background rendering (which is used by converting textures to use premult alpha)
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif

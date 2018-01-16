@@ -1,4 +1,4 @@
-#if ANDROID || IOS
+#if ANDROID || IOS || DESKTOP_GL
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
@@ -122,6 +122,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             {
                 FlatRedBall.SpriteManager.RemoveSprite(BackgroundSprite);
             }
+            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
         }
         public virtual void PostInitialize () 

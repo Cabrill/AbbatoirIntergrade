@@ -1,4 +1,4 @@
-#if ANDROID || IOS
+#if ANDROID || IOS || DESKTOP_GL
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
@@ -42,7 +42,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             get
             {
-                if (System.Enum.IsDefined(typeof(Action), mCurrentActionState))
+                if (mCurrentActionState >= 0 && mCurrentActionState <= 5)
                 {
                     return (Action)mCurrentActionState;
                 }
@@ -92,7 +92,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             get
             {
-                if (System.Enum.IsDefined(typeof(Direction), mCurrentDirectionState))
+                if (mCurrentDirectionState >= 0 && mCurrentDirectionState <= 3)
                 {
                     return (Direction)mCurrentDirectionState;
                 }
@@ -632,6 +632,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 HealthBar.Destroy();
                 HealthBar.Detach();
             }
+            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
         }

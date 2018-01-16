@@ -1,4 +1,4 @@
-#if ANDROID || IOS
+#if ANDROID || IOS || DESKTOP_GL
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
@@ -470,6 +470,7 @@ namespace AbbatoirIntergrade.Screens
             StructurePlacementList.MakeTwoWay();
             TileCollisionRectangleList.MakeTwoWay();
             TileCollisionCircleList.MakeTwoWay();
+            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
         }
         public virtual void PostInitialize () 

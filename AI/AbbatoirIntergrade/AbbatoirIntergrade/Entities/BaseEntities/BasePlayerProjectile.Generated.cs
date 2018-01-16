@@ -1,4 +1,4 @@
-#if ANDROID || IOS
+#if ANDROID || IOS || DESKTOP_GL
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
@@ -40,7 +40,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             get
             {
-                if (System.Enum.IsDefined(typeof(VariableState), mCurrentState))
+                if (mCurrentState >= 0 && mCurrentState <= 3)
                 {
                     return (VariableState)mCurrentState;
                 }
@@ -471,6 +471,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 FlatRedBall.Math.Geometry.ShapeManager.Remove(CircleInstance);
             }
+            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
         }

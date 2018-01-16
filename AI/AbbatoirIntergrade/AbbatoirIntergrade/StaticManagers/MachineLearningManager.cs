@@ -94,7 +94,7 @@ namespace AbbatoirIntergrade.StaticManagers
             {
                 var pathingPointIndex = enemy.PathingPointIndex;
 
-                for (var i = 0; i < pathingPointIndex; i++)
+                for (var i = 0; i < pathingPointIndex-1; i++)
                 {
                     score += _segmentLengths[i] / _totalPathLength;
                 }

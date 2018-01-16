@@ -1,4 +1,4 @@
-#if ANDROID || IOS
+#if ANDROID || IOS || DESKTOP_GL
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
@@ -52,7 +52,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
         {
             get
             {
-                if (System.Enum.IsDefined(typeof(Jump), mCurrentJumpState))
+                if (mCurrentJumpState >= 0 && mCurrentJumpState <= 5)
                 {
                     return (Jump)mCurrentJumpState;
                 }
@@ -505,6 +505,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             {
                 FlatRedBall.SpriteManager.RemoveSpriteOneWay(LightSprite);
             }
+            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
         }
         public override void PostInitialize () 
