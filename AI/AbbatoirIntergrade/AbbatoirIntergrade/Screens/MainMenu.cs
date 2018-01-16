@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-
+using AbbatoirIntergrade.GumRuntimes;
 using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
@@ -24,12 +24,22 @@ namespace AbbatoirIntergrade.Screens
 #if WINDOWS || DESKTOP_GL
 	        FlatRedBallServices.IsWindowsCursorVisible = true;
 #endif
+            MainMenuGumRuntime.OpenEyesAnimation.PlayAfter(5, this);
 	    }
 
 	    void CustomActivity(bool firstTimeCalled)
 	    {
-	        FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
+	        //FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
+            
+	        if (LeftEye.CurrentEyeOpeningState == MainMenuEyeRuntime.EyeOpening.Open && !MainMenuGumRuntime.OpenEyesAnimation.IsPlaying() && !MainMenuGumRuntime.BlinkEyesAnimation.IsPlaying())
+	        {
+	            var random = FlatRedBallServices.Random.NextDouble();
 
+	            if (random >= 0.99f)
+	            {
+	                MainMenuGumRuntime.BlinkEyesAnimation.Play(this);
+	            }
+	        }
 	    }
 
         void CustomDestroy()

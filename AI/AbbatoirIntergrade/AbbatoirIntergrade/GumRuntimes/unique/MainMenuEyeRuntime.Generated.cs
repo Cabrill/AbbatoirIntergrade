@@ -14,10 +14,16 @@
                 Open,
                 Blink
             }
+            public enum EyePosition
+            {
+                Left,
+                Right
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
             EyeOpening mCurrentEyeOpeningState;
+            EyePosition mCurrentEyePositionState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -84,6 +90,34 @@
                             FaceSprite.Alpha = 255;
                             EyeSprite.TextureHeight = 0;
                             EyeSprite.TextureTop = 1066;
+                            break;
+                    }
+                }
+            }
+            public EyePosition CurrentEyePositionState
+            {
+                get
+                {
+                    return mCurrentEyePositionState;
+                }
+                set
+                {
+                    mCurrentEyePositionState = value;
+                    switch(mCurrentEyePositionState)
+                    {
+                        case  EyePosition.Left:
+                            FaceSprite.FlipHorizontal = true;
+                            EyeSprite.FlipHorizontal = true;
+                            EyeSprite.Rotation = -5f;
+                            EyeSprite.X = 76f;
+                            EyeSprite.Y = 40f;
+                            break;
+                        case  EyePosition.Right:
+                            FaceSprite.FlipHorizontal = false;
+                            EyeSprite.FlipHorizontal = false;
+                            EyeSprite.Rotation = 5f;
+                            EyeSprite.X = -75f;
+                            EyeSprite.Y = 41f;
                             break;
                     }
                 }
@@ -448,6 +482,117 @@
                     mCurrentEyeOpeningState = secondState;
                 }
             }
+            public void InterpolateBetween (EyePosition firstState, EyePosition secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                bool setEyeSpriteRotationFirstValue = false;
+                bool setEyeSpriteRotationSecondValue = false;
+                float EyeSpriteRotationFirstValue= 0;
+                float EyeSpriteRotationSecondValue= 0;
+                bool setEyeSpriteXFirstValue = false;
+                bool setEyeSpriteXSecondValue = false;
+                float EyeSpriteXFirstValue= 0;
+                float EyeSpriteXSecondValue= 0;
+                bool setEyeSpriteYFirstValue = false;
+                bool setEyeSpriteYSecondValue = false;
+                float EyeSpriteYFirstValue= 0;
+                float EyeSpriteYSecondValue= 0;
+                switch(firstState)
+                {
+                    case  EyePosition.Left:
+                        if (interpolationValue < 1)
+                        {
+                            this.EyeSprite.FlipHorizontal = true;
+                        }
+                        setEyeSpriteRotationFirstValue = true;
+                        EyeSpriteRotationFirstValue = -5f;
+                        setEyeSpriteXFirstValue = true;
+                        EyeSpriteXFirstValue = 76f;
+                        setEyeSpriteYFirstValue = true;
+                        EyeSpriteYFirstValue = 40f;
+                        if (interpolationValue < 1)
+                        {
+                            this.FaceSprite.FlipHorizontal = true;
+                        }
+                        break;
+                    case  EyePosition.Right:
+                        if (interpolationValue < 1)
+                        {
+                            this.EyeSprite.FlipHorizontal = false;
+                        }
+                        setEyeSpriteRotationFirstValue = true;
+                        EyeSpriteRotationFirstValue = 5f;
+                        setEyeSpriteXFirstValue = true;
+                        EyeSpriteXFirstValue = -75f;
+                        setEyeSpriteYFirstValue = true;
+                        EyeSpriteYFirstValue = 41f;
+                        if (interpolationValue < 1)
+                        {
+                            this.FaceSprite.FlipHorizontal = false;
+                        }
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  EyePosition.Left:
+                        if (interpolationValue >= 1)
+                        {
+                            this.EyeSprite.FlipHorizontal = true;
+                        }
+                        setEyeSpriteRotationSecondValue = true;
+                        EyeSpriteRotationSecondValue = -5f;
+                        setEyeSpriteXSecondValue = true;
+                        EyeSpriteXSecondValue = 76f;
+                        setEyeSpriteYSecondValue = true;
+                        EyeSpriteYSecondValue = 40f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.FaceSprite.FlipHorizontal = true;
+                        }
+                        break;
+                    case  EyePosition.Right:
+                        if (interpolationValue >= 1)
+                        {
+                            this.EyeSprite.FlipHorizontal = false;
+                        }
+                        setEyeSpriteRotationSecondValue = true;
+                        EyeSpriteRotationSecondValue = 5f;
+                        setEyeSpriteXSecondValue = true;
+                        EyeSpriteXSecondValue = -75f;
+                        setEyeSpriteYSecondValue = true;
+                        EyeSpriteYSecondValue = 41f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.FaceSprite.FlipHorizontal = false;
+                        }
+                        break;
+                }
+                if (setEyeSpriteRotationFirstValue && setEyeSpriteRotationSecondValue)
+                {
+                    EyeSprite.Rotation = EyeSpriteRotationFirstValue * (1 - interpolationValue) + EyeSpriteRotationSecondValue * interpolationValue;
+                }
+                if (setEyeSpriteXFirstValue && setEyeSpriteXSecondValue)
+                {
+                    EyeSprite.X = EyeSpriteXFirstValue * (1 - interpolationValue) + EyeSpriteXSecondValue * interpolationValue;
+                }
+                if (setEyeSpriteYFirstValue && setEyeSpriteYSecondValue)
+                {
+                    EyeSprite.Y = EyeSpriteYFirstValue * (1 - interpolationValue) + EyeSpriteYSecondValue * interpolationValue;
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentEyePositionState = firstState;
+                }
+                else
+                {
+                    mCurrentEyePositionState = secondState;
+                }
+            }
             #endregion
             #region State Interpolate To
             public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
@@ -558,6 +703,60 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition fromState,AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (EyePosition toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "EyePosition").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentEyePositionState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (EyePosition toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentEyePositionState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
             #endregion
             #region State Animations
             private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> OpenEyeAnimationInstructions (object target) 
@@ -569,39 +768,45 @@
                     yield return toReturn;
                 }
                 {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(EyeOpening.Open, 0.31f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Quadratic, FlatRedBall.Glue.StateInterpolation.Easing.Out, OpenEyeAnimation));
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(EyeOpening.Open, 0.5f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Quadratic, FlatRedBall.Glue.StateInterpolation.Easing.Out, OpenEyeAnimation));
                     toReturn.Target = target;
                     toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
                     yield return toReturn;
                 }
                 {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(EyeOpening.Open, 0.19f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Quadratic, FlatRedBall.Glue.StateInterpolation.Easing.In, OpenEyeAnimation));
-                    toReturn.Target = target;
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.31f;
-                    yield return toReturn;
-                }
-                {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(EyeOpening.Blink, 0.25f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Quadratic, FlatRedBall.Glue.StateInterpolation.Easing.In, OpenEyeAnimation));
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(EyeOpening.Open, 0.4f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Quadratic, FlatRedBall.Glue.StateInterpolation.Easing.In, OpenEyeAnimation));
                     toReturn.Target = target;
                     toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.5f;
                     yield return toReturn;
                 }
                 {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(EyeOpening.Open, 0.05000001f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Bounce, FlatRedBall.Glue.StateInterpolation.Easing.Out, OpenEyeAnimation));
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(EyeOpening.Blink, 0.2f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, OpenEyeAnimation));
                     toReturn.Target = target;
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.75f;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.9f;
                     yield return toReturn;
                 }
                 {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(EyeOpening.Blink, 0.05000001f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, FlatRedBall.Glue.StateInterpolation.Easing.In, OpenEyeAnimation));
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(EyeOpening.Open, 0.1999999f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Bounce, FlatRedBall.Glue.StateInterpolation.Easing.Out, OpenEyeAnimation));
                     toReturn.Target = target;
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.8f;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1.1f;
                     yield return toReturn;
                 }
                 {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(EyeOpening.Open, 0.4499999f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, FlatRedBall.Glue.StateInterpolation.Easing.InOut, OpenEyeAnimation));
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(EyeOpening.Open, 0.2f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, FlatRedBall.Glue.StateInterpolation.Easing.In, OpenEyeAnimation));
                     toReturn.Target = target;
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.85f;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1.3f;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(EyeOpening.Blink, 0.04999995f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Quadratic, FlatRedBall.Glue.StateInterpolation.Easing.In, OpenEyeAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1.5f;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(EyeOpening.Open, 0.25f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, FlatRedBall.Glue.StateInterpolation.Easing.InOut, OpenEyeAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1.55f;
                     yield return toReturn;
                 }
             }
@@ -619,7 +824,7 @@
                         Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(EyeOpening.Open);
                         Gum.DataTypes.Variables.StateSave second = first.Clone();
                         Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
-                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.31f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Quadratic, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.5f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Quadratic, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
                         tweener.Owner = this;
                         tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
                         tweener.Start();
@@ -640,28 +845,7 @@
                         Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(EyeOpening.Open);
                         Gum.DataTypes.Variables.StateSave second = first.Clone();
                         Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
-                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.19f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Quadratic, easing: FlatRedBall.Glue.StateInterpolation.Easing.In);
-                        tweener.Owner = this;
-                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
-                        tweener.Start();
-                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
-                    }
-                    );
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.31f;
-                    toReturn.Target = target;
-                    yield return toReturn;
-                }
-                {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
-                    {
-                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "EyeOpening/Open").Clone();
-                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "EyeOpening/Blink").Clone();
-                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
-                        var difference = relativeEnd;
-                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(EyeOpening.Blink);
-                        Gum.DataTypes.Variables.StateSave second = first.Clone();
-                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
-                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.25f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Quadratic, easing: FlatRedBall.Glue.StateInterpolation.Easing.In);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.4f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Quadratic, easing: FlatRedBall.Glue.StateInterpolation.Easing.In);
                         tweener.Owner = this;
                         tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
                         tweener.Start();
@@ -675,6 +859,27 @@
                 {
                     var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
                     {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "EyeOpening/Open").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "EyeOpening/Blink").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(EyeOpening.Blink);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.2f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.9f;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
                         var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "EyeOpening/Blink").Clone();
                         var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "EyeOpening/Open").Clone();
                         Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
@@ -682,14 +887,35 @@
                         Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(EyeOpening.Open);
                         Gum.DataTypes.Variables.StateSave second = first.Clone();
                         Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
-                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.05000001f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Bounce, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.1999999f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Bounce, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
                         tweener.Owner = this;
                         tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
                         tweener.Start();
                         StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                     }
                     );
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.75f;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1.1f;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "EyeOpening/Open").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "EyeOpening/Open").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(EyeOpening.Open);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.2f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, easing: FlatRedBall.Glue.StateInterpolation.Easing.In);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1.3f;
                     toReturn.Target = target;
                     yield return toReturn;
                 }
@@ -703,14 +929,14 @@
                         Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(EyeOpening.Blink);
                         Gum.DataTypes.Variables.StateSave second = first.Clone();
                         Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
-                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.05000001f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, easing: FlatRedBall.Glue.StateInterpolation.Easing.In);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.04999995f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Quadratic, easing: FlatRedBall.Glue.StateInterpolation.Easing.In);
                         tweener.Owner = this;
                         tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
                         tweener.Start();
                         StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                     }
                     );
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.8f;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1.5f;
                     toReturn.Target = target;
                     yield return toReturn;
                 }
@@ -724,14 +950,14 @@
                         Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(EyeOpening.Open);
                         Gum.DataTypes.Variables.StateSave second = first.Clone();
                         Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
-                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.4499999f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.25f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
                         tweener.Owner = this;
                         tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
                         tweener.Start();
                         StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                     }
                     );
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.85f;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1.55f;
                     toReturn.Target = target;
                     yield return toReturn;
                 }
@@ -743,7 +969,7 @@
                 {
                     if (openEyeAnimation == null)
                     {
-                        openEyeAnimation = new FlatRedBall.Gum.Animation.GumAnimation(1.3f, OpenEyeAnimationInstructions);
+                        openEyeAnimation = new FlatRedBall.Gum.Animation.GumAnimation(1.8f, OpenEyeAnimationInstructions);
                     }
                     return openEyeAnimation;
                 }
@@ -755,7 +981,7 @@
                 {
                     if (openEyeAnimationRelative == null)
                     {
-                        openEyeAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(1.3f, OpenEyeAnimationRelativeInstructions);
+                        openEyeAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(1.8f, OpenEyeAnimationRelativeInstructions);
                     }
                     return openEyeAnimationRelative;
                 }
@@ -1420,6 +1646,190 @@
                 }
                 return newState;
             }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (EyePosition state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  EyePosition.Left:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FaceSprite.FlipHorizontal",
+                            Type = "bool",
+                            Value = FaceSprite.FlipHorizontal
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EyeSprite.FlipHorizontal",
+                            Type = "bool",
+                            Value = EyeSprite.FlipHorizontal
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EyeSprite.Rotation",
+                            Type = "float",
+                            Value = EyeSprite.Rotation
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EyeSprite.X",
+                            Type = "float",
+                            Value = EyeSprite.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EyeSprite.Y",
+                            Type = "float",
+                            Value = EyeSprite.Y
+                        }
+                        );
+                        break;
+                    case  EyePosition.Right:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FaceSprite.FlipHorizontal",
+                            Type = "bool",
+                            Value = FaceSprite.FlipHorizontal
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EyeSprite.FlipHorizontal",
+                            Type = "bool",
+                            Value = EyeSprite.FlipHorizontal
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EyeSprite.Rotation",
+                            Type = "float",
+                            Value = EyeSprite.Rotation
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EyeSprite.X",
+                            Type = "float",
+                            Value = EyeSprite.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EyeSprite.Y",
+                            Type = "float",
+                            Value = EyeSprite.Y
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (EyePosition state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  EyePosition.Left:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FaceSprite.FlipHorizontal",
+                            Type = "bool",
+                            Value = FaceSprite.FlipHorizontal
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EyeSprite.FlipHorizontal",
+                            Type = "bool",
+                            Value = EyeSprite.FlipHorizontal
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EyeSprite.Rotation",
+                            Type = "float",
+                            Value = EyeSprite.Rotation + -5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EyeSprite.X",
+                            Type = "float",
+                            Value = EyeSprite.X + 76f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EyeSprite.Y",
+                            Type = "float",
+                            Value = EyeSprite.Y + 40f
+                        }
+                        );
+                        break;
+                    case  EyePosition.Right:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FaceSprite.FlipHorizontal",
+                            Type = "bool",
+                            Value = FaceSprite.FlipHorizontal
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EyeSprite.FlipHorizontal",
+                            Type = "bool",
+                            Value = EyeSprite.FlipHorizontal
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EyeSprite.Rotation",
+                            Type = "float",
+                            Value = EyeSprite.Rotation + 5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EyeSprite.X",
+                            Type = "float",
+                            Value = EyeSprite.X + -75f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EyeSprite.Y",
+                            Type = "float",
+                            Value = EyeSprite.Y + 41f
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
             #endregion
             public override void ApplyState (Gum.DataTypes.Variables.StateSave state) 
             {
@@ -1436,6 +1846,11 @@
                         if(state.Name == "Closed") this.mCurrentEyeOpeningState = EyeOpening.Closed;
                         if(state.Name == "Open") this.mCurrentEyeOpeningState = EyeOpening.Open;
                         if(state.Name == "Blink") this.mCurrentEyeOpeningState = EyeOpening.Blink;
+                    }
+                    else if (category.Name == "EyePosition")
+                    {
+                        if(state.Name == "Left") this.mCurrentEyePositionState = EyePosition.Left;
+                        if(state.Name == "Right") this.mCurrentEyePositionState = EyePosition.Right;
                     }
                 }
                 base.ApplyState(state);

@@ -21,17 +21,20 @@ namespace AbbatoirIntergrade.Screens
         #if DEBUG
         static bool HasBeenLoadedWithGlobalContentManager = false;
         #endif
-        protected static FlatRedBall.Gum.GumIdb MainMenuGum;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D empty_building;
         protected static FlatRedBall.Graphics.Animation.AnimationChainList AbbatoirIntergradeAnimation;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D AbbatoirIntergradeText;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D blue_eye;
+        protected static FlatRedBall.Gum.GumIdb MainMenuGum;
         
         private FlatRedBall.Sprite TheSpriteInstance;
         private FlatRedBall.Sprite ASpriteInstance;
         private FlatRedBall.Sprite BbatoirSpriteInstance;
         private FlatRedBall.Sprite ISpriteInstance;
         private FlatRedBall.Sprite NtergradeSpriteInstance;
+        private AbbatoirIntergrade.GumRuntimes.MainMenuGumRuntime MainMenuGumRuntime;
+        private AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime LeftEye;
+        protected global::RenderingLibrary.Graphics.Layer AboveEverythingLayerGum;
         public MainMenu () 
         	: base ("MainMenu")
         {
@@ -49,6 +52,8 @@ namespace AbbatoirIntergrade.Screens
             ISpriteInstance.Name = "ISpriteInstance";
             NtergradeSpriteInstance = new FlatRedBall.Sprite();
             NtergradeSpriteInstance.Name = "NtergradeSpriteInstance";
+            MainMenuGumRuntime = MainMenuGum.GetGraphicalUiElementByName("this") as AbbatoirIntergrade.GumRuntimes.MainMenuGumRuntime;
+            LeftEye = MainMenuGum.GetGraphicalUiElementByName("LeftEye") as AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime;
             
             
             PostInitialize();
@@ -61,11 +66,11 @@ namespace AbbatoirIntergrade.Screens
         public override void AddToManagers () 
         {
             MainMenuGum.InstanceInitialize(); FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged += MainMenuGum.HandleResolutionChanged;
-            FlatRedBall.SpriteManager.AddSprite(TheSpriteInstance);
-            FlatRedBall.SpriteManager.AddSprite(ASpriteInstance);
-            FlatRedBall.SpriteManager.AddSprite(BbatoirSpriteInstance);
-            FlatRedBall.SpriteManager.AddSprite(ISpriteInstance);
-            FlatRedBall.SpriteManager.AddSprite(NtergradeSpriteInstance);
+            FlatRedBall.SpriteManager.AddToLayer(TheSpriteInstance, FlatRedBall.SpriteManager.TopLayer);
+            FlatRedBall.SpriteManager.AddToLayer(ASpriteInstance, FlatRedBall.SpriteManager.TopLayer);
+            FlatRedBall.SpriteManager.AddToLayer(BbatoirSpriteInstance, FlatRedBall.SpriteManager.TopLayer);
+            FlatRedBall.SpriteManager.AddToLayer(ISpriteInstance, FlatRedBall.SpriteManager.TopLayer);
+            FlatRedBall.SpriteManager.AddToLayer(NtergradeSpriteInstance, FlatRedBall.SpriteManager.TopLayer);
             base.AddToManagers();
             AddToManagersBottomUp();
             CustomInitialize();
@@ -88,12 +93,12 @@ namespace AbbatoirIntergrade.Screens
         public override void Destroy () 
         {
             base.Destroy();
-            FlatRedBall.SpriteManager.RemoveDrawableBatch(MainMenuGum); FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged -= MainMenuGum.HandleResolutionChanged;
-            MainMenuGum = null;
             empty_building = null;
             AbbatoirIntergradeAnimation = null;
             AbbatoirIntergradeText = null;
             blue_eye = null;
+            FlatRedBall.SpriteManager.RemoveDrawableBatch(MainMenuGum); FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged -= MainMenuGum.HandleResolutionChanged;
+            MainMenuGum = null;
             
             if (TheSpriteInstance != null)
             {
@@ -115,6 +120,14 @@ namespace AbbatoirIntergrade.Screens
             {
                 FlatRedBall.SpriteManager.RemoveSprite(NtergradeSpriteInstance);
             }
+            if (MainMenuGumRuntime != null)
+            {
+                MainMenuGumRuntime.RemoveFromManagers();
+            }
+            if (LeftEye != null)
+            {
+                LeftEye.RemoveFromManagers();
+            }
             FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
         }
@@ -124,62 +137,62 @@ namespace AbbatoirIntergrade.Screens
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = true;
             if (TheSpriteInstance.Parent == null)
             {
-                TheSpriteInstance.X = -19.54167f;
+                TheSpriteInstance.X = -15.93791f;
             }
             else
             {
-                TheSpriteInstance.RelativeX = -19.54167f;
+                TheSpriteInstance.RelativeX = -15.93791f;
             }
             if (TheSpriteInstance.Parent == null)
             {
-                TheSpriteInstance.Y = 273.0906f;
+                TheSpriteInstance.Y = 407.5375f;
             }
             else
             {
-                TheSpriteInstance.RelativeY = 273.0906f;
+                TheSpriteInstance.RelativeY = 407.5375f;
             }
             TheSpriteInstance.Texture = AbbatoirIntergradeText;
-            TheSpriteInstance.TextureScale = 0.4f;
+            TheSpriteInstance.TextureScale = 1f;
             TheSpriteInstance.AnimationChains = AbbatoirIntergradeAnimation;
             TheSpriteInstance.CurrentChainName = "The_Animate";
             if (ASpriteInstance.Parent == null)
             {
-                ASpriteInstance.X = -357.7979f;
+                ASpriteInstance.X = -934.4056f;
             }
             else
             {
-                ASpriteInstance.RelativeX = -357.7979f;
+                ASpriteInstance.RelativeX = -934.4056f;
             }
             if (ASpriteInstance.Parent == null)
             {
-                ASpriteInstance.Y = -222.9199f;
+                ASpriteInstance.Y = -176.3048f;
             }
             else
             {
-                ASpriteInstance.RelativeY = -222.9199f;
+                ASpriteInstance.RelativeY = -176.3048f;
             }
             ASpriteInstance.Texture = AbbatoirIntergradeText;
-            ASpriteInstance.TextureScale = 1f;
+            ASpriteInstance.TextureScale = 2f;
             ASpriteInstance.AnimationChains = AbbatoirIntergradeAnimation;
             ASpriteInstance.CurrentChainName = "A_Animate";
             if (BbatoirSpriteInstance.Parent == null)
             {
-                BbatoirSpriteInstance.X = -210.9192f;
+                BbatoirSpriteInstance.X = -643.5237f;
             }
             else
             {
-                BbatoirSpriteInstance.RelativeX = -210.9192f;
+                BbatoirSpriteInstance.RelativeX = -643.5237f;
             }
             if (BbatoirSpriteInstance.Parent == null)
             {
-                BbatoirSpriteInstance.Y = -252.1708f;
+                BbatoirSpriteInstance.Y = -235.8232f;
             }
             else
             {
-                BbatoirSpriteInstance.RelativeY = -252.1708f;
+                BbatoirSpriteInstance.RelativeY = -235.8232f;
             }
             BbatoirSpriteInstance.Texture = AbbatoirIntergradeText;
-            BbatoirSpriteInstance.TextureScale = 0.5f;
+            BbatoirSpriteInstance.TextureScale = 1f;
             BbatoirSpriteInstance.AnimationChains = AbbatoirIntergradeAnimation;
             BbatoirSpriteInstance.CurrentChainName = "bbatoir_Animate";
             #if FRB_MDX
@@ -193,42 +206,42 @@ namespace AbbatoirIntergrade.Screens
             BbatoirSpriteInstance.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
             if (ISpriteInstance.Parent == null)
             {
-                ISpriteInstance.X = 54.95257f;
+                ISpriteInstance.X = 361.6613f;
             }
             else
             {
-                ISpriteInstance.RelativeX = 54.95257f;
+                ISpriteInstance.RelativeX = 361.6613f;
             }
             if (ISpriteInstance.Parent == null)
             {
-                ISpriteInstance.Y = -224.0396f;
+                ISpriteInstance.Y = -178.3042f;
             }
             else
             {
-                ISpriteInstance.RelativeY = -224.0396f;
+                ISpriteInstance.RelativeY = -178.3042f;
             }
             ISpriteInstance.Texture = AbbatoirIntergradeText;
-            ISpriteInstance.TextureScale = 1f;
+            ISpriteInstance.TextureScale = 2f;
             ISpriteInstance.AnimationChains = AbbatoirIntergradeAnimation;
             ISpriteInstance.CurrentChainName = "I_Animate";
             if (NtergradeSpriteInstance.Parent == null)
             {
-                NtergradeSpriteInstance.X = 228.9675f;
+                NtergradeSpriteInstance.X = 716.1099f;
             }
             else
             {
-                NtergradeSpriteInstance.RelativeX = 228.9675f;
+                NtergradeSpriteInstance.RelativeX = 716.1099f;
             }
             if (NtergradeSpriteInstance.Parent == null)
             {
-                NtergradeSpriteInstance.Y = -253.4857f;
+                NtergradeSpriteInstance.Y = -236.1381f;
             }
             else
             {
-                NtergradeSpriteInstance.RelativeY = -253.4857f;
+                NtergradeSpriteInstance.RelativeY = -236.1381f;
             }
             NtergradeSpriteInstance.Texture = AbbatoirIntergradeText;
-            NtergradeSpriteInstance.TextureScale = 0.5f;
+            NtergradeSpriteInstance.TextureScale = 1f;
             NtergradeSpriteInstance.AnimationChains = AbbatoirIntergradeAnimation;
             NtergradeSpriteInstance.CurrentChainName = "ntergrade_Animate";
             #if FRB_MDX
@@ -268,6 +281,14 @@ namespace AbbatoirIntergrade.Screens
             {
                 FlatRedBall.SpriteManager.RemoveSpriteOneWay(NtergradeSpriteInstance);
             }
+            if (MainMenuGumRuntime != null)
+            {
+                MainMenuGumRuntime.RemoveFromManagers();
+            }
+            if (LeftEye != null)
+            {
+                LeftEye.RemoveFromManagers();
+            }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 
         {
@@ -276,62 +297,62 @@ namespace AbbatoirIntergrade.Screens
             }
             if (TheSpriteInstance.Parent == null)
             {
-                TheSpriteInstance.X = -19.54167f;
+                TheSpriteInstance.X = -15.93791f;
             }
             else
             {
-                TheSpriteInstance.RelativeX = -19.54167f;
+                TheSpriteInstance.RelativeX = -15.93791f;
             }
             if (TheSpriteInstance.Parent == null)
             {
-                TheSpriteInstance.Y = 273.0906f;
+                TheSpriteInstance.Y = 407.5375f;
             }
             else
             {
-                TheSpriteInstance.RelativeY = 273.0906f;
+                TheSpriteInstance.RelativeY = 407.5375f;
             }
             TheSpriteInstance.Texture = AbbatoirIntergradeText;
-            TheSpriteInstance.TextureScale = 0.4f;
+            TheSpriteInstance.TextureScale = 1f;
             TheSpriteInstance.AnimationChains = AbbatoirIntergradeAnimation;
             TheSpriteInstance.CurrentChainName = "The_Animate";
             if (ASpriteInstance.Parent == null)
             {
-                ASpriteInstance.X = -357.7979f;
+                ASpriteInstance.X = -934.4056f;
             }
             else
             {
-                ASpriteInstance.RelativeX = -357.7979f;
+                ASpriteInstance.RelativeX = -934.4056f;
             }
             if (ASpriteInstance.Parent == null)
             {
-                ASpriteInstance.Y = -222.9199f;
+                ASpriteInstance.Y = -176.3048f;
             }
             else
             {
-                ASpriteInstance.RelativeY = -222.9199f;
+                ASpriteInstance.RelativeY = -176.3048f;
             }
             ASpriteInstance.Texture = AbbatoirIntergradeText;
-            ASpriteInstance.TextureScale = 1f;
+            ASpriteInstance.TextureScale = 2f;
             ASpriteInstance.AnimationChains = AbbatoirIntergradeAnimation;
             ASpriteInstance.CurrentChainName = "A_Animate";
             if (BbatoirSpriteInstance.Parent == null)
             {
-                BbatoirSpriteInstance.X = -210.9192f;
+                BbatoirSpriteInstance.X = -643.5237f;
             }
             else
             {
-                BbatoirSpriteInstance.RelativeX = -210.9192f;
+                BbatoirSpriteInstance.RelativeX = -643.5237f;
             }
             if (BbatoirSpriteInstance.Parent == null)
             {
-                BbatoirSpriteInstance.Y = -252.1708f;
+                BbatoirSpriteInstance.Y = -235.8232f;
             }
             else
             {
-                BbatoirSpriteInstance.RelativeY = -252.1708f;
+                BbatoirSpriteInstance.RelativeY = -235.8232f;
             }
             BbatoirSpriteInstance.Texture = AbbatoirIntergradeText;
-            BbatoirSpriteInstance.TextureScale = 0.5f;
+            BbatoirSpriteInstance.TextureScale = 1f;
             BbatoirSpriteInstance.AnimationChains = AbbatoirIntergradeAnimation;
             BbatoirSpriteInstance.CurrentChainName = "bbatoir_Animate";
             #if FRB_MDX
@@ -345,42 +366,42 @@ namespace AbbatoirIntergrade.Screens
             BbatoirSpriteInstance.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
             if (ISpriteInstance.Parent == null)
             {
-                ISpriteInstance.X = 54.95257f;
+                ISpriteInstance.X = 361.6613f;
             }
             else
             {
-                ISpriteInstance.RelativeX = 54.95257f;
+                ISpriteInstance.RelativeX = 361.6613f;
             }
             if (ISpriteInstance.Parent == null)
             {
-                ISpriteInstance.Y = -224.0396f;
+                ISpriteInstance.Y = -178.3042f;
             }
             else
             {
-                ISpriteInstance.RelativeY = -224.0396f;
+                ISpriteInstance.RelativeY = -178.3042f;
             }
             ISpriteInstance.Texture = AbbatoirIntergradeText;
-            ISpriteInstance.TextureScale = 1f;
+            ISpriteInstance.TextureScale = 2f;
             ISpriteInstance.AnimationChains = AbbatoirIntergradeAnimation;
             ISpriteInstance.CurrentChainName = "I_Animate";
             if (NtergradeSpriteInstance.Parent == null)
             {
-                NtergradeSpriteInstance.X = 228.9675f;
+                NtergradeSpriteInstance.X = 716.1099f;
             }
             else
             {
-                NtergradeSpriteInstance.RelativeX = 228.9675f;
+                NtergradeSpriteInstance.RelativeX = 716.1099f;
             }
             if (NtergradeSpriteInstance.Parent == null)
             {
-                NtergradeSpriteInstance.Y = -253.4857f;
+                NtergradeSpriteInstance.Y = -236.1381f;
             }
             else
             {
-                NtergradeSpriteInstance.RelativeY = -253.4857f;
+                NtergradeSpriteInstance.RelativeY = -236.1381f;
             }
             NtergradeSpriteInstance.Texture = AbbatoirIntergradeText;
-            NtergradeSpriteInstance.TextureScale = 0.5f;
+            NtergradeSpriteInstance.TextureScale = 1f;
             NtergradeSpriteInstance.AnimationChains = AbbatoirIntergradeAnimation;
             NtergradeSpriteInstance.CurrentChainName = "ntergrade_Animate";
             #if FRB_MDX
@@ -406,6 +427,12 @@ namespace AbbatoirIntergrade.Screens
             {
                 throw new System.ArgumentException("contentManagerName cannot be empty or null");
             }
+            // Set the content manager for Gum
+            var contentManagerWrapper = new FlatRedBall.Gum.ContentManagerWrapper();
+            contentManagerWrapper.ContentManagerName = contentManagerName;
+            RenderingLibrary.Content.LoaderManager.Self.ContentLoader = contentManagerWrapper;
+            // Access the GumProject just in case it's async loaded
+            var throwaway = GlobalContent.GumProject;
             #if DEBUG
             if (contentManagerName == FlatRedBall.FlatRedBallServices.GlobalContentManager)
             {
@@ -416,11 +443,11 @@ namespace AbbatoirIntergrade.Screens
                 throw new System.Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
             }
             #endif
-            Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;  MainMenuGum = new FlatRedBall.Gum.GumIdb();  MainMenuGum.LoadFromFile("content/gumproject/screens/mainmenugum.gusx");  MainMenuGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false; MainMenuGum.Element.UpdateLayout(); MainMenuGum.Element.UpdateLayout();
             empty_building = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/mainmenu/empty_building.png", contentManagerName);
             AbbatoirIntergradeAnimation = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/mainmenu/abbatoirintergradeanimation.achx", contentManagerName);
             AbbatoirIntergradeText = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/mainmenu/abbatoirintergradetext.png", contentManagerName);
             blue_eye = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/mainmenu/blue_eye.png", contentManagerName);
+            Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;  MainMenuGum = new FlatRedBall.Gum.GumIdb();  MainMenuGum.LoadFromFile("content/gumproject/screens/mainmenugum.gusx");  MainMenuGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false; MainMenuGum.Element.UpdateLayout(); MainMenuGum.Element.UpdateLayout();
             CustomLoadStaticContent(contentManagerName);
         }
         [System.Obsolete("Use GetFile instead")]
@@ -428,8 +455,6 @@ namespace AbbatoirIntergrade.Screens
         {
             switch(memberName)
             {
-                case  "MainMenuGum":
-                    return MainMenuGum;
                 case  "empty_building":
                     return empty_building;
                 case  "AbbatoirIntergradeAnimation":
@@ -438,6 +463,8 @@ namespace AbbatoirIntergrade.Screens
                     return AbbatoirIntergradeText;
                 case  "blue_eye":
                     return blue_eye;
+                case  "MainMenuGum":
+                    return MainMenuGum;
             }
             return null;
         }
@@ -445,8 +472,6 @@ namespace AbbatoirIntergrade.Screens
         {
             switch(memberName)
             {
-                case  "MainMenuGum":
-                    return MainMenuGum;
                 case  "empty_building":
                     return empty_building;
                 case  "AbbatoirIntergradeAnimation":
@@ -455,6 +480,8 @@ namespace AbbatoirIntergrade.Screens
                     return AbbatoirIntergradeText;
                 case  "blue_eye":
                     return blue_eye;
+                case  "MainMenuGum":
+                    return MainMenuGum;
             }
             return null;
         }
@@ -462,8 +489,6 @@ namespace AbbatoirIntergrade.Screens
         {
             switch(memberName)
             {
-                case  "MainMenuGum":
-                    return MainMenuGum;
                 case  "empty_building":
                     return empty_building;
                 case  "AbbatoirIntergradeAnimation":
@@ -472,6 +497,8 @@ namespace AbbatoirIntergrade.Screens
                     return AbbatoirIntergradeText;
                 case  "blue_eye":
                     return blue_eye;
+                case  "MainMenuGum":
+                    return MainMenuGum;
             }
             return null;
         }
