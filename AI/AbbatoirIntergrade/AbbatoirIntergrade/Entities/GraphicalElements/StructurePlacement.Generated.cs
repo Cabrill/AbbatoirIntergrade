@@ -76,6 +76,49 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
                 }
             }
         }
+        public enum CurrentlyActive
+        {
+            Uninitialized = 0, //This exists so that the first set call actually does something
+            Unknown = 1, //This exists so that if the entity is actually a child entity and has set a child state, you will get this
+            Active = 2, 
+            Inactive = 3
+        }
+        protected int mCurrentCurrentlyActiveState = 0;
+        public Entities.GraphicalElements.StructurePlacement.CurrentlyActive CurrentCurrentlyActiveState
+        {
+            get
+            {
+                if (mCurrentCurrentlyActiveState >= 0 && mCurrentCurrentlyActiveState <= 3)
+                {
+                    return (CurrentlyActive)mCurrentCurrentlyActiveState;
+                }
+                else
+                {
+                    return CurrentlyActive.Unknown;
+                }
+            }
+            set
+            {
+                mCurrentCurrentlyActiveState = (int)value;
+                switch(CurrentCurrentlyActiveState)
+                {
+                    case  CurrentlyActive.Uninitialized:
+                        break;
+                    case  CurrentlyActive.Unknown:
+                        break;
+                    case  CurrentlyActive.Active:
+                        SpriteInstanceTextureScale = 1f;
+                        SpriteInstanceAnimate = true;
+                        SpriteInstanceAlpha = 255f;
+                        break;
+                    case  CurrentlyActive.Inactive:
+                        SpriteInstanceTextureScale = 0.5f;
+                        SpriteInstanceAnimate = false;
+                        SpriteInstanceAlpha = 100f;
+                        break;
+                }
+            }
+        }
         static object mLockObject = new object();
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
@@ -148,6 +191,28 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             set
             {
                 SpriteInstance.TextureScale = value;
+            }
+        }
+        public bool SpriteInstanceAnimate
+        {
+            get
+            {
+                return SpriteInstance.Animate;
+            }
+            set
+            {
+                SpriteInstance.Animate = value;
+            }
+        }
+        public float SpriteInstanceAlpha
+        {
+            get
+            {
+                return SpriteInstance.Alpha;
+            }
+            set
+            {
+                SpriteInstance.Alpha = value;
             }
         }
         public int Index { get; set; }
@@ -340,6 +405,8 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             SpriteInstanceBlue = 0f;
             SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
             SpriteInstanceTextureScale = 1f;
+            SpriteInstanceAnimate = true;
+            SpriteInstanceAlpha = 1f;
         }
         public virtual void ConvertToManuallyUpdated () 
         {
@@ -553,6 +620,104 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
                 mCurrentRollOverState = (int)secondState;
             }
         }
+        public FlatRedBall.Instructions.Instruction InterpolateToState (CurrentlyActive stateToInterpolateTo, double secondsToTake) 
+        {
+            switch(stateToInterpolateTo)
+            {
+                case  CurrentlyActive.Active:
+                    SpriteInstance.AlphaRate = (255f - SpriteInstance.Alpha) / (float)secondsToTake;
+                    break;
+                case  CurrentlyActive.Inactive:
+                    SpriteInstance.AlphaRate = (100f - SpriteInstance.Alpha) / (float)secondsToTake;
+                    break;
+            }
+            var instruction = new FlatRedBall.Instructions.DelegateInstruction<CurrentlyActive>(StopStateInterpolation, stateToInterpolateTo);
+            instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
+            this.Instructions.Add(instruction);
+            return instruction;
+        }
+        public void StopStateInterpolation (CurrentlyActive stateToStop) 
+        {
+            switch(stateToStop)
+            {
+                case  CurrentlyActive.Active:
+                    SpriteInstance.AlphaRate =  0;
+                    break;
+                case  CurrentlyActive.Inactive:
+                    SpriteInstance.AlphaRate =  0;
+                    break;
+            }
+            CurrentCurrentlyActiveState = stateToStop;
+        }
+        public void InterpolateBetween (CurrentlyActive firstState, CurrentlyActive secondState, float interpolationValue) 
+        {
+            #if DEBUG
+            if (float.IsNaN(interpolationValue))
+            {
+                throw new System.Exception("interpolationValue cannot be NaN");
+            }
+            #endif
+            bool setSpriteInstanceTextureScale = true;
+            float SpriteInstanceTextureScaleFirstValue= 0;
+            float SpriteInstanceTextureScaleSecondValue= 0;
+            bool setSpriteInstanceAlpha = true;
+            float SpriteInstanceAlphaFirstValue= 0;
+            float SpriteInstanceAlphaSecondValue= 0;
+            switch(firstState)
+            {
+                case  CurrentlyActive.Active:
+                    SpriteInstanceTextureScaleFirstValue = 1f;
+                    if (interpolationValue < 1)
+                    {
+                        this.SpriteInstanceAnimate = true;
+                    }
+                    SpriteInstanceAlphaFirstValue = 255f;
+                    break;
+                case  CurrentlyActive.Inactive:
+                    SpriteInstanceTextureScaleFirstValue = 0.5f;
+                    if (interpolationValue < 1)
+                    {
+                        this.SpriteInstanceAnimate = false;
+                    }
+                    SpriteInstanceAlphaFirstValue = 100f;
+                    break;
+            }
+            switch(secondState)
+            {
+                case  CurrentlyActive.Active:
+                    SpriteInstanceTextureScaleSecondValue = 1f;
+                    if (interpolationValue >= 1)
+                    {
+                        this.SpriteInstanceAnimate = true;
+                    }
+                    SpriteInstanceAlphaSecondValue = 255f;
+                    break;
+                case  CurrentlyActive.Inactive:
+                    SpriteInstanceTextureScaleSecondValue = 0.5f;
+                    if (interpolationValue >= 1)
+                    {
+                        this.SpriteInstanceAnimate = false;
+                    }
+                    SpriteInstanceAlphaSecondValue = 100f;
+                    break;
+            }
+            if (setSpriteInstanceTextureScale)
+            {
+                SpriteInstanceTextureScale = SpriteInstanceTextureScaleFirstValue * (1 - interpolationValue) + SpriteInstanceTextureScaleSecondValue * interpolationValue;
+            }
+            if (setSpriteInstanceAlpha)
+            {
+                SpriteInstanceAlpha = SpriteInstanceAlphaFirstValue * (1 - interpolationValue) + SpriteInstanceAlphaSecondValue * interpolationValue;
+            }
+            if (interpolationValue < 1)
+            {
+                mCurrentCurrentlyActiveState = (int)firstState;
+            }
+            else
+            {
+                mCurrentCurrentlyActiveState = (int)secondState;
+            }
+        }
         public static void PreloadStateContent (RollOver state, string contentManagerName) 
         {
             ContentManagerName = contentManagerName;
@@ -561,6 +726,17 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
                 case  RollOver.CursorOver:
                     break;
                 case  RollOver.CursorOff:
+                    break;
+            }
+        }
+        public static void PreloadStateContent (CurrentlyActive state, string contentManagerName) 
+        {
+            ContentManagerName = contentManagerName;
+            switch(state)
+            {
+                case  CurrentlyActive.Active:
+                    break;
+                case  CurrentlyActive.Inactive:
                     break;
             }
         }

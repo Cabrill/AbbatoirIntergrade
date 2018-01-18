@@ -171,6 +171,8 @@
     <property name="SpriteInstanceBlue" type="float" default="0" />
     <property name="SpriteInstanceColorOperation" type="ColorOperation" default="ColorTextureAlpha" />
     <property name="SpriteInstanceTextureScale" type="float" default="1" />
+    <property name="SpriteInstanceAnimate" type="bool" default="true" />
+    <property name="SpriteInstanceAlpha" type="float" default="1" />
   </objecttype>
   <objecttype name="TileCollisionCircle">
     <property name="Altitude" type="float" />

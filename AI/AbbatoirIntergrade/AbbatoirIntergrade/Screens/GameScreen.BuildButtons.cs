@@ -8,6 +8,7 @@ using FlatRedBall;
 using FlatRedBall.Gui;
 using FlatRedBall.Math.Geometry;
 using AbbatoirIntergrade.Entities.BaseEntities;
+using AbbatoirIntergrade.Entities.GraphicalElements;
 using AbbatoirIntergrade.GameClasses.Interfaces;
 using AbbatoirIntergrade.GumRuntimes;
 using AbbatoirIntergrade.Performance;
@@ -33,6 +34,28 @@ namespace AbbatoirIntergrade.Screens
                 GuiManager.Cursor.WindowPushed = null;
                 //CurrentGameMode = GameMode.Building;
                 BuildMenuInstance.Hide(didBuild:true);
+                ChangeGameModeToNormal();
+            }
+        }
+
+        private void ChangeGameModeToBuilding(object sender, EventArgs eventArgs)
+        {
+            CurrentGameMode = GameMode.Building;
+
+            foreach (var placement in StructurePlacementList)
+            {
+                placement.CurrentCurrentlyActiveState = StructurePlacement.CurrentlyActive.Active;
+            }
+        }
+
+        private void ChangeGameModeToNormal()
+        {
+            CurrentGameMode = GameMode.Normal;
+            CurrentLevel.IsReadyForNextWave = true;
+
+            foreach (var placement in StructurePlacementList)
+            {
+                placement.CurrentCurrentlyActiveState = StructurePlacement.CurrentlyActive.Inactive;
             }
         }
 

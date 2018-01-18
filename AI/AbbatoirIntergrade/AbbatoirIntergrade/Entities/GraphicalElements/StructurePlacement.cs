@@ -30,12 +30,15 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
 
 		private void CustomActivity()
 		{
-		    CurrentRollOverState =
-		        this.HasCursorOver(GuiManager.Cursor) ? RollOver.CursorOver : RollOver.CursorOff;
-
-		    if (WasClickedThisFrame(GuiManager.Cursor))
+		    if (CurrentCurrentlyActiveState == CurrentlyActive.Active)
 		    {
-		        OnClick?.Invoke(this, null);
+		        CurrentRollOverState =
+		            this.HasCursorOver(GuiManager.Cursor) ? RollOver.CursorOver : RollOver.CursorOff;
+
+		        if (WasClickedThisFrame(GuiManager.Cursor))
+		        {
+		            OnClick?.Invoke(this, null);
+		        }
 		    }
 		}
 

@@ -9162,6 +9162,52 @@
           <Name>RollOver</Name>
           <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
         </StateSaveCategory>
+        <StateSaveCategory>
+          <States>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>SpriteInstanceTextureScale</Member>
+                  <ValueAsFloat>1</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>SpriteInstanceAnimate</Member>
+                  <ValueAsBool>true</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>SpriteInstanceAlpha</Member>
+                  <ValueAsFloat>255</ValueAsFloat>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Active</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>SpriteInstanceTextureScale</Member>
+                  <ValueAsFloat>0.5</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>SpriteInstanceAnimate</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>SpriteInstanceAlpha</Member>
+                  <ValueAsFloat>100</ValueAsFloat>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Inactive</Name>
+            </StateSave>
+          </States>
+          <Name>CurrentlyActive</Name>
+          <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
+        </StateSaveCategory>
       </StateCategoryList>
       <CustomVariables>
         <CustomVariable>
@@ -9258,6 +9304,32 @@
           <DefaultValue xsi:type="xsd:float">1</DefaultValue>
           <SourceObject>SpriteInstance</SourceObject>
           <SourceObjectProperty>TextureScale</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SpriteInstanceAnimate</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <SourceObject>SpriteInstance</SourceObject>
+          <SourceObjectProperty>Animate</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SpriteInstanceAlpha</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+          <SourceObject>SpriteInstance</SourceObject>
+          <SourceObjectProperty>Alpha</SourceObjectProperty>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIClickable>true</ImplementsIClickable>

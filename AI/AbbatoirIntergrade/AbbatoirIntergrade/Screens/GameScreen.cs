@@ -69,6 +69,7 @@ namespace AbbatoirIntergrade.Screens
             CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
             CurrentLevel.OnNewWaveStart += UpdateDialogue;
             CurrentLevel.OnNewWaveStart += MachineLearningManager.NotifyOfWaveStart;
+            CurrentLevel.OnWaveEnd += ChangeGameModeToBuilding;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
             currentLevelDateTime = CurrentLevel.StartTime;
 
@@ -96,7 +97,7 @@ namespace AbbatoirIntergrade.Screens
             CreateNotificationPool();
 
             LoadInitialDialogue();
-
+            ChangeGameModeToBuilding(null, null);
             GameHasStarted = true;
         }
 
@@ -232,21 +233,16 @@ namespace AbbatoirIntergrade.Screens
             ShowDebugInfo();
 #endif
             //UpdateMusic();
-            UpdateGameModeActivity();
-
-
+            
             HandleTouchActivity();
             SelectedItemActivity();
-            BuildingStatusActivity();
 
-            var gameplayOccuring = !IsPaused && GameHasStarted;
+            var gameplayOccuring = !IsPaused && GameHasStarted && CurrentGameMode != GameMode.Building;
             if (gameplayOccuring)
             {
                 UpdateGameTime();
 
                 CurrentLevel.Update();
-
-                InsolationFormulas.Instance.UpdateDateTime(currentLevelDateTime);
 
                 HorizonBoxInstance.Update(currentLevelDateTime);
 
@@ -254,6 +250,11 @@ namespace AbbatoirIntergrade.Screens
 
                 EnemyStatusActivity();
                 PlayerProjectileActivity();
+
+                if (CurrentLevel.HasReachedDefeat())
+                {
+                    LevelFailed();
+                }
             }
         }
 
@@ -261,30 +262,6 @@ namespace AbbatoirIntergrade.Screens
         {
             var addSeconds = TimeManager.SecondDifference * 60;
             currentLevelDateTime = currentLevelDateTime.AddSeconds(addSeconds);
-        }
-
-        private void UpdateGameModeActivity()
-        {
-            if (BuildMenuInstance.Visible)
-            {
-                CurrentGameMode = GameMode.Building;
-            }
-            else if (selectedObject != null)
-            {
-                CurrentGameMode = GameMode.Inspecting;
-            }
-            else
-            {
-                CurrentGameMode = GameMode.Normal;
-            }
-
-            if (GameHasStarted)
-            {
-                if (CurrentLevel.HasReachedDefeat())
-                {
-                    LevelFailed();
-                }
-            }
         }
 
         private void LevelFailed()
@@ -460,18 +437,6 @@ namespace AbbatoirIntergrade.Screens
 	        }
 	    }
 
-	    private void BuildingStatusActivity()
-	    {
-	        if (CurrentGameMode != GameMode.Building) return;
-
-	        var newStructure = AllStructuresList.FirstOrDefault(s => s.IsBeingPlaced);
-
-	        if (newStructure == null)
-	        {
-	            CurrentGameMode = GameMode.Normal;
-            }
-	    }
-
         private void SelectedItemActivity()
         {
             if (selectedObject == null)
@@ -507,10 +472,11 @@ namespace AbbatoirIntergrade.Screens
 
         private void OnStructurePlacementClick(object sender, EventArgs eventArgs)
         {
+            if (CurrentGameMode != GameMode.Building) return;
+
             if (sender is StructurePlacement placement)
             {
                 BuildMenuInstance.DisplayForPlacement(placement);
-                CurrentGameMode = GameMode.Building;
                 selectedObject = placement;
             }
         }

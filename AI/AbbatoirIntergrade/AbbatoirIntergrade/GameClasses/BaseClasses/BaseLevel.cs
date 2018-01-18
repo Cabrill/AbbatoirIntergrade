@@ -43,6 +43,9 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         public int RemainingLives { get; set; }
 
         public EventHandler OnNewWaveStart;
+        public EventHandler OnWaveEnd;
+        private bool _waveHasEnded = false;
+        public bool IsReadyForNextWave { get; set; } = false;
 
         private double? _lastEnemyWaveTime;
 
@@ -65,27 +68,38 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 
         private void CreateEnemiesForWave()
         {
-            BaseWave currentWave;
-            currentWave = CurrentWaveNumber < Waves.Count ? Waves[CurrentWaveNumber] : GenerateWave();
+            var currentWave = CurrentWaveNumber < Waves.Count ? Waves[CurrentWaveNumber] : GenerateWave();
             currentWave.CreateEnemies();
             
             CurrentWaveNumber++;
 
             LastWave = currentWave;
             _lastEnemyWaveTime = TimeManager.CurrentTime;
-
-            OnNewWaveStart?.Invoke(this, null);
         }
 
         public void Update()
         {
-            if (!_lastEnemyWaveTime.HasValue)
+            if (!_waveHasEnded && _enemyList.Count == 0)
             {
-                CreateEnemiesForWave();
+                _waveHasEnded = true;
+                IsReadyForNextWave = false;
+                OnWaveEnd?.Invoke(this, null);
             }
-            else if (TimeManager.SecondsSince(_lastEnemyWaveTime.Value) >= SecondsBetweenWaves && _enemyList.Count == 0)
+
+            if (IsReadyForNextWave)
             {
-                CreateEnemiesForWave();
+                if (!_lastEnemyWaveTime.HasValue)
+                {
+                    CreateEnemiesForWave();
+                }
+                else if (TimeManager.SecondsSince(_lastEnemyWaveTime.Value) >= SecondsBetweenWaves &&
+                         _enemyList.Count == 0)
+                {
+                    CreateEnemiesForWave();
+                }
+                OnNewWaveStart?.Invoke(this, null);
+                IsReadyForNextWave = false;
+                _waveHasEnded = false;
             }
         }
 
