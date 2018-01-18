@@ -119,8 +119,8 @@ namespace AbbatoirIntergrade.Screens
 	        var level = (BaseLevel) Activator.CreateInstance(type);
 
 	        GameStateManager.CurrentLevel = level;
-            //LoadingScreen.TransitionToScreen(typeof(GameScreen));
-            MoveToScreen(typeof(GameScreen));
+            LoadingScreen.TransitionToScreen(typeof(GameScreen));
+            //MoveToScreen(typeof(GameScreen));
 	    }
 	}
 }

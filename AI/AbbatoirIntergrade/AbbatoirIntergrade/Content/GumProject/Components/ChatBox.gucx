@@ -1131,6 +1131,13 @@
       </Variable>
       <Variable>
         <Type>bool</Type>
+        <Name>RecentResponseContainer.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
         <Name>ResponseContainer.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
@@ -1169,13 +1176,6 @@
         <Type>bool</Type>
         <Name>TextInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>RecentResponseContainer.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -1243,6 +1243,13 @@
       </Variable>
       <Variable>
         <Type>bool</Type>
+        <Name>RecentResponseContainer.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
         <Name>ResponseContainer.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
@@ -1281,13 +1288,6 @@
         <Type>bool</Type>
         <Name>TextInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>RecentResponseContainer.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -1355,6 +1355,13 @@
       </Variable>
       <Variable>
         <Type>bool</Type>
+        <Name>RecentResponseContainer.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
         <Name>ResponseContainer.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
@@ -1393,13 +1400,6 @@
         <Type>bool</Type>
         <Name>TextInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>RecentResponseContainer.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -1467,6 +1467,13 @@
       </Variable>
       <Variable>
         <Type>bool</Type>
+        <Name>RecentResponseContainer.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
         <Name>ResponseContainer.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
@@ -1505,13 +1512,6 @@
         <Type>bool</Type>
         <Name>TextInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>RecentResponseContainer.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

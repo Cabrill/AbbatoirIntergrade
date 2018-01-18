@@ -82,6 +82,11 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>string</Type>
+      <Name>StructureInfoInstance.Parent</Name>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>bool</Type>
       <Name>StructureInfoInstance.Visible</Name>
       <Value xsi:type="xsd:boolean">false</Value>
@@ -100,6 +105,19 @@
       </Variable>
       <Variable>
         <Type>bool</Type>
+        <Name>ChatBoxInstance.ChatContainerVisible</Name>
+        <ExposedAsName>ChatContainerVisible</ExposedAsName>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>ChatBoxInstance.RecentResponseContainerVisible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
         <Name>ChatBoxInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
@@ -126,19 +144,6 @@
         <Type>bool</Type>
         <Name>ChatHistoryInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>ChatBoxInstance.RecentResponseContainerVisible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>ChatBoxInstance.ChatContainerVisible</Name>
-        <ExposedAsName>ChatContainerVisible</ExposedAsName>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -152,6 +157,19 @@
       </Variable>
       <Variable>
         <Type>bool</Type>
+        <Name>ChatBoxInstance.ChatContainerVisible</Name>
+        <ExposedAsName>ChatContainerVisible</ExposedAsName>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>ChatBoxInstance.RecentResponseContainerVisible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
         <Name>ChatBoxInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
@@ -178,19 +196,6 @@
         <Type>bool</Type>
         <Name>ChatHistoryInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>ChatBoxInstance.RecentResponseContainerVisible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>ChatBoxInstance.ChatContainerVisible</Name>
-        <ExposedAsName>ChatContainerVisible</ExposedAsName>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -255,6 +260,19 @@
       </Variable>
       <Variable>
         <Type>bool</Type>
+        <Name>ChatBoxInstance.ChatContainerVisible</Name>
+        <ExposedAsName>ChatContainerVisible</ExposedAsName>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>ChatBoxInstance.RecentResponseContainerVisible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
         <Name>ChatBoxInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
@@ -283,11 +301,13 @@
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
+    </State>
+    <State>
+      <Name>ChatHistoryShow4</Name>
       <Variable>
-        <Type>bool</Type>
-        <Name>ChatBoxInstance.RecentResponseContainerVisible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
+        <Type>Appearance</Type>
+        <Name>ChatBoxInstance.AppearanceState</Name>
+        <Value xsi:type="xsd:string">Appear2</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -296,13 +316,11 @@
         <ExposedAsName>ChatContainerVisible</ExposedAsName>
         <SetsValue>true</SetsValue>
       </Variable>
-    </State>
-    <State>
-      <Name>ChatHistoryShow4</Name>
       <Variable>
-        <Type>Appearance</Type>
-        <Name>ChatBoxInstance.AppearanceState</Name>
-        <Value xsi:type="xsd:string">Appear2</Value>
+        <Type>bool</Type>
+        <Name>ChatBoxInstance.RecentResponseContainerVisible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -335,11 +353,13 @@
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
+    </State>
+    <State>
+      <Name>ChatHistoryShown</Name>
       <Variable>
-        <Type>bool</Type>
-        <Name>ChatBoxInstance.RecentResponseContainerVisible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
+        <Type>Appearance</Type>
+        <Name>ChatBoxInstance.AppearanceState</Name>
+        <Value xsi:type="xsd:string">ChatOpen</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -348,13 +368,11 @@
         <ExposedAsName>ChatContainerVisible</ExposedAsName>
         <SetsValue>true</SetsValue>
       </Variable>
-    </State>
-    <State>
-      <Name>ChatHistoryShown</Name>
       <Variable>
-        <Type>Appearance</Type>
-        <Name>ChatBoxInstance.AppearanceState</Name>
-        <Value xsi:type="xsd:string">ChatOpen</Value>
+        <Type>bool</Type>
+        <Name>ChatBoxInstance.RecentResponseContainerVisible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -385,19 +403,6 @@
         <Type>bool</Type>
         <Name>ChatHistoryInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>ChatBoxInstance.RecentResponseContainerVisible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <ExposedAsName>RecentResponseContainerVisible</ExposedAsName>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>ChatBoxInstance.ChatContainerVisible</Name>
-        <ExposedAsName>ChatContainerVisible</ExposedAsName>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

@@ -33,7 +33,6 @@
                             YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             BackgroundSprite.Height = 100f;
                             BackgroundSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            BackgroundSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
                             SetProperty("BackgroundSprite.SourceFile", "AllUIAssets.png");
                             BackgroundSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             BackgroundSprite.TextureHeight = 1285;
@@ -99,10 +98,6 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.BackgroundSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
-                        }
-                        if (interpolationValue < 1)
-                        {
                             SetProperty("BackgroundSprite.SourceFile", "AllUIAssets.png");
                         }
                         if (interpolationValue < 1)
@@ -153,10 +148,6 @@
                         if (interpolationValue >= 1)
                         {
                             this.BackgroundSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.BackgroundSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
                         }
                         if (interpolationValue >= 1)
                         {
@@ -380,14 +371,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "BackgroundSprite.Parent",
-                            Type = "string",
-                            Value = BackgroundSprite.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "BackgroundSprite.SourceFile",
                             Type = "string",
                             Value = BackgroundSprite.SourceFile
@@ -521,14 +504,6 @@
                             Name = "BackgroundSprite.Height Units",
                             Type = "DimensionUnitType",
                             Value = BackgroundSprite.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "BackgroundSprite.Parent",
-                            Type = "string",
-                            Value = BackgroundSprite.Parent
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

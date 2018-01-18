@@ -152,7 +152,7 @@ namespace AbbatoirIntergrade.Screens
 
             foreach (var place in StructurePlacementList)
             {
-                place.OnClick += OnClick;
+                place.OnClick += OnStructurePlacementClick;
                 place.AttachTo(currentMap);
                 place.Z = 2;
                 place.SetRelativeFromAbsolute();
@@ -221,21 +221,13 @@ namespace AbbatoirIntergrade.Screens
             MachineLearningManager.SetPathing(Pathing);
         }
 
-        private void OnClick(object sender, EventArgs eventArgs)
-        {
-            if (sender is StructurePlacement placement)
-            {
-                BuildMenuInstance.DisplayForPlacement(placement);
-            }
-        }
-
         #endregion
 
         #region Activity
         void CustomActivity(bool firstTimeCalled)
         {
-            FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
 #if DEBUG
+            FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
             HandleDebugInput();
             ShowDebugInfo();
 #endif
@@ -265,82 +257,15 @@ namespace AbbatoirIntergrade.Screens
             }
         }
 
-        private void ShowDebugInfo()
-        {
-            if (DebugVariables.ShowPerformanceStats)
-            {
-                string allUpdatedInfo = FlatRedBall.Debugging.Debugger.GetAutomaticallyUpdatedObjectInformation();
-                string entityBreakdown = FlatRedBall.Debugging.Debugger.GetAutomaticallyUpdatedEntityInformation();
-                string shapeBreakdown =
-                    FlatRedBall.Debugging.Debugger.GetAutomaticallyUpdatedBreakdownFromList(FlatRedBall.Math.Geometry
-                        .ShapeManager.AutomaticallyUpdatedShapes);
-                string combinedInfo = $"{allUpdatedInfo}\n{shapeBreakdown}\n{entityBreakdown}";
-
-                FlatRedBall.Debugging.Debugger.TextCorner = FlatRedBall.Debugging.Debugger.Corner.TopLeft;
-                FlatRedBall.Debugging.Debugger.Write(combinedInfo);
-
-                FlatRedBall.Debugging.Debugger.TextCorner = FlatRedBall.Debugging.Debugger.Corner.BottomLeft;
-                FlatRedBall.Debugging.Debugger.TextRed = 0f;
-                FlatRedBall.Debugging.Debugger.TextGreen = 0f;
-                FlatRedBall.Debugging.Debugger.TextBlue = 0f;
-
-                FlatRedBall.Graphics.Renderer.RecordRenderBreaks = true;
-                var renderBreaks = FlatRedBall.Graphics.Renderer.LastFrameRenderBreakList != null
-                    ? FlatRedBall.Graphics.Renderer.LastFrameRenderBreakList.Count
-                    : 0;
-                FlatRedBall.Debugging.Debugger.Write(renderBreaks);
-            }
-            //FlatRedBall.Debugging.Debugger.Write(GuiManager.Cursor.WindowOver);
-        }
-
         private void UpdateGameTime()
         {
             var addSeconds = TimeManager.SecondDifference * 60;
             currentLevelDateTime = currentLevelDateTime.AddSeconds(addSeconds);
         }
 
-        private void SelectedItemActivity()
-        {
-            if (selectedObject == null)
-            {
-                EnemyInfoInstance.Hide();
-                StructureInfoInstance.Hide();
-                return;
-            }
-
-            var objectAsStructure = selectedObject as BaseStructure;
-            var objectAsEnemy = selectedObject as BaseEnemy;
-
-            if (objectAsStructure != null)
-            {
-                EnemyInfoInstance.Hide();
-                if (!objectAsStructure.IsDestroyed)
-                {
-                    StructureInfoInstance.Show((BaseStructure) selectedObject);
-                }
-                else
-                {
-                    StructureInfoInstance.Hide();
-                }
-
-            }
-            else if (objectAsEnemy != null)
-            {
-                StructureInfoInstance.Hide();
-                if (!objectAsEnemy.IsDead)
-                {
-                    EnemyInfoInstance.Show(objectAsEnemy);
-                }
-                else
-                {
-                    EnemyInfoInstance.Hide();
-                }
-            }
-        }
-
         private void UpdateGameModeActivity()
         {
-            if (AllStructuresList.Any(s => s.IsBeingPlaced))
+            if (BuildMenuInstance.Visible)
             {
                 CurrentGameMode = GameMode.Building;
             }
@@ -398,7 +323,6 @@ namespace AbbatoirIntergrade.Screens
             RestartScreen(false);
         }
     
-
         private void EnemyStatusActivity()
 	    {
 	        for (var i = AllEnemiesList.Count; i > 0; i--)
@@ -548,43 +472,48 @@ namespace AbbatoirIntergrade.Screens
             }
 	    }
 
-        #if DEBUG
-        private void HandleDebugInput()
-	    {
-            //FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
-
-	        if (InputManager.Keyboard.KeyPushed(Keys.Z))
-	        {
-	            EnemyFactories.CreateNew(EnemyTypes.Cow1);
+        private void SelectedItemActivity()
+        {
+            if (selectedObject == null)
+            {
+                EnemyInfoInstance.Hide();
+                StructureInfoInstance.Hide();
+                return;
             }
 
-            if (InputManager.Keyboard.KeyPushed(Keys.X))
-	        {
-	            EnemyFactories.CreateNew(EnemyTypes.Rabbit1);
+            if (selectedObject is BaseStructure objectAsStructure)
+            {
+                EnemyInfoInstance.Hide();
+                StructureInfoInstance.Show(objectAsStructure);
             }
-
-	        if (InputManager.Keyboard.KeyPushed(Keys.C))
-	        {
-	            EnemyFactories.CreateNew(EnemyTypes.Sheep1);
+            else if (selectedObject is BaseEnemy objectAsEnemy)
+            {
+                StructureInfoInstance.Hide();
+                if (!objectAsEnemy.IsDead)
+                {
+                    EnemyInfoInstance.Show(objectAsEnemy);
+                }
+                else
+                {
+                    EnemyInfoInstance.Hide();
+                }
             }
-
-	        if (InputManager.Keyboard.KeyPushed(Keys.V))
-	        {
-	            EnemyFactories.CreateNew(EnemyTypes.Pig1);
+            else
+            {
+                EnemyInfoInstance.Hide();
+                StructureInfoInstance.Hide();
             }
-
-
-            if (InputManager.Keyboard.KeyDown(Keys.Y))
-	        {
-	            CameraZoomManager.PerformZoom(0, 0, 0.1f);
-	        }
-	        else if (InputManager.Keyboard.KeyDown(Keys.T))
-	        {
-	            CameraZoomManager.PerformZoom(0, 0, -0.1f);
-	        }
-
         }
-        #endif
+
+        private void OnStructurePlacementClick(object sender, EventArgs eventArgs)
+        {
+            if (sender is StructurePlacement placement)
+            {
+                BuildMenuInstance.DisplayForPlacement(placement);
+                CurrentGameMode = GameMode.Building;
+                selectedObject = placement;
+            }
+        }
 
         private void HandleTouchActivity()
 	    {
@@ -595,25 +524,19 @@ namespace AbbatoirIntergrade.Screens
 	        }
 
             //User just clicked/touched somewhere, and nothing is currently selected
-            if ((GuiManager.Cursor.PrimaryClick || GuiManager.Cursor.PrimaryDown) &&
+            else if ((GuiManager.Cursor.PrimaryClick || GuiManager.Cursor.PrimaryDown) &&
 	            GuiManager.Cursor.ObjectGrabbed == null && GuiManager.Cursor.WindowOver == null)
 	        {
-	            if (CurrentGameMode == GameMode.Building)
+	            //Remove the current selection if the user clicks off of it
+	            if (selectedObject != null && !(selectedObject as IClickable).HasCursorOver(GuiManager.Cursor))
 	            {
-	                var structureBeingBuilt = AllStructuresList.FirstOrDefault(s => s.IsBeingPlaced);
-                    if(structureBeingBuilt != null && GuiManager.Cursor.IsOn3D(structureBeingBuilt.SpriteInstance))
-	                {
-	                    GuiManager.Cursor.ObjectGrabbed = structureBeingBuilt;
-	                }
+	                selectedObject = null;
+	                BuildMenuInstance.Hide(false);
+                    CurrentGameMode = GameMode.Normal;
 	            }
-	            else //Not building, user is possibly selecting an object
-	            {
-                    //Remove the current selection if the user clicks off of it
-	                if (selectedObject != null && !(selectedObject as IClickable).HasCursorOver(GuiManager.Cursor))
-	                {
-                        selectedObject = null;
-	                }
 
+                if (CurrentGameMode != GameMode.Building)
+	            {
 	                foreach (var structure in AllStructuresList)
 	                {
 	                    if (GuiManager.Cursor.IsOn3D(structure.SpriteInstance))
@@ -626,7 +549,7 @@ namespace AbbatoirIntergrade.Screens
 	                    }
 	                }
 
-                    //Didn't select a structure, check for enemies
+	                //Didn't select a structure, check for enemies
 	                if (selectedObject == null)
 	                {
 	                    foreach (var enemy in AllEnemiesList)
@@ -640,7 +563,7 @@ namespace AbbatoirIntergrade.Screens
 	                            break;
 	                        }
 	                    }
-                    }
+	                }
 	            }
 	        }
 	        else if (!GuiManager.Cursor.PrimaryDown)
@@ -648,6 +571,72 @@ namespace AbbatoirIntergrade.Screens
 	            GuiManager.Cursor.ObjectGrabbed = null;
 	        }
 	    }
+
+#if DEBUG
+        private void ShowDebugInfo()
+        {
+            if (DebugVariables.ShowPerformanceStats)
+            {
+                string allUpdatedInfo = FlatRedBall.Debugging.Debugger.GetAutomaticallyUpdatedObjectInformation();
+                string entityBreakdown = FlatRedBall.Debugging.Debugger.GetAutomaticallyUpdatedEntityInformation();
+                string shapeBreakdown =
+                    FlatRedBall.Debugging.Debugger.GetAutomaticallyUpdatedBreakdownFromList(FlatRedBall.Math.Geometry
+                        .ShapeManager.AutomaticallyUpdatedShapes);
+                string combinedInfo = $"{allUpdatedInfo}\n{shapeBreakdown}\n{entityBreakdown}";
+
+                FlatRedBall.Debugging.Debugger.TextCorner = FlatRedBall.Debugging.Debugger.Corner.TopLeft;
+                FlatRedBall.Debugging.Debugger.Write(combinedInfo);
+
+                FlatRedBall.Debugging.Debugger.TextCorner = FlatRedBall.Debugging.Debugger.Corner.BottomLeft;
+                FlatRedBall.Debugging.Debugger.TextRed = 0f;
+                FlatRedBall.Debugging.Debugger.TextGreen = 0f;
+                FlatRedBall.Debugging.Debugger.TextBlue = 0f;
+
+                FlatRedBall.Graphics.Renderer.RecordRenderBreaks = true;
+                var renderBreaks = FlatRedBall.Graphics.Renderer.LastFrameRenderBreakList != null
+                    ? FlatRedBall.Graphics.Renderer.LastFrameRenderBreakList.Count
+                    : 0;
+                FlatRedBall.Debugging.Debugger.Write(renderBreaks);
+            }
+            //FlatRedBall.Debugging.Debugger.Write(GuiManager.Cursor.WindowOver);
+        }
+
+        private void HandleDebugInput()
+        {
+            //FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
+
+            if (InputManager.Keyboard.KeyPushed(Keys.Z))
+            {
+                EnemyFactories.CreateNew(EnemyTypes.Cow1);
+            }
+
+            if (InputManager.Keyboard.KeyPushed(Keys.X))
+            {
+                EnemyFactories.CreateNew(EnemyTypes.Rabbit1);
+            }
+
+            if (InputManager.Keyboard.KeyPushed(Keys.C))
+            {
+                EnemyFactories.CreateNew(EnemyTypes.Sheep1);
+            }
+
+            if (InputManager.Keyboard.KeyPushed(Keys.V))
+            {
+                EnemyFactories.CreateNew(EnemyTypes.Pig1);
+            }
+
+
+            if (InputManager.Keyboard.KeyDown(Keys.Y))
+            {
+                CameraZoomManager.PerformZoom(0, 0, 0.1f);
+            }
+            else if (InputManager.Keyboard.KeyDown(Keys.T))
+            {
+                CameraZoomManager.PerformZoom(0, 0, -0.1f);
+            }
+
+        }
+#endif
         #endregion
 
         #region Chat Methods

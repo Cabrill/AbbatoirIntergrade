@@ -25,21 +25,6 @@ namespace AbbatoirIntergrade.Screens
             {
                 selectedObject = null;
 
-                //var existingBuilding = AllStructuresList.FirstOrDefault(s => s.IsBeingPlaced);
-
-                //if (existingBuilding != null)
-                //{
-                //    if (existingBuilding.GetType() == buildButton.BuildingType)
-                //    {
-                //        existingBuilding.Position = new Vector3(GuiManager.Cursor.WorldXAt(existingBuilding.Z),
-                //            GuiManager.Cursor.WorldYAt(existingBuilding.Z), existingBuilding.Z);
-                //        GuiManager.Cursor.ObjectGrabbed = existingBuilding;
-                //        return;
-                //    }
-
-                //    existingBuilding.Destroy();
-                //}
-
                 var newBuilding = buildButton.BuildingFactory.CreateNew(WorldLayer) as BaseStructure;
 
                 newBuilding.Position = BuildMenuInstance.CurrentPlacement.Position;

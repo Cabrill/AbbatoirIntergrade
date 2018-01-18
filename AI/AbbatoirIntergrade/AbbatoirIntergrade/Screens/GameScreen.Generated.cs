@@ -240,6 +240,8 @@ namespace AbbatoirIntergrade.Screens
             ShaderRendererInstance.AddToManagers(ShaderOutputLayer);
             HorizonBoxInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(BackgroundLayer)));
             
+            EnemyInfoInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            StructureInfoInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             ChatBoxInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             BuildMenuInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             LivesPointsDisplayInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
@@ -492,6 +494,8 @@ namespace AbbatoirIntergrade.Screens
             CameraSetup.ResetCamera(SpriteManager.Camera);
             AssignCustomVariables(false);
             HorizonBoxInstance.MoveToFrbLayer(BackgroundLayer, BackgroundLayerGum);
+            EnemyInfoInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            StructureInfoInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             ChatBoxInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             BuildMenuInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             LivesPointsDisplayInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);

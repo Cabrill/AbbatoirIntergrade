@@ -24,18 +24,22 @@ namespace AbbatoirIntergrade.Screens
 #if WINDOWS || DESKTOP_GL
 	        FlatRedBallServices.IsWindowsCursorVisible = true;
 #endif
-            MainMenuGumRuntime.OpenEyesAnimation.PlayAfter(5, this);
+            MainMenuGumRuntime.OpenEyesAnimation.PlayAfter(3, this);
 	    }
 
 	    void CustomActivity(bool firstTimeCalled)
 	    {
 	        //FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
-            
-	        if (LeftEye.CurrentEyeOpeningState == MainMenuEyeRuntime.EyeOpening.Open && !MainMenuGumRuntime.OpenEyesAnimation.IsPlaying() && !MainMenuGumRuntime.BlinkEyesAnimation.IsPlaying())
+
+	        if (InputManager.Keyboard.AnyKeyPushed() || InputManager.Mouse.AnyButtonPushed())
+	        {
+	            LoadingScreen.TransitionToScreen(typeof(MapScreen));
+	        }
+            else if (LeftEye.CurrentEyeOpeningState == MainMenuEyeRuntime.EyeOpening.Open && !MainMenuGumRuntime.OpenEyesAnimation.IsPlaying() && !MainMenuGumRuntime.BlinkEyesAnimation.IsPlaying())
 	        {
 	            var random = FlatRedBallServices.Random.NextDouble();
 
-	            if (random >= 0.99f)
+	            if (random >= 0.995f)
 	            {
 	                MainMenuGumRuntime.BlinkEyesAnimation.Play(this);
 	            }

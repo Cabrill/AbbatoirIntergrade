@@ -77,7 +77,7 @@
                     switch(mCurrentEyeOpeningState)
                     {
                         case  EyeOpening.Closed:
-                            FaceSprite.Alpha = 50;
+                            FaceSprite.Alpha = 0;
                             EyeSprite.TextureHeight = 0;
                             EyeSprite.TextureTop = 1066;
                             break;
@@ -415,7 +415,7 @@
                         setEyeSpriteTextureTopFirstValue = true;
                         EyeSpriteTextureTopFirstValue = 1066;
                         setFaceSpriteAlphaFirstValue = true;
-                        FaceSpriteAlphaFirstValue = 50;
+                        FaceSpriteAlphaFirstValue = 0;
                         break;
                     case  EyeOpening.Open:
                         setEyeSpriteTextureHeightFirstValue = true;
@@ -442,7 +442,7 @@
                         setEyeSpriteTextureTopSecondValue = true;
                         EyeSpriteTextureTopSecondValue = 1066;
                         setFaceSpriteAlphaSecondValue = true;
-                        FaceSpriteAlphaSecondValue = 50;
+                        FaceSpriteAlphaSecondValue = 0;
                         break;
                     case  EyeOpening.Open:
                         setEyeSpriteTextureHeightSecondValue = true;
@@ -1571,7 +1571,7 @@
                             SetsValue = true,
                             Name = "FaceSprite.Alpha",
                             Type = "int",
-                            Value = FaceSprite.Alpha + 50
+                            Value = FaceSprite.Alpha + 0
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

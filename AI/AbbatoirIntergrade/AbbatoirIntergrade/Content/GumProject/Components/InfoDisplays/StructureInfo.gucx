@@ -185,6 +185,11 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>string</Type>
+      <Name>InfoContainer.Parent</Name>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>InfoContainer.Width</Name>
       <Value xsi:type="xsd:float">100</Value>
@@ -423,6 +428,11 @@
       <Type>float</Type>
       <Name>TallInfoFrameInstance.Height</Name>
       <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>TallInfoFrameInstance.Parent</Name>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

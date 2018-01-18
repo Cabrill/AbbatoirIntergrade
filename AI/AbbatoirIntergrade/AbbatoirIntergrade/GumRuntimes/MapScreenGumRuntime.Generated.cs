@@ -111,6 +111,7 @@
                             OptionsButtonInstance.Y = 5.347222f;
                             OptionsButtonInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             OptionsButtonInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            ChatHistoryInstance.Visible = false;
                             ChatHistoryInstance.Width = 33f;
                             ChatHistoryInstance.X = 31.48438f;
                             ChatHistoryInstance.Y = 0f;
@@ -455,6 +456,10 @@
                         {
                             this.BackgroundMapSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatHistoryInstance.Visible = false;
+                        }
                         setChatHistoryInstanceWidthFirstValue = true;
                         ChatHistoryInstanceWidthFirstValue = 33f;
                         setChatHistoryInstanceXFirstValue = true;
@@ -659,6 +664,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.BackgroundMapSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatHistoryInstance.Visible = false;
                         }
                         setChatHistoryInstanceWidthSecondValue = true;
                         ChatHistoryInstanceWidthSecondValue = 33f;
@@ -2588,6 +2597,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "ChatHistoryInstance.Visible",
+                            Type = "bool",
+                            Value = ChatHistoryInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ChatHistoryInstance.Width",
                             Type = "float",
                             Value = ChatHistoryInstance.Width
@@ -3225,6 +3242,14 @@
                             Name = "OptionsButtonInstance.Y Units",
                             Type = "PositionUnitType",
                             Value = OptionsButtonInstance.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatHistoryInstance.Visible",
+                            Type = "bool",
+                            Value = ChatHistoryInstance.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

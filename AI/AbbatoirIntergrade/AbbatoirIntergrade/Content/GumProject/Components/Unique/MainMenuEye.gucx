@@ -186,19 +186,12 @@
       <Variable>
         <Type>int</Type>
         <Name>FaceSprite.Alpha</Name>
-        <Value xsi:type="xsd:int">50</Value>
+        <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Open</Name>
-      <Variable>
-        <Type>int</Type>
-        <Name>FaceSprite.Alpha</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <Category>Rendering</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
       <Variable>
         <Type>int</Type>
         <Name>EyeSprite.Texture Height</Name>
@@ -209,6 +202,13 @@
         <Type>int</Type>
         <Name>EyeSprite.Texture Top</Name>
         <Value xsi:type="xsd:int">852</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FaceSprite.Alpha</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -274,13 +274,6 @@
       <Name>Right</Name>
       <Variable>
         <Type>bool</Type>
-        <Name>FaceSprite.FlipHorizontal</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <Category>Flip</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
         <Name>EyeSprite.FlipHorizontal</Name>
         <Value xsi:type="xsd:boolean">false</Value>
         <Category>Flip</Category>
@@ -302,6 +295,13 @@
         <Type>float</Type>
         <Name>EyeSprite.Y</Name>
         <Value xsi:type="xsd:float">41</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>FaceSprite.FlipHorizontal</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <Category>Flip</Category>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

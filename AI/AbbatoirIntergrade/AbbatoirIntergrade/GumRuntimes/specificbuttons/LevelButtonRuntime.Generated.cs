@@ -63,10 +63,12 @@
                             HighlightSprite.TextureTop = 1036;
                             HighlightSprite.TextureWidth = 156;
                             HighlightSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            HighlightSprite.X = 0f;
-                            HighlightSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            HighlightSprite.Y = 0f;
-                            HighlightSprite.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            HighlightSprite.X = 17f;
+                            HighlightSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            HighlightSprite.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            HighlightSprite.Y = -1f;
+                            HighlightSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            HighlightSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             NumberSprite.Height = 50f;
                             NumberSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             SetProperty("NumberSprite.SourceFile", "AllUIAssets.png");
@@ -361,16 +363,24 @@
                             this.HighlightSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setHighlightSpriteXFirstValue = true;
-                        HighlightSpriteXFirstValue = 0f;
+                        HighlightSpriteXFirstValue = 17f;
                         if (interpolationValue < 1)
                         {
-                            this.HighlightSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.HighlightSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.HighlightSprite.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setHighlightSpriteYFirstValue = true;
-                        HighlightSpriteYFirstValue = 0f;
+                        HighlightSpriteYFirstValue = -1f;
                         if (interpolationValue < 1)
                         {
-                            this.HighlightSprite.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.HighlightSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.HighlightSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setNumberSpriteHeightFirstValue = true;
                         NumberSpriteHeightFirstValue = 50f;
@@ -474,16 +484,24 @@
                             this.HighlightSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setHighlightSpriteXSecondValue = true;
-                        HighlightSpriteXSecondValue = 0f;
+                        HighlightSpriteXSecondValue = 17f;
                         if (interpolationValue >= 1)
                         {
-                            this.HighlightSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.HighlightSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.HighlightSprite.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setHighlightSpriteYSecondValue = true;
-                        HighlightSpriteYSecondValue = 0f;
+                        HighlightSpriteYSecondValue = -1f;
                         if (interpolationValue >= 1)
                         {
-                            this.HighlightSprite.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.HighlightSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.HighlightSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setNumberSpriteHeightSecondValue = true;
                         NumberSpriteHeightSecondValue = 50f;
@@ -1515,6 +1533,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "HighlightSprite.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = HighlightSprite.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "HighlightSprite.X Units",
                             Type = "PositionUnitType",
                             Value = HighlightSprite.XUnits
@@ -1526,6 +1552,14 @@
                             Name = "HighlightSprite.Y",
                             Type = "float",
                             Value = HighlightSprite.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HighlightSprite.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = HighlightSprite.YOrigin
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1807,7 +1841,15 @@
                             SetsValue = true,
                             Name = "HighlightSprite.X",
                             Type = "float",
-                            Value = HighlightSprite.X + 0f
+                            Value = HighlightSprite.X + 17f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HighlightSprite.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = HighlightSprite.XOrigin
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1823,7 +1865,15 @@
                             SetsValue = true,
                             Name = "HighlightSprite.Y",
                             Type = "float",
-                            Value = HighlightSprite.Y + 0f
+                            Value = HighlightSprite.Y + -1f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HighlightSprite.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = HighlightSprite.YOrigin
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
