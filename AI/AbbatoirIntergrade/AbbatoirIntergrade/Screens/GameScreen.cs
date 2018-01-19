@@ -498,23 +498,22 @@ namespace AbbatoirIntergrade.Screens
 	            {
 	                selectedObject = null;
 	                BuildMenuInstance.Hide(false);
-                    CurrentGameMode = GameMode.Normal;
+	            }
+
+	            foreach (var structure in AllStructuresList)
+	            {
+	                if (GuiManager.Cursor.IsOn3D(structure.SpriteInstance))
+	                {
+	                    GuiManager.Cursor.ObjectGrabbed = structure;
+	                    selectedObject = structure;
+	                    CurrentGameMode = GameMode.Inspecting;
+	                    StructureInfoInstance.Show(structure);
+	                    break;
+	                }
 	            }
 
                 if (CurrentGameMode != GameMode.Building)
 	            {
-	                foreach (var structure in AllStructuresList)
-	                {
-	                    if (GuiManager.Cursor.IsOn3D(structure.SpriteInstance))
-	                    {
-	                        GuiManager.Cursor.ObjectGrabbed = structure;
-	                        selectedObject = structure;
-	                        CurrentGameMode = GameMode.Inspecting;
-	                        StructureInfoInstance.Show(structure);
-	                        break;
-	                    }
-	                }
-
 	                //Didn't select a structure, check for enemies
 	                if (selectedObject == null)
 	                {

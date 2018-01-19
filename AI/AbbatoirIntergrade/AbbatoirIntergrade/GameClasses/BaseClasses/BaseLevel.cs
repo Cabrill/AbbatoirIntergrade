@@ -54,6 +54,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         protected BaseLevel()
         {
             RemainingLives = StartingLives;
+            _waveHasEnded = true;
         }
 
         public void SetEnemiesAndLayer(FlatRedBall.Math.PositionedObjectList<BaseEnemy> enemyList)
@@ -82,7 +83,6 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
             if (!_waveHasEnded && _enemyList.Count == 0)
             {
                 _waveHasEnded = true;
-                IsReadyForNextWave = false;
                 OnWaveEnd?.Invoke(this, null);
             }
 
