@@ -41,8 +41,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
         static object mLockObject = new object();
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
-        protected static FlatRedBall.Graphics.Animation.AnimationChainList AnimationChainListFile;
-        protected static Microsoft.Xna.Framework.Audio.SoundEffect Flying_Powerup;
+        protected static FlatRedBall.Graphics.Animation.AnimationChainList Chicken2Animations;
+        protected static Microsoft.Xna.Framework.Graphics.Texture2D Stage2;
         
         static float SpriteInstanceXReset;
         static float SpriteInstanceYReset;
@@ -500,11 +500,11 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 SpriteInstance.CopyAbsoluteToRelative();
                 SpriteInstance.AttachTo(this, false);
             }
-            base.SpriteInstance.Texture = animation_sheet;
+            base.SpriteInstance.Texture = Stage2;
             base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.Animate = true;
-            base.SpriteInstance.AnimationChains = AnimationChainListFile;
-            base.SpriteInstance.CurrentChainName = "Run";
+            base.SpriteInstance.AnimationChains = Chicken2Animations;
+            base.SpriteInstance.CurrentChainName = "Running";
             if (mCircleInstance.Parent == null)
             {
                 mCircleInstance.CopyAbsoluteToRelative();
@@ -594,11 +594,11 @@ namespace AbbatoirIntergrade.Entities.Enemies
             if (callOnContainedElements)
             {
             }
-            base.SpriteInstance.Texture = animation_sheet;
+            base.SpriteInstance.Texture = Stage2;
             base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.Animate = true;
-            base.SpriteInstance.AnimationChains = AnimationChainListFile;
-            base.SpriteInstance.CurrentChainName = "Run";
+            base.SpriteInstance.AnimationChains = Chicken2Animations;
+            base.SpriteInstance.CurrentChainName = "Running";
             if (SpriteInstance.Parent == null)
             {
                 SpriteInstance.X = SpriteInstanceXReset;
@@ -988,8 +988,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
                         mRegisteredUnloads.Add(ContentManagerName);
                     }
                 }
-                AnimationChainListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/enemies/flyingenemy/animationchainlistfile.achx", ContentManagerName);
-                Flying_Powerup = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/enemies/flyingenemy/flying_powerup", ContentManagerName);
+                Chicken2Animations = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/gamescreen/monsters/chicken2animations.achx", ContentManagerName);
+                Stage2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/monsters/stage2.png", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -1002,10 +1002,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
         {
             switch(memberName)
             {
-                case  "AnimationChainListFile":
-                    return AnimationChainListFile;
-                case  "Flying_Powerup":
-                    return Flying_Powerup;
+                case  "Chicken2Animations":
+                    return Chicken2Animations;
+                case  "Stage2":
+                    return Stage2;
             }
             return null;
         }
@@ -1013,10 +1013,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
         {
             switch(memberName)
             {
-                case  "AnimationChainListFile":
-                    return AnimationChainListFile;
-                case  "Flying_Powerup":
-                    return Flying_Powerup;
+                case  "Chicken2Animations":
+                    return Chicken2Animations;
+                case  "Stage2":
+                    return Stage2;
             }
             return null;
         }
@@ -1024,10 +1024,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
         {
             switch(memberName)
             {
-                case  "AnimationChainListFile":
-                    return AnimationChainListFile;
-                case  "Flying_Powerup":
-                    return Flying_Powerup;
+                case  "Chicken2Animations":
+                    return Chicken2Animations;
+                case  "Stage2":
+                    return Stage2;
             }
             return null;
         }

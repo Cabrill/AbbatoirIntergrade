@@ -788,7 +788,7 @@
                 <InstructionSave>
                   <Type>String</Type>
                   <Member>SpriteInstanceCurrentChainName</Member>
-                  <ValueAsString>Run</ValueAsString>
+                  <ValueAsString>Running</ValueAsString>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Boolean</Type>
@@ -2482,7 +2482,7 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>animation_sheet</ValueAsString>
+            <ValueAsString>Stage1</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -2495,14 +2495,14 @@
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>AnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Run</ValueAsString>
+            <ValueAsString>Running</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>Chicken1Animations</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -2702,21 +2702,15 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Enemies/FlyingEnemy/AnimationChainListFile.achx</Name>
+          <Name>Screens/GameScreen/Monsters/Chicken1Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/FlyingEnemy/Flying_Powerup.wav</Name>
+          <Name>Screens/GameScreen/Monsters/Stage1.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
@@ -2885,7 +2879,7 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>animation_sheet</ValueAsString>
+            <ValueAsString>Stage2</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -2898,14 +2892,14 @@
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>AnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Run</ValueAsString>
+            <ValueAsString>Running</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>Chicken2Animations</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -3105,21 +3099,15 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Enemies/FlyingEnemy/AnimationChainListFile.achx</Name>
+          <Name>Screens/GameScreen/Monsters/Chicken2Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/FlyingEnemy/Flying_Powerup.wav</Name>
+          <Name>Screens/GameScreen/Monsters/Stage2.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
@@ -3288,7 +3276,7 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>animation_sheet</ValueAsString>
+            <ValueAsString>Stage3</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -3301,14 +3289,14 @@
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>AnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Run</ValueAsString>
+            <ValueAsString>Running</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>Chicken3Animations</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -3508,21 +3496,15 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Enemies/FlyingEnemy/AnimationChainListFile.achx</Name>
+          <Name>Screens/GameScreen/Monsters/Chicken3Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/FlyingEnemy/Flying_Powerup.wav</Name>
+          <Name>Screens/GameScreen/Monsters/Stage3.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
@@ -3690,11 +3672,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>looker</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
             <ValueAsFloat>3</ValueAsFloat>
@@ -3725,19 +3702,24 @@
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>AnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Standing</ValueAsString>
+            <ValueAsString>Running</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>IgnoreAnimationChainTextureFlip</Member>
             <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>Stage1</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>Cow1Animations</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -3916,37 +3898,13 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/AnimationChainListFile.achx</Name>
+          <Name>Screens/GameScreen/Monsters/Cow1Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Powerup.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Shoot.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/looker.png</Name>
+          <Name>Screens/GameScreen/Monsters/Stage1.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -4116,11 +4074,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>looker</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
             <ValueAsFloat>3</ValueAsFloat>
@@ -4151,19 +4104,24 @@
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>AnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Standing</ValueAsString>
+            <ValueAsString>Running</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>IgnoreAnimationChainTextureFlip</Member>
             <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>Stage2</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>Cow2Animations</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -4342,37 +4300,13 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/AnimationChainListFile.achx</Name>
+          <Name>Screens/GameScreen/Monsters/Cow2Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Powerup.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Shoot.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/looker.png</Name>
+          <Name>Screens/GameScreen/Monsters/Stage2.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -4542,11 +4476,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>looker</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
             <ValueAsFloat>3</ValueAsFloat>
@@ -4577,19 +4506,24 @@
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>AnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Standing</ValueAsString>
+            <ValueAsString>Running</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>IgnoreAnimationChainTextureFlip</Member>
             <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>Stage3</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>Cow3Animations</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -4768,37 +4702,13 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/AnimationChainListFile.achx</Name>
+          <Name>Screens/GameScreen/Monsters/Cow3Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Powerup.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Shoot.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/looker.png</Name>
+          <Name>Screens/GameScreen/Monsters/Stage3.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -4968,11 +4878,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>looker</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
             <ValueAsFloat>3</ValueAsFloat>
@@ -5003,19 +4908,24 @@
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>AnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Standing</ValueAsString>
+            <ValueAsString>Running</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>IgnoreAnimationChainTextureFlip</Member>
             <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>Stage1</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>Pig1Animations</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -5194,37 +5104,13 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/AnimationChainListFile.achx</Name>
+          <Name>Screens/GameScreen/Monsters/Pig1Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Powerup.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Shoot.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/looker.png</Name>
+          <Name>Screens/GameScreen/Monsters/Stage1.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -5394,11 +5280,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>looker</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
             <ValueAsFloat>3</ValueAsFloat>
@@ -5429,19 +5310,24 @@
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>AnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Standing</ValueAsString>
+            <ValueAsString>Running</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>IgnoreAnimationChainTextureFlip</Member>
             <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>Stage2</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>Pig2Animations</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -5620,37 +5506,13 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/AnimationChainListFile.achx</Name>
+          <Name>Screens/GameScreen/Monsters/Pig2Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Powerup.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Shoot.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/looker.png</Name>
+          <Name>Screens/GameScreen/Monsters/Stage2.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -5820,11 +5682,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>looker</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
             <ValueAsFloat>3</ValueAsFloat>
@@ -5855,19 +5712,24 @@
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>AnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Standing</ValueAsString>
+            <ValueAsString>Running</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>IgnoreAnimationChainTextureFlip</Member>
             <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>Stage3</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>Pig3Animations</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -6046,37 +5908,13 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/AnimationChainListFile.achx</Name>
+          <Name>Screens/GameScreen/Monsters/Pig3Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Powerup.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Shoot.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/looker.png</Name>
+          <Name>Screens/GameScreen/Monsters/Stage3.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -6258,7 +6096,7 @@
           </Properties>
           <Name>IsJumper</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -6285,14 +6123,9 @@
             <ValueAsFloat>1.5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>SlimeAlienAnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Standing</ValueAsString>
+            <ValueAsString>Running</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -6323,6 +6156,16 @@
             <Type>BlendOperation</Type>
             <Member>BlendOperation</Member>
             <ValueAsInt>0</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>Stage1</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>Rabbit1Animations</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -6525,45 +6368,15 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Enemies/SlimeAlien/SlimeAlienAnimationChainListFile.achx</Name>
+          <Name>Screens/GameScreen/Monsters/Rabbit1Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/SlimeAlien/Slime_Hit.wav</Name>
+          <Name>Screens/GameScreen/Monsters/Stage1.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/SlimeAlien/Slime_Jump.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/SlimeAlien/Slime_Land.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
@@ -6731,11 +6544,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>looker</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
             <ValueAsFloat>3</ValueAsFloat>
@@ -6766,19 +6574,24 @@
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>AnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Standing</ValueAsString>
+            <ValueAsString>Running</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>IgnoreAnimationChainTextureFlip</Member>
             <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>Stage2</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>Rabbit2Animations</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -6957,37 +6770,13 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/AnimationChainListFile.achx</Name>
+          <Name>Screens/GameScreen/Monsters/Rabbit2Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Powerup.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Shoot.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/looker.png</Name>
+          <Name>Screens/GameScreen/Monsters/Stage2.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -7157,11 +6946,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>looker</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
             <ValueAsFloat>3</ValueAsFloat>
@@ -7192,19 +6976,24 @@
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>AnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Standing</ValueAsString>
+            <ValueAsString>Running</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>IgnoreAnimationChainTextureFlip</Member>
             <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>Stage3</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>Rabbit3Animations</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -7383,39 +7172,15 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/AnimationChainListFile.achx</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Powerup.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Shoot.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/looker.png</Name>
+          <Name>Screens/GameScreen/Monsters/Stage3.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Screens/GameScreen/Monsters/Rabbit3Animations.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
@@ -7583,11 +7348,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>looker</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
             <ValueAsFloat>3</ValueAsFloat>
@@ -7618,19 +7378,24 @@
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>AnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Standing</ValueAsString>
+            <ValueAsString>Running</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>IgnoreAnimationChainTextureFlip</Member>
             <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>Stage1</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>Sheep1Animations</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -7809,37 +7574,13 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/AnimationChainListFile.achx</Name>
+          <Name>Screens/GameScreen/Monsters/Sheep1Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Powerup.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Shoot.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/looker.png</Name>
+          <Name>Screens/GameScreen/Monsters/Stage1.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -8009,11 +7750,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>looker</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
             <ValueAsFloat>3</ValueAsFloat>
@@ -8044,19 +7780,24 @@
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>AnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Standing</ValueAsString>
+            <ValueAsString>Running</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>IgnoreAnimationChainTextureFlip</Member>
             <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>Stage2</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>Sheep2Animations</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -8235,37 +7976,13 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/AnimationChainListFile.achx</Name>
+          <Name>Screens/GameScreen/Monsters/Sheep2Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Powerup.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Shoot.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/looker.png</Name>
+          <Name>Screens/GameScreen/Monsters/Stage2.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -8435,11 +8152,6 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>looker</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
             <ValueAsFloat>3</ValueAsFloat>
@@ -8470,19 +8182,24 @@
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>AnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>Standing</ValueAsString>
+            <ValueAsString>Running</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>IgnoreAnimationChainTextureFlip</Member>
             <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>Stage3</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>Sheep3Animations</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -8661,37 +8378,13 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/AnimationChainListFile.achx</Name>
+          <Name>Screens/GameScreen/Monsters/Sheep3Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Powerup.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>Entities/Enemies/BasicAlien/Alien_Shoot.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>Entities/Enemies/BasicAlien/looker.png</Name>
+          <Name>Screens/GameScreen/Monsters/Stage3.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />

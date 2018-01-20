@@ -50888,14 +50888,14 @@
                 <key id="15" time="675" spin="0">
                     <object folder="69" file="7" x="-6.161233" y="38.562055" angle="48.768586" scale_x="-1" scale_y="0.166479"/>
                 </key>
-                <key id="16" time="700" spin="0">
+                <key id="16" time="700">
                     <object folder="69" file="5" x="-6.161233" y="38.562055" angle="48.768586" scale_x="-0.550863" scale_y="1"/>
                 </key>
                 <key id="17" time="725" spin="0">
-                    <object folder="69" file="5" x="-6.161233" y="38.562055" angle="48.768586" scale_x="-0.55086" scale_y="-0.5"/>
+                    <object folder="69" file="5" x="-6.161233" y="38.562055" angle="228.768586" scale_x="0.55086" scale_y="0.5"/>
                 </key>
-                <key id="18" time="750" spin="-1">
-                    <object folder="69" file="5" x="-6.161233" y="38.562055" angle="48.768586" scale_x="-0.55086" scale_y="-0.6"/>
+                <key id="18" time="750">
+                    <object folder="69" file="5" x="-6.161233" y="38.562055" angle="228.768586" scale_x="0.55086" scale_y="0.6"/>
                 </key>
             </timeline>
             <timeline id="12" obj="0" name="bone_000" object_type="bone">

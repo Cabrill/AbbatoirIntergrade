@@ -69,7 +69,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                         Drag = 1f;
                         break;
                     case  Action.Running:
-                        SpriteInstanceCurrentChainName = "Run";
+                        SpriteInstanceCurrentChainName = "Running";
                         SpriteInstanceAnimate = true;
                         Drag = 0f;
                         break;
@@ -1120,7 +1120,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 case  Action.Running:
                     if (interpolationValue < 1)
                     {
-                        this.SpriteInstanceCurrentChainName = "Run";
+                        this.SpriteInstanceCurrentChainName = "Running";
                     }
                     if (interpolationValue < 1)
                     {
@@ -1155,7 +1155,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 case  Action.Running:
                     if (interpolationValue >= 1)
                     {
-                        this.SpriteInstanceCurrentChainName = "Run";
+                        this.SpriteInstanceCurrentChainName = "Running";
                     }
                     if (interpolationValue >= 1)
                     {
@@ -1273,7 +1273,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     break;
                 case  Action.Running:
                     {
-                        object throwaway = "Run";
+                        object throwaway = "Running";
                     }
                     break;
                 case  Action.Standing:

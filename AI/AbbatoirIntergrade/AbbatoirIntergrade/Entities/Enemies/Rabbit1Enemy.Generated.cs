@@ -87,10 +87,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
         static object mLockObject = new object();
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
-        protected static FlatRedBall.Graphics.Animation.AnimationChainList SlimeAlienAnimationChainListFile;
-        protected static Microsoft.Xna.Framework.Audio.SoundEffect Slime_Hit;
-        protected static Microsoft.Xna.Framework.Audio.SoundEffect Slime_Jump;
-        protected static Microsoft.Xna.Framework.Audio.SoundEffect Slime_Land;
+        protected static FlatRedBall.Graphics.Animation.AnimationChainList Rabbit1Animations;
+        protected static Microsoft.Xna.Framework.Graphics.Texture2D Stage1;
         
         static float SpriteInstanceXReset;
         static float SpriteInstanceYReset;
@@ -518,9 +516,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 mSpriteInstance.CopyAbsoluteToRelative();
                 mSpriteInstance.AttachTo(this, false);
             }
+            base.SpriteInstance.Texture = Stage1;
             base.SpriteInstance.TextureScale = 1.5f;
-            base.SpriteInstance.AnimationChains = SlimeAlienAnimationChainListFile;
-            base.SpriteInstance.CurrentChainName = "Standing";
+            base.SpriteInstance.AnimationChains = Rabbit1Animations;
+            base.SpriteInstance.CurrentChainName = "Running";
             base.SpriteInstance.IgnoreAnimationChainTextureFlip = true;
             #if FRB_MDX
             SpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
@@ -617,9 +616,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
             if (callOnContainedElements)
             {
             }
+            base.SpriteInstance.Texture = Stage1;
             base.SpriteInstance.TextureScale = 1.5f;
-            base.SpriteInstance.AnimationChains = SlimeAlienAnimationChainListFile;
-            base.SpriteInstance.CurrentChainName = "Standing";
+            base.SpriteInstance.AnimationChains = Rabbit1Animations;
+            base.SpriteInstance.CurrentChainName = "Running";
             base.SpriteInstance.IgnoreAnimationChainTextureFlip = true;
             #if FRB_MDX
             SpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
@@ -971,7 +971,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             DisplayName = "Slime";
             IsFlying = false;
             HasLightSource = true;
-            IsJumper = true;
+            IsJumper = false;
             Mass = 0.1f;
         }
         public override void ConvertToManuallyUpdated () 
@@ -1019,10 +1019,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
                         mRegisteredUnloads.Add(ContentManagerName);
                     }
                 }
-                SlimeAlienAnimationChainListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/enemies/slimealien/slimealienanimationchainlistfile.achx", ContentManagerName);
-                Slime_Hit = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/enemies/slimealien/slime_hit", ContentManagerName);
-                Slime_Jump = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/enemies/slimealien/slime_jump", ContentManagerName);
-                Slime_Land = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/enemies/slimealien/slime_land", ContentManagerName);
+                Rabbit1Animations = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/gamescreen/monsters/rabbit1animations.achx", ContentManagerName);
+                Stage1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/monsters/stage1.png", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -1155,14 +1153,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
         {
             switch(memberName)
             {
-                case  "SlimeAlienAnimationChainListFile":
-                    return SlimeAlienAnimationChainListFile;
-                case  "Slime_Hit":
-                    return Slime_Hit;
-                case  "Slime_Jump":
-                    return Slime_Jump;
-                case  "Slime_Land":
-                    return Slime_Land;
+                case  "Rabbit1Animations":
+                    return Rabbit1Animations;
+                case  "Stage1":
+                    return Stage1;
             }
             return null;
         }
@@ -1170,14 +1164,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
         {
             switch(memberName)
             {
-                case  "SlimeAlienAnimationChainListFile":
-                    return SlimeAlienAnimationChainListFile;
-                case  "Slime_Hit":
-                    return Slime_Hit;
-                case  "Slime_Jump":
-                    return Slime_Jump;
-                case  "Slime_Land":
-                    return Slime_Land;
+                case  "Rabbit1Animations":
+                    return Rabbit1Animations;
+                case  "Stage1":
+                    return Stage1;
             }
             return null;
         }
@@ -1185,14 +1175,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
         {
             switch(memberName)
             {
-                case  "SlimeAlienAnimationChainListFile":
-                    return SlimeAlienAnimationChainListFile;
-                case  "Slime_Hit":
-                    return Slime_Hit;
-                case  "Slime_Jump":
-                    return Slime_Jump;
-                case  "Slime_Land":
-                    return Slime_Land;
+                case  "Rabbit1Animations":
+                    return Rabbit1Animations;
+                case  "Stage1":
+                    return Stage1;
             }
             return null;
         }

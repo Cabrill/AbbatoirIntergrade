@@ -42,10 +42,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
         static object mLockObject = new object();
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
-        protected static FlatRedBall.Graphics.Animation.AnimationChainList AnimationChainListFile;
-        protected static Microsoft.Xna.Framework.Audio.SoundEffect Alien_Powerup;
-        protected static Microsoft.Xna.Framework.Audio.SoundEffect Alien_Shoot;
-        protected static Microsoft.Xna.Framework.Graphics.Texture2D looker;
+        protected static FlatRedBall.Graphics.Animation.AnimationChainList Cow2Animations;
+        protected static Microsoft.Xna.Framework.Graphics.Texture2D Stage2;
         
         static float SpriteInstanceXReset;
         static float SpriteInstanceYReset;
@@ -497,15 +495,15 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 mSpriteInstance.CopyAbsoluteToRelative();
                 mSpriteInstance.AttachTo(this, false);
             }
-            base.SpriteInstance.Texture = looker;
+            base.SpriteInstance.Texture = Stage2;
             base.SpriteInstance.LeftTexturePixel = 3f;
             base.SpriteInstance.RightTexturePixel = 142f;
             base.SpriteInstance.TopTexturePixel = 373f;
             base.SpriteInstance.BottomTexturePixel = 760f;
             base.SpriteInstance.TextureScale = 0.7f;
             base.SpriteInstance.UseAnimationRelativePosition = true;
-            base.SpriteInstance.AnimationChains = AnimationChainListFile;
-            base.SpriteInstance.CurrentChainName = "Standing";
+            base.SpriteInstance.AnimationChains = Cow2Animations;
+            base.SpriteInstance.CurrentChainName = "Running";
             base.SpriteInstance.IgnoreAnimationChainTextureFlip = true;
             if (mCircleInstance.Parent == null)
             {
@@ -576,15 +574,15 @@ namespace AbbatoirIntergrade.Entities.Enemies
             if (callOnContainedElements)
             {
             }
-            base.SpriteInstance.Texture = looker;
+            base.SpriteInstance.Texture = Stage2;
             base.SpriteInstance.LeftTexturePixel = 3f;
             base.SpriteInstance.RightTexturePixel = 142f;
             base.SpriteInstance.TopTexturePixel = 373f;
             base.SpriteInstance.BottomTexturePixel = 760f;
             base.SpriteInstance.TextureScale = 0.7f;
             base.SpriteInstance.UseAnimationRelativePosition = true;
-            base.SpriteInstance.AnimationChains = AnimationChainListFile;
-            base.SpriteInstance.CurrentChainName = "Standing";
+            base.SpriteInstance.AnimationChains = Cow2Animations;
+            base.SpriteInstance.CurrentChainName = "Running";
             base.SpriteInstance.IgnoreAnimationChainTextureFlip = true;
             if (SpriteInstance.Parent == null)
             {
@@ -959,10 +957,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
                         mRegisteredUnloads.Add(ContentManagerName);
                     }
                 }
-                AnimationChainListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/enemies/basicalien/animationchainlistfile.achx", ContentManagerName);
-                Alien_Powerup = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/enemies/basicalien/alien_powerup", ContentManagerName);
-                Alien_Shoot = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/enemies/basicalien/alien_shoot", ContentManagerName);
-                looker = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/enemies/basicalien/looker.png", ContentManagerName);
+                Cow2Animations = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/gamescreen/monsters/cow2animations.achx", ContentManagerName);
+                Stage2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/monsters/stage2.png", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -975,14 +971,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
         {
             switch(memberName)
             {
-                case  "AnimationChainListFile":
-                    return AnimationChainListFile;
-                case  "Alien_Powerup":
-                    return Alien_Powerup;
-                case  "Alien_Shoot":
-                    return Alien_Shoot;
-                case  "looker":
-                    return looker;
+                case  "Cow2Animations":
+                    return Cow2Animations;
+                case  "Stage2":
+                    return Stage2;
             }
             return null;
         }
@@ -990,14 +982,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
         {
             switch(memberName)
             {
-                case  "AnimationChainListFile":
-                    return AnimationChainListFile;
-                case  "Alien_Powerup":
-                    return Alien_Powerup;
-                case  "Alien_Shoot":
-                    return Alien_Shoot;
-                case  "looker":
-                    return looker;
+                case  "Cow2Animations":
+                    return Cow2Animations;
+                case  "Stage2":
+                    return Stage2;
             }
             return null;
         }
@@ -1005,14 +993,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
         {
             switch(memberName)
             {
-                case  "AnimationChainListFile":
-                    return AnimationChainListFile;
-                case  "Alien_Powerup":
-                    return Alien_Powerup;
-                case  "Alien_Shoot":
-                    return Alien_Shoot;
-                case  "looker":
-                    return looker;
+                case  "Cow2Animations":
+                    return Cow2Animations;
+                case  "Stage2":
+                    return Stage2;
             }
             return null;
         }

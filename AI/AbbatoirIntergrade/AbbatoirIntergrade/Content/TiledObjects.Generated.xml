@@ -107,7 +107,7 @@
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
-    <property name="IsJumper" type="bool" default="true" />
+    <property name="IsJumper" type="bool" default="false" />
     <property name="Mass" type="float" default="0.1" />
   </objecttype>
   <objecttype name="Rabbit2Enemy">
