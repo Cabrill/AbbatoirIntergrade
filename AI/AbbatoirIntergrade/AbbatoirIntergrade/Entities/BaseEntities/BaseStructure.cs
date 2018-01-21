@@ -26,10 +26,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
     public partial class BaseStructure
     {
         protected DamageTypes DamageType;
-        private static float _maximumY;
-        protected float _currentScale;
-        protected float _startingScale;
-        private float _startingLightSpriteScale;
         private float _startingRectangleScaleX;
         private float _startingRectangleScaleY;
 
@@ -56,11 +52,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         protected float _spriteRelativeY;
 
-        public static void Initialize(float maximumY)
-        {
-            _maximumY = maximumY;
-        }
-
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -84,19 +75,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             LightSpriteInstance.Width = SpriteInstance.Width;
             LightSpriteInstance.Height = LightSpriteInstance.Width / 4;
 
-            _startingScale = SpriteInstance.TextureScale;
-            _startingLightSpriteScale = LightSpriteInstance.TextureScale;
             _startingRectangleScaleX = AxisAlignedRectangleInstance.ScaleX;
             _startingRectangleScaleY = AxisAlignedRectangleInstance.ScaleY;
-
 
             PlacementSound = Structure_Placed.CreateInstance();
             DestroyedSound = Building_Destroyed.CreateInstance();
 
             _spriteRelativeY = GetSpriteRelativeY();
             
-            CalculateScale();
-            UpdateScale();
             UpdateAnimation();
 
             RangeCircleInstance.Visible = true;
@@ -112,9 +98,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             if (IsBeingPlaced)
             {
-                CalculateScale();
-                UpdateScale();
-
                 CurrentState = VariableState.InvalidLocation;
             }
             else
@@ -123,7 +106,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 if (DebugVariables.TurretsAimAtMouse) RotateToAimMouse();
 #endif
 
-                if (targetEnemy != null && (targetEnemy.IsDead || !RangeCircleInstance.CollideAgainst(targetEnemy.CircleInstance)))
+                if (targetEnemy != null && (targetEnemy.IsDead || !RangeCircleInstance.CollideAgainst(targetEnemy.Collision)))
                 {
                     targetEnemy = null;
                 }
@@ -141,52 +124,13 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 }
             }
         }
-
-        private void CalculateScale()
-        {
-            _currentScale = 0.3f + (0.4f * (1 - Y / _maximumY));
-        }
-
-        protected virtual void UpdateScale()
-        {
-            SpriteInstance.TextureScale = _startingScale * _currentScale;
-
-            AxisAlignedRectangleInstance.ScaleX = Math.Max(0, _startingRectangleScaleX * _currentScale);
-            AxisAlignedRectangleInstance.ScaleY = Math.Max(0, _startingRectangleScaleY * _currentScale);
-
-            AxisAlignedRectangleInstance.RelativeY = AxisAlignedRectangleInstance.Height / 2;
-
-            if (HasLightSource)
-            {
-                //LightSpriteInstance.TextureScale = _startingLightSpriteScale * _currentScale;
-                LightSpriteInstance.Width = SpriteInstance.Width * 1.5f;
-                LightSpriteInstance.Height = AxisAlignedRectangleInstance.Height;
-            }
-
-            if (IsBeingPlaced)
-            {
-                float buttonDistance = SpriteInstance.Width;
-                float buttonHeight = SpriteInstance.Height;
-                if (SpriteInstance.Animate&& SpriteInstance.CurrentChain != null)
-                {
-                    var baseFrame = SpriteInstance.CurrentChain[0];
-                    buttonDistance = (baseFrame.RightCoordinate - baseFrame.LeftCoordinate) * baseFrame.Texture.Width * _currentScale;
-                    buttonHeight = (baseFrame.BottomCoordinate - baseFrame.TopCoordinate) * baseFrame.Texture.Height *
-                                   _currentScale;
-                }
-            }
-
-            if (_startingRangeRadius.HasValue)
-            {
-                RangeCircleInstance.Radius = _startingRangeRadius.Value * _currentScale;
-            }
-        }
+        
 
         protected void UpdateAnimation()
         {
             if (SpriteInstance.CurrentChain == null || SpriteInstance.CurrentChain.Count == 1)
             {
-                SpriteInstance.RelativeY = _spriteRelativeY * _currentScale;
+                SpriteInstance.RelativeY = _spriteRelativeY;
             }
             else
             {
@@ -201,7 +145,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                         ? -SpriteInstance.TextureScale
                         : SpriteInstance.TextureScale);
                 }
-                SpriteInstance.RelativeY += _spriteRelativeY * _currentScale;
+                SpriteInstance.RelativeY += _spriteRelativeY;
             }
         }
 
@@ -344,7 +288,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             var startPosition = GetProjectilePositioning();
 
             //Gather information about the target
-            var targetPosition = targetEnemy.CircleInstance.Position;
+            var targetPosition = targetEnemy.Position;
 
             var targetVector = targetEnemy.Velocity;
             var targetDistance = Vector3.Distance(startPosition, targetPosition);
@@ -440,7 +384,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 if (pt.IsDead) continue;
                 if (pt.IsFlying && this is BombardingTower) continue;
-                if (!pt.CircleInstance.CollideAgainst(RangeCircleInstance)) continue;
+                if (!pt.CollideAgainst(RangeCircleInstance)) continue;
                 
                 newTarget = pt;
                 break;

@@ -153,6 +153,18 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         protected FlatRedBall.Sprite ShadowSprite;
         protected FlatRedBall.Sprite LightSprite;
         private AbbatoirIntergrade.Entities.GraphicalElements.ResourceBar HealthBar;
+        protected FlatRedBall.Math.Geometry.AxisAlignedRectangle mAxisAlignedRectangleInstance;
+        public FlatRedBall.Math.Geometry.AxisAlignedRectangle AxisAlignedRectangleInstance
+        {
+            get
+            {
+                return mAxisAlignedRectangleInstance;
+            }
+            protected set
+            {
+                mAxisAlignedRectangleInstance = value;
+            }
+        }
         public bool SpriteInstanceFlipHorizontal
         {
             get
@@ -415,7 +427,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     mCircleInstance.CopyAbsoluteToRelative();
                     mCircleInstance.AttachTo(this, false);
                 }
-                CircleInstance.Radius = 16f;
+                CircleInstance.Radius = 0f;
             }
             if (ShadowSprite.Parent == null)
             {
@@ -441,7 +453,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             #else
             ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
-            ShadowSprite.Alpha = 0.8f;
+            ShadowSprite.Alpha = 0.3f;
             if (LightSprite!= null)
             {
                 if (LightSprite.Parent == null)
@@ -467,11 +479,28 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 HealthBar.CopyAbsoluteToRelative();
                 HealthBar.AttachTo(this, false);
             }
+            if (HealthBar.Parent == null)
+            {
+                HealthBar.Y = 200f;
+            }
+            else
+            {
+                HealthBar.RelativeY = 200f;
+            }
             HealthBar.BarSpriteRed = 0f;
             HealthBar.BarSpriteGreen = 1f;
             HealthBar.BarSpriteBlue = 0f;
+            if (AxisAlignedRectangleInstance!= null)
+            {
+                if (mAxisAlignedRectangleInstance.Parent == null)
+                {
+                    mAxisAlignedRectangleInstance.CopyAbsoluteToRelative();
+                    mAxisAlignedRectangleInstance.AttachTo(this, false);
+                }
+                AxisAlignedRectangleInstance.Width = 0f;
+                AxisAlignedRectangleInstance.Height = 0f;
+            }
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
-            mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
         public virtual void AddToManagersBottomUp (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -513,7 +542,15 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             #else
             ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
-            ShadowSprite.Alpha = 0.8f;
+            ShadowSprite.Alpha = 0.3f;
+            if (HealthBar.Parent == null)
+            {
+                HealthBar.Y = 200f;
+            }
+            else
+            {
+                HealthBar.RelativeY = 200f;
+            }
             HealthBar.BarSpriteRed = 0f;
             HealthBar.BarSpriteGreen = 1f;
             HealthBar.BarSpriteBlue = 0f;
@@ -553,6 +590,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 FlatRedBall.SpriteManager.ConvertToManuallyUpdated(LightSprite);
             }
             HealthBar.ConvertToManuallyUpdated();
+            if (AxisAlignedRectangleInstance != null)
+            {
+            }
         }
         public static void LoadStaticContent (string contentManagerName) 
         {
@@ -933,6 +973,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(LightSprite);
             }
             HealthBar.SetToIgnorePausing();
+            if (AxisAlignedRectangleInstance != null)
+            {
+                FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(AxisAlignedRectangleInstance);
+            }
         }
         public virtual void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {
@@ -958,6 +1002,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
             FlatRedBall.SpriteManager.AddToLayer(LightSprite, layerToMoveTo);
             HealthBar.MoveToLayer(layerToMoveTo);
+            if (layerToRemoveFrom != null)
+            {
+                layerToRemoveFrom.Remove(AxisAlignedRectangleInstance);
+            }
+            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(AxisAlignedRectangleInstance, layerToMoveTo);
             LayerProvidedByContainer = layerToMoveTo;
         }
     }

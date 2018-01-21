@@ -86,7 +86,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 
 	            if (distanceToImpact != Vector3.Zero)
 	            {
-	                amplitude = (float)(Math.Sqrt(MathHelper.Clamp(1 - distanceToImpact.Length() / (CircleInstance.Radius + enemy.CircleInstance.Radius), 0, 1)));
+	                amplitude = (float)(Math.Sqrt(MathHelper.Clamp(1 - distanceToImpact.Length() / (CircleInstance.Radius + enemy.SpriteInstance.Width), 0, 1)));
 	            }
 
 	            if (amplitude > 0)

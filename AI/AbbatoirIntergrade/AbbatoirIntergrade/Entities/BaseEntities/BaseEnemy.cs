@@ -9,9 +9,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 {
 	public partial class BaseEnemy
 	{
-	    private static float _maximumY;
-	    protected float _currentScale;
-
         private bool _AddedToLayers = false;
 
         public event Action<BaseEnemy> OnDeath;
@@ -28,9 +25,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         private float? _startingShadowWidth;
 	    private float _startingShadowHeight;
 	    private float _startingShadowAlpha;
-	    private float _startingSpriteScale;
 	    private float _startingLightScale;
-	    private float _startingCircleRadius;
 
         protected float _spriteRelativeY;
 
@@ -49,19 +44,19 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 #if DEBUG
 		    if (DebugVariables.ShowDebugShapes)
 		    {
-		        CircleInstance.Visible = true;
+                if (CircleInstance != null) CircleInstance.Visible = true;
+		        if (AxisAlignedRectangleInstance != null) AxisAlignedRectangleInstance.Visible = true;
 		    }
 		    else
 #endif
 		    {
-		        CircleInstance.Visible = false;
+		        if (CircleInstance != null) CircleInstance.Visible = false;
+		        if (AxisAlignedRectangleInstance != null) AxisAlignedRectangleInstance.Visible = false;
             }
 
 		    if (!_startingShadowWidth.HasValue)
 		    {
-		        _startingSpriteScale = SpriteInstance.TextureScale;
 		        _startingLightScale = LightSprite.TextureScale;
-		        _startingCircleRadius = CircleInstance.Radius;
 		        _startingShadowWidth = ShadowSprite.Width;
 		        _startingShadowHeight = ShadowSprite.Height;
 		        _startingShadowAlpha = ShadowSprite.Alpha;
@@ -69,7 +64,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		        _spriteRelativeY = SpriteInstance.Height / 2;
             }
 
-		    HasReachedGoal = false;
+		    ShadowSprite.RelativeY = 0;
+            HasReachedGoal = false;
 
             HealthBar.X = X;
 		    HealthBar.Y = Y;
@@ -81,15 +77,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		    Altitude = 0f;
 		    AltitudeVelocity = 0f;
 
-            CalculateScale();
-            UpdateScale();
             UpdateAnimation();
 		}
-
-	    public static void Initialize(float maximumY)
-	    {
-	        _maximumY = maximumY;
-        }
 
 		private void CustomActivity()
 		{
@@ -130,47 +119,25 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		        SetDirection();
 		    }
 
-            CalculateScale();
-            UpdateScale();
 		    UpdateAnimation();
             UpdateHealthBar();
 		}
 
-	    private void CalculateScale()
-	    {
-	        _currentScale = 0.3f + (0.4f * (1 - Y / _maximumY));
-	    }
-
-        protected virtual void UpdateScale()
-	    {
-	        SpriteInstance.UpdateToCurrentAnimationFrame();
-            CircleInstance.Radius = _startingCircleRadius * _currentScale;
-	        HealthBar.SetWidth(SpriteInstance.Width);
-
-            if (HasLightSource) LightSprite.TextureScale = _startingLightScale * _currentScale;
-	    }
-
         private void UpdateAnimation()
 	    {
-	        SpriteInstance.TextureScale = _startingSpriteScale * _currentScale;
-            _spriteRelativeY = SpriteInstance.Height / 2;
+            //_spriteRelativeY = SpriteInstance.Height / 2;
 
-            if (SpriteInstance.RelativePosition != Vector3.Zero)
-	        {
-	            SpriteInstance.RelativeX *= (SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
-	            SpriteInstance.RelativeY *= (SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
-	        }
-	        SpriteInstance.RelativeY += Altitude * _currentScale + _spriteRelativeY;
+	        SpriteInstance.RelativeY = Altitude + _spriteRelativeY + SpriteInstance.CurrentChain[SpriteInstance.CurrentFrameIndex].RelativeY;
 
-	        var pctLightShadow = MathHelper.Clamp(1 - (SpriteInstance.RelativeY / (800*_currentScale)), 0, 1);
+	        var pctLightShadow = MathHelper.Clamp(1 - (Altitude / (800)), 0, 1);
 
-	        ShadowSprite.Width = _startingShadowWidth.Value * pctLightShadow * _currentScale;
-	        ShadowSprite.Height = _startingShadowHeight * pctLightShadow * _currentScale;
+	        ShadowSprite.Width = _startingShadowWidth.Value * pctLightShadow;
+	        ShadowSprite.Height = _startingShadowHeight * pctLightShadow;
 	        ShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow;
 
 	        if (HasLightSource)
 	        {
-	            LightSprite.TextureScale = _startingLightScale * _currentScale;
+	            LightSprite.TextureScale = _startingLightScale;
 	            LightSprite.RelativeY = SpriteInstance.RelativeY;
 	        }
         }
@@ -284,15 +251,19 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        if (_AddedToLayers)
 	        {
 	            darknessLayer.Remove(LightSprite);
-	            hudLayer.Remove(CircleInstance);
-	            HealthBar.Position = Vector3.Zero;
+	            if (CircleInstance != null) hudLayer.Remove(CircleInstance);
+	            if (AxisAlignedRectangleInstance != null) hudLayer.Remove(AxisAlignedRectangleInstance);
+                HealthBar.Position = Vector3.Zero;
                 HealthBar.RelativePosition = Vector3.Zero;
 	        }
 
-            MoveToLayer(worldLayer);
+            //MoveToLayer(worldLayer);
 	        HealthBar.MoveToLayer(hudLayer);
+            SpriteManager.AddToLayer(SpriteInstance, worldLayer);
             SpriteManager.AddToLayer(LightSprite, darknessLayer);
-	        ShapeManager.AddToLayer(CircleInstance, hudLayer);
+	        SpriteManager.AddToLayer(ShadowSprite, worldLayer);
+            if (CircleInstance != null) ShapeManager.AddToLayer(CircleInstance, hudLayer);
+	        if (AxisAlignedRectangleInstance != null) ShapeManager.AddToLayer(AxisAlignedRectangleInstance, hudLayer);
 
             _AddedToLayers = true;
 	    }

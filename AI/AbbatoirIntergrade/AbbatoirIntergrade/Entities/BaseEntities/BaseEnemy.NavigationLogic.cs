@@ -73,7 +73,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     (float)-Math.Cos(angle),
                     (float)-Math.Sin(angle), 0);
                 direction.Normalize();
-                Velocity = direction * Speed * _currentScale;
+                Velocity = direction * Speed;
 
                 CurrentActionState = Action.Running;
                 CurrentDirectionState =

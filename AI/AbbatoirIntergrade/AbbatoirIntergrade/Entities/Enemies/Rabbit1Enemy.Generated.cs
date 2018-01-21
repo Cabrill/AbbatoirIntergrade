@@ -517,6 +517,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 mSpriteInstance.AttachTo(this, false);
             }
             base.SpriteInstance.Texture = Stage1;
+            base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.AnimationChains = Rabbit1Animations;
             base.SpriteInstance.CurrentChainName = "Running";
             base.SpriteInstance.IgnoreAnimationChainTextureFlip = true;
@@ -525,7 +526,15 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 mCircleInstance.CopyAbsoluteToRelative();
                 mCircleInstance.AttachTo(this, false);
             }
-            base.CircleInstance.Radius = 32f;
+            if (CircleInstance.Parent == null)
+            {
+                base.CircleInstance.Y = 6f;
+            }
+            else
+            {
+                base.CircleInstance.RelativeY = 6f;
+            }
+            base.CircleInstance.Radius = 36f;
             if (LightSprite.Parent == null)
             {
                 LightSprite.CopyAbsoluteToRelative();
@@ -560,6 +569,14 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             if (ShadowSprite.Parent == null)
             {
+                base.ShadowSprite.Y = -48f;
+            }
+            else
+            {
+                base.ShadowSprite.RelativeY = -48f;
+            }
+            if (ShadowSprite.Parent == null)
+            {
                 base.ShadowSprite.Z = -1f;
             }
             else
@@ -572,12 +589,14 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.TopTexturePixel = 1895f;
             base.ShadowSprite.BottomTexturePixel = 1948f;
             base.ShadowSprite.TextureScale = 1f;
+            base.ShadowSprite.Width = 86f;
+            base.ShadowSprite.Height = 32f;
             #if FRB_MDX
             ShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
             base.ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
-            base.ShadowSprite.Alpha = 0.8f;
+            base.ShadowSprite.Alpha = 0.3f;
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
         public override void AddToManagersBottomUp (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -607,6 +626,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             {
             }
             base.SpriteInstance.Texture = Stage1;
+            base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.AnimationChains = Rabbit1Animations;
             base.SpriteInstance.CurrentChainName = "Running";
             base.SpriteInstance.IgnoreAnimationChainTextureFlip = true;
@@ -708,7 +728,15 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             SpriteInstance.Alpha = SpriteInstanceAlphaReset;
             SpriteInstance.AlphaRate = SpriteInstanceAlphaRateReset;
-            base.CircleInstance.Radius = 32f;
+            if (CircleInstance.Parent == null)
+            {
+                base.CircleInstance.Y = 6f;
+            }
+            else
+            {
+                base.CircleInstance.RelativeY = 6f;
+            }
+            base.CircleInstance.Radius = 36f;
             if (CircleInstance.Parent == null)
             {
                 CircleInstance.X = CircleInstanceXReset;
@@ -927,6 +955,14 @@ namespace AbbatoirIntergrade.Entities.Enemies
             LightSprite.AlphaRate = LightSpriteAlphaRateReset;
             if (ShadowSprite.Parent == null)
             {
+                base.ShadowSprite.Y = -48f;
+            }
+            else
+            {
+                base.ShadowSprite.RelativeY = -48f;
+            }
+            if (ShadowSprite.Parent == null)
+            {
                 base.ShadowSprite.Z = -1f;
             }
             else
@@ -939,18 +975,20 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.TopTexturePixel = 1895f;
             base.ShadowSprite.BottomTexturePixel = 1948f;
             base.ShadowSprite.TextureScale = 1f;
+            base.ShadowSprite.Width = 86f;
+            base.ShadowSprite.Height = 32f;
             #if FRB_MDX
             ShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
             base.ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
-            base.ShadowSprite.Alpha = 0.8f;
+            base.ShadowSprite.Alpha = 0.3f;
             MaximumHealth = 224f;
-            Speed = 160f;
+            Speed = 120f;
             MineralsRewardedWhenKilled = 35;
-            DisplayName = "Slime";
+            DisplayName = "Rabbit";
             IsFlying = false;
-            HasLightSource = true;
+            HasLightSource = false;
             IsJumper = true;
             Mass = 0.1f;
         }

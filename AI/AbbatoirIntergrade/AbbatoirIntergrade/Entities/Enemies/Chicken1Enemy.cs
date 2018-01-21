@@ -24,9 +24,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
 		private void CustomInitialize()
 		{
 		    //rangedChargeSound = Flying_Powerup.CreateInstance();
-		    Altitude = 300f;
-		    _spriteRelativeY -= 30;
-
 		}
 
 	    public void AddSpritesToLayers(Layer worldLayer, Layer darknessLayer, Layer hudLayer)

@@ -59,18 +59,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
         static float SpriteInstanceRotationZVelocityReset;
         static float SpriteInstanceAlphaReset;
         static float SpriteInstanceAlphaRateReset;
-        static float CircleInstanceXReset;
-        static float CircleInstanceYReset;
-        static float CircleInstanceZReset;
-        static float CircleInstanceXVelocityReset;
-        static float CircleInstanceYVelocityReset;
-        static float CircleInstanceZVelocityReset;
-        static float CircleInstanceRotationXReset;
-        static float CircleInstanceRotationYReset;
-        static float CircleInstanceRotationZReset;
-        static float CircleInstanceRotationXVelocityReset;
-        static float CircleInstanceRotationYVelocityReset;
-        static float CircleInstanceRotationZVelocityReset;
         static float LightSpriteXReset;
         static float LightSpriteYReset;
         static float LightSpriteZReset;
@@ -146,10 +134,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
             LoadStaticContent(ContentManagerName);
             mSpriteInstance = new FlatRedBall.Sprite();
             mSpriteInstance.Name = "mSpriteInstance";
-            mCircleInstance = new FlatRedBall.Math.Geometry.Circle();
-            mCircleInstance.Name = "mCircleInstance";
             LightSprite = new FlatRedBall.Sprite();
             LightSprite.Name = "LightSprite";
+            mAxisAlignedRectangleInstance = new FlatRedBall.Math.Geometry.AxisAlignedRectangle();
+            mAxisAlignedRectangleInstance.Name = "mAxisAlignedRectangleInstance";
             
             base.InitializeEntity(addToManagers);
             if (SpriteInstance.Parent == null)
@@ -250,102 +238,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             SpriteInstanceAlphaReset = SpriteInstance.Alpha;
             SpriteInstanceAlphaRateReset = SpriteInstance.AlphaRate;
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstanceXReset = CircleInstance.X;
-            }
-            else
-            {
-                CircleInstanceXReset = CircleInstance.RelativeX;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstanceYReset = CircleInstance.Y;
-            }
-            else
-            {
-                CircleInstanceYReset = CircleInstance.RelativeY;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstanceZReset = CircleInstance.Z;
-            }
-            else
-            {
-                CircleInstanceZReset = CircleInstance.RelativeZ;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstanceXVelocityReset = CircleInstance.XVelocity;
-            }
-            else
-            {
-                CircleInstanceXVelocityReset = CircleInstance.RelativeXVelocity;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstanceYVelocityReset = CircleInstance.YVelocity;
-            }
-            else
-            {
-                CircleInstanceYVelocityReset = CircleInstance.RelativeYVelocity;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstanceZVelocityReset = CircleInstance.ZVelocity;
-            }
-            else
-            {
-                CircleInstanceZVelocityReset = CircleInstance.RelativeZVelocity;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstanceRotationXReset = CircleInstance.RotationX;
-            }
-            else
-            {
-                CircleInstanceRotationXReset = CircleInstance.RelativeRotationX;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstanceRotationYReset = CircleInstance.RotationY;
-            }
-            else
-            {
-                CircleInstanceRotationYReset = CircleInstance.RelativeRotationY;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstanceRotationZReset = CircleInstance.RotationZ;
-            }
-            else
-            {
-                CircleInstanceRotationZReset = CircleInstance.RelativeRotationZ;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstanceRotationXVelocityReset = CircleInstance.RotationXVelocity;
-            }
-            else
-            {
-                CircleInstanceRotationXVelocityReset = CircleInstance.RelativeRotationXVelocity;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstanceRotationYVelocityReset = CircleInstance.RotationYVelocity;
-            }
-            else
-            {
-                CircleInstanceRotationYVelocityReset = CircleInstance.RelativeRotationYVelocity;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstanceRotationZVelocityReset = CircleInstance.RotationZVelocity;
-            }
-            else
-            {
-                CircleInstanceRotationZVelocityReset = CircleInstance.RelativeRotationZVelocity;
-            }
             if (LightSprite.Parent == null)
             {
                 LightSpriteXReset = LightSprite.X;
@@ -450,12 +342,14 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ReAddToManagers(layerToAddTo);
             FlatRedBall.SpriteManager.AddToLayer(mSpriteInstance, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(LightSprite, LayerProvidedByContainer);
+            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mAxisAlignedRectangleInstance, LayerProvidedByContainer);
         }
         public override void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
             LayerProvidedByContainer = layerToAddTo;
             FlatRedBall.SpriteManager.AddToLayer(mSpriteInstance, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(LightSprite, LayerProvidedByContainer);
+            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mAxisAlignedRectangleInstance, LayerProvidedByContainer);
             base.AddToManagers(layerToAddTo);
             CustomInitialize();
         }
@@ -481,6 +375,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
             {
                 FlatRedBall.SpriteManager.RemoveSpriteOneWay(LightSprite);
             }
+            if (AxisAlignedRectangleInstance != null)
+            {
+                FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(AxisAlignedRectangleInstance);
+            }
             FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
@@ -500,16 +398,11 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.SpriteInstance.RightTexturePixel = 142f;
             base.SpriteInstance.TopTexturePixel = 373f;
             base.SpriteInstance.BottomTexturePixel = 760f;
+            base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.UseAnimationRelativePosition = true;
             base.SpriteInstance.AnimationChains = Sheep1Animations;
             base.SpriteInstance.CurrentChainName = "Running";
             base.SpriteInstance.IgnoreAnimationChainTextureFlip = true;
-            if (mCircleInstance.Parent == null)
-            {
-                mCircleInstance.CopyAbsoluteToRelative();
-                mCircleInstance.AttachTo(this, false);
-            }
-            base.CircleInstance.Radius = 32f;
             if (LightSprite.Parent == null)
             {
                 LightSprite.CopyAbsoluteToRelative();
@@ -528,6 +421,14 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             if (ShadowSprite.Parent == null)
             {
+                base.ShadowSprite.Y = -48f;
+            }
+            else
+            {
+                base.ShadowSprite.RelativeY = -48f;
+            }
+            if (ShadowSprite.Parent == null)
+            {
                 base.ShadowSprite.Z = -1f;
             }
             else
@@ -540,14 +441,31 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.TopTexturePixel = 1895f;
             base.ShadowSprite.BottomTexturePixel = 1948f;
             base.ShadowSprite.TextureScale = 1f;
+            base.ShadowSprite.Width = 110f;
+            base.ShadowSprite.Height = 48f;
             #if FRB_MDX
             ShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
             base.ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
-            base.ShadowSprite.Alpha = 0.8f;
+            base.ShadowSprite.Alpha = 0.3f;
+            if (mAxisAlignedRectangleInstance.Parent == null)
+            {
+                mAxisAlignedRectangleInstance.CopyAbsoluteToRelative();
+                mAxisAlignedRectangleInstance.AttachTo(this, false);
+            }
+            if (AxisAlignedRectangleInstance.Parent == null)
+            {
+                base.AxisAlignedRectangleInstance.Y = 4f;
+            }
+            else
+            {
+                base.AxisAlignedRectangleInstance.RelativeY = 4f;
+            }
+            base.AxisAlignedRectangleInstance.Width = 104f;
+            base.AxisAlignedRectangleInstance.Height = 32f;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
-            mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
+            mGeneratedCollision.AxisAlignedRectangles.AddOneWay(mAxisAlignedRectangleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
         public override void AddToManagersBottomUp (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -565,6 +483,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
             {
                 FlatRedBall.SpriteManager.RemoveSpriteOneWay(LightSprite);
             }
+            if (AxisAlignedRectangleInstance != null)
+            {
+                FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(AxisAlignedRectangleInstance);
+            }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
         }
         public override void AssignCustomVariables (bool callOnContainedElements) 
@@ -578,6 +500,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.SpriteInstance.RightTexturePixel = 142f;
             base.SpriteInstance.TopTexturePixel = 373f;
             base.SpriteInstance.BottomTexturePixel = 760f;
+            base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.UseAnimationRelativePosition = true;
             base.SpriteInstance.AnimationChains = Sheep1Animations;
             base.SpriteInstance.CurrentChainName = "Running";
@@ -680,103 +603,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             SpriteInstance.Alpha = SpriteInstanceAlphaReset;
             SpriteInstance.AlphaRate = SpriteInstanceAlphaRateReset;
-            base.CircleInstance.Radius = 32f;
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstance.X = CircleInstanceXReset;
-            }
-            else
-            {
-                CircleInstance.RelativeX = CircleInstanceXReset;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstance.Y = CircleInstanceYReset;
-            }
-            else
-            {
-                CircleInstance.RelativeY = CircleInstanceYReset;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstance.Z = CircleInstanceZReset;
-            }
-            else
-            {
-                CircleInstance.RelativeZ = CircleInstanceZReset;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstance.XVelocity = CircleInstanceXVelocityReset;
-            }
-            else
-            {
-                CircleInstance.RelativeXVelocity = CircleInstanceXVelocityReset;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstance.YVelocity = CircleInstanceYVelocityReset;
-            }
-            else
-            {
-                CircleInstance.RelativeYVelocity = CircleInstanceYVelocityReset;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstance.ZVelocity = CircleInstanceZVelocityReset;
-            }
-            else
-            {
-                CircleInstance.RelativeZVelocity = CircleInstanceZVelocityReset;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstance.RotationX = CircleInstanceRotationXReset;
-            }
-            else
-            {
-                CircleInstance.RelativeRotationX = CircleInstanceRotationXReset;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstance.RotationY = CircleInstanceRotationYReset;
-            }
-            else
-            {
-                CircleInstance.RelativeRotationY = CircleInstanceRotationYReset;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstance.RotationZ = CircleInstanceRotationZReset;
-            }
-            else
-            {
-                CircleInstance.RelativeRotationZ = CircleInstanceRotationZReset;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstance.RotationXVelocity = CircleInstanceRotationXVelocityReset;
-            }
-            else
-            {
-                CircleInstance.RelativeRotationXVelocity = CircleInstanceRotationXVelocityReset;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstance.RotationYVelocity = CircleInstanceRotationYVelocityReset;
-            }
-            else
-            {
-                CircleInstance.RelativeRotationYVelocity = CircleInstanceRotationYVelocityReset;
-            }
-            if (CircleInstance.Parent == null)
-            {
-                CircleInstance.RotationZVelocity = CircleInstanceRotationZVelocityReset;
-            }
-            else
-            {
-                CircleInstance.RelativeRotationZVelocity = CircleInstanceRotationZVelocityReset;
-            }
             base.LightSprite.Texture = AllAssetsSheet;
             base.LightSprite.LeftTexturePixel = 1792f;
             base.LightSprite.RightTexturePixel = 2048f;
@@ -883,6 +709,14 @@ namespace AbbatoirIntergrade.Entities.Enemies
             LightSprite.AlphaRate = LightSpriteAlphaRateReset;
             if (ShadowSprite.Parent == null)
             {
+                base.ShadowSprite.Y = -48f;
+            }
+            else
+            {
+                base.ShadowSprite.RelativeY = -48f;
+            }
+            if (ShadowSprite.Parent == null)
+            {
                 base.ShadowSprite.Z = -1f;
             }
             else
@@ -895,12 +729,24 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.TopTexturePixel = 1895f;
             base.ShadowSprite.BottomTexturePixel = 1948f;
             base.ShadowSprite.TextureScale = 1f;
+            base.ShadowSprite.Width = 110f;
+            base.ShadowSprite.Height = 48f;
             #if FRB_MDX
             ShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
             base.ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
-            base.ShadowSprite.Alpha = 0.8f;
+            base.ShadowSprite.Alpha = 0.3f;
+            if (AxisAlignedRectangleInstance.Parent == null)
+            {
+                base.AxisAlignedRectangleInstance.Y = 4f;
+            }
+            else
+            {
+                base.AxisAlignedRectangleInstance.RelativeY = 4f;
+            }
+            base.AxisAlignedRectangleInstance.Width = 104f;
+            base.AxisAlignedRectangleInstance.Height = 32f;
             MaximumHealth = 32f;
             Speed = 200f;
             MineralsRewardedWhenKilled = 12;
@@ -1038,9 +884,9 @@ namespace AbbatoirIntergrade.Entities.Enemies
         {
             base.SetToIgnorePausing();
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(SpriteInstance);
-            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(CircleInstance);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(LightSprite);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(ShadowSprite);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(AxisAlignedRectangleInstance);
         }
         public override void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {

@@ -138,11 +138,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void InitializeBaseEntities()
         {
-            var maxY = Camera.Main.OrthogonalHeight * 0.95f;
-            BaseStructure.Initialize(maxY);
-            BasePlayerProjectile.Initialize(maxY);
             BaseStructure.Initialize(AllEnemiesList);
-            BaseEnemy.Initialize(maxY);
             EnemyFactories.SetGroundPathing(Pathing);
         }
         
@@ -322,7 +318,7 @@ namespace AbbatoirIntergrade.Screens
 
 	                if (enemy.IsFlying == otherEnemy.IsFlying || (enemy.IsJumper && otherEnemy.IsJumper && enemy.Altitude > 0 && otherEnemy.IsJumper && otherEnemy.Altitude > 0))
 	                {
-	                    enemy.CircleInstance.CollideAgainstBounce(otherEnemy.CircleInstance, enemy.SpriteInstance.Width, otherEnemy.SpriteInstance.Width,
+	                    enemy.CollideAgainstBounce(otherEnemy, enemy.SpriteInstance.Width, otherEnemy.SpriteInstance.Width,
 	                        elasticity: 0.1f);
 	                }
 	            }
@@ -335,7 +331,7 @@ namespace AbbatoirIntergrade.Screens
 	                var structure = AllStructuresList[j - 1];
 	                if (structure.IsBeingPlaced || structure.IsDestroyed) continue;
 
-	                enemy.CircleInstance.CollideAgainstBounce(structure.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
+	                enemy.CollideAgainstBounce(structure.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
 	                    elasticity: 0.1f);
 	            }
 
@@ -344,7 +340,7 @@ namespace AbbatoirIntergrade.Screens
 	            {
 	                var rect = TileCollisionRectangleList[j - 1];
 
-	                enemy.CircleInstance.CollideAgainstBounce(rect.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
+	                enemy.CollideAgainstBounce(rect.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
 	                    elasticity: 0.1f);
 	            }
 
@@ -356,7 +352,7 @@ namespace AbbatoirIntergrade.Screens
 	                if (circle.Altitude > enemy.Altitude) continue;
 	                if (circle.Altitude + circle.ZHeight > enemy.Altitude) continue;
 
-	                enemy.CircleInstance.CollideAgainstBounce(circle.CircleInstance, thisMass: 0f, otherMass: 1f,
+	                enemy.CollideAgainstBounce(circle.CircleInstance, thisMass: 0f, otherMass: 1f,
 	                    elasticity: 0.5f);
 	            }
                 
@@ -365,7 +361,7 @@ namespace AbbatoirIntergrade.Screens
 	            if (enemy.Altitude > 0) continue;
 	            foreach (var shape in WaterShapes)
 	            {
-	                if (enemy.CircleInstance.CollideAgainst(shape))
+	                if (enemy.CollideAgainst(shape))
 	                {
 	                    enemy.HandleDrowning();
 	                }
@@ -405,13 +401,13 @@ namespace AbbatoirIntergrade.Screens
 
 	                    if (cannonProjectile.CurrentState == BasePlayerProjectile.VariableState.Flying)
 	                    {
-	                        if (cannonProjectile.CircleInstance.CollideAgainstBounce(enemy.CircleInstance,
+	                        if (cannonProjectile.CollideAgainstBounce(enemy,
 	                            cannonProjectile.Mass, enemy.Mass, 0.5f))
 	                        {
 	                            enemy.GetHitBy(projectile);
 	                        }
 	                    }
-	                    else if (cannonProjectile.CircleInstance.CollideAgainst(enemy.CircleInstance))
+	                    else if (cannonProjectile.CollideAgainst(enemy))
 	                    {
 	                        enemiesImpacted.Add(enemy);
 	                    }
@@ -428,7 +424,7 @@ namespace AbbatoirIntergrade.Screens
 	                {
 	                    var enemy = AllEnemiesList[e - 1];
 
-	                    if (enemy.IsDead || !projectile.CircleInstance.CollideAgainstBounce(enemy.CircleInstance, projectile.Mass, enemy.Mass, 0.3f)) continue;
+	                    if (enemy.IsDead || !projectile.CollideAgainstBounce(enemy, projectile.Mass, enemy.Mass, 0.3f)) continue;
 
 	                    enemy.GetHitBy(projectile);
 	                    projectile.HandleImpact(enemy);

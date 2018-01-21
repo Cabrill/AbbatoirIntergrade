@@ -501,6 +501,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 SpriteInstance.AttachTo(this, false);
             }
             base.SpriteInstance.Texture = Stage2;
+            base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.Animate = true;
             base.SpriteInstance.AnimationChains = Chicken2Animations;
             base.SpriteInstance.CurrentChainName = "Running";
@@ -544,6 +545,14 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             if (ShadowSprite.Parent == null)
             {
+                base.ShadowSprite.Y = -72f;
+            }
+            else
+            {
+                base.ShadowSprite.RelativeY = -72f;
+            }
+            if (ShadowSprite.Parent == null)
+            {
                 base.ShadowSprite.Z = -1f;
             }
             else
@@ -556,12 +565,14 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.TopTexturePixel = 1895f;
             base.ShadowSprite.BottomTexturePixel = 1948f;
             base.ShadowSprite.TextureScale = 1f;
+            base.ShadowSprite.Width = 64f;
+            base.ShadowSprite.Height = 40f;
             #if FRB_MDX
             ShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
             base.ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
-            base.ShadowSprite.Alpha = 0.8f;
+            base.ShadowSprite.Alpha = 0.3f;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
@@ -594,6 +605,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             {
             }
             base.SpriteInstance.Texture = Stage2;
+            base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.Animate = true;
             base.SpriteInstance.AnimationChains = Chicken2Animations;
             base.SpriteInstance.CurrentChainName = "Running";
@@ -914,6 +926,14 @@ namespace AbbatoirIntergrade.Entities.Enemies
             LightSprite.AlphaRate = LightSpriteAlphaRateReset;
             if (ShadowSprite.Parent == null)
             {
+                base.ShadowSprite.Y = -72f;
+            }
+            else
+            {
+                base.ShadowSprite.RelativeY = -72f;
+            }
+            if (ShadowSprite.Parent == null)
+            {
                 base.ShadowSprite.Z = -1f;
             }
             else
@@ -926,18 +946,20 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.TopTexturePixel = 1895f;
             base.ShadowSprite.BottomTexturePixel = 1948f;
             base.ShadowSprite.TextureScale = 1f;
+            base.ShadowSprite.Width = 64f;
+            base.ShadowSprite.Height = 40f;
             #if FRB_MDX
             ShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
             base.ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
-            base.ShadowSprite.Alpha = 0.8f;
+            base.ShadowSprite.Alpha = 0.3f;
             MaximumHealth = 64f;
-            Speed = 75f;
+            Speed = 200f;
             MineralsRewardedWhenKilled = 20;
             DisplayName = "Flybo";
-            IsFlying = true;
-            HasLightSource = true;
+            IsFlying = false;
+            HasLightSource = false;
             IsJumper = false;
             Mass = 0.1f;
         }

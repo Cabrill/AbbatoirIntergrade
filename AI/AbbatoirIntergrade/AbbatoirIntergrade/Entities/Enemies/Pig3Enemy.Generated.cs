@@ -500,6 +500,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.SpriteInstance.RightTexturePixel = 142f;
             base.SpriteInstance.TopTexturePixel = 373f;
             base.SpriteInstance.BottomTexturePixel = 760f;
+            base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.UseAnimationRelativePosition = true;
             base.SpriteInstance.AnimationChains = Pig3Animations;
             base.SpriteInstance.CurrentChainName = "Running";
@@ -528,6 +529,14 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             if (ShadowSprite.Parent == null)
             {
+                base.ShadowSprite.Y = -148f;
+            }
+            else
+            {
+                base.ShadowSprite.RelativeY = -148f;
+            }
+            if (ShadowSprite.Parent == null)
+            {
                 base.ShadowSprite.Z = -1f;
             }
             else
@@ -540,12 +549,14 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.TopTexturePixel = 1895f;
             base.ShadowSprite.BottomTexturePixel = 1948f;
             base.ShadowSprite.TextureScale = 1f;
+            base.ShadowSprite.Width = 148f;
+            base.ShadowSprite.Height = 48f;
             #if FRB_MDX
             ShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
             base.ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
-            base.ShadowSprite.Alpha = 0.8f;
+            base.ShadowSprite.Alpha = 0.3f;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
@@ -578,6 +589,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.SpriteInstance.RightTexturePixel = 142f;
             base.SpriteInstance.TopTexturePixel = 373f;
             base.SpriteInstance.BottomTexturePixel = 760f;
+            base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.UseAnimationRelativePosition = true;
             base.SpriteInstance.AnimationChains = Pig3Animations;
             base.SpriteInstance.CurrentChainName = "Running";
@@ -883,6 +895,14 @@ namespace AbbatoirIntergrade.Entities.Enemies
             LightSprite.AlphaRate = LightSpriteAlphaRateReset;
             if (ShadowSprite.Parent == null)
             {
+                base.ShadowSprite.Y = -148f;
+            }
+            else
+            {
+                base.ShadowSprite.RelativeY = -148f;
+            }
+            if (ShadowSprite.Parent == null)
+            {
                 base.ShadowSprite.Z = -1f;
             }
             else
@@ -895,12 +915,14 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.TopTexturePixel = 1895f;
             base.ShadowSprite.BottomTexturePixel = 1948f;
             base.ShadowSprite.TextureScale = 1f;
+            base.ShadowSprite.Width = 148f;
+            base.ShadowSprite.Height = 48f;
             #if FRB_MDX
             ShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
             base.ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
-            base.ShadowSprite.Alpha = 0.8f;
+            base.ShadowSprite.Alpha = 0.3f;
             MaximumHealth = 32f;
             Speed = 150f;
             MineralsRewardedWhenKilled = 12;

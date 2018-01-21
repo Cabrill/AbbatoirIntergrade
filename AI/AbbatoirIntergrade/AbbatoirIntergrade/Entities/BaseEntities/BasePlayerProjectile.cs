@@ -21,13 +21,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	    public float AltitudeVelocity { get; set; }
         public DamageTypes DamageType { get; protected set; }
 
-        private static float _maximumY;
-	    protected float _currentScale;
-
-	    private float? _startingSpriteScale;
 	    private float _startingLightScale;
 	    private float _startingCircleRadius;
-	    private float _startingShadowWidth;
+	    private float? _startingShadowWidth;
 	    private float _startingShadowHeight;
 	    private float _startingShadowAlpha;
 
@@ -38,10 +34,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	    private bool _AddedToLayers = false;
 	    public bool ShouldBeDestroyed;
 
-	    public static void Initialize(float maximumY)
-	    {
-	        _maximumY = maximumY;
-        }
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -62,13 +54,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		    }
 
             //These have to be set here, because the object is pooled (reused)
-		    if (!_startingSpriteScale.HasValue)
+		    if (!_startingShadowWidth.HasValue)
 		    {
 		        _startingShadowWidth = LightOrShadowSprite.Width;
 		        _startingShadowHeight = LightOrShadowSprite.Height;
 		        _startingShadowAlpha = LightOrShadowSprite.Alpha;
 		        _startingCircleRadius = CircleInstance.Radius;
-		        _startingSpriteScale = SpriteInstance.TextureScale;
 		    }
 
 		    ShouldBeDestroyed = false;
@@ -77,18 +68,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             CurrentState = VariableState.Flying;
 		}
 
-	    private void CalculateScale()
-	    {
-	        _currentScale = 0.3f + (0.4f * (1 - Y / _maximumY));
-	    }
-
-        protected virtual void UpdateScale()
-	    {
-	        SpriteInstance.UpdateToCurrentAnimationFrame();
-	        LightOrShadowSprite.TextureScale = _startingLightScale * _currentScale;
-	        CircleInstance.Radius = _startingCircleRadius * _currentScale;
-	    }
-
 	    private void CustomActivity()
 	    {
 	        if (CurrentState == VariableState.Impact && SpriteInstance.JustCycled)
@@ -96,11 +75,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	            Visible = false;
 	            SpriteInstance.Animate = false;
 	            ShouldBeDestroyed = true;
-	        }
-            else if (CurrentState != VariableState.Impact)
-	        {
-	            CalculateScale();
-	            UpdateScale();
 	        }
 
             if (ShouldBeDestroyed)
@@ -116,11 +90,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 if (CurrentState != VariableState.Impact)
                 {
                     var distanceAtWhichToGrow = HasLightSource ? 200 : 400;
-                    var pctLightShadow = MathHelper.Clamp(1 - (SpriteInstance.RelativeY / (distanceAtWhichToGrow * _currentScale)), 0, 1);
+                    var pctLightShadow = MathHelper.Clamp(1 - (SpriteInstance.RelativeY / distanceAtWhichToGrow ), 0, 1);
 
-                    LightOrShadowSprite.Width = _startingShadowWidth * pctLightShadow * _currentScale;
-                    LightOrShadowSprite.Height = _startingShadowHeight * pctLightShadow * _currentScale;
-                    LightOrShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow * _currentScale;
+                    LightOrShadowSprite.Width = _startingShadowWidth.Value * pctLightShadow;
+                    LightOrShadowSprite.Height = _startingShadowHeight * pctLightShadow;
+                    LightOrShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow;
 
                     var _hitTheGround = Altitude <= 0;
 
@@ -145,7 +119,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             if (!(this is CannonProjectile) || CurrentState == VariableState.Flying)
 	        {
-	            SpriteInstance.TextureScale = _startingSpriteScale.Value * _currentScale;
 	            _spriteRelativeY = SpriteInstance.Height / 2;
             }
 
@@ -157,13 +130,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	            SpriteInstance.RelativeX *= (SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
 	            SpriteInstance.RelativeY *= (SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
 	        }
-	        SpriteInstance.RelativeY += Altitude * _currentScale + _spriteRelativeY;
+	        SpriteInstance.RelativeY += Altitude + _spriteRelativeY;
         }
 
 	    public void HandleImpact(BaseEnemy enemy = null)
 	    {
 	        CurrentState = VariableState.Impact;
-	        UpdateScale();
             UpdateAnimation();
             Velocity = Vector3.Zero;
 	        CustomHandleImpact(enemy);
