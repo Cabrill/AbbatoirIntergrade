@@ -105,6 +105,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 #if DEBUG
                 if (DebugVariables.TurretsAimAtMouse) RotateToAimMouse();
 #endif
+                if (targetEnemy != null && targetEnemy.Collision.IsEmpty)
+                {
+                    var x = 4;
+                }
+
 
                 if (targetEnemy != null && (targetEnemy.IsDead || !RangeCircleInstance.CollideAgainst(targetEnemy.Collision)))
                 {

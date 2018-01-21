@@ -501,6 +501,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 AxisAlignedRectangleInstance.Height = 0f;
             }
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
+            mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
+            mGeneratedCollision.AxisAlignedRectangles.AddOneWay(mAxisAlignedRectangleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
         public virtual void AddToManagersBottomUp (FlatRedBall.Graphics.Layer layerToAddTo) 

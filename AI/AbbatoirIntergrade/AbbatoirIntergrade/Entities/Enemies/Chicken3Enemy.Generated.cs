@@ -755,7 +755,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             MaximumHealth = 64f;
             Speed = 125f;
             MineralsRewardedWhenKilled = 20;
-            DisplayName = "Flybo";
+            DisplayName = "Dragon";
             IsFlying = true;
             HasLightSource = true;
             IsJumper = false;

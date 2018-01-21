@@ -1084,7 +1084,6 @@
           <AttachToContainer>true</AttachToContainer>
           <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IncludeInICollidable>false</IncludeInICollidable>
           <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -1245,7 +1244,6 @@
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IncludeInICollidable>false</IncludeInICollidable>
           <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -2222,7 +2220,7 @@
           </Properties>
           <Name>ShowDebugShapes</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -2365,7 +2363,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Flybo</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Chicken</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -2814,7 +2812,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Flybo</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Enraged Chicken</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3255,7 +3253,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Flybo</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Dragon</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3696,7 +3694,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Looker</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Cow</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4140,7 +4138,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Looker</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Unusual Cow</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4589,7 +4587,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Looker</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Hybrid Cowman</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5034,7 +5032,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Looker</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Pig</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5483,7 +5481,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Looker</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Mutant Pig</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5942,7 +5940,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Looker</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Juggernaut Pig</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -6870,7 +6868,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Looker</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Abnormal Rabbit</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -7315,7 +7313,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Looker</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Athletic Rabbit</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -7755,7 +7753,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Looker</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Sheep</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -8204,7 +8202,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Looker</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Deformed Sheep</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -8648,7 +8646,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Looker</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Sheep Demoness</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -8806,7 +8804,6 @@
           <InstanceName>CircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>

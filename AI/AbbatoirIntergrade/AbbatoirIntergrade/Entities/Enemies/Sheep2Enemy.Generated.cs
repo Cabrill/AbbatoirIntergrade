@@ -926,7 +926,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             MaximumHealth = 32f;
             Speed = 120f;
             MineralsRewardedWhenKilled = 12;
-            DisplayName = "Looker";
+            DisplayName = "Deformed Sheep";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;

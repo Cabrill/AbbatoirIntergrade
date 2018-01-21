@@ -748,7 +748,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             MaximumHealth = 32f;
             Speed = 250f;
             MineralsRewardedWhenKilled = 12;
-            DisplayName = "Looker";
+            DisplayName = "Cow";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;

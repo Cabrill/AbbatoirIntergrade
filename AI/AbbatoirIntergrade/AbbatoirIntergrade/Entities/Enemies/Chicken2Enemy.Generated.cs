@@ -957,7 +957,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             MaximumHealth = 64f;
             Speed = 200f;
             MineralsRewardedWhenKilled = 20;
-            DisplayName = "Flybo";
+            DisplayName = "Enraged Chicken";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;

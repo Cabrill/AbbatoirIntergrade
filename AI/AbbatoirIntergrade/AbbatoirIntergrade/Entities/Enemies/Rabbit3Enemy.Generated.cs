@@ -924,7 +924,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             MaximumHealth = 32f;
             Speed = 500f;
             MineralsRewardedWhenKilled = 12;
-            DisplayName = "Looker";
+            DisplayName = "Athletic Rabbit";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
