@@ -517,25 +517,15 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 mSpriteInstance.AttachTo(this, false);
             }
             base.SpriteInstance.Texture = Stage1;
-            base.SpriteInstance.TextureScale = 1.5f;
             base.SpriteInstance.AnimationChains = Rabbit1Animations;
             base.SpriteInstance.CurrentChainName = "Running";
             base.SpriteInstance.IgnoreAnimationChainTextureFlip = true;
-            #if FRB_MDX
-            SpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
-            #else
-            base.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-            #endif
-            base.SpriteInstance.Red = 0f;
-            base.SpriteInstance.Green = 0f;
-            base.SpriteInstance.Blue = 0f;
-            base.SpriteInstance.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
             if (mCircleInstance.Parent == null)
             {
                 mCircleInstance.CopyAbsoluteToRelative();
                 mCircleInstance.AttachTo(this, false);
             }
-            base.CircleInstance.Radius = 54f;
+            base.CircleInstance.Radius = 32f;
             if (LightSprite.Parent == null)
             {
                 LightSprite.CopyAbsoluteToRelative();
@@ -617,19 +607,9 @@ namespace AbbatoirIntergrade.Entities.Enemies
             {
             }
             base.SpriteInstance.Texture = Stage1;
-            base.SpriteInstance.TextureScale = 1.5f;
             base.SpriteInstance.AnimationChains = Rabbit1Animations;
             base.SpriteInstance.CurrentChainName = "Running";
             base.SpriteInstance.IgnoreAnimationChainTextureFlip = true;
-            #if FRB_MDX
-            SpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
-            #else
-            base.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-            #endif
-            base.SpriteInstance.Red = 0f;
-            base.SpriteInstance.Green = 0f;
-            base.SpriteInstance.Blue = 0f;
-            base.SpriteInstance.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
             if (SpriteInstance.Parent == null)
             {
                 SpriteInstance.X = SpriteInstanceXReset;
@@ -728,7 +708,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             SpriteInstance.Alpha = SpriteInstanceAlphaReset;
             SpriteInstance.AlphaRate = SpriteInstanceAlphaRateReset;
-            base.CircleInstance.Radius = 54f;
+            base.CircleInstance.Radius = 32f;
             if (CircleInstance.Parent == null)
             {
                 CircleInstance.X = CircleInstanceXReset;
@@ -971,7 +951,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             DisplayName = "Slime";
             IsFlying = false;
             HasLightSource = true;
-            IsJumper = false;
+            IsJumper = true;
             Mass = 0.1f;
         }
         public override void ConvertToManuallyUpdated () 

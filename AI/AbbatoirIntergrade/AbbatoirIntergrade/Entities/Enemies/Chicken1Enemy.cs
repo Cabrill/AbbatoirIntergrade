@@ -23,7 +23,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
         /// </summary>
 		private void CustomInitialize()
 		{
-		    rangedChargeSound = Flying_Powerup.CreateInstance();
+		    //rangedChargeSound = Flying_Powerup.CreateInstance();
 		    Altitude = 300f;
 		    _spriteRelativeY -= 30;
 

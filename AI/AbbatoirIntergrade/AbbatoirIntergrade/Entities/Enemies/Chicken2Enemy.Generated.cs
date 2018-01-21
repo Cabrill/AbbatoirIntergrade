@@ -501,7 +501,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 SpriteInstance.AttachTo(this, false);
             }
             base.SpriteInstance.Texture = Stage2;
-            base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.Animate = true;
             base.SpriteInstance.AnimationChains = Chicken2Animations;
             base.SpriteInstance.CurrentChainName = "Running";
@@ -595,7 +594,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
             {
             }
             base.SpriteInstance.Texture = Stage2;
-            base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.Animate = true;
             base.SpriteInstance.AnimationChains = Chicken2Animations;
             base.SpriteInstance.CurrentChainName = "Running";

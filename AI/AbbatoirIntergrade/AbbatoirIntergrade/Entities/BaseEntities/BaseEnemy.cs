@@ -55,8 +55,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 #endif
 		    {
 		        CircleInstance.Visible = false;
-		        MeleeAttackRadiusCircleInstance.Visible = false;
-		        RangedAttackRadiusCircleInstance.Visible = false;
             }
 
 		    if (!_startingShadowWidth.HasValue)
@@ -129,6 +127,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		    if (!IsDead && !IsHurt)
 		    {
 		        NavigationActivity();
+		        SetDirection();
 		    }
 
             CalculateScale();
@@ -176,7 +175,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        }
         }
 
-	    private void UpdateHealthBar()
+	    protected void SetDirection()
+	    {
+	        CurrentDirectionState =
+	            (Velocity.X < 0 ? Direction.MovingLeft : Direction.MovingRight);
+	        SpriteInstance.IgnoreAnimationChainTextureFlip = true;
+	    }
+
+        private void UpdateHealthBar()
 	    {
 	        if (IsDead || HealthRemaining >= MaximumHealth)
 	        {

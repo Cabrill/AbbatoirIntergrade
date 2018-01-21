@@ -74,7 +74,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                         Drag = 0f;
                         break;
                     case  Action.Standing:
-                        SpriteInstanceCurrentChainName = "Standing";
+                        SpriteInstanceCurrentChainName = "";
                         Drag = 20f;
                         break;
                 }
@@ -111,10 +111,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     case  Direction.Unknown:
                         break;
                     case  Direction.MovingLeft:
-                        SpriteInstanceFlipHorizontal = true;
+                        SpriteInstanceFlipHorizontal = false;
                         break;
                     case  Direction.MovingRight:
-                        SpriteInstanceFlipHorizontal = false;
+                        SpriteInstanceFlipHorizontal = true;
                         break;
                 }
             }
@@ -151,54 +151,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
         }
         protected FlatRedBall.Sprite ShadowSprite;
-        private FlatRedBall.Math.Geometry.Circle mMeleeAttackRadiusCircleInstance;
-        public FlatRedBall.Math.Geometry.Circle MeleeAttackRadiusCircleInstance
-        {
-            get
-            {
-                return mMeleeAttackRadiusCircleInstance;
-            }
-            private set
-            {
-                mMeleeAttackRadiusCircleInstance = value;
-            }
-        }
-        static float MeleeAttackRadiusCircleInstanceXReset;
-        static float MeleeAttackRadiusCircleInstanceYReset;
-        static float MeleeAttackRadiusCircleInstanceZReset;
-        static float MeleeAttackRadiusCircleInstanceXVelocityReset;
-        static float MeleeAttackRadiusCircleInstanceYVelocityReset;
-        static float MeleeAttackRadiusCircleInstanceZVelocityReset;
-        static float MeleeAttackRadiusCircleInstanceRotationXReset;
-        static float MeleeAttackRadiusCircleInstanceRotationYReset;
-        static float MeleeAttackRadiusCircleInstanceRotationZReset;
-        static float MeleeAttackRadiusCircleInstanceRotationXVelocityReset;
-        static float MeleeAttackRadiusCircleInstanceRotationYVelocityReset;
-        static float MeleeAttackRadiusCircleInstanceRotationZVelocityReset;
-        private FlatRedBall.Math.Geometry.Circle mRangedAttackRadiusCircleInstance;
-        public FlatRedBall.Math.Geometry.Circle RangedAttackRadiusCircleInstance
-        {
-            get
-            {
-                return mRangedAttackRadiusCircleInstance;
-            }
-            private set
-            {
-                mRangedAttackRadiusCircleInstance = value;
-            }
-        }
-        static float RangedAttackRadiusCircleInstanceXReset;
-        static float RangedAttackRadiusCircleInstanceYReset;
-        static float RangedAttackRadiusCircleInstanceZReset;
-        static float RangedAttackRadiusCircleInstanceXVelocityReset;
-        static float RangedAttackRadiusCircleInstanceYVelocityReset;
-        static float RangedAttackRadiusCircleInstanceZVelocityReset;
-        static float RangedAttackRadiusCircleInstanceRotationXReset;
-        static float RangedAttackRadiusCircleInstanceRotationYReset;
-        static float RangedAttackRadiusCircleInstanceRotationZReset;
-        static float RangedAttackRadiusCircleInstanceRotationXVelocityReset;
-        static float RangedAttackRadiusCircleInstanceRotationYVelocityReset;
-        static float RangedAttackRadiusCircleInstanceRotationZVelocityReset;
         protected FlatRedBall.Sprite LightSprite;
         private AbbatoirIntergrade.Entities.GraphicalElements.ResourceBar HealthBar;
         public bool SpriteInstanceFlipHorizontal
@@ -390,206 +342,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             LoadStaticContent(ContentManagerName);
             ShadowSprite = new FlatRedBall.Sprite();
             ShadowSprite.Name = "ShadowSprite";
-            mMeleeAttackRadiusCircleInstance = new FlatRedBall.Math.Geometry.Circle();
-            mMeleeAttackRadiusCircleInstance.Name = "mMeleeAttackRadiusCircleInstance";
-            mRangedAttackRadiusCircleInstance = new FlatRedBall.Math.Geometry.Circle();
-            mRangedAttackRadiusCircleInstance.Name = "mRangedAttackRadiusCircleInstance";
             HealthBar = new AbbatoirIntergrade.Entities.GraphicalElements.ResourceBar(ContentManagerName, false);
             HealthBar.Name = "HealthBar";
             
             PostInitialize();
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstanceXReset = MeleeAttackRadiusCircleInstance.X;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstanceXReset = MeleeAttackRadiusCircleInstance.RelativeX;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstanceYReset = MeleeAttackRadiusCircleInstance.Y;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstanceYReset = MeleeAttackRadiusCircleInstance.RelativeY;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstanceZReset = MeleeAttackRadiusCircleInstance.Z;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstanceZReset = MeleeAttackRadiusCircleInstance.RelativeZ;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstanceXVelocityReset = MeleeAttackRadiusCircleInstance.XVelocity;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstanceXVelocityReset = MeleeAttackRadiusCircleInstance.RelativeXVelocity;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstanceYVelocityReset = MeleeAttackRadiusCircleInstance.YVelocity;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstanceYVelocityReset = MeleeAttackRadiusCircleInstance.RelativeYVelocity;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstanceZVelocityReset = MeleeAttackRadiusCircleInstance.ZVelocity;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstanceZVelocityReset = MeleeAttackRadiusCircleInstance.RelativeZVelocity;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstanceRotationXReset = MeleeAttackRadiusCircleInstance.RotationX;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstanceRotationXReset = MeleeAttackRadiusCircleInstance.RelativeRotationX;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstanceRotationYReset = MeleeAttackRadiusCircleInstance.RotationY;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstanceRotationYReset = MeleeAttackRadiusCircleInstance.RelativeRotationY;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstanceRotationZReset = MeleeAttackRadiusCircleInstance.RotationZ;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstanceRotationZReset = MeleeAttackRadiusCircleInstance.RelativeRotationZ;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstanceRotationXVelocityReset = MeleeAttackRadiusCircleInstance.RotationXVelocity;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstanceRotationXVelocityReset = MeleeAttackRadiusCircleInstance.RelativeRotationXVelocity;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstanceRotationYVelocityReset = MeleeAttackRadiusCircleInstance.RotationYVelocity;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstanceRotationYVelocityReset = MeleeAttackRadiusCircleInstance.RelativeRotationYVelocity;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstanceRotationZVelocityReset = MeleeAttackRadiusCircleInstance.RotationZVelocity;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstanceRotationZVelocityReset = MeleeAttackRadiusCircleInstance.RelativeRotationZVelocity;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstanceXReset = RangedAttackRadiusCircleInstance.X;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstanceXReset = RangedAttackRadiusCircleInstance.RelativeX;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstanceYReset = RangedAttackRadiusCircleInstance.Y;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstanceYReset = RangedAttackRadiusCircleInstance.RelativeY;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstanceZReset = RangedAttackRadiusCircleInstance.Z;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstanceZReset = RangedAttackRadiusCircleInstance.RelativeZ;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstanceXVelocityReset = RangedAttackRadiusCircleInstance.XVelocity;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstanceXVelocityReset = RangedAttackRadiusCircleInstance.RelativeXVelocity;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstanceYVelocityReset = RangedAttackRadiusCircleInstance.YVelocity;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstanceYVelocityReset = RangedAttackRadiusCircleInstance.RelativeYVelocity;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstanceZVelocityReset = RangedAttackRadiusCircleInstance.ZVelocity;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstanceZVelocityReset = RangedAttackRadiusCircleInstance.RelativeZVelocity;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstanceRotationXReset = RangedAttackRadiusCircleInstance.RotationX;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstanceRotationXReset = RangedAttackRadiusCircleInstance.RelativeRotationX;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstanceRotationYReset = RangedAttackRadiusCircleInstance.RotationY;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstanceRotationYReset = RangedAttackRadiusCircleInstance.RelativeRotationY;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstanceRotationZReset = RangedAttackRadiusCircleInstance.RotationZ;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstanceRotationZReset = RangedAttackRadiusCircleInstance.RelativeRotationZ;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstanceRotationXVelocityReset = RangedAttackRadiusCircleInstance.RotationXVelocity;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstanceRotationXVelocityReset = RangedAttackRadiusCircleInstance.RelativeRotationXVelocity;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstanceRotationYVelocityReset = RangedAttackRadiusCircleInstance.RotationYVelocity;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstanceRotationYVelocityReset = RangedAttackRadiusCircleInstance.RelativeRotationYVelocity;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstanceRotationZVelocityReset = RangedAttackRadiusCircleInstance.RotationZVelocity;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstanceRotationZVelocityReset = RangedAttackRadiusCircleInstance.RelativeRotationZVelocity;
-            }
             if (addToManagers)
             {
                 AddToManagers(null);
@@ -686,20 +442,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
             ShadowSprite.Alpha = 0.8f;
-            if (mMeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                mMeleeAttackRadiusCircleInstance.CopyAbsoluteToRelative();
-                mMeleeAttackRadiusCircleInstance.AttachTo(this, false);
-            }
-            MeleeAttackRadiusCircleInstance.Radius = 16f;
-            MeleeAttackRadiusCircleInstance.Color = Color.Red;
-            if (mRangedAttackRadiusCircleInstance.Parent == null)
-            {
-                mRangedAttackRadiusCircleInstance.CopyAbsoluteToRelative();
-                mRangedAttackRadiusCircleInstance.AttachTo(this, false);
-            }
-            RangedAttackRadiusCircleInstance.Radius = 16f;
-            RangedAttackRadiusCircleInstance.Color = Color.Tomato;
             if (LightSprite!= null)
             {
                 if (LightSprite.Parent == null)
@@ -730,8 +472,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             HealthBar.BarSpriteBlue = 0f;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
-            mGeneratedCollision.Circles.AddOneWay(mMeleeAttackRadiusCircleInstance);
-            mGeneratedCollision.Circles.AddOneWay(mRangedAttackRadiusCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
         public virtual void AddToManagersBottomUp (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -774,202 +514,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
             ShadowSprite.Alpha = 0.8f;
-            MeleeAttackRadiusCircleInstance.Radius = 16f;
-            MeleeAttackRadiusCircleInstance.Color = Color.Red;
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstance.X = MeleeAttackRadiusCircleInstanceXReset;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstance.RelativeX = MeleeAttackRadiusCircleInstanceXReset;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstance.Y = MeleeAttackRadiusCircleInstanceYReset;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstance.RelativeY = MeleeAttackRadiusCircleInstanceYReset;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstance.Z = MeleeAttackRadiusCircleInstanceZReset;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstance.RelativeZ = MeleeAttackRadiusCircleInstanceZReset;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstance.XVelocity = MeleeAttackRadiusCircleInstanceXVelocityReset;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstance.RelativeXVelocity = MeleeAttackRadiusCircleInstanceXVelocityReset;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstance.YVelocity = MeleeAttackRadiusCircleInstanceYVelocityReset;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstance.RelativeYVelocity = MeleeAttackRadiusCircleInstanceYVelocityReset;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstance.ZVelocity = MeleeAttackRadiusCircleInstanceZVelocityReset;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstance.RelativeZVelocity = MeleeAttackRadiusCircleInstanceZVelocityReset;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstance.RotationX = MeleeAttackRadiusCircleInstanceRotationXReset;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstance.RelativeRotationX = MeleeAttackRadiusCircleInstanceRotationXReset;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstance.RotationY = MeleeAttackRadiusCircleInstanceRotationYReset;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstance.RelativeRotationY = MeleeAttackRadiusCircleInstanceRotationYReset;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstance.RotationZ = MeleeAttackRadiusCircleInstanceRotationZReset;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstance.RelativeRotationZ = MeleeAttackRadiusCircleInstanceRotationZReset;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstance.RotationXVelocity = MeleeAttackRadiusCircleInstanceRotationXVelocityReset;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstance.RelativeRotationXVelocity = MeleeAttackRadiusCircleInstanceRotationXVelocityReset;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstance.RotationYVelocity = MeleeAttackRadiusCircleInstanceRotationYVelocityReset;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstance.RelativeRotationYVelocity = MeleeAttackRadiusCircleInstanceRotationYVelocityReset;
-            }
-            if (MeleeAttackRadiusCircleInstance.Parent == null)
-            {
-                MeleeAttackRadiusCircleInstance.RotationZVelocity = MeleeAttackRadiusCircleInstanceRotationZVelocityReset;
-            }
-            else
-            {
-                MeleeAttackRadiusCircleInstance.RelativeRotationZVelocity = MeleeAttackRadiusCircleInstanceRotationZVelocityReset;
-            }
-            RangedAttackRadiusCircleInstance.Radius = 16f;
-            RangedAttackRadiusCircleInstance.Color = Color.Tomato;
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstance.X = RangedAttackRadiusCircleInstanceXReset;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstance.RelativeX = RangedAttackRadiusCircleInstanceXReset;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstance.Y = RangedAttackRadiusCircleInstanceYReset;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstance.RelativeY = RangedAttackRadiusCircleInstanceYReset;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstance.Z = RangedAttackRadiusCircleInstanceZReset;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstance.RelativeZ = RangedAttackRadiusCircleInstanceZReset;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstance.XVelocity = RangedAttackRadiusCircleInstanceXVelocityReset;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstance.RelativeXVelocity = RangedAttackRadiusCircleInstanceXVelocityReset;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstance.YVelocity = RangedAttackRadiusCircleInstanceYVelocityReset;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstance.RelativeYVelocity = RangedAttackRadiusCircleInstanceYVelocityReset;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstance.ZVelocity = RangedAttackRadiusCircleInstanceZVelocityReset;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstance.RelativeZVelocity = RangedAttackRadiusCircleInstanceZVelocityReset;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstance.RotationX = RangedAttackRadiusCircleInstanceRotationXReset;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstance.RelativeRotationX = RangedAttackRadiusCircleInstanceRotationXReset;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstance.RotationY = RangedAttackRadiusCircleInstanceRotationYReset;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstance.RelativeRotationY = RangedAttackRadiusCircleInstanceRotationYReset;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstance.RotationZ = RangedAttackRadiusCircleInstanceRotationZReset;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstance.RelativeRotationZ = RangedAttackRadiusCircleInstanceRotationZReset;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstance.RotationXVelocity = RangedAttackRadiusCircleInstanceRotationXVelocityReset;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstance.RelativeRotationXVelocity = RangedAttackRadiusCircleInstanceRotationXVelocityReset;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstance.RotationYVelocity = RangedAttackRadiusCircleInstanceRotationYVelocityReset;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstance.RelativeRotationYVelocity = RangedAttackRadiusCircleInstanceRotationYVelocityReset;
-            }
-            if (RangedAttackRadiusCircleInstance.Parent == null)
-            {
-                RangedAttackRadiusCircleInstance.RotationZVelocity = RangedAttackRadiusCircleInstanceRotationZVelocityReset;
-            }
-            else
-            {
-                RangedAttackRadiusCircleInstance.RelativeRotationZVelocity = RangedAttackRadiusCircleInstanceRotationZVelocityReset;
-            }
             HealthBar.BarSpriteRed = 0f;
             HealthBar.BarSpriteGreen = 1f;
             HealthBar.BarSpriteBlue = 0f;
@@ -1131,7 +675,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 case  Action.Standing:
                     if (interpolationValue < 1)
                     {
-                        this.SpriteInstanceCurrentChainName = "Standing";
+                        this.SpriteInstanceCurrentChainName = "";
                     }
                     DragFirstValue = 20f;
                     break;
@@ -1166,7 +710,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 case  Action.Standing:
                     if (interpolationValue >= 1)
                     {
-                        this.SpriteInstanceCurrentChainName = "Standing";
+                        this.SpriteInstanceCurrentChainName = "";
                     }
                     DragSecondValue = 20f;
                     break;
@@ -1222,13 +766,13 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 case  Direction.MovingLeft:
                     if (interpolationValue < 1)
                     {
-                        this.SpriteInstanceFlipHorizontal = true;
+                        this.SpriteInstanceFlipHorizontal = false;
                     }
                     break;
                 case  Direction.MovingRight:
                     if (interpolationValue < 1)
                     {
-                        this.SpriteInstanceFlipHorizontal = false;
+                        this.SpriteInstanceFlipHorizontal = true;
                     }
                     break;
             }
@@ -1237,13 +781,13 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 case  Direction.MovingLeft:
                     if (interpolationValue >= 1)
                     {
-                        this.SpriteInstanceFlipHorizontal = true;
+                        this.SpriteInstanceFlipHorizontal = false;
                     }
                     break;
                 case  Direction.MovingRight:
                     if (interpolationValue >= 1)
                     {
-                        this.SpriteInstanceFlipHorizontal = false;
+                        this.SpriteInstanceFlipHorizontal = true;
                     }
                     break;
             }
@@ -1278,7 +822,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     break;
                 case  Action.Standing:
                     {
-                        object throwaway = "Standing";
+                        object throwaway = "";
                     }
                     break;
             }
@@ -1384,8 +928,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(CircleInstance);
             }
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(ShadowSprite);
-            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(MeleeAttackRadiusCircleInstance);
-            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(RangedAttackRadiusCircleInstance);
             if (LightSprite != null)
             {
                 FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(LightSprite);
@@ -1410,16 +952,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 layerToRemoveFrom.Remove(ShadowSprite);
             }
             FlatRedBall.SpriteManager.AddToLayer(ShadowSprite, layerToMoveTo);
-            if (layerToRemoveFrom != null)
-            {
-                layerToRemoveFrom.Remove(MeleeAttackRadiusCircleInstance);
-            }
-            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(MeleeAttackRadiusCircleInstance, layerToMoveTo);
-            if (layerToRemoveFrom != null)
-            {
-                layerToRemoveFrom.Remove(RangedAttackRadiusCircleInstance);
-            }
-            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(RangedAttackRadiusCircleInstance, layerToMoveTo);
             if (layerToRemoveFrom != null)
             {
                 layerToRemoveFrom.Remove(LightSprite);

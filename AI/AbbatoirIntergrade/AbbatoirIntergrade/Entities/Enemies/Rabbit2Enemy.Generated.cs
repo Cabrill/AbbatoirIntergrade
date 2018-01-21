@@ -500,7 +500,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.SpriteInstance.RightTexturePixel = 142f;
             base.SpriteInstance.TopTexturePixel = 373f;
             base.SpriteInstance.BottomTexturePixel = 760f;
-            base.SpriteInstance.TextureScale = 0.7f;
             base.SpriteInstance.UseAnimationRelativePosition = true;
             base.SpriteInstance.AnimationChains = Rabbit2Animations;
             base.SpriteInstance.CurrentChainName = "Running";
@@ -579,7 +578,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.SpriteInstance.RightTexturePixel = 142f;
             base.SpriteInstance.TopTexturePixel = 373f;
             base.SpriteInstance.BottomTexturePixel = 760f;
-            base.SpriteInstance.TextureScale = 0.7f;
             base.SpriteInstance.UseAnimationRelativePosition = true;
             base.SpriteInstance.AnimationChains = Rabbit2Animations;
             base.SpriteInstance.CurrentChainName = "Running";

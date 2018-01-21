@@ -570,6 +570,7 @@ namespace AbbatoirIntergrade.Screens
         {
             //FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
 
+            //Stage 1
             if (InputManager.Keyboard.KeyPushed(Keys.Z))
             {
                 EnemyFactories.CreateNew(EnemyTypes.Cow1);
@@ -590,15 +591,65 @@ namespace AbbatoirIntergrade.Screens
                 EnemyFactories.CreateNew(EnemyTypes.Pig1);
             }
 
+            if (InputManager.Keyboard.KeyPushed(Keys.B))
+            {
+                EnemyFactories.CreateNew(EnemyTypes.Chicken1);
+            }
 
-            if (InputManager.Keyboard.KeyDown(Keys.Y))
+
+            //Stage 2
+            if (InputManager.Keyboard.KeyPushed(Keys.A))
             {
-                CameraZoomManager.PerformZoom(0, 0, 0.1f);
+                EnemyFactories.CreateNew(EnemyTypes.Cow2);
             }
-            else if (InputManager.Keyboard.KeyDown(Keys.T))
+
+            if (InputManager.Keyboard.KeyPushed(Keys.S))
             {
-                CameraZoomManager.PerformZoom(0, 0, -0.1f);
+                EnemyFactories.CreateNew(EnemyTypes.Rabbit2);
             }
+
+            if (InputManager.Keyboard.KeyPushed(Keys.D))
+            {
+                EnemyFactories.CreateNew(EnemyTypes.Sheep2);
+            }
+
+            if (InputManager.Keyboard.KeyPushed(Keys.F))
+            {
+                EnemyFactories.CreateNew(EnemyTypes.Pig2);
+            }
+
+            if (InputManager.Keyboard.KeyPushed(Keys.G))
+            {
+                EnemyFactories.CreateNew(EnemyTypes.Chicken2);
+            }
+
+
+            //Stage 3
+            if (InputManager.Keyboard.KeyPushed(Keys.Q))
+            {
+                EnemyFactories.CreateNew(EnemyTypes.Cow3);
+            }
+
+            if (InputManager.Keyboard.KeyPushed(Keys.W))
+            {
+                EnemyFactories.CreateNew(EnemyTypes.Rabbit3);
+            }
+
+            if (InputManager.Keyboard.KeyPushed(Keys.E))
+            {
+                EnemyFactories.CreateNew(EnemyTypes.Sheep3);
+            }
+
+            if (InputManager.Keyboard.KeyPushed(Keys.R))
+            {
+                EnemyFactories.CreateNew(EnemyTypes.Pig3);
+            }
+
+            if (InputManager.Keyboard.KeyPushed(Keys.T))
+            {
+                EnemyFactories.CreateNew(EnemyTypes.Chicken3);
+            }
+
 
         }
 #endif

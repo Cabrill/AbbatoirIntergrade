@@ -501,7 +501,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 SpriteInstance.AttachTo(this, false);
             }
             base.SpriteInstance.Texture = Stage1;
-            base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.Animate = true;
             base.SpriteInstance.AnimationChains = Chicken1Animations;
             base.SpriteInstance.CurrentChainName = "Running";
@@ -509,6 +508,22 @@ namespace AbbatoirIntergrade.Entities.Enemies
             {
                 mCircleInstance.CopyAbsoluteToRelative();
                 mCircleInstance.AttachTo(this, false);
+            }
+            if (CircleInstance.Parent == null)
+            {
+                base.CircleInstance.X = 1.824068f;
+            }
+            else
+            {
+                base.CircleInstance.RelativeX = 1.824068f;
+            }
+            if (CircleInstance.Parent == null)
+            {
+                base.CircleInstance.Y = 0f;
+            }
+            else
+            {
+                base.CircleInstance.RelativeY = 0f;
             }
             base.CircleInstance.Radius = 48f;
             if (LightSprite.Parent == null)
@@ -595,7 +610,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
             {
             }
             base.SpriteInstance.Texture = Stage1;
-            base.SpriteInstance.TextureScale = 1f;
             base.SpriteInstance.Animate = true;
             base.SpriteInstance.AnimationChains = Chicken1Animations;
             base.SpriteInstance.CurrentChainName = "Running";
@@ -697,6 +711,22 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             SpriteInstance.Alpha = SpriteInstanceAlphaReset;
             SpriteInstance.AlphaRate = SpriteInstanceAlphaRateReset;
+            if (CircleInstance.Parent == null)
+            {
+                base.CircleInstance.X = 1.824068f;
+            }
+            else
+            {
+                base.CircleInstance.RelativeX = 1.824068f;
+            }
+            if (CircleInstance.Parent == null)
+            {
+                base.CircleInstance.Y = 0f;
+            }
+            else
+            {
+                base.CircleInstance.RelativeY = 0f;
+            }
             base.CircleInstance.Radius = 48f;
             if (CircleInstance.Parent == null)
             {

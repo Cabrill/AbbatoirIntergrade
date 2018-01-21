@@ -35,7 +35,7 @@
   </objecttype>
   <objecttype name="Cow1Enemy">
     <property name="MaximumHealth" type="float" default="32" />
-    <property name="Speed" type="float" default="150" />
+    <property name="Speed" type="float" default="250" />
     <property name="MineralsRewardedWhenKilled" type="float" default="12" />
     <property name="DisplayName" type="string" default="Looker" />
     <property name="IsFlying" type="bool" default="false" />
@@ -68,7 +68,7 @@
   </objecttype>
   <objecttype name="Pig1Enemy">
     <property name="MaximumHealth" type="float" default="32" />
-    <property name="Speed" type="float" default="150" />
+    <property name="Speed" type="float" default="450" />
     <property name="MineralsRewardedWhenKilled" type="float" default="12" />
     <property name="DisplayName" type="string" default="Looker" />
     <property name="IsFlying" type="bool" default="false" />
@@ -107,7 +107,7 @@
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
-    <property name="IsJumper" type="bool" default="false" />
+    <property name="IsJumper" type="bool" default="true" />
     <property name="Mass" type="float" default="0.1" />
   </objecttype>
   <objecttype name="Rabbit2Enemy">
@@ -134,7 +134,7 @@
   </objecttype>
   <objecttype name="Sheep1Enemy">
     <property name="MaximumHealth" type="float" default="32" />
-    <property name="Speed" type="float" default="150" />
+    <property name="Speed" type="float" default="200" />
     <property name="MineralsRewardedWhenKilled" type="float" default="12" />
     <property name="DisplayName" type="string" default="Looker" />
     <property name="IsFlying" type="bool" default="false" />

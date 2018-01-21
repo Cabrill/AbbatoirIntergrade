@@ -675,11 +675,11 @@
     </ElementCameraSave>
     <ElementCameraSave>
       <CameraSave>
-        <X>0</X>
-        <Y>0</Y>
+        <X>-11.9032965</X>
+        <Y>1.178545</Y>
         <Z>40</Z>
         <Orthogonal>true</Orthogonal>
-        <OrthogonalHeight>1440</OrthogonalHeight>
+        <OrthogonalHeight>59.2302132</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
         <NearClipPlane>1</NearClipPlane>
         <FarClipPlane>1000</FarClipPlane>
@@ -714,6 +714,34 @@
         <AspectRatio>1.33333337</AspectRatio>
       </CameraSave>
       <ElementName>Screens\MapScreen</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>1440</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+        <AspectRatio>1.33333337</AspectRatio>
+      </CameraSave>
+      <ElementName>Entities\Enemies\Rabbit1Enemy</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>1440</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+        <AspectRatio>1.33333337</AspectRatio>
+      </CameraSave>
+      <ElementName>Entities\Enemies\Cow1Enemy</ElementName>
     </ElementCameraSave>
   </ElementCameraSaves>
   <CollapsedPlugins />

@@ -24,8 +24,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
         /// </summary>
 		private void CustomInitialize()
         {
-            rangedAttackSound = Alien_Shoot.CreateInstance();
-            rangedChargeSound = Alien_Powerup.CreateInstance();
+            //rangedAttackSound = Alien_Shoot.CreateInstance();
+            //rangedChargeSound = Alien_Powerup.CreateInstance();
         }
 
 		private void CustomActivity()

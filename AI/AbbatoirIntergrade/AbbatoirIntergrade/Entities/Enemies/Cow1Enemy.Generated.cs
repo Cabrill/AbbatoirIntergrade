@@ -500,7 +500,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.SpriteInstance.RightTexturePixel = 142f;
             base.SpriteInstance.TopTexturePixel = 373f;
             base.SpriteInstance.BottomTexturePixel = 760f;
-            base.SpriteInstance.TextureScale = 0.7f;
             base.SpriteInstance.UseAnimationRelativePosition = true;
             base.SpriteInstance.AnimationChains = Cow1Animations;
             base.SpriteInstance.CurrentChainName = "Running";
@@ -510,7 +509,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 mCircleInstance.CopyAbsoluteToRelative();
                 mCircleInstance.AttachTo(this, false);
             }
-            base.CircleInstance.Radius = 32f;
+            base.CircleInstance.Radius = 64f;
             if (LightSprite.Parent == null)
             {
                 LightSprite.CopyAbsoluteToRelative();
@@ -579,7 +578,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.SpriteInstance.RightTexturePixel = 142f;
             base.SpriteInstance.TopTexturePixel = 373f;
             base.SpriteInstance.BottomTexturePixel = 760f;
-            base.SpriteInstance.TextureScale = 0.7f;
             base.SpriteInstance.UseAnimationRelativePosition = true;
             base.SpriteInstance.AnimationChains = Cow1Animations;
             base.SpriteInstance.CurrentChainName = "Running";
@@ -682,7 +680,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             SpriteInstance.Alpha = SpriteInstanceAlphaReset;
             SpriteInstance.AlphaRate = SpriteInstanceAlphaRateReset;
-            base.CircleInstance.Radius = 32f;
+            base.CircleInstance.Radius = 64f;
             if (CircleInstance.Parent == null)
             {
                 CircleInstance.X = CircleInstanceXReset;
@@ -904,7 +902,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             #endif
             base.ShadowSprite.Alpha = 0.8f;
             MaximumHealth = 32f;
-            Speed = 150f;
+            Speed = 250f;
             MineralsRewardedWhenKilled = 12;
             DisplayName = "Looker";
             IsFlying = false;

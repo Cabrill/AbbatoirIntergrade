@@ -17,7 +17,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	{
         void OnAfterSpriteInstanceCurrentChainNameSet (object sender, EventArgs e)
         {
-            SpriteInstance.FlipHorizontal = CurrentDirectionState == Direction.MovingLeft;
+            SpriteInstance.FlipHorizontal = CurrentDirectionState == Direction.MovingRight;
             SpriteInstance.IgnoreAnimationChainTextureFlip = SpriteInstance.FlipHorizontal;
         }
 		

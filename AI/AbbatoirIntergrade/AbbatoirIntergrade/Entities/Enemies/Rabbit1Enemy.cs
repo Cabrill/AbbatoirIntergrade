@@ -16,7 +16,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
 {
 	public partial class Rabbit1Enemy
 	{
-	    private const float maxJumpVelocity = 100f;
+	    private const float maxJumpVelocity = 200f;
 
 	    private const float _lightPulseDuration = 2;
 	    private const float _lightPulseAmount = 0.5f;
@@ -35,33 +35,11 @@ namespace AbbatoirIntergrade.Entities.Enemies
 		private void CustomInitialize()
         {
             Altitude = 0;
-            GravityDrag = -400f;
             CurrentJumpState = Jump.NotJumping;
-            meleeAttackSound = Slime_Hit.CreateInstance();
+            //meleeAttackSound = Slime_Hit.CreateInstance();
 
-            _jumpStart = Slime_Jump.CreateInstance();
-            _jumpLand = Slime_Land.CreateInstance();
-
-            var randomChoice = FlatRedBallServices.Random.Next(0, 3);
-            if (randomChoice == 0)
-            {
-                SpriteInstance.Red = LightSprite.Red = 1;
-                SpriteInstance.Green = LightSprite.Green = 0;
-                SpriteInstance.Blue = LightSprite.Blue = 0;
-            }
-            else if (randomChoice == 1)
-            {
-                SpriteInstance.Red = LightSprite.Red = 0;
-                SpriteInstance.Green = LightSprite.Green = 1;
-                SpriteInstance.Blue = LightSprite.Blue = 0;
-            }
-            else
-            {
-                SpriteInstance.Red = LightSprite.Red = 0;
-                SpriteInstance.Green = LightSprite.Green = 0;
-                SpriteInstance.Blue = LightSprite.Blue = 1;
-            }
-
+            //_jumpStart = Slime_Jump.CreateInstance();
+            //_jumpLand = Slime_Land.CreateInstance();
         }
 
 	    public void AddSpritesToLayers(Layer worldLayer, Layer darknessLayer, Layer hudLayer)
@@ -87,66 +65,62 @@ namespace AbbatoirIntergrade.Entities.Enemies
 		    LightSprite.RelativeY = SpriteInstance.RelativeY - 20 *SpriteInstance.TextureScale;
         }
 
-	    protected override void NavigateToTarget()
-	    {
-	        if (CurrentJumpState == Jump.InAir && Altitude == 0)
-	        {
-	            CurrentJumpState = Jump.Landing;
-	            Velocity = Vector3.Zero;
-	            try
-	            {
-	                _jumpLand.Play();
-	            }
-	            catch (Exception) { };
-            }
-            else if (CurrentJumpState == Jump.NotJumping || (CurrentJumpState == Jump.Landing && SpriteInstance.JustCycled))
-	        {
-	            if (_targetPointForNavigation != null)
-	            {
-	                CurrentJumpState = Jump.PreparingJump;
-	            }
-	            else
-	            {
-                    CurrentJumpState = Jump.NotJumping;
-	                CurrentActionState = Action.Standing;
-	            }
-	        }
-	        else if (CurrentJumpState == Jump.PreparingJump && SpriteInstance.JustCycled)
-	        {
-	            if (_targetPointForNavigation != null)
-	            {
-	                var angle = (float)Math.Atan2(Y - _targetPointForNavigation.Y,
-	                    X - _targetPointForNavigation.X);
-	                var direction = new Vector3(
-	                    (float)-Math.Cos(angle),
-	                    (float)-Math.Sin(angle), 0);
-	                direction.Normalize();
+	    //protected override void NavigateToTarget()
+	    //{
+	    //    if (CurrentJumpState == Jump.InAir && AltitudeVelocity < 0)
+	    //    {
+	    //        CurrentJumpState = Jump.Landing;
+     //       }
 
-	                var neededAltitudeVelocity = CalculateJumpAltitudeVelocity();
+	    //    if (CurrentJumpState == Jump.Landing && Altitude < 1 && Velocity.Length() > Speed * _currentScale * 0.3)
+	    //    {
+	    //        var angle = (float)Math.Atan2(Y - _targetPointForNavigation.Y,
+	    //            X - _targetPointForNavigation.X);
+	    //        var direction = new Vector3(
+	    //            (float)-Math.Cos(angle),
+	    //            (float)-Math.Sin(angle), 0);
+	    //        direction.Normalize();
+	    //        Velocity = direction * Speed * 0.3f * _currentScale;
+     //       }
 
-	                AltitudeVelocity = Math.Min(maxJumpVelocity, neededAltitudeVelocity);
-	                Altitude = AltitudeVelocity * TimeManager.SecondDifference;
+     //       if (CurrentJumpState == Jump.NotJumping || (CurrentJumpState == Jump.Landing && SpriteInstance.JustCycled))
+	    //    {
+	    //        CurrentJumpState = Jump.PreparingJump;
+	    //        var angle = (float)Math.Atan2(Y - _targetPointForNavigation.Y,
+	    //            X - _targetPointForNavigation.X);
+	    //        var direction = new Vector3(
+	    //            (float)-Math.Cos(angle),
+	    //            (float)-Math.Sin(angle), 0);
+	    //        direction.Normalize();
+     //           Velocity = direction * Speed * 0.6f * _currentScale;
+     //       }
+	    //    else if (CurrentJumpState == Jump.PreparingJump && SpriteInstance.JustCycled)
+	    //    {
+	    //        var angle = (float)Math.Atan2(Y - _targetPointForNavigation.Y,
+	    //            X - _targetPointForNavigation.X);
+	    //        var direction = new Vector3(
+	    //            (float)-Math.Cos(angle),
+	    //            (float)-Math.Sin(angle), 0);
+	    //        direction.Normalize();
 
-                    Velocity = direction * Speed * _currentScale;
+	    //        var neededAltitudeVelocity = CalculateJumpAltitudeVelocity();
 
-                    CurrentJumpState = Jump.InAir;
+	    //        AltitudeVelocity = Math.Min(maxJumpVelocity, neededAltitudeVelocity);
+	    //        Altitude = AltitudeVelocity * TimeManager.SecondDifference;
 
-	                try
-	                {
-	                    _jumpStart.Play();
-	                }
-	                catch (Exception) { };
+     //           Velocity = direction * Speed * _currentScale;
 
-                    CurrentDirectionState =
-	                    (Velocity.X > 0 ? Direction.MovingRight : Direction.MovingLeft);
-	                SpriteInstance.IgnoreAnimationChainTextureFlip = true;
-	            }
-	            else
-	            {
-	                CurrentJumpState = Jump.Landing;
-                }
-	        }
-        }
+     //           CurrentJumpState = Jump.InAir;
+	    //        SpriteInstance.Animate = false;
+	    //        //try
+	    //        //{
+	    //        //    _jumpStart.Play();
+	    //        //}
+	    //        //catch (Exception) { };
+
+
+	    //    }
+     //   }
 
         private void CustomDestroy()
         {
