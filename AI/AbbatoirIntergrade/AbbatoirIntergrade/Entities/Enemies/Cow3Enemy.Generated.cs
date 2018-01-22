@@ -510,7 +510,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 mCircleInstance.CopyAbsoluteToRelative();
                 mCircleInstance.AttachTo(this, false);
             }
-            base.CircleInstance.Radius = 32f;
+            base.CircleInstance.Radius = 72f;
             if (LightSprite.Parent == null)
             {
                 LightSprite.CopyAbsoluteToRelative();
@@ -692,7 +692,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             SpriteInstance.Alpha = SpriteInstanceAlphaReset;
             SpriteInstance.AlphaRate = SpriteInstanceAlphaRateReset;
-            base.CircleInstance.Radius = 32f;
+            base.CircleInstance.Radius = 72f;
             if (CircleInstance.Parent == null)
             {
                 CircleInstance.X = CircleInstanceXReset;
