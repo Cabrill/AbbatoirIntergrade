@@ -3,28 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AbbatoirIntergrade.Entities.BaseEntities;
 using AbbatoirIntergrade.StaticManagers;
 
 namespace AbbatoirIntergrade.GameClasses.BaseClasses
 {
     public class BaseWave
     {
-        public readonly List<Tuple<int, EnemyTypes>> Enemies;
+        public readonly List<Tuple<int, EnemyTypes>> EnemyCounts;
         public readonly List<EnemyTypes> EnemyTypes;
 
-        public BaseWave(List<Tuple<int, EnemyTypes>> enemies)
+        public List<BaseEnemy> CreatedEnemies;
+
+        public BaseWave(List<Tuple<int, EnemyTypes>> enemyCounts)
         {
-            Enemies = enemies;
-            EnemyTypes = Enemies.Select(t => t.Item2).Distinct().ToList();
+            EnemyCounts = enemyCounts;
+            EnemyTypes = EnemyCounts.Select(t => t.Item2).Distinct().ToList();
         }
 
         public void CreateEnemies()
         {
-            foreach (var pair in Enemies)
+            foreach (var pair in EnemyCounts)
             {
-                for (int i = 0; i < pair.Item1; i++)
+                for (var i = 0; i < pair.Item1; i++)
                 {
-                    EnemyFactories.CreateNew(pair.Item2);
+                    CreatedEnemies.Add(EnemyFactories.CreateNew(pair.Item2));
                 }
             }
         }
@@ -46,7 +49,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         {
             var points = 0;
 
-            foreach (var tuple in Enemies)
+            foreach (var tuple in EnemyCounts)
             {
                 points += tuple.Item1 * tuple.Item2.PointValue();
             }

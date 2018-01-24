@@ -925,12 +925,19 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.Alpha = 0.3f;
             MaximumHealth = 32f;
             Speed = 150f;
-            MineralsRewardedWhenKilled = 12;
             DisplayName = "Abnormal Rabbit";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
             Mass = 0.1f;
+            BaseHealth = 80f;
+            BasePiercingResist = 0.5f;
+            BaseBombardResist = 0.5f;
+            BaseChemicalResist = 0.175f;
+            BaseFrostResist = 0.8f;
+            BaseFireResist = 0.35f;
+            BaseElectricResist = 0.3f;
+            BaseSpeed = 150f;
         }
         public override void ConvertToManuallyUpdated () 
         {

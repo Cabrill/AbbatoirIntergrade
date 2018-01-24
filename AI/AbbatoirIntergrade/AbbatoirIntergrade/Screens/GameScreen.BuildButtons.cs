@@ -24,17 +24,21 @@ namespace AbbatoirIntergrade.Screens
         {
             if (GuiManager.Cursor.WindowPushed is IBuildButton buildButton && buildButton.IsEnabled)
             {
-                selectedObject = null;
+                if (selectedObject is StructurePlacement placement)
+                {
+                    selectedObject = null;
 
-                var newBuilding = buildButton.BuildingFactory.CreateNew(WorldLayer) as BaseStructure;
+                    var newBuilding = buildButton.BuildingFactory.CreateNew(WorldLayer) as BaseStructure;
 
-                newBuilding.Position = BuildMenuInstance.CurrentPlacement.Position;
-                newBuilding.IsBeingPlaced = false;
+                    newBuilding.Position = BuildMenuInstance.CurrentPlacement.Position;
+                    newBuilding.IsBeingPlaced = false;
+                    newBuilding.PlacementOrder = placement.PlacementOrder;
 
-                GuiManager.Cursor.WindowPushed = null;
-                //CurrentGameMode = GameMode.Building;
-                BuildMenuInstance.Hide(didBuild:true);
-                ChangeGameModeToNormal();
+                    GuiManager.Cursor.WindowPushed = null;
+                    //CurrentGameMode = GameMode.Building;
+                    BuildMenuInstance.Hide(didBuild: true);
+                    ChangeGameModeToNormal();
+                }
             }
         }
 
@@ -62,21 +66,32 @@ namespace AbbatoirIntergrade.Screens
         private void AssignGumButtonEvents()
         {
             //Assign buildings to build buttons
-            var listOfTowerTypes = PlayerDataManager.GetAvailableTowers();
-            var listOfTowers = new List<BaseStructure>();
-            var listOfFactories = new List<IEntityFactory>();
+            var listOfAllTowerTypes = GameStateManager.GetAllTowers();
+            var listOfAvailableTowerTypes = PlayerDataManager.GetAvailableTowers();
 
-            foreach (var towerType in listOfTowerTypes)
+            var listOfAllInstantiatedTowers = new List<BaseStructure>();
+
+            var listOfAvailableTowers = new List<BaseStructure>();
+            var listOfAvailableTowerFactories = new List<IEntityFactory>();
+
+            foreach (var towerType in listOfAllTowerTypes)
             {
-                listOfTowers.Add(GetNewObject(towerType) as BaseStructure);
-                listOfFactories.Add(GetFactory(towerType.Name));
+                var towerInstantiation = GetNewObject(towerType) as BaseStructure;
+                MachineLearningManager.LearnMaxTowerValues(towerInstantiation);
+                listOfAllInstantiatedTowers.Add(towerInstantiation);
+
+                if (listOfAvailableTowerTypes.Contains(towerType))
+                {
+                    listOfAvailableTowers.Add(towerInstantiation);
+                    listOfAvailableTowerFactories.Add(GetFactory(towerType.Name));
+                }
             }
 
-            BuildMenuInstance.AssociateTowers(listOfTowers, listOfFactories);
+            BuildMenuInstance.AssociateTowers(listOfAvailableTowers, listOfAvailableTowerFactories);
 
-            for (var i = listOfTowers.Count - 1; i >= 0; i--)
+            for (var i = listOfAllInstantiatedTowers.Count - 1; i >= 0; i--)
             {
-                listOfTowers[i].Destroy();
+                listOfAllInstantiatedTowers[i].Destroy();
             }
 
             ChatBoxInstance.ChatHistoryButtonClick += delegate(object sender, EventArgs args)

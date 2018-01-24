@@ -248,6 +248,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             AttackDamage = 4f;
             SecondsBetweenFiring = 2;
             ProjectileAltitude = 100f;
+            HasSplashDamage = true;
+            SlowsEnemies = true;
         }
         public override void ConvertToManuallyUpdated () 
         {

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="46">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="58">
  <tileset firstgid="1" name="CombinedAssets" tilewidth="128" tileheight="128" tilecount="1024" columns="32">
   <image source="../../../Tilesets/CombinedAssets.png" width="4096" height="4096"/>
   <tile id="124">
    <properties>
     <property name="EntityToCreate" value="StructurePlacement"/>
+    <property name="PlacementOrder" type="int" value="0"/>
    </properties>
   </tile>
   <tile id="360" probability="0.25"/>
@@ -42,11 +43,48 @@
    H4sIAAAAAAAAC2NgoD54DsQvqGwmByN1zdOgsnnUBqAwVKeiG9mp7F9qum2gACMN/MBMwEwA8QSWGnADAAA=
   </data>
  </layer>
- <layer name="EntityLayer" width="20" height="11">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAUgUEslNbQCA2E3Ne2k1Cx0/aSaV4uEibWDFgAAvYWoY3ADAAA=
-  </data>
- </layer>
+ <objectgroup name="EntityLayer">
+  <object id="47" gid="125" x="1022" y="1280" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="50" gid="125" x="790" y="764" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="51" gid="125" x="1670" y="580" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="52" gid="125" x="1888" y="584" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="53" gid="125" x="1850" y="958" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="54" gid="125" x="1852" y="1212" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="55" gid="125" x="466" y="1134" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="56" gid="125" x="484" y="426" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="4"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Water">
   <object id="45" x="1052" y="534">
    <polyline points="0,0 16,-116 556,-112 570,436 34,456 -2,326 -104,318 -118,22 0,4 4,-2"/>

@@ -63,5 +63,12 @@ namespace AbbatoirIntergrade.GumRuntimes
                 StructureSprite.Width = textureWidth / textureHeight * 100;
             }
         }
+
+        public void Disable()
+        {
+            BuildingFactory = null;
+            BuildingType = null;
+            Enabled = false;
+        }
     }
 }

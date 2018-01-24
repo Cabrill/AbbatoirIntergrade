@@ -134,6 +134,7 @@ namespace AbbatoirIntergrade.Screens
         private void InitializeManagers()
         {
             SunlightManager.Initialize(HorizonBoxInstance, currentLevelDateTime);
+            MachineLearningManager.SetTowerList(AllStructuresList);
         }
 
         private void InitializeBaseEntities()
@@ -721,7 +722,7 @@ namespace AbbatoirIntergrade.Screens
 	        {
 	            notification.X = (enemy.X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
 	            notification.Y = (enemy.Y - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
-	            notification.AmountOfIncrease = $"+{enemy.MineralsRewardedWhenKilled}";
+	            //notification.AmountOfIncrease = $"+{enemy.MineralsRewardedWhenKilled}";
                 notification.Play();
 	        }
         }

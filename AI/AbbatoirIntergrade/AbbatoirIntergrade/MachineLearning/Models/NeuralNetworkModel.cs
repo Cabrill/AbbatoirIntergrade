@@ -15,32 +15,28 @@ namespace AbbatoirIntergrade.MachineLearning.Models
         public long LastLearnTime { get; private set; }
         public long LastPredictTime { get; private set; }
 
-        public DeepBeliefNetwork Network;
-        public DeepNeuralNetworkLearning Teacher;
         private const int Epochs = 50;
-        private const int HiddenLayerNodes = 130;
-        private bool hasTrained = false;
 
-        public void Initialize()
+        private DeepBeliefNetwork _network;
+        private DeepNeuralNetworkLearning _teacher;
+        private int _numberOfInputs;
+        private int _hiddenLayerNodes;
+        private bool _hasTrained;
+
+        public void Initialize(int numberOfInputs, int numberOfHiddenNodes)
         {
-            Network = new DeepBeliefNetwork(HiddenLayerNodes, HiddenLayerNodes, 1);
-            new GaussianWeights(Network, 0.1).Randomize();
-            Network.UpdateVisibleWeights();
+            _hasTrained = false;
+            _numberOfInputs = numberOfInputs;
+            _hiddenLayerNodes = numberOfHiddenNodes;
 
-            Teacher = new DeepNeuralNetworkLearning(Network)
+            _network = new DeepBeliefNetwork(_numberOfInputs, _hiddenLayerNodes, 1);
+            new GaussianWeights(_network, 0.1).Randomize();
+            _network.UpdateVisibleWeights();
+
+            _teacher = new DeepNeuralNetworkLearning(_network)
             {
                 Algorithm = (ann, i) => new ParallelResilientBackpropagationLearning(ann),
-                LayerIndex = Network.Layers.Length - 1,
-            };
-        }
-
-        public void Initialize(DeepBeliefNetwork dbn)
-        {
-            Network = dbn;
-            Teacher = new DeepNeuralNetworkLearning(Network)
-            {
-                Algorithm = (ann, i) => new ParallelResilientBackpropagationLearning(ann),
-                LayerIndex = Network.Layers.Length - 1,
+                LayerIndex = _network.Layers.Length - 1,
             };
         }
 
@@ -49,7 +45,7 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             var sw = Stopwatch.StartNew();
 
             // Gather learning data for the layer
-            var layerData = Teacher.GetLayerInput(input);
+            var layerData = _teacher.GetLayerInput(input);
 
             var outputData = new double[outputDouble.Length][];
 
@@ -61,9 +57,9 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             // Start running the learning procedure
             for (var i = 0; i < Epochs; i++)
             {
-                Teacher.RunEpoch(layerData, outputData);
+                _teacher.RunEpoch(layerData, outputData);
             }
-            Network.UpdateVisibleWeights();
+            _network.UpdateVisibleWeights();
 
             sw.Stop();
             LastLearnTime = sw.ElapsedMilliseconds;
@@ -73,7 +69,7 @@ namespace AbbatoirIntergrade.MachineLearning.Models
         {
             var sw = Stopwatch.StartNew();
 
-            var prediction = Network.Compute(input)[0];
+            var prediction = _network.Compute(input)[0];
             sw.Stop();
 
             LastPredictTime = sw.ElapsedMilliseconds;

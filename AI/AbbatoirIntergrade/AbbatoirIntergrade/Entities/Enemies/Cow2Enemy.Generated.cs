@@ -749,12 +749,19 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.AxisAlignedRectangleInstance.Height = 48f;
             MaximumHealth = 32f;
             Speed = 275f;
-            MineralsRewardedWhenKilled = 12;
             DisplayName = "Unusual Cow";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
             Mass = 0.1f;
+            BaseHealth = 100f;
+            BasePiercingResist = 0.2f;
+            BaseBombardResist = 0.325f;
+            BaseChemicalResist = 0.2f;
+            BaseFrostResist = 0.25f;
+            BaseFireResist = 0.125f;
+            BaseElectricResist = 0.05f;
+            BaseSpeed = 300f;
         }
         public override void ConvertToManuallyUpdated () 
         {

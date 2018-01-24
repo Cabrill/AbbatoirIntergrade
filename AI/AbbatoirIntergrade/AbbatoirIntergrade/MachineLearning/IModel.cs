@@ -8,7 +8,7 @@ namespace AbbatoirIntergrade.MachineLearning
 {
     public interface IModel
     {
-        void Initialize();
+        void Initialize(int param1, int param2);
         void LearnAll(double[][] input, double[] outputDouble);
         double Predict(double[] input);
         long LastLearnTime { get; }

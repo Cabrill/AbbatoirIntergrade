@@ -85,18 +85,7 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static List<Type> GetAvailableTowers()
         {
-            var towerList = new List<Type>();
-
-            foreach (var stringTower in Data.AvailableTowers)
-            {
-                var towerType = Type.GetType(stringTower);
-                if (towerType != null)
-                {
-                    towerList.Add(towerType);
-                }
-            }
-
-            return towerList;
+            return Data.AvailableTowers.Select(Type.GetType).Where(towerType => towerType != null).ToList();
         }
 
         public static void RecordChapterResults(string chapterName, int waveReached)

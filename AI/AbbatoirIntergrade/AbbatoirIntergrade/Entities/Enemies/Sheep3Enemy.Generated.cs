@@ -935,12 +935,19 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.Alpha = 0.3f;
             MaximumHealth = 32f;
             Speed = 450f;
-            MineralsRewardedWhenKilled = 12;
             DisplayName = "Sheep Demoness";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
             Mass = 0.1f;
+            BaseHealth = 80f;
+            BasePiercingResist = 0.125f;
+            BaseBombardResist = 0.4f;
+            BaseChemicalResist = 0.45f;
+            BaseFrostResist = 0.4f;
+            BaseFireResist = 0.2f;
+            BaseElectricResist = 0.3f;
+            BaseSpeed = 450f;
         }
         public override void ConvertToManuallyUpdated () 
         {

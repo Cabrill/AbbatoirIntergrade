@@ -925,12 +925,19 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.Alpha = 0.3f;
             MaximumHealth = 32f;
             Speed = 150f;
-            MineralsRewardedWhenKilled = 12;
             DisplayName = "Juggernaut Pig";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
             Mass = 0.1f;
+            BaseHealth = 175f;
+            BasePiercingResist = 0.3f;
+            BaseBombardResist = 0.4f;
+            BaseChemicalResist = 0.55f;
+            BaseFrostResist = 0.4f;
+            BaseFireResist = 0.45f;
+            BaseElectricResist = 0.2f;
+            BaseSpeed = 150f;
         }
         public override void ConvertToManuallyUpdated () 
         {

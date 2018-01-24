@@ -314,6 +314,16 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 return mProjectileAltitude;
             }
         }
+        public int PlacementOrder;
+        public virtual bool HasSplashDamage { get; set; }
+        public virtual bool SlowsEnemies { get; set; }
+        public virtual bool StunsEnemies { get; set; }
+        public bool IsPiercing;
+        public bool IsBombarding;
+        public bool IsChemical;
+        public bool IsElectrical;
+        public bool IsFire;
+        public bool IsFrost;
         public event System.EventHandler BeforeVisibleSet;
         public event System.EventHandler AfterVisibleSet;
         protected bool mVisible = true;

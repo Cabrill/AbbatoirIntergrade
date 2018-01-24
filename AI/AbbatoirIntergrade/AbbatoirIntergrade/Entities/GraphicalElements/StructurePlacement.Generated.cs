@@ -215,6 +215,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
                 SpriteInstance.Alpha = value;
             }
         }
+        public int PlacementOrder;
         public int Index { get; set; }
         public bool Used { get; set; }
         public event System.EventHandler BeforeVisibleSet;

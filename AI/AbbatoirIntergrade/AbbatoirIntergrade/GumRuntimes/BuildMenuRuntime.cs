@@ -49,14 +49,22 @@ namespace AbbatoirIntergrade.GumRuntimes
 
         public void AssociateTowers(List<BaseStructure> listOfTowers, List<IEntityFactory> listOfFactories)
         {
-            for (var i = 0; i < listOfTowers.Count; i++)
+            for (var i = 0; i < 7; i++)
             {
-                var tower = listOfTowers[i];
-                var factory = listOfFactories[i];
                 var button = GetButtonNumber(i);
 
-                button?.UpdateFromStructure(tower, factory);
-                MoreThanFour = (i > 3);
+                if (i < listOfTowers.Count)
+                {
+                    var tower = listOfTowers[i];
+                    var factory = listOfFactories[i];
+
+                    button?.UpdateFromStructure(tower, factory);
+                    MoreThanFour = (i > 3);
+                }
+                else
+                {
+                    button?.Disable();
+                }
             }
 
         }

@@ -199,18 +199,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         }
         public virtual float MaximumHealth { get; set; }
         public virtual float Speed { get; set; }
-        System.Double mMineralsRewardedWhenKilled = 0;
-        public virtual System.Double MineralsRewardedWhenKilled
-        {
-            set
-            {
-                mMineralsRewardedWhenKilled = value;
-            }
-            get
-            {
-                return mMineralsRewardedWhenKilled;
-            }
-        }
         string mDisplayName = "Not Set";
         public virtual string DisplayName
         {
@@ -282,6 +270,20 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 SpriteInstance.Animate = value;
             }
         }
+        public virtual System.Double EffectivePiercingResist { get; set; }
+        public virtual System.Double EffectiveBombardResist { get; set; }
+        public virtual System.Double EffectiveChemicalResist { get; set; }
+        public virtual System.Double EffectiveFrostResist { get; set; }
+        public virtual System.Double EffectiveFireResist { get; set; }
+        public virtual System.Double EffectiveElectricResist { get; set; }
+        public virtual float BaseHealth { get; set; }
+        public virtual float BasePiercingResist { get; set; }
+        public virtual float BaseBombardResist { get; set; }
+        public virtual float BaseChemicalResist { get; set; }
+        public virtual float BaseFrostResist { get; set; }
+        public virtual float BaseFireResist { get; set; }
+        public virtual float BaseElectricResist { get; set; }
+        public virtual float BaseSpeed { get; set; }
         public event System.EventHandler BeforeVisibleSet;
         public event System.EventHandler AfterVisibleSet;
         protected bool mVisible = true;
@@ -569,7 +571,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 RelativeZ = 1f;
             }
             SpriteInstanceFlipHorizontal = false;
-            MineralsRewardedWhenKilled = 0;
             DisplayName = "Not Set";
             IsFlying = false;
             HasLightSource = false;
