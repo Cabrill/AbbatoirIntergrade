@@ -402,7 +402,7 @@
   <objecttype name="FrostProjectile">
     <property name="DamageInflicted" type="float" />
     <property name="HasLightSource" type="bool" default="true" />
-    <property name="Mass" type="float" default="0.05" />
+    <property name="Mass" type="float" default="0.01" />
   </objecttype>
   <objecttype name="PiercingProjectile">
     <property name="DamageInflicted" type="float" />

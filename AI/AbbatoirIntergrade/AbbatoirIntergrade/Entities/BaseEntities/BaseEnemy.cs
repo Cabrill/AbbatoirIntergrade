@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using FlatRedBall;
+using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
@@ -37,6 +38,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	    private float _startingShadowHeight;
 	    private float _startingShadowAlpha;
 	    private float _startingLightScale;
+	    private AnimationChainList spriteAnimationChainList;
+	    private bool IsDrowning => CurrentActionState == Action.Drowning;
 
         protected float _spriteRelativeY;
 
@@ -55,13 +58,16 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 #if DEBUG
 		    if (DebugVariables.ShowDebugShapes)
 		    {
+		        SelfCollisionCircle.Visible = true;
+
                 if (CircleInstance != null) CircleInstance.Visible = true;
-		        if (AxisAlignedRectangleInstance != null) AxisAlignedRectangleInstance.Visible = true;
+                if (AxisAlignedRectangleInstance != null) AxisAlignedRectangleInstance.Visible = true;
 		    }
 		    else
 #endif
 		    {
-		        if (CircleInstance != null) CircleInstance.Visible = false;
+		        SelfCollisionCircle.Visible = false;
+                if (CircleInstance != null) CircleInstance.Visible = false;
 		        if (AxisAlignedRectangleInstance != null) AxisAlignedRectangleInstance.Visible = false;
             }
 
@@ -73,14 +79,20 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		        _startingShadowAlpha = ShadowSprite.Alpha;
 
 		        _spriteRelativeY = SpriteInstance.Height / 2;
-            }
+		        spriteAnimationChainList = SpriteInstance.AnimationChains;
+		    }
+		    SpriteInstance.AnimationChains = spriteAnimationChainList;
 
-		    ShadowSprite.RelativeY = 0;
+            ShadowSprite.RelativeY = 0;
+		    ShadowSprite.Visible = true;
+            
             HasReachedGoal = false;
 
             HealthBar.X = X;
 		    HealthBar.Y = Y;
-            HealthBar.SetRelativeY(SpriteInstance.Height);
+            HealthBar.AttachTo(SpriteInstance);
+            HealthBar.UpdateDependencies(TimeManager.CurrentTime);
+		    HealthBar.RelativeY = SpriteInstance.Height * 3 / 4;
             HealthBar.SetWidth(SpriteInstance.Width);
             HealthBar.Hide();
 
@@ -133,7 +145,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             if (IsDead)
 		    {
-		        PerformDeath();
+                PerformDeath();
 		    }
 		    else if (IsHurt && SpriteInstance.JustCycled)
 		    {
@@ -185,7 +197,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        else 
 	        {
                 HealthBar.Update(HealthRemaining/MaximumHealth);
-	            HealthBar.SetRelativeY(SpriteInstance.Height/2 + Altitude);
             }
         }
 
@@ -207,22 +218,26 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             projectile?.PlayHitTargetSound();
 
+            var shouldBeHurt = true;
+
 	        switch (projectile.DamageType)
 	        {
 	            case DamageTypes.Frost:
 	                _frozenDurationSeconds = projectile.StatusEffectSeconds * effectiveMultiplier;
-	                break;
+	                shouldBeHurt = false;
+                    break;
 	            case DamageTypes.Chemical:
 	                _poisonedDurationSeconds = projectile.StatusEffectSeconds * effectiveMultiplier;
 	                _poisonDamagePerSecond = projectile.DamageInflicted * 0.1 * effectiveMultiplier;
+	                shouldBeHurt = false;
                     break;
 	            case DamageTypes.Electrical:
 	                _stunnedDurationSeconds = projectile.StatusEffectSeconds * effectiveMultiplier;
-	                break;
+                    break;
 	        }
 	        UpdateStatusEffect(justApplied: true);
 
-	        if (!IsDead)
+	        if (!IsDead && shouldBeHurt)
 	        {
                 CurrentActionState = Action.Hurt;
                 SpriteInstance.UpdateToCurrentAnimationFrame();
@@ -291,6 +306,16 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	        FrozenParticles.TimedEmission = IsFrozen;
 	        PoisonedParticles.TimedEmission = IsPoisoned;
+
+	        if (Speed <= 0.01f)
+	        {
+	            SpriteInstanceAnimate = false;
+	        }
+	        else
+	        {
+	            SpriteInstanceAnimate = true;
+	            SpriteInstance.AnimationSpeed = Speed / BaseSpeed;
+	        }
             
 	        if (IsPoisoned && !justApplied)
 	        {
@@ -300,7 +325,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	    private void PerformDeath()
 	    {
-            if (CurrentActionState != Action.Dying)
+            if (!IsDrowning && CurrentActionState != Action.Dying)
 	        {
 	            CurrentActionState = Action.Dying;
 	        }
@@ -391,6 +416,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	    public void HandleDrowning()
 	    {
+	        SpriteInstance.AnimationChains = ParticleAnimationsChainList;
+	        ShadowSprite.Visible = false;
+	        SpriteInstance.RelativeY = 0;
+            CurrentActionState = Action.Drowning;
+	        _frozenDurationSeconds = 0;
+	        _poisonedDurationSeconds = 0;
 	        HealthRemaining = 0;
             Velocity = Vector3.Zero;
 	    }

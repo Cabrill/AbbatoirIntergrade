@@ -39,13 +39,6 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
 	        BarSprite.Height = newHeight;
 	    }
 
-	    public void SetRelativeY(float relativeY)
-	    {
-	        BackgroundSprite.RelativeY = relativeY + Height;
-	        FrameSprite.RelativeY = relativeY + Height;
-	        BarSprite.RelativeY = relativeY + Height;
-        }
-
 	    public void Update(double newPct)
 	    {
 	        if (!FrameSprite.Visible) Show();

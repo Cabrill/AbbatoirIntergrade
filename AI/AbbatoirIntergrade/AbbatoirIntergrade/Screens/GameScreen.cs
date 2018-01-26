@@ -212,6 +212,14 @@ namespace AbbatoirIntergrade.Screens
             if (DebugVariables.ShowDebugShapes)
             {
                 ShapeManager.AddPolygon(Pathing);
+                if (WaterShapes != null)
+                {
+                    foreach (var shape in WaterShapes)
+                    {
+                        ShapeManager.AddPolygon(shape);
+                        shape.Visible = true;
+                    }
+                }
             }
 #else
             Pathing.Visible = false;
@@ -319,8 +327,7 @@ namespace AbbatoirIntergrade.Screens
 
 	                if (enemy.IsFlying == otherEnemy.IsFlying || (enemy.IsJumper && otherEnemy.IsJumper && enemy.Altitude > 0 && otherEnemy.IsJumper && otherEnemy.Altitude > 0))
 	                {
-	                    enemy.CollideAgainstBounce(otherEnemy, enemy.SpriteInstance.Width, otherEnemy.SpriteInstance.Width,
-	                        elasticity: 0.1f);
+	                    enemy.SelfCollisionCircle.CollideAgainstMove(otherEnemy.SelfCollisionCircle, enemy.Mass, otherEnemy.Mass);
 	                }
 	            }
 
@@ -362,7 +369,7 @@ namespace AbbatoirIntergrade.Screens
 	            if (enemy.Altitude > 0) continue;
 	            foreach (var shape in WaterShapes)
 	            {
-	                if (enemy.CollideAgainst(shape))
+	                if (shape.IsPointInside(ref enemy.Position))
 	                {
 	                    enemy.HandleDrowning();
 	                }

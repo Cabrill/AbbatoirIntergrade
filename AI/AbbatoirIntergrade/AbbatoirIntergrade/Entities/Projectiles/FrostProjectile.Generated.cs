@@ -646,7 +646,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.CircleInstance.Color = Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = false;
             HasLightSource = true;
-            Mass = 0.05f;
+            Mass = 0.01f;
         }
         public override void ConvertToManuallyUpdated () 
         {

@@ -4,5 +4,6 @@
   <AnimationChainSettings />
   <ExpandedNode>PoisonParticle</ExpandedNode>
   <ExpandedNode>FrozenParticle</ExpandedNode>
+  <ExpandedNode>Drowning</ExpandedNode>
   <UnitType>Pixel</UnitType>
 </AESettingsSave>

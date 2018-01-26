@@ -36,14 +36,15 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             Dying = 2, 
             Hurt = 3, 
             Running = 4, 
-            Standing = 5
+            Standing = 5, 
+            Drowning = 6
         }
         protected int mCurrentActionState = 0;
         public Entities.BaseEntities.BaseEnemy.Action CurrentActionState
         {
             get
             {
-                if (mCurrentActionState >= 0 && mCurrentActionState <= 5)
+                if (mCurrentActionState >= 0 && mCurrentActionState <= 6)
                 {
                     return (Action)mCurrentActionState;
                 }
@@ -77,6 +78,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     case  Action.Standing:
                         SpriteInstanceCurrentChainName = "";
                         Drag = 20f;
+                        break;
+                    case  Action.Drowning:
+                        SpriteInstanceCurrentChainName = "Drowning";
                         break;
                 }
             }
@@ -229,6 +233,18 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         }
         protected FlatRedBall.Graphics.Particle.Emitter PoisonedParticles;
         protected FlatRedBall.Graphics.Particle.Emitter FrozenParticles;
+        private FlatRedBall.Math.Geometry.Circle mSelfCollisionCircle;
+        public FlatRedBall.Math.Geometry.Circle SelfCollisionCircle
+        {
+            get
+            {
+                return mSelfCollisionCircle;
+            }
+            private set
+            {
+                mSelfCollisionCircle = value;
+            }
+        }
         public bool SpriteInstanceFlipHorizontal
         {
             get
@@ -468,6 +484,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             HealthBar.Name = "HealthBar";
             PoisonedParticles = ParticleEmitterListFile.FindByName("PoisonedParticles").Clone();
             FrozenParticles = ParticleEmitterListFile.FindByName("FrozenParticles").Clone();
+            mSelfCollisionCircle = new FlatRedBall.Math.Geometry.Circle();
+            mSelfCollisionCircle.Name = "mSelfCollisionCircle";
             
             PostInitialize();
             if (addToManagers)
@@ -483,6 +501,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             HealthBar.ReAddToManagers(LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddEmitter(PoisonedParticles, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddEmitter(FrozenParticles, LayerProvidedByContainer);
+            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mSelfCollisionCircle, LayerProvidedByContainer);
         }
         public virtual void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
@@ -493,6 +512,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             HealthBar.AddToManagers(LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddEmitter(PoisonedParticles, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddEmitter(FrozenParticles, LayerProvidedByContainer);
+            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mSelfCollisionCircle, LayerProvidedByContainer);
             AddToManagersBottomUp(layerToAddTo);
             CustomInitialize();
         }
@@ -525,6 +545,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (FrozenParticles != null)
             {
                 FlatRedBall.SpriteManager.RemoveEmitterOneWay(FrozenParticles);
+            }
+            if (SelfCollisionCircle != null)
+            {
+                FlatRedBall.Math.Geometry.ShapeManager.Remove(SelfCollisionCircle);
             }
             FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
@@ -652,6 +676,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 FrozenParticles.CopyAbsoluteToRelative();
                 FrozenParticles.AttachTo(this, false);
             }
+            if (mSelfCollisionCircle.Parent == null)
+            {
+                mSelfCollisionCircle.CopyAbsoluteToRelative();
+                mSelfCollisionCircle.AttachTo(this, false);
+            }
+            SelfCollisionCircle.Radius = 16f;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             mGeneratedCollision.AxisAlignedRectangles.AddOneWay(mAxisAlignedRectangleInstance);
@@ -676,6 +706,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (FrozenParticles != null)
             {
                 FlatRedBall.SpriteManager.RemoveEmitterOneWay(FrozenParticles);
+            }
+            if (SelfCollisionCircle != null)
+            {
+                FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(SelfCollisionCircle);
             }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
         }
@@ -732,6 +766,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             HealthBar.BarSpriteRed = 0f;
             HealthBar.BarSpriteGreen = 1f;
             HealthBar.BarSpriteBlue = 0f;
+            SelfCollisionCircle.Radius = 16f;
             if (Parent == null)
             {
                 Z = 1f;
@@ -839,6 +874,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     break;
                 case  Action.Standing:
                     break;
+                case  Action.Drowning:
+                    break;
             }
             var instruction = new FlatRedBall.Instructions.DelegateInstruction<Action>(StopStateInterpolation, stateToInterpolateTo);
             instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
@@ -856,6 +893,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 case  Action.Running:
                     break;
                 case  Action.Standing:
+                    break;
+                case  Action.Drowning:
                     break;
             }
             CurrentActionState = stateToStop;
@@ -905,6 +944,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     }
                     DragFirstValue = 20f;
                     break;
+                case  Action.Drowning:
+                    if (interpolationValue < 1)
+                    {
+                        this.SpriteInstanceCurrentChainName = "Drowning";
+                    }
+                    break;
             }
             switch(secondState)
             {
@@ -939,6 +984,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                         this.SpriteInstanceCurrentChainName = "";
                     }
                     DragSecondValue = 20f;
+                    break;
+                case  Action.Drowning:
+                    if (interpolationValue >= 1)
+                    {
+                        this.SpriteInstanceCurrentChainName = "Drowning";
+                    }
                     break;
             }
             if (setDrag)
@@ -1224,6 +1275,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                         object throwaway = "";
                     }
                     break;
+                case  Action.Drowning:
+                    {
+                        object throwaway = "Drowning";
+                    }
+                    break;
             }
         }
         public static void PreloadStateContent (Direction state, string contentManagerName) 
@@ -1365,6 +1421,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(PoisonedParticles);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(FrozenParticles);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(SelfCollisionCircle);
         }
         public virtual void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {
@@ -1395,6 +1452,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 layerToRemoveFrom.Remove(AxisAlignedRectangleInstance);
             }
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(AxisAlignedRectangleInstance, layerToMoveTo);
+            if (layerToRemoveFrom != null)
+            {
+                layerToRemoveFrom.Remove(SelfCollisionCircle);
+            }
+            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(SelfCollisionCircle, layerToMoveTo);
             LayerProvidedByContainer = layerToMoveTo;
         }
     }
