@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AnimationChainArraySave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FileRelativeTextures>true</FileRelativeTextures>
+  <TimeMeasurementUnit>Undefined</TimeMeasurementUnit>
+  <CoordinateType>Pixel</CoordinateType>
+  <AnimationChain>
+    <Name>PoisonParticle</Name>
+    <Frame>
+      <TextureName>../../Projectiles/AllParticles.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>1982</LeftCoordinate>
+      <RightCoordinate>2036</RightCoordinate>
+      <TopCoordinate>958</TopCoordinate>
+      <BottomCoordinate>1012</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>FrozenParticle</Name>
+    <Frame>
+      <TextureName>../../Projectiles/AllParticles.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>1485</LeftCoordinate>
+      <RightCoordinate>1540</RightCoordinate>
+      <TopCoordinate>1361</TopCoordinate>
+      <BottomCoordinate>1425</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+</AnimationChainArraySave>

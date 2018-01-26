@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using FlatRedBall.Math.Geometry;
+using FlatRedBall.Graphics.Particle;
 namespace AbbatoirIntergrade.Entities.BaseEntities
 {
     public partial class BaseEnemy : FlatRedBall.PositionedObject, FlatRedBall.Graphics.IDestroyable, FlatRedBall.Graphics.IVisible, FlatRedBall.Gui.IClickable, FlatRedBall.Math.Geometry.ICollidable
@@ -184,6 +185,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         protected static Microsoft.Xna.Framework.Graphics.Texture2D AllAssetsSheet;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D animation_sheet;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D AllParticles;
+        protected static FlatRedBall.Graphics.Particle.EmitterList ParticleEmitterListFile;
+        protected static FlatRedBall.Graphics.Animation.AnimationChainList ParticleAnimationsChainList;
         
         protected FlatRedBall.Sprite mSpriteInstance;
         public FlatRedBall.Sprite SpriteInstance
@@ -224,6 +227,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 mAxisAlignedRectangleInstance = value;
             }
         }
+        protected FlatRedBall.Graphics.Particle.Emitter PoisonedParticles;
+        protected FlatRedBall.Graphics.Particle.Emitter FrozenParticles;
         public bool SpriteInstanceFlipHorizontal
         {
             get
@@ -461,6 +466,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             ShadowSprite.Name = "ShadowSprite";
             HealthBar = new AbbatoirIntergrade.Entities.GraphicalElements.ResourceBar(ContentManagerName, false);
             HealthBar.Name = "HealthBar";
+            PoisonedParticles = ParticleEmitterListFile.FindByName("PoisonedParticles").Clone();
+            FrozenParticles = ParticleEmitterListFile.FindByName("FrozenParticles").Clone();
             
             PostInitialize();
             if (addToManagers)
@@ -474,6 +481,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.SpriteManager.AddPositionedObject(this);
             FlatRedBall.SpriteManager.AddToLayer(ShadowSprite, LayerProvidedByContainer);
             HealthBar.ReAddToManagers(LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddEmitter(PoisonedParticles, LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddEmitter(FrozenParticles, LayerProvidedByContainer);
         }
         public virtual void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
@@ -482,6 +491,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.SpriteManager.AddPositionedObject(this);
             FlatRedBall.SpriteManager.AddToLayer(ShadowSprite, LayerProvidedByContainer);
             HealthBar.AddToManagers(LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddEmitter(PoisonedParticles, LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddEmitter(FrozenParticles, LayerProvidedByContainer);
             AddToManagersBottomUp(layerToAddTo);
             CustomInitialize();
         }
@@ -490,6 +501,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             mIsPaused = false;
             
             HealthBar.Activity();
+            PoisonedParticles.TimedEmit();
+            FrozenParticles.TimedEmit();
             CustomActivity();
         }
         public virtual void Destroy () 
@@ -504,6 +517,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 HealthBar.Destroy();
                 HealthBar.Detach();
+            }
+            if (PoisonedParticles != null)
+            {
+                FlatRedBall.SpriteManager.RemoveEmitterOneWay(PoisonedParticles);
+            }
+            if (FrozenParticles != null)
+            {
+                FlatRedBall.SpriteManager.RemoveEmitterOneWay(FrozenParticles);
             }
             FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
@@ -538,6 +559,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 ShadowSprite.CopyAbsoluteToRelative();
                 ShadowSprite.AttachTo(this, false);
+            }
+            if (ShadowSprite.Parent == null)
+            {
+                ShadowSprite.X = 0.9120339f;
+            }
+            else
+            {
+                ShadowSprite.RelativeX = 0.9120339f;
+            }
+            if (ShadowSprite.Parent == null)
+            {
+                ShadowSprite.Y = 0f;
+            }
+            else
+            {
+                ShadowSprite.RelativeY = 0f;
             }
             if (ShadowSprite.Parent == null)
             {
@@ -605,6 +642,16 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 AxisAlignedRectangleInstance.Width = 0f;
                 AxisAlignedRectangleInstance.Height = 0f;
             }
+            if (PoisonedParticles.Parent == null)
+            {
+                PoisonedParticles.CopyAbsoluteToRelative();
+                PoisonedParticles.AttachTo(this, false);
+            }
+            if (FrozenParticles.Parent == null)
+            {
+                FrozenParticles.CopyAbsoluteToRelative();
+                FrozenParticles.AttachTo(this, false);
+            }
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             mGeneratedCollision.AxisAlignedRectangles.AddOneWay(mAxisAlignedRectangleInstance);
@@ -622,6 +669,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 FlatRedBall.SpriteManager.RemoveSpriteOneWay(ShadowSprite);
             }
             HealthBar.RemoveFromManagers();
+            if (PoisonedParticles != null)
+            {
+                FlatRedBall.SpriteManager.RemoveEmitterOneWay(PoisonedParticles);
+            }
+            if (FrozenParticles != null)
+            {
+                FlatRedBall.SpriteManager.RemoveEmitterOneWay(FrozenParticles);
+            }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 
@@ -629,6 +684,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (callOnContainedElements)
             {
                 HealthBar.AssignCustomVariables(true);
+            }
+            if (ShadowSprite.Parent == null)
+            {
+                ShadowSprite.X = 0.9120339f;
+            }
+            else
+            {
+                ShadowSprite.RelativeX = 0.9120339f;
+            }
+            if (ShadowSprite.Parent == null)
+            {
+                ShadowSprite.Y = 0f;
+            }
+            else
+            {
+                ShadowSprite.RelativeY = 0f;
             }
             if (ShadowSprite.Parent == null)
             {
@@ -694,6 +765,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 FlatRedBall.SpriteManager.ConvertToManuallyUpdated(SpriteInstance);
             }
+            if (CircleInstance != null)
+            {
+            }
             FlatRedBall.SpriteManager.ConvertToManuallyUpdated(ShadowSprite);
             if (LightSprite != null)
             {
@@ -743,6 +817,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 AllAssetsSheet = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/allassetssheet.png", ContentManagerName);
                 animation_sheet = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/animation_sheet.png", ContentManagerName);
                 AllParticles = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/projectiles/allparticles.png", ContentManagerName);
+                ParticleEmitterListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Particle.EmitterList>(@"content/entities/baseentities/baseenemy/particleemitterlistfile.emix", ContentManagerName);
+                ParticleAnimationsChainList = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/baseentities/baseenemy/particleanimationschainlist.achx", ContentManagerName);
             }
             AbbatoirIntergrade.Entities.GraphicalElements.ResourceBar.LoadStaticContent(contentManagerName);
             CustomLoadStaticContent(contentManagerName);
@@ -1187,6 +1263,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return animation_sheet;
                 case  "AllParticles":
                     return AllParticles;
+                case  "ParticleEmitterListFile":
+                    return ParticleEmitterListFile;
+                case  "ParticleAnimationsChainList":
+                    return ParticleAnimationsChainList;
             }
             return null;
         }
@@ -1200,6 +1280,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return animation_sheet;
                 case  "AllParticles":
                     return AllParticles;
+                case  "ParticleEmitterListFile":
+                    return ParticleEmitterListFile;
+                case  "ParticleAnimationsChainList":
+                    return ParticleAnimationsChainList;
             }
             return null;
         }
@@ -1213,6 +1297,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return animation_sheet;
                 case  "AllParticles":
                     return AllParticles;
+                case  "ParticleEmitterListFile":
+                    return ParticleEmitterListFile;
+                case  "ParticleAnimationsChainList":
+                    return ParticleAnimationsChainList;
             }
             return null;
         }
@@ -1275,6 +1363,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(AxisAlignedRectangleInstance);
             }
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(PoisonedParticles);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(FrozenParticles);
         }
         public virtual void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {

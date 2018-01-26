@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using FlatRedBall.Math.Geometry;
+using FlatRedBall.Graphics.Particle;
 namespace AbbatoirIntergrade.Entities.Enemies
 {
     public partial class Chicken1Enemy : AbbatoirIntergrade.Entities.BaseEntities.BaseEnemy, FlatRedBall.Graphics.IDestroyable, FlatRedBall.Performance.IPoolable, FlatRedBall.Graphics.IVisible, FlatRedBall.Math.Geometry.ICollidable
@@ -589,6 +590,16 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
             base.ShadowSprite.Alpha = 0.3f;
+            if (PoisonedParticles.Parent == null)
+            {
+                PoisonedParticles.CopyAbsoluteToRelative();
+                PoisonedParticles.AttachTo(this, false);
+            }
+            if (FrozenParticles.Parent == null)
+            {
+                FrozenParticles.CopyAbsoluteToRelative();
+                FrozenParticles.AttachTo(this, false);
+            }
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
@@ -1097,6 +1108,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(CircleInstance);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(LightSprite);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(ShadowSprite);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(PoisonedParticles);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(FrozenParticles);
         }
         public override void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {

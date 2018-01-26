@@ -91,6 +91,17 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		    _frozenDurationSeconds = 0;
 		    Speed = BaseSpeed;
 
+		    PoisonedParticles.ScaleX = SpriteInstance.Width/2;
+		    PoisonedParticles.ScaleY = SpriteInstance.Height / 2;
+		    PoisonedParticles.RelativeY = SpriteInstance.Height / 2;
+		    PoisonedParticles.TimedEmission = false;
+
+		    FrozenParticles.ScaleX = SpriteInstance.Width / 2;
+		    FrozenParticles.ScaleY = SpriteInstance.Height / 2;
+		    FrozenParticles.RelativeY = SpriteInstance.Height / 2;
+		    FrozenParticles.TimedEmission = false;
+
+
             UpdateAnimation();
 		}
 
@@ -256,7 +267,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	            CurrentStatusState = Status.FrozenAndPoisoned;
 	            Speed = BaseSpeed * (1 - (float)(GetEffectiveMultiplier(DamageTypes.Frost) * 0.8 +
 	                                     GetEffectiveMultiplier(DamageTypes.Chemical) * 0.2));
-
+                
 	        }
             else if (IsFrozen)
 	        {
@@ -278,6 +289,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	            Speed = BaseSpeed;
 	        }
 
+	        FrozenParticles.TimedEmission = IsFrozen;
+	        PoisonedParticles.TimedEmission = IsPoisoned;
+            
 	        if (IsPoisoned && !justApplied)
 	        {
 	            TakeDamage(_poisonDamagePerSecond * TimeManager.SecondDifference);
@@ -362,8 +376,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 HealthBar.RelativePosition = Vector3.Zero;
 	        }
 
+	        PoisonedParticles.LayerToEmitOn = worldLayer;
+	        FrozenParticles.LayerToEmitOn = worldLayer;
             //MoveToLayer(worldLayer);
-	        HealthBar.MoveToLayer(hudLayer);
+            HealthBar.MoveToLayer(hudLayer);
             SpriteManager.AddToLayer(SpriteInstance, worldLayer);
             SpriteManager.AddToLayer(LightSprite, darknessLayer);
 	        SpriteManager.AddToLayer(ShadowSprite, worldLayer);

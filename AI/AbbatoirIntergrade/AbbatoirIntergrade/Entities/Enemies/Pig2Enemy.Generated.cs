@@ -20,6 +20,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using FlatRedBall.Math.Geometry;
+using FlatRedBall.Graphics.Particle;
 namespace AbbatoirIntergrade.Entities.Enemies
 {
     public partial class Pig2Enemy : AbbatoirIntergrade.Entities.BaseEntities.BaseEnemy, FlatRedBall.Graphics.IDestroyable, FlatRedBall.Performance.IPoolable, FlatRedBall.Graphics.IVisible, FlatRedBall.Gui.IClickable, FlatRedBall.Math.Geometry.ICollidable
@@ -480,6 +481,16 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             base.AxisAlignedRectangleInstance.Width = 32f;
             base.AxisAlignedRectangleInstance.Height = 32f;
+            if (PoisonedParticles.Parent == null)
+            {
+                PoisonedParticles.CopyAbsoluteToRelative();
+                PoisonedParticles.AttachTo(this, false);
+            }
+            if (FrozenParticles.Parent == null)
+            {
+                FrozenParticles.CopyAbsoluteToRelative();
+                FrozenParticles.AttachTo(this, false);
+            }
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.AxisAlignedRectangles.AddOneWay(mAxisAlignedRectangleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
@@ -926,6 +937,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(LightSprite);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(ShadowSprite);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(AxisAlignedRectangleInstance);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(PoisonedParticles);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(FrozenParticles);
         }
         public override void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {

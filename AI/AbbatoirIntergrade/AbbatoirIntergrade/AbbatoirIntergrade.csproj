@@ -522,6 +522,14 @@
       <Name>darknessshader</Name>
       <Link>content\screens\gamescreen\effects\darknessshader.xnb</Link>
     </None>
+    <None Include="content\entities\baseentities\baseenemy\particleanimationschainlist.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ParticleAnimationsChainList</Name>
+    </None>
+    <None Include="content\entities\baseentities\baseenemy\particleemitterlistfile.emix">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ParticleEmitterListFile</Name>
+    </None>
     <None Include="content\entities\baseentities\baseplayerprojectile\baseprojectilelightanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>BaseProjectileLightAnimationChainListFile</Name>
