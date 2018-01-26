@@ -434,7 +434,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             float altitudeDifference = -projectile.Altitude;
             if (!(projectile is CannonProjectile))
             {
-                altitudeDifference += targetEnemy.Altitude + (targetEnemy.SpriteInstance.Height / 2);
+                altitudeDifference += targetEnemy.Altitude;// + (targetEnemy.SpriteInstance.Height / 2);
             }
 
             var altitudeVelocity = (altitudeDifference / _timeToTravel) - ((projectile.GravityDrag * _timeToTravel) / 2);

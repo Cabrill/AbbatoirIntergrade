@@ -27,6 +27,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         {
             //if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = Laser_Ground.CreateInstance();
             //if (HitTargetSound == null || HitTargetSound.IsDisposed) HitTargetSound = Laser_Hit.CreateInstance();
+            DamageType = DamageTypes.Piercing;
         }
 
 	    public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
@@ -58,6 +59,8 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                 }
 
 	            X = impactSite;
+
+                AttachTo(enemy,true);
 	        }
 
 	        var duration = SpriteInstance.AnimationChains["Impact"].TotalLength;

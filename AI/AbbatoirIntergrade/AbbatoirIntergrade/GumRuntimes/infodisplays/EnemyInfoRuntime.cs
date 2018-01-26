@@ -34,7 +34,7 @@ namespace AbbatoirIntergrade.GumRuntimes
                 Y = MathHelper.Clamp(newY, -minMaxY, minMaxY);
 
                 EnemyName = enemy.DisplayName;
-                EnemyHealth = $"{enemy.HealthRemaining} / {enemy.MaximumHealth}";
+                EnemyHealth = $"{enemy.HealthRemaining:##0} / {enemy.MaximumHealth}";
             }
         }
 

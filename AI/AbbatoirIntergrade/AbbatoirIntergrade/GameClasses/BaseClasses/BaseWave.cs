@@ -19,6 +19,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         {
             EnemyCounts = enemyCounts;
             EnemyTypes = EnemyCounts.Select(t => t.Item2).Distinct().ToList();
+            CreatedEnemies = new List<BaseEnemy>();
         }
 
         public void CreateEnemies()

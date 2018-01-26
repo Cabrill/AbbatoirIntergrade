@@ -2,9 +2,8 @@
 <map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="58">
  <tileset firstgid="1" name="CombinedAssets" tilewidth="128" tileheight="128" tilecount="1024" columns="32">
   <image source="../../../Tilesets/CombinedAssets.png" width="4096" height="4096"/>
-  <tile id="124">
+  <tile id="124" type="StructurePlacement">
    <properties>
-    <property name="EntityToCreate" value="StructurePlacement"/>
     <property name="PlacementOrder" type="int" value="0"/>
    </properties>
   </tile>
@@ -49,7 +48,7 @@
     <property name="PlacementOrder" type="int" value="2"/>
    </properties>
   </object>
-  <object id="50" gid="125" x="790" y="764" width="128" height="128">
+  <object id="50" type="StructurePlacement" gid="125" x="790" y="764" width="128" height="128">
    <properties>
     <property name="PlacementOrder" type="int" value="3"/>
    </properties>

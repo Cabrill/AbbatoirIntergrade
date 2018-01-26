@@ -20,6 +20,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	    public float Altitude { get; set; }
 	    public float AltitudeVelocity { get; set; }
         public DamageTypes DamageType { get; protected set; }
+	    public double StatusEffectSeconds;
 
 	    private float _startingLightScale;
 	    private float _startingCircleRadius;
@@ -66,6 +67,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		    Visible = true;
 
             CurrentState = VariableState.Flying;
+            Detach();
 		}
 
 	    private void CustomActivity()
@@ -137,9 +139,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	    {
 	        CurrentState = VariableState.Impact;
             UpdateAnimation();
-            Velocity = Vector3.Zero;
 	        CustomHandleImpact(enemy);
-	    }
+	        Velocity = Vector3.Zero;
+        }
 
 	    protected virtual void CustomHandleImpact(BaseEnemy enemy = null)
 	    {

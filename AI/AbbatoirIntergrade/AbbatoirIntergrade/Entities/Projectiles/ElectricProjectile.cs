@@ -25,7 +25,9 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 		{
 		    //if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = TallLaser_Hit.CreateInstance();
 		    //if (HitTargetSound == null || HitTargetSound.IsDisposed) HitTargetSound = TallLaser_Hit.CreateInstance();
-        }
+            DamageType = DamageTypes.Electrical;
+		    StatusEffectSeconds = 1;
+		}
 
         private void CustomActivity()
 		{

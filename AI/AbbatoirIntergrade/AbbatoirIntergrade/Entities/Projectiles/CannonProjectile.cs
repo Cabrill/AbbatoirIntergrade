@@ -32,6 +32,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 		    circleRadius = CircleInstance.Radius;
             GravityDrag = -75f;
 		    IsOnlySmoke = false;
+            DamageType = DamageTypes.Piercing;
 		}
 
 	    protected  override void CustomHandleImpact(BaseEnemy enemy = null)

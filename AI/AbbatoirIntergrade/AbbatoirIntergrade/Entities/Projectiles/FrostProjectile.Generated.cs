@@ -346,14 +346,13 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.AnimationChains = BaseProjectileLightAnimationChainListFile;
             base.LightOrShadowSprite.CurrentChainName = "Light_Shot";
             #if FRB_MDX
-            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Add;
+            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
-            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Add;
+            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
-            base.LightOrShadowSprite.Red = 0.1f;
-            base.LightOrShadowSprite.Green = 0.3f;
+            base.LightOrShadowSprite.Red = 0.3f;
+            base.LightOrShadowSprite.Green = 0.5f;
             base.LightOrShadowSprite.Blue = 1f;
-            base.LightOrShadowSprite.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (SpriteInstance.Parent == null)
             {
@@ -420,14 +419,13 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.AnimationChains = BaseProjectileLightAnimationChainListFile;
             base.LightOrShadowSprite.CurrentChainName = "Light_Shot";
             #if FRB_MDX
-            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Add;
+            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
-            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Add;
+            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
-            base.LightOrShadowSprite.Red = 0.1f;
-            base.LightOrShadowSprite.Green = 0.3f;
+            base.LightOrShadowSprite.Red = 0.3f;
+            base.LightOrShadowSprite.Green = 0.5f;
             base.LightOrShadowSprite.Blue = 1f;
-            base.LightOrShadowSprite.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (LightOrShadowSprite.Parent == null)
             {

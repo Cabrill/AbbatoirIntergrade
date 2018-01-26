@@ -46,11 +46,11 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
 	        BarSprite.RelativeY = relativeY + Height;
         }
 
-	    public void Update(float newPct)
+	    public void Update(double newPct)
 	    {
 	        if (!FrameSprite.Visible) Show();
 
-	        BarSprite.Width = Math.Max(0.001f,BackgroundSprite.Width * newPct);
+	        BarSprite.Width = (float)Math.Max(0.001,BackgroundSprite.Width * newPct);
 	        BarSprite.RelativeX = (BarSprite.Width - BackgroundSprite.Width)/2;
 	    }
 

@@ -20,8 +20,9 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         /// </summary>
 		private void CustomInitialize()
 		{
-
-
+            DamageType = DamageTypes.Frost;
+		    StatusEffectSeconds = 2;
+		    RotationZVelocity = FlatRedBallServices.Random.Between(5, 10);
 		}
 
 		private void CustomActivity()

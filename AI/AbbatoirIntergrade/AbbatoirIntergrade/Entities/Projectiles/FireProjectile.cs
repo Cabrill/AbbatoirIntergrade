@@ -20,7 +20,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         /// </summary>
 		private void CustomInitialize()
 		{
-
+            DamageType = DamageTypes.Fire;
 
 		}
 

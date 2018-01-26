@@ -119,6 +119,65 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 }
             }
         }
+        public enum Status
+        {
+            Uninitialized = 0, //This exists so that the first set call actually does something
+            Unknown = 1, //This exists so that if the entity is actually a child entity and has set a child state, you will get this
+            Normal = 2, 
+            Frozen = 3, 
+            Poisoned = 4, 
+            FrozenAndPoisoned = 5
+        }
+        protected int mCurrentStatusState = 0;
+        public Entities.BaseEntities.BaseEnemy.Status CurrentStatusState
+        {
+            get
+            {
+                if (mCurrentStatusState >= 0 && mCurrentStatusState <= 5)
+                {
+                    return (Status)mCurrentStatusState;
+                }
+                else
+                {
+                    return Status.Unknown;
+                }
+            }
+            set
+            {
+                mCurrentStatusState = (int)value;
+                switch(CurrentStatusState)
+                {
+                    case  Status.Uninitialized:
+                        break;
+                    case  Status.Unknown:
+                        break;
+                    case  Status.Normal:
+                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
+                        SpriteInstanceRed = 1f;
+                        SpriteInstanceGreen = 1f;
+                        SpriteInstanceBlue = 1f;
+                        break;
+                    case  Status.Frozen:
+                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                        SpriteInstanceRed = 0.5f;
+                        SpriteInstanceGreen = 0.9f;
+                        SpriteInstanceBlue = 1f;
+                        break;
+                    case  Status.Poisoned:
+                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                        SpriteInstanceRed = 0.5f;
+                        SpriteInstanceGreen = 1f;
+                        SpriteInstanceBlue = 0.3f;
+                        break;
+                    case  Status.FrozenAndPoisoned:
+                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                        SpriteInstanceRed = 0f;
+                        SpriteInstanceGreen = 1f;
+                        SpriteInstanceBlue = 0.8f;
+                        break;
+                }
+            }
+        }
         static object mLockObject = new object();
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
@@ -284,6 +343,50 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         public virtual float BaseFireResist { get; set; }
         public virtual float BaseElectricResist { get; set; }
         public virtual float BaseSpeed { get; set; }
+        public FlatRedBall.Graphics.ColorOperation SpriteInstanceColorOperation
+        {
+            get
+            {
+                return SpriteInstance.ColorOperation;
+            }
+            set
+            {
+                SpriteInstance.ColorOperation = value;
+            }
+        }
+        public float SpriteInstanceRed
+        {
+            get
+            {
+                return SpriteInstance.Red;
+            }
+            set
+            {
+                SpriteInstance.Red = value;
+            }
+        }
+        public float SpriteInstanceGreen
+        {
+            get
+            {
+                return SpriteInstance.Green;
+            }
+            set
+            {
+                SpriteInstance.Green = value;
+            }
+        }
+        public float SpriteInstanceBlue
+        {
+            get
+            {
+                return SpriteInstance.Blue;
+            }
+            set
+            {
+                SpriteInstance.Blue = value;
+            }
+        }
         public event System.EventHandler BeforeVisibleSet;
         public event System.EventHandler AfterVisibleSet;
         protected bool mVisible = true;
@@ -578,6 +681,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             Mass = 0.1f;
             SpriteInstanceAnimate = true;
             Drag = 0f;
+            SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
+            SpriteInstanceRed = 0f;
+            SpriteInstanceGreen = 0f;
+            SpriteInstanceBlue = 0f;
         }
         public virtual void ConvertToManuallyUpdated () 
         {
@@ -843,6 +950,179 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 mCurrentDirectionState = (int)secondState;
             }
         }
+        public FlatRedBall.Instructions.Instruction InterpolateToState (Status stateToInterpolateTo, double secondsToTake) 
+        {
+            switch(stateToInterpolateTo)
+            {
+                case  Status.Normal:
+                    SpriteInstance.RedRate = (1f - SpriteInstance.Red) / (float)secondsToTake;
+                    SpriteInstance.GreenRate = (1f - SpriteInstance.Green) / (float)secondsToTake;
+                    SpriteInstance.BlueRate = (1f - SpriteInstance.Blue) / (float)secondsToTake;
+                    break;
+                case  Status.Frozen:
+                    SpriteInstance.RedRate = (0.5f - SpriteInstance.Red) / (float)secondsToTake;
+                    SpriteInstance.GreenRate = (0.9f - SpriteInstance.Green) / (float)secondsToTake;
+                    SpriteInstance.BlueRate = (1f - SpriteInstance.Blue) / (float)secondsToTake;
+                    break;
+                case  Status.Poisoned:
+                    SpriteInstance.RedRate = (0.5f - SpriteInstance.Red) / (float)secondsToTake;
+                    SpriteInstance.GreenRate = (1f - SpriteInstance.Green) / (float)secondsToTake;
+                    SpriteInstance.BlueRate = (0.3f - SpriteInstance.Blue) / (float)secondsToTake;
+                    break;
+                case  Status.FrozenAndPoisoned:
+                    SpriteInstance.RedRate = (0f - SpriteInstance.Red) / (float)secondsToTake;
+                    SpriteInstance.GreenRate = (1f - SpriteInstance.Green) / (float)secondsToTake;
+                    SpriteInstance.BlueRate = (0.8f - SpriteInstance.Blue) / (float)secondsToTake;
+                    break;
+            }
+            var instruction = new FlatRedBall.Instructions.DelegateInstruction<Status>(StopStateInterpolation, stateToInterpolateTo);
+            instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
+            this.Instructions.Add(instruction);
+            return instruction;
+        }
+        public void StopStateInterpolation (Status stateToStop) 
+        {
+            switch(stateToStop)
+            {
+                case  Status.Normal:
+                    SpriteInstance.RedRate =  0;
+                    SpriteInstance.GreenRate =  0;
+                    SpriteInstance.BlueRate =  0;
+                    break;
+                case  Status.Frozen:
+                    SpriteInstance.RedRate =  0;
+                    SpriteInstance.GreenRate =  0;
+                    SpriteInstance.BlueRate =  0;
+                    break;
+                case  Status.Poisoned:
+                    SpriteInstance.RedRate =  0;
+                    SpriteInstance.GreenRate =  0;
+                    SpriteInstance.BlueRate =  0;
+                    break;
+                case  Status.FrozenAndPoisoned:
+                    SpriteInstance.RedRate =  0;
+                    SpriteInstance.GreenRate =  0;
+                    SpriteInstance.BlueRate =  0;
+                    break;
+            }
+            CurrentStatusState = stateToStop;
+        }
+        public void InterpolateBetween (Status firstState, Status secondState, float interpolationValue) 
+        {
+            #if DEBUG
+            if (float.IsNaN(interpolationValue))
+            {
+                throw new System.Exception("interpolationValue cannot be NaN");
+            }
+            #endif
+            bool setSpriteInstanceRed = true;
+            float SpriteInstanceRedFirstValue= 0;
+            float SpriteInstanceRedSecondValue= 0;
+            bool setSpriteInstanceGreen = true;
+            float SpriteInstanceGreenFirstValue= 0;
+            float SpriteInstanceGreenSecondValue= 0;
+            bool setSpriteInstanceBlue = true;
+            float SpriteInstanceBlueFirstValue= 0;
+            float SpriteInstanceBlueSecondValue= 0;
+            switch(firstState)
+            {
+                case  Status.Normal:
+                    if (interpolationValue < 1)
+                    {
+                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
+                    }
+                    SpriteInstanceRedFirstValue = 1f;
+                    SpriteInstanceGreenFirstValue = 1f;
+                    SpriteInstanceBlueFirstValue = 1f;
+                    break;
+                case  Status.Frozen:
+                    if (interpolationValue < 1)
+                    {
+                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                    }
+                    SpriteInstanceRedFirstValue = 0.5f;
+                    SpriteInstanceGreenFirstValue = 0.9f;
+                    SpriteInstanceBlueFirstValue = 1f;
+                    break;
+                case  Status.Poisoned:
+                    if (interpolationValue < 1)
+                    {
+                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                    }
+                    SpriteInstanceRedFirstValue = 0.5f;
+                    SpriteInstanceGreenFirstValue = 1f;
+                    SpriteInstanceBlueFirstValue = 0.3f;
+                    break;
+                case  Status.FrozenAndPoisoned:
+                    if (interpolationValue < 1)
+                    {
+                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                    }
+                    SpriteInstanceRedFirstValue = 0f;
+                    SpriteInstanceGreenFirstValue = 1f;
+                    SpriteInstanceBlueFirstValue = 0.8f;
+                    break;
+            }
+            switch(secondState)
+            {
+                case  Status.Normal:
+                    if (interpolationValue >= 1)
+                    {
+                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
+                    }
+                    SpriteInstanceRedSecondValue = 1f;
+                    SpriteInstanceGreenSecondValue = 1f;
+                    SpriteInstanceBlueSecondValue = 1f;
+                    break;
+                case  Status.Frozen:
+                    if (interpolationValue >= 1)
+                    {
+                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                    }
+                    SpriteInstanceRedSecondValue = 0.5f;
+                    SpriteInstanceGreenSecondValue = 0.9f;
+                    SpriteInstanceBlueSecondValue = 1f;
+                    break;
+                case  Status.Poisoned:
+                    if (interpolationValue >= 1)
+                    {
+                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                    }
+                    SpriteInstanceRedSecondValue = 0.5f;
+                    SpriteInstanceGreenSecondValue = 1f;
+                    SpriteInstanceBlueSecondValue = 0.3f;
+                    break;
+                case  Status.FrozenAndPoisoned:
+                    if (interpolationValue >= 1)
+                    {
+                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                    }
+                    SpriteInstanceRedSecondValue = 0f;
+                    SpriteInstanceGreenSecondValue = 1f;
+                    SpriteInstanceBlueSecondValue = 0.8f;
+                    break;
+            }
+            if (setSpriteInstanceRed)
+            {
+                SpriteInstanceRed = SpriteInstanceRedFirstValue * (1 - interpolationValue) + SpriteInstanceRedSecondValue * interpolationValue;
+            }
+            if (setSpriteInstanceGreen)
+            {
+                SpriteInstanceGreen = SpriteInstanceGreenFirstValue * (1 - interpolationValue) + SpriteInstanceGreenSecondValue * interpolationValue;
+            }
+            if (setSpriteInstanceBlue)
+            {
+                SpriteInstanceBlue = SpriteInstanceBlueFirstValue * (1 - interpolationValue) + SpriteInstanceBlueSecondValue * interpolationValue;
+            }
+            if (interpolationValue < 1)
+            {
+                mCurrentStatusState = (int)firstState;
+            }
+            else
+            {
+                mCurrentStatusState = (int)secondState;
+            }
+        }
         public static void PreloadStateContent (Action state, string contentManagerName) 
         {
             ContentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
@@ -878,6 +1158,21 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 case  Direction.MovingLeft:
                     break;
                 case  Direction.MovingRight:
+                    break;
+            }
+        }
+        public static void PreloadStateContent (Status state, string contentManagerName) 
+        {
+            ContentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
+            switch(state)
+            {
+                case  Status.Normal:
+                    break;
+                case  Status.Frozen:
+                    break;
+                case  Status.Poisoned:
+                    break;
+                case  Status.FrozenAndPoisoned:
                     break;
             }
         }

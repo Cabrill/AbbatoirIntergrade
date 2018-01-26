@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using FlatRedBall;
 using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
@@ -16,9 +17,19 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	    protected float AltitudeVelocity { get; set; }
 	    protected float GravityDrag { get; set; } = -650f;
 
-        public float HealthRemaining { get; set; }
+        public double HealthRemaining { get; set; }
+
         public bool IsDead => HealthRemaining <= 0;
 	    private bool IsHurt => CurrentActionState == Action.Hurt;
+	    protected bool IsPoisoned => _poisonedDurationSeconds > 0;
+	    protected bool IsFrozen => _frozenDurationSeconds > 0;
+	    protected bool IsStunned => _stunnedDurationSeconds > 0;
+	    private double _frozenDurationSeconds;
+	    private double _poisonedDurationSeconds;
+	    private double _stunnedDurationSeconds;
+
+	    private double _poisonDamagePerSecond;
+	    
 
 	    private bool IsOnFinalFrameOfAnimation => SpriteInstance.CurrentFrameIndex == SpriteInstance.CurrentChain.Count - 1;
 
@@ -76,13 +87,18 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             HealthRemaining = MaximumHealth;
 		    Altitude = 0f;
 		    AltitudeVelocity = 0f;
+		    _poisonedDurationSeconds = 0;
+		    _frozenDurationSeconds = 0;
+		    Speed = BaseSpeed;
 
             UpdateAnimation();
 		}
 
 		private void CustomActivity()
 		{
-		    if (!IsFlying || (IsFlying && IsDead))
+            UpdateStatusEffect();
+
+            if (!IsFlying || (IsFlying && IsDead))
 		    {
                 AltitudeVelocity += GravityDrag * TimeManager.SecondDifference;
             }
@@ -162,22 +178,111 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
         }
 
-        public void GetHitBy(BasePlayerProjectile projectile)
+	    private void TakeDamage(double dmgAmount)
 	    {
-	        HealthRemaining -= projectile.DamageInflicted;
-            projectile?.PlayHitTargetSound();
+	        HealthRemaining -= dmgAmount;
 
 	        if (HealthRemaining <= 0)
 	        {
 	            PerformDeath();
 	        }
-	        else
+        }
+
+        public void GetHitBy(BasePlayerProjectile projectile)
+        {
+            var effectiveMultiplier = GetEffectiveMultiplier(projectile.DamageType);
+            var dmgInflicted = effectiveMultiplier * projectile.DamageInflicted;
+            TakeDamage(dmgInflicted);
+
+            projectile?.PlayHitTargetSound();
+
+	        switch (projectile.DamageType)
+	        {
+	            case DamageTypes.Frost:
+	                _frozenDurationSeconds = projectile.StatusEffectSeconds * effectiveMultiplier;
+	                break;
+	            case DamageTypes.Chemical:
+	                _poisonedDurationSeconds = projectile.StatusEffectSeconds * effectiveMultiplier;
+	                _poisonDamagePerSecond = projectile.DamageInflicted * 0.1 * effectiveMultiplier;
+                    break;
+	            case DamageTypes.Electrical:
+	                _stunnedDurationSeconds = projectile.StatusEffectSeconds * effectiveMultiplier;
+	                break;
+	        }
+	        UpdateStatusEffect(justApplied: true);
+
+	        if (!IsDead)
 	        {
                 CurrentActionState = Action.Hurt;
                 SpriteInstance.UpdateToCurrentAnimationFrame();
 	            UpdateAnimation();
 	        }
 	    }
+
+	    private double GetEffectiveMultiplier(DamageTypes damageType)
+	    {
+	        switch (damageType)
+	        {
+	            case DamageTypes.Frost: return (1 - EffectiveFrostResist);
+	            case DamageTypes.Chemical: return (1 - EffectiveChemicalResist);
+	            case DamageTypes.Electrical: return (1 - BaseElectricResist);
+	            case DamageTypes.Piercing: return (1-EffectivePiercingResist);
+                case DamageTypes.Concussive: return (1 - EffectiveBombardResist);
+                case DamageTypes.Fire: return (1 - EffectiveFireResist);
+                default: return 1;
+            }
+        }
+
+	    private void UpdateStatusEffect(bool justApplied = false)
+	    {
+	        if (!justApplied)
+	        {
+	            if (IsPoisoned)
+	            {
+	                _poisonedDurationSeconds -= TimeManager.SecondDifference;
+	            }
+	            if (IsFrozen)
+	            {
+	                _frozenDurationSeconds -= TimeManager.SecondDifference;
+	            }
+	            if (IsStunned)
+	            {
+	                _stunnedDurationSeconds -= TimeManager.SecondDifference;
+	            }
+	        }
+
+	        if (IsFrozen && IsPoisoned)
+	        {
+	            CurrentStatusState = Status.FrozenAndPoisoned;
+	            Speed = BaseSpeed * (1 - (float)(GetEffectiveMultiplier(DamageTypes.Frost) * 0.8 +
+	                                     GetEffectiveMultiplier(DamageTypes.Chemical) * 0.2));
+
+	        }
+            else if (IsFrozen)
+	        {
+	            CurrentStatusState = Status.Frozen;
+	            Speed = BaseSpeed * (1 - (float)(GetEffectiveMultiplier(DamageTypes.Frost) * 0.8));
+            }
+            else if (IsPoisoned)
+	        {
+	            CurrentStatusState = Status.Poisoned;
+	            Speed = BaseSpeed * (1 - (float)(GetEffectiveMultiplier(DamageTypes.Chemical) * 0.2));
+            }
+            else if (IsStunned)
+	        {
+	            Speed = 0f;
+	        }
+	        else
+	        {
+	            CurrentStatusState = Status.Normal;
+	            Speed = BaseSpeed;
+	        }
+
+	        if (IsPoisoned && !justApplied)
+	        {
+	            TakeDamage(_poisonDamagePerSecond * TimeManager.SecondDifference);
+	        }
+        }
 
 	    private void PerformDeath()
 	    {

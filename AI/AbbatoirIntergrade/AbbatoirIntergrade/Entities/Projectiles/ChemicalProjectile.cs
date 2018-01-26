@@ -20,8 +20,8 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         /// </summary>
 		private void CustomInitialize()
 		{
-
-
+            DamageType = DamageTypes.Chemical;
+		    StatusEffectSeconds = 3;
 		}
 
 		private void CustomActivity()
