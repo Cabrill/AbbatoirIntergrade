@@ -243,9 +243,9 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.LightSpriteInstance.Alpha = 0.25f;
             DisplayName = "Not Set";
             HasLightSource = true;
-            ProjectileSpeed = 600f;
-            RangedRadius = 400f;
-            AttackDamage = 2f;
+            ProjectileSpeed = 800f;
+            RangedRadius = 800f;
+            AttackDamage = 50f;
             SecondsBetweenFiring = 4;
             ProjectileAltitude = 100f;
             StunsEnemies = true;

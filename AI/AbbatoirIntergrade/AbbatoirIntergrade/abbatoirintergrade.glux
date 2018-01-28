@@ -3504,7 +3504,7 @@
           </Properties>
           <Name>Mass</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.2</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4119,7 +4119,7 @@
           </Properties>
           <Name>Mass</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.3</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4734,7 +4734,7 @@
           </Properties>
           <Name>Mass</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5352,7 +5352,7 @@
           </Properties>
           <Name>Mass</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.45</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5975,7 +5975,7 @@
           </Properties>
           <Name>Mass</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.4</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -6594,7 +6594,7 @@
           </Properties>
           <Name>Mass</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.35</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -7217,7 +7217,7 @@
           </Properties>
           <Name>Mass</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.45</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -7850,7 +7850,7 @@
           </Properties>
           <Name>Mass</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -9126,7 +9126,7 @@
           </Properties>
           <Name>Mass</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.35</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -9745,7 +9745,7 @@
           </Properties>
           <Name>Mass</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.3</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -10359,7 +10359,7 @@
           </Properties>
           <Name>Mass</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.25</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -10982,7 +10982,7 @@
           </Properties>
           <Name>Mass</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.3</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -11600,7 +11600,7 @@
           </Properties>
           <Name>Mass</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.25</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15118,7 +15118,7 @@
           </Properties>
           <Name>RangedRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">400</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">600</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15130,7 +15130,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">85</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15422,7 +15422,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">4</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15434,7 +15434,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">2</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">1.8</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15691,7 +15691,7 @@
           </Properties>
           <Name>ProjectileSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">600</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">800</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15703,7 +15703,7 @@
           </Properties>
           <Name>RangedRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">400</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">800</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15715,7 +15715,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">2</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15995,7 +15995,7 @@
           </Properties>
           <Name>RangedRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">400</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">750</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -16007,7 +16007,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -16019,7 +16019,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">2</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">2.5</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -16286,7 +16286,7 @@
           </Properties>
           <Name>RangedRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">400</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">500</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -16298,7 +16298,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">3</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">20</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -16310,7 +16310,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">1</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">1.5</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -16566,7 +16566,7 @@
           </Properties>
           <Name>ProjectileSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">500</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">600</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -16578,7 +16578,7 @@
           </Properties>
           <Name>RangedRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">400</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">500</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -16590,7 +16590,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">20</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">45</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -16602,7 +16602,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">0.5</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">2</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>

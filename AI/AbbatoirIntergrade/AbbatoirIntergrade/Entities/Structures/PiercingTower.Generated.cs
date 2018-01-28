@@ -243,10 +243,10 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.LightSpriteInstance.Alpha = 0.25f;
             DisplayName = "Piercing Tower";
             HasLightSource = true;
-            ProjectileSpeed = 500f;
-            RangedRadius = 400f;
-            AttackDamage = 20f;
-            SecondsBetweenFiring = 0.5;
+            ProjectileSpeed = 600f;
+            RangedRadius = 500f;
+            AttackDamage = 45f;
+            SecondsBetweenFiring = 2;
             ProjectileAltitude = 100f;
         }
         public override void ConvertToManuallyUpdated () 

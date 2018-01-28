@@ -796,7 +796,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
-            Mass = 0.1f;
+            Mass = 0.45f;
             BaseHealth = 85f;
             BasePiercingResist = 0.25f;
             BaseBombardResist = 0.35f;

@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using Accord.Genetic;
 using FlatRedBall;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Math;
@@ -30,7 +31,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	    private double _stunnedDurationSeconds;
 
 	    private double _poisonDamagePerSecond;
-	    
+
+	    public ShortArrayChromosome Chromosome { get; private set; }
+
 
 	    private bool IsOnFinalFrameOfAnimation => SpriteInstance.CurrentFrameIndex == SpriteInstance.CurrentChain.Count - 1;
 
@@ -113,11 +116,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		    FrozenParticles.RelativeY = SpriteInstance.Height / 2;
 		    FrozenParticles.TimedEmission = false;
 
+		    SetGenetics();
 
             UpdateAnimation();
 		}
 
-		private void CustomActivity()
+	    private void CustomActivity()
 		{
             UpdateStatusEffect();
 
@@ -210,10 +214,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        }
         }
 
-        public void GetHitBy(BasePlayerProjectile projectile)
+        public void GetHitBy(BasePlayerProjectile projectile, float dmgMultiplier = 1)
         {
             var effectiveMultiplier = GetEffectiveMultiplier(projectile.DamageType);
-            var dmgInflicted = effectiveMultiplier * projectile.DamageInflicted;
+            var dmgInflicted = effectiveMultiplier * projectile.DamageInflicted * dmgMultiplier;
             TakeDamage(dmgInflicted);
 
             projectile?.PlayHitTargetSound();
@@ -370,20 +374,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         }
 
-	    public void ReactToExplosion(float damageInflicted, Vector3 velocity, float altitudeVelocity)
+	    public void ReactToExplosion(BasePlayerProjectile projectile, float amplitude, Vector3 velocity, float altitudeVelocity)
 	    {
-	        HealthRemaining -= damageInflicted;
-
-	        if (HealthRemaining <= 0)
-	        {
-	            PerformDeath();
-	        }
-	        else
-	        {
-	            CurrentActionState = Action.Hurt;
-	            SpriteInstance.UpdateToCurrentAnimationFrame();
-	            UpdateAnimation();
-	        }
+	        GetHitBy(projectile, amplitude);
 
             AltitudeVelocity += altitudeVelocity;
 

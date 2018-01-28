@@ -92,9 +92,9 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 
 	            if (amplitude > 0)
 	            {
-	                enemy.ReactToExplosion(DamageInflicted * amplitude,
-	                    direction * 400 * amplitude,
-	                    500 * amplitude);
+	                enemy.ReactToExplosion(this, amplitude,
+	                    direction * 400 * amplitude * (1-enemy.Mass),
+	                    600 * amplitude * (1-enemy.Mass));
 	            }
             }
 	    }

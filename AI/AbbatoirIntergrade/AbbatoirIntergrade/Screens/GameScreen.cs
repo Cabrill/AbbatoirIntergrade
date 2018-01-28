@@ -310,20 +310,11 @@ namespace AbbatoirIntergrade.Screens
 	        for (var i = AllEnemiesList.Count; i > 0; i--)
 	        {
 	            var enemy = AllEnemiesList[i-1];
-	            if (enemy.HasReachedGoal)
-	            {
-	                HandleEnemyReachingGoal();
-                    enemy.Destroy();
-	                continue;
-	            }
-	            if (enemy.IsDead) continue;
 
                 //Colide enemies against others
-	            for (var j = i- 1; j > 0; j--)
+                for (var j = i- 1; j > 0; j--)
 	            {
 	                var otherEnemy = AllEnemiesList[j - 1];
-
-	                if (otherEnemy.IsDead) continue;
 
 	                if (enemy.IsFlying == otherEnemy.IsFlying || (enemy.IsJumper && otherEnemy.IsJumper && enemy.Altitude > 0 && otherEnemy.IsJumper && otherEnemy.Altitude > 0))
 	                {
@@ -332,49 +323,59 @@ namespace AbbatoirIntergrade.Screens
 	            }
 
                 //Collide enemies against buildings
-	            if (enemy.IsFlying) continue;
-
-	            for (var j = AllStructuresList.Count(); j > 0; j--)
+	            if (!enemy.IsFlying || enemy.IsDead)
 	            {
-	                var structure = AllStructuresList[j - 1];
-	                if (structure.IsBeingPlaced || structure.IsDestroyed) continue;
-
-	                enemy.CollideAgainstBounce(structure.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
-	                    elasticity: 0.1f);
-	            }
-
-                //Collide enemies against rectangle collisions
-	            for (var j = TileCollisionRectangleList.Count(); j > 0; j--)
-	            {
-	                var rect = TileCollisionRectangleList[j - 1];
-
-	                enemy.CollideAgainstBounce(rect.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
-	                    elasticity: 0.1f);
-	            }
-
-	            //Collide enemies against circle collisions
-	            for (var j = TileCollisionCircleList.Count(); j > 0; j--)
-	            {
-	                var circle = TileCollisionCircleList[j - 1];
-
-	                if (circle.Altitude > enemy.Altitude) continue;
-	                if (circle.Altitude + circle.ZHeight > enemy.Altitude) continue;
-
-	                enemy.CollideAgainstBounce(circle.CircleInstance, thisMass: 0f, otherMass: 1f,
-	                    elasticity: 0.5f);
-	            }
-                
-                //Collide enemies against water
-	            if (WaterShapes == null) continue;
-	            if (enemy.Altitude > 0) continue;
-	            foreach (var shape in WaterShapes)
-	            {
-	                if (shape.IsPointInside(ref enemy.Position))
+	                for (var j = AllStructuresList.Count(); j > 0; j--)
 	                {
-	                    enemy.HandleDrowning();
+	                    var structure = AllStructuresList[j - 1];
+	                    if (structure.IsBeingPlaced || structure.IsDestroyed) continue;
+
+	                    enemy.CollideAgainstBounce(structure.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
+	                        elasticity: 0.1f);
 	                }
+
+	                //Collide enemies against rectangle collisions
+	                for (var j = TileCollisionRectangleList.Count(); j > 0; j--)
+	                {
+	                    var rect = TileCollisionRectangleList[j - 1];
+
+	                    enemy.CollideAgainstBounce(rect.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
+	                        elasticity: 0.1f);
+	                }
+
+	                //Collide enemies against circle collisions
+	                for (var j = TileCollisionCircleList.Count(); j > 0; j--)
+	                {
+	                    var circle = TileCollisionCircleList[j - 1];
+
+	                    if (circle.Altitude > enemy.Altitude) continue;
+	                    if (circle.Altitude + circle.ZHeight > enemy.Altitude) continue;
+
+	                    enemy.CollideAgainstBounce(circle.CircleInstance, thisMass: 0f, otherMass: 1f,
+	                        elasticity: 0.5f);
+	                }
+
+	                //Collide enemies against water
+	                if (WaterShapes != null && enemy.Altitude <= 0)
+	                {
+	                    foreach (var shape in WaterShapes)
+	                    {
+	                        if (shape.IsPointInside(ref enemy.Position))
+	                        {
+	                            enemy.HandleDrowning();
+	                        }
+	                    }
+	                }
+                }
+
+	            if (enemy.IsDead) continue;
+
+	            if (enemy.HasReachedGoal)
+	            {
+	                HandleEnemyReachingGoal();
+	                enemy.Destroy();
 	            }
-	        }
+            }
 	    }
 
         private void HandleEnemyReachingGoal()

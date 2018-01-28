@@ -52,6 +52,9 @@
     <Compile Include="Entities\BaseEntities\BaseEnemy.Generated.Event.cs">
       <DependentUpon>BaseEnemy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\BaseEntities\BaseEnemy.Genetics.cs">
+      <DependentUpon>BaseEnemy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BaseEntities\BaseEnemy.NavigationLogic.cs">
       <DependentUpon>BaseEnemy.cs</DependentUpon>
     </Compile>

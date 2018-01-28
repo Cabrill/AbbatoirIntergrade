@@ -244,9 +244,9 @@ namespace AbbatoirIntergrade.Entities.Structures
             DisplayName = "Not Set";
             HasLightSource = true;
             ProjectileSpeed = 400f;
-            RangedRadius = 400f;
-            AttackDamage = 5f;
-            SecondsBetweenFiring = 2;
+            RangedRadius = 750f;
+            AttackDamage = 50f;
+            SecondsBetweenFiring = 2.5;
             ProjectileAltitude = 100f;
         }
         public override void ConvertToManuallyUpdated () 
