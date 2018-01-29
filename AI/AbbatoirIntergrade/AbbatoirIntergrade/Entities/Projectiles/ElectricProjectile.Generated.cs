@@ -365,7 +365,6 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(AxisAlignedRectangleInstance);
             }
-            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
         }
@@ -425,7 +424,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 base.SpriteInstance.RelativeZ = 1f;
             }
-            base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.TextureScale = 0.5f;
             base.SpriteInstance.AnimationChains = ElectricProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
             base.SpriteInstance.Visible = true;
@@ -596,7 +595,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 base.SpriteInstance.RelativeZ = 1f;
             }
-            base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.TextureScale = 0.5f;
             base.SpriteInstance.AnimationChains = ElectricProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
             base.SpriteInstance.Visible = true;

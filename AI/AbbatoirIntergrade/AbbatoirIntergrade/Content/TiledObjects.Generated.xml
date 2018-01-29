@@ -413,7 +413,7 @@
     <property name="DisplayName" type="string" default="Not Set" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="StructureDescription" type="string" />
-    <property name="ProjectileSpeed" type="float" default="600" />
+    <property name="ProjectileSpeed" type="float" default="800" />
     <property name="RangedRadius" type="float" default="600" />
     <property name="AttackDamage" type="float" default="85" />
     <property name="SecondsBetweenFiring" type="float" default="5" />
@@ -452,7 +452,7 @@
     <property name="DisplayName" type="string" default="Not Set" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="StructureDescription" type="string" />
-    <property name="ProjectileSpeed" type="float" default="400" />
+    <property name="ProjectileSpeed" type="float" default="550" />
     <property name="RangedRadius" type="float" default="750" />
     <property name="AttackDamage" type="float" default="50" />
     <property name="SecondsBetweenFiring" type="float" default="2.5" />
@@ -465,7 +465,7 @@
     <property name="DisplayName" type="string" default="Not Set" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="StructureDescription" type="string" />
-    <property name="ProjectileSpeed" type="float" default="300" />
+    <property name="ProjectileSpeed" type="float" default="450" />
     <property name="RangedRadius" type="float" default="500" />
     <property name="AttackDamage" type="float" default="20" />
     <property name="SecondsBetweenFiring" type="float" default="1.5" />

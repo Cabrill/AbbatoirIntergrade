@@ -150,7 +150,6 @@ namespace AbbatoirIntergrade.Entities.Structures
             {
                 FlatRedBall.SpriteManager.ConvertToManuallyUpdated(PivotPoint);
             }
-            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
         }
         public override void PostInitialize () 
@@ -433,7 +432,7 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             DisplayName = "Not Set";
             HasLightSource = true;
-            ProjectileSpeed = 400f;
+            ProjectileSpeed = 550f;
             RangedRadius = 750f;
             AttackDamage = 50f;
             SecondsBetweenFiring = 2.5;

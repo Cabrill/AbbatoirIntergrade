@@ -136,7 +136,6 @@ namespace AbbatoirIntergrade.Entities
             {
                 RenderTargetInstance.Dispose();
             }
-            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             FlatRedBall.SpriteManager.RemoveDrawableBatch(this);
             CustomDestroy();
         }

@@ -18,7 +18,7 @@
     <Name>Impact</Name>
     <Frame>
       <TextureName>../AllParticles.png</TextureName>
-      <FrameLength>5</FrameLength>
+      <FrameLength>1.5</FrameLength>
       <LeftCoordinate>2019</LeftCoordinate>
       <RightCoordinate>2034</RightCoordinate>
       <TopCoordinate>1602</TopCoordinate>

@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using AbbatoirIntergrade.Entities.Projectiles;
 using Accord.Genetic;
 using FlatRedBall;
 using FlatRedBall.Graphics.Animation;
@@ -7,6 +8,7 @@ using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using StateInterpolationPlugin;
 
 namespace AbbatoirIntergrade.Entities.BaseEntities
 {
@@ -341,13 +343,26 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             if (Altitude <=0f && IsOnFinalFrameOfAnimation)
             {
+                RemoveArrows();
                 OnDeath?.Invoke(this);
                 OnDeath -= OnDeath;
                 Destroy();
             }
 	    }
 
-        private void CustomDestroy()
+	    private void RemoveArrows()
+	    {
+	        foreach (var child in Children)
+	        {
+	            if (child is PiercingProjectile projectile)
+	            {
+	                TweenerManager.Self.StopAllTweenersOwnedBy(projectile);
+                    projectile.Destroy();
+	            }
+	        }
+	    }
+
+	    private void CustomDestroy()
 		{
 		    if (rangedAttackSound != null && !rangedAttackSound.IsDisposed)
 		    {
@@ -409,14 +424,17 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	    public void HandleDrowning()
 	    {
-	        SpriteInstance.AnimationChains = ParticleAnimationsChainList;
-	        ShadowSprite.Visible = false;
-	        SpriteInstance.RelativeY = 0;
-            CurrentActionState = Action.Drowning;
-	        _frozenDurationSeconds = 0;
-	        _poisonedDurationSeconds = 0;
-	        HealthRemaining = 0;
-            Velocity = Vector3.Zero;
+	        if (!IsDrowning)
+	        {
+	            SpriteInstance.AnimationChains = ParticleAnimationsChainList;
+	            ShadowSprite.Visible = false;
+	            SpriteInstance.RelativeY = 0;
+	            CurrentActionState = Action.Drowning;
+	            _frozenDurationSeconds = 0;
+	            _poisonedDurationSeconds = 0;
+	            HealthRemaining = 0;
+	            Velocity = Vector3.Zero;
+	        }
 	    }
     }
 }

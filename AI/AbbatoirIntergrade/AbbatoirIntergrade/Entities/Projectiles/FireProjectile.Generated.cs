@@ -316,7 +316,6 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             base.Destroy();
             
-            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
         }
         public override void PostInitialize () 
@@ -346,13 +345,14 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.AnimationChains = BaseProjectileLightAnimationChainListFile;
             base.LightOrShadowSprite.CurrentChainName = "Light_Shot";
             #if FRB_MDX
-            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Add;
+            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
-            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Add;
+            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
             base.LightOrShadowSprite.Red = 1f;
             base.LightOrShadowSprite.Green = 0.2f;
             base.LightOrShadowSprite.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
+            base.LightOrShadowSprite.Alpha = 0.5f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (SpriteInstance.Parent == null)
             {
@@ -367,7 +367,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 base.SpriteInstance.RelativeZ = 1f;
             }
-            base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.TextureScale = 0.5f;
             base.SpriteInstance.AnimationChains = FireProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
             base.SpriteInstance.Visible = true;
@@ -413,13 +413,14 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.AnimationChains = BaseProjectileLightAnimationChainListFile;
             base.LightOrShadowSprite.CurrentChainName = "Light_Shot";
             #if FRB_MDX
-            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Add;
+            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
-            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Add;
+            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
             base.LightOrShadowSprite.Red = 1f;
             base.LightOrShadowSprite.Green = 0.2f;
             base.LightOrShadowSprite.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
+            base.LightOrShadowSprite.Alpha = 0.5f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (LightOrShadowSprite.Parent == null)
             {
@@ -527,7 +528,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 base.SpriteInstance.RelativeZ = 1f;
             }
-            base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.TextureScale = 0.5f;
             base.SpriteInstance.AnimationChains = FireProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
             base.SpriteInstance.Visible = true;

@@ -482,7 +482,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
             {
                 FlatRedBall.SpriteManager.RemoveSpriteOneWay(LightSprite);
             }
-            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
         }

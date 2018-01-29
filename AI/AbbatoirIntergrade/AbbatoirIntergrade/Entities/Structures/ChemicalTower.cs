@@ -24,7 +24,6 @@ namespace AbbatoirIntergrade.Entities.Structures
 		private void CustomInitialize()
 		{
             DamageType = DamageTypes.Chemical;
-
 		}
 
 	    public void AddSpritesToLayers(FlatRedBall.Graphics.Layer darknessLayer, Layer hudLayer)

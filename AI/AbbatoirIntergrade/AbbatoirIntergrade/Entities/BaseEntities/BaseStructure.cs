@@ -81,7 +81,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             PlacementSound = Structure_Placed.CreateInstance();
             DestroyedSound = Building_Destroyed.CreateInstance();
 
-            _spriteRelativeY = SpriteInstance.Height / 2;
+            _spriteRelativeY = SpriteInstance.Height / 3;
 
             SpriteInstance.RelativeY = _spriteRelativeY;
             AimSpriteInstance.RelativeY += _spriteRelativeY;
@@ -97,13 +97,13 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             PivotPoint.RelativeY -= yOffset;
             PivotPoint.RelativeX -= xOffset;
             AimSpriteInstance.ParentRotationChangesPosition = false;
-            //AimSpriteInstance.SetRelativeFromAbsolute();
             
             RangeCircleInstance.Visible = true;
             LastFiredTime = TimeManager.CurrentTime;
 
             AfterIsBeingPlacedSet += (not, used) => { RangeCircleInstance.Visible = false; };
             _startingRangeRadius = RangedRadius;
+            ProjectileAltitude = SpriteInstance.RelativeY + PivotPoint.RelativeY;
         }
 
         private void CustomActivity()
@@ -322,8 +322,13 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 (float)-Math.Cos(angle.Value),
                 (float)-Math.Sin(angle.Value), 0);
             direction.Normalize();
-            return new Vector3(Position.X + AxisAlignedRectangleInstance.Width / 2 * direction.X,
-                Position.Y + AxisAlignedRectangleInstance.Height * direction.Y, Position.Z);
+
+            var effectiveX = Position.X + PivotPoint.RelativeX +
+                             (AimSpriteInstance.Height - AimSpriteInstance.RelativeY + AimSpriteInstance.Width/2) * direction.X;
+            var effectiveY = Position.Y + 
+                             (AimSpriteInstance.Height - AimSpriteInstance.RelativeY) * direction.Y;
+
+            return new Vector3(effectiveX, effectiveY, Position.Z);
         }
 
         private void ChooseTarget()
@@ -379,7 +384,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             float altitudeDifference = -projectile.Altitude;
             if (!(projectile is CannonProjectile))
             {
-                altitudeDifference += targetEnemy.Altitude;// + (targetEnemy.SpriteInstance.Height / 2);
+                altitudeDifference += targetEnemy.Altitude + (targetEnemy.SpriteInstance.Height / 4);
             }
 
             var altitudeVelocity = (altitudeDifference / _timeToTravel) - ((projectile.GravityDrag * _timeToTravel) / 2);

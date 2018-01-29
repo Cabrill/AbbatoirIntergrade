@@ -129,7 +129,6 @@ namespace AbbatoirIntergrade.Entities
             {
                 FlatRedBall.SpriteManager.RemoveSprite(SpriteInstance);
             }
-            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
         }
         public virtual void PostInitialize () 

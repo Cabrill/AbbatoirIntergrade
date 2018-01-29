@@ -345,7 +345,6 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             base.Destroy();
             
-            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
         }
@@ -424,11 +423,19 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             if (CircleInstance.Parent == null)
             {
-                base.CircleInstance.Y = 26f;
+                base.CircleInstance.X = 0f;
             }
             else
             {
-                base.CircleInstance.RelativeY = 26f;
+                base.CircleInstance.RelativeX = 0f;
+            }
+            if (CircleInstance.Parent == null)
+            {
+                base.CircleInstance.Y = 75f;
+            }
+            else
+            {
+                base.CircleInstance.RelativeY = 75f;
             }
             base.CircleInstance.Radius = 7f;
             base.CircleInstance.Color = Color.Red;
@@ -703,11 +710,19 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             SpriteInstance.AlphaRate = SpriteInstanceAlphaRateReset;
             if (CircleInstance.Parent == null)
             {
-                base.CircleInstance.Y = 26f;
+                base.CircleInstance.X = 0f;
             }
             else
             {
-                base.CircleInstance.RelativeY = 26f;
+                base.CircleInstance.RelativeX = 0f;
+            }
+            if (CircleInstance.Parent == null)
+            {
+                base.CircleInstance.Y = 75f;
+            }
+            else
+            {
+                base.CircleInstance.RelativeY = 75f;
             }
             base.CircleInstance.Radius = 7f;
             base.CircleInstance.Color = Color.Red;

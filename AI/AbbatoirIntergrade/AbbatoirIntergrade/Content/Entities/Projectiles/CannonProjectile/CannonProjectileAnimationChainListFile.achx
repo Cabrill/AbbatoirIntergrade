@@ -198,7 +198,7 @@
     </Frame>
     <Frame>
       <TextureName>../AllParticles.png</TextureName>
-      <FrameLength>0.12</FrameLength>
+      <FrameLength>0.1</FrameLength>
       <LeftCoordinate>1120</LeftCoordinate>
       <RightCoordinate>1248</RightCoordinate>
       <TopCoordinate>1030</TopCoordinate>
@@ -207,7 +207,7 @@
     </Frame>
     <Frame>
       <TextureName>../AllParticles.png</TextureName>
-      <FrameLength>0.13</FrameLength>
+      <FrameLength>0.08</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>384</RightCoordinate>
       <TopCoordinate>1538</TopCoordinate>
@@ -216,7 +216,7 @@
     </Frame>
     <Frame>
       <TextureName>../AllParticles.png</TextureName>
-      <FrameLength>0.14</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>1580</LeftCoordinate>
       <RightCoordinate>1708</RightCoordinate>
       <TopCoordinate>119</TopCoordinate>
@@ -225,7 +225,7 @@
     </Frame>
     <Frame>
       <TextureName>../AllParticles.png</TextureName>
-      <FrameLength>0.15</FrameLength>
+      <FrameLength>0.02</FrameLength>
       <LeftCoordinate>1580</LeftCoordinate>
       <RightCoordinate>1708</RightCoordinate>
       <TopCoordinate>233</TopCoordinate>
@@ -234,7 +234,7 @@
     </Frame>
     <Frame>
       <TextureName>../AllParticles.png</TextureName>
-      <FrameLength>0.15</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>1250</LeftCoordinate>
       <RightCoordinate>1376</RightCoordinate>
       <TopCoordinate>1030</TopCoordinate>

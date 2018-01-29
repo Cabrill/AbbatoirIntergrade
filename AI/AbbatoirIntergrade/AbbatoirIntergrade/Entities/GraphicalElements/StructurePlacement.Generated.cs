@@ -337,7 +337,6 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             {
                 FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(CircleInstance);
             }
-            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
         }

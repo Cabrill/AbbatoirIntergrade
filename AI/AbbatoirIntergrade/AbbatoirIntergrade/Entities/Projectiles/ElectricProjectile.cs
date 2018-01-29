@@ -35,9 +35,10 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 
 		}
 
-	    protected override void CustomHandleImpact(BaseEnemy enemy = null)
+        protected override void CustomHandleImpact(BaseEnemy enemy = null)
         {
-	        RotationZ = FlatRedBallServices.Random.Between(-4, 4);
+            SpriteInstance.TextureScale = 1;
+            RotationZ = FlatRedBallServices.Random.Between(-4, 4);
 	        LightOrShadowSprite.TextureScale = 2f;
 	        LightOrShadowSprite.Tween(HandleTweenerUpdate, 2f, 0f, SpriteInstance.AnimationChains["Impact"].TotalLength, InterpolationType.Exponential, Easing.Out).Start();
 	    }

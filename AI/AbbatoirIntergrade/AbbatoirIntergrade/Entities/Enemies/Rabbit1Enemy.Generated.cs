@@ -504,7 +504,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
             {
                 FlatRedBall.SpriteManager.RemoveSpriteOneWay(LightSprite);
             }
-            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
         }
         public override void PostInitialize () 

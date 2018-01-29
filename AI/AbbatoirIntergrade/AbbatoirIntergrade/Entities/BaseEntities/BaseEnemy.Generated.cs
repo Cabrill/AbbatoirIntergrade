@@ -550,7 +550,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 FlatRedBall.Math.Geometry.ShapeManager.Remove(SelfCollisionCircle);
             }
-            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
         }

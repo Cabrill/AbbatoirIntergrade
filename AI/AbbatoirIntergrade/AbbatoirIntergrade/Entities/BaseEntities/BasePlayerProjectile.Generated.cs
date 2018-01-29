@@ -471,7 +471,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 FlatRedBall.Math.Geometry.ShapeManager.Remove(CircleInstance);
             }
-            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
         }
@@ -486,19 +485,19 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
             if (SpriteInstance.Parent == null)
             {
-                SpriteInstance.X = 1f;
+                SpriteInstance.X = 2.026742f;
             }
             else
             {
-                SpriteInstance.RelativeX = 1f;
+                SpriteInstance.RelativeX = 2.026742f;
             }
             if (SpriteInstance.Parent == null)
             {
-                SpriteInstance.Y = -1f;
+                SpriteInstance.Y = 15.20056f;
             }
             else
             {
-                SpriteInstance.RelativeY = -1f;
+                SpriteInstance.RelativeY = 15.20056f;
             }
             if (SpriteInstance.Parent == null)
             {
@@ -539,19 +538,19 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
             if (CircleInstance.Parent == null)
             {
-                CircleInstance.X = 0.04964364f;
+                CircleInstance.X = 0f;
             }
             else
             {
-                CircleInstance.RelativeX = 0.04964364f;
+                CircleInstance.RelativeX = 0f;
             }
             if (CircleInstance.Parent == null)
             {
-                CircleInstance.Y = 60.4546f;
+                CircleInstance.Y = 0f;
             }
             else
             {
-                CircleInstance.RelativeY = 60.4546f;
+                CircleInstance.RelativeY = 0f;
             }
             CircleInstance.Radius = 16f;
             CircleInstance.Color = Color.Red;
@@ -591,19 +590,19 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
             if (SpriteInstance.Parent == null)
             {
-                SpriteInstance.X = 1f;
+                SpriteInstance.X = 2.026742f;
             }
             else
             {
-                SpriteInstance.RelativeX = 1f;
+                SpriteInstance.RelativeX = 2.026742f;
             }
             if (SpriteInstance.Parent == null)
             {
-                SpriteInstance.Y = -1f;
+                SpriteInstance.Y = 15.20056f;
             }
             else
             {
-                SpriteInstance.RelativeY = -1f;
+                SpriteInstance.RelativeY = 15.20056f;
             }
             if (SpriteInstance.Parent == null)
             {
@@ -830,19 +829,19 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             LightOrShadowSprite.AlphaRate = LightOrShadowSpriteAlphaRateReset;
             if (CircleInstance.Parent == null)
             {
-                CircleInstance.X = 0.04964364f;
+                CircleInstance.X = 0f;
             }
             else
             {
-                CircleInstance.RelativeX = 0.04964364f;
+                CircleInstance.RelativeX = 0f;
             }
             if (CircleInstance.Parent == null)
             {
-                CircleInstance.Y = 60.4546f;
+                CircleInstance.Y = 0f;
             }
             else
             {
-                CircleInstance.RelativeY = 60.4546f;
+                CircleInstance.RelativeY = 0f;
             }
             CircleInstance.Radius = 16f;
             CircleInstance.Color = Color.Red;

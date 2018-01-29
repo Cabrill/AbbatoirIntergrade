@@ -17,8 +17,6 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 {
 	public partial class CannonProjectile
 	{
-	    private float circleRadius;
-	    public bool IsOnlySmoke;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -29,10 +27,9 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 		{
 		    if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = Cannon_Hit.CreateInstance();
 		    HitTargetSound = HitGroundSound;
-		    circleRadius = CircleInstance.Radius;
             GravityDrag = -75f;
-		    IsOnlySmoke = false;
             DamageType = DamageTypes.Piercing;
+		    RotationZVelocity = FlatRedBallServices.Random.Between(20, 50);
 		}
 
 	    protected  override void CustomHandleImpact(BaseEnemy enemy = null)
@@ -40,13 +37,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             //This happens when hitting the ground
 	        if (enemy == null)
 	        {
+	            RotationZVelocity = 0;
+	            RotationZ = 0;
+	            SpriteInstance.TextureScale = 1f;
 	            CircleInstance.Radius *= 2;
 	            RotationX = 0;
 	            RotationY = 0;
 	            RotationZ = 0;
 	            LightOrShadowSprite.Visible = false;
 
-	            var duration = SpriteInstance.AnimationChains["Impact"].TotalLength * 3 / 4;
+	            var duration = SpriteInstance.AnimationChains["Impact"].TotalLength / 2;
 
 	            this.Call(FadeOut).After(duration);
 	        }
@@ -59,15 +59,15 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 
 	    private void FadeOut()
 	    {
-            var duration = SpriteInstance.AnimationChains["Impact"].TotalLength / 4;
+            var duration = SpriteInstance.AnimationChains["Impact"].TotalLength / 2;
 
 	        this.Tween(HandleShrinkUpdate, 1, 0.25f, duration,
-	            InterpolationType.Exponential, Easing.Out);
+	            InterpolationType.Exponential, Easing.InOut);
 	    }
 
 	    public void HandleEnemiesInImpactZone(List<BaseEnemy> enemies)
 	    {
-	        IsOnlySmoke = true;
+	        CanStillDoDamage = false;
 
             var totalEnemies = enemies.Count;
 

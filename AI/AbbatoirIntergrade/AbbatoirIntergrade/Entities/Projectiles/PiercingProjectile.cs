@@ -45,32 +45,22 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 	    {
 	        if (enemy != null)
 	        {
-	            var impactOffset = FlatRedBallServices.Random.NextFloat(enemy.SpriteInstance.Width * 0.1f);
-                var impactOrigin = enemy.X;
-	            var impactSite = 0f;
+	            var impactOffsetX = FlatRedBallServices.Random.NextFloat(enemy.SpriteInstance.Width * 0.1f);
+                var impactOffsetY = FlatRedBallServices.Random.NextFloat(enemy.SpriteInstance.Height * 0.1f);
 
-	            if (enemy.X > X)
-	            {
-	                impactSite = impactOrigin - impactOffset;
-	            }
-	            else
-	            {
-	                impactSite = impactOrigin + impactOffset;
-                }
-
-	            X = impactSite;
+                var fromAbove = enemy.Y < Y;
+	            var fromLeft = enemy.X > X;
 
 	            var rotation = RotationZ;
+
                 AttachTo(enemy,false);
+	            RelativeX = impactOffsetX * (fromLeft ? -1 : 1);
+	            RelativeY = impactOffsetY * (fromAbove ? 1 : -1);
+
 	            RelativeRotationZ = rotation;
 	        }
 
-	        var duration = SpriteInstance.AnimationChains["Impact"].TotalLength;
-	        this.Call(() =>
-	        {
-	            this.Tween(FadeOut, 1, 0f, duration,
-	                InterpolationType.Exponential, Easing.Out);
-	        }).After(1);
+	        this.Tween(FadeOut, 1, 0f, 2, InterpolationType.Exponential, Easing.Out);
 	    }
 
 

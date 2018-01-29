@@ -151,9 +151,8 @@ namespace AbbatoirIntergrade.Screens
             foreach (var place in StructurePlacementList)
             {
                 place.OnClick += OnStructurePlacementClick;
-                place.AttachTo(currentMap);
+                place.AttachTo(currentMap, true);
                 place.Z = 2;
-                place.SetRelativeFromAbsolute();
             }
             foreach (var circle in TileCollisionCircleList)
             {
@@ -166,8 +165,7 @@ namespace AbbatoirIntergrade.Screens
                     circle.X -= circle.CircleInstanceRadius / 2;
                     circle.Y -= circle.CircleInstanceRadius / 2;
                 }
-                circle.AttachTo(currentMap);
-                circle.SetRelativeFromAbsolute();
+                circle.AttachTo(currentMap, true);
             }
             foreach (var rect in TileCollisionRectangleList)
             {
@@ -179,8 +177,7 @@ namespace AbbatoirIntergrade.Screens
                 {
                     rect.Y += rect.AxisAlignedRectangleInstanceHeight / 2-64;
                 }
-                rect.AttachTo(currentMap);
-                rect.SetRelativeFromAbsolute();
+                rect.AttachTo(currentMap, true);
             }
 
             WaterShapes = currentMap.ShapeCollections.FirstOrDefault(sc => sc.Name == "Water")?.Polygons.ToList();
@@ -188,14 +185,12 @@ namespace AbbatoirIntergrade.Screens
             {
                 foreach (var shape in WaterShapes)
                 {
-                    shape.AttachTo(currentMap);
-                    shape.SetRelativeFromAbsolute();
+                    shape.AttachTo(currentMap, true);
                 }
             }
 
             Pathing = currentMap.ShapeCollections.FirstOrDefault(sc => sc.Name == "Pathing")?.Polygons.FirstOrDefault();
-            Pathing?.AttachTo(currentMap);
-            Pathing?.SetRelativeFromAbsolute();
+            Pathing?.AttachTo(currentMap, true);
             currentMap.AddToManagers(WorldLayer);
 
             //This centers the map in the middle of the screen
@@ -389,15 +384,13 @@ namespace AbbatoirIntergrade.Screens
 	        for (var i = PlayerProjectileList.Count; i > 0; i--)
 	        {
 	            var projectile = PlayerProjectileList[i-1];
-	            if (projectile.ShouldBeDestroyed) continue;
+	            if (projectile.ShouldBeDestroyed || !projectile.CanStillDoDamage) continue;
 
 	            if (projectile.CurrentState != BasePlayerProjectile.VariableState.Flying &&
 	                !(projectile is CannonProjectile)) continue;
 
 	            if (projectile is CannonProjectile cannonProjectile)
 	            {
-	                if (cannonProjectile.IsOnlySmoke) continue;
-
 	                var enemiesImpacted = new List<BaseEnemy>();
 	                for (var e = AllEnemiesList.Count; e > 0; e--)
 	                {

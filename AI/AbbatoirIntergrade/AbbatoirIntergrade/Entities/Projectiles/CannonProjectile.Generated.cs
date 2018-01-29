@@ -350,7 +350,6 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             base.Destroy();
             
-            FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
         }
@@ -386,8 +385,8 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.TopTexturePixel = 1895f;
             base.LightOrShadowSprite.BottomTexturePixel = 1948f;
             base.LightOrShadowSprite.TextureScale = 1f;
-            base.LightOrShadowSprite.Width = 60f;
-            base.LightOrShadowSprite.Height = 48f;
+            base.LightOrShadowSprite.Width = 32f;
+            base.LightOrShadowSprite.Height = 24f;
             base.LightOrShadowSprite.Animate = false;
             #if FRB_MDX
             LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
@@ -410,7 +409,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 base.SpriteInstance.RelativeZ = 1f;
             }
-            base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.TextureScale = 0.5f;
             base.SpriteInstance.AnimationChains = CannonProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
             base.SpriteInstance.Visible = true;
@@ -464,8 +463,8 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.TopTexturePixel = 1895f;
             base.LightOrShadowSprite.BottomTexturePixel = 1948f;
             base.LightOrShadowSprite.TextureScale = 1f;
-            base.LightOrShadowSprite.Width = 60f;
-            base.LightOrShadowSprite.Height = 48f;
+            base.LightOrShadowSprite.Width = 32f;
+            base.LightOrShadowSprite.Height = 24f;
             base.LightOrShadowSprite.Animate = false;
             #if FRB_MDX
             LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
@@ -581,7 +580,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 base.SpriteInstance.RelativeZ = 1f;
             }
-            base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.TextureScale = 0.5f;
             base.SpriteInstance.AnimationChains = CannonProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
             base.SpriteInstance.Visible = true;

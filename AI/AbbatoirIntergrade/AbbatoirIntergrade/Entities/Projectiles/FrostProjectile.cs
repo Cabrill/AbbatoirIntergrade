@@ -1,13 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using AbbatoirIntergrade.Entities.BaseEntities;
 using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
+using FlatRedBall.Glue.StateInterpolation;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using StateInterpolationPlugin;
 
 namespace AbbatoirIntergrade.Entities.Projectiles
 {
@@ -22,16 +25,34 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 		{
             DamageType = DamageTypes.Frost;
 		    StatusEffectSeconds = 2;
-		    RotationZVelocity = FlatRedBallServices.Random.Between(5, 10);
-		}
+		    var randomRotation = FlatRedBallServices.Random.Between(2, 3);
+		    var randomDirection = FlatRedBallServices.Random.Between(0, 1);
+
+            RotationZVelocity = randomRotation * (randomDirection > 0 ? 1 : -1);
+        }
 
 		private void CustomActivity()
 		{
 
-
 		}
 
-		private void CustomDestroy()
+	    protected override void CustomHandleImpact(BaseEnemy enemy = null)
+	    {
+	        SpriteInstance.TextureScale = 1;
+	        if (enemy != null)
+	        {
+	            LightOrShadowSprite.AttachTo(enemy);
+	        }
+	        LightOrShadowSprite.Tween(HandleTweenerUpdate, 1, 2, SpriteInstance.AnimationChains["Impact"].TotalLength, InterpolationType.Exponential, Easing.InOut).Start();
+	    }
+
+	    private void HandleTweenerUpdate(float newPosition)
+	    {
+	        LightOrShadowSprite.TextureScale = _startingLightScale * newPosition;
+	        LightOrShadowSprite.Alpha = _startingShadowAlpha/2 * (2 - newPosition);
+	    }
+
+        private void CustomDestroy()
 		{
 
 

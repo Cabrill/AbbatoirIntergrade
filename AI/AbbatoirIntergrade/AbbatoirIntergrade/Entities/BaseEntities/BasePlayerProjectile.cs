@@ -20,13 +20,15 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	    public float Altitude { get; set; }
 	    public float AltitudeVelocity { get; set; }
         public DamageTypes DamageType { get; protected set; }
+	    public bool CanStillDoDamage = true;
 	    public double StatusEffectSeconds;
 
-	    private float _startingLightScale;
+	    protected float _startingSpriteScale;
+	    protected float _startingLightScale;
 	    private float _startingCircleRadius;
 	    private float? _startingShadowWidth;
 	    private float _startingShadowHeight;
-	    private float _startingShadowAlpha;
+	    protected float _startingShadowAlpha;
 
         public float GravityDrag { get; set; } = -100f;
 
@@ -57,14 +59,26 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             //These have to be set here, because the object is pooled (reused)
 		    if (!_startingShadowWidth.HasValue)
 		    {
-		        _startingShadowWidth = LightOrShadowSprite.Width;
+		        _startingSpriteScale = SpriteInstance.TextureScale;
+		        _startingLightScale = LightOrShadowSprite.TextureScale;
+                _startingShadowWidth = LightOrShadowSprite.Width;
 		        _startingShadowHeight = LightOrShadowSprite.Height;
 		        _startingShadowAlpha = LightOrShadowSprite.Alpha;
 		        _startingCircleRadius = CircleInstance.Radius;
 		    }
+		    else
+		    {
+		        SpriteInstance.TextureScale = _startingSpriteScale;
+		        LightOrShadowSprite.TextureScale = _startingLightScale;
+                LightOrShadowSprite.Width = _startingShadowWidth.Value;
+		        LightOrShadowSprite.Height = _startingShadowHeight;
+		        LightOrShadowSprite.Alpha = _startingShadowAlpha;
+		        CircleInstance.Radius = _startingCircleRadius;
+		    }
 
 		    ShouldBeDestroyed = false;
-		    Visible = true;
+		    CanStillDoDamage = true;
+            Visible = true;
 
             CurrentState = VariableState.Flying;
             Detach();
@@ -115,7 +129,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        {
 	            AltitudeVelocity += GravityDrag * TimeManager.SecondDifference;
 	            Altitude += AltitudeVelocity * TimeManager.SecondDifference;
-	            RotationZ = (float)Math.Atan2(-XVelocity, YVelocity + AltitudeVelocity);
+	            if (RotationZVelocity == 0) RotationZ = (float)Math.Atan2(-XVelocity, YVelocity + AltitudeVelocity);
             }
 	        float _spriteRelativeY = 0;
 
@@ -140,7 +154,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        CurrentState = VariableState.Impact;
             UpdateAnimation();
 	        CustomHandleImpact(enemy);
-	        Velocity = Vector3.Zero;
+	        CanStillDoDamage = false;
+            Velocity = Vector3.Zero;
         }
 
 	    protected virtual void CustomHandleImpact(BaseEnemy enemy = null)
