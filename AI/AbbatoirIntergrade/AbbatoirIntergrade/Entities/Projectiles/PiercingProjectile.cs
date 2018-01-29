@@ -60,20 +60,24 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 
 	            X = impactSite;
 
-                AttachTo(enemy,true);
+	            var rotation = RotationZ;
+                AttachTo(enemy,false);
+	            RelativeRotationZ = rotation;
 	        }
 
 	        var duration = SpriteInstance.AnimationChains["Impact"].TotalLength;
-
-	        this.Tween(FadeOut, 1, 0f, duration,
-	            InterpolationType.Exponential, Easing.Out);
-        }
+	        this.Call(() =>
+	        {
+	            this.Tween(FadeOut, 1, 0f, duration,
+	                InterpolationType.Exponential, Easing.Out);
+	        }).After(1);
+	    }
 
 
 	    private void FadeOut(float newPosition)
         {
 	        SpriteInstance.Alpha = newPosition;
-	        LightOrShadowSprite.Alpha = newPosition;
+	        LightOrShadowSprite.Alpha = newPosition/2;
         }
 
         private void CustomActivity()

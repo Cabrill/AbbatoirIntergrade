@@ -10,7 +10,7 @@ namespace AbbatoirIntergrade
     public enum DamageTypes
     {
         Piercing,
-        Concussive,
+        Bombarding,
         Fire,
         Frost,
         Electrical,

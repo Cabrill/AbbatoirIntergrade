@@ -266,7 +266,7 @@ namespace AbbatoirIntergrade.StaticManagers
             //These are multiplied by two to account for upgrades
             MaxDamage = Math.Max(MaxDamage, tower.AttackDamage*2);
             MaxRange = Math.Max(MaxRange, tower.RangedRadius*2);
-            MaxProjectileSpeed = Math.Max(MaxProjectileSpeed, tower.ProjectileSpeed * 2);
+            MaxProjectileSpeed = Math.Max(MaxProjectileSpeed, tower.ProjectileSpeed);
 
             MaxSecondsBetweenFiring = Math.Max(MaxSecondsBetweenFiring, tower.SecondsBetweenFiring);
             

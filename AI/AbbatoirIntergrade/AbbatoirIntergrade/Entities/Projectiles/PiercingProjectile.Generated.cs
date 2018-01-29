@@ -390,7 +390,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.BottomTexturePixel = 1948f;
             base.LightOrShadowSprite.TextureScale = 1f;
             base.LightOrShadowSprite.Width = 3f;
-            base.LightOrShadowSprite.Height = 64f;
+            base.LightOrShadowSprite.Height = 128f;
             base.LightOrShadowSprite.Animate = false;
             base.LightOrShadowSprite.Visible = true;
             #if FRB_MDX
@@ -398,7 +398,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             #else
             base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
-            base.LightOrShadowSprite.Alpha = 0.8f;
+            base.LightOrShadowSprite.Alpha = 0.6f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (SpriteInstance.Parent == null)
             {
@@ -430,7 +430,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 base.CircleInstance.RelativeY = 26f;
             }
-            base.CircleInstance.Radius = 6f;
+            base.CircleInstance.Radius = 7f;
             base.CircleInstance.Color = Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = true;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
@@ -483,7 +483,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.BottomTexturePixel = 1948f;
             base.LightOrShadowSprite.TextureScale = 1f;
             base.LightOrShadowSprite.Width = 3f;
-            base.LightOrShadowSprite.Height = 64f;
+            base.LightOrShadowSprite.Height = 128f;
             base.LightOrShadowSprite.Animate = false;
             base.LightOrShadowSprite.Visible = true;
             #if FRB_MDX
@@ -491,7 +491,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             #else
             base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
-            base.LightOrShadowSprite.Alpha = 0.8f;
+            base.LightOrShadowSprite.Alpha = 0.6f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (LightOrShadowSprite.Parent == null)
             {
@@ -709,7 +709,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 base.CircleInstance.RelativeY = 26f;
             }
-            base.CircleInstance.Radius = 6f;
+            base.CircleInstance.Radius = 7f;
             base.CircleInstance.Color = Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = true;
             HasLightSource = false;

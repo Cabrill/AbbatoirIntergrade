@@ -11,6 +11,7 @@ using FlatRedBall.Graphics;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using Microsoft.Xna.Framework;
 
 namespace AbbatoirIntergrade.Entities.Structures
 {
@@ -25,6 +26,10 @@ namespace AbbatoirIntergrade.Entities.Structures
 		{
             DamageType = DamageTypes.Piercing;
 
+		    var offset = ArrowSpriteInstance.RelativeY - AimSpriteInstance.RelativeY;
+            ArrowSpriteInstance.AttachTo(AimSpriteInstance);
+		    AimSpriteInstance.RelativeRotationZ = MathHelper.ToRadians(90);
+		    ArrowSpriteInstance.RelativeY = offset;
 		}
 
 	    public void AddSpritesToLayers(FlatRedBall.Graphics.Layer darknessLayer, Layer hudLayer)

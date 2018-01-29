@@ -585,10 +585,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font50MoireExtraBold</Name>
     </None>
-    <None Include="content\globalcontent\towers.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>towers</Name>
-    </None>
     <None Include="content\gumproject\alluiassets.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AllUIAssets</Name>

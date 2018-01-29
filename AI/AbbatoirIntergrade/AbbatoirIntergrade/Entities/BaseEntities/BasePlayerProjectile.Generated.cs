@@ -486,6 +486,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
             if (SpriteInstance.Parent == null)
             {
+                SpriteInstance.X = 1f;
+            }
+            else
+            {
+                SpriteInstance.RelativeX = 1f;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstance.Y = -1f;
+            }
+            else
+            {
+                SpriteInstance.RelativeY = -1f;
+            }
+            if (SpriteInstance.Parent == null)
+            {
                 SpriteInstance.Z = 1f;
             }
             else
@@ -520,6 +536,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 mCircleInstance.CopyAbsoluteToRelative();
                 mCircleInstance.AttachTo(this, false);
+            }
+            if (CircleInstance.Parent == null)
+            {
+                CircleInstance.X = 0.04964364f;
+            }
+            else
+            {
+                CircleInstance.RelativeX = 0.04964364f;
+            }
+            if (CircleInstance.Parent == null)
+            {
+                CircleInstance.Y = 60.4546f;
+            }
+            else
+            {
+                CircleInstance.RelativeY = 60.4546f;
             }
             CircleInstance.Radius = 16f;
             CircleInstance.Color = Color.Red;
@@ -556,6 +588,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             if (callOnContainedElements)
             {
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstance.X = 1f;
+            }
+            else
+            {
+                SpriteInstance.RelativeX = 1f;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                SpriteInstance.Y = -1f;
+            }
+            else
+            {
+                SpriteInstance.RelativeY = -1f;
             }
             if (SpriteInstance.Parent == null)
             {
@@ -780,6 +828,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
             LightOrShadowSprite.Alpha = LightOrShadowSpriteAlphaReset;
             LightOrShadowSprite.AlphaRate = LightOrShadowSpriteAlphaRateReset;
+            if (CircleInstance.Parent == null)
+            {
+                CircleInstance.X = 0.04964364f;
+            }
+            else
+            {
+                CircleInstance.RelativeX = 0.04964364f;
+            }
+            if (CircleInstance.Parent == null)
+            {
+                CircleInstance.Y = 60.4546f;
+            }
+            else
+            {
+                CircleInstance.RelativeY = 60.4546f;
+            }
             CircleInstance.Radius = 16f;
             CircleInstance.Color = Color.Red;
             CircleInstance.ParentRotationChangesPosition = false;

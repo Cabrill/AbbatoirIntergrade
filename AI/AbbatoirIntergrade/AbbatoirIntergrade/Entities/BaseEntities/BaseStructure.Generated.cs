@@ -135,7 +135,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static Microsoft.Xna.Framework.Audio.SoundEffect Structure_Placed;
         protected static Microsoft.Xna.Framework.Audio.SoundEffect Building_Destroyed;
-        protected static Microsoft.Xna.Framework.Graphics.Texture2D towers;
         protected static FlatRedBall.Graphics.Animation.AnimationChainList BaseStructureAnimationChainListFile;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D AllParticles;
         
@@ -176,6 +175,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 mRangeCircleInstance = value;
             }
         }
+        protected FlatRedBall.Sprite AimSpriteInstance;
+        protected FlatRedBall.PositionedObject PivotPoint;
         public float SpriteInstanceRed
         {
             get
@@ -447,7 +448,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     mSpriteInstance.CopyAbsoluteToRelative();
                     mSpriteInstance.AttachTo(this, false);
                 }
-                SpriteInstance.Texture = towers;
+                SpriteInstance.Texture = AllParticles;
                 SpriteInstance.TextureScale = 1f;
                 SpriteInstance.AnimationChains = BaseStructureAnimationChainListFile;
             }
@@ -476,7 +477,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 {
                     LightSpriteInstance.RelativeZ = -1f;
                 }
-                LightSpriteInstance.Texture = towers;
+                LightSpriteInstance.Texture = AllParticles;
                 LightSpriteInstance.LeftTexturePixel = 1792f;
                 LightSpriteInstance.RightTexturePixel = 2048f;
                 LightSpriteInstance.TopTexturePixel = 1792f;
@@ -496,6 +497,32 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 mRangeCircleInstance.AttachTo(this, false);
             }
             RangeCircleInstance.Radius = 400f;
+            if (AimSpriteInstance!= null)
+            {
+                if (AimSpriteInstance.Parent == null)
+                {
+                    AimSpriteInstance.CopyAbsoluteToRelative();
+                    AimSpriteInstance.AttachTo(this, false);
+                }
+                if (AimSpriteInstance.Parent == null)
+                {
+                    AimSpriteInstance.Z = 1f;
+                }
+                else
+                {
+                    AimSpriteInstance.RelativeZ = 1f;
+                }
+                AimSpriteInstance.Texture = AllParticles;
+                AimSpriteInstance.TextureScale = 1f;
+            }
+            if (PivotPoint!= null)
+            {
+                if (PivotPoint.Parent == null)
+                {
+                    PivotPoint.CopyAbsoluteToRelative();
+                    PivotPoint.AttachTo(this, false);
+                }
+            }
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.AxisAlignedRectangles.AddOneWay(mAxisAlignedRectangleInstance);
             mGeneratedCollision.Circles.AddOneWay(mRangeCircleInstance);
@@ -559,6 +586,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 FlatRedBall.SpriteManager.ConvertToManuallyUpdated(LightSpriteInstance);
             }
+            if (AimSpriteInstance != null)
+            {
+                FlatRedBall.SpriteManager.ConvertToManuallyUpdated(AimSpriteInstance);
+            }
+            if (PivotPoint != null)
+            {
+                FlatRedBall.SpriteManager.ConvertToManuallyUpdated(PivotPoint);
+            }
         }
         public static void LoadStaticContent (string contentManagerName) 
         {
@@ -598,7 +633,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 }
                 Structure_Placed = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/structure_placed", ContentManagerName);
                 Building_Destroyed = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/building_destroyed", ContentManagerName);
-                towers = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/globalcontent/towers.png", ContentManagerName);
                 BaseStructureAnimationChainListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/baseentities/basestructure/basestructureanimationchainlistfile.achx", ContentManagerName);
                 AllParticles = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/projectiles/allparticles.png", ContentManagerName);
             }
@@ -916,8 +950,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return Structure_Placed;
                 case  "Building_Destroyed":
                     return Building_Destroyed;
-                case  "towers":
-                    return towers;
                 case  "BaseStructureAnimationChainListFile":
                     return BaseStructureAnimationChainListFile;
                 case  "AllParticles":
@@ -933,8 +965,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return Structure_Placed;
                 case  "Building_Destroyed":
                     return Building_Destroyed;
-                case  "towers":
-                    return towers;
                 case  "BaseStructureAnimationChainListFile":
                     return BaseStructureAnimationChainListFile;
                 case  "AllParticles":
@@ -950,8 +980,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return Structure_Placed;
                 case  "Building_Destroyed":
                     return Building_Destroyed;
-                case  "towers":
-                    return towers;
                 case  "BaseStructureAnimationChainListFile":
                     return BaseStructureAnimationChainListFile;
                 case  "AllParticles":
@@ -989,6 +1017,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 return true;
             }
+            if (AimSpriteInstance.Alpha != 0 && AimSpriteInstance.AbsoluteVisible && cursor.IsOn3D(AimSpriteInstance, LayerProvidedByContainer))
+            {
+                return true;
+            }
             return false;
         }
         public virtual bool WasClickedThisFrame (FlatRedBall.Gui.Cursor cursor) 
@@ -1017,6 +1049,13 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(LightSpriteInstance);
             }
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(RangeCircleInstance);
+            if (AimSpriteInstance != null)
+            {
+                FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(AimSpriteInstance);
+            }
+            if (PivotPoint != null)
+            {
+            }
         }
         public virtual void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {
@@ -1041,6 +1080,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 layerToRemoveFrom.Remove(RangeCircleInstance);
             }
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(RangeCircleInstance, layerToMoveTo);
+            if (layerToRemoveFrom != null)
+            {
+                layerToRemoveFrom.Remove(AimSpriteInstance);
+            }
+            FlatRedBall.SpriteManager.AddToLayer(AimSpriteInstance, layerToMoveTo);
             LayerProvidedByContainer = layerToMoveTo;
         }
     }

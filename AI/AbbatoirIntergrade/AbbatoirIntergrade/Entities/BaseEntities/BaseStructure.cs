@@ -81,10 +81,24 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             PlacementSound = Structure_Placed.CreateInstance();
             DestroyedSound = Building_Destroyed.CreateInstance();
 
-            _spriteRelativeY = GetSpriteRelativeY();
-            
-            UpdateAnimation();
+            _spriteRelativeY = SpriteInstance.Height / 2;
 
+            SpriteInstance.RelativeY = _spriteRelativeY;
+            AimSpriteInstance.RelativeY += _spriteRelativeY;
+            PivotPoint.RelativeY += _spriteRelativeY;
+
+            var yOffset = AimSpriteInstance.RelativeY-PivotPoint.RelativeY;
+            var xOffset = AimSpriteInstance.RelativeX - PivotPoint.RelativeX;
+
+            AimSpriteInstance.AttachTo(PivotPoint, true);
+            AimSpriteInstance.RelativeRotationZ = MathHelper.ToRadians(90);
+            AimSpriteInstance.RelativeY = yOffset;
+            AimSpriteInstance.RelativeX = xOffset;
+            PivotPoint.RelativeY -= yOffset;
+            PivotPoint.RelativeX -= xOffset;
+            AimSpriteInstance.ParentRotationChangesPosition = false;
+            //AimSpriteInstance.SetRelativeFromAbsolute();
+            
             RangeCircleInstance.Visible = true;
             LastFiredTime = TimeManager.CurrentTime;
 
@@ -94,8 +108,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         private void CustomActivity()
         {
-            UpdateAnimation();
-
             if (IsBeingPlaced)
             {
                 CurrentState = VariableState.InvalidLocation;
@@ -105,11 +117,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 #if DEBUG
                 if (DebugVariables.TurretsAimAtMouse) RotateToAimMouse();
 #endif
-                if (targetEnemy != null && targetEnemy.Collision.IsEmpty)
-                {
-                    var x = 4;
-                }
-
 
                 if (targetEnemy != null && (targetEnemy.IsDead || !RangeCircleInstance.CollideAgainst(targetEnemy.Collision)))
                 {
@@ -124,7 +131,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 if (targetEnemy != null)
                 {
                     RotateToAim();
-                    SetAnimationFromAimRotation();
                     PerformFiringActivity();
                 }
             }
@@ -181,25 +187,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
         }
 
-        protected float GetSpriteRelativeY()
-        {
-            if (SpriteInstance.CurrentChain == null || SpriteInstance.CurrentChain.Count == 1)
-            {
-                return SpriteInstance.Height / 2;
-            }
-            else
-            {
-                var maxHeight = 0f;
-                foreach (var frame in SpriteInstance.CurrentChain)
-                {
-                    maxHeight = Math.Max(maxHeight,
-                        (frame.BottomCoordinate - frame.TopCoordinate) * frame.Texture.Height *
-                        SpriteInstance.TextureScale);
-                }
-                return maxHeight / 2;
-            }
-        }
-
         private void PerformDestruction()
         {
             OnDestroy?.Invoke();
@@ -243,6 +230,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             LayerProvidedByContainer.Remove(SpriteInstance);
             FlatRedBall.SpriteManager.AddToLayer(SpriteInstance, hudLayer);
 
+            LayerProvidedByContainer.Remove(AimSpriteInstance);
+            FlatRedBall.SpriteManager.AddToLayer(AimSpriteInstance, hudLayer);
+
             LayerProvidedByContainer.Remove(LightSpriteInstance);
             FlatRedBall.SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
 
@@ -279,8 +269,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             var angle = (float)Math.Atan2(Position.Y - aimLocation.Y, Position.X - aimLocation.X);
 
             _aimRotation = angle;
-
-            SetAnimationFromAimRotation();
+            PivotPoint.RelativeRotationZ = _aimRotation;
             PerformFiringActivity();
         }
 #endif
@@ -322,51 +311,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             var angle = (float)Math.Atan2(startPosition.Y - aimLocation.Y, startPosition.X - aimLocation.X);
 
             _aimRotation = angle;
-        }
-
-        protected virtual void SetAnimationFromAimRotation()
-        {
-            //var isolatedAim = _aimRotation % (2 * Math.PI);//A full circle is is 2*Pi
-
-            //if (isolatedAim < 0) isolatedAim = (2 * Math.PI) - Math.Abs(isolatedAim);
-
-            //var quadSize = (2 * Math.PI) / 4;//Four quads in a circle
-            //var aimQuad = (int)(isolatedAim / quadSize);
-            //var quadRemainder = isolatedAim % quadSize;
-
-            ////var quadProgress = (int)Math.Floor(quadRemainder / (quadrantSegments/5));
-
-            //var quadPercent = quadRemainder / quadSize;
-            //int quadProgress = 0;
-
-            //if (aimQuad == 0 || aimQuad == 2)//bottom-left and top-right
-            //{
-            //    if (quadPercent > 0.7f) quadProgress = 4;
-            //    else if (quadPercent > .4f) quadProgress = 3;
-            //    else if (quadPercent > .25f) quadProgress = 2;
-            //    else if (quadPercent > .12f) quadProgress = 1;
-            //}
-            //else//bottom-right and top-left
-            //{
-            //    if (quadPercent > 0.97f) quadProgress = 4;
-            //    else if (quadPercent > .9f) quadProgress = 3;
-            //    else if (quadPercent > .7f) quadProgress = 2;
-            //    else if (quadPercent > .35f) quadProgress = 1;
-            //}
-
-            //if (targetEnemy == null || !targetEnemy.IsFlying)
-            //{
-            //    SpriteInstance.CurrentChainName = "Turn";
-            //}
-            //else
-            //{
-            //    SpriteInstance.CurrentChainName = "UpTurn";
-            //}
-
-            //SpriteInstance.CurrentFrameIndex = (aimQuad * 5) + quadProgress;
-
-
-            //UpdateAnimation();
+            PivotPoint.RelativeRotationZ = _aimRotation;
         }
 
         protected virtual Vector3 GetProjectilePositioning(float? angle = null)

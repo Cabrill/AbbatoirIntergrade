@@ -24,7 +24,7 @@ namespace AbbatoirIntergrade.Entities.Structures
         /// </summary>
 		private void CustomInitialize()
 		{
-            DamageType = DamageTypes.Concussive;
+            DamageType = DamageTypes.Bombarding;
 
 		}
 

@@ -253,12 +253,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	    {
 	        switch (damageType)
 	        {
-	            case DamageTypes.Frost: return (1 - EffectiveFrostResist);
-	            case DamageTypes.Chemical: return (1 - EffectiveChemicalResist);
-	            case DamageTypes.Electrical: return (1 - BaseElectricResist);
-	            case DamageTypes.Piercing: return (1-EffectivePiercingResist);
-                case DamageTypes.Concussive: return (1 - EffectiveBombardResist);
-                case DamageTypes.Fire: return (1 - EffectiveFireResist);
+	            case DamageTypes.Frost: return (1f - EffectiveFrostResist);
+	            case DamageTypes.Chemical: return (1f - EffectiveChemicalResist);
+	            case DamageTypes.Electrical: return (1f - BaseElectricResist);
+	            case DamageTypes.Piercing: return (1f -EffectivePiercingResist);
+                case DamageTypes.Bombarding: return (1f - EffectiveBombardResist);
+                case DamageTypes.Fire: return (1f - EffectiveFireResist);
                 default: return 1;
             }
         }

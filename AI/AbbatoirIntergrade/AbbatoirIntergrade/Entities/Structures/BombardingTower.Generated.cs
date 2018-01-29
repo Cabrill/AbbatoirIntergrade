@@ -89,6 +89,10 @@ namespace AbbatoirIntergrade.Entities.Structures
             mAxisAlignedRectangleInstance.Name = "mAxisAlignedRectangleInstance";
             LightSpriteInstance = new FlatRedBall.Sprite();
             LightSpriteInstance.Name = "LightSpriteInstance";
+            AimSpriteInstance = new FlatRedBall.Sprite();
+            AimSpriteInstance.Name = "AimSpriteInstance";
+            PivotPoint = new FlatRedBall.PositionedObject();
+            PivotPoint.Name = "PivotPoint";
             
             base.InitializeEntity(addToManagers);
         }
@@ -98,6 +102,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             FlatRedBall.SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mAxisAlignedRectangleInstance, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(LightSpriteInstance, LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddToLayer(AimSpriteInstance, LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddPositionedObject(PivotPoint);
         }
         public override void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
@@ -105,6 +111,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             FlatRedBall.SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mAxisAlignedRectangleInstance, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(LightSpriteInstance, LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddToLayer(AimSpriteInstance, LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddPositionedObject(PivotPoint);
             base.AddToManagers(layerToAddTo);
             CustomInitialize();
         }
@@ -134,6 +142,14 @@ namespace AbbatoirIntergrade.Entities.Structures
             {
                 FlatRedBall.SpriteManager.RemoveSpriteOneWay(LightSpriteInstance);
             }
+            if (AimSpriteInstance != null)
+            {
+                FlatRedBall.SpriteManager.RemoveSpriteOneWay(AimSpriteInstance);
+            }
+            if (PivotPoint != null)
+            {
+                FlatRedBall.SpriteManager.ConvertToManuallyUpdated(PivotPoint);
+            }
             FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
         }
@@ -147,11 +163,11 @@ namespace AbbatoirIntergrade.Entities.Structures
                 SpriteInstance.CopyAbsoluteToRelative();
                 SpriteInstance.AttachTo(this, false);
             }
-            base.SpriteInstance.Texture = towers;
-            base.SpriteInstance.LeftTexturePixel = -6f;
-            base.SpriteInstance.RightTexturePixel = 165f;
-            base.SpriteInstance.TopTexturePixel = 582f;
-            base.SpriteInstance.BottomTexturePixel = 842f;
+            base.SpriteInstance.Texture = AllParticles;
+            base.SpriteInstance.LeftTexturePixel = 1949f;
+            base.SpriteInstance.RightTexturePixel = 2037f;
+            base.SpriteInstance.TopTexturePixel = 1724f;
+            base.SpriteInstance.BottomTexturePixel = 1825f;
             base.SpriteInstance.TextureScale = 1f;
             if (mAxisAlignedRectangleInstance.Parent == null)
             {
@@ -164,6 +180,14 @@ namespace AbbatoirIntergrade.Entities.Structures
             {
                 LightSpriteInstance.CopyAbsoluteToRelative();
                 LightSpriteInstance.AttachTo(this, false);
+            }
+            if (LightSpriteInstance.Parent == null)
+            {
+                base.LightSpriteInstance.Y = 15f;
+            }
+            else
+            {
+                base.LightSpriteInstance.RelativeY = 15f;
             }
             if (LightSpriteInstance.Parent == null)
             {
@@ -185,6 +209,54 @@ namespace AbbatoirIntergrade.Entities.Structures
             #endif
             base.LightSpriteInstance.Blue = 0.5f;
             base.LightSpriteInstance.Alpha = 0.25f;
+            if (AimSpriteInstance.Parent == null)
+            {
+                AimSpriteInstance.CopyAbsoluteToRelative();
+                AimSpriteInstance.AttachTo(this, false);
+            }
+            if (AimSpriteInstance.Parent == null)
+            {
+                base.AimSpriteInstance.X = 0f;
+            }
+            else
+            {
+                base.AimSpriteInstance.RelativeX = 0f;
+            }
+            if (AimSpriteInstance.Parent == null)
+            {
+                base.AimSpriteInstance.Y = 78f;
+            }
+            else
+            {
+                base.AimSpriteInstance.RelativeY = 78f;
+            }
+            if (AimSpriteInstance.Parent == null)
+            {
+                base.AimSpriteInstance.Z = 1f;
+            }
+            else
+            {
+                base.AimSpriteInstance.RelativeZ = 1f;
+            }
+            base.AimSpriteInstance.Texture = AllParticles;
+            base.AimSpriteInstance.LeftTexturePixel = 1939f;
+            base.AimSpriteInstance.RightTexturePixel = 1986f;
+            base.AimSpriteInstance.TopTexturePixel = 1846f;
+            base.AimSpriteInstance.BottomTexturePixel = 2002f;
+            base.AimSpriteInstance.TextureScale = 1f;
+            if (PivotPoint.Parent == null)
+            {
+                PivotPoint.CopyAbsoluteToRelative();
+                PivotPoint.AttachTo(this, false);
+            }
+            if (PivotPoint.Parent == null)
+            {
+                base.PivotPoint.Y = 15f;
+            }
+            else
+            {
+                base.PivotPoint.RelativeY = 15f;
+            }
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
         public override void AddToManagersBottomUp (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -206,6 +278,14 @@ namespace AbbatoirIntergrade.Entities.Structures
             {
                 FlatRedBall.SpriteManager.RemoveSpriteOneWay(LightSpriteInstance);
             }
+            if (AimSpriteInstance != null)
+            {
+                FlatRedBall.SpriteManager.RemoveSpriteOneWay(AimSpriteInstance);
+            }
+            if (PivotPoint != null)
+            {
+                FlatRedBall.SpriteManager.ConvertToManuallyUpdated(PivotPoint);
+            }
         }
         public override void AssignCustomVariables (bool callOnContainedElements) 
         {
@@ -213,14 +293,22 @@ namespace AbbatoirIntergrade.Entities.Structures
             if (callOnContainedElements)
             {
             }
-            base.SpriteInstance.Texture = towers;
-            base.SpriteInstance.LeftTexturePixel = -6f;
-            base.SpriteInstance.RightTexturePixel = 165f;
-            base.SpriteInstance.TopTexturePixel = 582f;
-            base.SpriteInstance.BottomTexturePixel = 842f;
+            base.SpriteInstance.Texture = AllParticles;
+            base.SpriteInstance.LeftTexturePixel = 1949f;
+            base.SpriteInstance.RightTexturePixel = 2037f;
+            base.SpriteInstance.TopTexturePixel = 1724f;
+            base.SpriteInstance.BottomTexturePixel = 1825f;
             base.SpriteInstance.TextureScale = 1f;
             base.AxisAlignedRectangleInstance.Width = 64f;
             base.AxisAlignedRectangleInstance.Height = 64f;
+            if (LightSpriteInstance.Parent == null)
+            {
+                base.LightSpriteInstance.Y = 15f;
+            }
+            else
+            {
+                base.LightSpriteInstance.RelativeY = 15f;
+            }
             if (LightSpriteInstance.Parent == null)
             {
                 base.LightSpriteInstance.Z = -1f;
@@ -241,6 +329,44 @@ namespace AbbatoirIntergrade.Entities.Structures
             #endif
             base.LightSpriteInstance.Blue = 0.5f;
             base.LightSpriteInstance.Alpha = 0.25f;
+            if (AimSpriteInstance.Parent == null)
+            {
+                base.AimSpriteInstance.X = 0f;
+            }
+            else
+            {
+                base.AimSpriteInstance.RelativeX = 0f;
+            }
+            if (AimSpriteInstance.Parent == null)
+            {
+                base.AimSpriteInstance.Y = 78f;
+            }
+            else
+            {
+                base.AimSpriteInstance.RelativeY = 78f;
+            }
+            if (AimSpriteInstance.Parent == null)
+            {
+                base.AimSpriteInstance.Z = 1f;
+            }
+            else
+            {
+                base.AimSpriteInstance.RelativeZ = 1f;
+            }
+            base.AimSpriteInstance.Texture = AllParticles;
+            base.AimSpriteInstance.LeftTexturePixel = 1939f;
+            base.AimSpriteInstance.RightTexturePixel = 1986f;
+            base.AimSpriteInstance.TopTexturePixel = 1846f;
+            base.AimSpriteInstance.BottomTexturePixel = 2002f;
+            base.AimSpriteInstance.TextureScale = 1f;
+            if (PivotPoint.Parent == null)
+            {
+                base.PivotPoint.Y = 15f;
+            }
+            else
+            {
+                base.PivotPoint.RelativeY = 15f;
+            }
             DisplayName = "Not Set";
             HasLightSource = true;
             ProjectileSpeed = 600f;
@@ -257,6 +383,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             FlatRedBall.SpriteManager.ConvertToManuallyUpdated(this);
             FlatRedBall.SpriteManager.ConvertToManuallyUpdated(SpriteInstance);
             FlatRedBall.SpriteManager.ConvertToManuallyUpdated(LightSpriteInstance);
+            FlatRedBall.SpriteManager.ConvertToManuallyUpdated(AimSpriteInstance);
+            FlatRedBall.SpriteManager.ConvertToManuallyUpdated(PivotPoint);
         }
         public static new void LoadStaticContent (string contentManagerName) 
         {
@@ -362,6 +490,10 @@ namespace AbbatoirIntergrade.Entities.Structures
             {
                 return true;
             }
+            if (AimSpriteInstance.Alpha != 0 && AimSpriteInstance.AbsoluteVisible && cursor.IsOn3D(AimSpriteInstance, LayerProvidedByContainer))
+            {
+                return true;
+            }
             return false;
         }
         public override bool WasClickedThisFrame (FlatRedBall.Gui.Cursor cursor) 
@@ -374,6 +506,7 @@ namespace AbbatoirIntergrade.Entities.Structures
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(SpriteInstance);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(AxisAlignedRectangleInstance);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(LightSpriteInstance);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(AimSpriteInstance);
         }
         public override void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {

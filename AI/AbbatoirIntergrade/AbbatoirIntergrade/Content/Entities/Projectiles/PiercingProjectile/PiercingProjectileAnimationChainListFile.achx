@@ -8,18 +8,10 @@
     <Frame>
       <TextureName>../AllParticles.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>2041</LeftCoordinate>
-      <RightCoordinate>2047</RightCoordinate>
-      <TopCoordinate>877</TopCoordinate>
-      <BottomCoordinate>941</BottomCoordinate>
-    </Frame>
-    <Frame>
-      <TextureName>../AllParticles.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>2041</LeftCoordinate>
-      <RightCoordinate>2047</RightCoordinate>
-      <TopCoordinate>943</TopCoordinate>
-      <BottomCoordinate>1007</BottomCoordinate>
+      <LeftCoordinate>2019</LeftCoordinate>
+      <RightCoordinate>2034</RightCoordinate>
+      <TopCoordinate>1571</TopCoordinate>
+      <BottomCoordinate>1712</BottomCoordinate>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -27,10 +19,10 @@
     <Frame>
       <TextureName>../AllParticles.png</TextureName>
       <FrameLength>5</FrameLength>
-      <LeftCoordinate>2041</LeftCoordinate>
-      <RightCoordinate>2047</RightCoordinate>
-      <TopCoordinate>1013</TopCoordinate>
-      <BottomCoordinate>1061</BottomCoordinate>
+      <LeftCoordinate>2019</LeftCoordinate>
+      <RightCoordinate>2034</RightCoordinate>
+      <TopCoordinate>1602</TopCoordinate>
+      <BottomCoordinate>1712</BottomCoordinate>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>
