@@ -179,10 +179,10 @@ namespace AbbatoirIntergrade.Entities.Structures
                 base.SpriteInstance.RelativeY = 0f;
             }
             base.SpriteInstance.Texture = AllParticles;
-            base.SpriteInstance.LeftTexturePixel = 1784f;
-            base.SpriteInstance.RightTexturePixel = 1935f;
-            base.SpriteInstance.TopTexturePixel = 1907f;
-            base.SpriteInstance.BottomTexturePixel = 2048f;
+            base.SpriteInstance.LeftTexturePixel = 1804f;
+            base.SpriteInstance.RightTexturePixel = 1920f;
+            base.SpriteInstance.TopTexturePixel = 1914f;
+            base.SpriteInstance.BottomTexturePixel = 2030f;
             base.SpriteInstance.TextureScale = 1f;
             if (mAxisAlignedRectangleInstance.Parent == null)
             {
@@ -341,10 +341,10 @@ namespace AbbatoirIntergrade.Entities.Structures
                 base.SpriteInstance.RelativeY = 0f;
             }
             base.SpriteInstance.Texture = AllParticles;
-            base.SpriteInstance.LeftTexturePixel = 1784f;
-            base.SpriteInstance.RightTexturePixel = 1935f;
-            base.SpriteInstance.TopTexturePixel = 1907f;
-            base.SpriteInstance.BottomTexturePixel = 2048f;
+            base.SpriteInstance.LeftTexturePixel = 1804f;
+            base.SpriteInstance.RightTexturePixel = 1920f;
+            base.SpriteInstance.TopTexturePixel = 1914f;
+            base.SpriteInstance.BottomTexturePixel = 2030f;
             base.SpriteInstance.TextureScale = 1f;
             base.AxisAlignedRectangleInstance.Width = 64f;
             base.AxisAlignedRectangleInstance.Height = 64f;

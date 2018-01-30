@@ -162,7 +162,18 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 mAxisAlignedRectangleInstance = value;
             }
         }
-        protected FlatRedBall.Sprite LightSpriteInstance;
+        protected FlatRedBall.Sprite mLightSpriteInstance;
+        public FlatRedBall.Sprite LightSpriteInstance
+        {
+            get
+            {
+                return mLightSpriteInstance;
+            }
+            protected set
+            {
+                mLightSpriteInstance = value;
+            }
+        }
         private FlatRedBall.Math.Geometry.Circle mRangeCircleInstance;
         public FlatRedBall.Math.Geometry.Circle RangeCircleInstance
         {
@@ -175,8 +186,30 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 mRangeCircleInstance = value;
             }
         }
-        protected FlatRedBall.Sprite AimSpriteInstance;
-        protected FlatRedBall.PositionedObject PivotPoint;
+        protected FlatRedBall.Sprite mAimSpriteInstance;
+        public FlatRedBall.Sprite AimSpriteInstance
+        {
+            get
+            {
+                return mAimSpriteInstance;
+            }
+            protected set
+            {
+                mAimSpriteInstance = value;
+            }
+        }
+        protected FlatRedBall.PositionedObject mPivotPoint;
+        public FlatRedBall.PositionedObject PivotPoint
+        {
+            get
+            {
+                return mPivotPoint;
+            }
+            protected set
+            {
+                mPivotPoint = value;
+            }
+        }
         public float SpriteInstanceRed
         {
             get
@@ -463,10 +496,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
             if (LightSpriteInstance!= null)
             {
-                if (LightSpriteInstance.Parent == null)
+                if (mLightSpriteInstance.Parent == null)
                 {
-                    LightSpriteInstance.CopyAbsoluteToRelative();
-                    LightSpriteInstance.AttachTo(this, false);
+                    mLightSpriteInstance.CopyAbsoluteToRelative();
+                    mLightSpriteInstance.AttachTo(this, false);
                 }
                 if (LightSpriteInstance.Parent == null)
                 {
@@ -498,10 +531,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             RangeCircleInstance.Radius = 400f;
             if (AimSpriteInstance!= null)
             {
-                if (AimSpriteInstance.Parent == null)
+                if (mAimSpriteInstance.Parent == null)
                 {
-                    AimSpriteInstance.CopyAbsoluteToRelative();
-                    AimSpriteInstance.AttachTo(this, false);
+                    mAimSpriteInstance.CopyAbsoluteToRelative();
+                    mAimSpriteInstance.AttachTo(this, false);
                 }
                 if (AimSpriteInstance.Parent == null)
                 {
@@ -516,10 +549,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
             if (PivotPoint!= null)
             {
-                if (PivotPoint.Parent == null)
+                if (mPivotPoint.Parent == null)
                 {
-                    PivotPoint.CopyAbsoluteToRelative();
-                    PivotPoint.AttachTo(this, false);
+                    mPivotPoint.CopyAbsoluteToRelative();
+                    mPivotPoint.AttachTo(this, false);
                 }
             }
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();

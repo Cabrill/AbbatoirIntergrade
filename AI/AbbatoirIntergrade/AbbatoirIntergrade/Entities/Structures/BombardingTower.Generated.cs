@@ -182,11 +182,19 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (LightSpriteInstance.Parent == null)
             {
-                base.LightSpriteInstance.Y = 15f;
+                base.LightSpriteInstance.X = 0f;
             }
             else
             {
-                base.LightSpriteInstance.RelativeY = 15f;
+                base.LightSpriteInstance.RelativeX = 0f;
+            }
+            if (LightSpriteInstance.Parent == null)
+            {
+                base.LightSpriteInstance.Y = 30f;
+            }
+            else
+            {
+                base.LightSpriteInstance.RelativeY = 30f;
             }
             if (LightSpriteInstance.Parent == null)
             {
@@ -250,11 +258,11 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (PivotPoint.Parent == null)
             {
-                base.PivotPoint.Y = 15f;
+                base.PivotPoint.Y = 30f;
             }
             else
             {
-                base.PivotPoint.RelativeY = 15f;
+                base.PivotPoint.RelativeY = 30f;
             }
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
@@ -302,11 +310,19 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.AxisAlignedRectangleInstance.Height = 64f;
             if (LightSpriteInstance.Parent == null)
             {
-                base.LightSpriteInstance.Y = 15f;
+                base.LightSpriteInstance.X = 0f;
             }
             else
             {
-                base.LightSpriteInstance.RelativeY = 15f;
+                base.LightSpriteInstance.RelativeX = 0f;
+            }
+            if (LightSpriteInstance.Parent == null)
+            {
+                base.LightSpriteInstance.Y = 30f;
+            }
+            else
+            {
+                base.LightSpriteInstance.RelativeY = 30f;
             }
             if (LightSpriteInstance.Parent == null)
             {
@@ -360,11 +376,11 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.AimSpriteInstance.TextureScale = 1f;
             if (PivotPoint.Parent == null)
             {
-                base.PivotPoint.Y = 15f;
+                base.PivotPoint.Y = 30f;
             }
             else
             {
-                base.PivotPoint.RelativeY = 15f;
+                base.PivotPoint.RelativeY = 30f;
             }
             DisplayName = "Not Set";
             HasLightSource = true;
