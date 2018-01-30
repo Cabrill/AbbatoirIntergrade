@@ -182,6 +182,22 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (LightSpriteInstance.Parent == null)
             {
+                base.LightSpriteInstance.X = 15f;
+            }
+            else
+            {
+                base.LightSpriteInstance.RelativeX = 15f;
+            }
+            if (LightSpriteInstance.Parent == null)
+            {
+                base.LightSpriteInstance.Y = 95f;
+            }
+            else
+            {
+                base.LightSpriteInstance.RelativeY = 95f;
+            }
+            if (LightSpriteInstance.Parent == null)
+            {
                 base.LightSpriteInstance.Z = -1f;
             }
             else
@@ -193,6 +209,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.LightSpriteInstance.TopTexturePixel = 1792f;
             base.LightSpriteInstance.BottomTexturePixel = 2048f;
             base.LightSpriteInstance.TextureScale = 1f;
+            base.LightSpriteInstance.Width = 1f;
+            base.LightSpriteInstance.Height = 1f;
             #if FRB_MDX
             LightSpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
@@ -205,6 +223,22 @@ namespace AbbatoirIntergrade.Entities.Structures
                 AimSpriteInstance.CopyAbsoluteToRelative();
                 AimSpriteInstance.AttachTo(this, false);
             }
+            if (AimSpriteInstance.Parent == null)
+            {
+                base.AimSpriteInstance.X = 16.07512f;
+            }
+            else
+            {
+                base.AimSpriteInstance.RelativeX = 16.07512f;
+            }
+            if (AimSpriteInstance.Parent == null)
+            {
+                base.AimSpriteInstance.Y = 97.46671f;
+            }
+            else
+            {
+                base.AimSpriteInstance.RelativeY = 97.46671f;
+            }
             base.AimSpriteInstance.Texture = AllParticles;
             base.AimSpriteInstance.LeftTexturePixel = 1635f;
             base.AimSpriteInstance.RightTexturePixel = 1636f;
@@ -215,6 +249,22 @@ namespace AbbatoirIntergrade.Entities.Structures
             {
                 PivotPoint.CopyAbsoluteToRelative();
                 PivotPoint.AttachTo(this, false);
+            }
+            if (PivotPoint.Parent == null)
+            {
+                base.PivotPoint.X = 15f;
+            }
+            else
+            {
+                base.PivotPoint.RelativeX = 15f;
+            }
+            if (PivotPoint.Parent == null)
+            {
+                base.PivotPoint.Y = 95f;
+            }
+            else
+            {
+                base.PivotPoint.RelativeY = 95f;
             }
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
@@ -262,6 +312,22 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.AxisAlignedRectangleInstance.Height = 64f;
             if (LightSpriteInstance.Parent == null)
             {
+                base.LightSpriteInstance.X = 15f;
+            }
+            else
+            {
+                base.LightSpriteInstance.RelativeX = 15f;
+            }
+            if (LightSpriteInstance.Parent == null)
+            {
+                base.LightSpriteInstance.Y = 95f;
+            }
+            else
+            {
+                base.LightSpriteInstance.RelativeY = 95f;
+            }
+            if (LightSpriteInstance.Parent == null)
+            {
                 base.LightSpriteInstance.Z = -1f;
             }
             else
@@ -273,6 +339,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.LightSpriteInstance.TopTexturePixel = 1792f;
             base.LightSpriteInstance.BottomTexturePixel = 2048f;
             base.LightSpriteInstance.TextureScale = 1f;
+            base.LightSpriteInstance.Width = 1f;
+            base.LightSpriteInstance.Height = 1f;
             #if FRB_MDX
             LightSpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
@@ -280,12 +348,44 @@ namespace AbbatoirIntergrade.Entities.Structures
             #endif
             base.LightSpriteInstance.Blue = 0.5f;
             base.LightSpriteInstance.Alpha = 0.25f;
+            if (AimSpriteInstance.Parent == null)
+            {
+                base.AimSpriteInstance.X = 16.07512f;
+            }
+            else
+            {
+                base.AimSpriteInstance.RelativeX = 16.07512f;
+            }
+            if (AimSpriteInstance.Parent == null)
+            {
+                base.AimSpriteInstance.Y = 97.46671f;
+            }
+            else
+            {
+                base.AimSpriteInstance.RelativeY = 97.46671f;
+            }
             base.AimSpriteInstance.Texture = AllParticles;
             base.AimSpriteInstance.LeftTexturePixel = 1635f;
             base.AimSpriteInstance.RightTexturePixel = 1636f;
             base.AimSpriteInstance.TopTexturePixel = 1579f;
             base.AimSpriteInstance.BottomTexturePixel = 1580f;
             base.AimSpriteInstance.TextureScale = 1f;
+            if (PivotPoint.Parent == null)
+            {
+                base.PivotPoint.X = 15f;
+            }
+            else
+            {
+                base.PivotPoint.RelativeX = 15f;
+            }
+            if (PivotPoint.Parent == null)
+            {
+                base.PivotPoint.Y = 95f;
+            }
+            else
+            {
+                base.PivotPoint.RelativeY = 95f;
+            }
             DisplayName = "Not Set";
             HasLightSource = true;
             ProjectileSpeed = 800f;

@@ -383,19 +383,20 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                 base.LightOrShadowSprite.RelativeZ = -1f;
             }
             base.LightOrShadowSprite.Texture = AllParticles;
-            base.LightOrShadowSprite.LeftTexturePixel = 1019f;
-            base.LightOrShadowSprite.RightTexturePixel = 1072f;
-            base.LightOrShadowSprite.TopTexturePixel = 1895f;
-            base.LightOrShadowSprite.BottomTexturePixel = 1948f;
+            base.LightOrShadowSprite.LeftTexturePixel = 1759f;
+            base.LightOrShadowSprite.RightTexturePixel = 1819f;
+            base.LightOrShadowSprite.TopTexturePixel = 639f;
+            base.LightOrShadowSprite.BottomTexturePixel = 699f;
             base.LightOrShadowSprite.TextureScale = 1f;
             base.LightOrShadowSprite.Width = 3f;
             base.LightOrShadowSprite.Height = 128f;
+            base.LightOrShadowSprite.UseAnimationRelativePosition = false;
             base.LightOrShadowSprite.Animate = false;
             base.LightOrShadowSprite.Visible = true;
             #if FRB_MDX
-            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
+            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Texture;
             #else
-            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
             #endif
             base.LightOrShadowSprite.Alpha = 0.6f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
@@ -406,6 +407,22 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             if (SpriteInstance.Parent == null)
             {
+                base.SpriteInstance.X = 0f;
+            }
+            else
+            {
+                base.SpriteInstance.RelativeX = 0f;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                base.SpriteInstance.Y = 0f;
+            }
+            else
+            {
+                base.SpriteInstance.RelativeY = 0f;
+            }
+            if (SpriteInstance.Parent == null)
+            {
                 base.SpriteInstance.Z = 1f;
             }
             else
@@ -413,8 +430,11 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                 base.SpriteInstance.RelativeZ = 1f;
             }
             base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.UseAnimationRelativePosition = false;
+            base.SpriteInstance.Animate = false;
             base.SpriteInstance.AnimationChains = PiercingProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
+            base.SpriteInstance.Visible = true;
             base.SpriteInstance.ParentRotationChangesPosition = false;
             if (mCircleInstance.Parent == null)
             {
@@ -431,11 +451,11 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             if (CircleInstance.Parent == null)
             {
-                base.CircleInstance.Y = 75f;
+                base.CircleInstance.Y = 63f;
             }
             else
             {
-                base.CircleInstance.RelativeY = 75f;
+                base.CircleInstance.RelativeY = 63f;
             }
             base.CircleInstance.Radius = 7f;
             base.CircleInstance.Color = Color.Red;
@@ -484,19 +504,20 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                 base.LightOrShadowSprite.RelativeZ = -1f;
             }
             base.LightOrShadowSprite.Texture = AllParticles;
-            base.LightOrShadowSprite.LeftTexturePixel = 1019f;
-            base.LightOrShadowSprite.RightTexturePixel = 1072f;
-            base.LightOrShadowSprite.TopTexturePixel = 1895f;
-            base.LightOrShadowSprite.BottomTexturePixel = 1948f;
+            base.LightOrShadowSprite.LeftTexturePixel = 1759f;
+            base.LightOrShadowSprite.RightTexturePixel = 1819f;
+            base.LightOrShadowSprite.TopTexturePixel = 639f;
+            base.LightOrShadowSprite.BottomTexturePixel = 699f;
             base.LightOrShadowSprite.TextureScale = 1f;
             base.LightOrShadowSprite.Width = 3f;
             base.LightOrShadowSprite.Height = 128f;
+            base.LightOrShadowSprite.UseAnimationRelativePosition = false;
             base.LightOrShadowSprite.Animate = false;
             base.LightOrShadowSprite.Visible = true;
             #if FRB_MDX
-            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
+            LightOrShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Texture;
             #else
-            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+            base.LightOrShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
             #endif
             base.LightOrShadowSprite.Alpha = 0.6f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
@@ -600,6 +621,22 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             LightOrShadowSprite.AlphaRate = LightOrShadowSpriteAlphaRateReset;
             if (SpriteInstance.Parent == null)
             {
+                base.SpriteInstance.X = 0f;
+            }
+            else
+            {
+                base.SpriteInstance.RelativeX = 0f;
+            }
+            if (SpriteInstance.Parent == null)
+            {
+                base.SpriteInstance.Y = 0f;
+            }
+            else
+            {
+                base.SpriteInstance.RelativeY = 0f;
+            }
+            if (SpriteInstance.Parent == null)
+            {
                 base.SpriteInstance.Z = 1f;
             }
             else
@@ -607,8 +644,11 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                 base.SpriteInstance.RelativeZ = 1f;
             }
             base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.UseAnimationRelativePosition = false;
+            base.SpriteInstance.Animate = false;
             base.SpriteInstance.AnimationChains = PiercingProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
+            base.SpriteInstance.Visible = true;
             base.SpriteInstance.ParentRotationChangesPosition = false;
             if (SpriteInstance.Parent == null)
             {
@@ -718,17 +758,17 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             if (CircleInstance.Parent == null)
             {
-                base.CircleInstance.Y = 75f;
+                base.CircleInstance.Y = 63f;
             }
             else
             {
-                base.CircleInstance.RelativeY = 75f;
+                base.CircleInstance.RelativeY = 63f;
             }
             base.CircleInstance.Radius = 7f;
             base.CircleInstance.Color = Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = true;
             HasLightSource = false;
-            Mass = 0.01f;
+            Mass = 0.05f;
         }
         public override void ConvertToManuallyUpdated () 
         {

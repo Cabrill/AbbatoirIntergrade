@@ -97,7 +97,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		    HealthBar.Y = Y;
             HealthBar.AttachTo(SpriteInstance);
             HealthBar.UpdateDependencies(TimeManager.CurrentTime);
-		    HealthBar.RelativeY = SpriteInstance.Height * 3 / 4;
+		    HealthBar.RelativeY = GetMaxFrameHeight() * 1.25f;
             HealthBar.SetWidth(SpriteInstance.Width);
             HealthBar.Hide();
 
@@ -122,6 +122,21 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             UpdateAnimation();
 		}
+
+	    private float GetMaxFrameHeight()
+	    {
+	        if (!SpriteInstanceAnimate || SpriteInstance.CurrentChain.Count == 1) return SpriteInstance.Height;
+	        else
+	        {
+	            var largestHeight = 0f;
+	            for (var i = 0; i < SpriteInstance.CurrentChain.Count - 1; i++)
+	            {
+	                var frame = SpriteInstance.CurrentChain[i];
+	                largestHeight = Math.Max(largestHeight, frame.TopCoordinate - frame.BottomCoordinate);
+	            }
+	            return largestHeight;
+	        }
+	    }
 
 	    private void CustomActivity()
 		{

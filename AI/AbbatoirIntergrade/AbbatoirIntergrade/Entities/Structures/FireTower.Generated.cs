@@ -225,6 +225,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.LightSpriteInstance.TopTexturePixel = 1792f;
             base.LightSpriteInstance.BottomTexturePixel = 2048f;
             base.LightSpriteInstance.TextureScale = 1f;
+            base.LightSpriteInstance.Width = 1f;
+            base.LightSpriteInstance.Height = 1f;
             #if FRB_MDX
             LightSpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
@@ -377,6 +379,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.LightSpriteInstance.TopTexturePixel = 1792f;
             base.LightSpriteInstance.BottomTexturePixel = 2048f;
             base.LightSpriteInstance.TextureScale = 1f;
+            base.LightSpriteInstance.Width = 1f;
+            base.LightSpriteInstance.Height = 1f;
             #if FRB_MDX
             LightSpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else

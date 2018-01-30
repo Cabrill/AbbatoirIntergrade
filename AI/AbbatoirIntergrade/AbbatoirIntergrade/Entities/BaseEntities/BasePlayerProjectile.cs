@@ -131,27 +131,25 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	            Altitude += AltitudeVelocity * TimeManager.SecondDifference;
 	            if (RotationZVelocity == 0) RotationZ = (float)Math.Atan2(-XVelocity, YVelocity + AltitudeVelocity);
             }
-	        float _spriteRelativeY = 0;
+	        //float _spriteRelativeY = 0;
 
-            if (!(this is CannonProjectile) || CurrentState == VariableState.Flying)
-	        {
-	            _spriteRelativeY = SpriteInstance.Height / 2;
-            }
+         //   if (!(this is CannonProjectile) || CurrentState == VariableState.Flying)
+	        //{
+	        //    _spriteRelativeY = SpriteInstance.Height / 2;
+         //   }
 
 	        SpriteInstance.RelativeX = SpriteInstance.CurrentChain[SpriteInstance.CurrentFrameIndex].RelativeX;
 	        SpriteInstance.RelativeY = SpriteInstance.CurrentChain[SpriteInstance.CurrentFrameIndex].RelativeY;
 
-	        if (SpriteInstance.RelativePosition != Vector3.Zero)
-	        {
-	            SpriteInstance.RelativeX *= (SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
-	            SpriteInstance.RelativeY *= (SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
-	        }
-	        SpriteInstance.RelativeY += Altitude + _spriteRelativeY;
+	        SpriteInstance.RelativeY += Altitude;// + _spriteRelativeY;
         }
 
 	    public void HandleImpact(BaseEnemy enemy = null)
 	    {
-	        CurrentState = VariableState.Impact;
+#if DEBUG
+            if (DebugVariables.SlowTimeForShots) FlatRedBall.TimeManager.TimeFactor = 1;
+#endif
+            CurrentState = VariableState.Impact;
             UpdateAnimation();
 	        CustomHandleImpact(enemy);
 	        CanStillDoDamage = false;

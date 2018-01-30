@@ -35,6 +35,7 @@ namespace AbbatoirIntergrade.Entities
         public static bool IgnoreStructureBuildCost = true;
         public static bool ShowPerformanceStats = false;
         public static bool TurretsAimAtMouse = false;
+        public static bool SlowTimeForShots = true;
         protected FlatRedBall.Graphics.Layer LayerProvidedByContainer = null;
         public DebugVariables () 
         	: this(FlatRedBall.Screens.ScreenManager.CurrentScreen.ContentManagerName, true)

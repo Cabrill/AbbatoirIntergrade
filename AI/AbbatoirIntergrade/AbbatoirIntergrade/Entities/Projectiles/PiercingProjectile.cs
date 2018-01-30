@@ -28,6 +28,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             //if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = Laser_Ground.CreateInstance();
             //if (HitTargetSound == null || HitTargetSound.IsDisposed) HitTargetSound = Laser_Hit.CreateInstance();
             DamageType = DamageTypes.Piercing;
+            GravityDrag = -10f;
         }
 
 	    public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
@@ -43,7 +44,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 
 	    protected override void CustomHandleImpact(BaseEnemy enemy = null)
 	    {
-	        if (enemy != null)
+            if (enemy != null)
 	        {
 	            var impactOffsetX = FlatRedBallServices.Random.NextFloat(enemy.SpriteInstance.Width * 0.1f);
                 var impactOffsetY = FlatRedBallServices.Random.NextFloat(enemy.SpriteInstance.Height * 0.1f);
@@ -54,7 +55,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 	            var rotation = RotationZ;
 
                 AttachTo(enemy,false);
-	            RelativeX = impactOffsetX * (fromLeft ? -1 : 1);
+	            RelativeX = impactOffsetX * (fromLeft ? -1 : 1) + CircleInstance.RelativeY-10f;
 	            RelativeY = impactOffsetY * (fromAbove ? 1 : -1);
 
 	            RelativeRotationZ = rotation;

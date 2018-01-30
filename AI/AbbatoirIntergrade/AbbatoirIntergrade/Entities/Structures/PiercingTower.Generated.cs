@@ -191,6 +191,22 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (LightSpriteInstance.Parent == null)
             {
+                base.LightSpriteInstance.X = -2.5f;
+            }
+            else
+            {
+                base.LightSpriteInstance.RelativeX = -2.5f;
+            }
+            if (LightSpriteInstance.Parent == null)
+            {
+                base.LightSpriteInstance.Y = 36f;
+            }
+            else
+            {
+                base.LightSpriteInstance.RelativeY = 36f;
+            }
+            if (LightSpriteInstance.Parent == null)
+            {
                 base.LightSpriteInstance.Z = -1f;
             }
             else
@@ -203,6 +219,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.LightSpriteInstance.TopTexturePixel = 1792f;
             base.LightSpriteInstance.BottomTexturePixel = 2048f;
             base.LightSpriteInstance.TextureScale = 1f;
+            base.LightSpriteInstance.Width = 1f;
+            base.LightSpriteInstance.Height = 1f;
             #if FRB_MDX
             LightSpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
@@ -285,6 +303,22 @@ namespace AbbatoirIntergrade.Entities.Structures
                 PivotPoint.CopyAbsoluteToRelative();
                 PivotPoint.AttachTo(this, false);
             }
+            if (PivotPoint.Parent == null)
+            {
+                base.PivotPoint.X = -2.5f;
+            }
+            else
+            {
+                base.PivotPoint.RelativeX = -2.5f;
+            }
+            if (PivotPoint.Parent == null)
+            {
+                base.PivotPoint.Y = 36f;
+            }
+            else
+            {
+                base.PivotPoint.RelativeY = 36f;
+            }
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
         public override void AddToManagersBottomUp (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -335,6 +369,22 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.AxisAlignedRectangleInstance.Height = 64f;
             if (LightSpriteInstance.Parent == null)
             {
+                base.LightSpriteInstance.X = -2.5f;
+            }
+            else
+            {
+                base.LightSpriteInstance.RelativeX = -2.5f;
+            }
+            if (LightSpriteInstance.Parent == null)
+            {
+                base.LightSpriteInstance.Y = 36f;
+            }
+            else
+            {
+                base.LightSpriteInstance.RelativeY = 36f;
+            }
+            if (LightSpriteInstance.Parent == null)
+            {
                 base.LightSpriteInstance.Z = -1f;
             }
             else
@@ -347,6 +397,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.LightSpriteInstance.TopTexturePixel = 1792f;
             base.LightSpriteInstance.BottomTexturePixel = 2048f;
             base.LightSpriteInstance.TextureScale = 1f;
+            base.LightSpriteInstance.Width = 1f;
+            base.LightSpriteInstance.Height = 1f;
             #if FRB_MDX
             LightSpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
@@ -414,6 +466,22 @@ namespace AbbatoirIntergrade.Entities.Structures
             ArrowSpriteInstance.TopTexturePixel = 1571f;
             ArrowSpriteInstance.BottomTexturePixel = 1712f;
             ArrowSpriteInstance.TextureScale = 1f;
+            if (PivotPoint.Parent == null)
+            {
+                base.PivotPoint.X = -2.5f;
+            }
+            else
+            {
+                base.PivotPoint.RelativeX = -2.5f;
+            }
+            if (PivotPoint.Parent == null)
+            {
+                base.PivotPoint.Y = 36f;
+            }
+            else
+            {
+                base.PivotPoint.RelativeY = 36f;
+            }
             DisplayName = "Piercing Tower";
             HasLightSource = true;
             ProjectileSpeed = 1200f;

@@ -30,7 +30,16 @@ namespace AbbatoirIntergrade.Entities.Structures
             ArrowSpriteInstance.AttachTo(AimSpriteInstance);
 		    AimSpriteInstance.RelativeRotationZ = MathHelper.ToRadians(90);
 		    ArrowSpriteInstance.RelativeY = offset;
-		}
+
+		    OnFire = CustomOnFire;
+
+		    ArrowSpriteInstance.Visible = false;
+
+		    this.Call(() =>
+		    {
+		        ArrowSpriteInstance.Visible = true;
+		    }).After(SecondsBetweenFiring - 1);
+        }
 
 	    public void AddSpritesToLayers(FlatRedBall.Graphics.Layer darknessLayer, Layer hudLayer)
 	    {
@@ -47,6 +56,16 @@ namespace AbbatoirIntergrade.Entities.Structures
 	    {
 	        return PiercingProjectileFactory.CreateNew(LayerProvidedByContainer);
         }
+
+	    private void CustomOnFire()
+	    {
+	        ArrowSpriteInstance.Visible = false;
+
+	        this.Call(() =>
+	        {
+	            ArrowSpriteInstance.Visible = true;
+	        }).After(SecondsBetweenFiring - 1);
+	    }
 
         private void CustomActivity()
 		{

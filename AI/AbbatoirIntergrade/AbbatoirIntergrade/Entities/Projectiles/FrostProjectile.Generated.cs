@@ -382,7 +382,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                 mCircleInstance.CopyAbsoluteToRelative();
                 mCircleInstance.AttachTo(this, false);
             }
-            base.CircleInstance.Radius = 30f;
+            base.CircleInstance.Radius = 12f;
             base.CircleInstance.Color = Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = false;
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
@@ -641,11 +641,11 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             SpriteInstance.Alpha = SpriteInstanceAlphaReset;
             SpriteInstance.AlphaRate = SpriteInstanceAlphaRateReset;
-            base.CircleInstance.Radius = 30f;
+            base.CircleInstance.Radius = 12f;
             base.CircleInstance.Color = Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = false;
             HasLightSource = true;
-            Mass = 0.01f;
+            Mass = 0.005f;
         }
         public override void ConvertToManuallyUpdated () 
         {

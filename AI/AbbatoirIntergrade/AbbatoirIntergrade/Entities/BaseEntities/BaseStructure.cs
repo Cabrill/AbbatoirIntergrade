@@ -15,10 +15,12 @@ using FlatRedBall.Math.Geometry;
 using AbbatoirIntergrade.Entities.GraphicalElements;
 using AbbatoirIntergrade.Entities.Projectiles;
 using AbbatoirIntergrade.Entities.Structures;
+using AbbatoirIntergrade.StaticManagers;
 using FlatRedBall.Math;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using RenderingLibrary.Graphics;
+using StateInterpolationPlugin;
 using Layer = FlatRedBall.Graphics.Layer;
 
 namespace AbbatoirIntergrade.Entities.BaseEntities
@@ -40,6 +42,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         public Action OnBuild;
         public Action OnDestroy;
+        protected Action OnFire;
 
         public bool IsDestroyed => HealthRemaining <= 0;
 
@@ -83,6 +86,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             _spriteRelativeY = SpriteInstance.Height / 3;
 
+            ProjectileAltitude = PivotPoint.RelativeY;
+
             SpriteInstance.RelativeY = _spriteRelativeY;
             AimSpriteInstance.RelativeY += _spriteRelativeY;
             PivotPoint.RelativeY += _spriteRelativeY;
@@ -103,7 +108,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             AfterIsBeingPlacedSet += (not, used) => { RangeCircleInstance.Visible = false; };
             _startingRangeRadius = RangedRadius;
-            ProjectileAltitude = SpriteInstance.RelativeY + PivotPoint.RelativeY;
+ 
         }
 
         private void CustomActivity()
@@ -279,8 +284,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         /// </summary>
         protected virtual void RotateToAim()
         {
-            var startPosition = GetProjectilePositioning();
+            _aimRotation =  GetAimAngle(PivotPoint.Position);
+            PivotPoint.RelativeRotationZ = _aimRotation;
+        }
 
+        private float GetAimAngle(Vector3 startPosition)
+        {
             //Gather information about the target
             var targetPosition = targetEnemy.Position;
 
@@ -308,10 +317,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 aimLocation = targetPosition + aimAheadDistance;
             }
 
-            var angle = (float)Math.Atan2(startPosition.Y - aimLocation.Y, startPosition.X - aimLocation.X);
-
-            _aimRotation = angle;
-            PivotPoint.RelativeRotationZ = _aimRotation;
+            return (float)Math.Atan2(startPosition.Y - aimLocation.Y, startPosition.X - aimLocation.X);
         }
 
         protected virtual Vector3 GetProjectilePositioning(float? angle = null)
@@ -324,9 +330,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             direction.Normalize();
 
             var effectiveX = Position.X + PivotPoint.RelativeX +
-                             (AimSpriteInstance.Height - AimSpriteInstance.RelativeY + AimSpriteInstance.Width/2) * direction.X;
-            var effectiveY = Position.Y + 
-                             (AimSpriteInstance.Height - AimSpriteInstance.RelativeY) * direction.Y;
+                             (AimSpriteInstance.Height/2 + AimSpriteInstance.RelativeY) * direction.X;
+            var effectiveY = Position.Y + SpriteInstance.RelativeY + 
+                             (AimSpriteInstance.Height/2 + AimSpriteInstance.RelativeY) * direction.Y;
 
             return new Vector3(effectiveX, effectiveY, Position.Z);
         }
@@ -358,22 +364,29 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 var newProjectile = CreateNewProjectile();
                 newProjectile.DamageInflicted = AttackDamage;
                 newProjectile.Speed = ProjectileSpeed;
-
-                var direction = new Vector3(
-                    (float)-Math.Cos(_aimRotation),
-                    (float)-Math.Sin(_aimRotation), 0);
-                direction.Normalize();
                 newProjectile.Position = GetProjectilePositioning();
                 newProjectile.Altitude = ProjectileAltitude;
                 newProjectile.AltitudeVelocity = CalculateAltitudeVelocity(newProjectile);
 
+                var projectileAngle = GetAimAngle(newProjectile.Position);
+
+                var direction = new Vector3(
+                    (float) -Math.Cos(projectileAngle),
+                    (float) -Math.Sin(projectileAngle), 0);
+                direction.Normalize();
+
                 newProjectile.Velocity = direction * newProjectile.Speed;
 
-                newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity+newProjectile.AltitudeVelocity);
+                newProjectile.RotationZ = (float) Math.Atan2(-newProjectile.XVelocity,
+                    newProjectile.YVelocity + newProjectile.AltitudeVelocity);
 
                 PlayFireSound();
 
                 LastFiredTime = TimeManager.CurrentTime;
+                OnFire?.Invoke();
+#if DEBUG
+                if (DebugVariables.SlowTimeForShots)FlatRedBall.TimeManager.TimeFactor = 0.01;
+#endif
             }
         }
 

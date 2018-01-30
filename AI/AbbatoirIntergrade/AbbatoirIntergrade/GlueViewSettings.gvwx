@@ -941,11 +941,11 @@
     </ElementCameraSave>
     <ElementCameraSave>
       <CameraSave>
-        <X>0</X>
-        <Y>0</Y>
+        <X>3.422284</X>
+        <Y>70.90971</Y>
         <Z>40</Z>
         <Orthogonal>true</Orthogonal>
-        <OrthogonalHeight>1440</OrthogonalHeight>
+        <OrthogonalHeight>194.522614</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
         <NearClipPlane>1</NearClipPlane>
         <FarClipPlane>1000</FarClipPlane>
@@ -955,11 +955,11 @@
     </ElementCameraSave>
     <ElementCameraSave>
       <CameraSave>
-        <X>-22.3216915</X>
-        <Y>66.59915</Y>
+        <X>0</X>
+        <Y>0</Y>
         <Z>40</Z>
         <Orthogonal>true</Orthogonal>
-        <OrthogonalHeight>519.9857</OrthogonalHeight>
+        <OrthogonalHeight>240.151382</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
         <NearClipPlane>1</NearClipPlane>
         <FarClipPlane>1000</FarClipPlane>
@@ -973,7 +973,7 @@
         <Y>0</Y>
         <Z>40</Z>
         <Orthogonal>true</Orthogonal>
-        <OrthogonalHeight>1440</OrthogonalHeight>
+        <OrthogonalHeight>451.8872</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
         <NearClipPlane>1</NearClipPlane>
         <FarClipPlane>1000</FarClipPlane>
@@ -987,7 +987,7 @@
         <Y>0</Y>
         <Z>40</Z>
         <Orthogonal>true</Orthogonal>
-        <OrthogonalHeight>1440</OrthogonalHeight>
+        <OrthogonalHeight>296.4832</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
         <NearClipPlane>1</NearClipPlane>
         <FarClipPlane>1000</FarClipPlane>
