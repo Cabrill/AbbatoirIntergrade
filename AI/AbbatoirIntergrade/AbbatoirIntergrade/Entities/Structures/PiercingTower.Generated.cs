@@ -482,8 +482,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             {
                 base.PivotPoint.RelativeY = 36f;
             }
-            DisplayName = "Piercing Tower";
-            HasLightSource = true;
+            DisplayName = "Arrow";
+            HasLightSource = false;
             ProjectileSpeed = 1200f;
             RangedRadius = 500f;
             AttackDamage = 45f;

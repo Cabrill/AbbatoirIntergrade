@@ -430,14 +430,14 @@ namespace AbbatoirIntergrade.Entities.Structures
             {
                 base.PivotPoint.RelativeY = 60f;
             }
-            DisplayName = "Not Set";
-            HasLightSource = true;
+            DisplayName = "Chemical";
+            HasLightSource = false;
             ProjectileSpeed = 500f;
             RangedRadius = 400f;
             AttackDamage = 50f;
             SecondsBetweenFiring = 1.8;
             ProjectileAltitude = 100f;
-            HasSplashDamage = true;
+            HasSplashDamage = false;
             SlowsEnemies = true;
         }
         public override void ConvertToManuallyUpdated () 

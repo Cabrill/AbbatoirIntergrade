@@ -434,8 +434,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             {
                 base.PivotPoint.RelativeY = 70f;
             }
-            DisplayName = "Not Set";
-            HasLightSource = true;
+            DisplayName = "Fire";
+            HasLightSource = false;
             ProjectileSpeed = 550f;
             RangedRadius = 750f;
             AttackDamage = 50f;

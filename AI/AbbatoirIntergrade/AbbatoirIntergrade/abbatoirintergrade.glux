@@ -2740,7 +2740,7 @@
           </Properties>
           <Name>ShowDebugShapes</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -15177,7 +15177,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Not Set</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Cannon</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15189,7 +15189,7 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15548,7 +15548,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Not Set</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Chemical</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15560,7 +15560,7 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15643,7 +15643,7 @@
           </Properties>
           <Name>HasSplashDamage</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15934,7 +15934,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Not Set</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Electric</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15946,7 +15946,7 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -16316,7 +16316,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Not Set</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Fire</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -16328,7 +16328,7 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -16710,7 +16710,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Not Set</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Frost</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -16722,7 +16722,7 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -17095,7 +17095,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Piercing Tower</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Arrow</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -17107,7 +17107,7 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>

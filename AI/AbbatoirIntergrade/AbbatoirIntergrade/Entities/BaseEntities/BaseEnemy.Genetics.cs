@@ -11,6 +11,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
     {
         private const int ChromosomeLength = 8;
         const int halfwayMax = ushort.MaxValue / 2;
+        private const float maxBonus = 0.1f;
 
         private void SetGenetics(ShortArrayChromosome chromosome = null)
         {
@@ -33,11 +34,15 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             var effectiveHealth = BaseHealth;
             
+            var healthModifier = (SumChromsomeValues(new List<int>(){0, 2, 4}) - SumChromsomeValues(new List<int>{1, 3, 5})) / (3 * ushort.MaxValue);
+            healthModifier *= 1-Math.Abs(Chromosome.Value[6]- halfwayMax) / halfwayMax;
 
-            var healthModifier = (SumChromsomeValues(new List<int>(){0, 2, 4}) - SumChromsomeValues(new List<int>{1, 3, 5})) / 3;
-            healthModifier *= (Chromosome.Value[6]- halfwayMax) / halfwayMax;
+            effectiveHealth += (healthModifier/2 * maxBonus * BaseHealth);
 
-            effectiveHealth += (healthModifier/2 * BaseHealth);
+            if (effectiveHealth/BaseHealth > 1.1 || effectiveHealth / BaseHealth < 0.9)
+            {
+                var doh = 1;
+            }
 
             return effectiveHealth;
         }
@@ -46,10 +51,15 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             var effectiveSpeed = BaseSpeed;
 
-            var speedModifier = (-SumChromsomeValues(new List<int>() { 0, 2, 4 }) + SumChromsomeValues(new List<int> { 1, 3, 5 })) / 3;
-            speedModifier *= (Chromosome.Value[7] - halfwayMax) / halfwayMax;
+            var speedModifier = (-SumChromsomeValues(new List<int>() { 0, 2, 4 }) + SumChromsomeValues(new List<int> { 1, 3, 5 })) / (3 * ushort.MaxValue);
+            speedModifier *= 1-Math.Abs(Chromosome.Value[7] - halfwayMax) / halfwayMax;
 
-            effectiveSpeed += (speedModifier/4 * BaseSpeed);
+            effectiveSpeed += (speedModifier/4 * maxBonus * BaseSpeed);
+
+            if (effectiveSpeed / BaseSpeed > 1.1 || effectiveSpeed / BaseSpeed < 0.9)
+            {
+                var doh = 1;
+            }
 
             return effectiveSpeed;
         }
@@ -62,10 +72,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             resistNegatives.Remove(resistIndex);
 
             var resistModifier = (Chromosome.Value[resistIndex] - AverageChromosomeValues(resistNegatives)) / ushort.MaxValue;
-            resistModifier /= AverageChromosomeValues(new List<int>() {6, 7}) / ushort.MaxValue;
+            resistModifier *= 1-Math.Abs(AverageChromosomeValues(new List<int>() {6, 7}) - halfwayMax) / halfwayMax;
 
-            effectiveResist += resistModifier * baseResist;
+            effectiveResist += resistModifier * maxBonus * baseResist;
 
+            if (effectiveResist > 0.95 || effectiveResist < 0)
+            {
+                var doh = 1;
+            }
             return effectiveResist;
         }
 

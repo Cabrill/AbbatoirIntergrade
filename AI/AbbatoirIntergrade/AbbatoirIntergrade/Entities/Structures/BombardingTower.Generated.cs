@@ -382,8 +382,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             {
                 base.PivotPoint.RelativeY = 30f;
             }
-            DisplayName = "Not Set";
-            HasLightSource = true;
+            DisplayName = "Cannon";
+            HasLightSource = false;
             ProjectileSpeed = 800f;
             RangedRadius = 600f;
             AttackDamage = 85f;

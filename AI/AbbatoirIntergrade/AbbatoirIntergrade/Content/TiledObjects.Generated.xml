@@ -410,8 +410,8 @@
     <property name="Mass" type="float" default="0.05" />
   </objecttype>
   <objecttype name="BombardingTower">
-    <property name="DisplayName" type="string" default="Not Set" />
-    <property name="HasLightSource" type="bool" default="true" />
+    <property name="DisplayName" type="string" default="Cannon" />
+    <property name="HasLightSource" type="bool" default="false" />
     <property name="StructureDescription" type="string" />
     <property name="ProjectileSpeed" type="float" default="800" />
     <property name="RangedRadius" type="float" default="600" />
@@ -423,21 +423,21 @@
     <property name="StunsEnemies" type="bool" />
   </objecttype>
   <objecttype name="ChemicalTower">
-    <property name="DisplayName" type="string" default="Not Set" />
-    <property name="HasLightSource" type="bool" default="true" />
+    <property name="DisplayName" type="string" default="Chemical" />
+    <property name="HasLightSource" type="bool" default="false" />
     <property name="StructureDescription" type="string" />
     <property name="ProjectileSpeed" type="float" default="500" />
     <property name="RangedRadius" type="float" default="400" />
     <property name="AttackDamage" type="float" default="50" />
     <property name="SecondsBetweenFiring" type="float" default="1.8" />
     <property name="ProjectileAltitude" type="float" default="100" />
-    <property name="HasSplashDamage" type="bool" default="true" />
+    <property name="HasSplashDamage" type="bool" default="false" />
     <property name="SlowsEnemies" type="bool" default="true" />
     <property name="StunsEnemies" type="bool" />
   </objecttype>
   <objecttype name="ElectricTower">
-    <property name="DisplayName" type="string" default="Not Set" />
-    <property name="HasLightSource" type="bool" default="true" />
+    <property name="DisplayName" type="string" default="Electric" />
+    <property name="HasLightSource" type="bool" default="false" />
     <property name="StructureDescription" type="string" />
     <property name="ProjectileSpeed" type="float" default="800" />
     <property name="RangedRadius" type="float" default="800" />
@@ -449,8 +449,8 @@
     <property name="StunsEnemies" type="bool" default="true" />
   </objecttype>
   <objecttype name="FireTower">
-    <property name="DisplayName" type="string" default="Not Set" />
-    <property name="HasLightSource" type="bool" default="true" />
+    <property name="DisplayName" type="string" default="Fire" />
+    <property name="HasLightSource" type="bool" default="false" />
     <property name="StructureDescription" type="string" />
     <property name="ProjectileSpeed" type="float" default="550" />
     <property name="RangedRadius" type="float" default="750" />
@@ -462,8 +462,8 @@
     <property name="StunsEnemies" type="bool" />
   </objecttype>
   <objecttype name="FrostTower">
-    <property name="DisplayName" type="string" default="Not Set" />
-    <property name="HasLightSource" type="bool" default="true" />
+    <property name="DisplayName" type="string" default="Frost" />
+    <property name="HasLightSource" type="bool" default="false" />
     <property name="StructureDescription" type="string" />
     <property name="ProjectileSpeed" type="float" default="450" />
     <property name="RangedRadius" type="float" default="500" />
@@ -475,8 +475,8 @@
     <property name="StunsEnemies" type="bool" />
   </objecttype>
   <objecttype name="PiercingTower">
-    <property name="DisplayName" type="string" default="Piercing Tower" />
-    <property name="HasLightSource" type="bool" default="true" />
+    <property name="DisplayName" type="string" default="Arrow" />
+    <property name="HasLightSource" type="bool" default="false" />
     <property name="StructureDescription" type="string" />
     <property name="ProjectileSpeed" type="float" default="1200" />
     <property name="RangedRadius" type="float" default="500" />
