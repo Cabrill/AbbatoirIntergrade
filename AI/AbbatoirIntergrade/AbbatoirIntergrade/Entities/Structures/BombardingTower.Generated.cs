@@ -42,6 +42,8 @@ namespace AbbatoirIntergrade.Entities.Structures
         static object mLockObject = new object();
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect CannonShot1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect CannonShot2;
         
         public int Index { get; set; }
         public bool Used { get; set; }
@@ -437,6 +439,8 @@ namespace AbbatoirIntergrade.Entities.Structures
                         mRegisteredUnloads.Add(ContentManagerName);
                     }
                 }
+                CannonShot1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/bombardingtower/cannonshot1", ContentManagerName);
+                CannonShot2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/bombardingtower/cannonshot2", ContentManagerName);
             }
             if (registerUnload && ContentManagerName != FlatRedBall.FlatRedBallServices.GlobalContentManager)
             {
@@ -460,19 +464,48 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (LoadedContentManagers.Count == 0)
             {
+                if (CannonShot1 != null)
+                {
+                    CannonShot1= null;
+                }
+                if (CannonShot2 != null)
+                {
+                    CannonShot2= null;
+                }
             }
         }
         [System.Obsolete("Use GetFile instead")]
         public static new object GetStaticMember (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "CannonShot1":
+                    return CannonShot1;
+                case  "CannonShot2":
+                    return CannonShot2;
+            }
             return null;
         }
         public static new object GetFile (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "CannonShot1":
+                    return CannonShot1;
+                case  "CannonShot2":
+                    return CannonShot2;
+            }
             return null;
         }
         object GetMember (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "CannonShot1":
+                    return CannonShot1;
+                case  "CannonShot2":
+                    return CannonShot2;
+            }
             return null;
         }
         public override bool HasCursorOver (FlatRedBall.Gui.Cursor cursor) 

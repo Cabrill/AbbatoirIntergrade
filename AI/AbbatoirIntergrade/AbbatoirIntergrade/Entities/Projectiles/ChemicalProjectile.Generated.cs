@@ -22,7 +22,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Math.Geometry;
 namespace AbbatoirIntergrade.Entities.Projectiles
 {
-    public partial class ChemicalProjectile : AbbatoirIntergrade.Entities.BaseEntities.BasePlayerProjectile, FlatRedBall.Graphics.IDestroyable, FlatRedBall.Performance.IPoolable
+    public partial class ChemicalProjectile : AbbatoirIntergrade.Entities.BaseEntities.BasePlayerProjectile, FlatRedBall.Graphics.IDestroyable, FlatRedBall.Performance.IPoolable, FlatRedBall.Math.Geometry.ICollidable
     {
         // This is made static so that static lazy-loaded content can access it.
         public static new string ContentManagerName
@@ -43,6 +43,11 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static FlatRedBall.Graphics.Animation.AnimationChainList ChemicalProjectileAnimationChainListFile;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect ChemicalImpact1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect ChemicalImpact2;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect ChemicalImpact3;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect ChemicalGroundImpact1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect ChemicalGroundImpact2;
         
         static float LightOrShadowSpriteXReset;
         static float LightOrShadowSpriteYReset;
@@ -74,6 +79,14 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         static float SpriteInstanceAlphaRateReset;
         public int Index { get; set; }
         public bool Used { get; set; }
+        private FlatRedBall.Math.Geometry.ShapeCollection mGeneratedCollision;
+        public FlatRedBall.Math.Geometry.ShapeCollection Collision
+        {
+            get
+            {
+                return mGeneratedCollision;
+            }
+        }
         public ChemicalProjectile () 
         	: this(FlatRedBall.Screens.ScreenManager.CurrentScreen.ContentManagerName, true)
         {
@@ -316,6 +329,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             base.Destroy();
             
+            mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
         }
         public override void PostInitialize () 
@@ -380,6 +394,8 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.CircleInstance.Radius = 16f;
             base.CircleInstance.Color = Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = false;
+            mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
+            mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
         public override void AddToManagersBottomUp (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -389,6 +405,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         public override void RemoveFromManagers () 
         {
             base.RemoveFromManagers();
+            mGeneratedCollision.RemoveFromManagers(clearThis: false);
         }
         public override void AssignCustomVariables (bool callOnContainedElements) 
         {
@@ -681,6 +698,11 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                     }
                 }
                 ChemicalProjectileAnimationChainListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/projectiles/chemicalprojectile/chemicalprojectileanimationchainlistfile.achx", ContentManagerName);
+                ChemicalImpact1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/chemicalprojectile/chemicalimpact1", ContentManagerName);
+                ChemicalImpact2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/chemicalprojectile/chemicalimpact2", ContentManagerName);
+                ChemicalImpact3 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/chemicalprojectile/chemicalimpact3", ContentManagerName);
+                ChemicalGroundImpact1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/chemicalprojectile/chemicalgroundimpact1", ContentManagerName);
+                ChemicalGroundImpact2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/chemicalprojectile/chemicalgroundimpact2", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -695,6 +717,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "ChemicalProjectileAnimationChainListFile":
                     return ChemicalProjectileAnimationChainListFile;
+                case  "ChemicalImpact1":
+                    return ChemicalImpact1;
+                case  "ChemicalImpact2":
+                    return ChemicalImpact2;
+                case  "ChemicalImpact3":
+                    return ChemicalImpact3;
+                case  "ChemicalGroundImpact1":
+                    return ChemicalGroundImpact1;
+                case  "ChemicalGroundImpact2":
+                    return ChemicalGroundImpact2;
             }
             return null;
         }
@@ -704,6 +736,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "ChemicalProjectileAnimationChainListFile":
                     return ChemicalProjectileAnimationChainListFile;
+                case  "ChemicalImpact1":
+                    return ChemicalImpact1;
+                case  "ChemicalImpact2":
+                    return ChemicalImpact2;
+                case  "ChemicalImpact3":
+                    return ChemicalImpact3;
+                case  "ChemicalGroundImpact1":
+                    return ChemicalGroundImpact1;
+                case  "ChemicalGroundImpact2":
+                    return ChemicalGroundImpact2;
             }
             return null;
         }
@@ -713,6 +755,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "ChemicalProjectileAnimationChainListFile":
                     return ChemicalProjectileAnimationChainListFile;
+                case  "ChemicalImpact1":
+                    return ChemicalImpact1;
+                case  "ChemicalImpact2":
+                    return ChemicalImpact2;
+                case  "ChemicalImpact3":
+                    return ChemicalImpact3;
+                case  "ChemicalGroundImpact1":
+                    return ChemicalGroundImpact1;
+                case  "ChemicalGroundImpact2":
+                    return ChemicalGroundImpact2;
             }
             return null;
         }

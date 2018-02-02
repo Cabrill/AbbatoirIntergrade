@@ -12,6 +12,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace AbbatoirIntergrade.Entities.Structures
 {
@@ -25,8 +26,17 @@ namespace AbbatoirIntergrade.Entities.Structures
 		private void CustomInitialize()
 		{
             DamageType = DamageTypes.Piercing;
+		    if (FiringSound == null || FiringSound.IsDisposed)
+		    {
+		        const int maxSoundIndex = 3;
+		        var soundIndex = FlatRedBallServices.Random.Next(1, maxSoundIndex);
+		        var targetFiringSound = $"PiercingShot{soundIndex}";
 
-		    var offset = ArrowSpriteInstance.RelativeY - AimSpriteInstance.RelativeY;
+		        var firingSound = GetFile(targetFiringSound) as SoundEffect;
+		        FiringSound = firingSound.CreateInstance();
+		    }
+
+            var offset = ArrowSpriteInstance.RelativeY - AimSpriteInstance.RelativeY;
             ArrowSpriteInstance.AttachTo(AimSpriteInstance);
 		    AimSpriteInstance.RelativeRotationZ = MathHelper.ToRadians(90);
 		    ArrowSpriteInstance.RelativeY = offset;

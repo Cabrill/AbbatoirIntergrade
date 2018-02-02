@@ -45,6 +45,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static FlatRedBall.Graphics.Animation.AnimationChainList Sheep3Animations;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D Stage3;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Sheep3Death1;
         
         static float SpriteInstanceXReset;
         static float SpriteInstanceYReset;
@@ -1006,6 +1007,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 }
                 Sheep3Animations = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/gamescreen/monsters/sheep3animations.achx", ContentManagerName);
                 Stage3 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/monsters/stage3.png", ContentManagerName);
+                Sheep3Death1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/enemies/sheep3enemy/sheep3death1", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -1022,6 +1024,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
                     return Sheep3Animations;
                 case  "Stage3":
                     return Stage3;
+                case  "Sheep3Death1":
+                    return Sheep3Death1;
             }
             return null;
         }
@@ -1033,6 +1037,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
                     return Sheep3Animations;
                 case  "Stage3":
                     return Stage3;
+                case  "Sheep3Death1":
+                    return Sheep3Death1;
             }
             return null;
         }
@@ -1044,6 +1050,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
                     return Sheep3Animations;
                 case  "Stage3":
                     return Stage3;
+                case  "Sheep3Death1":
+                    return Sheep3Death1;
             }
             return null;
         }

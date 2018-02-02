@@ -45,6 +45,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static FlatRedBall.Graphics.Animation.AnimationChainList Pig1Animations;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D Stage1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Pig1Death1;
         
         static float SpriteInstanceXReset;
         static float SpriteInstanceYReset;
@@ -820,6 +821,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 }
                 Pig1Animations = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/gamescreen/monsters/pig1animations.achx", ContentManagerName);
                 Stage1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/monsters/stage1.png", ContentManagerName);
+                Pig1Death1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/enemies/pig1enemy/pig1death1", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -836,6 +838,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
                     return Pig1Animations;
                 case  "Stage1":
                     return Stage1;
+                case  "Pig1Death1":
+                    return Pig1Death1;
             }
             return null;
         }
@@ -847,6 +851,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
                     return Pig1Animations;
                 case  "Stage1":
                     return Stage1;
+                case  "Pig1Death1":
+                    return Pig1Death1;
             }
             return null;
         }
@@ -858,6 +864,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
                     return Pig1Animations;
                 case  "Stage1":
                     return Stage1;
+                case  "Pig1Death1":
+                    return Pig1Death1;
             }
             return null;
         }

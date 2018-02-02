@@ -22,7 +22,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Math.Geometry;
 namespace AbbatoirIntergrade.Entities.Projectiles
 {
-    public partial class FireProjectile : AbbatoirIntergrade.Entities.BaseEntities.BasePlayerProjectile, FlatRedBall.Graphics.IDestroyable, FlatRedBall.Performance.IPoolable
+    public partial class FireProjectile : AbbatoirIntergrade.Entities.BaseEntities.BasePlayerProjectile, FlatRedBall.Graphics.IDestroyable, FlatRedBall.Performance.IPoolable, FlatRedBall.Math.Geometry.ICollidable
     {
         // This is made static so that static lazy-loaded content can access it.
         public static new string ContentManagerName
@@ -43,6 +43,11 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static FlatRedBall.Graphics.Animation.AnimationChainList FireProjectileAnimationChainListFile;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect FireImpact1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect FireImpact2;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect FireImpact3;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect FireGroundImpact1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect FireGroundImpact2;
         
         static float LightOrShadowSpriteXReset;
         static float LightOrShadowSpriteYReset;
@@ -74,6 +79,14 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         static float SpriteInstanceAlphaRateReset;
         public int Index { get; set; }
         public bool Used { get; set; }
+        private FlatRedBall.Math.Geometry.ShapeCollection mGeneratedCollision;
+        public FlatRedBall.Math.Geometry.ShapeCollection Collision
+        {
+            get
+            {
+                return mGeneratedCollision;
+            }
+        }
         public FireProjectile () 
         	: this(FlatRedBall.Screens.ScreenManager.CurrentScreen.ContentManagerName, true)
         {
@@ -316,6 +329,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             base.Destroy();
             
+            mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
         }
         public override void PostInitialize () 
@@ -380,6 +394,8 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.CircleInstance.Radius = 9f;
             base.CircleInstance.Color = Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = false;
+            mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
+            mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
         public override void AddToManagersBottomUp (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -389,6 +405,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         public override void RemoveFromManagers () 
         {
             base.RemoveFromManagers();
+            mGeneratedCollision.RemoveFromManagers(clearThis: false);
         }
         public override void AssignCustomVariables (bool callOnContainedElements) 
         {
@@ -681,6 +698,11 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                     }
                 }
                 FireProjectileAnimationChainListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/projectiles/fireprojectile/fireprojectileanimationchainlistfile.achx", ContentManagerName);
+                FireImpact1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/fireprojectile/fireimpact1", ContentManagerName);
+                FireImpact2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/fireprojectile/fireimpact2", ContentManagerName);
+                FireImpact3 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/fireprojectile/fireimpact3", ContentManagerName);
+                FireGroundImpact1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/fireprojectile/firegroundimpact1", ContentManagerName);
+                FireGroundImpact2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/fireprojectile/firegroundimpact2", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -695,6 +717,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "FireProjectileAnimationChainListFile":
                     return FireProjectileAnimationChainListFile;
+                case  "FireImpact1":
+                    return FireImpact1;
+                case  "FireImpact2":
+                    return FireImpact2;
+                case  "FireImpact3":
+                    return FireImpact3;
+                case  "FireGroundImpact1":
+                    return FireGroundImpact1;
+                case  "FireGroundImpact2":
+                    return FireGroundImpact2;
             }
             return null;
         }
@@ -704,6 +736,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "FireProjectileAnimationChainListFile":
                     return FireProjectileAnimationChainListFile;
+                case  "FireImpact1":
+                    return FireImpact1;
+                case  "FireImpact2":
+                    return FireImpact2;
+                case  "FireImpact3":
+                    return FireImpact3;
+                case  "FireGroundImpact1":
+                    return FireGroundImpact1;
+                case  "FireGroundImpact2":
+                    return FireGroundImpact2;
             }
             return null;
         }
@@ -713,6 +755,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "FireProjectileAnimationChainListFile":
                     return FireProjectileAnimationChainListFile;
+                case  "FireImpact1":
+                    return FireImpact1;
+                case  "FireImpact2":
+                    return FireImpact2;
+                case  "FireImpact3":
+                    return FireImpact3;
+                case  "FireGroundImpact1":
+                    return FireGroundImpact1;
+                case  "FireGroundImpact2":
+                    return FireGroundImpact2;
             }
             return null;
         }

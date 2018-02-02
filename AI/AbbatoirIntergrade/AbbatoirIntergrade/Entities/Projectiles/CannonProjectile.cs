@@ -11,13 +11,14 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using StateInterpolationPlugin;
 
 namespace AbbatoirIntergrade.Entities.Projectiles
 {
 	public partial class CannonProjectile
 	{
-
+	    private SoundEffectInstance HitTargetSound;
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -25,8 +26,15 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         /// </summary>
 		private void CustomInitialize()
 		{
-		    if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = Cannon_Hit.CreateInstance();
-		    HitTargetSound = HitGroundSound;
+		    HitTargetSound = CannonHit.CreateInstance();
+
+		    const int maxSoundIndex = 3;
+		    var soundIndex = FlatRedBallServices.Random.Next(1, maxSoundIndex);
+		    var targetHitSoundName = $"CannonImpact{soundIndex}";
+
+		    var hitSound = GetFile(targetHitSoundName) as SoundEffect;
+		    HitGroundSound = hitSound.CreateInstance();
+
             GravityDrag = -75f;
             DamageType = DamageTypes.Piercing;
 		    RotationZVelocity = FlatRedBallServices.Random.Between(20, 50);

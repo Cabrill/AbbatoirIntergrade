@@ -43,7 +43,10 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static FlatRedBall.Graphics.Animation.AnimationChainList CannonProjectileAnimationChainListFile;
-        protected static Microsoft.Xna.Framework.Audio.SoundEffect Cannon_Hit;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect CannonHit;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect CannonImpact2;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect CannonImpact1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect CannonImpact3;
         
         static float LightOrShadowSpriteXReset;
         static float LightOrShadowSpriteYReset;
@@ -736,7 +739,10 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                     }
                 }
                 CannonProjectileAnimationChainListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/projectiles/cannonprojectile/cannonprojectileanimationchainlistfile.achx", ContentManagerName);
-                Cannon_Hit = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/cannonprojectile/cannon_hit", ContentManagerName);
+                CannonHit = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/cannonprojectile/cannonhit", ContentManagerName);
+                CannonImpact2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/cannonprojectile/cannonimpact2", ContentManagerName);
+                CannonImpact1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/cannonprojectile/cannonimpact1", ContentManagerName);
+                CannonImpact3 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/cannonprojectile/cannonimpact3", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -751,8 +757,14 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "CannonProjectileAnimationChainListFile":
                     return CannonProjectileAnimationChainListFile;
-                case  "Cannon_Hit":
-                    return Cannon_Hit;
+                case  "CannonHit":
+                    return CannonHit;
+                case  "CannonImpact2":
+                    return CannonImpact2;
+                case  "CannonImpact1":
+                    return CannonImpact1;
+                case  "CannonImpact3":
+                    return CannonImpact3;
             }
             return null;
         }
@@ -762,8 +774,14 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "CannonProjectileAnimationChainListFile":
                     return CannonProjectileAnimationChainListFile;
-                case  "Cannon_Hit":
-                    return Cannon_Hit;
+                case  "CannonHit":
+                    return CannonHit;
+                case  "CannonImpact2":
+                    return CannonImpact2;
+                case  "CannonImpact1":
+                    return CannonImpact1;
+                case  "CannonImpact3":
+                    return CannonImpact3;
             }
             return null;
         }
@@ -773,8 +791,14 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "CannonProjectileAnimationChainListFile":
                     return CannonProjectileAnimationChainListFile;
-                case  "Cannon_Hit":
-                    return Cannon_Hit;
+                case  "CannonHit":
+                    return CannonHit;
+                case  "CannonImpact2":
+                    return CannonImpact2;
+                case  "CannonImpact1":
+                    return CannonImpact1;
+                case  "CannonImpact3":
+                    return CannonImpact3;
             }
             return null;
         }

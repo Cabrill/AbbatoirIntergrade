@@ -112,9 +112,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     LightOrShadowSprite.Height = _startingShadowHeight * pctLightShadow;
                     LightOrShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow;
 
-                    var _hitTheGround = Altitude <= 0;
+                    var hitTheGround = Altitude <= 0;
 
-                    if (_hitTheGround)
+                    if (hitTheGround)
                     {
                         HandleImpact();
                         PlayHitGroundSound();
@@ -149,6 +149,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 #if DEBUG
             if (DebugVariables.SlowTimeForShots) FlatRedBall.TimeManager.TimeFactor = 1;
 #endif
+	        PlayHitTargetSound();
             CurrentState = VariableState.Impact;
             UpdateAnimation();
 	        CustomHandleImpact(enemy);
@@ -163,18 +164,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         private void PlayHitGroundSound()
 	    {
-	        try
+            try
 	        {
-	            HitGroundSound.Play();
+	            var pan = Position.X / Camera.Main.OrthogonalWidth;
+	            HitGroundSound.Pan = pan;
+                HitGroundSound.Play();
             }
 	        catch (Exception){}
         }
 
-	    public void PlayHitTargetSound()
+	    private void PlayHitTargetSound()
 	    {
 	        try
 	        {
-	            HitTargetSound.Play();
+	            var pan = Position.X / Camera.Main.OrthogonalWidth;
+	            HitTargetSound.Pan = pan;
+                HitTargetSound.Play();
 	        }
 	        catch (Exception) { }
         }

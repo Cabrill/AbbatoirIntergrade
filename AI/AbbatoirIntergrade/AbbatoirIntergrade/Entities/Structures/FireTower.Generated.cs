@@ -42,6 +42,9 @@ namespace AbbatoirIntergrade.Entities.Structures
         static object mLockObject = new object();
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect FireShot1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect FireShot2;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect FireShot3;
         
         public int Index { get; set; }
         public bool Used { get; set; }
@@ -488,6 +491,9 @@ namespace AbbatoirIntergrade.Entities.Structures
                         mRegisteredUnloads.Add(ContentManagerName);
                     }
                 }
+                FireShot1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/firetower/fireshot1", ContentManagerName);
+                FireShot2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/firetower/fireshot2", ContentManagerName);
+                FireShot3 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/firetower/fireshot3", ContentManagerName);
             }
             if (registerUnload && ContentManagerName != FlatRedBall.FlatRedBallServices.GlobalContentManager)
             {
@@ -511,19 +517,58 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (LoadedContentManagers.Count == 0)
             {
+                if (FireShot1 != null)
+                {
+                    FireShot1= null;
+                }
+                if (FireShot2 != null)
+                {
+                    FireShot2= null;
+                }
+                if (FireShot3 != null)
+                {
+                    FireShot3= null;
+                }
             }
         }
         [System.Obsolete("Use GetFile instead")]
         public static new object GetStaticMember (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "FireShot1":
+                    return FireShot1;
+                case  "FireShot2":
+                    return FireShot2;
+                case  "FireShot3":
+                    return FireShot3;
+            }
             return null;
         }
         public static new object GetFile (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "FireShot1":
+                    return FireShot1;
+                case  "FireShot2":
+                    return FireShot2;
+                case  "FireShot3":
+                    return FireShot3;
+            }
             return null;
         }
         object GetMember (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "FireShot1":
+                    return FireShot1;
+                case  "FireShot2":
+                    return FireShot2;
+                case  "FireShot3":
+                    return FireShot3;
+            }
             return null;
         }
         public override bool HasCursorOver (FlatRedBall.Gui.Cursor cursor) 

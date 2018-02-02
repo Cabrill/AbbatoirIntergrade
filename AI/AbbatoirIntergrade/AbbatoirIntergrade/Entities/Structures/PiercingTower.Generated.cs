@@ -42,6 +42,9 @@ namespace AbbatoirIntergrade.Entities.Structures
         static object mLockObject = new object();
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect PiercingShot1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect PiercingShot2;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect PiercingShot3;
         
         private FlatRedBall.Sprite ArrowSpriteInstance;
         public int Index { get; set; }
@@ -537,6 +540,9 @@ namespace AbbatoirIntergrade.Entities.Structures
                         mRegisteredUnloads.Add(ContentManagerName);
                     }
                 }
+                PiercingShot1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/piercingtower/piercingshot1", ContentManagerName);
+                PiercingShot2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/piercingtower/piercingshot2", ContentManagerName);
+                PiercingShot3 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/piercingtower/piercingshot3", ContentManagerName);
             }
             if (registerUnload && ContentManagerName != FlatRedBall.FlatRedBallServices.GlobalContentManager)
             {
@@ -560,19 +566,58 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (LoadedContentManagers.Count == 0)
             {
+                if (PiercingShot1 != null)
+                {
+                    PiercingShot1= null;
+                }
+                if (PiercingShot2 != null)
+                {
+                    PiercingShot2= null;
+                }
+                if (PiercingShot3 != null)
+                {
+                    PiercingShot3= null;
+                }
             }
         }
         [System.Obsolete("Use GetFile instead")]
         public static new object GetStaticMember (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "PiercingShot1":
+                    return PiercingShot1;
+                case  "PiercingShot2":
+                    return PiercingShot2;
+                case  "PiercingShot3":
+                    return PiercingShot3;
+            }
             return null;
         }
         public static new object GetFile (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "PiercingShot1":
+                    return PiercingShot1;
+                case  "PiercingShot2":
+                    return PiercingShot2;
+                case  "PiercingShot3":
+                    return PiercingShot3;
+            }
             return null;
         }
         object GetMember (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "PiercingShot1":
+                    return PiercingShot1;
+                case  "PiercingShot2":
+                    return PiercingShot2;
+                case  "PiercingShot3":
+                    return PiercingShot3;
+            }
             return null;
         }
         public override bool HasCursorOver (FlatRedBall.Gui.Cursor cursor) 

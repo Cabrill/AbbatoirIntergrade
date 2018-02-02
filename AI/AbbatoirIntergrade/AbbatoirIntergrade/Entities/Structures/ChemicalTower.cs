@@ -11,6 +11,7 @@ using FlatRedBall.Graphics;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using Microsoft.Xna.Framework.Audio;
 
 namespace AbbatoirIntergrade.Entities.Structures
 {
@@ -24,7 +25,16 @@ namespace AbbatoirIntergrade.Entities.Structures
 		private void CustomInitialize()
 		{
             DamageType = DamageTypes.Chemical;
-		}
+		    if (FiringSound == null || FiringSound.IsDisposed)
+		    {
+		        const int maxSoundIndex = 3;
+		        var soundIndex = FlatRedBallServices.Random.Next(1, maxSoundIndex);
+		        var targetFiringSound = $"ChemicalShot{soundIndex}";
+
+		        var firingSound = GetFile(targetFiringSound) as SoundEffect;
+		        FiringSound = firingSound.CreateInstance();
+		    }
+        }
 
 	    public void AddSpritesToLayers(FlatRedBall.Graphics.Layer darknessLayer, Layer hudLayer)
 	    {

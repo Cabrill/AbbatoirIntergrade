@@ -45,6 +45,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static FlatRedBall.Graphics.Animation.AnimationChainList Rabbit2Animations;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D Stage2;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Rabbit2Death1;
         
         static float SpriteInstanceXReset;
         static float SpriteInstanceYReset;
@@ -996,6 +997,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 }
                 Rabbit2Animations = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/gamescreen/monsters/rabbit2animations.achx", ContentManagerName);
                 Stage2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/monsters/stage2.png", ContentManagerName);
+                Rabbit2Death1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/enemies/rabbit2enemy/rabbit2death1", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -1012,6 +1014,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
                     return Rabbit2Animations;
                 case  "Stage2":
                     return Stage2;
+                case  "Rabbit2Death1":
+                    return Rabbit2Death1;
             }
             return null;
         }
@@ -1023,6 +1027,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
                     return Rabbit2Animations;
                 case  "Stage2":
                     return Stage2;
+                case  "Rabbit2Death1":
+                    return Rabbit2Death1;
             }
             return null;
         }
@@ -1034,6 +1040,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
                     return Rabbit2Animations;
                 case  "Stage2":
                     return Stage2;
+                case  "Rabbit2Death1":
+                    return Rabbit2Death1;
             }
             return null;
         }

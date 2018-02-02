@@ -42,6 +42,9 @@ namespace AbbatoirIntergrade.Entities.Structures
         static object mLockObject = new object();
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect ChemicalShot1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect ChemicalShot2;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect ChemicalShot3;
         
         public int Index { get; set; }
         public bool Used { get; set; }
@@ -486,6 +489,9 @@ namespace AbbatoirIntergrade.Entities.Structures
                         mRegisteredUnloads.Add(ContentManagerName);
                     }
                 }
+                ChemicalShot1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/chemicaltower/chemicalshot1", ContentManagerName);
+                ChemicalShot2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/chemicaltower/chemicalshot2", ContentManagerName);
+                ChemicalShot3 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/chemicaltower/chemicalshot3", ContentManagerName);
             }
             if (registerUnload && ContentManagerName != FlatRedBall.FlatRedBallServices.GlobalContentManager)
             {
@@ -509,19 +515,58 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (LoadedContentManagers.Count == 0)
             {
+                if (ChemicalShot1 != null)
+                {
+                    ChemicalShot1= null;
+                }
+                if (ChemicalShot2 != null)
+                {
+                    ChemicalShot2= null;
+                }
+                if (ChemicalShot3 != null)
+                {
+                    ChemicalShot3= null;
+                }
             }
         }
         [System.Obsolete("Use GetFile instead")]
         public static new object GetStaticMember (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "ChemicalShot1":
+                    return ChemicalShot1;
+                case  "ChemicalShot2":
+                    return ChemicalShot2;
+                case  "ChemicalShot3":
+                    return ChemicalShot3;
+            }
             return null;
         }
         public static new object GetFile (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "ChemicalShot1":
+                    return ChemicalShot1;
+                case  "ChemicalShot2":
+                    return ChemicalShot2;
+                case  "ChemicalShot3":
+                    return ChemicalShot3;
+            }
             return null;
         }
         object GetMember (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "ChemicalShot1":
+                    return ChemicalShot1;
+                case  "ChemicalShot2":
+                    return ChemicalShot2;
+                case  "ChemicalShot3":
+                    return ChemicalShot3;
+            }
             return null;
         }
         public override bool HasCursorOver (FlatRedBall.Gui.Cursor cursor) 

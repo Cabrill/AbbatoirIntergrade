@@ -27,13 +27,13 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 {
     public partial class BaseStructure
     {
+        private float? SoundPanning;
         protected DamageTypes DamageType;
         private float _startingRectangleScaleX;
         private float _startingRectangleScaleY;
 
         private static PositionedObjectList<BaseEnemy> _potentialTargetList;
         protected BaseEnemy targetEnemy;
-        protected SoundEffectInstance attackSound;
         protected float _aimRotation;
         protected float _timeToTravel;
         protected float _shotAltitude = 1f;
@@ -52,6 +52,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         protected SoundEffectInstance PlacementSound;
         protected SoundEffectInstance DestroyedSound;
+        protected SoundEffectInstance FiringSound;
 
         protected float _spriteRelativeY;
 
@@ -81,8 +82,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             _startingRectangleScaleX = AxisAlignedRectangleInstance.ScaleX;
             _startingRectangleScaleY = AxisAlignedRectangleInstance.ScaleY;
 
-            PlacementSound = Structure_Placed.CreateInstance();
-            DestroyedSound = Building_Destroyed.CreateInstance();
+            //PlacementSound = Structure_Placed.CreateInstance();
+            //DestroyedSound = Building_Destroyed.CreateInstance();
 
             _spriteRelativeY = SpriteInstance.Height / 3;
 
@@ -212,10 +213,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 DestroyedSound.Dispose();
             }
 
-            if (attackSound != null && !attackSound.IsDisposed)
+            if (FiringSound != null && !FiringSound.IsDisposed)
             {
-                attackSound.Stop(true);
-                attackSound.Dispose();
+                FiringSound.Stop(true);
+                FiringSound.Dispose();
             }
         }
 
@@ -407,10 +408,15 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         private void PlayFireSound()
         {
+            if (!SoundPanning.HasValue)
+            {
+                var pan = Position.X / Camera.Main.OrthogonalWidth;
+                FiringSound.Pan = pan;
+            }
+
             try
             {
-                attackSound.Play();
-                
+                FiringSound.Play();
             }
             catch (Exception) { }
         }

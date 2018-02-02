@@ -43,6 +43,11 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static FlatRedBall.Graphics.Animation.AnimationChainList PiercingProjectileAnimationChainListFile;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect PiercingGroundImpact1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect PiercingGroundImpact2;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect PiercingImpact1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect PiercingImpact2;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect PiercingImpact3;
         
         static float LightOrShadowSpriteXReset;
         static float LightOrShadowSpriteYReset;
@@ -814,6 +819,11 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                     }
                 }
                 PiercingProjectileAnimationChainListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/projectiles/piercingprojectile/piercingprojectileanimationchainlistfile.achx", ContentManagerName);
+                PiercingGroundImpact1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/piercingprojectile/piercinggroundimpact1", ContentManagerName);
+                PiercingGroundImpact2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/piercingprojectile/piercinggroundimpact2", ContentManagerName);
+                PiercingImpact1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/piercingprojectile/piercingimpact1", ContentManagerName);
+                PiercingImpact2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/piercingprojectile/piercingimpact2", ContentManagerName);
+                PiercingImpact3 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/piercingprojectile/piercingimpact3", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -828,6 +838,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "PiercingProjectileAnimationChainListFile":
                     return PiercingProjectileAnimationChainListFile;
+                case  "PiercingGroundImpact1":
+                    return PiercingGroundImpact1;
+                case  "PiercingGroundImpact2":
+                    return PiercingGroundImpact2;
+                case  "PiercingImpact1":
+                    return PiercingImpact1;
+                case  "PiercingImpact2":
+                    return PiercingImpact2;
+                case  "PiercingImpact3":
+                    return PiercingImpact3;
             }
             return null;
         }
@@ -837,6 +857,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "PiercingProjectileAnimationChainListFile":
                     return PiercingProjectileAnimationChainListFile;
+                case  "PiercingGroundImpact1":
+                    return PiercingGroundImpact1;
+                case  "PiercingGroundImpact2":
+                    return PiercingGroundImpact2;
+                case  "PiercingImpact1":
+                    return PiercingImpact1;
+                case  "PiercingImpact2":
+                    return PiercingImpact2;
+                case  "PiercingImpact3":
+                    return PiercingImpact3;
             }
             return null;
         }
@@ -846,6 +876,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "PiercingProjectileAnimationChainListFile":
                     return PiercingProjectileAnimationChainListFile;
+                case  "PiercingGroundImpact1":
+                    return PiercingGroundImpact1;
+                case  "PiercingGroundImpact2":
+                    return PiercingGroundImpact2;
+                case  "PiercingImpact1":
+                    return PiercingImpact1;
+                case  "PiercingImpact2":
+                    return PiercingImpact2;
+                case  "PiercingImpact3":
+                    return PiercingImpact3;
             }
             return null;
         }

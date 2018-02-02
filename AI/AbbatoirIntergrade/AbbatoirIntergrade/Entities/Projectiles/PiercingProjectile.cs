@@ -12,6 +12,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Math.Statistics;
+using Microsoft.Xna.Framework.Audio;
 using StateInterpolationPlugin;
 
 namespace AbbatoirIntergrade.Entities.Projectiles
@@ -25,8 +26,26 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         /// </summary>
 		private void CustomInitialize()
         {
-            //if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = Laser_Ground.CreateInstance();
-            //if (HitTargetSound == null || HitTargetSound.IsDisposed) HitTargetSound = Laser_Hit.CreateInstance();
+            if (HitGroundSound == null || HitGroundSound.IsDisposed)
+            {
+                const int maxSoundIndex = 2;
+                var soundIndex = FlatRedBallServices.Random.Next(1, maxSoundIndex);
+                var targetGroundSound = $"PiercingGroundImpact{soundIndex}";
+
+                var groundSound = GetFile(targetGroundSound) as SoundEffect;
+                HitGroundSound = groundSound.CreateInstance();
+
+            }
+            if (HitTargetSound == null || HitTargetSound.IsDisposed)
+            {
+                const int maxSoundIndex = 3;
+                var soundIndex = FlatRedBallServices.Random.Next(1, maxSoundIndex);
+                var targetImpactSound = $"PiercingImpact{soundIndex}";
+
+                var impactSound = GetFile(targetImpactSound) as SoundEffect;
+                HitTargetSound = impactSound.CreateInstance();
+            }
+
             DamageType = DamageTypes.Piercing;
             GravityDrag = -10f;
         }

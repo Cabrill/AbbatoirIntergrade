@@ -22,7 +22,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Math.Geometry;
 namespace AbbatoirIntergrade.Entities.Projectiles
 {
-    public partial class FrostProjectile : AbbatoirIntergrade.Entities.BaseEntities.BasePlayerProjectile, FlatRedBall.Graphics.IDestroyable, FlatRedBall.Performance.IPoolable
+    public partial class FrostProjectile : AbbatoirIntergrade.Entities.BaseEntities.BasePlayerProjectile, FlatRedBall.Graphics.IDestroyable, FlatRedBall.Performance.IPoolable, FlatRedBall.Math.Geometry.ICollidable
     {
         // This is made static so that static lazy-loaded content can access it.
         public static new string ContentManagerName
@@ -43,6 +43,11 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static FlatRedBall.Graphics.Animation.AnimationChainList FrostProjectileAnimationChainListFile;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect FrostImpact1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect FrostImpact2;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect FrostImpact3;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect FrostGroundImpact1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect FrostGroundImpact2;
         
         static float LightOrShadowSpriteXReset;
         static float LightOrShadowSpriteYReset;
@@ -74,6 +79,14 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         static float SpriteInstanceAlphaRateReset;
         public int Index { get; set; }
         public bool Used { get; set; }
+        private FlatRedBall.Math.Geometry.ShapeCollection mGeneratedCollision;
+        public FlatRedBall.Math.Geometry.ShapeCollection Collision
+        {
+            get
+            {
+                return mGeneratedCollision;
+            }
+        }
         public FrostProjectile () 
         	: this(FlatRedBall.Screens.ScreenManager.CurrentScreen.ContentManagerName, true)
         {
@@ -316,6 +329,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             base.Destroy();
             
+            mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
         }
         public override void PostInitialize () 
@@ -385,6 +399,8 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.CircleInstance.Radius = 12f;
             base.CircleInstance.Color = Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = false;
+            mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
+            mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
         public override void AddToManagersBottomUp (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -394,6 +410,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         public override void RemoveFromManagers () 
         {
             base.RemoveFromManagers();
+            mGeneratedCollision.RemoveFromManagers(clearThis: false);
         }
         public override void AssignCustomVariables (bool callOnContainedElements) 
         {
@@ -691,6 +708,11 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                     }
                 }
                 FrostProjectileAnimationChainListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/projectiles/frostprojectile/frostprojectileanimationchainlistfile.achx", ContentManagerName);
+                FrostImpact1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/frostprojectile/frostimpact1", ContentManagerName);
+                FrostImpact2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/frostprojectile/frostimpact2", ContentManagerName);
+                FrostImpact3 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/frostprojectile/frostimpact3", ContentManagerName);
+                FrostGroundImpact1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/frostprojectile/frostgroundimpact1", ContentManagerName);
+                FrostGroundImpact2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/frostprojectile/frostgroundimpact2", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -705,6 +727,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "FrostProjectileAnimationChainListFile":
                     return FrostProjectileAnimationChainListFile;
+                case  "FrostImpact1":
+                    return FrostImpact1;
+                case  "FrostImpact2":
+                    return FrostImpact2;
+                case  "FrostImpact3":
+                    return FrostImpact3;
+                case  "FrostGroundImpact1":
+                    return FrostGroundImpact1;
+                case  "FrostGroundImpact2":
+                    return FrostGroundImpact2;
             }
             return null;
         }
@@ -714,6 +746,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "FrostProjectileAnimationChainListFile":
                     return FrostProjectileAnimationChainListFile;
+                case  "FrostImpact1":
+                    return FrostImpact1;
+                case  "FrostImpact2":
+                    return FrostImpact2;
+                case  "FrostImpact3":
+                    return FrostImpact3;
+                case  "FrostGroundImpact1":
+                    return FrostGroundImpact1;
+                case  "FrostGroundImpact2":
+                    return FrostGroundImpact2;
             }
             return null;
         }
@@ -723,6 +765,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "FrostProjectileAnimationChainListFile":
                     return FrostProjectileAnimationChainListFile;
+                case  "FrostImpact1":
+                    return FrostImpact1;
+                case  "FrostImpact2":
+                    return FrostImpact2;
+                case  "FrostImpact3":
+                    return FrostImpact3;
+                case  "FrostGroundImpact1":
+                    return FrostGroundImpact1;
+                case  "FrostGroundImpact2":
+                    return FrostGroundImpact2;
             }
             return null;
         }

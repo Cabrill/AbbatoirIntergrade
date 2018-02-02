@@ -45,6 +45,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static Microsoft.Xna.Framework.Graphics.Texture2D Stage3;
         protected static FlatRedBall.Graphics.Animation.AnimationChainList Rabbit3Animations;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Rabbit3Death1;
         
         static float SpriteInstanceXReset;
         static float SpriteInstanceYReset;
@@ -994,6 +995,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 }
                 Stage3 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/monsters/stage3.png", ContentManagerName);
                 Rabbit3Animations = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/gamescreen/monsters/rabbit3animations.achx", ContentManagerName);
+                Rabbit3Death1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/enemies/rabbit3enemy/rabbit3death1", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -1010,6 +1012,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
                     return Stage3;
                 case  "Rabbit3Animations":
                     return Rabbit3Animations;
+                case  "Rabbit3Death1":
+                    return Rabbit3Death1;
             }
             return null;
         }
@@ -1021,6 +1025,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
                     return Stage3;
                 case  "Rabbit3Animations":
                     return Rabbit3Animations;
+                case  "Rabbit3Death1":
+                    return Rabbit3Death1;
             }
             return null;
         }
@@ -1032,6 +1038,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
                     return Stage3;
                 case  "Rabbit3Animations":
                     return Rabbit3Animations;
+                case  "Rabbit3Death1":
+                    return Rabbit3Death1;
             }
             return null;
         }

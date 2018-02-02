@@ -500,25 +500,345 @@
     <Content Include="libSDL2-2.0.0.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="..\builtxnbs\desktopgl\entities\enemies\basicalien\alien_melee.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\baseentities\baseenemy\drowningsound.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>alien_melee</Name>
-      <Link>content\entities\enemies\basicalien\alien_melee.xnb</Link>
+      <Name>DrowningSound</Name>
+      <Link>content\entities\baseentities\baseenemy\drowningsound.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\desktopgl\entities\projectiles\cannonprojectile\cannon_hit.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\chicken1enemy\chicken1death1.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Cannon_Hit</Name>
-      <Link>content\entities\projectiles\cannonprojectile\cannon_hit.xnb</Link>
+      <Name>Chicken1Death1</Name>
+      <Link>content\entities\enemies\chicken1enemy\chicken1death1.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\desktopgl\entities\structures\building_destroyed.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\chicken1enemy\chicken1death2.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Building_Destroyed</Name>
-      <Link>content\entities\structures\building_destroyed.xnb</Link>
+      <Name>Chicken1Death2</Name>
+      <Link>content\entities\enemies\chicken1enemy\chicken1death2.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\desktopgl\entities\structures\structure_placed.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\chicken2enemy\chicken2death1.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Structure_Placed</Name>
-      <Link>content\entities\structures\structure_placed.xnb</Link>
+      <Name>Chicken2Death1</Name>
+      <Link>content\entities\enemies\chicken2enemy\chicken2death1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\chicken2enemy\chicken2death2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Chicken2Death2</Name>
+      <Link>content\entities\enemies\chicken2enemy\chicken2death2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\chicken3enemy\chicken3death1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Chicken3Death1</Name>
+      <Link>content\entities\enemies\chicken3enemy\chicken3death1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\chicken3enemy\chicken3death2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Chicken3Death2</Name>
+      <Link>content\entities\enemies\chicken3enemy\chicken3death2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\cow1enemy\cow1death1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Cow1Death1</Name>
+      <Link>content\entities\enemies\cow1enemy\cow1death1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\cow2enemy\cow2death1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Cow2Death1</Name>
+      <Link>content\entities\enemies\cow2enemy\cow2death1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\cow3enemy\cow3death1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Cow3Death1</Name>
+      <Link>content\entities\enemies\cow3enemy\cow3death1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\pig1enemy\pig1death1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Pig1Death1</Name>
+      <Link>content\entities\enemies\pig1enemy\pig1death1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\pig2enemy\pig2death1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Pig2Death1</Name>
+      <Link>content\entities\enemies\pig2enemy\pig2death1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\pig3enemy\pig3death1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Pig3Death1</Name>
+      <Link>content\entities\enemies\pig3enemy\pig3death1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\rabbit1enemy\rabbit1death1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Rabbit1Death1</Name>
+      <Link>content\entities\enemies\rabbit1enemy\rabbit1death1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\rabbit1enemy\rabbit1death2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Rabbit1Death2</Name>
+      <Link>content\entities\enemies\rabbit1enemy\rabbit1death2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\rabbit1enemy\rabbit1death3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Rabbit1Death3</Name>
+      <Link>content\entities\enemies\rabbit1enemy\rabbit1death3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\rabbit2enemy\rabbit2death1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Rabbit2Death1</Name>
+      <Link>content\entities\enemies\rabbit2enemy\rabbit2death1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\rabbit3enemy\rabbit3death1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Rabbit3Death1</Name>
+      <Link>content\entities\enemies\rabbit3enemy\rabbit3death1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\sheep1enemy\sheep1death1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Sheep1Death1</Name>
+      <Link>content\entities\enemies\sheep1enemy\sheep1death1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\sheep1enemy\sheep1death2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Sheep1Death2</Name>
+      <Link>content\entities\enemies\sheep1enemy\sheep1death2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\sheep2enemy\sheep2death1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Sheep2Death1</Name>
+      <Link>content\entities\enemies\sheep2enemy\sheep2death1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\sheep3enemy\sheep3death1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Sheep3Death1</Name>
+      <Link>content\entities\enemies\sheep3enemy\sheep3death1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\cannonprojectile\cannonhit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CannonHit</Name>
+      <Link>content\entities\projectiles\cannonprojectile\cannonhit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\cannonprojectile\cannonimpact1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CannonImpact1</Name>
+      <Link>content\entities\projectiles\cannonprojectile\cannonimpact1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\cannonprojectile\cannonimpact2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CannonImpact2</Name>
+      <Link>content\entities\projectiles\cannonprojectile\cannonimpact2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\cannonprojectile\cannonimpact3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CannonImpact3</Name>
+      <Link>content\entities\projectiles\cannonprojectile\cannonimpact3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\chemicalprojectile\chemicalgroundimpact1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ChemicalGroundImpact1</Name>
+      <Link>content\entities\projectiles\chemicalprojectile\chemicalgroundimpact1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\chemicalprojectile\chemicalgroundimpact2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ChemicalGroundImpact2</Name>
+      <Link>content\entities\projectiles\chemicalprojectile\chemicalgroundimpact2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\chemicalprojectile\chemicalimpact1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ChemicalImpact1</Name>
+      <Link>content\entities\projectiles\chemicalprojectile\chemicalimpact1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\chemicalprojectile\chemicalimpact2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ChemicalImpact2</Name>
+      <Link>content\entities\projectiles\chemicalprojectile\chemicalimpact2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\chemicalprojectile\chemicalimpact3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ChemicalImpact3</Name>
+      <Link>content\entities\projectiles\chemicalprojectile\chemicalimpact3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\electricprojectile\electricgroundimpact1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ElectricGroundImpact1</Name>
+      <Link>content\entities\projectiles\electricprojectile\electricgroundimpact1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\electricprojectile\electricgroundimpact2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ElectricGroundImpact2</Name>
+      <Link>content\entities\projectiles\electricprojectile\electricgroundimpact2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\electricprojectile\electricimpact1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ElectricImpact1</Name>
+      <Link>content\entities\projectiles\electricprojectile\electricimpact1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\electricprojectile\electricimpact2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ElectricImpact2</Name>
+      <Link>content\entities\projectiles\electricprojectile\electricimpact2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\electricprojectile\electricimpact3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ElectricImpact3</Name>
+      <Link>content\entities\projectiles\electricprojectile\electricimpact3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\fireprojectile\firegroundimpact1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FireGroundImpact1</Name>
+      <Link>content\entities\projectiles\fireprojectile\firegroundimpact1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\fireprojectile\firegroundimpact2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FireGroundImpact2</Name>
+      <Link>content\entities\projectiles\fireprojectile\firegroundimpact2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\fireprojectile\fireimpact1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FireImpact1</Name>
+      <Link>content\entities\projectiles\fireprojectile\fireimpact1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\fireprojectile\fireimpact2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FireImpact2</Name>
+      <Link>content\entities\projectiles\fireprojectile\fireimpact2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\fireprojectile\fireimpact3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FireImpact3</Name>
+      <Link>content\entities\projectiles\fireprojectile\fireimpact3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\frostprojectile\frostgroundimpact1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FrostGroundImpact1</Name>
+      <Link>content\entities\projectiles\frostprojectile\frostgroundimpact1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\frostprojectile\frostgroundimpact2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FrostGroundImpact2</Name>
+      <Link>content\entities\projectiles\frostprojectile\frostgroundimpact2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\frostprojectile\frostimpact1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FrostImpact1</Name>
+      <Link>content\entities\projectiles\frostprojectile\frostimpact1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\frostprojectile\frostimpact2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FrostImpact2</Name>
+      <Link>content\entities\projectiles\frostprojectile\frostimpact2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\frostprojectile\frostimpact3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FrostImpact3</Name>
+      <Link>content\entities\projectiles\frostprojectile\frostimpact3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\piercingprojectile\piercinggroundimpact1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PiercingGroundImpact1</Name>
+      <Link>content\entities\projectiles\piercingprojectile\piercinggroundimpact1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\piercingprojectile\piercinggroundimpact2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PiercingGroundImpact2</Name>
+      <Link>content\entities\projectiles\piercingprojectile\piercinggroundimpact2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\piercingprojectile\piercingimpact1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PiercingImpact1</Name>
+      <Link>content\entities\projectiles\piercingprojectile\piercingimpact1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\piercingprojectile\piercingimpact2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PiercingImpact2</Name>
+      <Link>content\entities\projectiles\piercingprojectile\piercingimpact2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\piercingprojectile\piercingimpact3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PiercingImpact3</Name>
+      <Link>content\entities\projectiles\piercingprojectile\piercingimpact3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\bombardingtower\cannonshot1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CannonShot1</Name>
+      <Link>content\entities\structures\bombardingtower\cannonshot1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\bombardingtower\cannonshot2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CannonShot2</Name>
+      <Link>content\entities\structures\bombardingtower\cannonshot2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\chemicaltower\chemicalshot1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ChemicalShot1</Name>
+      <Link>content\entities\structures\chemicaltower\chemicalshot1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\chemicaltower\chemicalshot2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ChemicalShot2</Name>
+      <Link>content\entities\structures\chemicaltower\chemicalshot2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\chemicaltower\chemicalshot3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ChemicalShot3</Name>
+      <Link>content\entities\structures\chemicaltower\chemicalshot3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\electrictower\electricshot1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ElectricShot1</Name>
+      <Link>content\entities\structures\electrictower\electricshot1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\electrictower\electricshot2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ElectricShot2</Name>
+      <Link>content\entities\structures\electrictower\electricshot2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\electrictower\electricshot3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ElectricShot3</Name>
+      <Link>content\entities\structures\electrictower\electricshot3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\firetower\fireshot1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FireShot1</Name>
+      <Link>content\entities\structures\firetower\fireshot1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\firetower\fireshot2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FireShot2</Name>
+      <Link>content\entities\structures\firetower\fireshot2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\firetower\fireshot3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FireShot3</Name>
+      <Link>content\entities\structures\firetower\fireshot3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\frosttower\frostshot1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FrostShot1</Name>
+      <Link>content\entities\structures\frosttower\frostshot1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\frosttower\frostshot2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FrostShot2</Name>
+      <Link>content\entities\structures\frosttower\frostshot2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\frosttower\frostshot3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FrostShot3</Name>
+      <Link>content\entities\structures\frosttower\frostshot3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\piercingtower\piercingshot1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PiercingShot1</Name>
+      <Link>content\entities\structures\piercingtower\piercingshot1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\piercingtower\piercingshot2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PiercingShot2</Name>
+      <Link>content\entities\structures\piercingtower\piercingshot2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\piercingtower\piercingshot3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PiercingShot3</Name>
+      <Link>content\entities\structures\piercingtower\piercingshot3.xnb</Link>
     </None>
     <None Include="..\builtxnbs\desktopgl\screens\gamescreen\effects\darknessshader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -572,14 +892,6 @@
     <None Include="content\entities\projectiles\piercingprojectile\piercingprojectileanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>PiercingProjectileAnimationChainListFile</Name>
-    </None>
-    <None Include="content\entities\structures\energyproducers\hydrogenerator\waterdropanimationchain.achx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>WaterDropAnimationChain</Name>
-    </None>
-    <None Include="content\entities\structures\windturbine\wind_turbine.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>wind_turbine</Name>
     </None>
     <None Include="content\globalcontent\font50moireextrabold.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1085,9 +1397,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="content\entities\projectiles\rangedenemyprojectile\" />
-    <Folder Include="content\entities\structures\combat\cannon\" />
-    <Folder Include="content\entities\structures\combat\laserturret\" />
-    <Folder Include="content\entities\structures\combat\talllaser\" />
     <Folder Include="content\screens\gamescreen\music\" />
   </ItemGroup>
   <ItemGroup>

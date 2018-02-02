@@ -42,6 +42,9 @@ namespace AbbatoirIntergrade.Entities.Structures
         static object mLockObject = new object();
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect ElectricShot1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect ElectricShot2;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect ElectricShot3;
         
         public int Index { get; set; }
         public bool Used { get; set; }
@@ -441,6 +444,9 @@ namespace AbbatoirIntergrade.Entities.Structures
                         mRegisteredUnloads.Add(ContentManagerName);
                     }
                 }
+                ElectricShot1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/electrictower/electricshot1", ContentManagerName);
+                ElectricShot2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/electrictower/electricshot2", ContentManagerName);
+                ElectricShot3 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/electrictower/electricshot3", ContentManagerName);
             }
             if (registerUnload && ContentManagerName != FlatRedBall.FlatRedBallServices.GlobalContentManager)
             {
@@ -464,19 +470,58 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (LoadedContentManagers.Count == 0)
             {
+                if (ElectricShot1 != null)
+                {
+                    ElectricShot1= null;
+                }
+                if (ElectricShot2 != null)
+                {
+                    ElectricShot2= null;
+                }
+                if (ElectricShot3 != null)
+                {
+                    ElectricShot3= null;
+                }
             }
         }
         [System.Obsolete("Use GetFile instead")]
         public static new object GetStaticMember (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "ElectricShot1":
+                    return ElectricShot1;
+                case  "ElectricShot2":
+                    return ElectricShot2;
+                case  "ElectricShot3":
+                    return ElectricShot3;
+            }
             return null;
         }
         public static new object GetFile (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "ElectricShot1":
+                    return ElectricShot1;
+                case  "ElectricShot2":
+                    return ElectricShot2;
+                case  "ElectricShot3":
+                    return ElectricShot3;
+            }
             return null;
         }
         object GetMember (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "ElectricShot1":
+                    return ElectricShot1;
+                case  "ElectricShot2":
+                    return ElectricShot2;
+                case  "ElectricShot3":
+                    return ElectricShot3;
+            }
             return null;
         }
         public override bool HasCursorOver (FlatRedBall.Gui.Cursor cursor) 

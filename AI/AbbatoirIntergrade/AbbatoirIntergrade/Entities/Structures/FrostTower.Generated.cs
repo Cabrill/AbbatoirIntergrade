@@ -42,6 +42,9 @@ namespace AbbatoirIntergrade.Entities.Structures
         static object mLockObject = new object();
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect FrostShot1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect FrostShot2;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect FrostShot3;
         
         public int Index { get; set; }
         public bool Used { get; set; }
@@ -457,6 +460,9 @@ namespace AbbatoirIntergrade.Entities.Structures
                         mRegisteredUnloads.Add(ContentManagerName);
                     }
                 }
+                FrostShot1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/frosttower/frostshot1", ContentManagerName);
+                FrostShot2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/frosttower/frostshot2", ContentManagerName);
+                FrostShot3 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/frosttower/frostshot3", ContentManagerName);
             }
             if (registerUnload && ContentManagerName != FlatRedBall.FlatRedBallServices.GlobalContentManager)
             {
@@ -480,19 +486,58 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (LoadedContentManagers.Count == 0)
             {
+                if (FrostShot1 != null)
+                {
+                    FrostShot1= null;
+                }
+                if (FrostShot2 != null)
+                {
+                    FrostShot2= null;
+                }
+                if (FrostShot3 != null)
+                {
+                    FrostShot3= null;
+                }
             }
         }
         [System.Obsolete("Use GetFile instead")]
         public static new object GetStaticMember (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "FrostShot1":
+                    return FrostShot1;
+                case  "FrostShot2":
+                    return FrostShot2;
+                case  "FrostShot3":
+                    return FrostShot3;
+            }
             return null;
         }
         public static new object GetFile (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "FrostShot1":
+                    return FrostShot1;
+                case  "FrostShot2":
+                    return FrostShot2;
+                case  "FrostShot3":
+                    return FrostShot3;
+            }
             return null;
         }
         object GetMember (string memberName) 
         {
+            switch(memberName)
+            {
+                case  "FrostShot1":
+                    return FrostShot1;
+                case  "FrostShot2":
+                    return FrostShot2;
+                case  "FrostShot3":
+                    return FrostShot3;
+            }
             return null;
         }
         public override bool HasCursorOver (FlatRedBall.Gui.Cursor cursor) 

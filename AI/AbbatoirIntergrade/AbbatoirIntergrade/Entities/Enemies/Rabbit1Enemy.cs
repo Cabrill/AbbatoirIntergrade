@@ -36,7 +36,16 @@ namespace AbbatoirIntergrade.Entities.Enemies
         {
             Altitude = 0;
             CurrentJumpState = Jump.NotJumping;
-            //meleeAttackSound = Slime_Hit.CreateInstance();
+
+            if (DeathSound == null || DeathSound.IsDisposed)
+            {
+                const int maxSoundIndex = 3;
+                var soundIndex = FlatRedBallServices.Random.Next(1, maxSoundIndex);
+                var targetDeathSoundName = $"Rabbit1Death{soundIndex}";
+
+                var deathSound = GetFile(targetDeathSoundName) as SoundEffect;
+                DeathSound = deathSound.CreateInstance();
+            }
 
             //_jumpStart = Slime_Jump.CreateInstance();
             //_jumpLand = Slime_Land.CreateInstance();

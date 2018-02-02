@@ -191,6 +191,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         protected static Microsoft.Xna.Framework.Graphics.Texture2D AllParticles;
         protected static FlatRedBall.Graphics.Particle.EmitterList ParticleEmitterListFile;
         protected static FlatRedBall.Graphics.Animation.AnimationChainList ParticleAnimationsChainList;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect DrowningSound;
         
         protected FlatRedBall.Sprite mSpriteInstance;
         public FlatRedBall.Sprite SpriteInstance
@@ -853,6 +854,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 AllParticles = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/projectiles/allparticles.png", ContentManagerName);
                 ParticleEmitterListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Particle.EmitterList>(@"content/entities/baseentities/baseenemy/particleemitterlistfile.emix", ContentManagerName);
                 ParticleAnimationsChainList = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/baseentities/baseenemy/particleanimationschainlist.achx", ContentManagerName);
+                DrowningSound = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/baseentities/baseenemy/drowningsound", ContentManagerName);
             }
             AbbatoirIntergrade.Entities.GraphicalElements.ResourceBar.LoadStaticContent(contentManagerName);
             CustomLoadStaticContent(contentManagerName);
@@ -1322,6 +1324,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return ParticleEmitterListFile;
                 case  "ParticleAnimationsChainList":
                     return ParticleAnimationsChainList;
+                case  "DrowningSound":
+                    return DrowningSound;
             }
             return null;
         }
@@ -1339,6 +1343,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return ParticleEmitterListFile;
                 case  "ParticleAnimationsChainList":
                     return ParticleAnimationsChainList;
+                case  "DrowningSound":
+                    return DrowningSound;
             }
             return null;
         }
@@ -1356,6 +1362,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return ParticleEmitterListFile;
                 case  "ParticleAnimationsChainList":
                     return ParticleAnimationsChainList;
+                case  "DrowningSound":
+                    return DrowningSound;
             }
             return null;
         }

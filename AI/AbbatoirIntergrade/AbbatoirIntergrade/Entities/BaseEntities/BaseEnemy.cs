@@ -48,9 +48,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         protected float _spriteRelativeY;
 
-        protected SoundEffectInstance rangedChargeSound;
-	    protected SoundEffectInstance rangedAttackSound;
-	    protected SoundEffectInstance meleeAttackSound;
+        protected SoundEffectInstance DeathSound;
+	    protected SoundEffectInstance drowningSound;
 
 
         /// <summary>
@@ -86,6 +85,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		        _spriteRelativeY = SpriteInstance.Height / 2;
 		        spriteAnimationChainList = SpriteInstance.AnimationChains;
 		    }
+
+		    if (drowningSound == null || drowningSound.IsDisposed)
+		    {
+		        drowningSound = DrowningSound.CreateInstance();
+		    }
+
 		    SpriteInstance.AnimationChains = spriteAnimationChainList;
 
             ShadowSprite.RelativeY = 0;
@@ -237,8 +242,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             var dmgInflicted = effectiveMultiplier * projectile.DamageInflicted * dmgMultiplier;
             TakeDamage(dmgInflicted);
 
-            projectile?.PlayHitTargetSound();
-
             var shouldBeHurt = true;
 
 	        switch (projectile.DamageType)
@@ -349,7 +352,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (!IsDrowning && CurrentActionState != Action.Dying)
 	        {
 	            CurrentActionState = Action.Dying;
-	        }
+	            PlayDeathSound();
+            }
 
 	        if (SpriteInstanceAnimate && IsOnFinalFrameOfAnimation)
 	        {
@@ -363,6 +367,16 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 OnDeath -= OnDeath;
                 Destroy();
             }
+	    }
+
+	    private void PlayDeathSound()
+	    {
+	        try
+	        {
+	            var pan = Position.X / Camera.Main.OrthogonalWidth;
+	            DeathSound.Pan = pan;
+	            DeathSound.Play();
+            } catch (Exception) { }
 	    }
 
 	    private void RemoveArrows()
@@ -379,23 +393,17 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	    private void CustomDestroy()
 		{
-		    if (rangedAttackSound != null && !rangedAttackSound.IsDisposed)
+		    if (drowningSound != null && !drowningSound.IsDisposed)
 		    {
-                rangedAttackSound.Stop(true);
-                rangedAttackSound.Dispose();
+                drowningSound.Stop(true);
+                drowningSound.Dispose();
 		    }
 
-		    if (rangedChargeSound != null && !rangedChargeSound.IsDisposed) 
+		    if (DeathSound != null && !DeathSound.IsDisposed) 
 		    {
-		        rangedChargeSound.Stop(true);
-		        rangedChargeSound.Dispose();
+		        DeathSound.Stop(true);
+		        DeathSound.Dispose();
             }
-
-		    if (meleeAttackSound != null && !meleeAttackSound.IsDisposed)
-		    {
-		        meleeAttackSound.Stop(true);
-		        meleeAttackSound.Dispose();
-		    }
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)
@@ -439,17 +447,27 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	    public void HandleDrowning()
 	    {
-	        if (!IsDrowning)
-	        {
-	            SpriteInstance.AnimationChains = ParticleAnimationsChainList;
-	            ShadowSprite.Visible = false;
-	            SpriteInstance.RelativeY = 0;
-	            CurrentActionState = Action.Drowning;
-	            _frozenDurationSeconds = 0;
-	            _poisonedDurationSeconds = 0;
-	            HealthRemaining = 0;
-	            Velocity = Vector3.Zero;
-	        }
+	        if (IsDrowning) return;
+
+	        PlayDrowningSound();
+	        SpriteInstance.AnimationChains = ParticleAnimationsChainList;
+	        ShadowSprite.Visible = false;
+	        SpriteInstance.RelativeY = 0;
+	        CurrentActionState = Action.Drowning;
+	        _frozenDurationSeconds = 0;
+	        _poisonedDurationSeconds = 0;
+	        HealthRemaining = 0;
+	        Velocity = Vector3.Zero;
 	    }
-    }
+
+	    private void PlayDrowningSound()
+	    {
+	        try
+	        {
+	            var pan = Position.X / Camera.Main.OrthogonalWidth;
+	            drowningSound.Pan = pan;
+                drowningSound?.Play();
+            } catch (Exception) { }
+	    }
+	}
 }

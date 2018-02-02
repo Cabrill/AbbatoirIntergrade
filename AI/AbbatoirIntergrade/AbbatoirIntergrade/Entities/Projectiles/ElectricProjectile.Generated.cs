@@ -43,6 +43,11 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static FlatRedBall.Graphics.Animation.AnimationChainList ElectricProjectileAnimationChainListFile;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect ElectricImpact1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect ElectricImpact2;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect ElectricImpact3;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect ElectricGroundImpact1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect ElectricGroundImpact2;
         
         private FlatRedBall.Math.Geometry.AxisAlignedRectangle mAxisAlignedRectangleInstance;
         public FlatRedBall.Math.Geometry.AxisAlignedRectangle AxisAlignedRectangleInstance
@@ -748,6 +753,11 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                     }
                 }
                 ElectricProjectileAnimationChainListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/projectiles/electricprojectile/electricprojectileanimationchainlistfile.achx", ContentManagerName);
+                ElectricImpact1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/electricprojectile/electricimpact1", ContentManagerName);
+                ElectricImpact2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/electricprojectile/electricimpact2", ContentManagerName);
+                ElectricImpact3 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/electricprojectile/electricimpact3", ContentManagerName);
+                ElectricGroundImpact1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/electricprojectile/electricgroundimpact1", ContentManagerName);
+                ElectricGroundImpact2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/projectiles/electricprojectile/electricgroundimpact2", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -762,6 +772,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "ElectricProjectileAnimationChainListFile":
                     return ElectricProjectileAnimationChainListFile;
+                case  "ElectricImpact1":
+                    return ElectricImpact1;
+                case  "ElectricImpact2":
+                    return ElectricImpact2;
+                case  "ElectricImpact3":
+                    return ElectricImpact3;
+                case  "ElectricGroundImpact1":
+                    return ElectricGroundImpact1;
+                case  "ElectricGroundImpact2":
+                    return ElectricGroundImpact2;
             }
             return null;
         }
@@ -771,6 +791,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "ElectricProjectileAnimationChainListFile":
                     return ElectricProjectileAnimationChainListFile;
+                case  "ElectricImpact1":
+                    return ElectricImpact1;
+                case  "ElectricImpact2":
+                    return ElectricImpact2;
+                case  "ElectricImpact3":
+                    return ElectricImpact3;
+                case  "ElectricGroundImpact1":
+                    return ElectricGroundImpact1;
+                case  "ElectricGroundImpact2":
+                    return ElectricGroundImpact2;
             }
             return null;
         }
@@ -780,6 +810,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             {
                 case  "ElectricProjectileAnimationChainListFile":
                     return ElectricProjectileAnimationChainListFile;
+                case  "ElectricImpact1":
+                    return ElectricImpact1;
+                case  "ElectricImpact2":
+                    return ElectricImpact2;
+                case  "ElectricImpact3":
+                    return ElectricImpact3;
+                case  "ElectricGroundImpact1":
+                    return ElectricGroundImpact1;
+                case  "ElectricGroundImpact2":
+                    return ElectricGroundImpact2;
             }
             return null;
         }

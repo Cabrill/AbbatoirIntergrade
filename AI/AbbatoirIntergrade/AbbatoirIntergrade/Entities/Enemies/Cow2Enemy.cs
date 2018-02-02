@@ -9,6 +9,7 @@ using FlatRedBall.Graphics;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using Microsoft.Xna.Framework.Audio;
 
 namespace AbbatoirIntergrade.Entities.Enemies
 {
@@ -21,9 +22,17 @@ namespace AbbatoirIntergrade.Entities.Enemies
         /// </summary>
 		private void CustomInitialize()
 		{
+		    if (DeathSound == null || DeathSound.IsDisposed)
+		    {
+		        const int maxSoundIndex = 1;
+		        var soundIndex = FlatRedBallServices.Random.Next(1, maxSoundIndex);
+		        var targetDeathSoundName = $"Cow2Death{soundIndex}";
 
+		        var deathSound = GetFile(targetDeathSoundName) as SoundEffect;
+		        DeathSound = deathSound.CreateInstance();
+		    }
 
-		}
+        }
 
 	    public void AddSpritesToLayers(Layer worldLayer, Layer darknessLayer, Layer hudLayer)
 	    {

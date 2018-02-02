@@ -133,8 +133,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         static object mLockObject = new object();
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
-        protected static Microsoft.Xna.Framework.Audio.SoundEffect Structure_Placed;
-        protected static Microsoft.Xna.Framework.Audio.SoundEffect Building_Destroyed;
         protected static FlatRedBall.Graphics.Animation.AnimationChainList BaseStructureAnimationChainListFile;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D AllParticles;
         
@@ -663,8 +661,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                         mRegisteredUnloads.Add(ContentManagerName);
                     }
                 }
-                Structure_Placed = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/structure_placed", ContentManagerName);
-                Building_Destroyed = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/structures/building_destroyed", ContentManagerName);
                 BaseStructureAnimationChainListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/baseentities/basestructure/basestructureanimationchainlistfile.achx", ContentManagerName);
                 AllParticles = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/projectiles/allparticles.png", ContentManagerName);
             }
@@ -978,10 +974,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             switch(memberName)
             {
-                case  "Structure_Placed":
-                    return Structure_Placed;
-                case  "Building_Destroyed":
-                    return Building_Destroyed;
                 case  "BaseStructureAnimationChainListFile":
                     return BaseStructureAnimationChainListFile;
                 case  "AllParticles":
@@ -993,10 +985,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             switch(memberName)
             {
-                case  "Structure_Placed":
-                    return Structure_Placed;
-                case  "Building_Destroyed":
-                    return Building_Destroyed;
                 case  "BaseStructureAnimationChainListFile":
                     return BaseStructureAnimationChainListFile;
                 case  "AllParticles":
@@ -1008,10 +996,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             switch(memberName)
             {
-                case  "Structure_Placed":
-                    return Structure_Placed;
-                case  "Building_Destroyed":
-                    return Building_Destroyed;
                 case  "BaseStructureAnimationChainListFile":
                     return BaseStructureAnimationChainListFile;
                 case  "AllParticles":

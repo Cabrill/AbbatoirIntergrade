@@ -44,6 +44,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static FlatRedBall.Graphics.Animation.AnimationChainList Chicken1Animations;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D Stage1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Chicken1Death1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Chicken1Death2;
         
         static float SpriteInstanceXReset;
         static float SpriteInstanceYReset;
@@ -1059,6 +1061,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 }
                 Chicken1Animations = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/gamescreen/monsters/chicken1animations.achx", ContentManagerName);
                 Stage1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/monsters/stage1.png", ContentManagerName);
+                Chicken1Death1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/enemies/chicken1enemy/chicken1death1", ContentManagerName);
+                Chicken1Death2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/entities/enemies/chicken1enemy/chicken1death2", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -1075,6 +1079,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
                     return Chicken1Animations;
                 case  "Stage1":
                     return Stage1;
+                case  "Chicken1Death1":
+                    return Chicken1Death1;
+                case  "Chicken1Death2":
+                    return Chicken1Death2;
             }
             return null;
         }
@@ -1086,6 +1094,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
                     return Chicken1Animations;
                 case  "Stage1":
                     return Stage1;
+                case  "Chicken1Death1":
+                    return Chicken1Death1;
+                case  "Chicken1Death2":
+                    return Chicken1Death2;
             }
             return null;
         }
@@ -1097,6 +1109,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
                     return Chicken1Animations;
                 case  "Stage1":
                     return Stage1;
+                case  "Chicken1Death1":
+                    return Chicken1Death1;
+                case  "Chicken1Death2":
+                    return Chicken1Death2;
             }
             return null;
         }
