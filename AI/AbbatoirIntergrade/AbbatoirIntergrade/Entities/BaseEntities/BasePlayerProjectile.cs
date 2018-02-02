@@ -10,6 +10,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using AbbatoirIntergrade.Entities.Projectiles;
+using AbbatoirIntergrade.StaticManagers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 
@@ -164,24 +165,16 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         private void PlayHitGroundSound()
 	    {
-            try
-	        {
-	            var pan = Position.X / Camera.Main.OrthogonalWidth;
-	            HitGroundSound.Pan = pan;
-                HitGroundSound.Play();
-            }
-	        catch (Exception){}
+	        var pan = Position.X / Camera.Main.OrthogonalWidth;
+	        HitGroundSound.Pan = pan;
+	        SoundManager.PlaySoundEffect(HitGroundSound);
         }
 
 	    private void PlayHitTargetSound()
 	    {
-	        try
-	        {
-	            var pan = Position.X / Camera.Main.OrthogonalWidth;
-	            HitTargetSound.Pan = pan;
-                HitTargetSound.Play();
-	        }
-	        catch (Exception) { }
+	        var pan = Position.X / Camera.Main.OrthogonalWidth;
+	        HitTargetSound.Pan = pan;
+	        SoundManager.PlaySoundEffect(HitTargetSound);
         }
 
 

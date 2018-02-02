@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-
+using AbbatoirIntergrade.StaticManagers;
 using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
@@ -26,6 +26,7 @@ namespace AbbatoirIntergrade.Screens
 
 		void CustomActivity(bool firstTimeCalled)
 		{
+		    SoundManager.Update();
             //Currently MonoGame does not allow asynchronously loading :(  Have to directly load screen after showing this one for 1 frame
             if (HasDrawBeenCalled) MoveToScreen(typeof(GameScreen));
 		    //if (this.AsyncLoadingState == FlatRedBall.Screens.AsyncLoadingState.NotStarted)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FlatRedBall.Audio;
+using FlatRedBall.Managers;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
 
@@ -34,16 +35,29 @@ namespace AbbatoirIntergrade.StaticManagers
             }
         }
 
-        private static float effectiveSoundVolumeLevel;
-        private static float effectiveMusicVolumeLevel;
+        private static float effectiveSoundVolumeLevel = 1;
+        private static float effectiveMusicVolumeLevel = 0.8f;
 
-        public static void PlaySoundEffect(SoundEffectInstance effect, float pan = 0f)
+        private static List<string> _currentPlayList;
+        private static int _playlistIndex;
+        private static bool _shouldLoopPlaylist;
+        private static bool _shouldLoopOneSong;
+
+        public static void Update()
+        {
+            if (AudioManager.CurrentlyPlayingSong == null)
+            {
+                if (_shouldLoopOneSong) AudioManager.PlaySong();
+                else if (_currentPlayList != null) PlayNextSongInList();
+            }
+        }
+
+        public static void PlaySoundEffect(SoundEffectInstance effect)
         {
             if (SoundVolumeLevel == 0) return;
             try
             {
                 effect.Volume = effectiveSoundVolumeLevel;
-                effect.Pan = pan;
                 effect.Play();
             }
             catch (Exception e)
@@ -55,10 +69,11 @@ namespace AbbatoirIntergrade.StaticManagers
             }
         }
 
-        public static void PlaySong(Song songToPlay, bool forceRestart = true)
+        public static void PlaySong(Song songToPlay, bool forceRestart = true, bool shouldLoop = true)
         {
             try
             {
+                _shouldLoopOneSong = shouldLoop;
                 AudioManager.PlaySong(songToPlay, forceRestart, true);
             }
             catch (Exception e)
@@ -68,6 +83,42 @@ namespace AbbatoirIntergrade.StaticManagers
 #endif
                 //Else do nothing
             }
+        }
+
+        public static void PlaySongList(List<string> songsToPlay, bool loopPlaylist = true)
+        {
+            if (songsToPlay == null || songsToPlay.Count < 1) return;
+            _currentPlayList = songsToPlay;
+            _playlistIndex = 0;
+            _shouldLoopPlaylist = loopPlaylist;
+            _shouldLoopOneSong = false;
+            var firstSongName = _currentPlayList[_playlistIndex];
+            var firstSong = GlobalContent.GetFile(firstSongName) as Song;
+
+            AudioManager.PlaySong(firstSong, true, true);
+        }
+
+        private static void PlayNextSongInList()
+        {
+            if (_currentPlayList == null || _currentPlayList.Count < 1) return;
+
+            _playlistIndex += 1;
+            if (_playlistIndex > _currentPlayList.Count - 1)
+            {
+                if (_shouldLoopPlaylist)
+                {
+                    _playlistIndex = 0;
+                }
+                else
+                {
+                    _currentPlayList = null;
+                    return;
+                }
+            }
+            var nextSongName = _currentPlayList[_playlistIndex];
+            var nextSong = GlobalContent.GetFile(nextSongName) as Song;
+
+            AudioManager.PlaySong(nextSong, true, true);
         }
 
         private const double a = 1e-3;

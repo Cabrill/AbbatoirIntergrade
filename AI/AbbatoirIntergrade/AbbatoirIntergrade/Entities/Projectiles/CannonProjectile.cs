@@ -18,7 +18,6 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 {
 	public partial class CannonProjectile
 	{
-	    private SoundEffectInstance HitTargetSound;
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -36,7 +35,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 		    HitGroundSound = hitSound.CreateInstance();
 
             GravityDrag = -75f;
-            DamageType = DamageTypes.Piercing;
+            DamageType = DamageTypes.Bombarding;
 		    RotationZVelocity = FlatRedBallServices.Random.Between(20, 50);
 		}
 

@@ -55,6 +55,7 @@ namespace AbbatoirIntergrade.Screens
             }
         }
         protected static Microsoft.Xna.Framework.Graphics.Texture2D CollisionShapes;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect IncomingMessage;
         
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D WorldRenderTarget;
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D DarknessRenderTarget;
@@ -362,6 +363,7 @@ namespace AbbatoirIntergrade.Screens
                 mChapter2 = null;
             }
             CollisionShapes = null;
+            IncomingMessage = null;
             
             AllStructuresList.MakeOneWay();
             AllEnemiesList.MakeOneWay();
@@ -667,6 +669,7 @@ namespace AbbatoirIntergrade.Screens
             darknessshader = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Effect>(@"content/screens/gamescreen/effects/darknessshader", contentManagerName);
             CombinedAssets = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/tilesets/combinedassets.png", contentManagerName);
             CollisionShapes = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/tilesets/collisionshapes.png", contentManagerName);
+            IncomingMessage = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/incomingmessage", contentManagerName);
             AbbatoirIntergrade.Entities.ShaderRenderer.LoadStaticContent(contentManagerName);
             CustomLoadStaticContent(contentManagerName);
         }
@@ -687,6 +690,8 @@ namespace AbbatoirIntergrade.Screens
                     return Chapter2;
                 case  "CollisionShapes":
                     return CollisionShapes;
+                case  "IncomingMessage":
+                    return IncomingMessage;
             }
             return null;
         }
@@ -706,6 +711,8 @@ namespace AbbatoirIntergrade.Screens
                     return Chapter2;
                 case  "CollisionShapes":
                     return CollisionShapes;
+                case  "IncomingMessage":
+                    return IncomingMessage;
             }
             return null;
         }
@@ -725,6 +732,8 @@ namespace AbbatoirIntergrade.Screens
                     return Chapter2;
                 case  "CollisionShapes":
                     return CollisionShapes;
+                case  "IncomingMessage":
+                    return IncomingMessage;
             }
             return null;
         }

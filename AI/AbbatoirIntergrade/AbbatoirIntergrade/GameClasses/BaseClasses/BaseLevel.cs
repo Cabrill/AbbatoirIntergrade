@@ -18,6 +18,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         public abstract string MapName { get; }
         public abstract DateTime StartTime { get; }
         public abstract List<BaseWave> Waves { get; }
+        public abstract List<string> SongNameList { get;  }
         private List<BaseWave> _waves;
         public BaseWave LastWave;
         public int CurrentWaveNumber { get; private set; } = 0;

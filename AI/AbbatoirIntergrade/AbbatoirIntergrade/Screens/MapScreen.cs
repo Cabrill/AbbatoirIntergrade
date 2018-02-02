@@ -58,8 +58,8 @@ namespace AbbatoirIntergrade.Screens
 
 	    void CustomActivity(bool firstTimeCalled)
 		{
-		    FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
-
+		    //FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
+		    SoundManager.Update();
         }
 
 		void CustomDestroy()

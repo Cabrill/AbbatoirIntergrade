@@ -184,13 +184,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         private void PlayPlacementSound()
         {
-            try
-            {
-                PlacementSound.Play();
-            }
-            catch (Exception)
-            {
-            }
+            var pan = X / Camera.Main.OrthogonalWidth;
+            PlacementSound.Pan = pan;
+            SoundManager.PlaySoundEffect(PlacementSound);
         }
 
         private void PerformDestruction()
@@ -414,11 +410,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 FiringSound.Pan = pan;
             }
 
-            try
-            {
-                FiringSound.Play();
-            }
-            catch (Exception) { }
+            SoundManager.PlaySoundEffect(FiringSound);
         }
 
         /// <summary>

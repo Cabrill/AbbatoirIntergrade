@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using AbbatoirIntergrade.Entities.Projectiles;
+using AbbatoirIntergrade.StaticManagers;
 using Accord.Genetic;
 using FlatRedBall;
 using FlatRedBall.Graphics.Animation;
@@ -371,12 +372,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	    private void PlayDeathSound()
 	    {
-	        try
-	        {
-	            var pan = Position.X / Camera.Main.OrthogonalWidth;
-	            DeathSound.Pan = pan;
-	            DeathSound.Play();
-            } catch (Exception) { }
+	        var pan = Position.X / Camera.Main.OrthogonalWidth;
+            DeathSound.Pan = pan;
+	        SoundManager.PlaySoundEffect(DeathSound);
 	    }
 
 	    private void RemoveArrows()
@@ -462,12 +460,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	    private void PlayDrowningSound()
 	    {
-	        try
-	        {
-	            var pan = Position.X / Camera.Main.OrthogonalWidth;
-	            drowningSound.Pan = pan;
-                drowningSound?.Play();
-            } catch (Exception) { }
+	        var pan = Position.X / Camera.Main.OrthogonalWidth;
+	        drowningSound.Pan = pan;
+	        SoundManager.PlaySoundEffect(drowningSound);
 	    }
 	}
 }

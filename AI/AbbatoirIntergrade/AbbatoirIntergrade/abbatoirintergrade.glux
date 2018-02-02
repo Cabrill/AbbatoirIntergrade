@@ -60,6 +60,18 @@
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Screens/GameScreen/Sounds/IncomingMessage.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
       </ReferencedFiles>
       <NamedObjects>
         <NamedObjectSave>
@@ -16532,6 +16544,12 @@
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <Name>Entities/Structures/ChemicalTower/ChemicalShot3.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
@@ -18319,6 +18337,286 @@
     <ReferencedFileSave>
       <Name>GumProject/AllUIAssets.png</Name>
       <IsSharedStatic>true</IsSharedStatic>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_alieninhochiminh.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_alittlebell.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_aluodetunefish.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_badmorning.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_brokentimesiqnatureinaminor.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_crocketttubbs.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_digitalconcertoremake.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_enoughexcitementforalifetime.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_fiveminutesofwhy.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_glitchthis.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_inmymindiamabigstar.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_irememberyou.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_justafaceinthedarkinstrumental.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_marchoftheages.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_melancholysound.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_quietlyintothenight.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_scrambledeggs.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_sidish.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_superiorblandcrap.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/anttisinstrumentals_woman.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>

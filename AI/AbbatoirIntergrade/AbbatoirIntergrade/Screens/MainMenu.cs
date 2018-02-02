@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using AbbatoirIntergrade.GumRuntimes;
+using AbbatoirIntergrade.StaticManagers;
 using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
@@ -25,12 +26,13 @@ namespace AbbatoirIntergrade.Screens
 	        FlatRedBallServices.IsWindowsCursorVisible = true;
 #endif
             MainMenuGumRuntime.OpenEyesAnimation.PlayAfter(3, this);
+            SoundManager.PlaySong(GlobalContent.anttisinstrumentals_aluodetunefish, true,true );
 	    }
 
 	    void CustomActivity(bool firstTimeCalled)
 	    {
 	        //FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
-
+            SoundManager.Update();
 	        if (InputManager.Keyboard.AnyKeyPushed() || InputManager.Mouse.AnyButtonPushed())
 	        {
 	            LoadingScreen.TransitionToScreen(typeof(MapScreen));

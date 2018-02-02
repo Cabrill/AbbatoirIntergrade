@@ -18,6 +18,7 @@ using AbbatoirIntergrade.GumRuntimes;
 using AbbatoirIntergrade.Performance;
 using AbbatoirIntergrade.StaticManagers;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
@@ -51,6 +52,8 @@ namespace AbbatoirIntergrade.Screens
 
         private List<ResourceIncreaseNotificationRuntime> resourceIncreaseNotificationList;
 
+        private SoundEffectInstance IncomingMessageSound;
+
         #endregion
 
         #region Initialization
@@ -65,6 +68,8 @@ namespace AbbatoirIntergrade.Screens
 
             resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
+            IncomingMessageSound = IncomingMessage.CreateInstance();
+
             //TODO:  Set these values by loading a level
             CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
             CurrentLevel.OnNewWaveStart += UpdateDialogue;
@@ -72,6 +77,7 @@ namespace AbbatoirIntergrade.Screens
             CurrentLevel.OnWaveEnd += ChangeGameModeToBuilding;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
             currentLevelDateTime = CurrentLevel.StartTime;
+            SoundManager.PlaySongList(CurrentLevel.SongNameList);
 
             InitializeFactories();
 
@@ -232,8 +238,8 @@ namespace AbbatoirIntergrade.Screens
             HandleDebugInput();
             ShowDebugInfo();
 #endif
-            //UpdateMusic();
-            
+            SoundManager.Update();
+
             HandleTouchActivity();
             SelectedItemActivity();
 
@@ -430,6 +436,7 @@ namespace AbbatoirIntergrade.Screens
 
 	                    enemy.GetHitBy(projectile);
 	                    projectile.HandleImpact(enemy);
+	                    break;
                     }
 	            }
 	        }
@@ -695,6 +702,7 @@ namespace AbbatoirIntergrade.Screens
                     var dialogueOptions = gameDialogue.GetDialogueOptionsFor(newDialogue);
                     PlayerDataManager.AddShownDialogueId(newDialogue.Id);
                     ChatBoxInstance.UpdateDialogue(newDialogue, dialogueOptions);
+                    SoundManager.PlaySoundEffect(IncomingMessageSound);
                 }
             }
         }

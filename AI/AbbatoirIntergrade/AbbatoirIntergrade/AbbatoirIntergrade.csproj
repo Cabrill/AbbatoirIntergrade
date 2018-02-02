@@ -840,10 +840,215 @@
       <Name>PiercingShot3</Name>
       <Link>content\entities\structures\piercingtower\piercingshot3.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_alieninhochiminh.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_alieninhochiminh</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_alieninhochiminh.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_alieninhochiminh.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_alieninhochiminh</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_alieninhochiminh.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_alittlebell.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_alittlebell</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_alittlebell.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_alittlebell.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_alittlebell</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_alittlebell.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_aluodetunefish.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_aluodetunefish</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_aluodetunefish.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_aluodetunefish.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_aluodetunefish</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_aluodetunefish.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_badmorning.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_badmorning</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_badmorning.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_badmorning.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_badmorning</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_badmorning.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_brokentimesiqnatureinaminor.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_brokentimesiqnatureinaminor</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_brokentimesiqnatureinaminor.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_brokentimesiqnatureinaminor.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_brokentimesiqnatureinaminor</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_brokentimesiqnatureinaminor.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_crocketttubbs.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_crocketttubbs</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_crocketttubbs.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_crocketttubbs.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_crocketttubbs</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_crocketttubbs.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_digitalconcertoremake.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_digitalconcertoremake</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_digitalconcertoremake.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_digitalconcertoremake.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_digitalconcertoremake</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_digitalconcertoremake.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_enoughexcitementforalifetime.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_enoughexcitementforalifetime</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_enoughexcitementforalifetime.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_enoughexcitementforalifetime.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_enoughexcitementforalifetime</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_enoughexcitementforalifetime.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_fiveminutesofwhy.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_fiveminutesofwhy</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_fiveminutesofwhy.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_fiveminutesofwhy.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_fiveminutesofwhy</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_fiveminutesofwhy.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_glitchthis.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_glitchthis</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_glitchthis.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_glitchthis.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_glitchthis</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_glitchthis.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_inmymindiamabigstar.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_inmymindiamabigstar</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_inmymindiamabigstar.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_inmymindiamabigstar.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_inmymindiamabigstar</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_inmymindiamabigstar.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_irememberyou.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_irememberyou</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_irememberyou.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_irememberyou.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_irememberyou</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_irememberyou.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_justafaceinthedarkinstrumental.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_justafaceinthedarkinstrumental</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_justafaceinthedarkinstrumental.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_justafaceinthedarkinstrumental.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_justafaceinthedarkinstrumental</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_justafaceinthedarkinstrumental.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_marchoftheages.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_marchoftheages</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_marchoftheages.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_marchoftheages.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_marchoftheages</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_marchoftheages.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_melancholysound.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_melancholysound</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_melancholysound.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_melancholysound.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_melancholysound</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_melancholysound.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_quietlyintothenight.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_quietlyintothenight</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_quietlyintothenight.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_quietlyintothenight.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_quietlyintothenight</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_quietlyintothenight.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_scrambledeggs.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_scrambledeggs</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_scrambledeggs.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_scrambledeggs.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_scrambledeggs</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_scrambledeggs.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_sidish.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_sidish</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_sidish.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_sidish.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_sidish</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_sidish.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_superiorblandcrap.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_superiorblandcrap</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_superiorblandcrap.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_superiorblandcrap.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_superiorblandcrap</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_superiorblandcrap.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_woman.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_woman</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_woman.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_woman.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_woman</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_woman.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\desktopgl\screens\gamescreen\effects\darknessshader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>darknessshader</Name>
       <Link>content\screens\gamescreen\effects\darknessshader.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\incomingmessage.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>IncomingMessage</Name>
+      <Link>content\screens\gamescreen\sounds\incomingmessage.xnb</Link>
     </None>
     <None Include="content\entities\baseentities\baseenemy\particleanimationschainlist.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
