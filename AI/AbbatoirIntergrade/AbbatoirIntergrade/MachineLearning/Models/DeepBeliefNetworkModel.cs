@@ -32,7 +32,7 @@ namespace AbbatoirIntergrade.MachineLearning.Models
         public double LastMSE { get; private set; }
         public bool IsReady { get; private set; }
 
-        public void Initialize(int epochs = 250, int hiddenLayerNodes = 150)
+        public void Initialize(int epochs, int hiddenLayerNodes)
         {
             const int inputCount = 450;
             IsReady = false;

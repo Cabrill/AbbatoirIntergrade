@@ -9,6 +9,7 @@ using AbbatoirIntergrade.Entities.Enemies;
 using AbbatoirIntergrade.GameClasses.BaseClasses;
 using AbbatoirIntergrade.MachineLearning;
 using AbbatoirIntergrade.MachineLearning.Models;
+using Accord.Genetic;
 using Accord.Math;
 using FlatRedBall;
 using FlatRedBall.Instructions;
@@ -46,6 +47,9 @@ namespace AbbatoirIntergrade.StaticManagers
         public static void LoadModel()
         {
             MachineLearningModel = new DeepBeliefNetworkModel();
+            MachineLearningModel.Initialize(epochs:250, hiddenLayerNodes:150);
+            waveInputs = new List<double[]>();
+            waveScores = new List<double>();
         }
 
         public static void SaveModel()
@@ -56,6 +60,11 @@ namespace AbbatoirIntergrade.StaticManagers
         public static BaseWave GenerateWave(List<EnemyTypes> availableEnemyTypes, int pointsAvailable)
         {
             var enemyCounts = new List<Tuple<int, EnemyTypes>>();
+
+            var inputList = new List<double>();
+
+            CurrentPathingToInput(ref inputList);
+            CurrentTowersToInput(ref inputList);
 
             for (var i = 0; i < availableEnemyTypes.Count -1; i++)
             {
@@ -101,6 +110,7 @@ namespace AbbatoirIntergrade.StaticManagers
             {
                 MachineLearningModel.LearnAll(waveInputs.ToArray(), waveScores.ToArray());
             }
+            GeneticsManager.EvaluateAndGenerate();
         }
 
         public static void UpdateWaveScore(BaseEnemy enemy)
@@ -140,6 +150,15 @@ namespace AbbatoirIntergrade.StaticManagers
         {
             var inputList = new List<double>();
 
+            CurrentPathingToInput(ref inputList);
+            CurrentTowersToInput(ref inputList);
+            CurrentEnemiesToInput(ref inputList, newWaveEnemies);
+            
+            return inputList.ToArray();
+        }
+
+        private static void CurrentPathingToInput(ref List<double> inputList)
+        {
             for (var i = 0; i < MaxPathingPoints; i++)
             {
                 if (i < _groundPathing.Points.Count - 1)
@@ -153,22 +172,28 @@ namespace AbbatoirIntergrade.StaticManagers
                     inputList.Add(0.0);
                 }
             }
+        }
+
+        private static void CurrentTowersToInput(ref List<double> inputList)
+        {
             for (var i = 0; i < MaxTowers; i++)
             {
                 var potentialTower = _allTowers.FirstOrDefault(t => t.PlacementOrder == i + 1);
                 inputList.AddRange(TowerToInput(potentialTower));
             }
+        }
+
+        private static void CurrentEnemiesToInput(ref List<double> inputList, List<BaseEnemy> enemies)
+        {
             for (var i = 0; i < MaxEnemies; i++)
             {
                 BaseEnemy enemy = null;
-                if (i < newWaveEnemies.Count - 1)
+                if (i < enemies.Count - 1)
                 {
-                    enemy = newWaveEnemies[i];
+                    enemy = enemies[i];
                 }
                 inputList.AddRange(EnemyToInput(enemy));
             }
-
-            return inputList.ToArray();
         }
 
         private static IEnumerable<double> PathingPointToInput(Point point)
@@ -258,6 +283,22 @@ namespace AbbatoirIntergrade.StaticManagers
             }
         }
 
+        private static IEnumerable<double> EnemyAttributesToInput(BaseEnemy.GeneticAttributes attributes)
+        {
+            return new List<double>
+            {
+                attributes.MaximumHealth,
+                attributes.EffectiveSpeed,
+                attributes.EffectivePiercingResist,
+                attributes.EffectiveBombardResist,
+                attributes.EffectiveChemicalResist,
+                attributes.EffectiveFrostResist,
+                attributes.EffectiveFireResist,
+                attributes.EffectiveElectricResist,
+                attributes.IsFlying ? 1.0 : 0.0,
+            };
+        }
+
         private static double CalculateScoreFor(BaseEnemy enemy)
         {
             if (enemy.HasReachedGoal) return 1.0;
@@ -317,6 +358,33 @@ namespace AbbatoirIntergrade.StaticManagers
         private static double AbsoluteYCoordinateToRelative(float ycoord)
         {
             return (ycoord + Camera.Main.OrthogonalHeight / 2) / Camera.Main.OrthogonalHeight;
+        }
+
+        public static List<double> GetPathingAndTowersPartialInput()
+        {
+            var inputList = new List<double>();
+
+            CurrentPathingToInput(ref inputList);
+            CurrentTowersToInput(ref inputList);
+
+            return inputList;
+        }
+
+        public static double Evaluate(List<double> inputList, EnemyTypes enemyType, ShortArrayChromosome chromosome)
+        {
+            var enemyAttributes = enemyType.Attributes();
+            var effectiveAttributes = BaseEnemy.GetGeneticAttributes(enemyAttributes, chromosome);
+
+            var attributesAsInput = Enumerable.ToArray(EnemyAttributesToInput(effectiveAttributes));
+
+            for (var i = 0; i < MaxEnemies; i++)
+            {
+                inputList.AddRange(attributesAsInput);
+            }
+
+            var score = MachineLearningModel.Predict(inputList.ToArray());
+
+            return score;
         }
     }
 }

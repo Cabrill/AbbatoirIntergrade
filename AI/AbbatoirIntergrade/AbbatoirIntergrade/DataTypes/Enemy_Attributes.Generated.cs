@@ -13,6 +13,7 @@ namespace AbbatoirIntergrade.DataTypes
         public float FireResist;
         public float ElectricResist;
         public float Mass;
+        public bool IsFlying;
         public const string Chicken1 = "Chicken1";
         public const string Chicken2 = "Chicken2";
         public const string Chicken3 = "Chicken3";

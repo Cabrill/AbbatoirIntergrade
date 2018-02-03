@@ -143,6 +143,7 @@ namespace AbbatoirIntergrade.Screens
         {
             SunlightManager.Initialize(HorizonBoxInstance, currentLevelDateTime);
             MachineLearningManager.SetTowerList(AllStructuresList);
+            GeneticsManager.Initialize();
         }
 
         private void InitializeBaseEntities()

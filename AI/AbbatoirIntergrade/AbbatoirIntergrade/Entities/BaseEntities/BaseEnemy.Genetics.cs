@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AbbatoirIntergrade.StaticManagers;
 using Accord.Genetic;
 
 namespace AbbatoirIntergrade.Entities.BaseEntities
 {
     public partial class BaseEnemy
     {
-        private const int ChromosomeLength = 8;
         const int halfwayMax = ushort.MaxValue / 2;
         private const float maxBonus = 0.1f;
 
@@ -24,6 +24,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             public float EffectiveFireResist;
             public float EffectiveFrostResist;
             public float EffectiveElectricResist;
+            public bool IsFlying;
         }
 
         public struct BaseAttributes
@@ -37,20 +38,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             public float FireResist;
             public float FrostResist;
             public float ElectricResist;
+            public bool IsFlying;
         }
 
-        public GeneticAttributes GetGeneticAttributes(BaseAttributes attributes, ShortArrayChromosome chromosome)
+        public static GeneticAttributes GetGeneticAttributes(BaseAttributes attributes, ShortArrayChromosome chromosome)
         {
             var effectiveAttributes = new GeneticAttributes
             {
-                MaximumHealth = CalculateMaximumHealth(attributes.Health),
-                EffectiveSpeed = CalculateSpeed(attributes.Speed),
-                EffectivePiercingResist = CalculateResistance(attributes.PiercingResist, 0),
-                EffectiveBombardResist = CalculateResistance(attributes.BombardResist, 1),
-                EffectiveChemicalResist = CalculateResistance(attributes.ChemicalResist, 2),
-                EffectiveFireResist = CalculateResistance(attributes.FireResist, 3),
-                EffectiveFrostResist = CalculateResistance(attributes.FrostResist, 4),
-                EffectiveElectricResist = CalculateResistance(attributes.ElectricResist, 5)
+                MaximumHealth = CalculateMaximumHealth(attributes.Health, chromosome),
+                EffectiveSpeed = CalculateSpeed(attributes.Speed, chromosome),
+                EffectivePiercingResist = CalculateResistance(attributes.PiercingResist, 0, chromosome),
+                EffectiveBombardResist = CalculateResistance(attributes.BombardResist, 1, chromosome),
+                EffectiveChemicalResist = CalculateResistance(attributes.ChemicalResist, 2, chromosome),
+                EffectiveFireResist = CalculateResistance(attributes.FireResist, 3, chromosome),
+                EffectiveFrostResist = CalculateResistance(attributes.FrostResist, 4, chromosome),
+                EffectiveElectricResist = CalculateResistance(attributes.ElectricResist, 5, chromosome),
+                IsFlying = attributes.IsFlying,
             };
 
             return effectiveAttributes;
@@ -59,10 +62,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         public void SetGenetics(ShortArrayChromosome chromosome = null)
         {
-            Chromosome = chromosome ?? new ShortArrayChromosome(ChromosomeLength);
+            Chromosome = chromosome ?? GeneticsManager.GenerateNewChromsome();
 
             var baseAttributes = GetBaseAttributes();
-            var effectiveAttributes = GetGeneticAttributes(baseAttributes, chromosome);
+            var effectiveAttributes = GetGeneticAttributes(baseAttributes, Chromosome);
 
             MaximumHealth = effectiveAttributes.MaximumHealth;
             HealthRemaining = MaximumHealth;
@@ -89,16 +92,17 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 ChemicalResist = BaseChemicalResist,
                 FireResist = BaseFireResist,
                 FrostResist = BaseFrostResist,
-                ElectricResist = BaseElectricResist
+                ElectricResist = BaseElectricResist,
+                IsFlying =  IsFlying
             };
         }
 
-        private float CalculateMaximumHealth(float baseHealth)
+        private static float CalculateMaximumHealth(float baseHealth, ShortArrayChromosome chromosome)
         {
             var effectiveHealth = baseHealth;
             
-            var healthModifier = (SumChromsomeValues(new List<int>(){0, 2, 4}) - SumChromsomeValues(new List<int>{1, 3, 5})) / (3 * ushort.MaxValue);
-            healthModifier *= 1-Math.Abs(Chromosome.Value[6]- halfwayMax) / halfwayMax;
+            var healthModifier = (SumChromsomeValues(new List<int>{0, 2, 4}, chromosome) - SumChromsomeValues(new List<int>{1, 3, 5}, chromosome)) / (3 * ushort.MaxValue);
+            healthModifier *= 1-Math.Abs(chromosome.Value[6]- halfwayMax) / halfwayMax;
 
             effectiveHealth += (healthModifier/2 * maxBonus * baseHealth);
 
@@ -110,12 +114,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             return effectiveHealth;
         }
 
-        private float CalculateSpeed(float baseSpeed)
+        private static float CalculateSpeed(float baseSpeed, ShortArrayChromosome chromosome)
         {
             var effectiveSpeed = baseSpeed;
 
-            var speedModifier = (-SumChromsomeValues(new List<int>() { 0, 2, 4 }) + SumChromsomeValues(new List<int> { 1, 3, 5 })) / (3 * ushort.MaxValue);
-            speedModifier *= 1-Math.Abs(Chromosome.Value[7] - halfwayMax) / halfwayMax;
+            var speedModifier = (-SumChromsomeValues(new List<int> { 0, 2, 4 }, chromosome) + SumChromsomeValues(new List<int> { 1, 3, 5 }, chromosome)) / (3 * ushort.MaxValue);
+            speedModifier *= 1-Math.Abs(chromosome.Value[7] - halfwayMax) / halfwayMax;
 
             effectiveSpeed += (speedModifier/4 * maxBonus * baseSpeed);
 
@@ -127,15 +131,15 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             return effectiveSpeed;
         }
 
-        private float CalculateResistance(float baseResist, int resistIndex)
+        private static float CalculateResistance(float baseResist, int resistIndex, ShortArrayChromosome chromosome)
         {
             var effectiveResist = baseResist;
 
-            var resistNegatives = new List<int>() {0, 1, 2, 3, 4, 5};
+            var resistNegatives = new List<int> {0, 1, 2, 3, 4, 5};
             resistNegatives.Remove(resistIndex);
 
-            var resistModifier = (Chromosome.Value[resistIndex] - AverageChromosomeValues(resistNegatives)) / ushort.MaxValue;
-            resistModifier *= 1-Math.Abs(AverageChromosomeValues(new List<int>() {6, 7}) - halfwayMax) / halfwayMax;
+            var resistModifier = (chromosome.Value[resistIndex] - AverageChromosomeValues(resistNegatives, chromosome)) / ushort.MaxValue;
+            resistModifier *= 1-Math.Abs(AverageChromosomeValues(new List<int>() {6, 7}, chromosome) - halfwayMax) / halfwayMax;
 
             effectiveResist += resistModifier * maxBonus * baseResist;
 
@@ -146,14 +150,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             return effectiveResist;
         }
 
-        private float AverageChromosomeValues(IEnumerable<int> values)
+        private static float AverageChromosomeValues(IEnumerable<int> values, ShortArrayChromosome chromosome)
         {
-            return (float)values.Average((index) => Chromosome.Value[index]);
+            return (float)values.Average((index) => chromosome.Value[index]);
         }
 
-        private float SumChromsomeValues(IEnumerable<int> values)
+        private static float SumChromsomeValues(IEnumerable<int> values, ShortArrayChromosome chromosome)
         {
-            return values.Aggregate(0f, (current, index) => current + Chromosome.Value[index]);
+            return values.Aggregate(0f, (current, index) => current + chromosome.Value[index]);
         }
     }
 }

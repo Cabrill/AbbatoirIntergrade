@@ -145,6 +145,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        BaseFrostResist = csvEntry.FrostResist;
 	        BaseFireResist = csvEntry.FireResist;
 	        BaseElectricResist = csvEntry.ElectricResist;
+	        IsFlying = csvEntry.IsFlying;
 	    }
 
 	    private float GetMaxFrameHeight()
