@@ -2,7 +2,7 @@
 <objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <objecttype name="Chicken1Enemy">
     <property name="MaximumHealth" type="float" default="64" />
-    <property name="Speed" type="float" default="75" />
+    <property name="EffectiveSpeed" type="float" default="75" />
     <property name="DisplayName" type="string" default="Chicken" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />
@@ -26,7 +26,7 @@
   </objecttype>
   <objecttype name="Chicken2Enemy">
     <property name="MaximumHealth" type="float" default="64" />
-    <property name="Speed" type="float" default="200" />
+    <property name="EffectiveSpeed" type="float" default="200" />
     <property name="DisplayName" type="string" default="Enraged Chicken" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />
@@ -50,7 +50,7 @@
   </objecttype>
   <objecttype name="Chicken3Enemy">
     <property name="MaximumHealth" type="float" default="64" />
-    <property name="Speed" type="float" default="125" />
+    <property name="EffectiveSpeed" type="float" default="125" />
     <property name="DisplayName" type="string" default="Dragon" />
     <property name="IsFlying" type="bool" default="true" />
     <property name="HasLightSource" type="bool" default="true" />
@@ -74,7 +74,7 @@
   </objecttype>
   <objecttype name="Cow1Enemy">
     <property name="MaximumHealth" type="float" default="32" />
-    <property name="Speed" type="float" default="250" />
+    <property name="EffectiveSpeed" type="float" default="250" />
     <property name="DisplayName" type="string" default="Cow" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />
@@ -98,7 +98,7 @@
   </objecttype>
   <objecttype name="Cow2Enemy">
     <property name="MaximumHealth" type="float" default="32" />
-    <property name="Speed" type="float" default="275" />
+    <property name="EffectiveSpeed" type="float" default="275" />
     <property name="DisplayName" type="string" default="Unusual Cow" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />
@@ -122,7 +122,7 @@
   </objecttype>
   <objecttype name="Cow3Enemy">
     <property name="MaximumHealth" type="float" default="32" />
-    <property name="Speed" type="float" default="450" />
+    <property name="EffectiveSpeed" type="float" default="450" />
     <property name="DisplayName" type="string" default="Hybrid Cowman" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />
@@ -146,7 +146,7 @@
   </objecttype>
   <objecttype name="Pig1Enemy">
     <property name="MaximumHealth" type="float" default="32" />
-    <property name="Speed" type="float" default="450" />
+    <property name="EffectiveSpeed" type="float" default="450" />
     <property name="DisplayName" type="string" default="Pig" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />
@@ -170,7 +170,7 @@
   </objecttype>
   <objecttype name="Pig2Enemy">
     <property name="MaximumHealth" type="float" default="32" />
-    <property name="Speed" type="float" default="200" />
+    <property name="EffectiveSpeed" type="float" default="200" />
     <property name="DisplayName" type="string" default="Mutant Pig" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />
@@ -194,7 +194,7 @@
   </objecttype>
   <objecttype name="Pig3Enemy">
     <property name="MaximumHealth" type="float" default="32" />
-    <property name="Speed" type="float" default="150" />
+    <property name="EffectiveSpeed" type="float" default="150" />
     <property name="DisplayName" type="string" default="Juggernaut Pig" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />
@@ -218,7 +218,7 @@
   </objecttype>
   <objecttype name="Rabbit1Enemy">
     <property name="MaximumHealth" type="float" default="224" />
-    <property name="Speed" type="float" default="120" />
+    <property name="EffectiveSpeed" type="float" default="120" />
     <property name="DisplayName" type="string" default="Rabbit" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />
@@ -242,7 +242,7 @@
   </objecttype>
   <objecttype name="Rabbit2Enemy">
     <property name="MaximumHealth" type="float" default="32" />
-    <property name="Speed" type="float" default="150" />
+    <property name="EffectiveSpeed" type="float" default="150" />
     <property name="DisplayName" type="string" default="Abnormal Rabbit" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />
@@ -266,7 +266,7 @@
   </objecttype>
   <objecttype name="Rabbit3Enemy">
     <property name="MaximumHealth" type="float" default="32" />
-    <property name="Speed" type="float" default="500" />
+    <property name="EffectiveSpeed" type="float" default="500" />
     <property name="DisplayName" type="string" default="Athletic Rabbit" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />
@@ -290,7 +290,7 @@
   </objecttype>
   <objecttype name="Sheep1Enemy">
     <property name="MaximumHealth" type="float" default="32" />
-    <property name="Speed" type="float" default="200" />
+    <property name="EffectiveSpeed" type="float" default="200" />
     <property name="DisplayName" type="string" default="Sheep" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />
@@ -314,7 +314,7 @@
   </objecttype>
   <objecttype name="Sheep2Enemy">
     <property name="MaximumHealth" type="float" default="32" />
-    <property name="Speed" type="float" default="120" />
+    <property name="EffectiveSpeed" type="float" default="120" />
     <property name="DisplayName" type="string" default="Deformed Sheep" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />
@@ -338,7 +338,7 @@
   </objecttype>
   <objecttype name="Sheep3Enemy">
     <property name="MaximumHealth" type="float" default="32" />
-    <property name="Speed" type="float" default="450" />
+    <property name="EffectiveSpeed" type="float" default="450" />
     <property name="DisplayName" type="string" default="Sheep Demoness" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />

@@ -934,21 +934,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
             base.ShadowSprite.Alpha = 0.3f;
-            MaximumHealth = 32f;
-            Speed = 450f;
             DisplayName = "Hybrid Cowman";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
-            Mass = 0.4f;
-            BaseHealth = 115f;
-            BasePiercingResist = 0.2f;
-            BaseBombardResist = 0.325f;
-            BaseChemicalResist = 0.3f;
-            BaseFrostResist = 0.1f;
-            BaseFireResist = 0.2f;
-            BaseElectricResist = 0.1f;
-            BaseSpeed = 450f;
         }
         public override void ConvertToManuallyUpdated () 
         {

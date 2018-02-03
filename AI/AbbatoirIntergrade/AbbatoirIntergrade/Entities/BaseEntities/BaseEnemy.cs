@@ -112,7 +112,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		    AltitudeVelocity = 0f;
 		    _poisonedDurationSeconds = 0;
 		    _frozenDurationSeconds = 0;
-		    Speed = BaseSpeed;
+		    EffectiveSpeed = BaseSpeed;
 
 		    PoisonedParticles.ScaleX = SpriteInstance.Width/2;
 		    PoisonedParticles.ScaleY = SpriteInstance.Height / 2;
@@ -124,10 +124,28 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		    FrozenParticles.RelativeY = SpriteInstance.Height / 2;
 		    FrozenParticles.TimedEmission = false;
 
+		    SetAttributes();
+
 		    SetGenetics();
 
             UpdateAnimation();
 		}
+
+	    private void SetAttributes()
+	    {
+	        var enemyName = GetType().Name.Replace("Enemy", "");
+	        var csvEntry = GlobalContent.Enemy_Attributes[enemyName];
+
+	        BaseHealth = csvEntry.Health;
+	        BaseSpeed = csvEntry.Speed;
+
+	        BaseBombardResist = csvEntry.BombardResist;
+	        BasePiercingResist = csvEntry.PiercingResist;
+	        BaseChemicalResist = csvEntry.ChemicalResist;
+	        BaseFrostResist = csvEntry.FrostResist;
+	        BaseFireResist = csvEntry.FireResist;
+	        BaseElectricResist = csvEntry.ElectricResist;
+	    }
 
 	    private float GetMaxFrameHeight()
 	    {
@@ -305,41 +323,41 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        if (IsFrozen && IsPoisoned)
 	        {
 	            CurrentStatusState = Status.FrozenAndPoisoned;
-	            Speed = BaseSpeed * (1 - (float)(GetEffectiveMultiplier(DamageTypes.Frost) * 0.8 +
+	            EffectiveSpeed = BaseSpeed * (1 - (float)(GetEffectiveMultiplier(DamageTypes.Frost) * 0.8 +
 	                                     GetEffectiveMultiplier(DamageTypes.Chemical) * 0.2));
                 
 	        }
             else if (IsFrozen)
 	        {
 	            CurrentStatusState = Status.Frozen;
-	            Speed = BaseSpeed * (1 - (float)(GetEffectiveMultiplier(DamageTypes.Frost) * 0.8));
+	            EffectiveSpeed = BaseSpeed * (1 - (float)(GetEffectiveMultiplier(DamageTypes.Frost) * 0.8));
             }
             else if (IsPoisoned)
 	        {
 	            CurrentStatusState = Status.Poisoned;
-	            Speed = BaseSpeed * (1 - (float)(GetEffectiveMultiplier(DamageTypes.Chemical) * 0.2));
+	            EffectiveSpeed = BaseSpeed * (1 - (float)(GetEffectiveMultiplier(DamageTypes.Chemical) * 0.2));
             }
             else if (IsStunned)
 	        {
-	            Speed = 0f;
+	            EffectiveSpeed = 0f;
 	        }
 	        else
 	        {
 	            CurrentStatusState = Status.Normal;
-	            Speed = BaseSpeed;
+	            EffectiveSpeed = BaseSpeed;
 	        }
 
 	        FrozenParticles.TimedEmission = IsFrozen;
 	        PoisonedParticles.TimedEmission = IsPoisoned;
 
-	        if (Speed <= 0.01f)
+	        if (EffectiveSpeed <= 0.01f)
 	        {
 	            SpriteInstanceAnimate = false;
 	        }
 	        else
 	        {
 	            SpriteInstanceAnimate = true;
-	            SpriteInstance.AnimationSpeed = Speed / BaseSpeed;
+	            SpriteInstance.AnimationSpeed = EffectiveSpeed / BaseSpeed;
 	        }
             
 	        if (IsPoisoned && !justApplied)

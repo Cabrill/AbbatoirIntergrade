@@ -758,21 +758,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.Alpha = 0.3f;
             base.AxisAlignedRectangleInstance.Width = 210f;
             base.AxisAlignedRectangleInstance.Height = 48f;
-            MaximumHealth = 32f;
-            Speed = 275f;
             DisplayName = "Unusual Cow";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
-            Mass = 0.45f;
-            BaseHealth = 100f;
-            BasePiercingResist = 0.2f;
-            BaseBombardResist = 0.325f;
-            BaseChemicalResist = 0.2f;
-            BaseFrostResist = 0.25f;
-            BaseFireResist = 0.125f;
-            BaseElectricResist = 0.05f;
-            BaseSpeed = 300f;
         }
         public override void ConvertToManuallyUpdated () 
         {

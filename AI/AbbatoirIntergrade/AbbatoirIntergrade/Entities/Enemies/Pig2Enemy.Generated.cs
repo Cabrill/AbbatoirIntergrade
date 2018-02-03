@@ -790,21 +790,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             base.AxisAlignedRectangleInstance.Width = 32f;
             base.AxisAlignedRectangleInstance.Height = 32f;
-            MaximumHealth = 32f;
-            Speed = 200f;
             DisplayName = "Mutant Pig";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
-            Mass = 0.45f;
-            BaseHealth = 85f;
-            BasePiercingResist = 0.25f;
-            BaseBombardResist = 0.35f;
-            BaseChemicalResist = 0.6f;
-            BaseFrostResist = 0.3f;
-            BaseFireResist = 0.425f;
-            BaseElectricResist = 0.1f;
-            BaseSpeed = 200f;
         }
         public override void ConvertToManuallyUpdated () 
         {

@@ -108,9 +108,9 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         {
             //TODO:  AI generates wave using point system
             var pointsAvailable = Waves.Last().PointValue + (CurrentWaveNumber - Waves.Count);
-            var enemiesInWave = new List<Tuple<int, EnemyTypes>>();
+            var generatedWave = MachineLearningManager.GenerateWave(AvailableEnemyTypes, pointsAvailable);
 
-            return new BaseWave(enemiesInWave);
+            return generatedWave;
         }
     }
 }

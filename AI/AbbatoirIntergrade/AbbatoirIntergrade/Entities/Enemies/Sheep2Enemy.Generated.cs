@@ -934,21 +934,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
             base.ShadowSprite.Alpha = 0.3f;
-            MaximumHealth = 32f;
-            Speed = 120f;
             DisplayName = "Deformed Sheep";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
-            Mass = 0.3f;
-            BaseHealth = 110f;
-            BasePiercingResist = 0.13f;
-            BaseBombardResist = 0.5f;
-            BaseChemicalResist = 0.3f;
-            BaseFrostResist = 0.8f;
-            BaseFireResist = 0.15f;
-            BaseElectricResist = 0.4f;
-            BaseSpeed = 120f;
         }
         public override void ConvertToManuallyUpdated () 
         {

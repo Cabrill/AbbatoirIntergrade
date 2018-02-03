@@ -63,8 +63,9 @@ namespace AbbatoirIntergrade.Screens
 #if WINDOWS || DESKTOP_GL
             FlatRedBallServices.IsWindowsCursorVisible = true;
 #endif
-
             FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
+
+            MachineLearningManager.LoadModel();
 
             resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
@@ -75,6 +76,7 @@ namespace AbbatoirIntergrade.Screens
             CurrentLevel.OnNewWaveStart += UpdateDialogue;
             CurrentLevel.OnNewWaveStart += MachineLearningManager.NotifyOfWaveStart;
             CurrentLevel.OnWaveEnd += ChangeGameModeToBuilding;
+            CurrentLevel.OnWaveEnd += MachineLearningManager.NotifyOfWaveEnd;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
             currentLevelDateTime = CurrentLevel.StartTime;
             SoundManager.PlaySongList(CurrentLevel.SongNameList);

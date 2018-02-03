@@ -759,21 +759,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             base.AxisAlignedRectangleInstance.Width = 104f;
             base.AxisAlignedRectangleInstance.Height = 32f;
-            MaximumHealth = 32f;
-            Speed = 200f;
             DisplayName = "Sheep";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
-            Mass = 0.25f;
-            BaseHealth = 40f;
-            BasePiercingResist = 0.15f;
-            BaseBombardResist = 0.8f;
-            BaseChemicalResist = 0.1f;
-            BaseFrostResist = 0.9f;
-            BaseFireResist = 0.05f;
-            BaseElectricResist = 0.6f;
-            BaseSpeed = 200f;
         }
         public override void ConvertToManuallyUpdated () 
         {

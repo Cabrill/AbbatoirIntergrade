@@ -2,18 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.Entities.BaseEntities;
 using AbbatoirIntergrade.Entities.Enemies;
 using AbbatoirIntergrade.GameClasses.BaseClasses;
+using AbbatoirIntergrade.MachineLearning;
+using AbbatoirIntergrade.MachineLearning.Models;
+using Accord.Math;
 using FlatRedBall;
+using FlatRedBall.Instructions;
 using FlatRedBall.Math.Geometry;
 
 namespace AbbatoirIntergrade.StaticManagers
 {
     public static class MachineLearningManager
     {
-        private static double _waveScore;
+        private static double _waveScore = 0;
+        private static List<double[]> waveInputs;
+        private static List<double> waveScores;
+
+        private static IModel MachineLearningModel;
+        private static bool IsLearningTaskRunning = false;
 
         private static FlatRedBall.Math.PositionedObjectList<BaseStructure> _allTowers;
         private static Polygon _groundPathing;
@@ -35,12 +45,27 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static void LoadModel()
         {
-            
+            MachineLearningModel = new DeepBeliefNetworkModel();
         }
 
         public static void SaveModel()
         {
             
+        }
+
+        public static BaseWave GenerateWave(List<EnemyTypes> availableEnemyTypes, int pointsAvailable)
+        {
+            var enemyCounts = new List<Tuple<int, EnemyTypes>>();
+
+            for (var i = 0; i < availableEnemyTypes.Count -1; i++)
+            {
+                var enemyType = availableEnemyTypes[i];
+                var enemyAttributes = enemyType.Attributes();
+
+
+            }
+
+            return new BaseWave(enemyCounts);
         }
 
 
@@ -55,6 +80,44 @@ namespace AbbatoirIntergrade.StaticManagers
         public static void SetTowerList(FlatRedBall.Math.PositionedObjectList<BaseStructure> allTowers)
         {
             _allTowers = allTowers;
+        }
+
+        public static void NotifyOfWaveStart(object sender, EventArgs eventArgs)
+        {
+            if (sender is BaseLevel level)
+            {
+                var newWaveEnemies = level.LastWave.CreatedEnemies;
+                _waveEnemyCount = newWaveEnemies.Count;
+                var waveInput = CurrentWaveToInput(newWaveEnemies);
+                waveInputs.Add(waveInput);
+            }
+        }
+
+        public static void NotifyOfWaveEnd(object sender, EventArgs eventArgs)
+        {
+            waveScores.Add(_waveScore);
+            _waveScore = 0;
+            if (!IsLearningTaskRunning)
+            {
+                MachineLearningModel.LearnAll(waveInputs.ToArray(), waveScores.ToArray());
+            }
+        }
+
+        public static void UpdateWaveScore(BaseEnemy enemy)
+        {
+            var enemyScore = CalculateScoreFor(enemy);
+
+            _waveScore += (enemyScore / _waveEnemyCount);    
+        }
+
+        public static void LearnMaxTowerValues(BaseStructure tower)
+        {
+            //These are multiplied by two to account for upgrades
+            MaxDamage = Math.Max(MaxDamage, tower.AttackDamage * 2);
+            MaxRange = Math.Max(MaxRange, tower.RangedRadius * 2);
+            MaxProjectileSpeed = Math.Max(MaxProjectileSpeed, tower.ProjectileSpeed);
+
+            MaxSecondsBetweenFiring = Math.Max(MaxSecondsBetweenFiring, tower.SecondsBetweenFiring);
         }
 
         private static void UpdatePathingValues()
@@ -73,24 +136,7 @@ namespace AbbatoirIntergrade.StaticManagers
             }
         }
 
-        public static void NotifyOfWaveStart(object sender, EventArgs eventArgs)
-        {
-            if (sender is BaseLevel level)
-            {
-                var newWaveEnemies = level.LastWave.CreatedEnemies;
-                _waveEnemyCount = newWaveEnemies.Count;
-                CurrentWaveToInput(newWaveEnemies);
-            }
-        }
-
-        public static void UpdateWaveScore(BaseEnemy enemy)
-        {
-            var enemyScore = CalculateScoreFor(enemy);
-
-            _waveScore += (enemyScore / _waveEnemyCount);    
-        }
-
-        private static void CurrentWaveToInput(List<BaseEnemy> newWaveEnemies)
+        private static double[] CurrentWaveToInput(List<BaseEnemy> newWaveEnemies)
         {
             var inputList = new List<double>();
 
@@ -121,6 +167,8 @@ namespace AbbatoirIntergrade.StaticManagers
                 }
                 inputList.AddRange(EnemyToInput(enemy));
             }
+
+            return inputList.ToArray();
         }
 
         private static IEnumerable<double> PathingPointToInput(Point point)
@@ -183,7 +231,7 @@ namespace AbbatoirIntergrade.StaticManagers
                 return new List<double>
                 {
                     enemy.MaximumHealth,
-                    enemy.Speed,
+                    enemy.EffectiveSpeed,
                     enemy.EffectivePiercingResist,
                     enemy.EffectiveBombardResist,
                     enemy.EffectiveChemicalResist,
@@ -259,17 +307,6 @@ namespace AbbatoirIntergrade.StaticManagers
             score *= 0.01f;
 
             return score;
-        }
-
-        public static void LearnMaxTowerValues(BaseStructure tower)
-        {
-            //These are multiplied by two to account for upgrades
-            MaxDamage = Math.Max(MaxDamage, tower.AttackDamage*2);
-            MaxRange = Math.Max(MaxRange, tower.RangedRadius*2);
-            MaxProjectileSpeed = Math.Max(MaxProjectileSpeed, tower.ProjectileSpeed);
-
-            MaxSecondsBetweenFiring = Math.Max(MaxSecondsBetweenFiring, tower.SecondsBetweenFiring);
-            
         }
 
         private static double AbsoluteXCoordinateToRelative(float xcoord)

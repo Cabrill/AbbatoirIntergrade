@@ -13,6 +13,8 @@ using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Utilities;
 using BitmapFont = FlatRedBall.Graphics.BitmapFont;
 using FlatRedBall.Localization;
+using AbbatoirIntergrade.DataTypes;
+using FlatRedBall.IO.Csv;
 
 namespace AbbatoirIntergrade
 {
@@ -261,6 +263,7 @@ namespace AbbatoirIntergrade
                 return manttisinstrumentals_woman;
             }
         }
+        public static System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.Enemy_Attributes> Enemy_Attributes { get; set; }
         [System.Obsolete("Use GetFile instead")]
         public static object GetStaticMember (string memberName) 
         {
@@ -310,6 +313,8 @@ namespace AbbatoirIntergrade
                     return anttisinstrumentals_superiorblandcrap;
                 case  "anttisinstrumentals_woman":
                     return anttisinstrumentals_woman;
+                case  "Enemy_Attributes":
+                    return Enemy_Attributes;
             }
             return null;
         }
@@ -361,6 +366,8 @@ namespace AbbatoirIntergrade
                     return anttisinstrumentals_superiorblandcrap;
                 case  "anttisinstrumentals_woman":
                     return anttisinstrumentals_woman;
+                case  "Enemy_Attributes":
+                    return Enemy_Attributes;
             }
             return null;
         }
@@ -372,6 +379,18 @@ namespace AbbatoirIntergrade
             
             FlatRedBall.Gum.GumIdb.StaticInitialize("content/gumproject/gumproject.gumx"); FlatRedBall.Gum.GumIdbExtensions.RegisterTypes();  FlatRedBall.Gui.GuiManager.BringsClickedWindowsToFront = false;FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged += (not, used) => { FlatRedBall.Gum.GumIdb.UpdateDisplayToMainFrbCamera(); };Gum.Wireframe.GraphicalUiElement.ShowLineRectangles = false;
             AllUIAssets = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/gumproject/alluiassets.png", ContentManagerName);
+            if (Enemy_Attributes == null)
+            {
+                {
+                    // We put the { and } to limit the scope of oldDelimiter
+                    char oldDelimiter = FlatRedBall.IO.Csv.CsvFileManager.Delimiter;
+                    FlatRedBall.IO.Csv.CsvFileManager.Delimiter = ',';
+                    System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.Enemy_Attributes> temporaryCsvObject = new System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.Enemy_Attributes>();
+                    FlatRedBall.IO.Csv.CsvFileManager.CsvDeserializeDictionary<string, AbbatoirIntergrade.DataTypes.Enemy_Attributes>("content/entities/enemies/enemy_attributes.csv", temporaryCsvObject);
+                    FlatRedBall.IO.Csv.CsvFileManager.Delimiter = oldDelimiter;
+                    Enemy_Attributes = temporaryCsvObject;
+                }
+            }
             			IsInitialized = true;
             #if DEBUG && WINDOWS
             InitializeFileWatch();
@@ -379,6 +398,10 @@ namespace AbbatoirIntergrade
         }
         public static void Reload (object whatToReload) 
         {
+            if (whatToReload == Enemy_Attributes)
+            {
+                FlatRedBall.IO.Csv.CsvFileManager.UpdateDictionaryValuesFromCsv(Enemy_Attributes, "content/entities/enemies/enemy_attributes.csv");
+            }
         }
         #if DEBUG && WINDOWS
         static System.IO.FileSystemWatcher watcher;
@@ -489,6 +512,10 @@ namespace AbbatoirIntergrade
                 if (relativeFileName == "content/globalcontent/music/anttisinstrumentals_woman.mp3")
                 {
                     Reload(anttisinstrumentals_woman);
+                }
+                if (relativeFileName == "content/entities/enemies/enemy_attributes.csv")
+                {
+                    Reload(Enemy_Attributes);
                 }
             }
             catch{}

@@ -45,5 +45,24 @@ namespace AbbatoirIntergrade
 
             return pointValue;
         }
+
+        public static BaseEnemy.BaseAttributes Attributes(this EnemyTypes enemyType)
+        {
+            var enemyName = enemyType.ToString();
+            var csvEntry = GlobalContent.Enemy_Attributes[enemyName];
+
+            return new BaseEnemy.BaseAttributes()
+            {
+                Health = csvEntry.Health,
+                Speed = csvEntry.Speed,
+
+                BombardResist = csvEntry.BombardResist,
+                PiercingResist = csvEntry.PiercingResist,
+                ChemicalResist = csvEntry.ChemicalResist,
+                FrostResist = csvEntry.FrostResist,
+                FireResist = csvEntry.FireResist,
+                ElectricResist = csvEntry.ElectricResist,
+            };
+        }
     }
 }

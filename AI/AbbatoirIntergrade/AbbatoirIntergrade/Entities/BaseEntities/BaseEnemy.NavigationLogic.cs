@@ -73,7 +73,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     (float)-Math.Cos(angle),
                     (float)-Math.Sin(angle), 0);
                 direction.Normalize();
-                Velocity = direction * Speed;
+                Velocity = direction * EffectiveSpeed;
 
                 CurrentActionState = Action.Running;
                 CurrentDirectionState =
@@ -92,7 +92,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             var targetPosition = _targetPointForNavigation;
             var targetDistance = Vector3.Distance(CircleInstance.Position, targetPosition);
-            var timeToTravel = targetDistance / Speed;
+            var timeToTravel = targetDistance / EffectiveSpeed;
 
             var altitudeVelocity = - ((GravityDrag * timeToTravel) / 2);
 

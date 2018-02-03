@@ -998,21 +998,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
             base.ShadowSprite.Alpha = 0.3f;
-            MaximumHealth = 64f;
-            Speed = 75f;
             DisplayName = "Chicken";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
-            Mass = 0.1f;
-            BaseHealth = 45f;
-            BasePiercingResist = 0.2f;
-            BaseBombardResist = 0.5f;
-            BaseChemicalResist = 0.3f;
-            BaseFrostResist = 0.45f;
-            BaseFireResist = 0.1f;
-            BaseElectricResist = 0.8f;
-            BaseSpeed = 100f;
         }
         public override void ConvertToManuallyUpdated () 
         {

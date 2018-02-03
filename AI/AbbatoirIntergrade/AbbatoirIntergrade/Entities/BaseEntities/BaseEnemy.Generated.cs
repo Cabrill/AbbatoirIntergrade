@@ -278,8 +278,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 }
             }
         }
-        public virtual float MaximumHealth { get; set; }
-        public virtual float Speed { get; set; }
+        public float MaximumHealth;
+        public float EffectiveSpeed;
         string mDisplayName = "Not Set";
         public virtual string DisplayName
         {
@@ -328,18 +328,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
         }
         public bool HasReachedGoal;
-        float mMass = 0.1f;
-        public virtual float Mass
-        {
-            set
-            {
-                mMass = value;
-            }
-            get
-            {
-                return mMass;
-            }
-        }
+        public float Mass = 0.1f;
         public bool SpriteInstanceAnimate
         {
             get
@@ -351,20 +340,20 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 SpriteInstance.Animate = value;
             }
         }
-        public virtual System.Double EffectivePiercingResist { get; set; }
-        public virtual System.Double EffectiveBombardResist { get; set; }
-        public virtual System.Double EffectiveChemicalResist { get; set; }
-        public virtual System.Double EffectiveFrostResist { get; set; }
-        public virtual System.Double EffectiveFireResist { get; set; }
-        public virtual System.Double EffectiveElectricResist { get; set; }
-        public virtual float BaseHealth { get; set; }
-        public virtual float BasePiercingResist { get; set; }
-        public virtual float BaseBombardResist { get; set; }
-        public virtual float BaseChemicalResist { get; set; }
-        public virtual float BaseFrostResist { get; set; }
-        public virtual float BaseFireResist { get; set; }
-        public virtual float BaseElectricResist { get; set; }
-        public virtual float BaseSpeed { get; set; }
+        public System.Double EffectivePiercingResist;
+        public System.Double EffectiveBombardResist;
+        public System.Double EffectiveChemicalResist;
+        public System.Double EffectiveFrostResist;
+        public System.Double EffectiveFireResist;
+        public System.Double EffectiveElectricResist;
+        public float BaseHealth;
+        public float BasePiercingResist;
+        public float BaseBombardResist;
+        public float BaseChemicalResist;
+        public float BaseFrostResist;
+        public float BaseFireResist;
+        public float BaseElectricResist;
+        public float BaseSpeed;
         public FlatRedBall.Graphics.ColorOperation SpriteInstanceColorOperation
         {
             get

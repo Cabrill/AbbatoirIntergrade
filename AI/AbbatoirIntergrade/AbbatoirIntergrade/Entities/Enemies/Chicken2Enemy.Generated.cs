@@ -966,21 +966,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
             base.ShadowSprite.Alpha = 0.3f;
-            MaximumHealth = 64f;
-            Speed = 200f;
             DisplayName = "Enraged Chicken";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
-            Mass = 0.2f;
-            BaseHealth = 80f;
-            BasePiercingResist = 0.225f;
-            BaseBombardResist = 0.6f;
-            BaseChemicalResist = 0.3f;
-            BaseFrostResist = 0.5f;
-            BaseFireResist = 0.2f;
-            BaseElectricResist = 0.3f;
-            BaseSpeed = 200f;
         }
         public override void ConvertToManuallyUpdated () 
         {

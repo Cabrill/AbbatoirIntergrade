@@ -932,21 +932,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
             base.ShadowSprite.Alpha = 0.3f;
-            MaximumHealth = 32f;
-            Speed = 500f;
             DisplayName = "Athletic Rabbit";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
-            Mass = 0.3f;
-            BaseHealth = 50f;
-            BasePiercingResist = 0.55f;
-            BaseBombardResist = 0.3f;
-            BaseChemicalResist = 0.18f;
-            BaseFrostResist = 0.7f;
-            BaseFireResist = 0.4f;
-            BaseElectricResist = 0.35f;
-            BaseSpeed = 500f;
         }
         public override void ConvertToManuallyUpdated () 
         {

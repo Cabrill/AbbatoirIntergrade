@@ -758,21 +758,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             base.AxisAlignedRectangleInstance.Width = 128f;
             base.AxisAlignedRectangleInstance.Height = 40f;
-            MaximumHealth = 32f;
-            Speed = 450f;
             DisplayName = "Pig";
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
-            Mass = 0.35f;
-            BaseHealth = 30f;
-            BasePiercingResist = 0.03f;
-            BaseBombardResist = 0.3f;
-            BaseChemicalResist = 0.65f;
-            BaseFrostResist = 0.05f;
-            BaseFireResist = 0.4f;
-            BaseElectricResist = 0.1f;
-            BaseSpeed = 450f;
         }
         public override void ConvertToManuallyUpdated () 
         {

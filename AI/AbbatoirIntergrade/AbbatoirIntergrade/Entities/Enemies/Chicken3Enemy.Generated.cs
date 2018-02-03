@@ -764,21 +764,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.Alpha = 0.3f;
             base.AxisAlignedRectangleInstance.Width = 172f;
             base.AxisAlignedRectangleInstance.Height = 32f;
-            MaximumHealth = 64f;
-            Speed = 125f;
             DisplayName = "Dragon";
             IsFlying = true;
             HasLightSource = true;
             IsJumper = false;
-            Mass = 0.3f;
-            BaseHealth = 150f;
-            BasePiercingResist = 0.25f;
-            BaseBombardResist = 0.8f;
-            BaseChemicalResist = 0.35f;
-            BaseFrostResist = 0.7f;
-            BaseFireResist = 0.4f;
-            BaseElectricResist = 0.5f;
-            BaseSpeed = 125f;
         }
         public override void ConvertToManuallyUpdated () 
         {
