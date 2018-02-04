@@ -5,26 +5,33 @@ using System.Text;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.Entities.BaseEntities;
 using AbbatoirIntergrade.StaticManagers;
+using AbbatoirIntergrade.UtilityClasses;
+
 
 namespace AbbatoirIntergrade.GameClasses.BaseClasses
 {
     public class BaseWave
     {
-        public readonly List<Tuple<int, EnemyTypes>> EnemyCounts;
-        public readonly List<EnemyTypes> EnemyTypes;
+        public readonly EnemyList EnemyCounts;
+        public List<EnemyTypes> EnemyTypes => EnemyCounts.EnemyTypesInList;
 
-        public List<BaseEnemy> CreatedEnemies;
+        public readonly List<BaseEnemy> CreatedEnemies;
 
-        public BaseWave(List<Tuple<int, EnemyTypes>> enemyCounts)
+        public BaseWave(List<SerializableTuple<int, EnemyTypes>> enemyCounts)
         {
-            EnemyCounts = enemyCounts;
-            EnemyTypes = EnemyCounts.Select(t => t.Item2).Distinct().ToList();
+            EnemyCounts = new EnemyList(enemyCounts);
+            CreatedEnemies = new List<BaseEnemy>();
+        }
+
+        public BaseWave(EnemyList enemyList)
+        {
+            EnemyCounts = enemyList;
             CreatedEnemies = new List<BaseEnemy>();
         }
 
         public void CreateEnemies()
         {
-            foreach (var pair in EnemyCounts)
+            foreach (var pair in EnemyCounts.EnemyCountTuples)
             {
                 for (var i = 0; i < pair.Item1; i++)
                 {
@@ -50,7 +57,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         {
             var points = 0;
 
-            foreach (var tuple in EnemyCounts)
+            foreach (var tuple in EnemyCounts.EnemyCountTuples)
             {
                 points += tuple.Item1 * tuple.Item2.PointValue();
             }

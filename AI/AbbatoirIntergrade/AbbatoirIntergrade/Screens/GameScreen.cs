@@ -75,7 +75,7 @@ namespace AbbatoirIntergrade.Screens
             CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
             CurrentLevel.OnNewWaveStart += UpdateDialogue;
             CurrentLevel.OnNewWaveStart += MachineLearningManager.NotifyOfWaveStart;
-            CurrentLevel.OnWaveEnd += ChangeGameModeToBuilding;
+            CurrentLevel.OnWaveEnd += HandleWaveEnded;
             CurrentLevel.OnWaveEnd += MachineLearningManager.NotifyOfWaveEnd;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
             currentLevelDateTime = CurrentLevel.StartTime;
@@ -105,8 +105,20 @@ namespace AbbatoirIntergrade.Screens
             CreateNotificationPool();
 
             LoadInitialDialogue();
-            ChangeGameModeToBuilding(null, null);
+            ChangeGameModeToBuilding();
             GameHasStarted = true;
+        }
+
+        private void HandleWaveEnded(object sender, EventArgs e)
+        {
+            if (StructurePlacementList.Any(sp => sp.Visible))
+            {
+                ChangeGameModeToBuilding();
+            }
+            else
+            {
+                ChangeGameModeToNormal();
+            }
         }
 
         private void InitializeShaders()

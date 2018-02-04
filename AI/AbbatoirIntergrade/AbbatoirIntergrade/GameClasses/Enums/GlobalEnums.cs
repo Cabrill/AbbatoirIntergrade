@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.Entities.BaseEntities;
 
@@ -38,20 +39,30 @@ namespace AbbatoirIntergrade
 
     public static class EnumExtensions
     {
+        private static readonly Dictionary<EnemyTypes, int> PointValues = new Dictionary<EnemyTypes, int>();
+        private static readonly Dictionary<EnemyTypes, BaseEnemy.BaseAttributes> EnemyAttributes = new Dictionary<EnemyTypes, BaseEnemy.BaseAttributes>();
+
         public static int PointValue(this EnemyTypes enemyType)
         {
+            if (PointValues.ContainsKey(enemyType)) return PointValues[enemyType];
+
             var pointValue = 0;
-            int.TryParse(enemyType.ToString(), out pointValue);
+            var pointString = Regex.Replace(enemyType.ToString(), "[^0-9.]", "");
+            int.TryParse(pointString, out pointValue);
+
+            PointValues.Add(enemyType, pointValue);
 
             return pointValue;
         }
 
         public static BaseEnemy.BaseAttributes Attributes(this EnemyTypes enemyType)
         {
+            if (EnemyAttributes.ContainsKey(enemyType)) return EnemyAttributes[enemyType];
+
             var enemyName = enemyType.ToString();
             var csvEntry = GlobalContent.Enemy_Attributes[enemyName];
 
-            return new BaseEnemy.BaseAttributes()
+            var enemyAttributes = new BaseEnemy.BaseAttributes()
             {
                 Health = csvEntry.Health,
                 Speed = csvEntry.Speed,
@@ -63,6 +74,10 @@ namespace AbbatoirIntergrade
                 FireResist = csvEntry.FireResist,
                 ElectricResist = csvEntry.ElectricResist,
             };
+
+            EnemyAttributes[enemyType] = enemyAttributes;
+
+            return enemyAttributes;
         }
     }
 }

@@ -73,12 +73,6 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             {
                 var updatedNetwork = LearnOnBackgroundThread(inputs, outputDouble);
 
-                // If you need to do something that interacts 
-                // with FRB like adding a new object (which should 
-                // only be done on the main thread), you should use
-                // the InstructionManager to add an instruction. If you
-                // give it a time of 0, it will get executed next frame:
-
                 Action UpdateAction = () => ReplaceModelWithUpdate(updatedNetwork);
                 InstructionManager.AddSafe(UpdateAction);
             };
@@ -108,18 +102,16 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             var sw = Stopwatch.StartNew();
             // Start running the learning procedure
             // Setup batches of input for learning.
-            int batchCount = Math.Max(1, inputs.Length / 100);
+            var batchCount = Math.Max(1, inputs.Length / 100);
             // Create mini-batches to speed learning.
-            int[] groups = Accord.Statistics.Tools.RandomGroups(inputs.Length, batchCount);
-            double[][][] batches = inputs.Subgroups(groups);
-            // Learning data for the specified layer.
-            double[][][] layerData;
+            var groups = Accord.Statistics.Tools.RandomGroups(inputs.Length, batchCount);
+            var batches = inputs.Subgroups(groups);
 
             // Unsupervised learning on each hidden layer, except for the output layer.
             for (var layerIndex = 0; layerIndex < updatingNetwork.Machines.Count - 1; layerIndex++)
             {
                 unsupervisedTeacher.LayerIndex = layerIndex;
-                layerData = unsupervisedTeacher.GetLayerInput(batches);
+                var layerData = unsupervisedTeacher.GetLayerInput(batches);
                 for (var i = 0; i < Epochs / 2.5; i++)
                 {
                     unsupervisedTeacher.RunEpoch(layerData);
@@ -141,7 +133,7 @@ namespace AbbatoirIntergrade.MachineLearning.Models
 
         public double MeanSquaredError(double[][] input, double[] outputDouble)
         {
-            double error = 0;
+            var error = 0.0;
             for (var i = 0; i < outputDouble.Length; i++)
             {
                 var prediction = network.Compute(input[i])[0];

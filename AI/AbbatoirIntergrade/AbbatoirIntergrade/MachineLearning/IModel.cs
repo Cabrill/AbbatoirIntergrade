@@ -12,5 +12,6 @@ namespace AbbatoirIntergrade.MachineLearning
         void LearnAll(double[][] input, double[] outputDouble);
         double Predict(double[] input);
         long LastLearnTime { get; }
+        bool IsReady { get; }
     }
 }

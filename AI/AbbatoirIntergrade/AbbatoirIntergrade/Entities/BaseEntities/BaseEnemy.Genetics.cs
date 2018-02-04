@@ -143,7 +143,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             effectiveResist += resistModifier * maxBonus * baseResist;
 
-            if (effectiveResist > 0.95 || effectiveResist < 0)
+            if (effectiveResist > 0.991 || effectiveResist < 0)
             {
                 var doh = 1;
             }

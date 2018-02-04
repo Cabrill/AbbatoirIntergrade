@@ -253,6 +253,7 @@
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameClasses\BaseClasses\BaseWave.cs" />
+    <Compile Include="GameClasses\EnemyList.cs" />
     <Compile Include="GameClasses\Enums\GlobalEnums.cs" />
     <Compile Include="GameClasses\GameDialogue.cs" />
     <Compile Include="GameClasses\Interfaces\IBuildButton.cs" />

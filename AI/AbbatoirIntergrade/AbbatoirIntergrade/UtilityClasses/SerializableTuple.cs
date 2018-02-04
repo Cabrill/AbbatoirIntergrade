@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FishKing.UtilityClasses
+namespace AbbatoirIntergrade.UtilityClasses
 {
+    [Serializable]
     public class SerializableTuple<T1, T2>
     {
         public T1 Item1 { get; set; }

@@ -6,10 +6,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.Entities.BaseEntities;
 using AbbatoirIntergrade.Entities.Enemies;
+using AbbatoirIntergrade.GameClasses;
 using AbbatoirIntergrade.GameClasses.BaseClasses;
 using AbbatoirIntergrade.MachineLearning;
 using AbbatoirIntergrade.MachineLearning.Models;
 using Accord.Genetic;
+using Accord.IO;
 using Accord.Math;
 using FlatRedBall;
 using FlatRedBall.Instructions;
@@ -19,6 +21,8 @@ namespace AbbatoirIntergrade.StaticManagers
 {
     public static class MachineLearningManager
     {
+        public static bool IsReadyToEvaluate => MachineLearningModel.IsReady;
+
         private static double _waveScore = 0;
         private static List<double[]> waveInputs;
         private static List<double> waveScores;
@@ -59,22 +63,130 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static BaseWave GenerateWave(List<EnemyTypes> availableEnemyTypes, int pointsAvailable)
         {
-            var enemyCounts = new List<Tuple<int, EnemyTypes>>();
-
             var inputList = new List<double>();
 
             CurrentPathingToInput(ref inputList);
             CurrentTowersToInput(ref inputList);
 
-            for (var i = 0; i < availableEnemyTypes.Count -1; i++)
+            //RecursionCount = 0;
+            //RecordedFitness = new Dictionary<EnemyList, double>();
+            //var startingCounts = new EnemyList();
+            //var enemyList = RecursivelyFindBestEnemyCombination(availableEnemyTypes, inputList, startingCounts, pointsAvailable);
+            var enemyList = GreedilyFindBestEnemyCombination(availableEnemyTypes, inputList, pointsAvailable);
+
+            if (enemyList == null)
             {
-                var enemyType = availableEnemyTypes[i];
-                var enemyAttributes = enemyType.Attributes();
-
-
+#if DEBUG
+                throw new Exception("Recursion failed");
+#endif 
             }
 
-            return new BaseWave(enemyCounts);
+            return new BaseWave(enemyList);
+        }
+
+        private static EnemyList GreedilyFindBestEnemyCombination(List<EnemyTypes> availableEnemyTypes,
+            List<double> partialInput, int pointsAvailable)
+        {
+            var enemyList = new EnemyList();
+            var minPointValue = availableEnemyTypes.Min(e => e.PointValue());
+
+            while (pointsAvailable >= minPointValue && enemyList.TotalEnemies < MaxEnemies)
+            {
+                var bestFitnessImprovement = 0.0;
+                var bestEnemyType = availableEnemyTypes[0];
+                var currentFitness = enemyList.TotalEnemies == 0 ? 0 : ScoreEnemyList(enemyList, partialInput);
+
+                foreach (var enemyType in availableEnemyTypes)
+                {
+                    if (enemyType.PointValue() > pointsAvailable) continue;
+
+                    var tempEnemyList = enemyList.DeepClone();
+                    tempEnemyList.Add(enemyType);
+
+                    var fitnessOfList = ScoreEnemyList(tempEnemyList, partialInput);
+
+                    var enemyFitnessImprovement = fitnessOfList - currentFitness;
+
+                    if (enemyFitnessImprovement < bestFitnessImprovement) continue;
+
+                    bestEnemyType = enemyType;
+                    bestFitnessImprovement = enemyFitnessImprovement;
+                }
+
+                pointsAvailable -= bestEnemyType.PointValue();
+                enemyList.Add(bestEnemyType);
+            }
+            return enemyList;
+        }
+
+        private static double ScoreEnemyList(EnemyList enemyList, List<double> partialInput)
+        {
+            var completedInput = partialInput.DeepClone();
+            for (var j = 0; j < MaxEnemies; j++)
+            {
+                if (j < enemyList.EnemyCountTuples.Count)
+                {
+                    var currentEnemyType = enemyList.EnemyCountTuples[j].Item2;
+                    var chromosome = GeneticsManager.GetChromosomesForEnemyType(currentEnemyType).FirstOrDefault() as ShortArrayChromosome;
+                    var enemyAttributes = currentEnemyType.Attributes();
+                    var effectiveAttributes = BaseEnemy.GetGeneticAttributes(enemyAttributes, chromosome);
+
+                    completedInput.AddRange(EnemyAttributesToInput(effectiveAttributes));
+                }
+                else
+                {
+                    completedInput.AddRange(EnemyToInput(null));
+                }
+            }
+
+            return MachineLearningModel.Predict(completedInput.ToArray());
+        }
+
+        private static Dictionary<EnemyList, double> RecordedFitness;
+        private static int RecursionCount;
+        private static EnemyList RecursivelyFindBestEnemyCombination(List<EnemyTypes> availableEnemyTypes, List<double> partialInput, EnemyList existingList, int pointsRemaining)
+        {
+            if (pointsRemaining == 0 || existingList.TotalEnemies >= MaxEnemies) return existingList;
+
+            var bestFitness = 0.0;
+            EnemyList bestList = null;
+
+            foreach (var enemyType in availableEnemyTypes)
+            {
+                var currentPoints = pointsRemaining;
+                var currentList = existingList.DeepClone();
+                var enemyPointValue = enemyType.PointValue();
+
+                if (enemyPointValue > currentPoints) continue;
+
+                currentPoints -= enemyPointValue;
+                currentList.Add(enemyType);
+
+                if (currentPoints > 0 && currentList.TotalEnemies < MaxEnemies)
+                {
+                    currentList =  RecursivelyFindBestEnemyCombination(availableEnemyTypes, partialInput, currentList, currentPoints);
+                    RecursionCount++;
+                }
+
+                double fitnessOfList;
+
+                if (RecordedFitness.ContainsKey(currentList))
+                {
+                    fitnessOfList = RecordedFitness[currentList];
+                }
+                else
+                {
+                    fitnessOfList = ScoreEnemyList(currentList, partialInput);
+                    RecordedFitness.Add(currentList, fitnessOfList);
+                }
+
+                if (fitnessOfList < bestFitness) continue;
+
+                bestFitness = fitnessOfList;
+                bestList = currentList;
+            }
+
+            return bestList;
         }
 
 

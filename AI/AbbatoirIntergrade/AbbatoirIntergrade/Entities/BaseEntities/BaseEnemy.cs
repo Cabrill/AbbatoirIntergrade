@@ -371,7 +371,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	    {
             if (!IsDrowning && CurrentActionState != Action.Dying)
 	        {
-	            CurrentActionState = Action.Dying;
+	            OnDeath?.Invoke(this);
+	            OnDeath -= OnDeath;
+                CurrentActionState = Action.Dying;
 	            PlayDeathSound();
             }
 
@@ -383,8 +385,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (Altitude <=0f && IsOnFinalFrameOfAnimation)
             {
                 RemoveArrows();
-                OnDeath?.Invoke(this);
-                OnDeath -= OnDeath;
                 Destroy();
             }
 	    }

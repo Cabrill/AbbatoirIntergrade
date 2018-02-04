@@ -43,8 +43,18 @@ namespace AbbatoirIntergrade.StaticManagers
             }
         }
 
+        public static List<IChromosome> GetChromosomesForEnemyType(EnemyTypes enemyType, int numberToReturn = 1)
+        {
+            var chromosomeList = EnemyTypeChromosomes[enemyType];
+            SelectionMethod.ApplySelection(chromosomeList, numberToReturn);
+
+            return chromosomeList;
+        }
+
         public static void EvaluateAndGenerate()
         {
+            if (!MachineLearningManager.IsReadyToEvaluate) return;
+
             RefreshAllFitnessEvaluations();
 
             var newDictionary = new SerializableDictionary<EnemyTypes, List<IChromosome>>();

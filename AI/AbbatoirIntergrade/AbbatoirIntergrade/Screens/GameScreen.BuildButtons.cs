@@ -42,7 +42,7 @@ namespace AbbatoirIntergrade.Screens
             }
         }
 
-        private void ChangeGameModeToBuilding(object sender, EventArgs eventArgs)
+        private void ChangeGameModeToBuilding()
         {
             CurrentGameMode = GameMode.Building;
 

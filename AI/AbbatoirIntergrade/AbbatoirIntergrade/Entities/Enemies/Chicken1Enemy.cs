@@ -17,8 +17,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
 {
 	public partial class Chicken1Enemy
 	{
-	    public static BaseAttributes? EnemyAttributes = null;
-
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -34,11 +32,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
 
 		        var deathSound = GetFile(targetDeathSoundName) as SoundEffect;
 		        DeathSound = deathSound.CreateInstance();
-		    }
-
-		    if (!EnemyAttributes.HasValue)
-		    {
-		        EnemyAttributes = GetBaseAttributes();
 		    }
 		}
 
