@@ -71,11 +71,11 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             return baseName + Epochs.ToString() + "Epochs" + HiddenLayerNodes.ToString() + "Nodes";
         }
 
-        public void LearnAll(double[][] inputs, double[] outputDouble)
+        public void LearnAll(WaveData waveData)
         {
             Action learnAndUpdateAction = () =>
             {
-                var updatedNetwork = LearnOnBackgroundThread(inputs, outputDouble);
+                var updatedNetwork = LearnOnBackgroundThread(waveData.WaveInputs.ToArray(), waveData.WaveScores.ToArray());
 
                 Action UpdateAction = () => ReplaceModelWithUpdate(updatedNetwork);
                 InstructionManager.AddSafe(UpdateAction);
@@ -135,17 +135,19 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             return updatingNetwork;
         }
 
-        public double MeanSquaredError(double[][] input, double[] outputDouble)
+        public double MeanSquaredError(WaveData waveData)
         {
+            var input = waveData.WaveInputs.ToArray();
+            var outputData = waveData.WaveScores.ToArray();
             var error = 0.0;
-            for (var i = 0; i < outputDouble.Length; i++)
+            for (var i = 0; i < outputData.Length; i++)
             {
                 var prediction = network.Compute(input[i])[0];
-                var actual = outputDouble[i];
+                var actual = outputData[i];
                 error += Math.Pow(prediction - actual, 2);
             }
 
-            error /= outputDouble.Length;
+            error /= outputData.Length;
 
             LastMSE = error;
 
@@ -180,6 +182,8 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             {
                 return false;
             }
+            hasTrained = true;
+            IsReady = true;
             return true;
         }
 

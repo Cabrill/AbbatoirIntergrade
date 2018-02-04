@@ -9,7 +9,7 @@ namespace AbbatoirIntergrade.MachineLearning
     public interface IModel
     {
         void Initialize();
-        void LearnAll(double[][] input, double[] outputDouble);
+        void LearnAll(WaveData waveData);
         double Predict(double[] input);
         long LastLearnTime { get; }
         bool IsReady { get; }

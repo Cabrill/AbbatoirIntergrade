@@ -249,7 +249,7 @@ namespace AbbatoirIntergrade.StaticManagers
             _waveScore = 0;
             if (!IsLearningTaskRunning)
             {
-                MachineLearningModel.LearnAll(waveData.WaveInputs.ToArray(), waveData.WaveScores.ToArray());
+                MachineLearningModel.LearnAll(waveData);
             }
             GeneticsManager.EvaluateAndGenerate();
             SaveData();
