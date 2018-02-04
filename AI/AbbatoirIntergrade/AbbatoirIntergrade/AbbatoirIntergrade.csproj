@@ -377,6 +377,7 @@
     <Compile Include="GumRuntimes\VerticalScrollBarRuntime.Generated.cs" />
     <Compile Include="MachineLearning\IModel.cs" />
     <Compile Include="MachineLearning\Models\DeepBeliefNetworkModel.cs" />
+    <Compile Include="MachineLearning\WaveData.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />
     <Compile Include="Performance\PoolList.Generated.cs" />
     <Compile Include="Program.cs" />
@@ -452,6 +453,8 @@
     <Compile Include="TileGraphics\TileNodeNetworkCreator.cs" />
     <Compile Include="TileGraphics\Tileset.cs" />
     <Compile Include="TileGraphics\TilesetExtensionMethods.cs" />
+    <Compile Include="UtilityClasses\SerializableChromosome.cs" />
+    <Compile Include="UtilityClasses\SerializableChromosomeBase.cs" />
     <Compile Include="UtilityClasses\SerializableDictionary.cs" />
     <Compile Include="UtilityClasses\SerializableTuple.cs" />
   </ItemGroup>

@@ -65,7 +65,7 @@ namespace AbbatoirIntergrade.Screens
 #endif
             FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
 
-            MachineLearningManager.LoadModel();
+            MachineLearningManager.LoadData();
 
             resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.StaticManagers;
+using AbbatoirIntergrade.UtilityClasses;
 using Accord.Genetic;
 
 namespace AbbatoirIntergrade.Entities.BaseEntities
@@ -41,7 +42,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             public bool IsFlying;
         }
 
-        public static GeneticAttributes GetGeneticAttributes(BaseAttributes attributes, ShortArrayChromosome chromosome)
+        public static GeneticAttributes GetGeneticAttributes(BaseAttributes attributes, SerializableChromosome chromosome)
         {
             var effectiveAttributes = new GeneticAttributes
             {
@@ -60,7 +61,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         }
 
 
-        public void SetGenetics(ShortArrayChromosome chromosome = null)
+        public void SetGenetics(SerializableChromosome chromosome = null)
         {
             Chromosome = chromosome ?? GeneticsManager.GenerateNewChromsome();
 
@@ -97,7 +98,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             };
         }
 
-        private static float CalculateMaximumHealth(float baseHealth, ShortArrayChromosome chromosome)
+        private static float CalculateMaximumHealth(float baseHealth, SerializableChromosome chromosome)
         {
             var effectiveHealth = baseHealth;
             
@@ -114,7 +115,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             return effectiveHealth;
         }
 
-        private static float CalculateSpeed(float baseSpeed, ShortArrayChromosome chromosome)
+        private static float CalculateSpeed(float baseSpeed, SerializableChromosome chromosome)
         {
             var effectiveSpeed = baseSpeed;
 
@@ -131,7 +132,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             return effectiveSpeed;
         }
 
-        private static float CalculateResistance(float baseResist, int resistIndex, ShortArrayChromosome chromosome)
+        private static float CalculateResistance(float baseResist, int resistIndex, SerializableChromosome chromosome)
         {
             var effectiveResist = baseResist;
 
@@ -150,12 +151,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             return effectiveResist;
         }
 
-        private static float AverageChromosomeValues(IEnumerable<int> values, ShortArrayChromosome chromosome)
+        private static float AverageChromosomeValues(IEnumerable<int> values, SerializableChromosome chromosome)
         {
             return (float)values.Average((index) => chromosome.Value[index]);
         }
 
-        private static float SumChromsomeValues(IEnumerable<int> values, ShortArrayChromosome chromosome)
+        private static float SumChromsomeValues(IEnumerable<int> values, SerializableChromosome chromosome)
         {
             return values.Aggregate(0f, (current, index) => current + chromosome.Value[index]);
         }

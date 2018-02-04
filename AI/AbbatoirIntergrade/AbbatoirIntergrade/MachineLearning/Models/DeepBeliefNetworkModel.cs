@@ -11,6 +11,7 @@ using Accord.Neuro;
 using Accord.Neuro.Learning;
 using Accord.Neuro.Networks;
 using FlatRedBall.Instructions;
+using FlatRedBall.IO;
 
 namespace AbbatoirIntergrade.MachineLearning.Models
 {
@@ -23,8 +24,8 @@ namespace AbbatoirIntergrade.MachineLearning.Models
         private DeepBeliefNetwork network;
         private DeepBeliefNetworkLearning unsupervisedTeacher;
         private BackPropagationLearning supervisedTeacher;
-        private int Epochs;
-        private int HiddenLayerNodes;
+        private int Epochs = 250;
+        private int HiddenLayerNodes = 150;
         private bool hasTrained = false;
         private bool shouldUseOnlyLastData;
 
@@ -32,17 +33,20 @@ namespace AbbatoirIntergrade.MachineLearning.Models
         public double LastMSE { get; private set; }
         public bool IsReady { get; private set; }
 
-        public void Initialize(int epochs, int hiddenLayerNodes)
+        public void Initialize()
         {
             const int inputCount = 450;
             IsReady = false;
 
-            Epochs = (int)epochs;
-            HiddenLayerNodes = (int)hiddenLayerNodes;
             network = new DeepBeliefNetwork((int)inputCount, HiddenLayerNodes, 1);
             new GaussianWeights(network, 0.1).Randomize();
             network.UpdateVisibleWeights();
 
+            CreateTeachers();
+        }
+
+        private void CreateTeachers()
+        {
             unsupervisedTeacher = new DeepBeliefNetworkLearning(network)
             {
                 Algorithm = (h, v, i) => new ContrastiveDivergenceLearning(h, v)
@@ -160,6 +164,36 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             LastPrediction = prediction;
 
             return prediction;
+        }
+
+        public bool Load(string fileName)
+        {
+            var fileExists = FileManager.FileExists(fileName);
+            if (!fileExists) return false;
+
+            try
+            {
+                Serializer.Load(fileName, out network);
+                CreateTeachers();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool Save(string fileName)
+        {
+            try
+            {
+                Serializer.Save(network, fileName);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

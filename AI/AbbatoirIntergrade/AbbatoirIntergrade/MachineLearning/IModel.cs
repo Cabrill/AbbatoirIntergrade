@@ -8,10 +8,13 @@ namespace AbbatoirIntergrade.MachineLearning
 {
     public interface IModel
     {
-        void Initialize(int epochs, int hiddenLayerNodes);
+        void Initialize();
         void LearnAll(double[][] input, double[] outputDouble);
         double Predict(double[] input);
         long LastLearnTime { get; }
         bool IsReady { get; }
+
+        bool Save(string fileName);
+        bool Load(string fileName);
     }
 }

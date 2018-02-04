@@ -10,11 +10,13 @@ using AbbatoirIntergrade.GameClasses;
 using AbbatoirIntergrade.GameClasses.BaseClasses;
 using AbbatoirIntergrade.MachineLearning;
 using AbbatoirIntergrade.MachineLearning.Models;
+using AbbatoirIntergrade.UtilityClasses;
 using Accord.Genetic;
 using Accord.IO;
 using Accord.Math;
 using FlatRedBall;
 using FlatRedBall.Instructions;
+using FlatRedBall.IO;
 using FlatRedBall.Math.Geometry;
 
 namespace AbbatoirIntergrade.StaticManagers
@@ -24,8 +26,7 @@ namespace AbbatoirIntergrade.StaticManagers
         public static bool IsReadyToEvaluate => MachineLearningModel.IsReady;
 
         private static double _waveScore = 0;
-        private static List<double[]> waveInputs;
-        private static List<double> waveScores;
+        private static WaveData waveData;
 
         private static IModel MachineLearningModel;
         private static bool IsLearningTaskRunning = false;
@@ -48,17 +49,43 @@ namespace AbbatoirIntergrade.StaticManagers
         private const int MaxTowers = 10;
         private const int MaxEnemies = 30;
 
-        public static void LoadModel()
+
+        //TODO:  Remove temp hard-coded file names and use player data
+        private const string TempGeneticsFileName = "Genetics.xml";
+        private const string TempModelFileName = "DBNModel.obj";
+        private const string TempWaveDataFileName = "WaveData.obj";
+        private static string ModelFileName;
+        private static string WaveDataFileName;
+
+        public static void LoadData(string modelFileName = TempModelFileName, string waveDataFileName = TempWaveDataFileName)
         {
+            ModelFileName = modelFileName;
+            WaveDataFileName = waveDataFileName;
+
             MachineLearningModel = new DeepBeliefNetworkModel();
-            MachineLearningModel.Initialize(epochs:250, hiddenLayerNodes:150);
-            waveInputs = new List<double[]>();
-            waveScores = new List<double>();
+            var canLoadExistingModel =  MachineLearningModel.Load(ModelFileName);
+
+            if (!canLoadExistingModel)
+            {
+                MachineLearningModel.Initialize();
+            }
+
+            var waveDataExists = FileManager.FileExists(WaveDataFileName);
+            if (waveDataExists) waveData = FileManager.BinaryDeserialize(typeof(WaveData), WaveDataFileName) as WaveData;
+            waveData = waveData ?? new WaveData
+            {
+                WaveInputs = new List<double[]>(),
+                WaveScores = new List<double>()
+            };
+
+            GeneticsManager.Load(TempGeneticsFileName);
         }
 
-        public static void SaveModel()
+        public static void SaveData()
         {
-            
+            FileManager.BinarySerialize(waveData, WaveDataFileName);
+            MachineLearningModel.Save(ModelFileName);
+            GeneticsManager.Save(TempGeneticsFileName);
         }
 
         public static BaseWave GenerateWave(List<EnemyTypes> availableEnemyTypes, int pointsAvailable)
@@ -98,7 +125,8 @@ namespace AbbatoirIntergrade.StaticManagers
 
                 foreach (var enemyType in availableEnemyTypes)
                 {
-                    if (enemyType.PointValue() > pointsAvailable) continue;
+                    var enemyPointValue = enemyType.PointValue();
+                    if (enemyPointValue > pointsAvailable) continue;
 
                     var tempEnemyList = enemyList.DeepClone();
                     tempEnemyList.Add(enemyType);
@@ -106,6 +134,7 @@ namespace AbbatoirIntergrade.StaticManagers
                     var fitnessOfList = ScoreEnemyList(tempEnemyList, partialInput);
 
                     var enemyFitnessImprovement = fitnessOfList - currentFitness;
+                    enemyFitnessImprovement /= enemyPointValue;
 
                     if (enemyFitnessImprovement < bestFitnessImprovement) continue;
 
@@ -127,7 +156,7 @@ namespace AbbatoirIntergrade.StaticManagers
                 if (j < enemyList.EnemyCountTuples.Count)
                 {
                     var currentEnemyType = enemyList.EnemyCountTuples[j].Item2;
-                    var chromosome = GeneticsManager.GetChromosomesForEnemyType(currentEnemyType).FirstOrDefault() as ShortArrayChromosome;
+                    var chromosome = GeneticsManager.GetChromosomesForEnemyType(currentEnemyType).FirstOrDefault() as SerializableChromosome;
                     var enemyAttributes = currentEnemyType.Attributes();
                     var effectiveAttributes = BaseEnemy.GetGeneticAttributes(enemyAttributes, chromosome);
 
@@ -210,19 +239,20 @@ namespace AbbatoirIntergrade.StaticManagers
                 var newWaveEnemies = level.LastWave.CreatedEnemies;
                 _waveEnemyCount = newWaveEnemies.Count;
                 var waveInput = CurrentWaveToInput(newWaveEnemies);
-                waveInputs.Add(waveInput);
+                waveData.WaveInputs.Add(waveInput);
             }
         }
 
         public static void NotifyOfWaveEnd(object sender, EventArgs eventArgs)
         {
-            waveScores.Add(_waveScore);
+            waveData.WaveScores.Add(_waveScore);
             _waveScore = 0;
             if (!IsLearningTaskRunning)
             {
-                MachineLearningModel.LearnAll(waveInputs.ToArray(), waveScores.ToArray());
+                MachineLearningModel.LearnAll(waveData.WaveInputs.ToArray(), waveData.WaveScores.ToArray());
             }
             GeneticsManager.EvaluateAndGenerate();
+            SaveData();
         }
 
         public static void UpdateWaveScore(BaseEnemy enemy)
@@ -482,7 +512,7 @@ namespace AbbatoirIntergrade.StaticManagers
             return inputList;
         }
 
-        public static double Evaluate(List<double> inputList, EnemyTypes enemyType, ShortArrayChromosome chromosome)
+        public static double Evaluate(List<double> inputList, EnemyTypes enemyType, SerializableChromosome chromosome)
         {
             var enemyAttributes = enemyType.Attributes();
             var effectiveAttributes = BaseEnemy.GetGeneticAttributes(enemyAttributes, chromosome);

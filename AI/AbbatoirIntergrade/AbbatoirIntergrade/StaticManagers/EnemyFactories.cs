@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AbbatoirIntergrade.Entities.BaseEntities;
 using AbbatoirIntergrade.Factories;
 using AbbatoirIntergrade.Performance;
+using AbbatoirIntergrade.UtilityClasses;
 using Accord.Genetic;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math.Geometry;
@@ -23,7 +24,7 @@ namespace AbbatoirIntergrade.StaticManagers
             _airPathing = airPath ?? groundPath;
         }
 
-        public static BaseEnemy CreateNew(EnemyTypes enemyType, ShortArrayChromosome chromosome = null)
+        public static BaseEnemy CreateNew(EnemyTypes enemyType, SerializableChromosome chromosome = null)
         {
             BaseEnemy newEnemy = null;
             Polygon lineToFollow = _groundPathing;
@@ -49,7 +50,7 @@ namespace AbbatoirIntergrade.StaticManagers
                 case EnemyTypes.Pig2: newEnemy = Pig2EnemyFactory.CreateNew(); break;
                 case EnemyTypes.Pig3: newEnemy = Pig3EnemyFactory.CreateNew(); break;
             }
-            if (chromosome != null) newEnemy?.SetGenetics(chromosome);
+            newEnemy?.SetGenetics(chromosome ?? GeneticsManager.GenerateNewChromsome());
 
             newEnemy?.FollowLine(lineToFollow);
 

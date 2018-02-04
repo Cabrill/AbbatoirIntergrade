@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using AbbatoirIntergrade.Entities.Projectiles;
 using AbbatoirIntergrade.StaticManagers;
+using AbbatoirIntergrade.UtilityClasses;
 using Accord.Genetic;
 using FlatRedBall;
 using FlatRedBall.Graphics.Animation;
@@ -35,7 +36,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	    private double _poisonDamagePerSecond;
 
-	    public ShortArrayChromosome Chromosome { get; private set; }
+	    public SerializableChromosome Chromosome { get; private set; }
 
 
 	    private bool IsOnFinalFrameOfAnimation => SpriteInstance.CurrentFrameIndex == SpriteInstance.CurrentChain.Count - 1;
