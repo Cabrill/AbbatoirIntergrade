@@ -13389,7 +13389,7 @@
           </Properties>
           <Name>RangedRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">600</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">850</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -13471,7 +13471,7 @@
           </Properties>
           <Name>MinimumRangeRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">200</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">450</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -13810,7 +13810,7 @@
           </Properties>
           <Name>ProjectileSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">500</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">750</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -13822,7 +13822,7 @@
           </Properties>
           <Name>RangedRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">400</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">450</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -13834,7 +13834,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">20</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">2</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -13846,7 +13846,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">1.8</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">3</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -13905,7 +13905,7 @@
           </Properties>
           <Name>MinimumRangeRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">150</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -13929,7 +13929,7 @@
           </Properties>
           <Name>StatusDamageMultiplier</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">2</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">3.5</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -14270,7 +14270,7 @@
           </Properties>
           <Name>ProjectileSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">800</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">1500</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -14282,7 +14282,7 @@
           </Properties>
           <Name>RangedRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">800</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">650</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -14364,7 +14364,7 @@
           </Properties>
           <Name>MinimumRangeRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">75</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -14726,7 +14726,7 @@
           </Properties>
           <Name>ProjectileSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">550</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">800</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -14738,7 +14738,7 @@
           </Properties>
           <Name>RangedRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">750</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">550</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15230,7 +15230,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">2</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">2.5</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15665,7 +15665,7 @@
           </Properties>
           <Name>RangedRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">500</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">600</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15746,7 +15746,7 @@
           </Properties>
           <Name>MinimumRangeRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">200</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">250</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>

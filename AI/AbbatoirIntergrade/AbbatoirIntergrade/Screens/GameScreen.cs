@@ -694,7 +694,7 @@ namespace AbbatoirIntergrade.Screens
 
                 ChatBoxInstance.UpdateDialogue(firstDialogue, dialogueOptions);
                 ChatBoxInstance.DialogueChosen += DialogueChosen;
-                ChatBoxInstance = true;
+                ChatBoxInstance.Visible = true;
                 SoundManager.PlaySoundEffect(IncomingMessageSound);
             }
 

@@ -439,8 +439,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             DisplayName = "Fire";
             HasLightSource = false;
-            ProjectileSpeed = 550f;
-            RangedRadius = 750f;
+            ProjectileSpeed = 800f;
+            RangedRadius = 550f;
             AttackDamage = 15f;
             SecondsBetweenFiring = 2;
             ProjectileAltitude = 100f;

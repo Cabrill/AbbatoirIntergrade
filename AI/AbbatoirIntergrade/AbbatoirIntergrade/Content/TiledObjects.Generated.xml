@@ -159,14 +159,14 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="StructureDescription" type="string" />
     <property name="ProjectileSpeed" type="float" default="800" />
-    <property name="RangedRadius" type="float" default="600" />
+    <property name="RangedRadius" type="float" default="850" />
     <property name="AttackDamage" type="float" default="60" />
     <property name="SecondsBetweenFiring" type="float" default="6" />
     <property name="ProjectileAltitude" type="float" default="100" />
     <property name="HasSplashDamage" type="bool" default="true" />
     <property name="SlowsEnemies" type="bool" />
     <property name="StunsEnemies" type="bool" />
-    <property name="MinimumRangeRadius" type="float" default="200" />
+    <property name="MinimumRangeRadius" type="float" default="450" />
     <property name="StatusEffectSeconds" type="float" default="0" />
     <property name="StatusDamageMultiplier" type="float" default="0" />
   </objecttype>
@@ -174,31 +174,31 @@
     <property name="DisplayName" type="string" default="Chemical" />
     <property name="HasLightSource" type="bool" default="false" />
     <property name="StructureDescription" type="string" />
-    <property name="ProjectileSpeed" type="float" default="500" />
-    <property name="RangedRadius" type="float" default="400" />
-    <property name="AttackDamage" type="float" default="20" />
-    <property name="SecondsBetweenFiring" type="float" default="1.8" />
+    <property name="ProjectileSpeed" type="float" default="750" />
+    <property name="RangedRadius" type="float" default="450" />
+    <property name="AttackDamage" type="float" default="2" />
+    <property name="SecondsBetweenFiring" type="float" default="3" />
     <property name="ProjectileAltitude" type="float" default="100" />
     <property name="HasSplashDamage" type="bool" default="false" />
     <property name="SlowsEnemies" type="bool" default="true" />
     <property name="StunsEnemies" type="bool" />
-    <property name="MinimumRangeRadius" type="float" default="100" />
+    <property name="MinimumRangeRadius" type="float" default="150" />
     <property name="StatusEffectSeconds" type="float" default="5" />
-    <property name="StatusDamageMultiplier" type="float" default="2" />
+    <property name="StatusDamageMultiplier" type="float" default="3.5" />
   </objecttype>
   <objecttype name="ElectricTower">
     <property name="DisplayName" type="string" default="Electric" />
     <property name="HasLightSource" type="bool" default="false" />
     <property name="StructureDescription" type="string" />
-    <property name="ProjectileSpeed" type="float" default="800" />
-    <property name="RangedRadius" type="float" default="800" />
+    <property name="ProjectileSpeed" type="float" default="1500" />
+    <property name="RangedRadius" type="float" default="650" />
     <property name="AttackDamage" type="float" default="50" />
     <property name="SecondsBetweenFiring" type="float" default="5" />
     <property name="ProjectileAltitude" type="float" default="100" />
     <property name="HasSplashDamage" type="bool" />
     <property name="SlowsEnemies" type="bool" />
     <property name="StunsEnemies" type="bool" default="true" />
-    <property name="MinimumRangeRadius" type="float" default="50" />
+    <property name="MinimumRangeRadius" type="float" default="75" />
     <property name="StatusEffectSeconds" type="float" default="2" />
     <property name="StatusDamageMultiplier" type="float" default="0" />
   </objecttype>
@@ -206,8 +206,8 @@
     <property name="DisplayName" type="string" default="Fire" />
     <property name="HasLightSource" type="bool" default="false" />
     <property name="StructureDescription" type="string" />
-    <property name="ProjectileSpeed" type="float" default="550" />
-    <property name="RangedRadius" type="float" default="750" />
+    <property name="ProjectileSpeed" type="float" default="800" />
+    <property name="RangedRadius" type="float" default="550" />
     <property name="AttackDamage" type="float" default="15" />
     <property name="SecondsBetweenFiring" type="float" default="2" />
     <property name="ProjectileAltitude" type="float" default="100" />
@@ -225,7 +225,7 @@
     <property name="ProjectileSpeed" type="float" default="450" />
     <property name="RangedRadius" type="float" default="500" />
     <property name="AttackDamage" type="float" default="20" />
-    <property name="SecondsBetweenFiring" type="float" default="2" />
+    <property name="SecondsBetweenFiring" type="float" default="2.5" />
     <property name="ProjectileAltitude" type="float" default="100" />
     <property name="HasSplashDamage" type="bool" />
     <property name="SlowsEnemies" type="bool" default="true" />
@@ -239,14 +239,14 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="StructureDescription" type="string" />
     <property name="ProjectileSpeed" type="float" default="1200" />
-    <property name="RangedRadius" type="float" default="500" />
+    <property name="RangedRadius" type="float" default="600" />
     <property name="AttackDamage" type="float" default="30" />
     <property name="SecondsBetweenFiring" type="float" default="3" />
     <property name="ProjectileAltitude" type="float" default="25" />
     <property name="HasSplashDamage" type="bool" />
     <property name="SlowsEnemies" type="bool" />
     <property name="StunsEnemies" type="bool" />
-    <property name="MinimumRangeRadius" type="float" default="200" />
+    <property name="MinimumRangeRadius" type="float" default="250" />
     <property name="StatusEffectSeconds" type="float" default="0" />
     <property name="StatusDamageMultiplier" type="float" default="0" />
   </objecttype>

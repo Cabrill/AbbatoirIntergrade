@@ -87,7 +87,27 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 		        _spriteRelativeY = SpriteInstance.Height / 2;
 		        spriteAnimationChainList = SpriteInstance.AnimationChains;
-		    }
+
+		        PoisonedParticles.ScaleX = SpriteInstance.Width / 2;
+		        PoisonedParticles.ScaleY = SpriteInstance.Height / 2;
+		        PoisonedParticles.RelativeY = SpriteInstance.Height / 2;
+		        PoisonedParticles.TimedEmission = false;
+
+		        FrozenParticles.ScaleX = SpriteInstance.Width / 2;
+		        FrozenParticles.ScaleY = SpriteInstance.Height / 2;
+		        FrozenParticles.RelativeY = SpriteInstance.Height / 2;
+		        FrozenParticles.TimedEmission = false;
+
+		        SmokeParticles.ScaleX = SpriteInstance.Width / 2;
+		        SmokeParticles.ScaleY = SpriteInstance.Height / 2;
+		        SmokeParticles.RelativeY = SpriteInstance.Height / 2;
+		        SmokeParticles.TimedEmission = false;
+
+		        StunParticles.ScaleX = SpriteInstance.Width / 2;
+		        StunParticles.ScaleY = SpriteInstance.Height / 2;
+		        StunParticles.RelativeY = SpriteInstance.Height / 2;
+		        StunParticles.TimedEmission = false;
+            }
 
 		    if (drowningSound == null || drowningSound.IsDisposed)
 		    {
@@ -101,12 +121,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             
             HasReachedGoal = false;
 
-            HealthBar.X = X;
-		    HealthBar.Y = Y;
-            HealthBar.AttachTo(SpriteInstance);
-		    HealthBar.RelativeY = HealthBar.Height/2 + GetMaxFrameHeight();
-            HealthBar.UpdateDependencies(TimeManager.CurrentTime);
+            HealthBar.AttachTo(SpriteInstance, true);
+            //HealthBar.UpdateDependencies(TimeManager.CurrentTime);
             HealthBar.SetWidth(SpriteInstance.Width);
+		    HealthBar.RelativeY = HealthBar.Height + GetMaxFrameHeight();
             HealthBar.Hide();
 
             HealthRemaining = MaximumHealth;
@@ -120,25 +138,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 		    EffectiveSpeed = BaseSpeed;
 
-		    PoisonedParticles.ScaleX = SpriteInstance.Width/2;
-		    PoisonedParticles.ScaleY = SpriteInstance.Height / 2;
-		    PoisonedParticles.RelativeY = SpriteInstance.Height / 2;
-		    PoisonedParticles.TimedEmission = false;
 
-		    FrozenParticles.ScaleX = SpriteInstance.Width / 2;
-		    FrozenParticles.ScaleY = SpriteInstance.Height / 2;
-		    FrozenParticles.RelativeY = SpriteInstance.Height / 2;
-		    FrozenParticles.TimedEmission = false;
-
-		    SmokeParticles.ScaleX = SpriteInstance.Width / 2;
-		    SmokeParticles.ScaleY = SpriteInstance.Height / 2;
-		    SmokeParticles.RelativeY = SpriteInstance.Height / 2;
-		    SmokeParticles.TimedEmission = false;
-
-		    StunParticles.ScaleX = SpriteInstance.Width / 2;
-		    StunParticles.ScaleY = SpriteInstance.Height / 2;
-		    StunParticles.RelativeY = SpriteInstance.Height / 2;
-		    StunParticles.TimedEmission = false;
 
             SetAttributes();
 
@@ -485,8 +485,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	            darknessLayer.Remove(LightSprite);
 	            if (CircleInstance != null) hudLayer.Remove(CircleInstance);
 	            if (AxisAlignedRectangleInstance != null) hudLayer.Remove(AxisAlignedRectangleInstance);
-                HealthBar.Position = Vector3.Zero;
-                HealthBar.RelativePosition = Vector3.Zero;
 	        }
 
 	        StunParticles.LayerToEmitOn = worldLayer;

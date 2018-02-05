@@ -391,13 +391,13 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             DisplayName = "Electric";
             HasLightSource = false;
-            ProjectileSpeed = 800f;
-            RangedRadius = 800f;
+            ProjectileSpeed = 1500f;
+            RangedRadius = 650f;
             AttackDamage = 50f;
             SecondsBetweenFiring = 5;
             ProjectileAltitude = 100f;
             StunsEnemies = true;
-            MinimumRangeRadius = 50f;
+            MinimumRangeRadius = 75f;
             StatusEffectSeconds = 2;
             StatusDamageMultiplier = 0f;
         }

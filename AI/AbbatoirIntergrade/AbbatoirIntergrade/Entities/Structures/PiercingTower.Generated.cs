@@ -488,11 +488,11 @@ namespace AbbatoirIntergrade.Entities.Structures
             DisplayName = "Arrow";
             HasLightSource = false;
             ProjectileSpeed = 1200f;
-            RangedRadius = 500f;
+            RangedRadius = 600f;
             AttackDamage = 30f;
             SecondsBetweenFiring = 3;
             ProjectileAltitude = 25f;
-            MinimumRangeRadius = 200f;
+            MinimumRangeRadius = 250f;
             StatusEffectSeconds = 0;
             StatusDamageMultiplier = 0f;
         }

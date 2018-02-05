@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Accord.Math;
 using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
@@ -14,6 +15,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
 {
 	public partial class ResourceBar
 	{
+
 	    public float Height => FrameSprite.Height;
 
         /// <summary>
@@ -42,8 +44,9 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
 	    public void Update(double newPct)
 	    {
 	        if (!FrameSprite.Visible) Show();
-
-	        BarSprite.Width = (float)Math.Max(0.001,BackgroundSprite.Width * newPct);
+	        BarSprite.Green = (float)Math.Min(1, newPct * 2);
+            BarSprite.Red = (float)Math.Min(1, 2 - newPct * 2);
+            BarSprite.Width = (float)Math.Max(0.001,BackgroundSprite.Width * newPct);
 	        BarSprite.RelativeX = (BarSprite.Width - BackgroundSprite.Width)/2;
 	    }
 

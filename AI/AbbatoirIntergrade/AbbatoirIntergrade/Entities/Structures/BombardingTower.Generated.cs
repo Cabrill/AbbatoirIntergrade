@@ -387,12 +387,12 @@ namespace AbbatoirIntergrade.Entities.Structures
             DisplayName = "Cannon";
             HasLightSource = false;
             ProjectileSpeed = 800f;
-            RangedRadius = 600f;
+            RangedRadius = 850f;
             AttackDamage = 60f;
             SecondsBetweenFiring = 6;
             ProjectileAltitude = 100f;
             HasSplashDamage = true;
-            MinimumRangeRadius = 200f;
+            MinimumRangeRadius = 450f;
             StatusEffectSeconds = 0;
             StatusDamageMultiplier = 0f;
         }

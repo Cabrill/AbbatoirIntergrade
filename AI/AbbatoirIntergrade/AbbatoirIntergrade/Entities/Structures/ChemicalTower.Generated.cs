@@ -435,16 +435,16 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             DisplayName = "Chemical";
             HasLightSource = false;
-            ProjectileSpeed = 500f;
-            RangedRadius = 400f;
-            AttackDamage = 20f;
-            SecondsBetweenFiring = 1.8;
+            ProjectileSpeed = 750f;
+            RangedRadius = 450f;
+            AttackDamage = 2f;
+            SecondsBetweenFiring = 3;
             ProjectileAltitude = 100f;
             HasSplashDamage = false;
             SlowsEnemies = true;
-            MinimumRangeRadius = 100f;
+            MinimumRangeRadius = 150f;
             StatusEffectSeconds = 5;
-            StatusDamageMultiplier = 2f;
+            StatusDamageMultiplier = 3.5f;
         }
         public override void ConvertToManuallyUpdated () 
         {
