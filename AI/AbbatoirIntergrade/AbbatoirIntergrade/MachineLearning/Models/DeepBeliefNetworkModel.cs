@@ -35,7 +35,7 @@ namespace AbbatoirIntergrade.MachineLearning.Models
 
         public void Initialize()
         {
-            const int inputCount = 450;
+            const int inputCount = 460;
             IsReady = false;
 
             network = new DeepBeliefNetwork((int)inputCount, HiddenLayerNodes, 1);

@@ -41,8 +41,10 @@ namespace AbbatoirIntergrade.StaticManagers
         //Max paramters for towers
         private static double MaxDamage = 0;
         private static double MaxRange = 0;
+        private static double MaxMinRange = 0;
         private static double MaxSecondsBetweenFiring = 0;
         private static double MaxProjectileSpeed = 0;
+        
 
         //Max parameters for model input
         private const int MaxPathingPoints = 20;
@@ -267,6 +269,7 @@ namespace AbbatoirIntergrade.StaticManagers
             //These are multiplied by two to account for upgrades
             MaxDamage = Math.Max(MaxDamage, tower.AttackDamage * 2);
             MaxRange = Math.Max(MaxRange, tower.RangedRadius * 2);
+            MaxMinRange = Math.Max(MaxMinRange, tower.MinimumRangeRadius * 2);
             MaxProjectileSpeed = Math.Max(MaxProjectileSpeed, tower.ProjectileSpeed);
 
             MaxSecondsBetweenFiring = Math.Max(MaxSecondsBetweenFiring, tower.SecondsBetweenFiring);
@@ -361,6 +364,7 @@ namespace AbbatoirIntergrade.StaticManagers
                     (tower.IsFire ? 0 : 1) * relativeTowerDamage,
                     (tower.IsElectrical ? 0 : 1) * relativeTowerDamage,
                     tower.RangedRadius / MaxRange,
+                    tower.MinimumRangeRadius / MaxMinRange,
                     tower.SecondsBetweenFiring / MaxSecondsBetweenFiring,
                     tower.ProjectileSpeed / MaxProjectileSpeed,
                     tower.HasSplashDamage ? 1.0 : 0.0,
@@ -373,6 +377,7 @@ namespace AbbatoirIntergrade.StaticManagers
                 //Empty valued list
                 return new List<double>
                 {
+                    0.0,
                     0.0,
                     0.0,
                     0.0,

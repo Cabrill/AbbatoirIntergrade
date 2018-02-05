@@ -391,7 +391,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             }
             RangePreviewSprite.TextureScale = 1f;
             RangePreviewSprite.Visible = false;
-            RangePreviewSprite.Alpha = 0.5f;
+            RangePreviewSprite.Alpha = 0.8f;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
@@ -434,7 +434,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             CircleInstance.Visible = false;
             RangePreviewSprite.TextureScale = 1f;
             RangePreviewSprite.Visible = false;
-            RangePreviewSprite.Alpha = 0.5f;
+            RangePreviewSprite.Alpha = 0.8f;
             SpriteInstanceRed = 0f;
             SpriteInstanceGreen = 1f;
             SpriteInstanceBlue = 0f;

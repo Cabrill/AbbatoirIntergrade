@@ -619,7 +619,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
             RangePreviewSprite.TextureScale = 1f;
             RangePreviewSprite.Visible = false;
-            RangePreviewSprite.Alpha = 0.5f;
+            RangePreviewSprite.Alpha = 0.8f;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.AxisAlignedRectangles.AddOneWay(mAxisAlignedRectangleInstance);
             mGeneratedCollision.Circles.AddOneWay(mRangeCircleInstance);
@@ -656,7 +656,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             MinimumRangeCircleInstance.Radius = 16f;
             RangePreviewSprite.TextureScale = 1f;
             RangePreviewSprite.Visible = false;
-            RangePreviewSprite.Alpha = 0.5f;
+            RangePreviewSprite.Alpha = 0.8f;
             if (Parent == null)
             {
                 Z = 1f;

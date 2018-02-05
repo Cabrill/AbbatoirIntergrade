@@ -37,7 +37,6 @@ namespace AbbatoirIntergrade.Screens
         {
             Normal,
             Building,
-            Inspecting
         };
 
         private BaseLevel CurrentLevel;
@@ -526,7 +525,6 @@ namespace AbbatoirIntergrade.Screens
 	                {
 	                    GuiManager.Cursor.ObjectGrabbed = structure;
 	                    selectedObject = structure;
-	                    CurrentGameMode = GameMode.Inspecting;
 	                    StructureInfoInstance.Show(structure);
 	                    break;
 	                }
@@ -543,7 +541,6 @@ namespace AbbatoirIntergrade.Screens
 	                        {
 	                            GuiManager.Cursor.ObjectGrabbed = enemy;
 	                            selectedObject = enemy;
-	                            CurrentGameMode = GameMode.Inspecting;
 	                            EnemyInfoInstance.Show(enemy);
 	                            break;
 	                        }
