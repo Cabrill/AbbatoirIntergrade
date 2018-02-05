@@ -88,6 +88,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>MenuWindowInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>StructureInfoInstance.Parent</Name>
       <SetsValue>true</SetsValue>
@@ -440,5 +446,9 @@
   <Instance>
     <Name>ChatHistoryInstance</Name>
     <BaseType>ChatHistory</BaseType>
+  </Instance>
+  <Instance>
+    <Name>MenuWindowInstance</Name>
+    <BaseType>MenuWindow</BaseType>
   </Instance>
 </ScreenSave>

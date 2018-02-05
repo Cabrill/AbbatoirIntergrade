@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FlatRedBall.Audio;
 using FlatRedBall.Managers;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
 
@@ -127,9 +128,9 @@ namespace AbbatoirIntergrade.StaticManagers
         {
             var x = value / 100f;
             
-            var smoothValue = a * Math.Exp(b*x);
+            var smoothValue = MathHelper.Clamp((float)(a * Math.Exp(b*x)),0f,1f);
 
-            return (float)smoothValue;
+            return smoothValue;
         }
 
     }

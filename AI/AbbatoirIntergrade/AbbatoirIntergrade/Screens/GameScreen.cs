@@ -259,7 +259,7 @@ namespace AbbatoirIntergrade.Screens
             ShowDebugInfo();
 #endif
             SoundManager.Update();
-
+            HandleKeyboardInput();
             HandleTouchActivity();
             SelectedItemActivity();
 
@@ -280,6 +280,23 @@ namespace AbbatoirIntergrade.Screens
                 if (CurrentLevel.HasReachedDefeat())
                 {
                     LevelFailed();
+                }
+            }
+        }
+
+        private void HandleKeyboardInput()
+        {
+            if (InputManager.Keyboard.KeyPushed(Keys.Escape))
+            {
+                if (MenuWindowInstance.Visible)
+                {
+                    MenuWindowInstance.Visible = false;
+                    UnpauseThisScreen();
+                }
+                else
+                {
+                    MenuWindowInstance.Visible = true;
+                    PauseThisScreen();
                 }
             }
         }

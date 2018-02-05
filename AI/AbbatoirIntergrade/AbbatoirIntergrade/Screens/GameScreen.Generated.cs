@@ -81,6 +81,7 @@ namespace AbbatoirIntergrade.Screens
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TileCollisionCircle> TileCollisionCircleList;
         private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime ChatHistoryInstance;
         private AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime GameScreenGumInstance;
+        private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance;
         protected global::RenderingLibrary.Graphics.Layer BackgroundLayerGum;
         protected global::RenderingLibrary.Graphics.Layer WorldLayerGum;
         protected global::RenderingLibrary.Graphics.Layer LightLayerGum;
@@ -131,6 +132,7 @@ namespace AbbatoirIntergrade.Screens
             TileCollisionCircleList.Name = "TileCollisionCircleList";
             ChatHistoryInstance = GameScreenGum.GetGraphicalUiElementByName("ChatHistoryInstance") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
             GameScreenGumInstance = GameScreenGum.GetGraphicalUiElementByName("this") as AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime;
+            MenuWindowInstance = GameScreenGum.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
             
             
             PostInitialize();
@@ -247,6 +249,7 @@ namespace AbbatoirIntergrade.Screens
             BuildMenuInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             LivesPointsDisplayInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             ChatHistoryInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            MenuWindowInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             base.AddToManagers();
             AddToManagersBottomUp();
             CustomInitialize();
@@ -468,6 +471,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 GameScreenGumInstance.RemoveFromManagers();
             }
+            if (MenuWindowInstance != null)
+            {
+                MenuWindowInstance.RemoveFromManagers();
+            }
             AllStructuresList.MakeTwoWay();
             AllEnemiesList.MakeTwoWay();
             PlayerProjectileList.MakeTwoWay();
@@ -502,6 +509,7 @@ namespace AbbatoirIntergrade.Screens
             BuildMenuInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             LivesPointsDisplayInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             ChatHistoryInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            MenuWindowInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             FlatRedBall.Gui.GuiManager.SortZAndLayerBased();
         }
         public virtual void RemoveFromManagers () 
@@ -598,6 +606,10 @@ namespace AbbatoirIntergrade.Screens
             if (GameScreenGumInstance != null)
             {
                 GameScreenGumInstance.RemoveFromManagers();
+            }
+            if (MenuWindowInstance != null)
+            {
+                MenuWindowInstance.RemoveFromManagers();
             }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 

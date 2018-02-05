@@ -49,6 +49,7 @@
                             ChatHistoryInstance.Visible = false;
                             ChatHistoryInstance.X = 10f;
                             ChatHistoryInstance.Y = 0f;
+                            MenuWindowInstance.Visible = false;
                             break;
                     }
                 }
@@ -201,6 +202,10 @@
                         }
                         if (interpolationValue < 1)
                         {
+                            this.MenuWindowInstance.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.StructureInfoInstance.Visible = false;
                         }
                         break;
@@ -247,6 +252,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.LivesPointsDisplayInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.MenuWindowInstance.Visible = false;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1085,6 +1094,7 @@
                 BuildMenuInstance.StopAnimations();
                 LivesPointsDisplayInstance.StopAnimations();
                 ChatHistoryInstance.StopAnimations();
+                MenuWindowInstance.StopAnimations();
                 ShowChatHistoryAnimation.Stop();
                 HideChatHistoryAnimation.Stop();
             }
@@ -1207,6 +1217,14 @@
                             Value = ChatHistoryInstance.Y
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.Visible",
+                            Type = "bool",
+                            Value = MenuWindowInstance.Visible
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -1327,6 +1345,14 @@
                             Name = "ChatHistoryInstance.Y",
                             Type = "float",
                             Value = ChatHistoryInstance.Y + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.Visible",
+                            Type = "bool",
+                            Value = MenuWindowInstance.Visible
                         }
                         );
                         break;
@@ -2091,6 +2117,7 @@
             private AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime BuildMenuInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime LivesPointsDisplayInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime ChatHistoryInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance { get; set; }
             public GameScreenGumRuntime (bool fullInstantiation = true) 
             {
                 if (fullInstantiation)
@@ -2123,6 +2150,7 @@
                 BuildMenuInstance = this.GetGraphicalUiElementByName("BuildMenuInstance") as AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime;
                 LivesPointsDisplayInstance = this.GetGraphicalUiElementByName("LivesPointsDisplayInstance") as AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime;
                 ChatHistoryInstance = this.GetGraphicalUiElementByName("ChatHistoryInstance") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
+                MenuWindowInstance = this.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {
