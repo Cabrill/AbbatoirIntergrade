@@ -101,8 +101,6 @@ namespace AbbatoirIntergrade.Screens
             //GameHasStarted = false;
             
             CreateNotificationPool();
-
-            LoadInitialDialogue();
             ChangeGameModeToBuilding();
             GameHasStarted = true;
 
@@ -696,12 +694,20 @@ namespace AbbatoirIntergrade.Screens
 
                 ChatBoxInstance.UpdateDialogue(firstDialogue, dialogueOptions);
                 ChatBoxInstance.DialogueChosen += DialogueChosen;
+                ChatBoxInstance = true;
+                SoundManager.PlaySoundEffect(IncomingMessageSound);
             }
 
         }
 
         private void UpdateDialogue(object sender, EventArgs eventArgs)
         {
+            if (!ChatBoxInstance.Visible)
+            {
+                LoadInitialDialogue();
+                return;
+            }
+            
             var gameDialogue = GameStateManager.GameDialogue;
             var chosenDialogue = PlayerDataManager.LastChosenDialogueId;
 

@@ -39,6 +39,7 @@
                             EnemyInfoInstance.Visible = false;
                             StructureInfoInstance.Visible = false;
                             ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatClosed;
+                            ChatBoxInstance.Visible = false;
                             ChatBoxInstance.X = 0f;
                             ChatBoxInstance.Y = 50f;
                             BuildMenuInstance.Visible = false;
@@ -164,6 +165,10 @@
                         }
                         setChatBoxInstanceCurrentAppearanceStateFirstValue = true;
                         ChatBoxInstanceCurrentAppearanceStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatClosed;
+                        if (interpolationValue < 1)
+                        {
+                            this.ChatBoxInstance.Visible = false;
+                        }
                         setChatBoxInstanceXFirstValue = true;
                         ChatBoxInstanceXFirstValue = 0f;
                         setChatBoxInstanceYFirstValue = true;
@@ -209,6 +214,10 @@
                         }
                         setChatBoxInstanceCurrentAppearanceStateSecondValue = true;
                         ChatBoxInstanceCurrentAppearanceStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatClosed;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChatBoxInstance.Visible = false;
+                        }
                         setChatBoxInstanceXSecondValue = true;
                         ChatBoxInstanceXSecondValue = 0f;
                         setChatBoxInstanceYSecondValue = true;
@@ -1121,6 +1130,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "ChatBoxInstance.Visible",
+                            Type = "bool",
+                            Value = ChatBoxInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ChatBoxInstance.X",
                             Type = "float",
                             Value = ChatBoxInstance.X
@@ -1230,6 +1247,14 @@
                             Name = "ChatBoxInstance.AppearanceState",
                             Type = "Appearance",
                             Value = ChatBoxInstance.CurrentAppearanceState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChatBoxInstance.Visible",
+                            Type = "bool",
+                            Value = ChatBoxInstance.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
