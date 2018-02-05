@@ -112,6 +112,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             AimSpriteInstance.ParentRotationChangesPosition = false;
 
             RangePreviewSprite.RelativeX = PivotPoint.RelativeX;
+            RangePreviewSprite.RelativeY = SpriteInstance.RelativeY;
             RangePreviewSprite.Texture =
                 GetRangeTexture(new Tuple<int, int>((int) RangedRadius, (int) MinimumRangeRadius));
 
@@ -375,6 +376,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 var newProjectile = CreateNewProjectile();
                 newProjectile.DamageInflicted = AttackDamage;
+                newProjectile.StatusEffectSeconds = StatusEffectSeconds;
+                newProjectile.StatusDamageMultiplier = StatusDamageMultiplier;
                 newProjectile.Speed = ProjectileSpeed;
                 newProjectile.Position = GetProjectilePositioning();
                 newProjectile.Altitude = ProjectileAltitude;

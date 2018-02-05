@@ -23,6 +23,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         public DamageTypes DamageType { get; protected set; }
 	    public bool CanStillDoDamage = true;
 	    public double StatusEffectSeconds;
+	    public double StatusDamageMultiplier;
 
 	    protected float _startingSpriteScale;
 	    protected float _startingLightScale;
@@ -193,6 +194,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	            if (HasLightSource) darknessLayer.Remove(SpriteInstance);
 	        }
 
+            if (HasLightSource) SpriteManager.AddToLayer(SpriteInstance, darknessLayer);
 	        if (HasLightSource) SpriteManager.AddToLayer(LightOrShadowSprite, darknessLayer);
 	        ShapeManager.AddToLayer(CircleInstance, hudLayer);
 

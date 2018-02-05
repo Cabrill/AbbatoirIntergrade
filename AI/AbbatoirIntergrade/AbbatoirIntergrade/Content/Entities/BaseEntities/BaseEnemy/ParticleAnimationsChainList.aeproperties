@@ -5,5 +5,6 @@
   <ExpandedNode>PoisonParticle</ExpandedNode>
   <ExpandedNode>FrozenParticle</ExpandedNode>
   <ExpandedNode>Drowning</ExpandedNode>
+  <ExpandedNode>Smoke</ExpandedNode>
   <UnitType>Pixel</UnitType>
 </AESettingsSave>

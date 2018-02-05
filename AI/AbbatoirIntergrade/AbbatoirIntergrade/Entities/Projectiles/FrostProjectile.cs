@@ -44,7 +44,6 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 		        HitTargetSound = impactSound.CreateInstance();
 		    }
             DamageType = DamageTypes.Frost;
-		    StatusEffectSeconds = 2;
 		    var randomRotation = FlatRedBallServices.Random.Between(2, 3);
 		    var randomDirection = FlatRedBallServices.Random.Between(0, 1);
 

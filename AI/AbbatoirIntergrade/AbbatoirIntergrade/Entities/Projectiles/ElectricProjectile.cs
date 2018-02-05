@@ -44,7 +44,6 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 		        HitTargetSound = impactSound.CreateInstance();
 		    }
             DamageType = DamageTypes.Electrical;
-		    StatusEffectSeconds = 1;
 		}
 
         private void CustomActivity()

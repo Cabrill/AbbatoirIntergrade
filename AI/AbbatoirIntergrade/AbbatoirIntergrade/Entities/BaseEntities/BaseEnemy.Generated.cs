@@ -131,14 +131,16 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             Normal = 2, 
             Frozen = 3, 
             Poisoned = 4, 
-            FrozenAndPoisoned = 5
+            FrozenAndPoisoned = 5, 
+            Burning = 6, 
+            BurningAndPoisoned = 7
         }
         protected int mCurrentStatusState = 0;
         public Entities.BaseEntities.BaseEnemy.Status CurrentStatusState
         {
             get
             {
-                if (mCurrentStatusState >= 0 && mCurrentStatusState <= 5)
+                if (mCurrentStatusState >= 0 && mCurrentStatusState <= 7)
                 {
                     return (Status)mCurrentStatusState;
                 }
@@ -179,6 +181,18 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                         SpriteInstanceRed = 0f;
                         SpriteInstanceGreen = 1f;
                         SpriteInstanceBlue = 0.8f;
+                        break;
+                    case  Status.Burning:
+                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                        SpriteInstanceRed = 0.4f;
+                        SpriteInstanceGreen = 0f;
+                        SpriteInstanceBlue = 0f;
+                        break;
+                    case  Status.BurningAndPoisoned:
+                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                        SpriteInstanceRed = 0.25f;
+                        SpriteInstanceGreen = 1f;
+                        SpriteInstanceBlue = 0.4f;
                         break;
                 }
             }
@@ -246,6 +260,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 mSelfCollisionCircle = value;
             }
         }
+        protected FlatRedBall.Graphics.Particle.Emitter SmokeParticles;
         public bool SpriteInstanceFlipHorizontal
         {
             get
@@ -476,6 +491,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FrozenParticles = ParticleEmitterListFile.FindByName("FrozenParticles").Clone();
             mSelfCollisionCircle = new FlatRedBall.Math.Geometry.Circle();
             mSelfCollisionCircle.Name = "mSelfCollisionCircle";
+            SmokeParticles = ParticleEmitterListFile.FindByName("SmokeParticles").Clone();
             
             PostInitialize();
             if (addToManagers)
@@ -492,6 +508,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.SpriteManager.AddEmitter(PoisonedParticles, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddEmitter(FrozenParticles, LayerProvidedByContainer);
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mSelfCollisionCircle, LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddEmitter(SmokeParticles, LayerProvidedByContainer);
         }
         public virtual void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
@@ -503,6 +520,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.SpriteManager.AddEmitter(PoisonedParticles, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddEmitter(FrozenParticles, LayerProvidedByContainer);
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mSelfCollisionCircle, LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddEmitter(SmokeParticles, LayerProvidedByContainer);
             AddToManagersBottomUp(layerToAddTo);
             CustomInitialize();
         }
@@ -513,6 +531,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             HealthBar.Activity();
             PoisonedParticles.TimedEmit();
             FrozenParticles.TimedEmit();
+            SmokeParticles.TimedEmit();
             CustomActivity();
         }
         public virtual void Destroy () 
@@ -539,6 +558,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (SelfCollisionCircle != null)
             {
                 FlatRedBall.Math.Geometry.ShapeManager.Remove(SelfCollisionCircle);
+            }
+            if (SmokeParticles != null)
+            {
+                FlatRedBall.SpriteManager.RemoveEmitterOneWay(SmokeParticles);
             }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
@@ -671,6 +694,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 mSelfCollisionCircle.AttachTo(this, false);
             }
             SelfCollisionCircle.Radius = 16f;
+            if (SmokeParticles.Parent == null)
+            {
+                SmokeParticles.CopyAbsoluteToRelative();
+                SmokeParticles.AttachTo(this, false);
+            }
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             mGeneratedCollision.AxisAlignedRectangles.AddOneWay(mAxisAlignedRectangleInstance);
@@ -699,6 +727,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (SelfCollisionCircle != null)
             {
                 FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(SelfCollisionCircle);
+            }
+            if (SmokeParticles != null)
+            {
+                FlatRedBall.SpriteManager.RemoveEmitterOneWay(SmokeParticles);
             }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
         }
@@ -1091,6 +1123,16 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     SpriteInstance.GreenRate = (1f - SpriteInstance.Green) / (float)secondsToTake;
                     SpriteInstance.BlueRate = (0.8f - SpriteInstance.Blue) / (float)secondsToTake;
                     break;
+                case  Status.Burning:
+                    SpriteInstance.RedRate = (0.4f - SpriteInstance.Red) / (float)secondsToTake;
+                    SpriteInstance.GreenRate = (0f - SpriteInstance.Green) / (float)secondsToTake;
+                    SpriteInstance.BlueRate = (0f - SpriteInstance.Blue) / (float)secondsToTake;
+                    break;
+                case  Status.BurningAndPoisoned:
+                    SpriteInstance.RedRate = (0.25f - SpriteInstance.Red) / (float)secondsToTake;
+                    SpriteInstance.GreenRate = (1f - SpriteInstance.Green) / (float)secondsToTake;
+                    SpriteInstance.BlueRate = (0.4f - SpriteInstance.Blue) / (float)secondsToTake;
+                    break;
             }
             var instruction = new FlatRedBall.Instructions.DelegateInstruction<Status>(StopStateInterpolation, stateToInterpolateTo);
             instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
@@ -1117,6 +1159,16 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     SpriteInstance.BlueRate =  0;
                     break;
                 case  Status.FrozenAndPoisoned:
+                    SpriteInstance.RedRate =  0;
+                    SpriteInstance.GreenRate =  0;
+                    SpriteInstance.BlueRate =  0;
+                    break;
+                case  Status.Burning:
+                    SpriteInstance.RedRate =  0;
+                    SpriteInstance.GreenRate =  0;
+                    SpriteInstance.BlueRate =  0;
+                    break;
+                case  Status.BurningAndPoisoned:
                     SpriteInstance.RedRate =  0;
                     SpriteInstance.GreenRate =  0;
                     SpriteInstance.BlueRate =  0;
@@ -1179,6 +1231,24 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     SpriteInstanceGreenFirstValue = 1f;
                     SpriteInstanceBlueFirstValue = 0.8f;
                     break;
+                case  Status.Burning:
+                    if (interpolationValue < 1)
+                    {
+                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                    }
+                    SpriteInstanceRedFirstValue = 0.4f;
+                    SpriteInstanceGreenFirstValue = 0f;
+                    SpriteInstanceBlueFirstValue = 0f;
+                    break;
+                case  Status.BurningAndPoisoned:
+                    if (interpolationValue < 1)
+                    {
+                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                    }
+                    SpriteInstanceRedFirstValue = 0.25f;
+                    SpriteInstanceGreenFirstValue = 1f;
+                    SpriteInstanceBlueFirstValue = 0.4f;
+                    break;
             }
             switch(secondState)
             {
@@ -1217,6 +1287,24 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     SpriteInstanceRedSecondValue = 0f;
                     SpriteInstanceGreenSecondValue = 1f;
                     SpriteInstanceBlueSecondValue = 0.8f;
+                    break;
+                case  Status.Burning:
+                    if (interpolationValue >= 1)
+                    {
+                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                    }
+                    SpriteInstanceRedSecondValue = 0.4f;
+                    SpriteInstanceGreenSecondValue = 0f;
+                    SpriteInstanceBlueSecondValue = 0f;
+                    break;
+                case  Status.BurningAndPoisoned:
+                    if (interpolationValue >= 1)
+                    {
+                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                    }
+                    SpriteInstanceRedSecondValue = 0.25f;
+                    SpriteInstanceGreenSecondValue = 1f;
+                    SpriteInstanceBlueSecondValue = 0.4f;
                     break;
             }
             if (setSpriteInstanceRed)
@@ -1295,6 +1383,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 case  Status.Poisoned:
                     break;
                 case  Status.FrozenAndPoisoned:
+                    break;
+                case  Status.Burning:
+                    break;
+                case  Status.BurningAndPoisoned:
                     break;
             }
         }
@@ -1418,6 +1510,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(PoisonedParticles);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(FrozenParticles);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(SelfCollisionCircle);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(SmokeParticles);
         }
         public virtual void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {

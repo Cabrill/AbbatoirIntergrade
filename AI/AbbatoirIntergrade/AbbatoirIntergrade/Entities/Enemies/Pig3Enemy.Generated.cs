@@ -568,6 +568,11 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 FrozenParticles.CopyAbsoluteToRelative();
                 FrozenParticles.AttachTo(this, false);
             }
+            if (SmokeParticles.Parent == null)
+            {
+                SmokeParticles.CopyAbsoluteToRelative();
+                SmokeParticles.AttachTo(this, false);
+            }
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
@@ -1079,6 +1084,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(ShadowSprite);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(PoisonedParticles);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(FrozenParticles);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(SmokeParticles);
         }
         public override void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {

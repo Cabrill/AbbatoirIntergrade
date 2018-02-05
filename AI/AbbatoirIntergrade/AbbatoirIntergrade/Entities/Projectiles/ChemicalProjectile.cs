@@ -25,7 +25,6 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 		private void CustomInitialize()
 		{
             DamageType = DamageTypes.Chemical;
-		    StatusEffectSeconds = 3;
 
 		    if (HitGroundSound == null || HitGroundSound.IsDisposed)
 		    {

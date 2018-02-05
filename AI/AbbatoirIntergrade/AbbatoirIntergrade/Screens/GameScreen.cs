@@ -78,7 +78,6 @@ namespace AbbatoirIntergrade.Screens
             CurrentLevel.OnWaveEnd += MachineLearningManager.NotifyOfWaveEnd;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
             currentLevelDateTime = CurrentLevel.StartTime;
-            SoundManager.PlaySongList(CurrentLevel.SongNameList);
 
             InitializeFactories();
 
@@ -106,6 +105,8 @@ namespace AbbatoirIntergrade.Screens
             LoadInitialDialogue();
             ChangeGameModeToBuilding();
             GameHasStarted = true;
+
+            SoundManager.PlaySongList(CurrentLevel.SongNameList);
         }
 
         private void HandleWaveEnded(object sender, EventArgs e)
@@ -294,8 +295,9 @@ namespace AbbatoirIntergrade.Screens
             catch (Exception){};
             ShowGameEndDisplay(playerWon: false);
 
-            PlayerDataManager.RecordChapterResults(CurrentLevel.MapName, CurrentLevel.CurrentWaveNumber);
+            PlayerDataManager.RecordChapterResults(CurrentLevel.GetFinalResults());
             PlayerDataManager.SaveData();
+            LoadingScreen.TransitionToScreen(typeof(MapScreen));
         }
 
         private void LevelVictory()

@@ -410,10 +410,12 @@ namespace AbbatoirIntergrade.Entities.Structures
             ProjectileSpeed = 450f;
             RangedRadius = 500f;
             AttackDamage = 20f;
-            SecondsBetweenFiring = 1.5;
+            SecondsBetweenFiring = 2;
             ProjectileAltitude = 100f;
             SlowsEnemies = true;
             MinimumRangeRadius = 100f;
+            StatusEffectSeconds = 5;
+            StatusDamageMultiplier = 0.05f;
         }
         public override void ConvertToManuallyUpdated () 
         {

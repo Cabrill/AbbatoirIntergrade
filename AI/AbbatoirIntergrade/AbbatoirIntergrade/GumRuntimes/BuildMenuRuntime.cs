@@ -97,7 +97,7 @@ namespace AbbatoirIntergrade.GumRuntimes
             Visible = false;            
         }
 
-        private void ShowRangePreview(Tuple<int, int> rangeTuple, float xOffset)
+        private void ShowRangePreview(Tuple<int, int> rangeTuple, float xOffset, float yOffset)
         {
             if (CurrentPlacement == null) return;
 
@@ -105,6 +105,7 @@ namespace AbbatoirIntergrade.GumRuntimes
 
             CurrentPlacement.RangePreviewSprite.Texture = rangeTexture;
             CurrentPlacement.RangePreviewSprite.RelativeX = xOffset;
+            CurrentPlacement.RangePreviewSprite.RelativeY = yOffset;
             CurrentPlacement.RangePreviewSprite.Visible = true;
         }
 

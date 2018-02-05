@@ -972,6 +972,56 @@
               </InstructionSaves>
               <Name>FrozenAndPoisoned</Name>
             </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>ColorOperation</Type>
+                  <Member>SpriteInstanceColorOperation</Member>
+                  <ValueAsInt>3</ValueAsInt>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>SpriteInstanceRed</Member>
+                  <ValueAsFloat>0.4</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>SpriteInstanceGreen</Member>
+                  <ValueAsFloat>0</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>SpriteInstanceBlue</Member>
+                  <ValueAsFloat>0</ValueAsFloat>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Burning</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>ColorOperation</Type>
+                  <Member>SpriteInstanceColorOperation</Member>
+                  <ValueAsInt>3</ValueAsInt>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>SpriteInstanceRed</Member>
+                  <ValueAsFloat>0.25</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>SpriteInstanceGreen</Member>
+                  <ValueAsFloat>1</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>SpriteInstanceBlue</Member>
+                  <ValueAsFloat>0.4</ValueAsFloat>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>BurningAndPoisoned</Name>
+            </StateSave>
           </States>
           <Name>Status</Name>
           <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
@@ -1595,6 +1645,16 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInICollidable>false</IncludeInICollidable>
           <IncludeInIClickable>false</IncludeInIClickable>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>SmokeParticles (Emitter)</SourceName>
+          <InstanceName>SmokeParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -2468,6 +2528,28 @@
           <SourceObject>MinimumRangeCircleInstance</SourceObject>
           <SourceObjectProperty>Radius</SourceObjectProperty>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StatusEffectSeconds</Name>
+          <Type>double</Type>
+          <SetByDerived>true</SetByDerived>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StatusDamageMultiplier</Name>
+          <Type>float</Type>
+          <SetByDerived>true</SetByDerived>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -2661,14 +2743,14 @@
             <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
-            <Type>float</Type>
-            <Member>Alpha</Member>
-            <ValueAsFloat>0.8</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
             <Type>bool</Type>
             <Member>Visible</Member>
             <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>0.8</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -3264,6 +3346,18 @@
           <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>SmokeParticles (Emitter)</SourceName>
+          <InstanceName>SmokeParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -3705,6 +3799,18 @@
           <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>SmokeParticles (Emitter)</SourceName>
+          <InstanceName>SmokeParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -4139,6 +4245,18 @@
           <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
           <SourceName>FrozenParticles (Emitter)</SourceName>
           <InstanceName>FrozenParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>SmokeParticles (Emitter)</SourceName>
+          <InstanceName>SmokeParticles</InstanceName>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -4590,6 +4708,18 @@
           <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>SmokeParticles (Emitter)</SourceName>
+          <InstanceName>SmokeParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -5020,6 +5150,18 @@
           <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
           <SourceName>FrozenParticles (Emitter)</SourceName>
           <InstanceName>FrozenParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>SmokeParticles (Emitter)</SourceName>
+          <InstanceName>SmokeParticles</InstanceName>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -5460,6 +5602,18 @@
           <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>SmokeParticles (Emitter)</SourceName>
+          <InstanceName>SmokeParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -5890,6 +6044,18 @@
           <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
           <SourceName>FrozenParticles (Emitter)</SourceName>
           <InstanceName>FrozenParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>SmokeParticles (Emitter)</SourceName>
+          <InstanceName>SmokeParticles</InstanceName>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -6344,6 +6510,18 @@
           <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>SmokeParticles (Emitter)</SourceName>
+          <InstanceName>SmokeParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -6770,6 +6948,18 @@
           <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
           <SourceName>FrozenParticles (Emitter)</SourceName>
           <InstanceName>FrozenParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>SmokeParticles (Emitter)</SourceName>
+          <InstanceName>SmokeParticles</InstanceName>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -7248,6 +7438,18 @@
           <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>SmokeParticles (Emitter)</SourceName>
+          <InstanceName>SmokeParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -7705,6 +7907,18 @@
           <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>SmokeParticles (Emitter)</SourceName>
+          <InstanceName>SmokeParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -8126,6 +8340,18 @@
           <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
           <SourceName>FrozenParticles (Emitter)</SourceName>
           <InstanceName>FrozenParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>SmokeParticles (Emitter)</SourceName>
+          <InstanceName>SmokeParticles</InstanceName>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -8563,6 +8789,18 @@
           <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
           <SourceName>FrozenParticles (Emitter)</SourceName>
           <InstanceName>FrozenParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>SmokeParticles (Emitter)</SourceName>
+          <InstanceName>SmokeParticles</InstanceName>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -9014,6 +9252,18 @@
           <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>SmokeParticles (Emitter)</SourceName>
+          <InstanceName>SmokeParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -9444,6 +9694,18 @@
           <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
           <SourceName>FrozenParticles (Emitter)</SourceName>
           <InstanceName>FrozenParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>SmokeParticles (Emitter)</SourceName>
+          <InstanceName>SmokeParticles</InstanceName>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -12949,7 +13211,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">85</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">60</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -12961,7 +13223,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">5</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">6</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -13020,6 +13282,30 @@
           <Name>MinimumRangeRadius</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">200</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StatusEffectSeconds</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">0</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StatusDamageMultiplier</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -13358,7 +13644,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">20</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -13430,6 +13716,30 @@
           <Name>MinimumRangeRadius</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StatusEffectSeconds</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">5</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StatusDamageMultiplier</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">2</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -13806,7 +14116,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">4</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">5</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -13865,6 +14175,30 @@
           <Name>MinimumRangeRadius</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">50</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StatusEffectSeconds</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">2</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StatusDamageMultiplier</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -14226,7 +14560,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">15</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -14238,7 +14572,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">2.5</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">2</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -14296,6 +14630,30 @@
           <Name>MinimumRangeRadius</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StatusEffectSeconds</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">2</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StatusDamageMultiplier</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.15</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -14682,7 +15040,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">1.5</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">2</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -14741,6 +15099,30 @@
           <Name>MinimumRangeRadius</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StatusEffectSeconds</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">5</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StatusDamageMultiplier</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.05</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -15105,7 +15487,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">45</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">30</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15117,7 +15499,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">2</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">3</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -15175,6 +15557,30 @@
           <Name>MinimumRangeRadius</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">200</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StatusEffectSeconds</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">0</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StatusDamageMultiplier</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -15812,7 +16218,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\GameScreen</StartUpScreen>
+  <StartUpScreen>Screens\MapScreen</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>

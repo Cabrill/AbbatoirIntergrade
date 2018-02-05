@@ -28,16 +28,17 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         public bool IsDead => HealthRemaining <= 0;
 	    private bool IsHurt => CurrentActionState == Action.Hurt;
 	    protected bool IsPoisoned => _poisonedDurationSeconds > 0;
-	    protected bool IsFrozen => _frozenDurationSeconds > 0;
+	    protected bool IsFrozen => _frostDurationSeconds > 0;
 	    protected bool IsStunned => _stunnedDurationSeconds > 0;
-	    private double _frozenDurationSeconds;
+	    protected bool IsBurning => _burnDurationSeconds > 0;
+	    private double _frostDurationSeconds;
 	    private double _poisonedDurationSeconds;
 	    private double _stunnedDurationSeconds;
+	    private double _burnDurationSeconds;
 
 	    private double _poisonDamagePerSecond;
-
-	    public SerializableChromosome Chromosome { get; private set; }
-
+	    private double _frostDamagePerSecond;
+	    private double _burnDamagePerSecond;
 
 	    private bool IsOnFinalFrameOfAnimation => SpriteInstance.CurrentFrameIndex == SpriteInstance.CurrentChain.Count - 1;
 
@@ -104,15 +105,19 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		    HealthBar.Y = Y;
             HealthBar.AttachTo(SpriteInstance);
             HealthBar.UpdateDependencies(TimeManager.CurrentTime);
-		    HealthBar.RelativeY = GetMaxFrameHeight() * 1.25f;
             HealthBar.SetWidth(SpriteInstance.Width);
+		    HealthBar.RelativeY = HealthBar.Height + GetMaxFrameHeight() * 1.25f;
             HealthBar.Hide();
 
             HealthRemaining = MaximumHealth;
 		    Altitude = 0f;
 		    AltitudeVelocity = 0f;
+
 		    _poisonedDurationSeconds = 0;
-		    _frozenDurationSeconds = 0;
+		    _frostDurationSeconds = 0;
+		    _burnDurationSeconds = 0;
+		    _stunnedDurationSeconds = 0;
+
 		    EffectiveSpeed = BaseSpeed;
 
 		    PoisonedParticles.ScaleX = SpriteInstance.Width/2;
@@ -125,7 +130,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		    FrozenParticles.RelativeY = SpriteInstance.Height / 2;
 		    FrozenParticles.TimedEmission = false;
 
-		    SetAttributes();
+		    SmokeParticles.ScaleX = SpriteInstance.Width / 2;
+		    SmokeParticles.ScaleY = SpriteInstance.Height / 2;
+		    SmokeParticles.RelativeY = SpriteInstance.Height / 2;
+		    SmokeParticles.TimedEmission = false;
+
+            SetAttributes();
 
 		    SetGenetics();
 
@@ -268,18 +278,25 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        switch (projectile.DamageType)
 	        {
 	            case DamageTypes.Frost:
-	                _frozenDurationSeconds = projectile.StatusEffectSeconds * effectiveMultiplier;
+	                _frostDurationSeconds = projectile.StatusEffectSeconds * effectiveMultiplier;
+	                _frostDamagePerSecond = dmgInflicted * projectile.StatusDamageMultiplier;
+	                _burnDurationSeconds = 0;
 	                shouldBeHurt = false;
                     break;
 	            case DamageTypes.Chemical:
 	                _poisonedDurationSeconds = projectile.StatusEffectSeconds * effectiveMultiplier;
-	                _poisonDamagePerSecond = projectile.DamageInflicted * 0.1 * effectiveMultiplier;
+	                _poisonDamagePerSecond = dmgInflicted * projectile.StatusDamageMultiplier;
 	                shouldBeHurt = false;
                     break;
 	            case DamageTypes.Electrical:
 	                _stunnedDurationSeconds = projectile.StatusEffectSeconds * effectiveMultiplier;
                     break;
-	        }
+	            case DamageTypes.Fire:
+	                _burnDurationSeconds = projectile.StatusEffectSeconds * effectiveMultiplier;
+	                _burnDamagePerSecond = dmgInflicted * projectile.StatusDamageMultiplier;
+	                _frostDurationSeconds = 0;
+                    break;
+            }
 	        UpdateStatusEffect(justApplied: true);
 
 	        if (!IsDead && shouldBeHurt)
@@ -314,11 +331,15 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	            }
 	            if (IsFrozen)
 	            {
-	                _frozenDurationSeconds -= TimeManager.SecondDifference;
+	                _frostDurationSeconds -= TimeManager.SecondDifference;
 	            }
 	            if (IsStunned)
 	            {
 	                _stunnedDurationSeconds -= TimeManager.SecondDifference;
+	            }
+	            if (IsBurning)
+	            {
+	                _burnDurationSeconds -= TimeManager.SecondDifference;
 	            }
 	        }
 
@@ -328,6 +349,15 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	            EffectiveSpeed = BaseSpeed * (1 - (float)(GetEffectiveMultiplier(DamageTypes.Frost) * 0.8 +
 	                                     GetEffectiveMultiplier(DamageTypes.Chemical) * 0.2));
                 
+	        }
+            else if (IsBurning && IsPoisoned)
+	        {
+	            CurrentStatusState = Status.BurningAndPoisoned;
+	            EffectiveSpeed = BaseSpeed * (1 - (float)(GetEffectiveMultiplier(DamageTypes.Chemical) * 0.2));
+            }
+            else if (IsBurning)
+	        {
+	            CurrentStatusState = Status.Burning;
 	        }
             else if (IsFrozen)
 	        {
@@ -351,8 +381,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	        FrozenParticles.TimedEmission = IsFrozen;
 	        PoisonedParticles.TimedEmission = IsPoisoned;
+	        SmokeParticles.TimedEmission = IsBurning;
 
-	        if (EffectiveSpeed <= 0.01f)
+            if (EffectiveSpeed <= 0.01f)
 	        {
 	            SpriteInstanceAnimate = false;
 	        }
@@ -361,11 +392,13 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	            SpriteInstanceAnimate = true;
 	            SpriteInstance.AnimationSpeed = EffectiveSpeed / BaseSpeed;
 	        }
-            
-	        if (IsPoisoned && !justApplied)
+
+	        if (!justApplied)
 	        {
-	            TakeDamage(_poisonDamagePerSecond * TimeManager.SecondDifference);
-	        }
+	            if (IsPoisoned) TakeDamage(_poisonDamagePerSecond * TimeManager.SecondDifference);
+                if (IsFrozen) TakeDamage(_frostDamagePerSecond * TimeManager.SecondDifference);
+                if (IsBurning) TakeDamage(_burnDamagePerSecond * TimeManager.SecondDifference);
+            }
         }
 
 	    private void PerformDeath()
@@ -452,6 +485,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	        PoisonedParticles.LayerToEmitOn = worldLayer;
 	        FrozenParticles.LayerToEmitOn = worldLayer;
+            SmokeParticles.LayerToEmitOn = worldLayer;
             //MoveToLayer(worldLayer);
             HealthBar.MoveToLayer(hudLayer);
             SpriteManager.AddToLayer(SpriteInstance, worldLayer);
@@ -467,13 +501,16 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	    {
 	        if (IsDrowning) return;
 
+	        _frostDurationSeconds = 0;
+	        _burnDurationSeconds = 0;
+	        _poisonedDurationSeconds = 0;
+	        _stunnedDurationSeconds = 0;
+
 	        PlayDrowningSound();
 	        SpriteInstance.AnimationChains = ParticleAnimationsChainList;
 	        ShadowSprite.Visible = false;
 	        SpriteInstance.RelativeY = 0;
 	        CurrentActionState = Action.Drowning;
-	        _frozenDurationSeconds = 0;
-	        _poisonedDurationSeconds = 0;
 	        HealthRemaining = 0;
 	        Velocity = Vector3.Zero;
 	    }
@@ -483,6 +520,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        var pan = Position.X / Camera.Main.OrthogonalWidth;
 	        drowningSound.Pan = pan;
 	        SoundManager.PlaySoundEffect(drowningSound);
+	    }
+
+	    public EnemyTypes GetEnemyType()
+	    {
+	        var enemyName = GetType().Name.Replace("Enemy", "");
+	        var enemyType = (EnemyTypes)Enum.Parse(typeof(EnemyTypes), enemyName);
+
+	        return enemyType;
 	    }
 	}
 }

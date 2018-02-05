@@ -29,10 +29,13 @@ namespace AbbatoirIntergrade.Screens
 #if WINDOWS || DESKTOP_GL
 		    FlatRedBallServices.IsWindowsCursorVisible = true;
 #endif
-            
-		    AssignClickEventsToButtons();
+		    PlayerDataManager.LoadData();
 
-		    FillChatHistory();
+
+
+            AssignClickEventsAndStatusToButtons();
+
+		    //FillChatHistory();
 		}
 
 	    private void FillChatHistory()
@@ -74,13 +77,27 @@ namespace AbbatoirIntergrade.Screens
 
         }
 
-	    private void AssignClickEventsToButtons()
+	    private void AssignClickEventsAndStatusToButtons()
 	    {
-	        foreach (var element in MapScreenGumInstance.ContainedElements)
+	        var nextLevel = PlayerDataManager.LastLevelNumberCompleted+1;
+	        var results = PlayerDataManager.LevelResults;
+
+            foreach (var element in MapScreenGumInstance.ContainedElements)
 	        {
 	            if (element is LevelButtonRuntime levelButton)
 	            {
-	                levelButton.Click += LoadLevel;
+	                if (results.Any(lr => lr.LevelName == levelButton.LevelName))
+	                {
+	                    //TODO:  Show level as completed
+	                }
+	                else if (levelButton.LevelAsNumber == nextLevel)
+	                {
+	                    levelButton.Click += LoadLevel;
+                    }
+	                else
+	                {
+	                    levelButton.Disable();
+	                }
 	            }
 	            if (element is ButtonFrameRuntime optionsButton)
 	            {
@@ -107,8 +124,7 @@ namespace AbbatoirIntergrade.Screens
 	        var windowAsLevelButton = window as LevelButtonRuntime;
 
             //Don't do anything if level is disabled
-	        if (windowAsLevelButton == null || windowAsLevelButton.CurrentButtonCategoryState ==
-	            LevelButtonRuntime.ButtonCategory.Disabled) return;
+	        if (windowAsLevelButton == null || !windowAsLevelButton.IsEnabled) return;
 
 	        var levelName = windowAsLevelButton.LevelName;
 	        var assembly = Assembly.GetExecutingAssembly();
@@ -120,7 +136,6 @@ namespace AbbatoirIntergrade.Screens
 
 	        GameStateManager.CurrentLevel = level;
             LoadingScreen.TransitionToScreen(typeof(GameScreen));
-            //MoveToScreen(typeof(GameScreen));
 	    }
 	}
 }

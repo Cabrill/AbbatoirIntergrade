@@ -22,11 +22,12 @@ namespace AbbatoirIntergrade.GumRuntimes
         public IEntityFactory BuildingFactory { get; private set; }
         public Type BuildingType { get; private set; }
         public bool IsEnabled => Enabled;
-        public Action<Tuple<int, int>, float> RollOverAction;
+        public Action<Tuple<int, int>, float, float> RollOverAction;
         public Action RollOffAction;
 
         private Tuple<int, int> RangeTuple;
         private float RangeXOffset;
+        private float RangeYOffset;
 
         partial void CustomInitialize()
         {
@@ -41,7 +42,7 @@ namespace AbbatoirIntergrade.GumRuntimes
                 CurrentHighlightState = HasCursorOver(GuiManager.Cursor) 
                     ? Highlight.Highlighted
                     : Highlight.NotHighlighted;
-                RollOverAction(RangeTuple, RangeXOffset);
+                RollOverAction(RangeTuple, RangeXOffset, RangeYOffset);
             }
         }
 
@@ -61,6 +62,7 @@ namespace AbbatoirIntergrade.GumRuntimes
 
             RangeTuple = new Tuple<int, int>((int)structure.RangedRadius, (int)structure.MinimumRangeRadius);
             RangeXOffset = structure.PivotPoint.RelativeX;
+            RangeYOffset = structure.SpriteInstance.RelativeY;
 
             structure.AimSpriteInstance.RelativeRotationZ = MathHelper.ToRadians(0);
             structure.Collision.Visible = false;

@@ -8,6 +8,7 @@ using AbbatoirIntergrade.Entities.Structures;
 using AbbatoirIntergrade.GameClasses;
 using AbbatoirIntergrade.MachineLearning.Models;
 using Accord.Neuro.Networks;
+using MoreLinq;
 
 namespace AbbatoirIntergrade.StaticManagers
 {
@@ -17,9 +18,20 @@ namespace AbbatoirIntergrade.StaticManagers
         private static string LastShownDialogueId;
         public static string LastChosenDialogueId;
 
+        public static List<LevelResult> LevelResults => Data.ChapterResults;
+        public static int LastLevelNumberCompleted => Data.ChapterResults.Count == 0 ? 0 : Data.ChapterResults.Max(lr => lr.LevelNumber);
+        public static string LastLevelNameCompleted => Data.ChapterResults.Count == 0 ? "" : Data.ChapterResults.MaxBy(lr => lr.LevelNumber).LevelName;
+
         public static SerializableDictionary<string, string> DialogueHistory => Data.DialogueShownChosen;
 
         private const string SaveFileName = "PlayerSave.xml";
+
+        public static void SaveData()
+        {
+            FlatRedBall.IO.FileManager.XmlSerialize(Data, SaveFileName);
+
+            FlatRedBall.Debugging.Debugger.CommandLineWrite("Saved " + SaveFileName);
+        }
 
         public static void LoadData()
         {
@@ -54,13 +66,6 @@ namespace AbbatoirIntergrade.StaticManagers
             LastChosenDialogueId = "";
         }
 
-        public static void SaveData()
-        {
-            FlatRedBall.IO.FileManager.XmlSerialize(Data, SaveFileName);
-
-            FlatRedBall.Debugging.Debugger.CommandLineWrite("Saved " + SaveFileName);
-        }
-
         public static void AddChosenDialogueId(string id)
         {
             if (Data.DialogueShownChosen.ContainsKey(LastShownDialogueId))
@@ -88,16 +93,14 @@ namespace AbbatoirIntergrade.StaticManagers
             return Data.AvailableTowers.Select(Type.GetType).Where(towerType => towerType != null).ToList();
         }
 
-        public static void RecordChapterResults(string chapterName, int waveReached)
+        public static void RecordChapterResults(LevelResult result)
         {
-            if (Data.ChapterResults.ContainsKey(chapterName))
+            var existingResultIndex = Data.ChapterResults.FindIndex(l => l.LevelNumber == result.LevelNumber);
+            if (existingResultIndex > -1)
             {
-                Data.ChapterResults[chapterName] = waveReached;
+                Data.ChapterResults.RemoveAt(existingResultIndex);
             }
-            else
-            {
-                Data.ChapterResults.Add(chapterName, waveReached);
-            }
+            Data.ChapterResults.Add(result);
         }
     }
 }

@@ -20,6 +20,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             { 
                 _hudLayer.Remove(SpriteInstance);
                  SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
+
+                _hudLayer.Remove(AimSpriteInstance);
+                SpriteManager.AddToLayer(AimSpriteInstance, LayerProvidedByContainer);
             }
         }
 

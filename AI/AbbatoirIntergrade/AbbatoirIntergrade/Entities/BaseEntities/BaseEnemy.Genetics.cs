@@ -11,6 +11,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 {
     public partial class BaseEnemy
     {
+        public SerializableChromosome Chromosome { get; private set; }
+
         const int halfwayMax = ushort.MaxValue / 2;
         private const float maxBonus = 0.1f;
 

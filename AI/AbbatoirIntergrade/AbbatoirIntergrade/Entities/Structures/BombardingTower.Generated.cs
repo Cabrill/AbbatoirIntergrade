@@ -388,11 +388,13 @@ namespace AbbatoirIntergrade.Entities.Structures
             HasLightSource = false;
             ProjectileSpeed = 800f;
             RangedRadius = 600f;
-            AttackDamage = 85f;
-            SecondsBetweenFiring = 5;
+            AttackDamage = 60f;
+            SecondsBetweenFiring = 6;
             ProjectileAltitude = 100f;
             HasSplashDamage = true;
             MinimumRangeRadius = 200f;
+            StatusEffectSeconds = 0;
+            StatusDamageMultiplier = 0f;
         }
         public override void ConvertToManuallyUpdated () 
         {
