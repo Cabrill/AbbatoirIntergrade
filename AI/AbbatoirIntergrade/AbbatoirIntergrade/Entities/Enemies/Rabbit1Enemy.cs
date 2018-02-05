@@ -65,13 +65,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
         private void CustomActivity()
 		{
 
-		    _currentLightPulse += TimeManager.SecondDifference * _pulseMod;
-		    if (_currentLightPulse >= _lightPulseDuration || _currentLightPulse <= 0)
-		    {
-		        _pulseMod *= -1;
-		    }
-		    LightSprite.TextureScale *= _lightPulseAmount + (_currentLightPulse / _lightPulseDuration) * _lightPulseAmount;
-		    LightSprite.RelativeY = SpriteInstance.RelativeY - 20 *SpriteInstance.TextureScale;
         }
 
 	    //protected override void NavigateToTarget()

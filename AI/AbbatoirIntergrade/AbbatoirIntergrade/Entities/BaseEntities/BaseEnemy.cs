@@ -50,6 +50,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	    private bool IsDrowning => CurrentActionState == Action.Drowning;
 
         protected float _spriteRelativeY;
+	    private float maxFrameHeight;
 
         protected SoundEffectInstance DeathSound;
 	    protected SoundEffectInstance drowningSound;
@@ -91,40 +92,38 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		        PoisonedParticles.ScaleX = SpriteInstance.Width / 2;
 		        PoisonedParticles.ScaleY = SpriteInstance.Height / 2;
 		        PoisonedParticles.RelativeY = SpriteInstance.Height / 2;
-		        PoisonedParticles.TimedEmission = false;
 
 		        FrozenParticles.ScaleX = SpriteInstance.Width / 2;
 		        FrozenParticles.ScaleY = SpriteInstance.Height / 2;
 		        FrozenParticles.RelativeY = SpriteInstance.Height / 2;
-		        FrozenParticles.TimedEmission = false;
 
 		        SmokeParticles.ScaleX = SpriteInstance.Width / 2;
 		        SmokeParticles.ScaleY = SpriteInstance.Height / 2;
 		        SmokeParticles.RelativeY = SpriteInstance.Height / 2;
-		        SmokeParticles.TimedEmission = false;
 
 		        StunParticles.ScaleX = SpriteInstance.Width / 2;
 		        StunParticles.ScaleY = SpriteInstance.Height / 2;
 		        StunParticles.RelativeY = SpriteInstance.Height / 2;
-		        StunParticles.TimedEmission = false;
-            }
+
+		        HealthBar.SetWidth(SpriteInstance.Width);
+		        maxFrameHeight = GetMaxFrameHeight();
+		    }
 
 		    if (drowningSound == null || drowningSound.IsDisposed)
 		    {
 		        drowningSound = DrowningSound.CreateInstance();
 		    }
 
-		    SpriteInstance.AnimationChains = spriteAnimationChainList;
+		    HealthBar.AttachTo(SpriteInstance, true);
+		    HealthBar.RelativeY = HealthBar.Height + maxFrameHeight;
 
-            ShadowSprite.RelativeY = 0;
+            SpriteInstance.AnimationChains = spriteAnimationChainList;
+
 		    ShadowSprite.Visible = true;
+		    ShadowSprite.RelativeY = 0;
             
             HasReachedGoal = false;
 
-            HealthBar.AttachTo(SpriteInstance, true);
-            //HealthBar.UpdateDependencies(TimeManager.CurrentTime);
-            HealthBar.SetWidth(SpriteInstance.Width);
-		    HealthBar.RelativeY = HealthBar.Height + GetMaxFrameHeight();
             HealthBar.Hide();
 
             HealthRemaining = MaximumHealth;
@@ -138,16 +137,16 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 		    EffectiveSpeed = BaseSpeed;
 
+            CurrentStatusState = Status.Normal;
 
-
-            SetAttributes();
+            SetBaseAttributes();
 
 		    SetGenetics();
 
             UpdateAnimation();
 		}
 
-	    private void SetAttributes()
+	    private void SetBaseAttributes()
 	    {
 	        var enemyName = GetType().Name.Replace("Enemy", "");
 	        var csvEntry = GlobalContent.Enemy_Attributes[enemyName];
@@ -226,8 +225,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         private void UpdateAnimation()
 	    {
-            //_spriteRelativeY = SpriteInstance.Height / 2;
-
 	        SpriteInstance.RelativeY = Altitude + _spriteRelativeY + SpriteInstance.CurrentChain[SpriteInstance.CurrentFrameIndex].RelativeY;
 
 	        var pctLightShadow = MathHelper.Clamp(1 - (Altitude / (800)), 0, 1);
@@ -235,12 +232,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        ShadowSprite.Width = _startingShadowWidth.Value * pctLightShadow;
 	        ShadowSprite.Height = _startingShadowHeight * pctLightShadow;
 	        ShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow;
-
-	        if (HasLightSource)
-	        {
-	            LightSprite.TextureScale = _startingLightScale;
-	            LightSprite.RelativeY = SpriteInstance.RelativeY;
-	        }
         }
 
 	    protected void SetDirection()
@@ -384,11 +375,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	            EffectiveSpeed = BaseSpeed;
 	        }
 
-	        FrozenParticles.TimedEmission = IsFrozen;
-	        PoisonedParticles.TimedEmission = IsPoisoned;
-	        SmokeParticles.TimedEmission = IsBurning;
-	        StunParticles.TimedEmission = IsStunned;
-
             if (!IsFlying && (EffectiveSpeed <= 0.01f || IsStunned))
 	        {
 	            SpriteInstanceAnimate = false;
@@ -491,7 +477,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        PoisonedParticles.LayerToEmitOn = worldLayer;
 	        FrozenParticles.LayerToEmitOn = worldLayer;
             SmokeParticles.LayerToEmitOn = worldLayer;
-            //MoveToLayer(worldLayer);
+
             HealthBar.MoveToLayer(hudLayer);
             SpriteManager.AddToLayer(SpriteInstance, worldLayer);
             SpriteManager.AddToLayer(LightSprite, darknessLayer);

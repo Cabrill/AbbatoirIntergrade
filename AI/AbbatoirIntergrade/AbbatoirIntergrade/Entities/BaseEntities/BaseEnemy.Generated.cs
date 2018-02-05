@@ -163,36 +163,60 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                         SpriteInstanceRed = 1f;
                         SpriteInstanceGreen = 1f;
                         SpriteInstanceBlue = 1f;
+                        FrozenParticlesTimedEmission = false;
+                        PoisonedParticlesTimedEmission = false;
+                        SmokeParticlesTimedEmission = false;
+                        StunParticlesTimedEmission = false;
                         break;
                     case  Status.Frozen:
                         SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
                         SpriteInstanceRed = 0.5f;
                         SpriteInstanceGreen = 0.9f;
                         SpriteInstanceBlue = 1f;
+                        FrozenParticlesTimedEmission = true;
+                        PoisonedParticlesTimedEmission = false;
+                        SmokeParticlesTimedEmission = false;
+                        StunParticlesTimedEmission = false;
                         break;
                     case  Status.Poisoned:
                         SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
                         SpriteInstanceRed = 0.5f;
                         SpriteInstanceGreen = 1f;
                         SpriteInstanceBlue = 0.3f;
+                        FrozenParticlesTimedEmission = false;
+                        PoisonedParticlesTimedEmission = true;
+                        SmokeParticlesTimedEmission = false;
+                        StunParticlesTimedEmission = false;
                         break;
                     case  Status.FrozenAndPoisoned:
                         SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
                         SpriteInstanceRed = 0f;
                         SpriteInstanceGreen = 1f;
                         SpriteInstanceBlue = 0.8f;
+                        FrozenParticlesTimedEmission = true;
+                        PoisonedParticlesTimedEmission = true;
+                        SmokeParticlesTimedEmission = false;
+                        StunParticlesTimedEmission = false;
                         break;
                     case  Status.Burning:
                         SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                        SpriteInstanceRed = 0.4f;
-                        SpriteInstanceGreen = 0f;
-                        SpriteInstanceBlue = 0f;
+                        SpriteInstanceRed = 0.3f;
+                        SpriteInstanceGreen = 0.1f;
+                        SpriteInstanceBlue = 0.1f;
+                        FrozenParticlesTimedEmission = false;
+                        PoisonedParticlesTimedEmission = false;
+                        SmokeParticlesTimedEmission = true;
+                        StunParticlesTimedEmission = false;
                         break;
                     case  Status.BurningAndPoisoned:
                         SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                        SpriteInstanceRed = 0.25f;
-                        SpriteInstanceGreen = 1f;
-                        SpriteInstanceBlue = 0.4f;
+                        SpriteInstanceRed = 0.1f;
+                        SpriteInstanceGreen = 0.4f;
+                        SpriteInstanceBlue = 0f;
+                        FrozenParticlesTimedEmission = false;
+                        PoisonedParticlesTimedEmission = true;
+                        SmokeParticlesTimedEmission = true;
+                        StunParticlesTimedEmission = false;
                         break;
                 }
             }
@@ -414,6 +438,50 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 SpriteInstance.Blue = value;
             }
         }
+        public bool FrozenParticlesTimedEmission
+        {
+            get
+            {
+                return FrozenParticles.TimedEmission;
+            }
+            set
+            {
+                FrozenParticles.TimedEmission = value;
+            }
+        }
+        public bool PoisonedParticlesTimedEmission
+        {
+            get
+            {
+                return PoisonedParticles.TimedEmission;
+            }
+            set
+            {
+                PoisonedParticles.TimedEmission = value;
+            }
+        }
+        public bool SmokeParticlesTimedEmission
+        {
+            get
+            {
+                return SmokeParticles.TimedEmission;
+            }
+            set
+            {
+                SmokeParticles.TimedEmission = value;
+            }
+        }
+        public bool StunParticlesTimedEmission
+        {
+            get
+            {
+                return StunParticles.TimedEmission;
+            }
+            set
+            {
+                StunParticles.TimedEmission = value;
+            }
+        }
         public event System.EventHandler BeforeVisibleSet;
         public event System.EventHandler AfterVisibleSet;
         protected bool mVisible = true;
@@ -607,11 +675,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
             if (ShadowSprite.Parent == null)
             {
-                ShadowSprite.X = 0.9120339f;
+                ShadowSprite.X = 0f;
             }
             else
             {
-                ShadowSprite.RelativeX = 0.9120339f;
+                ShadowSprite.RelativeX = 0f;
             }
             if (ShadowSprite.Parent == null)
             {
@@ -760,11 +828,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
             if (ShadowSprite.Parent == null)
             {
-                ShadowSprite.X = 0.9120339f;
+                ShadowSprite.X = 0f;
             }
             else
             {
-                ShadowSprite.RelativeX = 0.9120339f;
+                ShadowSprite.RelativeX = 0f;
             }
             if (ShadowSprite.Parent == null)
             {
@@ -1142,14 +1210,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     SpriteInstance.BlueRate = (0.8f - SpriteInstance.Blue) / (float)secondsToTake;
                     break;
                 case  Status.Burning:
-                    SpriteInstance.RedRate = (0.4f - SpriteInstance.Red) / (float)secondsToTake;
-                    SpriteInstance.GreenRate = (0f - SpriteInstance.Green) / (float)secondsToTake;
-                    SpriteInstance.BlueRate = (0f - SpriteInstance.Blue) / (float)secondsToTake;
+                    SpriteInstance.RedRate = (0.3f - SpriteInstance.Red) / (float)secondsToTake;
+                    SpriteInstance.GreenRate = (0.1f - SpriteInstance.Green) / (float)secondsToTake;
+                    SpriteInstance.BlueRate = (0.1f - SpriteInstance.Blue) / (float)secondsToTake;
                     break;
                 case  Status.BurningAndPoisoned:
-                    SpriteInstance.RedRate = (0.25f - SpriteInstance.Red) / (float)secondsToTake;
-                    SpriteInstance.GreenRate = (1f - SpriteInstance.Green) / (float)secondsToTake;
-                    SpriteInstance.BlueRate = (0.4f - SpriteInstance.Blue) / (float)secondsToTake;
+                    SpriteInstance.RedRate = (0.1f - SpriteInstance.Red) / (float)secondsToTake;
+                    SpriteInstance.GreenRate = (0.4f - SpriteInstance.Green) / (float)secondsToTake;
+                    SpriteInstance.BlueRate = (0f - SpriteInstance.Blue) / (float)secondsToTake;
                     break;
             }
             var instruction = new FlatRedBall.Instructions.DelegateInstruction<Status>(StopStateInterpolation, stateToInterpolateTo);
@@ -1221,6 +1289,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     SpriteInstanceRedFirstValue = 1f;
                     SpriteInstanceGreenFirstValue = 1f;
                     SpriteInstanceBlueFirstValue = 1f;
+                    if (interpolationValue < 1)
+                    {
+                        this.FrozenParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.PoisonedParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.SmokeParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.StunParticlesTimedEmission = false;
+                    }
                     break;
                 case  Status.Frozen:
                     if (interpolationValue < 1)
@@ -1230,6 +1314,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     SpriteInstanceRedFirstValue = 0.5f;
                     SpriteInstanceGreenFirstValue = 0.9f;
                     SpriteInstanceBlueFirstValue = 1f;
+                    if (interpolationValue < 1)
+                    {
+                        this.FrozenParticlesTimedEmission = true;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.PoisonedParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.SmokeParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.StunParticlesTimedEmission = false;
+                    }
                     break;
                 case  Status.Poisoned:
                     if (interpolationValue < 1)
@@ -1239,6 +1339,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     SpriteInstanceRedFirstValue = 0.5f;
                     SpriteInstanceGreenFirstValue = 1f;
                     SpriteInstanceBlueFirstValue = 0.3f;
+                    if (interpolationValue < 1)
+                    {
+                        this.FrozenParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.PoisonedParticlesTimedEmission = true;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.SmokeParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.StunParticlesTimedEmission = false;
+                    }
                     break;
                 case  Status.FrozenAndPoisoned:
                     if (interpolationValue < 1)
@@ -1248,24 +1364,72 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     SpriteInstanceRedFirstValue = 0f;
                     SpriteInstanceGreenFirstValue = 1f;
                     SpriteInstanceBlueFirstValue = 0.8f;
+                    if (interpolationValue < 1)
+                    {
+                        this.FrozenParticlesTimedEmission = true;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.PoisonedParticlesTimedEmission = true;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.SmokeParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.StunParticlesTimedEmission = false;
+                    }
                     break;
                 case  Status.Burning:
                     if (interpolationValue < 1)
                     {
                         this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
                     }
-                    SpriteInstanceRedFirstValue = 0.4f;
-                    SpriteInstanceGreenFirstValue = 0f;
-                    SpriteInstanceBlueFirstValue = 0f;
+                    SpriteInstanceRedFirstValue = 0.3f;
+                    SpriteInstanceGreenFirstValue = 0.1f;
+                    SpriteInstanceBlueFirstValue = 0.1f;
+                    if (interpolationValue < 1)
+                    {
+                        this.FrozenParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.PoisonedParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.SmokeParticlesTimedEmission = true;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.StunParticlesTimedEmission = false;
+                    }
                     break;
                 case  Status.BurningAndPoisoned:
                     if (interpolationValue < 1)
                     {
                         this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
                     }
-                    SpriteInstanceRedFirstValue = 0.25f;
-                    SpriteInstanceGreenFirstValue = 1f;
-                    SpriteInstanceBlueFirstValue = 0.4f;
+                    SpriteInstanceRedFirstValue = 0.1f;
+                    SpriteInstanceGreenFirstValue = 0.4f;
+                    SpriteInstanceBlueFirstValue = 0f;
+                    if (interpolationValue < 1)
+                    {
+                        this.FrozenParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.PoisonedParticlesTimedEmission = true;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.SmokeParticlesTimedEmission = true;
+                    }
+                    if (interpolationValue < 1)
+                    {
+                        this.StunParticlesTimedEmission = false;
+                    }
                     break;
             }
             switch(secondState)
@@ -1278,6 +1442,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     SpriteInstanceRedSecondValue = 1f;
                     SpriteInstanceGreenSecondValue = 1f;
                     SpriteInstanceBlueSecondValue = 1f;
+                    if (interpolationValue >= 1)
+                    {
+                        this.FrozenParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.PoisonedParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.SmokeParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.StunParticlesTimedEmission = false;
+                    }
                     break;
                 case  Status.Frozen:
                     if (interpolationValue >= 1)
@@ -1287,6 +1467,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     SpriteInstanceRedSecondValue = 0.5f;
                     SpriteInstanceGreenSecondValue = 0.9f;
                     SpriteInstanceBlueSecondValue = 1f;
+                    if (interpolationValue >= 1)
+                    {
+                        this.FrozenParticlesTimedEmission = true;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.PoisonedParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.SmokeParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.StunParticlesTimedEmission = false;
+                    }
                     break;
                 case  Status.Poisoned:
                     if (interpolationValue >= 1)
@@ -1296,6 +1492,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     SpriteInstanceRedSecondValue = 0.5f;
                     SpriteInstanceGreenSecondValue = 1f;
                     SpriteInstanceBlueSecondValue = 0.3f;
+                    if (interpolationValue >= 1)
+                    {
+                        this.FrozenParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.PoisonedParticlesTimedEmission = true;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.SmokeParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.StunParticlesTimedEmission = false;
+                    }
                     break;
                 case  Status.FrozenAndPoisoned:
                     if (interpolationValue >= 1)
@@ -1305,24 +1517,72 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     SpriteInstanceRedSecondValue = 0f;
                     SpriteInstanceGreenSecondValue = 1f;
                     SpriteInstanceBlueSecondValue = 0.8f;
+                    if (interpolationValue >= 1)
+                    {
+                        this.FrozenParticlesTimedEmission = true;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.PoisonedParticlesTimedEmission = true;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.SmokeParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.StunParticlesTimedEmission = false;
+                    }
                     break;
                 case  Status.Burning:
                     if (interpolationValue >= 1)
                     {
                         this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
                     }
-                    SpriteInstanceRedSecondValue = 0.4f;
-                    SpriteInstanceGreenSecondValue = 0f;
-                    SpriteInstanceBlueSecondValue = 0f;
+                    SpriteInstanceRedSecondValue = 0.3f;
+                    SpriteInstanceGreenSecondValue = 0.1f;
+                    SpriteInstanceBlueSecondValue = 0.1f;
+                    if (interpolationValue >= 1)
+                    {
+                        this.FrozenParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.PoisonedParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.SmokeParticlesTimedEmission = true;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.StunParticlesTimedEmission = false;
+                    }
                     break;
                 case  Status.BurningAndPoisoned:
                     if (interpolationValue >= 1)
                     {
                         this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
                     }
-                    SpriteInstanceRedSecondValue = 0.25f;
-                    SpriteInstanceGreenSecondValue = 1f;
-                    SpriteInstanceBlueSecondValue = 0.4f;
+                    SpriteInstanceRedSecondValue = 0.1f;
+                    SpriteInstanceGreenSecondValue = 0.4f;
+                    SpriteInstanceBlueSecondValue = 0f;
+                    if (interpolationValue >= 1)
+                    {
+                        this.FrozenParticlesTimedEmission = false;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.PoisonedParticlesTimedEmission = true;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.SmokeParticlesTimedEmission = true;
+                    }
+                    if (interpolationValue >= 1)
+                    {
+                        this.StunParticlesTimedEmission = false;
+                    }
                     break;
             }
             if (setSpriteInstanceRed)

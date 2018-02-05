@@ -894,6 +894,26 @@
                   <Member>SpriteInstanceBlue</Member>
                   <ValueAsFloat>1</ValueAsFloat>
                 </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>FrozenParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>PoisonedParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>SmokeParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>StunParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
               </InstructionSaves>
               <Name>Normal</Name>
             </StateSave>
@@ -918,6 +938,26 @@
                   <Type>Single</Type>
                   <Member>SpriteInstanceBlue</Member>
                   <ValueAsFloat>1</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>FrozenParticlesTimedEmission</Member>
+                  <ValueAsBool>true</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>PoisonedParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>SmokeParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>StunParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Frozen</Name>
@@ -944,6 +984,26 @@
                   <Member>SpriteInstanceBlue</Member>
                   <ValueAsFloat>0.3</ValueAsFloat>
                 </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>FrozenParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>PoisonedParticlesTimedEmission</Member>
+                  <ValueAsBool>true</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>SmokeParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>StunParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
               </InstructionSaves>
               <Name>Poisoned</Name>
             </StateSave>
@@ -969,6 +1029,26 @@
                   <Member>SpriteInstanceBlue</Member>
                   <ValueAsFloat>0.8</ValueAsFloat>
                 </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>FrozenParticlesTimedEmission</Member>
+                  <ValueAsBool>true</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>PoisonedParticlesTimedEmission</Member>
+                  <ValueAsBool>true</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>SmokeParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>StunParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
               </InstructionSaves>
               <Name>FrozenAndPoisoned</Name>
             </StateSave>
@@ -982,17 +1062,37 @@
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>SpriteInstanceRed</Member>
-                  <ValueAsFloat>0.4</ValueAsFloat>
+                  <ValueAsFloat>0.3</ValueAsFloat>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>SpriteInstanceGreen</Member>
-                  <ValueAsFloat>0</ValueAsFloat>
+                  <ValueAsFloat>0.1</ValueAsFloat>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>SpriteInstanceBlue</Member>
-                  <ValueAsFloat>0</ValueAsFloat>
+                  <ValueAsFloat>0.1</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>FrozenParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>PoisonedParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>SmokeParticlesTimedEmission</Member>
+                  <ValueAsBool>true</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>StunParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Burning</Name>
@@ -1007,17 +1107,37 @@
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>SpriteInstanceRed</Member>
-                  <ValueAsFloat>0.25</ValueAsFloat>
+                  <ValueAsFloat>0.1</ValueAsFloat>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>SpriteInstanceGreen</Member>
-                  <ValueAsFloat>1</ValueAsFloat>
+                  <ValueAsFloat>0.4</ValueAsFloat>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>SpriteInstanceBlue</Member>
-                  <ValueAsFloat>0.4</ValueAsFloat>
+                  <ValueAsFloat>0</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>FrozenParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>PoisonedParticlesTimedEmission</Member>
+                  <ValueAsBool>true</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>SmokeParticlesTimedEmission</Member>
+                  <ValueAsBool>true</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>StunParticlesTimedEmission</Member>
+                  <ValueAsBool>false</ValueAsBool>
                 </InstructionSave>
               </InstructionSaves>
               <Name>BurningAndPoisoned</Name>
@@ -1393,6 +1513,54 @@
           <SourceObject>SpriteInstance</SourceObject>
           <SourceObjectProperty>Blue</SourceObjectProperty>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>FrozenParticlesTimedEmission</Name>
+          <Type>bool</Type>
+          <SourceObject>FrozenParticles</SourceObject>
+          <SourceObjectProperty>TimedEmission</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>PoisonedParticlesTimedEmission</Name>
+          <Type>bool</Type>
+          <SourceObject>PoisonedParticles</SourceObject>
+          <SourceObjectProperty>TimedEmission</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SmokeParticlesTimedEmission</Name>
+          <Type>bool</Type>
+          <SourceObject>SmokeParticles</SourceObject>
+          <SourceObjectProperty>TimedEmission</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StunParticlesTimedEmission</Name>
+          <Type>bool</Type>
+          <SourceObject>StunParticles</SourceObject>
+          <SourceObjectProperty>TimedEmission</SourceObjectProperty>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -1444,7 +1612,7 @@
         <NamedObjectSave>
           <CustomProperty>
             <Member>X</Member>
-            <ValueAsFloat>0.912033856</ValueAsFloat>
+            <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Member>Y</Member>
