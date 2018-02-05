@@ -468,8 +468,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             var minRangeSprite = new Sprite
             {
-                Texture = RangeCircleTexture,
-                TextureScale = minRange*2 / (float)RangeCircleTexture.Height,
+                Texture = MinRangeCircleTexture,
+                TextureScale = minRange*2 / (float)MinRangeCircleTexture.Height,
                 //ColorOperation = ColorOperation.Subtract,
                 ColorOperation = ColorOperation.ColorTextureAlpha,
                 Z = 1,

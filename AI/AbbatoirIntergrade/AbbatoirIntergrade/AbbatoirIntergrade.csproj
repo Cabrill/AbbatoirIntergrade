@@ -1072,6 +1072,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>BaseStructureAnimationChainListFile</Name>
     </None>
+    <None Include="content\entities\baseentities\basestructure\minrangecircletexture.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>MinRangeCircleTexture</Name>
+    </None>
     <None Include="content\entities\baseentities\basestructure\rangecircletexture.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>RangeCircleTexture</Name>
