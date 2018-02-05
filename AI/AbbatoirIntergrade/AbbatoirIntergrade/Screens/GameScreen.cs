@@ -222,6 +222,13 @@ namespace AbbatoirIntergrade.Screens
             currentMap.Z = -1f;
 
             Pathing?.UpdateDependencies(TimeManager.CurrentTime);
+            if (WaterShapes != null)
+            {
+                foreach (var shape in WaterShapes)
+                {
+                    shape.UpdateDependencies(TimeManager.CurrentTime);
+                }
+            }
             ShapeManager.AddToLayer(Pathing, WorldLayer);
 
 #if DEBUG

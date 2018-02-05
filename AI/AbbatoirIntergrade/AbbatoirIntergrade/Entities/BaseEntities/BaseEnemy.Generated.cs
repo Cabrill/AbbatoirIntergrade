@@ -261,6 +261,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
         }
         protected FlatRedBall.Graphics.Particle.Emitter SmokeParticles;
+        protected FlatRedBall.Graphics.Particle.Emitter StunParticles;
         public bool SpriteInstanceFlipHorizontal
         {
             get
@@ -492,6 +493,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             mSelfCollisionCircle = new FlatRedBall.Math.Geometry.Circle();
             mSelfCollisionCircle.Name = "mSelfCollisionCircle";
             SmokeParticles = ParticleEmitterListFile.FindByName("SmokeParticles").Clone();
+            StunParticles = ParticleEmitterListFile.FindByName("StunParticles").Clone();
             
             PostInitialize();
             if (addToManagers)
@@ -509,6 +511,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.SpriteManager.AddEmitter(FrozenParticles, LayerProvidedByContainer);
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mSelfCollisionCircle, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddEmitter(SmokeParticles, LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddEmitter(StunParticles, LayerProvidedByContainer);
         }
         public virtual void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
@@ -521,6 +524,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.SpriteManager.AddEmitter(FrozenParticles, LayerProvidedByContainer);
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mSelfCollisionCircle, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddEmitter(SmokeParticles, LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddEmitter(StunParticles, LayerProvidedByContainer);
             AddToManagersBottomUp(layerToAddTo);
             CustomInitialize();
         }
@@ -532,6 +536,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             PoisonedParticles.TimedEmit();
             FrozenParticles.TimedEmit();
             SmokeParticles.TimedEmit();
+            StunParticles.TimedEmit();
             CustomActivity();
         }
         public virtual void Destroy () 
@@ -562,6 +567,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (SmokeParticles != null)
             {
                 FlatRedBall.SpriteManager.RemoveEmitterOneWay(SmokeParticles);
+            }
+            if (StunParticles != null)
+            {
+                FlatRedBall.SpriteManager.RemoveEmitterOneWay(StunParticles);
             }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
@@ -699,6 +708,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 SmokeParticles.CopyAbsoluteToRelative();
                 SmokeParticles.AttachTo(this, false);
             }
+            if (StunParticles.Parent == null)
+            {
+                StunParticles.CopyAbsoluteToRelative();
+                StunParticles.AttachTo(this, false);
+            }
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             mGeneratedCollision.AxisAlignedRectangles.AddOneWay(mAxisAlignedRectangleInstance);
@@ -731,6 +745,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (SmokeParticles != null)
             {
                 FlatRedBall.SpriteManager.RemoveEmitterOneWay(SmokeParticles);
+            }
+            if (StunParticles != null)
+            {
+                FlatRedBall.SpriteManager.RemoveEmitterOneWay(StunParticles);
             }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
         }
@@ -1511,6 +1529,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(FrozenParticles);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(SelfCollisionCircle);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(SmokeParticles);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(StunParticles);
         }
         public virtual void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {

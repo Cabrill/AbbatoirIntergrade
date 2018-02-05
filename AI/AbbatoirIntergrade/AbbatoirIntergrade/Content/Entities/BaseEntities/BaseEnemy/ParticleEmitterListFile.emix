@@ -4,8 +4,8 @@
     <X>0</X>
     <Y>0</Y>
     <Z>1</Z>
-    <ScaleX>0</ScaleX>
-    <ScaleY>0</ScaleY>
+    <ScaleX>60</ScaleX>
+    <ScaleY>30</ScaleY>
     <ScaleZ>2</ScaleZ>
     <RotationX>0</RotationX>
     <RotationY>0</RotationY>
@@ -87,8 +87,8 @@
     <X>0</X>
     <Y>0</Y>
     <Z>1</Z>
-    <ScaleX>0</ScaleX>
-    <ScaleY>0</ScaleY>
+    <ScaleX>50</ScaleX>
+    <ScaleY>50</ScaleY>
     <ScaleZ>2</ScaleZ>
     <RotationX>0</RotationX>
     <RotationY>0</RotationY>
@@ -170,8 +170,8 @@
     <X>0</X>
     <Y>0</Y>
     <Z>1</Z>
-    <ScaleX>0</ScaleX>
-    <ScaleY>0</ScaleY>
+    <ScaleX>50</ScaleX>
+    <ScaleY>25</ScaleY>
     <ScaleZ>2</ScaleZ>
     <RotationX>0</RotationX>
     <RotationY>0</RotationY>
@@ -248,6 +248,89 @@
     <RotationChangesParticleAcceleration>false</RotationChangesParticleAcceleration>
     <AssetsRelativeToFile>false</AssetsRelativeToFile>
     <SecondsLasting>5</SecondsLasting>
+  </EmitterSave>
+  <EmitterSave>
+    <X>0</X>
+    <Y>0</Y>
+    <Z>0</Z>
+    <ScaleX>50</ScaleX>
+    <ScaleY>100</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <RotationX>0</RotationX>
+    <RotationY>0</RotationY>
+    <RotationZ>0</RotationZ>
+    <AreaEmissionType>Cube</AreaEmissionType>
+    <EmissionSettings>
+      <VelocityRangeType>Radial</VelocityRangeType>
+      <RadialVelocity>0</RadialVelocity>
+      <RadialVelocityRange>5</RadialVelocityRange>
+      <XVelocity>0</XVelocity>
+      <YVelocity>0</YVelocity>
+      <ZVelocity>0</ZVelocity>
+      <XVelocityRange>0</XVelocityRange>
+      <YVelocityRange>0</YVelocityRange>
+      <ZVelocityRange>0</ZVelocityRange>
+      <WedgeAngle>0</WedgeAngle>
+      <WedgeSpread>0</WedgeSpread>
+      <Billboarded>false</Billboarded>
+      <RotationX>0</RotationX>
+      <RotationXVelocity>0</RotationXVelocity>
+      <RotationXRange>0</RotationXRange>
+      <RotationXVelocityRange>0</RotationXVelocityRange>
+      <RotationY>0</RotationY>
+      <RotationYVelocity>0</RotationYVelocity>
+      <RotationYRange>0</RotationYRange>
+      <RotationYVelocityRange>0</RotationYVelocityRange>
+      <RotationZ>0</RotationZ>
+      <RotationZVelocity>0</RotationZVelocity>
+      <RotationZRange>10</RotationZRange>
+      <RotationZVelocityRange>0</RotationZVelocityRange>
+      <XAcceleration>0</XAcceleration>
+      <YAcceleration>0</YAcceleration>
+      <ZAcceleration>0</ZAcceleration>
+      <XAccelerationRange>0</XAccelerationRange>
+      <YAccelerationRange>0</YAccelerationRange>
+      <ZAccelerationRange>0</ZAccelerationRange>
+      <Drag>5</Drag>
+      <ScaleX>1</ScaleX>
+      <ScaleY>1</ScaleY>
+      <ScaleXRange>0</ScaleXRange>
+      <ScaleYRange>0</ScaleYRange>
+      <ScaleXVelocity>0</ScaleXVelocity>
+      <ScaleYVelocity>0</ScaleYVelocity>
+      <ScaleXVelocityRange>0</ScaleXVelocityRange>
+      <ScaleYVelocityRange>0</ScaleYVelocityRange>
+      <MatchScaleXToY>false</MatchScaleXToY>
+      <TextureScale>0.4</TextureScale>
+      <Fade>1</Fade>
+      <TintRed>0</TintRed>
+      <TintGreen>0</TintGreen>
+      <TintBlue>0</TintBlue>
+      <FadeRate>0</FadeRate>
+      <TintRedRate>0</TintRedRate>
+      <TintGreenRate>0</TintGreenRate>
+      <TintBlueRate>0</TintBlueRate>
+      <BlendOperation />
+      <ColorOperation />
+      <Animate>true</Animate>
+      <AnimationChains>ParticleAnimationsChainList.achx</AnimationChains>
+      <CurrentChainName>StunParticle</CurrentChainName>
+      <Texture>../../Projectiles/AllParticles.png</Texture>
+    </EmissionSettings>
+    <BoundedEmission>false</BoundedEmission>
+    <Name>StunParticles</Name>
+    <RemovalEvent>Timed</RemovalEvent>
+    <SecondFrequency>0.1</SecondFrequency>
+    <NumberPerEmission>3</NumberPerEmission>
+    <TimedEmission>true</TimedEmission>
+    <RelativeX>0</RelativeX>
+    <RelativeY>0</RelativeY>
+    <RelativeZ>0</RelativeZ>
+    <ParentVelocityChangesEmissionVelocity>false</ParentVelocityChangesEmissionVelocity>
+    <RotationChangesParticleRotation>false</RotationChangesParticleRotation>
+    <RotationChangesParticleAcceleration>false</RotationChangesParticleAcceleration>
+    <AssetsRelativeToFile>false</AssetsRelativeToFile>
+    <SecondsLasting>1</SecondsLasting>
   </EmitterSave>
   <CoordinateSystem>RightHanded</CoordinateSystem>
 </ArrayOfEmitterSave>

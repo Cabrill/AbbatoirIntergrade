@@ -1657,6 +1657,16 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>StunParticles (Emitter)</SourceName>
+          <InstanceName>StunParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -3358,6 +3368,18 @@
           <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>StunParticles (Emitter)</SourceName>
+          <InstanceName>StunParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -3811,6 +3833,18 @@
           <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>StunParticles (Emitter)</SourceName>
+          <InstanceName>StunParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -4257,6 +4291,18 @@
           <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
           <SourceName>SmokeParticles (Emitter)</SourceName>
           <InstanceName>SmokeParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>StunParticles (Emitter)</SourceName>
+          <InstanceName>StunParticles</InstanceName>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -4720,6 +4766,18 @@
           <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>StunParticles (Emitter)</SourceName>
+          <InstanceName>StunParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -5162,6 +5220,18 @@
           <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
           <SourceName>SmokeParticles (Emitter)</SourceName>
           <InstanceName>SmokeParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>StunParticles (Emitter)</SourceName>
+          <InstanceName>StunParticles</InstanceName>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -5614,6 +5684,18 @@
           <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>StunParticles (Emitter)</SourceName>
+          <InstanceName>StunParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -6056,6 +6138,18 @@
           <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
           <SourceName>SmokeParticles (Emitter)</SourceName>
           <InstanceName>SmokeParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>StunParticles (Emitter)</SourceName>
+          <InstanceName>StunParticles</InstanceName>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -6522,6 +6616,18 @@
           <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>StunParticles (Emitter)</SourceName>
+          <InstanceName>StunParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -6960,6 +7066,18 @@
           <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
           <SourceName>SmokeParticles (Emitter)</SourceName>
           <InstanceName>SmokeParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>StunParticles (Emitter)</SourceName>
+          <InstanceName>StunParticles</InstanceName>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -7450,6 +7568,18 @@
           <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>StunParticles (Emitter)</SourceName>
+          <InstanceName>StunParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -7919,6 +8049,18 @@
           <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>StunParticles (Emitter)</SourceName>
+          <InstanceName>StunParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -8352,6 +8494,18 @@
           <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
           <SourceName>SmokeParticles (Emitter)</SourceName>
           <InstanceName>SmokeParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>StunParticles (Emitter)</SourceName>
+          <InstanceName>StunParticles</InstanceName>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -8801,6 +8955,18 @@
           <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
           <SourceName>SmokeParticles (Emitter)</SourceName>
           <InstanceName>SmokeParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>StunParticles (Emitter)</SourceName>
+          <InstanceName>StunParticles</InstanceName>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -9264,6 +9430,18 @@
           <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>StunParticles (Emitter)</SourceName>
+          <InstanceName>StunParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -9706,6 +9884,18 @@
           <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
           <SourceName>SmokeParticles (Emitter)</SourceName>
           <InstanceName>SmokeParticles</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/BaseEntities/BaseEnemy/ParticleEmitterListFile.emix</SourceFile>
+          <SourceName>StunParticles (Emitter)</SourceName>
+          <InstanceName>StunParticles</InstanceName>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -16218,7 +16408,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\MapScreen</StartUpScreen>
+  <StartUpScreen>Screens\GameScreen</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>
