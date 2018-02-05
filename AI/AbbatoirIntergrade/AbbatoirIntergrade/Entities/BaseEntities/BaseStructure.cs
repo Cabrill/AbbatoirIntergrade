@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using FlatRedBall;
@@ -16,17 +17,23 @@ using AbbatoirIntergrade.Entities.GraphicalElements;
 using AbbatoirIntergrade.Entities.Projectiles;
 using AbbatoirIntergrade.Entities.Structures;
 using AbbatoirIntergrade.StaticManagers;
+using FlatRedBall.Graphics;
 using FlatRedBall.Math;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Graphics;
 using RenderingLibrary.Graphics;
 using StateInterpolationPlugin;
 using Layer = FlatRedBall.Graphics.Layer;
+using Sprite = FlatRedBall.Sprite;
+using SpriteManager = FlatRedBall.SpriteManager;
 
 namespace AbbatoirIntergrade.Entities.BaseEntities
 {
     public partial class BaseStructure
     {
+        private static readonly Dictionary<Tuple<int, int>, Texture2D> RangeTextures = new Dictionary<Tuple<int, int>, Texture2D>();
+
         private float? SoundPanning;
         protected DamageTypes DamageType;
         private float _startingRectangleScaleX;
@@ -103,7 +110,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             PivotPoint.RelativeY -= yOffset;
             PivotPoint.RelativeX -= xOffset;
             AimSpriteInstance.ParentRotationChangesPosition = false;
-            
+
+            RangePreviewSprite.RelativeX = PivotPoint.RelativeX;
+            RangePreviewSprite.Texture =
+                GetRangeTexture(new Tuple<int, int>((int) RangedRadius, (int) MinimumRangeRadius));
+
             RangeCircleInstance.Visible = true;
             LastFiredTime = TimeManager.CurrentTime;
 
@@ -124,7 +135,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 if (DebugVariables.TurretsAimAtMouse) RotateToAimMouse();
 #endif
 
-                if (targetEnemy != null && (targetEnemy.IsDead || !RangeCircleInstance.CollideAgainst(targetEnemy.Collision)))
+                if (targetEnemy != null && (targetEnemy.IsDead || !RangeCircleInstance.CollideAgainst(targetEnemy.Collision) || MinimumRangeCircleInstance.CollideAgainst(targetEnemy.Collision)))
                 {
                     targetEnemy = null;
                 }
@@ -231,6 +242,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             LayerProvidedByContainer.Remove(SpriteInstance);
             FlatRedBall.SpriteManager.AddToLayer(SpriteInstance, hudLayer);
+
+            LayerProvidedByContainer.Remove(RangePreviewSprite);
+            FlatRedBall.SpriteManager.AddToLayer(RangePreviewSprite, hudLayer);
 
             LayerProvidedByContainer.Remove(AimSpriteInstance);
             FlatRedBall.SpriteManager.AddToLayer(AimSpriteInstance, hudLayer);
@@ -343,6 +357,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 if (pt.IsDead) continue;
                 if (pt.IsFlying && this is BombardingTower) continue;
                 if (!pt.CollideAgainst(RangeCircleInstance)) continue;
+                if (pt.CollideAgainst(MinimumRangeCircleInstance)) continue;
                 
                 newTarget = pt;
                 break;
@@ -411,6 +426,81 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
 
             SoundManager.PlaySoundEffect(FiringSound);
+        }
+
+        public static Texture2D GetRangeTexture(Tuple<int, int> rangeTuple)
+        {
+            if (RangeTextures.ContainsKey(rangeTuple)) return RangeTextures[rangeTuple];
+
+            var newTexture = GenerateRadiusTexture(rangeTuple.Item1, rangeTuple.Item2);
+            RangeTextures.Add(rangeTuple, newTexture);
+
+            return newTexture;
+        }
+
+        private static Texture2D GenerateRadiusTexture(int maxRange, int minRange)
+        {
+            // Determine the new layer size
+            var newTextureHeight = maxRange*2;
+            var newTextureWidth = maxRange*2;
+
+            // This layer holds whatever we want drawn
+            var temporaryLayer = new Layer();
+
+            // Define the layer. 
+            var renderTarget = new RenderTarget2D(
+                FlatRedBallServices.GraphicsDevice,
+                newTextureWidth,
+                newTextureHeight);
+            temporaryLayer.RenderTarget = renderTarget;
+
+            var maxRangeSprite = new Sprite
+            {
+                Texture = RangeCircleTexture,
+                TextureScale = newTextureHeight / (float)RangeCircleTexture.Height,
+                ColorOperation =  ColorOperation.ColorTextureAlpha,
+                Z = 0,
+                Red = 0,
+                Green = 255,
+                Blue = 0,
+            };
+            SpriteManager.AddToLayer(maxRangeSprite, temporaryLayer);
+
+            var minRangeSprite = new Sprite
+            {
+                Texture = RangeCircleTexture,
+                TextureScale = minRange*2 / (float)RangeCircleTexture.Height,
+                //ColorOperation = ColorOperation.Subtract,
+                ColorOperation = ColorOperation.ColorTextureAlpha,
+                Z = 1,
+                Red = 255,
+                Green = 0,
+                Blue = 0,
+            };
+            SpriteManager.AddToLayer(minRangeSprite, temporaryLayer);
+            
+            // Rendering requires a camera. We'll create a temporary one (don't add it to the SpriteManager)
+            var temporaryCamera = new Camera(null, newTextureWidth, newTextureHeight) { DrawsWorld = false, Z = 40 };
+            // We only want the camera to draw the layer
+            temporaryCamera.UsePixelCoordinates();
+            temporaryCamera.AddLayer(temporaryLayer);
+
+            FlatRedBall.Graphics.Renderer.DrawCamera(temporaryCamera, null);
+
+            //using (var fileStream = File.Create("range.png"))
+            //{
+            //    renderTarget.SaveAsPng(fileStream, newTextureWidth, newTextureHeight);
+            //}
+
+            SpriteManager.RemoveSprite(maxRangeSprite);
+            SpriteManager.RemoveSprite(minRangeSprite);
+
+            FlatRedBallServices.AddDisposable(
+                "Max" + maxRange.ToString() + "Min" + minRange.ToString() + ".png",
+                renderTarget,
+                "ContentManagerName");
+
+            return renderTarget;
         }
 
         /// <summary>

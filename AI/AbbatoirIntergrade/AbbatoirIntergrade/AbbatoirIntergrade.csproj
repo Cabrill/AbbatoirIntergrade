@@ -1072,6 +1072,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>BaseStructureAnimationChainListFile</Name>
     </None>
+    <None Include="content\entities\baseentities\basestructure\rangecircletexture.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>RangeCircleTexture</Name>
+    </None>
     <None Include="content\entities\enemies\enemy_attributes.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Enemy_Attributes</Name>

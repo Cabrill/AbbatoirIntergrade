@@ -46,7 +46,8 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
 	    {
 	        //LayerProvidedByContainer.Remove(SpriteInstance);
 	        SpriteManager.AddToLayer(SpriteInstance, hudLayer);
-	    }
+	        SpriteManager.AddToLayer(RangePreviewSprite, hudLayer);
+        }
 
         private void CustomDestroy()
 		{

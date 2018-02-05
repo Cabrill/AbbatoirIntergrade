@@ -442,6 +442,7 @@ namespace AbbatoirIntergrade.Entities.Structures
             ProjectileAltitude = 100f;
             HasSplashDamage = false;
             SlowsEnemies = true;
+            MinimumRangeRadius = 100f;
         }
         public override void ConvertToManuallyUpdated () 
         {

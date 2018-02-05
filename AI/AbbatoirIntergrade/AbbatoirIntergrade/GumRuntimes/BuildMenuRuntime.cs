@@ -23,8 +23,6 @@ namespace AbbatoirIntergrade.GumRuntimes
             X = CurrentPlacement.X;
             Y = CurrentPlacement.Y;
 
-            var screenHeight = Camera.Main.OrthogonalHeight;
-
             if (MoreThanFour)
             {
                 CurrentCapacityState = Capacity.Seven;
@@ -52,13 +50,16 @@ namespace AbbatoirIntergrade.GumRuntimes
             for (var i = 0; i < 7; i++)
             {
                 var button = GetButtonNumber(i);
+                if (button == null) continue;
 
                 if (i < listOfTowers.Count)
                 {
                     var tower = listOfTowers[i];
                     var factory = listOfFactories[i];
 
-                    button?.UpdateFromStructure(tower, factory);
+                    button.UpdateFromStructure(tower, factory);
+                    button.RollOverAction = ShowRangePreview;
+                    button.RollOffAction = HideRangePreview;
                     MoreThanFour = (i > 3);
                 }
                 else
@@ -86,6 +87,7 @@ namespace AbbatoirIntergrade.GumRuntimes
 
         public void Hide(bool didBuild = false)
         {
+            HideRangePreview();
             if (didBuild)
             {
                 CurrentPlacement.Visible = false;
@@ -93,6 +95,24 @@ namespace AbbatoirIntergrade.GumRuntimes
 
             CurrentPlacement = null;
             Visible = false;            
+        }
+
+        private void ShowRangePreview(Tuple<int, int> rangeTuple, float xOffset)
+        {
+            if (CurrentPlacement == null) return;
+
+            var rangeTexture = BaseStructure.GetRangeTexture(rangeTuple);
+
+            CurrentPlacement.RangePreviewSprite.Texture = rangeTexture;
+            CurrentPlacement.RangePreviewSprite.RelativeX = xOffset;
+            CurrentPlacement.RangePreviewSprite.Visible = true;
+        }
+
+        private void HideRangePreview()
+        {
+            if (CurrentPlacement == null) return;
+
+            CurrentPlacement.RangePreviewSprite.Visible = false;
         }
     }
 }

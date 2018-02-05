@@ -25,9 +25,11 @@ namespace AbbatoirIntergrade.GumRuntimes
             if (structure == structureShown)
             {
                 Visible = true;
+                structure.RangePreviewSprite.Visible = true;
             }
             else
             {
+                Hide();
                 SetDisplayFor(structure);
             }
         }
@@ -57,6 +59,7 @@ namespace AbbatoirIntergrade.GumRuntimes
         public void Hide()
         {
             Visible = false;
+            if (structureShown != null) structureShown.RangePreviewSprite.Visible = false;
         }
     }
 }

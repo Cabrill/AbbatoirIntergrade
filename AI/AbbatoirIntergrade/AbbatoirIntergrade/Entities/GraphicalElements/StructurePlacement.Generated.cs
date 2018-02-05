@@ -138,6 +138,18 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
                 mCircleInstance = value;
             }
         }
+        private FlatRedBall.Sprite mRangePreviewSprite;
+        public FlatRedBall.Sprite RangePreviewSprite
+        {
+            get
+            {
+                return mRangePreviewSprite;
+            }
+            private set
+            {
+                mRangePreviewSprite = value;
+            }
+        }
         public float SpriteInstanceRed
         {
             get
@@ -292,6 +304,8 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             SpriteInstance.Name = "SpriteInstance";
             mCircleInstance = new FlatRedBall.Math.Geometry.Circle();
             mCircleInstance.Name = "mCircleInstance";
+            mRangePreviewSprite = new FlatRedBall.Sprite();
+            mRangePreviewSprite.Name = "mRangePreviewSprite";
             
             PostInitialize();
             if (addToManagers)
@@ -305,6 +319,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             FlatRedBall.SpriteManager.AddPositionedObject(this);
             FlatRedBall.SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mCircleInstance, LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddToLayer(mRangePreviewSprite, LayerProvidedByContainer);
         }
         public virtual void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
@@ -312,6 +327,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             FlatRedBall.SpriteManager.AddPositionedObject(this);
             FlatRedBall.SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mCircleInstance, LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddToLayer(mRangePreviewSprite, LayerProvidedByContainer);
             AddToManagersBottomUp(layerToAddTo);
             CustomInitialize();
         }
@@ -336,6 +352,10 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             if (CircleInstance != null)
             {
                 FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(CircleInstance);
+            }
+            if (RangePreviewSprite != null)
+            {
+                FlatRedBall.SpriteManager.RemoveSpriteOneWay(RangePreviewSprite);
             }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
@@ -364,6 +384,14 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             }
             CircleInstance.Radius = 60f;
             CircleInstance.Visible = false;
+            if (mRangePreviewSprite.Parent == null)
+            {
+                mRangePreviewSprite.CopyAbsoluteToRelative();
+                mRangePreviewSprite.AttachTo(this, false);
+            }
+            RangePreviewSprite.TextureScale = 1f;
+            RangePreviewSprite.Visible = false;
+            RangePreviewSprite.Alpha = 0.5f;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
@@ -383,6 +411,10 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             {
                 FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(CircleInstance);
             }
+            if (RangePreviewSprite != null)
+            {
+                FlatRedBall.SpriteManager.RemoveSpriteOneWay(RangePreviewSprite);
+            }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 
@@ -400,6 +432,9 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             SpriteInstance.CurrentChainName = "Spin";
             CircleInstance.Radius = 60f;
             CircleInstance.Visible = false;
+            RangePreviewSprite.TextureScale = 1f;
+            RangePreviewSprite.Visible = false;
+            RangePreviewSprite.Alpha = 0.5f;
             SpriteInstanceRed = 0f;
             SpriteInstanceGreen = 1f;
             SpriteInstanceBlue = 0f;
@@ -413,6 +448,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             this.ForceUpdateDependenciesDeep();
             FlatRedBall.SpriteManager.ConvertToManuallyUpdated(this);
             FlatRedBall.SpriteManager.ConvertToManuallyUpdated(SpriteInstance);
+            FlatRedBall.SpriteManager.ConvertToManuallyUpdated(RangePreviewSprite);
         }
         public static void LoadStaticContent (string contentManagerName) 
         {
@@ -800,6 +836,10 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             {
                 return true;
             }
+            if (RangePreviewSprite.Alpha != 0 && RangePreviewSprite.AbsoluteVisible && cursor.IsOn3D(RangePreviewSprite, LayerProvidedByContainer))
+            {
+                return true;
+            }
             return false;
         }
         public virtual bool WasClickedThisFrame (FlatRedBall.Gui.Cursor cursor) 
@@ -817,6 +857,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(this);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(SpriteInstance);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(CircleInstance);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(RangePreviewSprite);
         }
         public virtual void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {
@@ -831,6 +872,11 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
                 layerToRemoveFrom.Remove(CircleInstance);
             }
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(CircleInstance, layerToMoveTo);
+            if (layerToRemoveFrom != null)
+            {
+                layerToRemoveFrom.Remove(RangePreviewSprite);
+            }
+            FlatRedBall.SpriteManager.AddToLayer(RangePreviewSprite, layerToMoveTo);
             LayerProvidedByContainer = layerToMoveTo;
         }
     }

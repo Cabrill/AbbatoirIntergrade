@@ -135,6 +135,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static FlatRedBall.Graphics.Animation.AnimationChainList BaseStructureAnimationChainListFile;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D AllParticles;
+        protected static Microsoft.Xna.Framework.Graphics.Texture2D RangeCircleTexture;
         
         protected FlatRedBall.Sprite mSpriteInstance;
         public FlatRedBall.Sprite SpriteInstance
@@ -206,6 +207,30 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             protected set
             {
                 mPivotPoint = value;
+            }
+        }
+        private FlatRedBall.Math.Geometry.Circle mMinimumRangeCircleInstance;
+        public FlatRedBall.Math.Geometry.Circle MinimumRangeCircleInstance
+        {
+            get
+            {
+                return mMinimumRangeCircleInstance;
+            }
+            private set
+            {
+                mMinimumRangeCircleInstance = value;
+            }
+        }
+        private FlatRedBall.Sprite mRangePreviewSprite;
+        public FlatRedBall.Sprite RangePreviewSprite
+        {
+            get
+            {
+                return mRangePreviewSprite;
+            }
+            private set
+            {
+                mRangePreviewSprite = value;
             }
         }
         public float SpriteInstanceRed
@@ -356,6 +381,17 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         public bool IsElectrical;
         public bool IsFire;
         public bool IsFrost;
+        public virtual float MinimumRangeRadius
+        {
+            get
+            {
+                return MinimumRangeCircleInstance.Radius;
+            }
+            set
+            {
+                MinimumRangeCircleInstance.Radius = value;
+            }
+        }
         public event System.EventHandler BeforeVisibleSet;
         public event System.EventHandler AfterVisibleSet;
         protected bool mVisible = true;
@@ -428,6 +464,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             LoadStaticContent(ContentManagerName);
             mRangeCircleInstance = new FlatRedBall.Math.Geometry.Circle();
             mRangeCircleInstance.Name = "mRangeCircleInstance";
+            mMinimumRangeCircleInstance = new FlatRedBall.Math.Geometry.Circle();
+            mMinimumRangeCircleInstance.Name = "mMinimumRangeCircleInstance";
+            mRangePreviewSprite = new FlatRedBall.Sprite();
+            mRangePreviewSprite.Name = "mRangePreviewSprite";
             
             PostInitialize();
             if (addToManagers)
@@ -440,12 +480,16 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             LayerProvidedByContainer = layerToAddTo;
             FlatRedBall.SpriteManager.AddPositionedObject(this);
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mRangeCircleInstance, LayerProvidedByContainer);
+            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mMinimumRangeCircleInstance, LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddToLayer(mRangePreviewSprite, LayerProvidedByContainer);
         }
         public virtual void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
             LayerProvidedByContainer = layerToAddTo;
             FlatRedBall.SpriteManager.AddPositionedObject(this);
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mRangeCircleInstance, LayerProvidedByContainer);
+            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mMinimumRangeCircleInstance, LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddToLayer(mRangePreviewSprite, LayerProvidedByContainer);
             AddToManagersBottomUp(layerToAddTo);
             CustomInitialize();
         }
@@ -462,6 +506,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (RangeCircleInstance != null)
             {
                 FlatRedBall.Math.Geometry.ShapeManager.Remove(RangeCircleInstance);
+            }
+            if (MinimumRangeCircleInstance != null)
+            {
+                FlatRedBall.Math.Geometry.ShapeManager.Remove(MinimumRangeCircleInstance);
+            }
+            if (RangePreviewSprite != null)
+            {
+                FlatRedBall.SpriteManager.RemoveSprite(RangePreviewSprite);
             }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
@@ -553,9 +605,24 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     mPivotPoint.AttachTo(this, false);
                 }
             }
+            if (mMinimumRangeCircleInstance.Parent == null)
+            {
+                mMinimumRangeCircleInstance.CopyAbsoluteToRelative();
+                mMinimumRangeCircleInstance.AttachTo(this, false);
+            }
+            MinimumRangeCircleInstance.Radius = 16f;
+            if (mRangePreviewSprite.Parent == null)
+            {
+                mRangePreviewSprite.CopyAbsoluteToRelative();
+                mRangePreviewSprite.AttachTo(this, false);
+            }
+            RangePreviewSprite.TextureScale = 1f;
+            RangePreviewSprite.Visible = false;
+            RangePreviewSprite.Alpha = 0.5f;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.AxisAlignedRectangles.AddOneWay(mAxisAlignedRectangleInstance);
             mGeneratedCollision.Circles.AddOneWay(mRangeCircleInstance);
+            mGeneratedCollision.Circles.AddOneWay(mMinimumRangeCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
         public virtual void AddToManagersBottomUp (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -569,6 +636,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(RangeCircleInstance);
             }
+            if (MinimumRangeCircleInstance != null)
+            {
+                FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(MinimumRangeCircleInstance);
+            }
+            if (RangePreviewSprite != null)
+            {
+                FlatRedBall.SpriteManager.RemoveSpriteOneWay(RangePreviewSprite);
+            }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 
@@ -577,6 +652,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
             }
             RangeCircleInstance.Radius = 400f;
+            MinimumRangeCircleInstance.Radius = 16f;
+            RangePreviewSprite.TextureScale = 1f;
+            RangePreviewSprite.Visible = false;
+            RangePreviewSprite.Alpha = 0.5f;
             if (Parent == null)
             {
                 Z = 1f;
@@ -600,6 +679,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             LightSpriteInstanceBlue = 0.5f;
             RangedRadius = 400f;
             ProjectileAltitude = 100f;
+            MinimumRangeRadius = 16f;
         }
         public virtual void ConvertToManuallyUpdated () 
         {
@@ -624,6 +704,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 FlatRedBall.SpriteManager.ConvertToManuallyUpdated(PivotPoint);
             }
+            FlatRedBall.SpriteManager.ConvertToManuallyUpdated(RangePreviewSprite);
         }
         public static void LoadStaticContent (string contentManagerName) 
         {
@@ -663,6 +744,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 }
                 BaseStructureAnimationChainListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/baseentities/basestructure/basestructureanimationchainlistfile.achx", ContentManagerName);
                 AllParticles = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/projectiles/allparticles.png", ContentManagerName);
+                RangeCircleTexture = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/baseentities/basestructure/rangecircletexture.png", ContentManagerName);
             }
             CustomLoadStaticContent(contentManagerName);
         }
@@ -978,6 +1060,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return BaseStructureAnimationChainListFile;
                 case  "AllParticles":
                     return AllParticles;
+                case  "RangeCircleTexture":
+                    return RangeCircleTexture;
             }
             return null;
         }
@@ -989,6 +1073,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return BaseStructureAnimationChainListFile;
                 case  "AllParticles":
                     return AllParticles;
+                case  "RangeCircleTexture":
+                    return RangeCircleTexture;
             }
             return null;
         }
@@ -1000,6 +1086,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return BaseStructureAnimationChainListFile;
                 case  "AllParticles":
                     return AllParticles;
+                case  "RangeCircleTexture":
+                    return RangeCircleTexture;
             }
             return null;
         }
@@ -1034,6 +1122,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 return true;
             }
             if (AimSpriteInstance.Alpha != 0 && AimSpriteInstance.AbsoluteVisible && cursor.IsOn3D(AimSpriteInstance, LayerProvidedByContainer))
+            {
+                return true;
+            }
+            if (cursor.IsOn3D(MinimumRangeCircleInstance, LayerProvidedByContainer))
+            {
+                return true;
+            }
+            if (RangePreviewSprite.Alpha != 0 && RangePreviewSprite.AbsoluteVisible && cursor.IsOn3D(RangePreviewSprite, LayerProvidedByContainer))
             {
                 return true;
             }
@@ -1072,6 +1168,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (PivotPoint != null)
             {
             }
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(MinimumRangeCircleInstance);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(RangePreviewSprite);
         }
         public virtual void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {
@@ -1101,6 +1199,16 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 layerToRemoveFrom.Remove(AimSpriteInstance);
             }
             FlatRedBall.SpriteManager.AddToLayer(AimSpriteInstance, layerToMoveTo);
+            if (layerToRemoveFrom != null)
+            {
+                layerToRemoveFrom.Remove(MinimumRangeCircleInstance);
+            }
+            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(MinimumRangeCircleInstance, layerToMoveTo);
+            if (layerToRemoveFrom != null)
+            {
+                layerToRemoveFrom.Remove(RangePreviewSprite);
+            }
+            FlatRedBall.SpriteManager.AddToLayer(RangePreviewSprite, layerToMoveTo);
             LayerProvidedByContainer = layerToMoveTo;
         }
     }

@@ -413,6 +413,7 @@ namespace AbbatoirIntergrade.Entities.Structures
             SecondsBetweenFiring = 1.5;
             ProjectileAltitude = 100f;
             SlowsEnemies = true;
+            MinimumRangeRadius = 100f;
         }
         public override void ConvertToManuallyUpdated () 
         {

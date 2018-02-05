@@ -166,6 +166,7 @@
     <property name="HasSplashDamage" type="bool" default="true" />
     <property name="SlowsEnemies" type="bool" />
     <property name="StunsEnemies" type="bool" />
+    <property name="MinimumRangeRadius" type="float" default="200" />
   </objecttype>
   <objecttype name="ChemicalTower">
     <property name="DisplayName" type="string" default="Chemical" />
@@ -179,6 +180,7 @@
     <property name="HasSplashDamage" type="bool" default="false" />
     <property name="SlowsEnemies" type="bool" default="true" />
     <property name="StunsEnemies" type="bool" />
+    <property name="MinimumRangeRadius" type="float" default="100" />
   </objecttype>
   <objecttype name="ElectricTower">
     <property name="DisplayName" type="string" default="Electric" />
@@ -192,6 +194,7 @@
     <property name="HasSplashDamage" type="bool" />
     <property name="SlowsEnemies" type="bool" />
     <property name="StunsEnemies" type="bool" default="true" />
+    <property name="MinimumRangeRadius" type="float" default="50" />
   </objecttype>
   <objecttype name="FireTower">
     <property name="DisplayName" type="string" default="Fire" />
@@ -205,6 +208,7 @@
     <property name="HasSplashDamage" type="bool" />
     <property name="SlowsEnemies" type="bool" />
     <property name="StunsEnemies" type="bool" />
+    <property name="MinimumRangeRadius" type="float" default="100" />
   </objecttype>
   <objecttype name="FrostTower">
     <property name="DisplayName" type="string" default="Frost" />
@@ -218,6 +222,7 @@
     <property name="HasSplashDamage" type="bool" />
     <property name="SlowsEnemies" type="bool" default="true" />
     <property name="StunsEnemies" type="bool" />
+    <property name="MinimumRangeRadius" type="float" default="100" />
   </objecttype>
   <objecttype name="PiercingTower">
     <property name="DisplayName" type="string" default="Arrow" />
@@ -231,5 +236,6 @@
     <property name="HasSplashDamage" type="bool" />
     <property name="SlowsEnemies" type="bool" />
     <property name="StunsEnemies" type="bool" />
+    <property name="MinimumRangeRadius" type="float" default="200" />
   </objecttype>
 </objecttypes>

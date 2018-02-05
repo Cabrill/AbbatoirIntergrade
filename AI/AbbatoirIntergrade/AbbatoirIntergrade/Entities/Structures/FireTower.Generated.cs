@@ -444,6 +444,7 @@ namespace AbbatoirIntergrade.Entities.Structures
             AttackDamage = 50f;
             SecondsBetweenFiring = 2.5;
             ProjectileAltitude = 100f;
+            MinimumRangeRadius = 100f;
         }
         public override void ConvertToManuallyUpdated () 
         {

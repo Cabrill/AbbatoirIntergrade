@@ -22,6 +22,11 @@ namespace AbbatoirIntergrade.GumRuntimes
         public IEntityFactory BuildingFactory { get; private set; }
         public Type BuildingType { get; private set; }
         public bool IsEnabled => Enabled;
+        public Action<Tuple<int, int>, float> RollOverAction;
+        public Action RollOffAction;
+
+        private Tuple<int, int> RangeTuple;
+        private float RangeXOffset;
 
         partial void CustomInitialize()
         {
@@ -31,18 +36,31 @@ namespace AbbatoirIntergrade.GumRuntimes
 
         private void OnRollOver(IWindow window)
         {
-            CurrentHighlightState = HasCursorOver(GuiManager.Cursor) ? Highlight.Highlighted : Highlight.NotHighlighted;
+            if (Enabled)
+            {
+                CurrentHighlightState = HasCursorOver(GuiManager.Cursor) 
+                    ? Highlight.Highlighted
+                    : Highlight.NotHighlighted;
+                RollOverAction(RangeTuple, RangeXOffset);
+            }
         }
 
         private void CircleButtonInstanceOnRollOff(IWindow window)
         {
-            CurrentHighlightState = Highlight.NotHighlighted;
+            if (Enabled)
+            {
+                CurrentHighlightState = Highlight.NotHighlighted;
+                RollOffAction?.Invoke();
+            }
         }
 
         public void UpdateFromStructure(BaseStructure structure, IEntityFactory factory)
         {
             BuildingFactory = factory;
             BuildingType = structure.GetType();
+
+            RangeTuple = new Tuple<int, int>((int)structure.RangedRadius, (int)structure.MinimumRangeRadius);
+            RangeXOffset = structure.PivotPoint.RelativeX;
 
             structure.AimSpriteInstance.RelativeRotationZ = MathHelper.ToRadians(0);
             structure.Collision.Visible = false;
