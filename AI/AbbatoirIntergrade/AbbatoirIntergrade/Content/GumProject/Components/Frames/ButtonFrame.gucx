@@ -174,7 +174,7 @@
     <Variable>
       <Type>float</Type>
       <Name>SpriteInstance.Height</Name>
-      <Value xsi:type="xsd:float">50</Value>
+      <Value xsi:type="xsd:float">90</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -229,7 +229,7 @@
     <Variable>
       <Type>float</Type>
       <Name>SpriteInstance.Width</Name>
-      <Value xsi:type="xsd:float">50</Value>
+      <Value xsi:type="xsd:float">90</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -318,6 +318,12 @@
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>SpriteInstance.Red</Name>
+        <Value xsi:type="xsd:int">176</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
     </State>
     <State>
       <Name>NotSelected</Name>
@@ -325,6 +331,13 @@
         <Type>bool</Type>
         <Name>SelectSprite.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>SpriteInstance.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -342,26 +355,14 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>SpriteInstance.Texture Height</Name>
-        <Value xsi:type="xsd:int">200</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
         <Name>SpriteInstance.Texture Left</Name>
-        <Value xsi:type="xsd:int">3808</Value>
+        <Value xsi:type="xsd:int">3804</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>SpriteInstance.Texture Top</Name>
         <Value xsi:type="xsd:int">1692</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>SpriteInstance.Texture Width</Name>
-        <Value xsi:type="xsd:int">200</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -382,12 +383,6 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>SpriteInstance.Texture Height</Name>
-        <Value xsi:type="xsd:int">200</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
         <Name>SpriteInstance.Texture Left</Name>
         <Value xsi:type="xsd:int">3550</Value>
         <SetsValue>true</SetsValue>
@@ -396,12 +391,6 @@
         <Type>int</Type>
         <Name>SpriteInstance.Texture Top</Name>
         <Value xsi:type="xsd:int">1692</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>SpriteInstance.Texture Width</Name>
-        <Value xsi:type="xsd:int">200</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -422,12 +411,6 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>SpriteInstance.Texture Height</Name>
-        <Value xsi:type="xsd:int">200</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
         <Name>SpriteInstance.Texture Left</Name>
         <Value xsi:type="xsd:int">3720</Value>
         <SetsValue>true</SetsValue>
@@ -435,13 +418,7 @@
       <Variable>
         <Type>int</Type>
         <Name>SpriteInstance.Texture Top</Name>
-        <Value xsi:type="xsd:int">2740</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>SpriteInstance.Texture Width</Name>
-        <Value xsi:type="xsd:int">200</Value>
+        <Value xsi:type="xsd:int">2750</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -461,12 +438,6 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>SpriteInstance.Texture Height</Name>
-        <Value xsi:type="xsd:int">200</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
         <Name>SpriteInstance.Texture Left</Name>
         <Value xsi:type="xsd:int">3808</Value>
         <SetsValue>true</SetsValue>
@@ -475,12 +446,6 @@
         <Type>int</Type>
         <Name>SpriteInstance.Texture Top</Name>
         <Value xsi:type="xsd:int">1692</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>SpriteInstance.Texture Width</Name>
-        <Value xsi:type="xsd:int">200</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -501,26 +466,70 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>SpriteInstance.Texture Height</Name>
-        <Value xsi:type="xsd:int">110</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
         <Name>SpriteInstance.Texture Left</Name>
-        <Value xsi:type="xsd:int">3741</Value>
+        <Value xsi:type="xsd:int">3707</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>SpriteInstance.Texture Top</Name>
-        <Value xsi:type="xsd:int">3819</Value>
+        <Value xsi:type="xsd:int">3770</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>SpriteInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Pause</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>BackgroundSprite.Alpha</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>SpriteInstance.Texture Width</Name>
-        <Value xsi:type="xsd:int">135</Value>
+        <Name>SpriteInstance.Texture Left</Name>
+        <Value xsi:type="xsd:int">3707</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>SpriteInstance.Texture Top</Name>
+        <Value xsi:type="xsd:int">3005</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>SpriteInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>FastForward</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>BackgroundSprite.Alpha</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>SpriteInstance.Texture Left</Name>
+        <Value xsi:type="xsd:int">3550</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>SpriteInstance.Texture Top</Name>
+        <Value xsi:type="xsd:int">2212</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>

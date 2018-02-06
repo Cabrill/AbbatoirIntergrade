@@ -117,6 +117,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>InfoDisplays/TopStatusBar</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>LivesPointsDisplay</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
@@ -130,6 +134,10 @@
   </ComponentReference>
   <ComponentReference>
     <Name>OptionsControls</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>ScreenShade</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>

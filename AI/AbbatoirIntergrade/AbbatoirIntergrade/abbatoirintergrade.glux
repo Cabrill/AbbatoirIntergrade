@@ -367,6 +367,26 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
+          <SourceName>TopStatusBarInstance (AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime)</SourceName>
+          <InstanceName>TopStatusBarInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn>HUDLayer</LayerOn>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
+          <SourceName>ScreenShadeInstance (AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime)</SourceName>
+          <InstanceName>ScreenShadeInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn>HUDLayer</LayerOn>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
           <SourceName>MenuWindowInstance (AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime)</SourceName>
           <InstanceName>MenuWindowInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>

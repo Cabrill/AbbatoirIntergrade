@@ -43,12 +43,14 @@
                             ChatBoxInstance.X = 0f;
                             ChatBoxInstance.Y = 50f;
                             BuildMenuInstance.Visible = false;
+                            LivesPointsDisplayInstance.Width = 236f;
                             LivesPointsDisplayInstance.X = 100f;
                             LivesPointsDisplayInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
                             LivesPointsDisplayInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             ChatHistoryInstance.Visible = false;
                             ChatHistoryInstance.X = 10f;
                             ChatHistoryInstance.Y = 0f;
+                            ScreenShadeInstance.Visible = false;
                             MenuWindowInstance.Visible = false;
                             break;
                     }
@@ -153,6 +155,10 @@
                 bool setChatHistoryInstanceYSecondValue = false;
                 float ChatHistoryInstanceYFirstValue= 0;
                 float ChatHistoryInstanceYSecondValue= 0;
+                bool setLivesPointsDisplayInstanceWidthFirstValue = false;
+                bool setLivesPointsDisplayInstanceWidthSecondValue = false;
+                float LivesPointsDisplayInstanceWidthFirstValue= 0;
+                float LivesPointsDisplayInstanceWidthSecondValue= 0;
                 bool setLivesPointsDisplayInstanceXFirstValue = false;
                 bool setLivesPointsDisplayInstanceXSecondValue = false;
                 float LivesPointsDisplayInstanceXFirstValue= 0;
@@ -190,6 +196,8 @@
                         {
                             this.HorizonBoxInstance.Visible = true;
                         }
+                        setLivesPointsDisplayInstanceWidthFirstValue = true;
+                        LivesPointsDisplayInstanceWidthFirstValue = 236f;
                         setLivesPointsDisplayInstanceXFirstValue = true;
                         LivesPointsDisplayInstanceXFirstValue = 100f;
                         if (interpolationValue < 1)
@@ -203,6 +211,10 @@
                         if (interpolationValue < 1)
                         {
                             this.MenuWindowInstance.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ScreenShadeInstance.Visible = false;
                         }
                         if (interpolationValue < 1)
                         {
@@ -243,6 +255,8 @@
                         {
                             this.HorizonBoxInstance.Visible = true;
                         }
+                        setLivesPointsDisplayInstanceWidthSecondValue = true;
+                        LivesPointsDisplayInstanceWidthSecondValue = 236f;
                         setLivesPointsDisplayInstanceXSecondValue = true;
                         LivesPointsDisplayInstanceXSecondValue = 100f;
                         if (interpolationValue >= 1)
@@ -256,6 +270,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.MenuWindowInstance.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ScreenShadeInstance.Visible = false;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -282,6 +300,10 @@
                 if (setChatHistoryInstanceYFirstValue && setChatHistoryInstanceYSecondValue)
                 {
                     ChatHistoryInstance.Y = ChatHistoryInstanceYFirstValue * (1 - interpolationValue) + ChatHistoryInstanceYSecondValue * interpolationValue;
+                }
+                if (setLivesPointsDisplayInstanceWidthFirstValue && setLivesPointsDisplayInstanceWidthSecondValue)
+                {
+                    LivesPointsDisplayInstance.Width = LivesPointsDisplayInstanceWidthFirstValue * (1 - interpolationValue) + LivesPointsDisplayInstanceWidthSecondValue * interpolationValue;
                 }
                 if (setLivesPointsDisplayInstanceXFirstValue && setLivesPointsDisplayInstanceXSecondValue)
                 {
@@ -1094,6 +1116,8 @@
                 BuildMenuInstance.StopAnimations();
                 LivesPointsDisplayInstance.StopAnimations();
                 ChatHistoryInstance.StopAnimations();
+                TopStatusBarInstance.StopAnimations();
+                ScreenShadeInstance.StopAnimations();
                 MenuWindowInstance.StopAnimations();
                 ShowChatHistoryAnimation.Stop();
                 HideChatHistoryAnimation.Stop();
@@ -1172,6 +1196,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "LivesPointsDisplayInstance.Width",
+                            Type = "float",
+                            Value = LivesPointsDisplayInstance.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "LivesPointsDisplayInstance.X",
                             Type = "float",
                             Value = LivesPointsDisplayInstance.X
@@ -1215,6 +1247,14 @@
                             Name = "ChatHistoryInstance.Y",
                             Type = "float",
                             Value = ChatHistoryInstance.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenShadeInstance.Visible",
+                            Type = "bool",
+                            Value = ScreenShadeInstance.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1302,6 +1342,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "LivesPointsDisplayInstance.Width",
+                            Type = "float",
+                            Value = LivesPointsDisplayInstance.Width + 236f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "LivesPointsDisplayInstance.X",
                             Type = "float",
                             Value = LivesPointsDisplayInstance.X + 100f
@@ -1345,6 +1393,14 @@
                             Name = "ChatHistoryInstance.Y",
                             Type = "float",
                             Value = ChatHistoryInstance.Y + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ScreenShadeInstance.Visible",
+                            Type = "bool",
+                            Value = ScreenShadeInstance.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2117,6 +2173,8 @@
             private AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime BuildMenuInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime LivesPointsDisplayInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime ChatHistoryInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime TopStatusBarInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime ScreenShadeInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance { get; set; }
             public GameScreenGumRuntime (bool fullInstantiation = true) 
             {
@@ -2150,6 +2208,8 @@
                 BuildMenuInstance = this.GetGraphicalUiElementByName("BuildMenuInstance") as AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime;
                 LivesPointsDisplayInstance = this.GetGraphicalUiElementByName("LivesPointsDisplayInstance") as AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime;
                 ChatHistoryInstance = this.GetGraphicalUiElementByName("ChatHistoryInstance") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
+                TopStatusBarInstance = this.GetGraphicalUiElementByName("TopStatusBarInstance") as AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime;
+                ScreenShadeInstance = this.GetGraphicalUiElementByName("ScreenShadeInstance") as AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime;
                 MenuWindowInstance = this.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 

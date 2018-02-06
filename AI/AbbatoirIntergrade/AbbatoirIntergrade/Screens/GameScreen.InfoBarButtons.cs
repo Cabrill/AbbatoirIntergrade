@@ -13,21 +13,45 @@ namespace AbbatoirIntergrade.Screens
         private void SetInfoBarControls()
         {
             //Settings button
-            //InfoBarInstance.SettingsButtonInstanceClick += InfoBarInstanceOnSettingsButtonInstanceClick;
+            TopStatusBarInstance.MenuButtonInstanceClick += OnMenuButtonClick;
+            TopStatusBarInstance.PauseButtonInstanceClick += OnPauseButtonClick;
+            TopStatusBarInstance.PlayButtonInstanceClick += OnPlayButtonClick;
+            TopStatusBarInstance.FastForwardButtonInstanceClick += OnFastForwardButtonClick;
+
+            MenuWindowInstance.AssignEventToCloseButton(OnMenuCloseButtonClick);
+            
         }
 
-        private void InfoBarInstanceOnSettingsButtonInstanceClick(IWindow window)
+        private void OnFastForwardButtonClick(IWindow obj)
         {
-            //if (IsPaused)
-            //{
-            //    UnpauseThisScreen();
-            //    InfoBarInstance.CurrentSettingsButtonStateState = InfoBarRuntime.SettingsButtonState.NotHighlighted;
-            //}
-            //else
-            //{
-            //    PauseThisScreen();
-            //    InfoBarInstance.CurrentSettingsButtonStateState = InfoBarRuntime.SettingsButtonState.Highlighted;
-            //}
+            if (IsPaused) UnpauseThisScreen();
+        }
+
+        private void OnPlayButtonClick(IWindow obj)
+        {
+            if (IsPaused) UnpauseThisScreen();
+        }
+
+        private void OnPauseButtonClick(IWindow obj)
+        {
+            if (IsPaused) UnpauseThisScreen();
+            else PauseThisScreen();
+        }
+
+        private void OnMenuButtonClick(IWindow window)
+        {
+            MenuWindowInstance.Visible = true;
+            ScreenShadeInstance.Visible = true;
+            if (!IsPaused) PauseThisScreen();
+            TopStatusBarInstance.PauseForMenu(IsPaused);
+        }
+
+        private void OnMenuCloseButtonClick(IWindow window)
+        {
+            ScreenShadeInstance.Visible = false;
+            MenuWindowInstance.Visible = false;
+            if (!TopStatusBarInstance.WasPausedWhenMenuClicked) UnpauseThisScreen();
+            TopStatusBarInstance.PauseForMenu(IsPaused);
         }
     }
 }

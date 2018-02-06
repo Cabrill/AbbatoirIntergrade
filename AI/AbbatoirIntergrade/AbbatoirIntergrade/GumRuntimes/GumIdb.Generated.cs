@@ -34,10 +34,12 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/EnemyInfo", typeof(AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/ResourceIncreaseNotification", typeof(AbbatoirIntergrade.GumRuntimes.ResourceIncreaseNotificationRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/StructureInfo", typeof(AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("InfoDisplays/TopStatusBar", typeof(AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("LivesPointsDisplay", typeof(AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MenuWindow", typeof(AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MessageBox", typeof(AbbatoirIntergrade.GumRuntimes.MessageBoxRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("OptionsControls", typeof(AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ScreenShade", typeof(AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ScrollThumb", typeof(AbbatoirIntergrade.GumRuntimes.ScrollThumbRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("SliderBar", typeof(AbbatoirIntergrade.GumRuntimes.SliderBarRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("SpecificButtons/BuildButton", typeof(AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime));

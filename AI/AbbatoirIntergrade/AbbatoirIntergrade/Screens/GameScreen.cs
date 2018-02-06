@@ -290,13 +290,11 @@ namespace AbbatoirIntergrade.Screens
             {
                 if (MenuWindowInstance.Visible)
                 {
-                    MenuWindowInstance.Visible = false;
-                    UnpauseThisScreen();
+                    MenuWindowInstance.SimulateCloseButtonClick();
                 }
                 else
                 {
-                    MenuWindowInstance.Visible = true;
-                    PauseThisScreen();
+                    TopStatusBarInstance.SimulateMenuButtonClick();
                 }
             }
         }

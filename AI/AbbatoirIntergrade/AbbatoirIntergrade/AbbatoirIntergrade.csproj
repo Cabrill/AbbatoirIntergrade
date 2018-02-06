@@ -333,6 +333,10 @@
     <Compile Include="GumRuntimes\infodisplays\StructureInfoRuntime.Generated.cs">
       <DependentUpon>StructureInfoRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\infodisplays\TopStatusBarRuntime.cs" />
+    <Compile Include="GumRuntimes\InfoDisplays\TopStatusBarRuntime.Generated.cs">
+      <DependentUpon>TopStatusBarRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\LivesPointsDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\LoadingScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs" />
@@ -348,6 +352,7 @@
       <DependentUpon>OptionsControlsRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ScreenShadeRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ScrollThumbRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SliderBarRuntime.cs" />
     <Compile Include="GumRuntimes\SliderBarRuntime.Generated.cs">
@@ -1225,6 +1230,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>StructureInfo</Name>
     </None>
+    <None Include="content\gumproject\components\infodisplays\topstatusbar.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TopStatusBar</Name>
+    </None>
     <None Include="content\gumproject\components\livespointsdisplay.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>LivesPointsDisplay</Name>
@@ -1240,6 +1249,10 @@
     <None Include="content\gumproject\components\optionscontrols.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>OptionsControls</Name>
+    </None>
+    <None Include="content\gumproject\components\screenshade.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ScreenShade</Name>
     </None>
     <None Include="content\gumproject\components\scrollthumb.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1328,6 +1341,14 @@
     <None Include="content\gumproject\fontcache\font48bahnschrift_1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font48Bahnschrift_1</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font50moire extrabold_o2.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font50Moire ExtraBold_o2</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font50moire extrabold_o2_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font50Moire ExtraBold_o2_0</Name>
     </None>
     <None Include="content\gumproject\gumproject.gumx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

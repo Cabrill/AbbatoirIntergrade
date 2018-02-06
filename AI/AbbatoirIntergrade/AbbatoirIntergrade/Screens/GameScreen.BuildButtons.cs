@@ -65,6 +65,8 @@ namespace AbbatoirIntergrade.Screens
 
         private void AssignGumButtonEvents()
         {
+            SetInfoBarControls();
+
             //Assign buildings to build buttons
             var listOfAllTowerTypes = GameStateManager.GetAllTowers();
             var listOfAvailableTowerTypes = PlayerDataManager.GetAvailableTowers();

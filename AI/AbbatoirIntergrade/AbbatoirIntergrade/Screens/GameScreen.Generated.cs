@@ -81,6 +81,8 @@ namespace AbbatoirIntergrade.Screens
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TileCollisionCircle> TileCollisionCircleList;
         private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime ChatHistoryInstance;
         private AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime GameScreenGumInstance;
+        private AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime TopStatusBarInstance;
+        private AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime ScreenShadeInstance;
         private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance;
         protected global::RenderingLibrary.Graphics.Layer BackgroundLayerGum;
         protected global::RenderingLibrary.Graphics.Layer WorldLayerGum;
@@ -132,6 +134,8 @@ namespace AbbatoirIntergrade.Screens
             TileCollisionCircleList.Name = "TileCollisionCircleList";
             ChatHistoryInstance = GameScreenGum.GetGraphicalUiElementByName("ChatHistoryInstance") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
             GameScreenGumInstance = GameScreenGum.GetGraphicalUiElementByName("this") as AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime;
+            TopStatusBarInstance = GameScreenGum.GetGraphicalUiElementByName("TopStatusBarInstance") as AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime;
+            ScreenShadeInstance = GameScreenGum.GetGraphicalUiElementByName("ScreenShadeInstance") as AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime;
             MenuWindowInstance = GameScreenGum.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
             
             
@@ -249,6 +253,8 @@ namespace AbbatoirIntergrade.Screens
             BuildMenuInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             LivesPointsDisplayInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             ChatHistoryInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            TopStatusBarInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            ScreenShadeInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             MenuWindowInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             base.AddToManagers();
             AddToManagersBottomUp();
@@ -471,6 +477,14 @@ namespace AbbatoirIntergrade.Screens
             {
                 GameScreenGumInstance.RemoveFromManagers();
             }
+            if (TopStatusBarInstance != null)
+            {
+                TopStatusBarInstance.RemoveFromManagers();
+            }
+            if (ScreenShadeInstance != null)
+            {
+                ScreenShadeInstance.RemoveFromManagers();
+            }
             if (MenuWindowInstance != null)
             {
                 MenuWindowInstance.RemoveFromManagers();
@@ -509,6 +523,8 @@ namespace AbbatoirIntergrade.Screens
             BuildMenuInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             LivesPointsDisplayInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             ChatHistoryInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            TopStatusBarInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            ScreenShadeInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             MenuWindowInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             FlatRedBall.Gui.GuiManager.SortZAndLayerBased();
         }
@@ -606,6 +622,14 @@ namespace AbbatoirIntergrade.Screens
             if (GameScreenGumInstance != null)
             {
                 GameScreenGumInstance.RemoveFromManagers();
+            }
+            if (TopStatusBarInstance != null)
+            {
+                TopStatusBarInstance.RemoveFromManagers();
+            }
+            if (ScreenShadeInstance != null)
+            {
+                ScreenShadeInstance.RemoveFromManagers();
             }
             if (MenuWindowInstance != null)
             {

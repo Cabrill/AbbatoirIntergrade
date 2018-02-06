@@ -43,5 +43,10 @@ namespace AbbatoirIntergrade.GumRuntimes
         {
             OptionsControlsInstance.RefreshValues();
         }
+
+        public void SimulateCloseButtonClick()
+        {
+            CloseButton.CallClick();
+        }
     }
 }

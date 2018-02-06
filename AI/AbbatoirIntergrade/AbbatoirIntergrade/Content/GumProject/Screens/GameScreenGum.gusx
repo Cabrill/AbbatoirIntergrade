@@ -71,6 +71,12 @@
     </Variable>
     <Variable>
       <Type>float</Type>
+      <Name>LivesPointsDisplayInstance.Width</Name>
+      <Value xsi:type="xsd:float">236</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
       <Name>LivesPointsDisplayInstance.X</Name>
       <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
@@ -90,6 +96,12 @@
     <Variable>
       <Type>bool</Type>
       <Name>MenuWindowInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>ScreenShadeInstance.Visible</Name>
       <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -446,6 +458,14 @@
   <Instance>
     <Name>ChatHistoryInstance</Name>
     <BaseType>ChatHistory</BaseType>
+  </Instance>
+  <Instance>
+    <Name>TopStatusBarInstance</Name>
+    <BaseType>InfoDisplays/TopStatusBar</BaseType>
+  </Instance>
+  <Instance>
+    <Name>ScreenShadeInstance</Name>
+    <BaseType>ScreenShade</BaseType>
   </Instance>
   <Instance>
     <Name>MenuWindowInstance</Name>
