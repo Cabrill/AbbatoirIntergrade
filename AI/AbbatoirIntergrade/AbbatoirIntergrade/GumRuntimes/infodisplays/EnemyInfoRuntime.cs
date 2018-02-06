@@ -34,7 +34,15 @@ namespace AbbatoirIntergrade.GumRuntimes
                 Y = MathHelper.Clamp(newY, -minMaxY, minMaxY);
 
                 EnemyName = enemy.DisplayName;
-                EnemyHealth = $"{enemy.HealthRemaining:##0} / {enemy.MaximumHealth}";
+                HealthDisplay.AttributeText = $"{enemy.HealthRemaining:##0} / {enemy.MaximumHealth:##0}";
+                SpeedDisplay.AttributeText = $"{enemy.EffectiveSpeed:##0}";
+
+                PiercingResist.SetResistanceText(enemy.EffectivePiercingResist);
+                BombardResist.SetResistanceText(enemy.EffectiveBombardResist);
+                ChemicalResist.SetResistanceText(enemy.EffectiveChemicalResist);
+                FireResist.SetResistanceText(enemy.EffectiveFireResist);
+                FrostResist.SetResistanceText(enemy.EffectiveFrostResist);
+                ElectricResist.SetResistanceText(enemy.EffectiveElectricResist);
             }
         }
 

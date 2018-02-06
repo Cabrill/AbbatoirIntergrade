@@ -15,6 +15,8 @@ namespace AbbatoirIntergrade.GameClasses
         public DateTime DateTimeStarted;
         public DateTime DateTimeFinished;
 
+        public double TimePlayed;
+
         public int WavesCompleted;
 
         public readonly EnemyList EnemiesDefeated= new EnemyList();

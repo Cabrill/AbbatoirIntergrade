@@ -10,6 +10,7 @@ using AbbatoirIntergrade.Entities;
 using AbbatoirIntergrade.Entities.BaseEntities;
 using AbbatoirIntergrade.Entities.GraphicalElements;
 using AbbatoirIntergrade.Entities.Projectiles;
+using AbbatoirIntergrade.Entities.Structures;
 using AbbatoirIntergrade.Factories;
 using AbbatoirIntergrade.GameClasses;
 using AbbatoirIntergrade.GameClasses.BaseClasses;
@@ -39,6 +40,7 @@ namespace AbbatoirIntergrade.Screens
             Building,
         };
 
+        private double PauseAndBuildAjustedTime;
         private BaseLevel CurrentLevel;
         private FlatRedBall.TileGraphics.LayeredTileMap currentMap;
         private Polygon Pathing;
@@ -72,6 +74,7 @@ namespace AbbatoirIntergrade.Screens
 
             //TODO:  Set these values by loading a level
             CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
+            CurrentLevel.OnNewWaveStart += UpdateInfoBar;
             CurrentLevel.OnNewWaveStart += UpdateDialogue;
             CurrentLevel.OnNewWaveStart += MachineLearningManager.NotifyOfWaveStart;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
@@ -103,6 +106,7 @@ namespace AbbatoirIntergrade.Screens
             CreateNotificationPool();
             ChangeGameModeToBuilding();
             GameHasStarted = true;
+            PauseAndBuildAjustedTime = 0;
 
             SoundManager.PlaySongList(CurrentLevel.SongNameList);
         }
@@ -266,9 +270,12 @@ namespace AbbatoirIntergrade.Screens
             var gameplayOccuring = !IsPaused && GameHasStarted && CurrentGameMode != GameMode.Building;
             if (gameplayOccuring)
             {
+                PauseAndBuildAjustedTime += TimeManager.SecondDifference;
+
                 UpdateGameTime();
 
                 CurrentLevel.Update();
+                TopStatusBarInstance.UpdateTime(PauseAndBuildAjustedTime);
 
                 HorizonBoxInstance.Update(currentLevelDateTime);
 
@@ -315,7 +322,9 @@ namespace AbbatoirIntergrade.Screens
             catch (Exception){};
             ShowGameEndDisplay(playerWon: false);
 
-            PlayerDataManager.RecordChapterResults(CurrentLevel.GetFinalResults());
+            var levelResults = CurrentLevel.GetFinalResults();
+            levelResults.TimePlayed = PauseAndBuildAjustedTime;
+            PlayerDataManager.RecordChapterResults(levelResults);
             PlayerDataManager.SaveData();
             LoadingScreen.TransitionToScreen(typeof(MapScreen));
         }
@@ -360,7 +369,7 @@ namespace AbbatoirIntergrade.Screens
 	            }
 
                 //Collide enemies against buildings
-	            if (!enemy.IsFlying || enemy.IsDead)
+	            if (!enemy.IsFlying)
 	            {
 	                for (var j = AllStructuresList.Count(); j > 0; j--)
 	                {
@@ -797,17 +806,62 @@ namespace AbbatoirIntergrade.Screens
 		{
 		    if (resourceIncreaseNotificationList != null)
 		    {
-		        foreach (var notification in resourceIncreaseNotificationList)
+		        for (var i = resourceIncreaseNotificationList.Count - 1; i >= 0; i--)
 		        {
-		            notification.Destroy();
+		            resourceIncreaseNotificationList[i].Destroy();
 		        }
 		    }
+		    if (WaterShapes != null)
+		    {
+		        for (var i = WaterShapes.Count - 1; i >= 0; i--)
+		        {
+		            WaterShapes[i].RemoveSelfFromListsBelongingTo();
+		        }
+            }
+		    if (Pathing != null)
+		    {
+		        Pathing.RemoveSelfFromListsBelongingTo();
+            }
 		}
 #endregion
 
         static void CustomLoadStaticContent(string contentManagerName)
         {
+            var allTowers = PlayerDataManager.GetAvailableTowers();
 
+            foreach (var tower in PlayerDataManager.GetAvailableTowers())
+            {
+                if (tower == typeof(PiercingTower))
+                {
+                    PiercingTower.LoadStaticContent(contentManagerName);
+                    PiercingProjectile.LoadStaticContent(contentManagerName);
+                }
+                else if (tower == typeof(BombardingTower))
+                {
+                    BombardingTower.LoadStaticContent(contentManagerName);
+                    CannonProjectile.LoadStaticContent(contentManagerName);
+                }
+                else if (tower == typeof(ChemicalTower))
+                {
+                    ChemicalTower.LoadStaticContent(contentManagerName);
+                    ChemicalProjectile.LoadStaticContent(contentManagerName);
+                }
+                else if (tower == typeof(FireTower))
+                {
+                    FireTower.LoadStaticContent(contentManagerName);
+                    FireProjectile.LoadStaticContent(contentManagerName);
+                }
+                else if (tower == typeof(FrostTower))
+                {
+                    FrostTower.LoadStaticContent(contentManagerName);
+                    FrostProjectile.LoadStaticContent(contentManagerName);
+                }
+                else if (tower == typeof(ElectricTower))
+                {
+                    ElectricTower.LoadStaticContent(contentManagerName);
+                    ElectricProjectile.LoadStaticContent(contentManagerName);
+                }
+            }
 
         }
 

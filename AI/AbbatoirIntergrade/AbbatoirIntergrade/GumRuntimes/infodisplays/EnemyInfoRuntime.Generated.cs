@@ -80,107 +80,69 @@
                             NameText.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             NameText.Y = 0f;
                             NameText.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            HealthContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
-                            HealthContainer.Height = 20f;
-                            HealthContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            HealthContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
-                            HealthContainer.Width = 100f;
-                            HealthContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            HealthSprite.Height = 100f;
-                            HealthSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            HealthSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "HealthContainer");
-                            SetProperty("HealthSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
-                            HealthSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
-                            HealthSprite.TextureHeight = 64;
-                            HealthSprite.TextureLeft = 68;
-                            HealthSprite.TextureTop = 29;
-                            HealthSprite.TextureWidth = 64;
-                            HealthSprite.Width = 20f;
-                            HealthSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            HealthSprite.X = 5f;
-                            HealthSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            SetProperty("HealthText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
-                            HealthText.Font = "Moire ExtraBold";
-                            HealthText.FontScale = 0.8f;
-                            HealthText.FontSize = 50;
-                            HealthText.Height = 100f;
-                            HealthText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            HealthText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            HealthText.OutlineThickness = 2;
-                            HealthText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "HealthContainer");
-                            HealthText.Text = "0";
-                            HealthText.UseCustomFont = true;
-                            HealthText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            HealthText.Width = 70f;
-                            HealthText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            MeleeContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
-                            MeleeContainer.Height = 20f;
-                            MeleeContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            MeleeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
-                            MeleeContainer.Width = 100f;
-                            MeleeContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            MeleeSprite.Height = 100f;
-                            MeleeSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            MeleeSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MeleeContainer");
-                            SetProperty("MeleeSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
-                            MeleeSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
-                            MeleeSprite.TextureHeight = 64;
-                            MeleeSprite.TextureLeft = 132;
-                            MeleeSprite.TextureTop = 29;
-                            MeleeSprite.TextureWidth = 64;
-                            MeleeSprite.Width = 20f;
-                            MeleeSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            MeleeSprite.X = 5f;
-                            MeleeSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            SetProperty("MeleeText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
-                            MeleeText.Font = "Moire ExtraBold";
-                            MeleeText.FontScale = 0.8f;
-                            MeleeText.FontSize = 50;
-                            MeleeText.Height = 100f;
-                            MeleeText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            MeleeText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            MeleeText.OutlineThickness = 2;
-                            MeleeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MeleeContainer");
-                            MeleeText.Text = "0";
-                            MeleeText.UseCustomFont = true;
-                            MeleeText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            MeleeText.Width = 70f;
-                            MeleeText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            RangedContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
-                            RangedContainer.Height = 20f;
-                            RangedContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            RangedContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
-                            RangedContainer.Width = 100f;
-                            RangedContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            RangedSprite.Height = 100f;
-                            RangedSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            RangedSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangedContainer");
-                            SetProperty("RangedSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
-                            RangedSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
-                            RangedSprite.TextureHeight = 64;
-                            RangedSprite.TextureLeft = 196;
-                            RangedSprite.TextureTop = 29;
-                            RangedSprite.TextureWidth = 64;
-                            RangedSprite.Width = 20f;
-                            RangedSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            RangedSprite.X = 5f;
-                            RangedSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            SetProperty("RangedText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
-                            RangedText.Font = "Moire ExtraBold";
-                            RangedText.FontScale = 0.8f;
-                            RangedText.FontSize = 50;
-                            RangedText.Height = 100f;
-                            RangedText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            RangedText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            RangedText.OutlineThickness = 2;
-                            RangedText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangedContainer");
-                            RangedText.Text = "0";
-                            RangedText.UseCustomFont = true;
-                            RangedText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            RangedText.Width = 70f;
-                            RangedText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             TallInfoFrameInstance.Height = 100f;
                             TallInfoFrameInstance.Width = 100f;
+                            HealthDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                            HealthDisplay.AttributeText = "5";
+                            HealthDisplay.Height = 20f;
+                            HealthDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            HealthDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            HealthDisplay.Width = 100f;
+                            HealthDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            SpeedDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MoveSpeed;
+                            SpeedDisplay.AttributeText = "200";
+                            SpeedDisplay.Height = 20f;
+                            SpeedDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            SpeedDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            SpeedDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ResistanceContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                            ResistanceContainer.Height = 40f;
+                            ResistanceContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ResistanceContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            ResistanceContainer.Width = 100f;
+                            ResistanceContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            LeftResistances.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
+                            LeftResistances.Height = 100f;
+                            LeftResistances.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            LeftResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer");
+                            LeftResistances.Width = 50f;
+                            LeftResistances.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            RightResistances.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
+                            RightResistances.Height = 100f;
+                            RightResistances.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            RightResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer");
+                            RightResistances.Width = 50f;
+                            RightResistances.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            PiercingResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Piercing;
+                            PiercingResist.Height = 33.3f;
+                            PiercingResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            PiercingResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
+                            PiercingResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ChemicalResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Chemical;
+                            ChemicalResist.Height = 33.3f;
+                            ChemicalResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ChemicalResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
+                            ChemicalResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            FrostResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Frost;
+                            FrostResist.Height = 33.3f;
+                            FrostResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            FrostResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
+                            FrostResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            BombardResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Bombarding;
+                            BombardResist.Height = 33.3f;
+                            BombardResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            BombardResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
+                            BombardResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ElectricResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Electric;
+                            ElectricResist.Height = 33.3f;
+                            ElectricResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ElectricResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
+                            ElectricResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            FireResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Fire;
+                            FireResist.Height = 33.3f;
+                            FireResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            FireResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
+                            FireResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             break;
                     }
                 }
@@ -197,12 +159,8 @@
                     switch(mCurrentHasMeleeState)
                     {
                         case  HasMelee.True:
-                            MeleeContainer.Height = 20f;
-                            MeleeContainer.Visible = true;
                             break;
                         case  HasMelee.False:
-                            MeleeContainer.Height = 0f;
-                            MeleeContainer.Visible = false;
                             break;
                     }
                 }
@@ -219,12 +177,8 @@
                     switch(mCurrentHasRangedState)
                     {
                         case  HasRanged.True:
-                            RangedContainer.Height = 20f;
-                            RangedContainer.Visible = true;
                             break;
                         case  HasRanged.False:
-                            RangedContainer.Height = 0f;
-                            RangedContainer.Visible = false;
                             break;
                     }
                 }
@@ -239,122 +193,46 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
-                bool setHealthContainerHeightFirstValue = false;
-                bool setHealthContainerHeightSecondValue = false;
-                float HealthContainerHeightFirstValue= 0;
-                float HealthContainerHeightSecondValue= 0;
-                bool setHealthContainerWidthFirstValue = false;
-                bool setHealthContainerWidthSecondValue = false;
-                float HealthContainerWidthFirstValue= 0;
-                float HealthContainerWidthSecondValue= 0;
-                bool setHealthSpriteHeightFirstValue = false;
-                bool setHealthSpriteHeightSecondValue = false;
-                float HealthSpriteHeightFirstValue= 0;
-                float HealthSpriteHeightSecondValue= 0;
-                bool setHealthSpriteTextureHeightFirstValue = false;
-                bool setHealthSpriteTextureHeightSecondValue = false;
-                int HealthSpriteTextureHeightFirstValue= 0;
-                int HealthSpriteTextureHeightSecondValue= 0;
-                bool setHealthSpriteTextureLeftFirstValue = false;
-                bool setHealthSpriteTextureLeftSecondValue = false;
-                int HealthSpriteTextureLeftFirstValue= 0;
-                int HealthSpriteTextureLeftSecondValue= 0;
-                bool setHealthSpriteTextureTopFirstValue = false;
-                bool setHealthSpriteTextureTopSecondValue = false;
-                int HealthSpriteTextureTopFirstValue= 0;
-                int HealthSpriteTextureTopSecondValue= 0;
-                bool setHealthSpriteTextureWidthFirstValue = false;
-                bool setHealthSpriteTextureWidthSecondValue = false;
-                int HealthSpriteTextureWidthFirstValue= 0;
-                int HealthSpriteTextureWidthSecondValue= 0;
-                bool setHealthSpriteWidthFirstValue = false;
-                bool setHealthSpriteWidthSecondValue = false;
-                float HealthSpriteWidthFirstValue= 0;
-                float HealthSpriteWidthSecondValue= 0;
-                bool setHealthSpriteXFirstValue = false;
-                bool setHealthSpriteXSecondValue = false;
-                float HealthSpriteXFirstValue= 0;
-                float HealthSpriteXSecondValue= 0;
-                bool setHealthTextFontScaleFirstValue = false;
-                bool setHealthTextFontScaleSecondValue = false;
-                float HealthTextFontScaleFirstValue= 0;
-                float HealthTextFontScaleSecondValue= 0;
-                bool setHealthTextFontSizeFirstValue = false;
-                bool setHealthTextFontSizeSecondValue = false;
-                int HealthTextFontSizeFirstValue= 0;
-                int HealthTextFontSizeSecondValue= 0;
-                bool setHealthTextHeightFirstValue = false;
-                bool setHealthTextHeightSecondValue = false;
-                float HealthTextHeightFirstValue= 0;
-                float HealthTextHeightSecondValue= 0;
-                bool setHealthTextOutlineThicknessFirstValue = false;
-                bool setHealthTextOutlineThicknessSecondValue = false;
-                int HealthTextOutlineThicknessFirstValue= 0;
-                int HealthTextOutlineThicknessSecondValue= 0;
-                bool setHealthTextWidthFirstValue = false;
-                bool setHealthTextWidthSecondValue = false;
-                float HealthTextWidthFirstValue= 0;
-                float HealthTextWidthSecondValue= 0;
+                bool setBombardResistHeightFirstValue = false;
+                bool setBombardResistHeightSecondValue = false;
+                float BombardResistHeightFirstValue= 0;
+                float BombardResistHeightSecondValue= 0;
+                bool setChemicalResistHeightFirstValue = false;
+                bool setChemicalResistHeightSecondValue = false;
+                float ChemicalResistHeightFirstValue= 0;
+                float ChemicalResistHeightSecondValue= 0;
+                bool setElectricResistHeightFirstValue = false;
+                bool setElectricResistHeightSecondValue = false;
+                float ElectricResistHeightFirstValue= 0;
+                float ElectricResistHeightSecondValue= 0;
+                bool setFireResistHeightFirstValue = false;
+                bool setFireResistHeightSecondValue = false;
+                float FireResistHeightFirstValue= 0;
+                float FireResistHeightSecondValue= 0;
+                bool setFrostResistHeightFirstValue = false;
+                bool setFrostResistHeightSecondValue = false;
+                float FrostResistHeightFirstValue= 0;
+                float FrostResistHeightSecondValue= 0;
+                bool setHealthDisplayHeightFirstValue = false;
+                bool setHealthDisplayHeightSecondValue = false;
+                float HealthDisplayHeightFirstValue= 0;
+                float HealthDisplayHeightSecondValue= 0;
+                bool setHealthDisplayWidthFirstValue = false;
+                bool setHealthDisplayWidthSecondValue = false;
+                float HealthDisplayWidthFirstValue= 0;
+                float HealthDisplayWidthSecondValue= 0;
                 bool setHeightFirstValue = false;
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
                 float HeightSecondValue= 0;
-                bool setMeleeContainerHeightFirstValue = false;
-                bool setMeleeContainerHeightSecondValue = false;
-                float MeleeContainerHeightFirstValue= 0;
-                float MeleeContainerHeightSecondValue= 0;
-                bool setMeleeContainerWidthFirstValue = false;
-                bool setMeleeContainerWidthSecondValue = false;
-                float MeleeContainerWidthFirstValue= 0;
-                float MeleeContainerWidthSecondValue= 0;
-                bool setMeleeSpriteHeightFirstValue = false;
-                bool setMeleeSpriteHeightSecondValue = false;
-                float MeleeSpriteHeightFirstValue= 0;
-                float MeleeSpriteHeightSecondValue= 0;
-                bool setMeleeSpriteTextureHeightFirstValue = false;
-                bool setMeleeSpriteTextureHeightSecondValue = false;
-                int MeleeSpriteTextureHeightFirstValue= 0;
-                int MeleeSpriteTextureHeightSecondValue= 0;
-                bool setMeleeSpriteTextureLeftFirstValue = false;
-                bool setMeleeSpriteTextureLeftSecondValue = false;
-                int MeleeSpriteTextureLeftFirstValue= 0;
-                int MeleeSpriteTextureLeftSecondValue= 0;
-                bool setMeleeSpriteTextureTopFirstValue = false;
-                bool setMeleeSpriteTextureTopSecondValue = false;
-                int MeleeSpriteTextureTopFirstValue= 0;
-                int MeleeSpriteTextureTopSecondValue= 0;
-                bool setMeleeSpriteTextureWidthFirstValue = false;
-                bool setMeleeSpriteTextureWidthSecondValue = false;
-                int MeleeSpriteTextureWidthFirstValue= 0;
-                int MeleeSpriteTextureWidthSecondValue= 0;
-                bool setMeleeSpriteWidthFirstValue = false;
-                bool setMeleeSpriteWidthSecondValue = false;
-                float MeleeSpriteWidthFirstValue= 0;
-                float MeleeSpriteWidthSecondValue= 0;
-                bool setMeleeSpriteXFirstValue = false;
-                bool setMeleeSpriteXSecondValue = false;
-                float MeleeSpriteXFirstValue= 0;
-                float MeleeSpriteXSecondValue= 0;
-                bool setMeleeTextFontScaleFirstValue = false;
-                bool setMeleeTextFontScaleSecondValue = false;
-                float MeleeTextFontScaleFirstValue= 0;
-                float MeleeTextFontScaleSecondValue= 0;
-                bool setMeleeTextFontSizeFirstValue = false;
-                bool setMeleeTextFontSizeSecondValue = false;
-                int MeleeTextFontSizeFirstValue= 0;
-                int MeleeTextFontSizeSecondValue= 0;
-                bool setMeleeTextHeightFirstValue = false;
-                bool setMeleeTextHeightSecondValue = false;
-                float MeleeTextHeightFirstValue= 0;
-                float MeleeTextHeightSecondValue= 0;
-                bool setMeleeTextOutlineThicknessFirstValue = false;
-                bool setMeleeTextOutlineThicknessSecondValue = false;
-                int MeleeTextOutlineThicknessFirstValue= 0;
-                int MeleeTextOutlineThicknessSecondValue= 0;
-                bool setMeleeTextWidthFirstValue = false;
-                bool setMeleeTextWidthSecondValue = false;
-                float MeleeTextWidthFirstValue= 0;
-                float MeleeTextWidthSecondValue= 0;
+                bool setLeftResistancesHeightFirstValue = false;
+                bool setLeftResistancesHeightSecondValue = false;
+                float LeftResistancesHeightFirstValue= 0;
+                float LeftResistancesHeightSecondValue= 0;
+                bool setLeftResistancesWidthFirstValue = false;
+                bool setLeftResistancesWidthSecondValue = false;
+                float LeftResistancesWidthFirstValue= 0;
+                float LeftResistancesWidthSecondValue= 0;
                 bool setNameContainerHeightFirstValue = false;
                 bool setNameContainerHeightSecondValue = false;
                 float NameContainerHeightFirstValue= 0;
@@ -387,62 +265,30 @@
                 bool setNameTextYSecondValue = false;
                 float NameTextYFirstValue= 0;
                 float NameTextYSecondValue= 0;
-                bool setRangedContainerHeightFirstValue = false;
-                bool setRangedContainerHeightSecondValue = false;
-                float RangedContainerHeightFirstValue= 0;
-                float RangedContainerHeightSecondValue= 0;
-                bool setRangedContainerWidthFirstValue = false;
-                bool setRangedContainerWidthSecondValue = false;
-                float RangedContainerWidthFirstValue= 0;
-                float RangedContainerWidthSecondValue= 0;
-                bool setRangedSpriteHeightFirstValue = false;
-                bool setRangedSpriteHeightSecondValue = false;
-                float RangedSpriteHeightFirstValue= 0;
-                float RangedSpriteHeightSecondValue= 0;
-                bool setRangedSpriteTextureHeightFirstValue = false;
-                bool setRangedSpriteTextureHeightSecondValue = false;
-                int RangedSpriteTextureHeightFirstValue= 0;
-                int RangedSpriteTextureHeightSecondValue= 0;
-                bool setRangedSpriteTextureLeftFirstValue = false;
-                bool setRangedSpriteTextureLeftSecondValue = false;
-                int RangedSpriteTextureLeftFirstValue= 0;
-                int RangedSpriteTextureLeftSecondValue= 0;
-                bool setRangedSpriteTextureTopFirstValue = false;
-                bool setRangedSpriteTextureTopSecondValue = false;
-                int RangedSpriteTextureTopFirstValue= 0;
-                int RangedSpriteTextureTopSecondValue= 0;
-                bool setRangedSpriteTextureWidthFirstValue = false;
-                bool setRangedSpriteTextureWidthSecondValue = false;
-                int RangedSpriteTextureWidthFirstValue= 0;
-                int RangedSpriteTextureWidthSecondValue= 0;
-                bool setRangedSpriteWidthFirstValue = false;
-                bool setRangedSpriteWidthSecondValue = false;
-                float RangedSpriteWidthFirstValue= 0;
-                float RangedSpriteWidthSecondValue= 0;
-                bool setRangedSpriteXFirstValue = false;
-                bool setRangedSpriteXSecondValue = false;
-                float RangedSpriteXFirstValue= 0;
-                float RangedSpriteXSecondValue= 0;
-                bool setRangedTextFontScaleFirstValue = false;
-                bool setRangedTextFontScaleSecondValue = false;
-                float RangedTextFontScaleFirstValue= 0;
-                float RangedTextFontScaleSecondValue= 0;
-                bool setRangedTextFontSizeFirstValue = false;
-                bool setRangedTextFontSizeSecondValue = false;
-                int RangedTextFontSizeFirstValue= 0;
-                int RangedTextFontSizeSecondValue= 0;
-                bool setRangedTextHeightFirstValue = false;
-                bool setRangedTextHeightSecondValue = false;
-                float RangedTextHeightFirstValue= 0;
-                float RangedTextHeightSecondValue= 0;
-                bool setRangedTextOutlineThicknessFirstValue = false;
-                bool setRangedTextOutlineThicknessSecondValue = false;
-                int RangedTextOutlineThicknessFirstValue= 0;
-                int RangedTextOutlineThicknessSecondValue= 0;
-                bool setRangedTextWidthFirstValue = false;
-                bool setRangedTextWidthSecondValue = false;
-                float RangedTextWidthFirstValue= 0;
-                float RangedTextWidthSecondValue= 0;
+                bool setPiercingResistHeightFirstValue = false;
+                bool setPiercingResistHeightSecondValue = false;
+                float PiercingResistHeightFirstValue= 0;
+                float PiercingResistHeightSecondValue= 0;
+                bool setResistanceContainerHeightFirstValue = false;
+                bool setResistanceContainerHeightSecondValue = false;
+                float ResistanceContainerHeightFirstValue= 0;
+                float ResistanceContainerHeightSecondValue= 0;
+                bool setResistanceContainerWidthFirstValue = false;
+                bool setResistanceContainerWidthSecondValue = false;
+                float ResistanceContainerWidthFirstValue= 0;
+                float ResistanceContainerWidthSecondValue= 0;
+                bool setRightResistancesHeightFirstValue = false;
+                bool setRightResistancesHeightSecondValue = false;
+                float RightResistancesHeightFirstValue= 0;
+                float RightResistancesHeightSecondValue= 0;
+                bool setRightResistancesWidthFirstValue = false;
+                bool setRightResistancesWidthSecondValue = false;
+                float RightResistancesWidthFirstValue= 0;
+                float RightResistancesWidthSecondValue= 0;
+                bool setSpeedDisplayHeightFirstValue = false;
+                bool setSpeedDisplayHeightSecondValue = false;
+                float SpeedDisplayHeightFirstValue= 0;
+                float SpeedDisplayHeightSecondValue= 0;
                 bool setStatsContainerHeightFirstValue = false;
                 bool setStatsContainerHeightSecondValue = false;
                 float StatsContainerHeightFirstValue= 0;
@@ -476,6 +322,42 @@
                     case  VariableState.Default:
                         if (interpolationValue < 1)
                         {
+                            this.BombardResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Bombarding;
+                        }
+                        setBombardResistHeightFirstValue = true;
+                        BombardResistHeightFirstValue = 33.3f;
+                        if (interpolationValue < 1)
+                        {
+                            this.BombardResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.BombardResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.BombardResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ChemicalResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Chemical;
+                        }
+                        setChemicalResistHeightFirstValue = true;
+                        ChemicalResistHeightFirstValue = 33.3f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ChemicalResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ChemicalResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ChemicalResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.ChildrenLayout = Gum.Managers.ChildrenLayout.Regular;
                         }
                         if (interpolationValue < 1)
@@ -484,107 +366,81 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.HealthContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                            this.ElectricResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Electric;
                         }
-                        setHealthContainerHeightFirstValue = true;
-                        HealthContainerHeightFirstValue = 20f;
+                        setElectricResistHeightFirstValue = true;
+                        ElectricResistHeightFirstValue = 33.3f;
                         if (interpolationValue < 1)
                         {
-                            this.HealthContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.HealthContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
-                        }
-                        setHealthContainerWidthFirstValue = true;
-                        HealthContainerWidthFirstValue = 100f;
-                        if (interpolationValue < 1)
-                        {
-                            this.HealthContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setHealthSpriteHeightFirstValue = true;
-                        HealthSpriteHeightFirstValue = 100f;
-                        if (interpolationValue < 1)
-                        {
-                            this.HealthSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.ElectricResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.HealthSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "HealthContainer");
+                            this.ElectricResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
                         }
                         if (interpolationValue < 1)
                         {
-                            SetProperty("HealthSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
+                            this.ElectricResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.HealthSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                            this.FireResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Fire;
                         }
-                        setHealthSpriteTextureHeightFirstValue = true;
-                        HealthSpriteTextureHeightFirstValue = 64;
-                        setHealthSpriteTextureLeftFirstValue = true;
-                        HealthSpriteTextureLeftFirstValue = 68;
-                        setHealthSpriteTextureTopFirstValue = true;
-                        HealthSpriteTextureTopFirstValue = 29;
-                        setHealthSpriteTextureWidthFirstValue = true;
-                        HealthSpriteTextureWidthFirstValue = 64;
-                        setHealthSpriteWidthFirstValue = true;
-                        HealthSpriteWidthFirstValue = 20f;
+                        setFireResistHeightFirstValue = true;
+                        FireResistHeightFirstValue = 33.3f;
                         if (interpolationValue < 1)
                         {
-                            this.HealthSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setHealthSpriteXFirstValue = true;
-                        HealthSpriteXFirstValue = 5f;
-                        if (interpolationValue < 1)
-                        {
-                            this.HealthSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.FireResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            SetProperty("HealthText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            this.FireResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
                         }
                         if (interpolationValue < 1)
                         {
-                            this.HealthText.Font = "Moire ExtraBold";
-                        }
-                        setHealthTextFontScaleFirstValue = true;
-                        HealthTextFontScaleFirstValue = 0.8f;
-                        setHealthTextFontSizeFirstValue = true;
-                        HealthTextFontSizeFirstValue = 50;
-                        setHealthTextHeightFirstValue = true;
-                        HealthTextHeightFirstValue = 100f;
-                        if (interpolationValue < 1)
-                        {
-                            this.HealthText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.FireResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.HealthText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            this.FrostResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Frost;
                         }
-                        setHealthTextOutlineThicknessFirstValue = true;
-                        HealthTextOutlineThicknessFirstValue = 2;
+                        setFrostResistHeightFirstValue = true;
+                        FrostResistHeightFirstValue = 33.3f;
                         if (interpolationValue < 1)
                         {
-                            this.HealthText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "HealthContainer");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.HealthText.Text = "0";
+                            this.FrostResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.HealthText.UseCustomFont = true;
+                            this.FrostResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
                         }
                         if (interpolationValue < 1)
                         {
-                            this.HealthText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            this.FrostResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
-                        setHealthTextWidthFirstValue = true;
-                        HealthTextWidthFirstValue = 70f;
                         if (interpolationValue < 1)
                         {
-                            this.HealthText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.HealthDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.HealthDisplay.AttributeText = "5";
+                        }
+                        setHealthDisplayHeightFirstValue = true;
+                        HealthDisplayHeightFirstValue = 20f;
+                        if (interpolationValue < 1)
+                        {
+                            this.HealthDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.HealthDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                        }
+                        setHealthDisplayWidthFirstValue = true;
+                        HealthDisplayWidthFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.HealthDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setHeightFirstValue = true;
                         HeightFirstValue = 35.55556f;
@@ -594,107 +450,23 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.MeleeContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                            this.LeftResistances.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                         }
-                        setMeleeContainerHeightFirstValue = true;
-                        MeleeContainerHeightFirstValue = 20f;
+                        setLeftResistancesHeightFirstValue = true;
+                        LeftResistancesHeightFirstValue = 100f;
                         if (interpolationValue < 1)
                         {
-                            this.MeleeContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.MeleeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
-                        }
-                        setMeleeContainerWidthFirstValue = true;
-                        MeleeContainerWidthFirstValue = 100f;
-                        if (interpolationValue < 1)
-                        {
-                            this.MeleeContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setMeleeSpriteHeightFirstValue = true;
-                        MeleeSpriteHeightFirstValue = 100f;
-                        if (interpolationValue < 1)
-                        {
-                            this.MeleeSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.LeftResistances.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.MeleeSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MeleeContainer");
+                            this.LeftResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer");
                         }
+                        setLeftResistancesWidthFirstValue = true;
+                        LeftResistancesWidthFirstValue = 50f;
                         if (interpolationValue < 1)
                         {
-                            SetProperty("MeleeSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.MeleeSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
-                        }
-                        setMeleeSpriteTextureHeightFirstValue = true;
-                        MeleeSpriteTextureHeightFirstValue = 64;
-                        setMeleeSpriteTextureLeftFirstValue = true;
-                        MeleeSpriteTextureLeftFirstValue = 132;
-                        setMeleeSpriteTextureTopFirstValue = true;
-                        MeleeSpriteTextureTopFirstValue = 29;
-                        setMeleeSpriteTextureWidthFirstValue = true;
-                        MeleeSpriteTextureWidthFirstValue = 64;
-                        setMeleeSpriteWidthFirstValue = true;
-                        MeleeSpriteWidthFirstValue = 20f;
-                        if (interpolationValue < 1)
-                        {
-                            this.MeleeSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setMeleeSpriteXFirstValue = true;
-                        MeleeSpriteXFirstValue = 5f;
-                        if (interpolationValue < 1)
-                        {
-                            this.MeleeSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            SetProperty("MeleeText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.MeleeText.Font = "Moire ExtraBold";
-                        }
-                        setMeleeTextFontScaleFirstValue = true;
-                        MeleeTextFontScaleFirstValue = 0.8f;
-                        setMeleeTextFontSizeFirstValue = true;
-                        MeleeTextFontSizeFirstValue = 50;
-                        setMeleeTextHeightFirstValue = true;
-                        MeleeTextHeightFirstValue = 100f;
-                        if (interpolationValue < 1)
-                        {
-                            this.MeleeText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.MeleeText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                        }
-                        setMeleeTextOutlineThicknessFirstValue = true;
-                        MeleeTextOutlineThicknessFirstValue = 2;
-                        if (interpolationValue < 1)
-                        {
-                            this.MeleeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MeleeContainer");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.MeleeText.Text = "0";
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.MeleeText.UseCustomFont = true;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.MeleeText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                        }
-                        setMeleeTextWidthFirstValue = true;
-                        MeleeTextWidthFirstValue = 70f;
-                        if (interpolationValue < 1)
-                        {
-                            this.MeleeText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.LeftResistances.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setNameContainerHeightFirstValue = true;
                         NameContainerHeightFirstValue = 20f;
@@ -770,107 +542,83 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.RangedContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                            this.PiercingResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Piercing;
                         }
-                        setRangedContainerHeightFirstValue = true;
-                        RangedContainerHeightFirstValue = 20f;
+                        setPiercingResistHeightFirstValue = true;
+                        PiercingResistHeightFirstValue = 33.3f;
                         if (interpolationValue < 1)
                         {
-                            this.RangedContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.RangedContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
-                        }
-                        setRangedContainerWidthFirstValue = true;
-                        RangedContainerWidthFirstValue = 100f;
-                        if (interpolationValue < 1)
-                        {
-                            this.RangedContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setRangedSpriteHeightFirstValue = true;
-                        RangedSpriteHeightFirstValue = 100f;
-                        if (interpolationValue < 1)
-                        {
-                            this.RangedSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.PiercingResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.RangedSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangedContainer");
+                            this.PiercingResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
                         }
                         if (interpolationValue < 1)
                         {
-                            SetProperty("RangedSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
+                            this.PiercingResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.RangedSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                            this.ResistanceContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                         }
-                        setRangedSpriteTextureHeightFirstValue = true;
-                        RangedSpriteTextureHeightFirstValue = 64;
-                        setRangedSpriteTextureLeftFirstValue = true;
-                        RangedSpriteTextureLeftFirstValue = 196;
-                        setRangedSpriteTextureTopFirstValue = true;
-                        RangedSpriteTextureTopFirstValue = 29;
-                        setRangedSpriteTextureWidthFirstValue = true;
-                        RangedSpriteTextureWidthFirstValue = 64;
-                        setRangedSpriteWidthFirstValue = true;
-                        RangedSpriteWidthFirstValue = 20f;
+                        setResistanceContainerHeightFirstValue = true;
+                        ResistanceContainerHeightFirstValue = 40f;
                         if (interpolationValue < 1)
                         {
-                            this.RangedSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setRangedSpriteXFirstValue = true;
-                        RangedSpriteXFirstValue = 5f;
-                        if (interpolationValue < 1)
-                        {
-                            this.RangedSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.ResistanceContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            SetProperty("RangedText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            this.ResistanceContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                        }
+                        setResistanceContainerWidthFirstValue = true;
+                        ResistanceContainerWidthFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ResistanceContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.RangedText.Font = "Moire ExtraBold";
+                            this.RightResistances.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                         }
-                        setRangedTextFontScaleFirstValue = true;
-                        RangedTextFontScaleFirstValue = 0.8f;
-                        setRangedTextFontSizeFirstValue = true;
-                        RangedTextFontSizeFirstValue = 50;
-                        setRangedTextHeightFirstValue = true;
-                        RangedTextHeightFirstValue = 100f;
+                        setRightResistancesHeightFirstValue = true;
+                        RightResistancesHeightFirstValue = 100f;
                         if (interpolationValue < 1)
                         {
-                            this.RangedText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.RightResistances.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.RangedText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            this.RightResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer");
                         }
-                        setRangedTextOutlineThicknessFirstValue = true;
-                        RangedTextOutlineThicknessFirstValue = 2;
+                        setRightResistancesWidthFirstValue = true;
+                        RightResistancesWidthFirstValue = 50f;
                         if (interpolationValue < 1)
                         {
-                            this.RangedText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangedContainer");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.RangedText.Text = "0";
+                            this.RightResistances.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.RangedText.UseCustomFont = true;
+                            this.SpeedDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MoveSpeed;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.RangedText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            this.SpeedDisplay.AttributeText = "200";
                         }
-                        setRangedTextWidthFirstValue = true;
-                        RangedTextWidthFirstValue = 70f;
+                        setSpeedDisplayHeightFirstValue = true;
+                        SpeedDisplayHeightFirstValue = 20f;
                         if (interpolationValue < 1)
                         {
-                            this.RangedText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.SpeedDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.SpeedDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.SpeedDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
@@ -941,6 +689,42 @@
                     case  VariableState.Default:
                         if (interpolationValue >= 1)
                         {
+                            this.BombardResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Bombarding;
+                        }
+                        setBombardResistHeightSecondValue = true;
+                        BombardResistHeightSecondValue = 33.3f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.BombardResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.BombardResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.BombardResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChemicalResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Chemical;
+                        }
+                        setChemicalResistHeightSecondValue = true;
+                        ChemicalResistHeightSecondValue = 33.3f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChemicalResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChemicalResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ChemicalResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
                             this.ChildrenLayout = Gum.Managers.ChildrenLayout.Regular;
                         }
                         if (interpolationValue >= 1)
@@ -949,107 +733,81 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.HealthContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                            this.ElectricResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Electric;
                         }
-                        setHealthContainerHeightSecondValue = true;
-                        HealthContainerHeightSecondValue = 20f;
+                        setElectricResistHeightSecondValue = true;
+                        ElectricResistHeightSecondValue = 33.3f;
                         if (interpolationValue >= 1)
                         {
-                            this.HealthContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.HealthContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
-                        }
-                        setHealthContainerWidthSecondValue = true;
-                        HealthContainerWidthSecondValue = 100f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.HealthContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setHealthSpriteHeightSecondValue = true;
-                        HealthSpriteHeightSecondValue = 100f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.HealthSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.ElectricResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.HealthSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "HealthContainer");
+                            this.ElectricResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
                         }
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("HealthSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
+                            this.ElectricResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.HealthSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                            this.FireResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Fire;
                         }
-                        setHealthSpriteTextureHeightSecondValue = true;
-                        HealthSpriteTextureHeightSecondValue = 64;
-                        setHealthSpriteTextureLeftSecondValue = true;
-                        HealthSpriteTextureLeftSecondValue = 68;
-                        setHealthSpriteTextureTopSecondValue = true;
-                        HealthSpriteTextureTopSecondValue = 29;
-                        setHealthSpriteTextureWidthSecondValue = true;
-                        HealthSpriteTextureWidthSecondValue = 64;
-                        setHealthSpriteWidthSecondValue = true;
-                        HealthSpriteWidthSecondValue = 20f;
+                        setFireResistHeightSecondValue = true;
+                        FireResistHeightSecondValue = 33.3f;
                         if (interpolationValue >= 1)
                         {
-                            this.HealthSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setHealthSpriteXSecondValue = true;
-                        HealthSpriteXSecondValue = 5f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.HealthSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.FireResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("HealthText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            this.FireResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.HealthText.Font = "Moire ExtraBold";
-                        }
-                        setHealthTextFontScaleSecondValue = true;
-                        HealthTextFontScaleSecondValue = 0.8f;
-                        setHealthTextFontSizeSecondValue = true;
-                        HealthTextFontSizeSecondValue = 50;
-                        setHealthTextHeightSecondValue = true;
-                        HealthTextHeightSecondValue = 100f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.HealthText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.FireResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.HealthText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            this.FrostResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Frost;
                         }
-                        setHealthTextOutlineThicknessSecondValue = true;
-                        HealthTextOutlineThicknessSecondValue = 2;
+                        setFrostResistHeightSecondValue = true;
+                        FrostResistHeightSecondValue = 33.3f;
                         if (interpolationValue >= 1)
                         {
-                            this.HealthText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "HealthContainer");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.HealthText.Text = "0";
+                            this.FrostResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.HealthText.UseCustomFont = true;
+                            this.FrostResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.HealthText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            this.FrostResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
-                        setHealthTextWidthSecondValue = true;
-                        HealthTextWidthSecondValue = 70f;
                         if (interpolationValue >= 1)
                         {
-                            this.HealthText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.HealthDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.HealthDisplay.AttributeText = "5";
+                        }
+                        setHealthDisplayHeightSecondValue = true;
+                        HealthDisplayHeightSecondValue = 20f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.HealthDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.HealthDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                        }
+                        setHealthDisplayWidthSecondValue = true;
+                        HealthDisplayWidthSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.HealthDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setHeightSecondValue = true;
                         HeightSecondValue = 35.55556f;
@@ -1059,107 +817,23 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.MeleeContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                            this.LeftResistances.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                         }
-                        setMeleeContainerHeightSecondValue = true;
-                        MeleeContainerHeightSecondValue = 20f;
+                        setLeftResistancesHeightSecondValue = true;
+                        LeftResistancesHeightSecondValue = 100f;
                         if (interpolationValue >= 1)
                         {
-                            this.MeleeContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.MeleeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
-                        }
-                        setMeleeContainerWidthSecondValue = true;
-                        MeleeContainerWidthSecondValue = 100f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.MeleeContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setMeleeSpriteHeightSecondValue = true;
-                        MeleeSpriteHeightSecondValue = 100f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.MeleeSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.LeftResistances.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.MeleeSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MeleeContainer");
+                            this.LeftResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer");
                         }
+                        setLeftResistancesWidthSecondValue = true;
+                        LeftResistancesWidthSecondValue = 50f;
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("MeleeSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.MeleeSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
-                        }
-                        setMeleeSpriteTextureHeightSecondValue = true;
-                        MeleeSpriteTextureHeightSecondValue = 64;
-                        setMeleeSpriteTextureLeftSecondValue = true;
-                        MeleeSpriteTextureLeftSecondValue = 132;
-                        setMeleeSpriteTextureTopSecondValue = true;
-                        MeleeSpriteTextureTopSecondValue = 29;
-                        setMeleeSpriteTextureWidthSecondValue = true;
-                        MeleeSpriteTextureWidthSecondValue = 64;
-                        setMeleeSpriteWidthSecondValue = true;
-                        MeleeSpriteWidthSecondValue = 20f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.MeleeSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setMeleeSpriteXSecondValue = true;
-                        MeleeSpriteXSecondValue = 5f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.MeleeSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            SetProperty("MeleeText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.MeleeText.Font = "Moire ExtraBold";
-                        }
-                        setMeleeTextFontScaleSecondValue = true;
-                        MeleeTextFontScaleSecondValue = 0.8f;
-                        setMeleeTextFontSizeSecondValue = true;
-                        MeleeTextFontSizeSecondValue = 50;
-                        setMeleeTextHeightSecondValue = true;
-                        MeleeTextHeightSecondValue = 100f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.MeleeText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.MeleeText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                        }
-                        setMeleeTextOutlineThicknessSecondValue = true;
-                        MeleeTextOutlineThicknessSecondValue = 2;
-                        if (interpolationValue >= 1)
-                        {
-                            this.MeleeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MeleeContainer");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.MeleeText.Text = "0";
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.MeleeText.UseCustomFont = true;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.MeleeText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                        }
-                        setMeleeTextWidthSecondValue = true;
-                        MeleeTextWidthSecondValue = 70f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.MeleeText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.LeftResistances.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setNameContainerHeightSecondValue = true;
                         NameContainerHeightSecondValue = 20f;
@@ -1235,107 +909,83 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.RangedContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                            this.PiercingResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Piercing;
                         }
-                        setRangedContainerHeightSecondValue = true;
-                        RangedContainerHeightSecondValue = 20f;
+                        setPiercingResistHeightSecondValue = true;
+                        PiercingResistHeightSecondValue = 33.3f;
                         if (interpolationValue >= 1)
                         {
-                            this.RangedContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.RangedContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
-                        }
-                        setRangedContainerWidthSecondValue = true;
-                        RangedContainerWidthSecondValue = 100f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.RangedContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setRangedSpriteHeightSecondValue = true;
-                        RangedSpriteHeightSecondValue = 100f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.RangedSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.PiercingResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.RangedSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangedContainer");
+                            this.PiercingResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
                         }
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("RangedSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
+                            this.PiercingResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.RangedSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                            this.ResistanceContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                         }
-                        setRangedSpriteTextureHeightSecondValue = true;
-                        RangedSpriteTextureHeightSecondValue = 64;
-                        setRangedSpriteTextureLeftSecondValue = true;
-                        RangedSpriteTextureLeftSecondValue = 196;
-                        setRangedSpriteTextureTopSecondValue = true;
-                        RangedSpriteTextureTopSecondValue = 29;
-                        setRangedSpriteTextureWidthSecondValue = true;
-                        RangedSpriteTextureWidthSecondValue = 64;
-                        setRangedSpriteWidthSecondValue = true;
-                        RangedSpriteWidthSecondValue = 20f;
+                        setResistanceContainerHeightSecondValue = true;
+                        ResistanceContainerHeightSecondValue = 40f;
                         if (interpolationValue >= 1)
                         {
-                            this.RangedSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setRangedSpriteXSecondValue = true;
-                        RangedSpriteXSecondValue = 5f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.RangedSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            this.ResistanceContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("RangedText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            this.ResistanceContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                        }
+                        setResistanceContainerWidthSecondValue = true;
+                        ResistanceContainerWidthSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ResistanceContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.RangedText.Font = "Moire ExtraBold";
+                            this.RightResistances.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                         }
-                        setRangedTextFontScaleSecondValue = true;
-                        RangedTextFontScaleSecondValue = 0.8f;
-                        setRangedTextFontSizeSecondValue = true;
-                        RangedTextFontSizeSecondValue = 50;
-                        setRangedTextHeightSecondValue = true;
-                        RangedTextHeightSecondValue = 100f;
+                        setRightResistancesHeightSecondValue = true;
+                        RightResistancesHeightSecondValue = 100f;
                         if (interpolationValue >= 1)
                         {
-                            this.RangedText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.RightResistances.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.RangedText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            this.RightResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer");
                         }
-                        setRangedTextOutlineThicknessSecondValue = true;
-                        RangedTextOutlineThicknessSecondValue = 2;
+                        setRightResistancesWidthSecondValue = true;
+                        RightResistancesWidthSecondValue = 50f;
                         if (interpolationValue >= 1)
                         {
-                            this.RangedText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangedContainer");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.RangedText.Text = "0";
+                            this.RightResistances.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.RangedText.UseCustomFont = true;
+                            this.SpeedDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MoveSpeed;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.RangedText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            this.SpeedDisplay.AttributeText = "200";
                         }
-                        setRangedTextWidthSecondValue = true;
-                        RangedTextWidthSecondValue = 70f;
+                        setSpeedDisplayHeightSecondValue = true;
+                        SpeedDisplayHeightSecondValue = 20f;
                         if (interpolationValue >= 1)
                         {
-                            this.RangedText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.SpeedDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.SpeedDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.SpeedDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1401,121 +1051,45 @@
                         }
                         break;
                 }
-                if (setHealthContainerHeightFirstValue && setHealthContainerHeightSecondValue)
+                if (setBombardResistHeightFirstValue && setBombardResistHeightSecondValue)
                 {
-                    HealthContainer.Height = HealthContainerHeightFirstValue * (1 - interpolationValue) + HealthContainerHeightSecondValue * interpolationValue;
+                    BombardResist.Height = BombardResistHeightFirstValue * (1 - interpolationValue) + BombardResistHeightSecondValue * interpolationValue;
                 }
-                if (setHealthContainerWidthFirstValue && setHealthContainerWidthSecondValue)
+                if (setChemicalResistHeightFirstValue && setChemicalResistHeightSecondValue)
                 {
-                    HealthContainer.Width = HealthContainerWidthFirstValue * (1 - interpolationValue) + HealthContainerWidthSecondValue * interpolationValue;
+                    ChemicalResist.Height = ChemicalResistHeightFirstValue * (1 - interpolationValue) + ChemicalResistHeightSecondValue * interpolationValue;
                 }
-                if (setHealthSpriteHeightFirstValue && setHealthSpriteHeightSecondValue)
+                if (setElectricResistHeightFirstValue && setElectricResistHeightSecondValue)
                 {
-                    HealthSprite.Height = HealthSpriteHeightFirstValue * (1 - interpolationValue) + HealthSpriteHeightSecondValue * interpolationValue;
+                    ElectricResist.Height = ElectricResistHeightFirstValue * (1 - interpolationValue) + ElectricResistHeightSecondValue * interpolationValue;
                 }
-                if (setHealthSpriteTextureHeightFirstValue && setHealthSpriteTextureHeightSecondValue)
+                if (setFireResistHeightFirstValue && setFireResistHeightSecondValue)
                 {
-                    HealthSprite.TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(HealthSpriteTextureHeightFirstValue* (1 - interpolationValue) + HealthSpriteTextureHeightSecondValue * interpolationValue);
+                    FireResist.Height = FireResistHeightFirstValue * (1 - interpolationValue) + FireResistHeightSecondValue * interpolationValue;
                 }
-                if (setHealthSpriteTextureLeftFirstValue && setHealthSpriteTextureLeftSecondValue)
+                if (setFrostResistHeightFirstValue && setFrostResistHeightSecondValue)
                 {
-                    HealthSprite.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(HealthSpriteTextureLeftFirstValue* (1 - interpolationValue) + HealthSpriteTextureLeftSecondValue * interpolationValue);
+                    FrostResist.Height = FrostResistHeightFirstValue * (1 - interpolationValue) + FrostResistHeightSecondValue * interpolationValue;
                 }
-                if (setHealthSpriteTextureTopFirstValue && setHealthSpriteTextureTopSecondValue)
+                if (setHealthDisplayHeightFirstValue && setHealthDisplayHeightSecondValue)
                 {
-                    HealthSprite.TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(HealthSpriteTextureTopFirstValue* (1 - interpolationValue) + HealthSpriteTextureTopSecondValue * interpolationValue);
+                    HealthDisplay.Height = HealthDisplayHeightFirstValue * (1 - interpolationValue) + HealthDisplayHeightSecondValue * interpolationValue;
                 }
-                if (setHealthSpriteTextureWidthFirstValue && setHealthSpriteTextureWidthSecondValue)
+                if (setHealthDisplayWidthFirstValue && setHealthDisplayWidthSecondValue)
                 {
-                    HealthSprite.TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(HealthSpriteTextureWidthFirstValue* (1 - interpolationValue) + HealthSpriteTextureWidthSecondValue * interpolationValue);
-                }
-                if (setHealthSpriteWidthFirstValue && setHealthSpriteWidthSecondValue)
-                {
-                    HealthSprite.Width = HealthSpriteWidthFirstValue * (1 - interpolationValue) + HealthSpriteWidthSecondValue * interpolationValue;
-                }
-                if (setHealthSpriteXFirstValue && setHealthSpriteXSecondValue)
-                {
-                    HealthSprite.X = HealthSpriteXFirstValue * (1 - interpolationValue) + HealthSpriteXSecondValue * interpolationValue;
-                }
-                if (setHealthTextFontScaleFirstValue && setHealthTextFontScaleSecondValue)
-                {
-                    HealthText.FontScale = HealthTextFontScaleFirstValue * (1 - interpolationValue) + HealthTextFontScaleSecondValue * interpolationValue;
-                }
-                if (setHealthTextFontSizeFirstValue && setHealthTextFontSizeSecondValue)
-                {
-                    HealthText.FontSize = FlatRedBall.Math.MathFunctions.RoundToInt(HealthTextFontSizeFirstValue* (1 - interpolationValue) + HealthTextFontSizeSecondValue * interpolationValue);
-                }
-                if (setHealthTextHeightFirstValue && setHealthTextHeightSecondValue)
-                {
-                    HealthText.Height = HealthTextHeightFirstValue * (1 - interpolationValue) + HealthTextHeightSecondValue * interpolationValue;
-                }
-                if (setHealthTextOutlineThicknessFirstValue && setHealthTextOutlineThicknessSecondValue)
-                {
-                    HealthText.OutlineThickness = FlatRedBall.Math.MathFunctions.RoundToInt(HealthTextOutlineThicknessFirstValue* (1 - interpolationValue) + HealthTextOutlineThicknessSecondValue * interpolationValue);
-                }
-                if (setHealthTextWidthFirstValue && setHealthTextWidthSecondValue)
-                {
-                    HealthText.Width = HealthTextWidthFirstValue * (1 - interpolationValue) + HealthTextWidthSecondValue * interpolationValue;
+                    HealthDisplay.Width = HealthDisplayWidthFirstValue * (1 - interpolationValue) + HealthDisplayWidthSecondValue * interpolationValue;
                 }
                 if (setHeightFirstValue && setHeightSecondValue)
                 {
                     Height = HeightFirstValue * (1 - interpolationValue) + HeightSecondValue * interpolationValue;
                 }
-                if (setMeleeContainerHeightFirstValue && setMeleeContainerHeightSecondValue)
+                if (setLeftResistancesHeightFirstValue && setLeftResistancesHeightSecondValue)
                 {
-                    MeleeContainer.Height = MeleeContainerHeightFirstValue * (1 - interpolationValue) + MeleeContainerHeightSecondValue * interpolationValue;
+                    LeftResistances.Height = LeftResistancesHeightFirstValue * (1 - interpolationValue) + LeftResistancesHeightSecondValue * interpolationValue;
                 }
-                if (setMeleeContainerWidthFirstValue && setMeleeContainerWidthSecondValue)
+                if (setLeftResistancesWidthFirstValue && setLeftResistancesWidthSecondValue)
                 {
-                    MeleeContainer.Width = MeleeContainerWidthFirstValue * (1 - interpolationValue) + MeleeContainerWidthSecondValue * interpolationValue;
-                }
-                if (setMeleeSpriteHeightFirstValue && setMeleeSpriteHeightSecondValue)
-                {
-                    MeleeSprite.Height = MeleeSpriteHeightFirstValue * (1 - interpolationValue) + MeleeSpriteHeightSecondValue * interpolationValue;
-                }
-                if (setMeleeSpriteTextureHeightFirstValue && setMeleeSpriteTextureHeightSecondValue)
-                {
-                    MeleeSprite.TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(MeleeSpriteTextureHeightFirstValue* (1 - interpolationValue) + MeleeSpriteTextureHeightSecondValue * interpolationValue);
-                }
-                if (setMeleeSpriteTextureLeftFirstValue && setMeleeSpriteTextureLeftSecondValue)
-                {
-                    MeleeSprite.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(MeleeSpriteTextureLeftFirstValue* (1 - interpolationValue) + MeleeSpriteTextureLeftSecondValue * interpolationValue);
-                }
-                if (setMeleeSpriteTextureTopFirstValue && setMeleeSpriteTextureTopSecondValue)
-                {
-                    MeleeSprite.TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(MeleeSpriteTextureTopFirstValue* (1 - interpolationValue) + MeleeSpriteTextureTopSecondValue * interpolationValue);
-                }
-                if (setMeleeSpriteTextureWidthFirstValue && setMeleeSpriteTextureWidthSecondValue)
-                {
-                    MeleeSprite.TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(MeleeSpriteTextureWidthFirstValue* (1 - interpolationValue) + MeleeSpriteTextureWidthSecondValue * interpolationValue);
-                }
-                if (setMeleeSpriteWidthFirstValue && setMeleeSpriteWidthSecondValue)
-                {
-                    MeleeSprite.Width = MeleeSpriteWidthFirstValue * (1 - interpolationValue) + MeleeSpriteWidthSecondValue * interpolationValue;
-                }
-                if (setMeleeSpriteXFirstValue && setMeleeSpriteXSecondValue)
-                {
-                    MeleeSprite.X = MeleeSpriteXFirstValue * (1 - interpolationValue) + MeleeSpriteXSecondValue * interpolationValue;
-                }
-                if (setMeleeTextFontScaleFirstValue && setMeleeTextFontScaleSecondValue)
-                {
-                    MeleeText.FontScale = MeleeTextFontScaleFirstValue * (1 - interpolationValue) + MeleeTextFontScaleSecondValue * interpolationValue;
-                }
-                if (setMeleeTextFontSizeFirstValue && setMeleeTextFontSizeSecondValue)
-                {
-                    MeleeText.FontSize = FlatRedBall.Math.MathFunctions.RoundToInt(MeleeTextFontSizeFirstValue* (1 - interpolationValue) + MeleeTextFontSizeSecondValue * interpolationValue);
-                }
-                if (setMeleeTextHeightFirstValue && setMeleeTextHeightSecondValue)
-                {
-                    MeleeText.Height = MeleeTextHeightFirstValue * (1 - interpolationValue) + MeleeTextHeightSecondValue * interpolationValue;
-                }
-                if (setMeleeTextOutlineThicknessFirstValue && setMeleeTextOutlineThicknessSecondValue)
-                {
-                    MeleeText.OutlineThickness = FlatRedBall.Math.MathFunctions.RoundToInt(MeleeTextOutlineThicknessFirstValue* (1 - interpolationValue) + MeleeTextOutlineThicknessSecondValue * interpolationValue);
-                }
-                if (setMeleeTextWidthFirstValue && setMeleeTextWidthSecondValue)
-                {
-                    MeleeText.Width = MeleeTextWidthFirstValue * (1 - interpolationValue) + MeleeTextWidthSecondValue * interpolationValue;
+                    LeftResistances.Width = LeftResistancesWidthFirstValue * (1 - interpolationValue) + LeftResistancesWidthSecondValue * interpolationValue;
                 }
                 if (setNameContainerHeightFirstValue && setNameContainerHeightSecondValue)
                 {
@@ -1549,61 +1123,29 @@
                 {
                     NameText.Y = NameTextYFirstValue * (1 - interpolationValue) + NameTextYSecondValue * interpolationValue;
                 }
-                if (setRangedContainerHeightFirstValue && setRangedContainerHeightSecondValue)
+                if (setPiercingResistHeightFirstValue && setPiercingResistHeightSecondValue)
                 {
-                    RangedContainer.Height = RangedContainerHeightFirstValue * (1 - interpolationValue) + RangedContainerHeightSecondValue * interpolationValue;
+                    PiercingResist.Height = PiercingResistHeightFirstValue * (1 - interpolationValue) + PiercingResistHeightSecondValue * interpolationValue;
                 }
-                if (setRangedContainerWidthFirstValue && setRangedContainerWidthSecondValue)
+                if (setResistanceContainerHeightFirstValue && setResistanceContainerHeightSecondValue)
                 {
-                    RangedContainer.Width = RangedContainerWidthFirstValue * (1 - interpolationValue) + RangedContainerWidthSecondValue * interpolationValue;
+                    ResistanceContainer.Height = ResistanceContainerHeightFirstValue * (1 - interpolationValue) + ResistanceContainerHeightSecondValue * interpolationValue;
                 }
-                if (setRangedSpriteHeightFirstValue && setRangedSpriteHeightSecondValue)
+                if (setResistanceContainerWidthFirstValue && setResistanceContainerWidthSecondValue)
                 {
-                    RangedSprite.Height = RangedSpriteHeightFirstValue * (1 - interpolationValue) + RangedSpriteHeightSecondValue * interpolationValue;
+                    ResistanceContainer.Width = ResistanceContainerWidthFirstValue * (1 - interpolationValue) + ResistanceContainerWidthSecondValue * interpolationValue;
                 }
-                if (setRangedSpriteTextureHeightFirstValue && setRangedSpriteTextureHeightSecondValue)
+                if (setRightResistancesHeightFirstValue && setRightResistancesHeightSecondValue)
                 {
-                    RangedSprite.TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(RangedSpriteTextureHeightFirstValue* (1 - interpolationValue) + RangedSpriteTextureHeightSecondValue * interpolationValue);
+                    RightResistances.Height = RightResistancesHeightFirstValue * (1 - interpolationValue) + RightResistancesHeightSecondValue * interpolationValue;
                 }
-                if (setRangedSpriteTextureLeftFirstValue && setRangedSpriteTextureLeftSecondValue)
+                if (setRightResistancesWidthFirstValue && setRightResistancesWidthSecondValue)
                 {
-                    RangedSprite.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(RangedSpriteTextureLeftFirstValue* (1 - interpolationValue) + RangedSpriteTextureLeftSecondValue * interpolationValue);
+                    RightResistances.Width = RightResistancesWidthFirstValue * (1 - interpolationValue) + RightResistancesWidthSecondValue * interpolationValue;
                 }
-                if (setRangedSpriteTextureTopFirstValue && setRangedSpriteTextureTopSecondValue)
+                if (setSpeedDisplayHeightFirstValue && setSpeedDisplayHeightSecondValue)
                 {
-                    RangedSprite.TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(RangedSpriteTextureTopFirstValue* (1 - interpolationValue) + RangedSpriteTextureTopSecondValue * interpolationValue);
-                }
-                if (setRangedSpriteTextureWidthFirstValue && setRangedSpriteTextureWidthSecondValue)
-                {
-                    RangedSprite.TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(RangedSpriteTextureWidthFirstValue* (1 - interpolationValue) + RangedSpriteTextureWidthSecondValue * interpolationValue);
-                }
-                if (setRangedSpriteWidthFirstValue && setRangedSpriteWidthSecondValue)
-                {
-                    RangedSprite.Width = RangedSpriteWidthFirstValue * (1 - interpolationValue) + RangedSpriteWidthSecondValue * interpolationValue;
-                }
-                if (setRangedSpriteXFirstValue && setRangedSpriteXSecondValue)
-                {
-                    RangedSprite.X = RangedSpriteXFirstValue * (1 - interpolationValue) + RangedSpriteXSecondValue * interpolationValue;
-                }
-                if (setRangedTextFontScaleFirstValue && setRangedTextFontScaleSecondValue)
-                {
-                    RangedText.FontScale = RangedTextFontScaleFirstValue * (1 - interpolationValue) + RangedTextFontScaleSecondValue * interpolationValue;
-                }
-                if (setRangedTextFontSizeFirstValue && setRangedTextFontSizeSecondValue)
-                {
-                    RangedText.FontSize = FlatRedBall.Math.MathFunctions.RoundToInt(RangedTextFontSizeFirstValue* (1 - interpolationValue) + RangedTextFontSizeSecondValue * interpolationValue);
-                }
-                if (setRangedTextHeightFirstValue && setRangedTextHeightSecondValue)
-                {
-                    RangedText.Height = RangedTextHeightFirstValue * (1 - interpolationValue) + RangedTextHeightSecondValue * interpolationValue;
-                }
-                if (setRangedTextOutlineThicknessFirstValue && setRangedTextOutlineThicknessSecondValue)
-                {
-                    RangedText.OutlineThickness = FlatRedBall.Math.MathFunctions.RoundToInt(RangedTextOutlineThicknessFirstValue* (1 - interpolationValue) + RangedTextOutlineThicknessSecondValue * interpolationValue);
-                }
-                if (setRangedTextWidthFirstValue && setRangedTextWidthSecondValue)
-                {
-                    RangedText.Width = RangedTextWidthFirstValue * (1 - interpolationValue) + RangedTextWidthSecondValue * interpolationValue;
+                    SpeedDisplay.Height = SpeedDisplayHeightFirstValue * (1 - interpolationValue) + SpeedDisplayHeightSecondValue * interpolationValue;
                 }
                 if (setStatsContainerHeightFirstValue && setStatsContainerHeightSecondValue)
                 {
@@ -1650,51 +1192,19 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
-                bool setMeleeContainerHeightFirstValue = false;
-                bool setMeleeContainerHeightSecondValue = false;
-                float MeleeContainerHeightFirstValue= 0;
-                float MeleeContainerHeightSecondValue= 0;
                 switch(firstState)
                 {
                     case  HasMelee.True:
-                        setMeleeContainerHeightFirstValue = true;
-                        MeleeContainerHeightFirstValue = 20f;
-                        if (interpolationValue < 1)
-                        {
-                            this.MeleeContainer.Visible = true;
-                        }
                         break;
                     case  HasMelee.False:
-                        setMeleeContainerHeightFirstValue = true;
-                        MeleeContainerHeightFirstValue = 0f;
-                        if (interpolationValue < 1)
-                        {
-                            this.MeleeContainer.Visible = false;
-                        }
                         break;
                 }
                 switch(secondState)
                 {
                     case  HasMelee.True:
-                        setMeleeContainerHeightSecondValue = true;
-                        MeleeContainerHeightSecondValue = 20f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.MeleeContainer.Visible = true;
-                        }
                         break;
                     case  HasMelee.False:
-                        setMeleeContainerHeightSecondValue = true;
-                        MeleeContainerHeightSecondValue = 0f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.MeleeContainer.Visible = false;
-                        }
                         break;
-                }
-                if (setMeleeContainerHeightFirstValue && setMeleeContainerHeightSecondValue)
-                {
-                    MeleeContainer.Height = MeleeContainerHeightFirstValue * (1 - interpolationValue) + MeleeContainerHeightSecondValue * interpolationValue;
                 }
                 if (interpolationValue < 1)
                 {
@@ -1713,51 +1223,19 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
-                bool setRangedContainerHeightFirstValue = false;
-                bool setRangedContainerHeightSecondValue = false;
-                float RangedContainerHeightFirstValue= 0;
-                float RangedContainerHeightSecondValue= 0;
                 switch(firstState)
                 {
                     case  HasRanged.True:
-                        setRangedContainerHeightFirstValue = true;
-                        RangedContainerHeightFirstValue = 20f;
-                        if (interpolationValue < 1)
-                        {
-                            this.RangedContainer.Visible = true;
-                        }
                         break;
                     case  HasRanged.False:
-                        setRangedContainerHeightFirstValue = true;
-                        RangedContainerHeightFirstValue = 0f;
-                        if (interpolationValue < 1)
-                        {
-                            this.RangedContainer.Visible = false;
-                        }
                         break;
                 }
                 switch(secondState)
                 {
                     case  HasRanged.True:
-                        setRangedContainerHeightSecondValue = true;
-                        RangedContainerHeightSecondValue = 20f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.RangedContainer.Visible = true;
-                        }
                         break;
                     case  HasRanged.False:
-                        setRangedContainerHeightSecondValue = true;
-                        RangedContainerHeightSecondValue = 0f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.RangedContainer.Visible = false;
-                        }
                         break;
-                }
-                if (setRangedContainerHeightFirstValue && setRangedContainerHeightSecondValue)
-                {
-                    RangedContainer.Height = RangedContainerHeightFirstValue * (1 - interpolationValue) + RangedContainerHeightSecondValue * interpolationValue;
                 }
                 if (interpolationValue < 1)
                 {
@@ -1939,6 +1417,14 @@
             {
                 base.StopAnimations();
                 TallInfoFrameInstance.StopAnimations();
+                HealthDisplay.StopAnimations();
+                SpeedDisplay.StopAnimations();
+                PiercingResist.StopAnimations();
+                ChemicalResist.StopAnimations();
+                FrostResist.StopAnimations();
+                BombardResist.StopAnimations();
+                ElectricResist.StopAnimations();
+                FireResist.StopAnimations();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -2294,798 +1780,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "HealthContainer.Children Layout",
-                            Type = "ChildrenLayout",
-                            Value = HealthContainer.ChildrenLayout
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthContainer.Height",
-                            Type = "float",
-                            Value = HealthContainer.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthContainer.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = HealthContainer.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthContainer.Parent",
-                            Type = "string",
-                            Value = HealthContainer.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthContainer.Width",
-                            Type = "float",
-                            Value = HealthContainer.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthContainer.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = HealthContainer.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Height",
-                            Type = "float",
-                            Value = HealthSprite.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = HealthSprite.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Parent",
-                            Type = "string",
-                            Value = HealthSprite.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.SourceFile",
-                            Type = "string",
-                            Value = HealthSprite.SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Texture Address",
-                            Type = "TextureAddress",
-                            Value = HealthSprite.TextureAddress
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Texture Height",
-                            Type = "int",
-                            Value = HealthSprite.TextureHeight
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Texture Left",
-                            Type = "int",
-                            Value = HealthSprite.TextureLeft
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Texture Top",
-                            Type = "int",
-                            Value = HealthSprite.TextureTop
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Texture Width",
-                            Type = "int",
-                            Value = HealthSprite.TextureWidth
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Width",
-                            Type = "float",
-                            Value = HealthSprite.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = HealthSprite.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.X",
-                            Type = "float",
-                            Value = HealthSprite.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.X Units",
-                            Type = "PositionUnitType",
-                            Value = HealthSprite.XUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.CustomFontFile",
-                            Type = "string",
-                            Value = HealthText.CustomFontFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.Font",
-                            Type = "string",
-                            Value = HealthText.Font
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.Font Scale",
-                            Type = "float",
-                            Value = HealthText.FontScale
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.FontSize",
-                            Type = "int",
-                            Value = HealthText.FontSize
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.Height",
-                            Type = "float",
-                            Value = HealthText.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = HealthText.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.HorizontalAlignment",
-                            Type = "HorizontalAlignment",
-                            Value = HealthText.HorizontalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.OutlineThickness",
-                            Type = "int",
-                            Value = HealthText.OutlineThickness
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.Parent",
-                            Type = "string",
-                            Value = HealthText.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.Text",
-                            Type = "string",
-                            Value = HealthText.Text
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.UseCustomFont",
-                            Type = "bool",
-                            Value = HealthText.UseCustomFont
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.VerticalAlignment",
-                            Type = "VerticalAlignment",
-                            Value = HealthText.VerticalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.Width",
-                            Type = "float",
-                            Value = HealthText.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = HealthText.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Children Layout",
-                            Type = "ChildrenLayout",
-                            Value = MeleeContainer.ChildrenLayout
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Height",
-                            Type = "float",
-                            Value = MeleeContainer.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = MeleeContainer.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Parent",
-                            Type = "string",
-                            Value = MeleeContainer.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Width",
-                            Type = "float",
-                            Value = MeleeContainer.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = MeleeContainer.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Height",
-                            Type = "float",
-                            Value = MeleeSprite.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = MeleeSprite.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Parent",
-                            Type = "string",
-                            Value = MeleeSprite.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.SourceFile",
-                            Type = "string",
-                            Value = MeleeSprite.SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Texture Address",
-                            Type = "TextureAddress",
-                            Value = MeleeSprite.TextureAddress
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Texture Height",
-                            Type = "int",
-                            Value = MeleeSprite.TextureHeight
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Texture Left",
-                            Type = "int",
-                            Value = MeleeSprite.TextureLeft
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Texture Top",
-                            Type = "int",
-                            Value = MeleeSprite.TextureTop
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Texture Width",
-                            Type = "int",
-                            Value = MeleeSprite.TextureWidth
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Width",
-                            Type = "float",
-                            Value = MeleeSprite.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = MeleeSprite.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.X",
-                            Type = "float",
-                            Value = MeleeSprite.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.X Units",
-                            Type = "PositionUnitType",
-                            Value = MeleeSprite.XUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.CustomFontFile",
-                            Type = "string",
-                            Value = MeleeText.CustomFontFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.Font",
-                            Type = "string",
-                            Value = MeleeText.Font
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.Font Scale",
-                            Type = "float",
-                            Value = MeleeText.FontScale
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.FontSize",
-                            Type = "int",
-                            Value = MeleeText.FontSize
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.Height",
-                            Type = "float",
-                            Value = MeleeText.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = MeleeText.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.HorizontalAlignment",
-                            Type = "HorizontalAlignment",
-                            Value = MeleeText.HorizontalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.OutlineThickness",
-                            Type = "int",
-                            Value = MeleeText.OutlineThickness
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.Parent",
-                            Type = "string",
-                            Value = MeleeText.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.Text",
-                            Type = "string",
-                            Value = MeleeText.Text
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.UseCustomFont",
-                            Type = "bool",
-                            Value = MeleeText.UseCustomFont
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.VerticalAlignment",
-                            Type = "VerticalAlignment",
-                            Value = MeleeText.VerticalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.Width",
-                            Type = "float",
-                            Value = MeleeText.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = MeleeText.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Children Layout",
-                            Type = "ChildrenLayout",
-                            Value = RangedContainer.ChildrenLayout
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Height",
-                            Type = "float",
-                            Value = RangedContainer.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = RangedContainer.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Parent",
-                            Type = "string",
-                            Value = RangedContainer.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Width",
-                            Type = "float",
-                            Value = RangedContainer.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = RangedContainer.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Height",
-                            Type = "float",
-                            Value = RangedSprite.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = RangedSprite.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Parent",
-                            Type = "string",
-                            Value = RangedSprite.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.SourceFile",
-                            Type = "string",
-                            Value = RangedSprite.SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Texture Address",
-                            Type = "TextureAddress",
-                            Value = RangedSprite.TextureAddress
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Texture Height",
-                            Type = "int",
-                            Value = RangedSprite.TextureHeight
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Texture Left",
-                            Type = "int",
-                            Value = RangedSprite.TextureLeft
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Texture Top",
-                            Type = "int",
-                            Value = RangedSprite.TextureTop
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Texture Width",
-                            Type = "int",
-                            Value = RangedSprite.TextureWidth
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Width",
-                            Type = "float",
-                            Value = RangedSprite.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = RangedSprite.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.X",
-                            Type = "float",
-                            Value = RangedSprite.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.X Units",
-                            Type = "PositionUnitType",
-                            Value = RangedSprite.XUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.CustomFontFile",
-                            Type = "string",
-                            Value = RangedText.CustomFontFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.Font",
-                            Type = "string",
-                            Value = RangedText.Font
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.Font Scale",
-                            Type = "float",
-                            Value = RangedText.FontScale
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.FontSize",
-                            Type = "int",
-                            Value = RangedText.FontSize
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.Height",
-                            Type = "float",
-                            Value = RangedText.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = RangedText.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.HorizontalAlignment",
-                            Type = "HorizontalAlignment",
-                            Value = RangedText.HorizontalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.OutlineThickness",
-                            Type = "int",
-                            Value = RangedText.OutlineThickness
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.Parent",
-                            Type = "string",
-                            Value = RangedText.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.Text",
-                            Type = "string",
-                            Value = RangedText.Text
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.UseCustomFont",
-                            Type = "bool",
-                            Value = RangedText.UseCustomFont
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.VerticalAlignment",
-                            Type = "VerticalAlignment",
-                            Value = RangedText.VerticalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.Width",
-                            Type = "float",
-                            Value = RangedText.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = RangedText.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "TallInfoFrameInstance.Height",
                             Type = "float",
                             Value = TallInfoFrameInstance.Height
@@ -3097,6 +1791,494 @@
                             Name = "TallInfoFrameInstance.Width",
                             Type = "float",
                             Value = TallInfoFrameInstance.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HealthDisplay.AttributeIconTypeState",
+                            Type = "AttributeTypeState",
+                            Value = HealthDisplay.AttributeIconTypeState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HealthDisplay.AttributeText",
+                            Type = "string",
+                            Value = HealthDisplay.AttributeText
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HealthDisplay.Height",
+                            Type = "float",
+                            Value = HealthDisplay.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HealthDisplay.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = HealthDisplay.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HealthDisplay.Parent",
+                            Type = "string",
+                            Value = HealthDisplay.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HealthDisplay.Width",
+                            Type = "float",
+                            Value = HealthDisplay.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HealthDisplay.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = HealthDisplay.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpeedDisplay.AttributeIconTypeState",
+                            Type = "AttributeTypeState",
+                            Value = SpeedDisplay.AttributeIconTypeState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpeedDisplay.AttributeText",
+                            Type = "string",
+                            Value = SpeedDisplay.AttributeText
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpeedDisplay.Height",
+                            Type = "float",
+                            Value = SpeedDisplay.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpeedDisplay.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = SpeedDisplay.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpeedDisplay.Parent",
+                            Type = "string",
+                            Value = SpeedDisplay.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpeedDisplay.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = SpeedDisplay.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceContainer.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = ResistanceContainer.ChildrenLayout
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceContainer.Height",
+                            Type = "float",
+                            Value = ResistanceContainer.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceContainer.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ResistanceContainer.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceContainer.Parent",
+                            Type = "string",
+                            Value = ResistanceContainer.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceContainer.Width",
+                            Type = "float",
+                            Value = ResistanceContainer.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceContainer.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ResistanceContainer.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftResistances.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = LeftResistances.ChildrenLayout
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftResistances.Height",
+                            Type = "float",
+                            Value = LeftResistances.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftResistances.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = LeftResistances.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftResistances.Parent",
+                            Type = "string",
+                            Value = LeftResistances.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftResistances.Width",
+                            Type = "float",
+                            Value = LeftResistances.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftResistances.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = LeftResistances.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightResistances.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = RightResistances.ChildrenLayout
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightResistances.Height",
+                            Type = "float",
+                            Value = RightResistances.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightResistances.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = RightResistances.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightResistances.Parent",
+                            Type = "string",
+                            Value = RightResistances.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightResistances.Width",
+                            Type = "float",
+                            Value = RightResistances.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightResistances.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = RightResistances.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PiercingResist.DamageTypeIconState",
+                            Type = "DamageTypeState",
+                            Value = PiercingResist.DamageTypeIconState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PiercingResist.Height",
+                            Type = "float",
+                            Value = PiercingResist.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PiercingResist.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = PiercingResist.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PiercingResist.Parent",
+                            Type = "string",
+                            Value = PiercingResist.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PiercingResist.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = PiercingResist.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChemicalResist.DamageTypeIconState",
+                            Type = "DamageTypeState",
+                            Value = ChemicalResist.DamageTypeIconState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChemicalResist.Height",
+                            Type = "float",
+                            Value = ChemicalResist.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChemicalResist.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ChemicalResist.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChemicalResist.Parent",
+                            Type = "string",
+                            Value = ChemicalResist.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChemicalResist.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ChemicalResist.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrostResist.DamageTypeIconState",
+                            Type = "DamageTypeState",
+                            Value = FrostResist.DamageTypeIconState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrostResist.Height",
+                            Type = "float",
+                            Value = FrostResist.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrostResist.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = FrostResist.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrostResist.Parent",
+                            Type = "string",
+                            Value = FrostResist.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrostResist.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = FrostResist.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BombardResist.DamageTypeIconState",
+                            Type = "DamageTypeState",
+                            Value = BombardResist.DamageTypeIconState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BombardResist.Height",
+                            Type = "float",
+                            Value = BombardResist.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BombardResist.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = BombardResist.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BombardResist.Parent",
+                            Type = "string",
+                            Value = BombardResist.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BombardResist.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = BombardResist.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ElectricResist.DamageTypeIconState",
+                            Type = "DamageTypeState",
+                            Value = ElectricResist.DamageTypeIconState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ElectricResist.Height",
+                            Type = "float",
+                            Value = ElectricResist.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ElectricResist.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ElectricResist.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ElectricResist.Parent",
+                            Type = "string",
+                            Value = ElectricResist.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ElectricResist.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ElectricResist.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FireResist.DamageTypeIconState",
+                            Type = "DamageTypeState",
+                            Value = FireResist.DamageTypeIconState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FireResist.Height",
+                            Type = "float",
+                            Value = FireResist.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FireResist.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = FireResist.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FireResist.Parent",
+                            Type = "string",
+                            Value = FireResist.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FireResist.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = FireResist.WidthUnits
                         }
                         );
                         break;
@@ -3456,798 +2638,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "HealthContainer.Children Layout",
-                            Type = "ChildrenLayout",
-                            Value = HealthContainer.ChildrenLayout
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthContainer.Height",
-                            Type = "float",
-                            Value = HealthContainer.Height + 20f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthContainer.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = HealthContainer.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthContainer.Parent",
-                            Type = "string",
-                            Value = HealthContainer.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthContainer.Width",
-                            Type = "float",
-                            Value = HealthContainer.Width + 100f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthContainer.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = HealthContainer.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Height",
-                            Type = "float",
-                            Value = HealthSprite.Height + 100f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = HealthSprite.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Parent",
-                            Type = "string",
-                            Value = HealthSprite.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.SourceFile",
-                            Type = "string",
-                            Value = HealthSprite.SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Texture Address",
-                            Type = "TextureAddress",
-                            Value = HealthSprite.TextureAddress
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Texture Height",
-                            Type = "int",
-                            Value = HealthSprite.TextureHeight + 64
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Texture Left",
-                            Type = "int",
-                            Value = HealthSprite.TextureLeft + 68
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Texture Top",
-                            Type = "int",
-                            Value = HealthSprite.TextureTop + 29
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Texture Width",
-                            Type = "int",
-                            Value = HealthSprite.TextureWidth + 64
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Width",
-                            Type = "float",
-                            Value = HealthSprite.Width + 20f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = HealthSprite.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.X",
-                            Type = "float",
-                            Value = HealthSprite.X + 5f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthSprite.X Units",
-                            Type = "PositionUnitType",
-                            Value = HealthSprite.XUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.CustomFontFile",
-                            Type = "string",
-                            Value = HealthText.CustomFontFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.Font",
-                            Type = "string",
-                            Value = HealthText.Font
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.Font Scale",
-                            Type = "float",
-                            Value = HealthText.FontScale + 0.8f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.FontSize",
-                            Type = "int",
-                            Value = HealthText.FontSize + 50
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.Height",
-                            Type = "float",
-                            Value = HealthText.Height + 100f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = HealthText.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.HorizontalAlignment",
-                            Type = "HorizontalAlignment",
-                            Value = HealthText.HorizontalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.OutlineThickness",
-                            Type = "int",
-                            Value = HealthText.OutlineThickness + 2
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.Parent",
-                            Type = "string",
-                            Value = HealthText.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.Text",
-                            Type = "string",
-                            Value = HealthText.Text
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.UseCustomFont",
-                            Type = "bool",
-                            Value = HealthText.UseCustomFont
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.VerticalAlignment",
-                            Type = "VerticalAlignment",
-                            Value = HealthText.VerticalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.Width",
-                            Type = "float",
-                            Value = HealthText.Width + 70f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "HealthText.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = HealthText.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Children Layout",
-                            Type = "ChildrenLayout",
-                            Value = MeleeContainer.ChildrenLayout
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Height",
-                            Type = "float",
-                            Value = MeleeContainer.Height + 20f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = MeleeContainer.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Parent",
-                            Type = "string",
-                            Value = MeleeContainer.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Width",
-                            Type = "float",
-                            Value = MeleeContainer.Width + 100f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = MeleeContainer.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Height",
-                            Type = "float",
-                            Value = MeleeSprite.Height + 100f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = MeleeSprite.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Parent",
-                            Type = "string",
-                            Value = MeleeSprite.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.SourceFile",
-                            Type = "string",
-                            Value = MeleeSprite.SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Texture Address",
-                            Type = "TextureAddress",
-                            Value = MeleeSprite.TextureAddress
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Texture Height",
-                            Type = "int",
-                            Value = MeleeSprite.TextureHeight + 64
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Texture Left",
-                            Type = "int",
-                            Value = MeleeSprite.TextureLeft + 132
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Texture Top",
-                            Type = "int",
-                            Value = MeleeSprite.TextureTop + 29
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Texture Width",
-                            Type = "int",
-                            Value = MeleeSprite.TextureWidth + 64
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Width",
-                            Type = "float",
-                            Value = MeleeSprite.Width + 20f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = MeleeSprite.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.X",
-                            Type = "float",
-                            Value = MeleeSprite.X + 5f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeSprite.X Units",
-                            Type = "PositionUnitType",
-                            Value = MeleeSprite.XUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.CustomFontFile",
-                            Type = "string",
-                            Value = MeleeText.CustomFontFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.Font",
-                            Type = "string",
-                            Value = MeleeText.Font
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.Font Scale",
-                            Type = "float",
-                            Value = MeleeText.FontScale + 0.8f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.FontSize",
-                            Type = "int",
-                            Value = MeleeText.FontSize + 50
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.Height",
-                            Type = "float",
-                            Value = MeleeText.Height + 100f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = MeleeText.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.HorizontalAlignment",
-                            Type = "HorizontalAlignment",
-                            Value = MeleeText.HorizontalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.OutlineThickness",
-                            Type = "int",
-                            Value = MeleeText.OutlineThickness + 2
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.Parent",
-                            Type = "string",
-                            Value = MeleeText.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.Text",
-                            Type = "string",
-                            Value = MeleeText.Text
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.UseCustomFont",
-                            Type = "bool",
-                            Value = MeleeText.UseCustomFont
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.VerticalAlignment",
-                            Type = "VerticalAlignment",
-                            Value = MeleeText.VerticalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.Width",
-                            Type = "float",
-                            Value = MeleeText.Width + 70f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeText.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = MeleeText.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Children Layout",
-                            Type = "ChildrenLayout",
-                            Value = RangedContainer.ChildrenLayout
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Height",
-                            Type = "float",
-                            Value = RangedContainer.Height + 20f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = RangedContainer.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Parent",
-                            Type = "string",
-                            Value = RangedContainer.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Width",
-                            Type = "float",
-                            Value = RangedContainer.Width + 100f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = RangedContainer.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Height",
-                            Type = "float",
-                            Value = RangedSprite.Height + 100f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = RangedSprite.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Parent",
-                            Type = "string",
-                            Value = RangedSprite.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.SourceFile",
-                            Type = "string",
-                            Value = RangedSprite.SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Texture Address",
-                            Type = "TextureAddress",
-                            Value = RangedSprite.TextureAddress
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Texture Height",
-                            Type = "int",
-                            Value = RangedSprite.TextureHeight + 64
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Texture Left",
-                            Type = "int",
-                            Value = RangedSprite.TextureLeft + 196
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Texture Top",
-                            Type = "int",
-                            Value = RangedSprite.TextureTop + 29
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Texture Width",
-                            Type = "int",
-                            Value = RangedSprite.TextureWidth + 64
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Width",
-                            Type = "float",
-                            Value = RangedSprite.Width + 20f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = RangedSprite.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.X",
-                            Type = "float",
-                            Value = RangedSprite.X + 5f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedSprite.X Units",
-                            Type = "PositionUnitType",
-                            Value = RangedSprite.XUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.CustomFontFile",
-                            Type = "string",
-                            Value = RangedText.CustomFontFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.Font",
-                            Type = "string",
-                            Value = RangedText.Font
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.Font Scale",
-                            Type = "float",
-                            Value = RangedText.FontScale + 0.8f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.FontSize",
-                            Type = "int",
-                            Value = RangedText.FontSize + 50
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.Height",
-                            Type = "float",
-                            Value = RangedText.Height + 100f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = RangedText.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.HorizontalAlignment",
-                            Type = "HorizontalAlignment",
-                            Value = RangedText.HorizontalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.OutlineThickness",
-                            Type = "int",
-                            Value = RangedText.OutlineThickness + 2
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.Parent",
-                            Type = "string",
-                            Value = RangedText.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.Text",
-                            Type = "string",
-                            Value = RangedText.Text
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.UseCustomFont",
-                            Type = "bool",
-                            Value = RangedText.UseCustomFont
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.VerticalAlignment",
-                            Type = "VerticalAlignment",
-                            Value = RangedText.VerticalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.Width",
-                            Type = "float",
-                            Value = RangedText.Width + 70f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedText.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = RangedText.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "TallInfoFrameInstance.Height",
                             Type = "float",
                             Value = TallInfoFrameInstance.Height + 100f
@@ -4261,6 +2651,494 @@
                             Value = TallInfoFrameInstance.Width + 100f
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HealthDisplay.AttributeIconTypeState",
+                            Type = "AttributeTypeState",
+                            Value = HealthDisplay.AttributeIconTypeState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HealthDisplay.AttributeText",
+                            Type = "string",
+                            Value = HealthDisplay.AttributeText
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HealthDisplay.Height",
+                            Type = "float",
+                            Value = HealthDisplay.Height + 20f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HealthDisplay.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = HealthDisplay.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HealthDisplay.Parent",
+                            Type = "string",
+                            Value = HealthDisplay.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HealthDisplay.Width",
+                            Type = "float",
+                            Value = HealthDisplay.Width + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HealthDisplay.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = HealthDisplay.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpeedDisplay.AttributeIconTypeState",
+                            Type = "AttributeTypeState",
+                            Value = SpeedDisplay.AttributeIconTypeState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpeedDisplay.AttributeText",
+                            Type = "string",
+                            Value = SpeedDisplay.AttributeText
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpeedDisplay.Height",
+                            Type = "float",
+                            Value = SpeedDisplay.Height + 20f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpeedDisplay.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = SpeedDisplay.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpeedDisplay.Parent",
+                            Type = "string",
+                            Value = SpeedDisplay.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpeedDisplay.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = SpeedDisplay.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceContainer.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = ResistanceContainer.ChildrenLayout
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceContainer.Height",
+                            Type = "float",
+                            Value = ResistanceContainer.Height + 40f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceContainer.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ResistanceContainer.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceContainer.Parent",
+                            Type = "string",
+                            Value = ResistanceContainer.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceContainer.Width",
+                            Type = "float",
+                            Value = ResistanceContainer.Width + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceContainer.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ResistanceContainer.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftResistances.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = LeftResistances.ChildrenLayout
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftResistances.Height",
+                            Type = "float",
+                            Value = LeftResistances.Height + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftResistances.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = LeftResistances.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftResistances.Parent",
+                            Type = "string",
+                            Value = LeftResistances.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftResistances.Width",
+                            Type = "float",
+                            Value = LeftResistances.Width + 50f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftResistances.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = LeftResistances.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightResistances.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = RightResistances.ChildrenLayout
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightResistances.Height",
+                            Type = "float",
+                            Value = RightResistances.Height + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightResistances.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = RightResistances.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightResistances.Parent",
+                            Type = "string",
+                            Value = RightResistances.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightResistances.Width",
+                            Type = "float",
+                            Value = RightResistances.Width + 50f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightResistances.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = RightResistances.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PiercingResist.DamageTypeIconState",
+                            Type = "DamageTypeState",
+                            Value = PiercingResist.DamageTypeIconState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PiercingResist.Height",
+                            Type = "float",
+                            Value = PiercingResist.Height + 33.3f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PiercingResist.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = PiercingResist.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PiercingResist.Parent",
+                            Type = "string",
+                            Value = PiercingResist.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PiercingResist.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = PiercingResist.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChemicalResist.DamageTypeIconState",
+                            Type = "DamageTypeState",
+                            Value = ChemicalResist.DamageTypeIconState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChemicalResist.Height",
+                            Type = "float",
+                            Value = ChemicalResist.Height + 33.3f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChemicalResist.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ChemicalResist.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChemicalResist.Parent",
+                            Type = "string",
+                            Value = ChemicalResist.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ChemicalResist.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ChemicalResist.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrostResist.DamageTypeIconState",
+                            Type = "DamageTypeState",
+                            Value = FrostResist.DamageTypeIconState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrostResist.Height",
+                            Type = "float",
+                            Value = FrostResist.Height + 33.3f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrostResist.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = FrostResist.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrostResist.Parent",
+                            Type = "string",
+                            Value = FrostResist.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrostResist.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = FrostResist.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BombardResist.DamageTypeIconState",
+                            Type = "DamageTypeState",
+                            Value = BombardResist.DamageTypeIconState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BombardResist.Height",
+                            Type = "float",
+                            Value = BombardResist.Height + 33.3f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BombardResist.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = BombardResist.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BombardResist.Parent",
+                            Type = "string",
+                            Value = BombardResist.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BombardResist.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = BombardResist.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ElectricResist.DamageTypeIconState",
+                            Type = "DamageTypeState",
+                            Value = ElectricResist.DamageTypeIconState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ElectricResist.Height",
+                            Type = "float",
+                            Value = ElectricResist.Height + 33.3f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ElectricResist.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ElectricResist.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ElectricResist.Parent",
+                            Type = "string",
+                            Value = ElectricResist.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ElectricResist.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ElectricResist.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FireResist.DamageTypeIconState",
+                            Type = "DamageTypeState",
+                            Value = FireResist.DamageTypeIconState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FireResist.Height",
+                            Type = "float",
+                            Value = FireResist.Height + 33.3f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FireResist.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = FireResist.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FireResist.Parent",
+                            Type = "string",
+                            Value = FireResist.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FireResist.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = FireResist.WidthUnits
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -4271,40 +3149,8 @@
                 switch(state)
                 {
                     case  HasMelee.True:
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Height",
-                            Type = "float",
-                            Value = MeleeContainer.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Visible",
-                            Type = "bool",
-                            Value = MeleeContainer.Visible
-                        }
-                        );
                         break;
                     case  HasMelee.False:
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Height",
-                            Type = "float",
-                            Value = MeleeContainer.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Visible",
-                            Type = "bool",
-                            Value = MeleeContainer.Visible
-                        }
-                        );
                         break;
                 }
                 return newState;
@@ -4315,40 +3161,8 @@
                 switch(state)
                 {
                     case  HasMelee.True:
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Height",
-                            Type = "float",
-                            Value = MeleeContainer.Height + 20f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Visible",
-                            Type = "bool",
-                            Value = MeleeContainer.Visible
-                        }
-                        );
                         break;
                     case  HasMelee.False:
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Height",
-                            Type = "float",
-                            Value = MeleeContainer.Height + 0f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MeleeContainer.Visible",
-                            Type = "bool",
-                            Value = MeleeContainer.Visible
-                        }
-                        );
                         break;
                 }
                 return newState;
@@ -4359,40 +3173,8 @@
                 switch(state)
                 {
                     case  HasRanged.True:
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Height",
-                            Type = "float",
-                            Value = RangedContainer.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Visible",
-                            Type = "bool",
-                            Value = RangedContainer.Visible
-                        }
-                        );
                         break;
                     case  HasRanged.False:
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Height",
-                            Type = "float",
-                            Value = RangedContainer.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Visible",
-                            Type = "bool",
-                            Value = RangedContainer.Visible
-                        }
-                        );
                         break;
                 }
                 return newState;
@@ -4403,40 +3185,8 @@
                 switch(state)
                 {
                     case  HasRanged.True:
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Height",
-                            Type = "float",
-                            Value = RangedContainer.Height + 20f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Visible",
-                            Type = "bool",
-                            Value = RangedContainer.Visible
-                        }
-                        );
                         break;
                     case  HasRanged.False:
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Height",
-                            Type = "float",
-                            Value = RangedContainer.Height + 0f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "RangedContainer.Visible",
-                            Type = "bool",
-                            Value = RangedContainer.Visible
-                        }
-                        );
                         break;
                 }
                 return newState;
@@ -4468,46 +3218,18 @@
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime StatsContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime NameContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime NameText { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ContainerRuntime HealthContainer { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime HealthSprite { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TextRuntime HealthText { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ContainerRuntime MeleeContainer { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime MeleeSprite { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TextRuntime MeleeText { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ContainerRuntime RangedContainer { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime RangedSprite { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TextRuntime RangedText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TallInfoFrameRuntime TallInfoFrameInstance { get; set; }
-            public string EnemyHealth
-            {
-                get
-                {
-                    return HealthText.Text;
-                }
-                set
-                {
-                    if (HealthText.Text != value)
-                    {
-                        HealthText.Text = value;
-                        EnemyHealthChanged?.Invoke(this, null);
-                    }
-                }
-            }
-            public string EnemyMelee
-            {
-                get
-                {
-                    return MeleeText.Text;
-                }
-                set
-                {
-                    if (MeleeText.Text != value)
-                    {
-                        MeleeText.Text = value;
-                        EnemyMeleeChanged?.Invoke(this, null);
-                    }
-                }
-            }
+            private AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime HealthDisplay { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime SpeedDisplay { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ResistanceContainer { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ContainerRuntime LeftResistances { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ContainerRuntime RightResistances { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime PiercingResist { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime ChemicalResist { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime FrostResist { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime BombardResist { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime ElectricResist { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime FireResist { get; set; }
             public string EnemyName
             {
                 get
@@ -4523,29 +3245,13 @@
                     }
                 }
             }
-            public string EnemyRanged
-            {
-                get
-                {
-                    return RangedText.Text;
-                }
-                set
-                {
-                    if (RangedText.Text != value)
-                    {
-                        RangedText.Text = value;
-                        EnemyRangedChanged?.Invoke(this, null);
-                    }
-                }
-            }
             public event FlatRedBall.Gui.WindowEvent StatsContainerClick;
             public event FlatRedBall.Gui.WindowEvent NameContainerClick;
-            public event FlatRedBall.Gui.WindowEvent MeleeContainerClick;
             public event FlatRedBall.Gui.WindowEvent TallInfoFrameInstanceClick;
-            public event System.EventHandler EnemyHealthChanged;
-            public event System.EventHandler EnemyMeleeChanged;
+            public event FlatRedBall.Gui.WindowEvent ResistanceContainerClick;
+            public event FlatRedBall.Gui.WindowEvent LeftResistancesClick;
+            public event FlatRedBall.Gui.WindowEvent RightResistancesClick;
             public event System.EventHandler EnemyNameChanged;
-            public event System.EventHandler EnemyRangedChanged;
             public EnemyInfoRuntime (bool fullInstantiation = true) 
             	: base(false)
             {
@@ -4577,20 +3283,24 @@
                 StatsContainer = this.GetGraphicalUiElementByName("StatsContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 NameContainer = this.GetGraphicalUiElementByName("NameContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 NameText = this.GetGraphicalUiElementByName("NameText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                HealthContainer = this.GetGraphicalUiElementByName("HealthContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
-                HealthSprite = this.GetGraphicalUiElementByName("HealthSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
-                HealthText = this.GetGraphicalUiElementByName("HealthText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                MeleeContainer = this.GetGraphicalUiElementByName("MeleeContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
-                MeleeSprite = this.GetGraphicalUiElementByName("MeleeSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
-                MeleeText = this.GetGraphicalUiElementByName("MeleeText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                RangedContainer = this.GetGraphicalUiElementByName("RangedContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
-                RangedSprite = this.GetGraphicalUiElementByName("RangedSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
-                RangedText = this.GetGraphicalUiElementByName("RangedText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 TallInfoFrameInstance = this.GetGraphicalUiElementByName("TallInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.TallInfoFrameRuntime;
+                HealthDisplay = this.GetGraphicalUiElementByName("HealthDisplay") as AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime;
+                SpeedDisplay = this.GetGraphicalUiElementByName("SpeedDisplay") as AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime;
+                ResistanceContainer = this.GetGraphicalUiElementByName("ResistanceContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
+                LeftResistances = this.GetGraphicalUiElementByName("LeftResistances") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
+                RightResistances = this.GetGraphicalUiElementByName("RightResistances") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
+                PiercingResist = this.GetGraphicalUiElementByName("PiercingResist") as AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime;
+                ChemicalResist = this.GetGraphicalUiElementByName("ChemicalResist") as AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime;
+                FrostResist = this.GetGraphicalUiElementByName("FrostResist") as AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime;
+                BombardResist = this.GetGraphicalUiElementByName("BombardResist") as AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime;
+                ElectricResist = this.GetGraphicalUiElementByName("ElectricResist") as AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime;
+                FireResist = this.GetGraphicalUiElementByName("FireResist") as AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime;
                 StatsContainer.Click += (unused) => StatsContainerClick?.Invoke(this);
                 NameContainer.Click += (unused) => NameContainerClick?.Invoke(this);
-                MeleeContainer.Click += (unused) => MeleeContainerClick?.Invoke(this);
                 TallInfoFrameInstance.Click += (unused) => TallInfoFrameInstanceClick?.Invoke(this);
+                ResistanceContainer.Click += (unused) => ResistanceContainerClick?.Invoke(this);
+                LeftResistances.Click += (unused) => LeftResistancesClick?.Invoke(this);
+                RightResistances.Click += (unused) => RightResistancesClick?.Invoke(this);
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

@@ -27,6 +27,7 @@ namespace AbbatoirIntergrade.StaticManagers
 
         private static double _waveScore = 0;
         private static WaveData waveData;
+        private static double[] currentWaveInput;
 
         private static IModel MachineLearningModel;
         private static bool IsLearningTaskRunning = false;
@@ -240,14 +241,15 @@ namespace AbbatoirIntergrade.StaticManagers
             {
                 var newWaveEnemies = level.LastWave.CreatedEnemies;
                 _waveEnemyCount = newWaveEnemies.Count;
-                var waveInput = CurrentWaveToInput(newWaveEnemies);
-                waveData.WaveInputs.Add(waveInput);
+                currentWaveInput = CurrentWaveToInput(newWaveEnemies);
             }
         }
 
         public static void NotifyOfWaveEnd(object sender, EventArgs eventArgs)
         {
+            waveData.WaveInputs.Add(currentWaveInput);
             waveData.WaveScores.Add(_waveScore);
+
             _waveScore = 0;
             if (!IsLearningTaskRunning)
             {

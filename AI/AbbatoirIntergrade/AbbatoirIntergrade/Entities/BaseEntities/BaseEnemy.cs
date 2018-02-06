@@ -424,10 +424,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	    private void RemoveArrows()
 	    {
-	        foreach (var child in Children)
+	        for (var i = SpriteInstance.Children.Count-1; i >= 0; i--)
 	        {
+	            var child = SpriteInstance.Children[i];
+
 	            if (child is PiercingProjectile projectile)
 	            {
+	                //projectile.Visible = false;
+                    projectile.Instructions.Clear();
 	                TweenerManager.Self.StopAllTweenersOwnedBy(projectile);
                     projectile.Destroy();
 	            }

@@ -47,26 +47,26 @@
                             InfoContainer.Width = 0f;
                             InfoContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                             InfoContainer.X = 35f;
-                            SetProperty("WaveTextInstance.CustomFontFile", "FontCache/Font50Moire ExtraBold_o2.fnt");
+                            SetProperty("WaveTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             WaveTextInstance.Height = 0f;
                             WaveTextInstance.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                             WaveTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
-                            WaveTextInstance.Text = "Wave #";
+                            WaveTextInstance.Text = "Wave 0";
                             WaveTextInstance.UseCustomFont = true;
                             WaveTextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            WaveTextInstance.Width = 0f;
+                            WaveTextInstance.Width = 300f;
                             WaveTextInstance.X = 200f;
                             WaveTextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                             WaveTextInstance.Y = 0f;
-                            SetProperty("TimeTextInstance.CustomFontFile", "FontCache/Font50Moire ExtraBold_o2.fnt");
+                            SetProperty("TimeTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             TimeTextInstance.FontScale = 0.7f;
                             TimeTextInstance.Height = 0f;
                             TimeTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
-                            TimeTextInstance.Text = "Time: MM:SS";
+                            TimeTextInstance.Text = "Time: 00:00.00";
                             TimeTextInstance.UseCustomFont = true;
                             TimeTextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            TimeTextInstance.Width = 0f;
-                            TimeTextInstance.X = 250f;
+                            TimeTextInstance.Width = 450f;
+                            TimeTextInstance.X = 80f;
                             TimeTextInstance.Y = 0f;
                             PauseButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Pause;
                             PauseButton.Height = 64f;
@@ -441,7 +441,7 @@
                         TimeButtonContainerYFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
-                            SetProperty("TimeTextInstance.CustomFontFile", "FontCache/Font50Moire ExtraBold_o2.fnt");
+                            SetProperty("TimeTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                         }
                         setTimeTextInstanceFontScaleFirstValue = true;
                         TimeTextInstanceFontScaleFirstValue = 0.7f;
@@ -453,7 +453,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.TimeTextInstance.Text = "Time: MM:SS";
+                            this.TimeTextInstance.Text = "Time: 00:00.00";
                         }
                         if (interpolationValue < 1)
                         {
@@ -464,14 +464,14 @@
                             this.TimeTextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         setTimeTextInstanceWidthFirstValue = true;
-                        TimeTextInstanceWidthFirstValue = 0f;
+                        TimeTextInstanceWidthFirstValue = 450f;
                         setTimeTextInstanceXFirstValue = true;
-                        TimeTextInstanceXFirstValue = 250f;
+                        TimeTextInstanceXFirstValue = 80f;
                         setTimeTextInstanceYFirstValue = true;
                         TimeTextInstanceYFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
-                            SetProperty("WaveTextInstance.CustomFontFile", "FontCache/Font50Moire ExtraBold_o2.fnt");
+                            SetProperty("WaveTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                         }
                         setWaveTextInstanceHeightFirstValue = true;
                         WaveTextInstanceHeightFirstValue = 0f;
@@ -485,7 +485,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.WaveTextInstance.Text = "Wave #";
+                            this.WaveTextInstance.Text = "Wave 0";
                         }
                         if (interpolationValue < 1)
                         {
@@ -496,7 +496,7 @@
                             this.WaveTextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         setWaveTextInstanceWidthFirstValue = true;
-                        WaveTextInstanceWidthFirstValue = 0f;
+                        WaveTextInstanceWidthFirstValue = 300f;
                         setWaveTextInstanceXFirstValue = true;
                         WaveTextInstanceXFirstValue = 200f;
                         if (interpolationValue < 1)
@@ -670,7 +670,7 @@
                         TimeButtonContainerYSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("TimeTextInstance.CustomFontFile", "FontCache/Font50Moire ExtraBold_o2.fnt");
+                            SetProperty("TimeTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                         }
                         setTimeTextInstanceFontScaleSecondValue = true;
                         TimeTextInstanceFontScaleSecondValue = 0.7f;
@@ -682,7 +682,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.TimeTextInstance.Text = "Time: MM:SS";
+                            this.TimeTextInstance.Text = "Time: 00:00.00";
                         }
                         if (interpolationValue >= 1)
                         {
@@ -693,14 +693,14 @@
                             this.TimeTextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         setTimeTextInstanceWidthSecondValue = true;
-                        TimeTextInstanceWidthSecondValue = 0f;
+                        TimeTextInstanceWidthSecondValue = 450f;
                         setTimeTextInstanceXSecondValue = true;
-                        TimeTextInstanceXSecondValue = 250f;
+                        TimeTextInstanceXSecondValue = 80f;
                         setTimeTextInstanceYSecondValue = true;
                         TimeTextInstanceYSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("WaveTextInstance.CustomFontFile", "FontCache/Font50Moire ExtraBold_o2.fnt");
+                            SetProperty("WaveTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                         }
                         setWaveTextInstanceHeightSecondValue = true;
                         WaveTextInstanceHeightSecondValue = 0f;
@@ -714,7 +714,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.WaveTextInstance.Text = "Wave #";
+                            this.WaveTextInstance.Text = "Wave 0";
                         }
                         if (interpolationValue >= 1)
                         {
@@ -725,7 +725,7 @@
                             this.WaveTextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         setWaveTextInstanceWidthSecondValue = true;
-                        WaveTextInstanceWidthSecondValue = 0f;
+                        WaveTextInstanceWidthSecondValue = 300f;
                         setWaveTextInstanceXSecondValue = true;
                         WaveTextInstanceXSecondValue = 200f;
                         if (interpolationValue >= 1)
@@ -1856,7 +1856,7 @@
                             SetsValue = true,
                             Name = "WaveTextInstance.Width",
                             Type = "float",
-                            Value = WaveTextInstance.Width + 0f
+                            Value = WaveTextInstance.Width + 300f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1944,7 +1944,7 @@
                             SetsValue = true,
                             Name = "TimeTextInstance.Width",
                             Type = "float",
-                            Value = TimeTextInstance.Width + 0f
+                            Value = TimeTextInstance.Width + 450f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1952,7 +1952,7 @@
                             SetsValue = true,
                             Name = "TimeTextInstance.X",
                             Type = "float",
-                            Value = TimeTextInstance.X + 250f
+                            Value = TimeTextInstance.X + 80f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FlatRedBall;
 using FlatRedBall.Gui;
 using AbbatoirIntergrade.Entities.BaseEntities;
+using AbbatoirIntergrade.Entities.Structures;
 using AbbatoirIntergrade.StaticManagers;
 using Microsoft.Xna.Framework;
 
@@ -50,10 +51,40 @@ namespace AbbatoirIntergrade.GumRuntimes
             Y = MathHelper.Clamp(newY, -minMaxY, minMaxY);
 
             StructureName = structureShown.DisplayName;
+            AttackDamageType.ResistanceText = structure.AttackDamage.ToString();
+            MinRange.AttributeText = structure.MinimumRangeRadius.ToString();
+            MaxRange.AttributeText = structure.RangedRadius.ToString();
+            AttackSpeed.AttributeText = structure.SecondsBetweenFiring.ToString() + " sec";
+            PointOrSplash.AttributeText = structure.HasSplashDamage ? "Group" : "Single";
+            SetIcon(structure.GetType());
+        }
 
-            CurrentHasBatteryState = HasBattery.False;
-
-            CurrentResourceUsageState = ResourceUsage.True;
+        private void SetIcon(Type tower)
+        {
+            if (tower == typeof(PiercingTower))
+            {
+                AttackDamageType.DamageTypeIconState = DamageTypeIconRuntime.DamageType.Piercing;
+            }
+            else if (tower == typeof(BombardingTower))
+            {
+                AttackDamageType.DamageTypeIconState = DamageTypeIconRuntime.DamageType.Bombarding;
+            }
+            else if (tower == typeof(ChemicalTower))
+            {
+                AttackDamageType.DamageTypeIconState = DamageTypeIconRuntime.DamageType.Chemical;
+            }
+            else if (tower == typeof(FireTower))
+            {
+                AttackDamageType.DamageTypeIconState = DamageTypeIconRuntime.DamageType.Fire;
+            }
+            else if (tower == typeof(FrostTower))
+            {
+                AttackDamageType.DamageTypeIconState = DamageTypeIconRuntime.DamageType.Frost;
+            }
+            else if (tower == typeof(ElectricTower))
+            {
+                AttackDamageType.DamageTypeIconState = DamageTypeIconRuntime.DamageType.Electric;
+            }
         }
 
         public void Hide()

@@ -90,6 +90,7 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static List<Type> GetAvailableTowers()
         {
+            if (Data == null) LoadData();
             return Data.AvailableTowers.Select(Type.GetType).Where(towerType => towerType != null).ToList();
         }
 

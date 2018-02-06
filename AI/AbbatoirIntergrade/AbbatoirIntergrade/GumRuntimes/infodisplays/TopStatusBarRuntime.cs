@@ -94,5 +94,21 @@ namespace AbbatoirIntergrade.GumRuntimes
         {
             MenuButton.CallClick();
         }
+
+        public void UpdateWave(int currentLevelCurrentWaveNumber)
+        {
+            WaveTextInstance.Text = $"Wave {currentLevelCurrentWaveNumber}";
+        }
+
+        public void UpdateTime(double currentTime)
+        {
+            var totalSeconds = (int)currentTime;
+            var milliSeconds = (int)((currentTime - totalSeconds) * 100);
+            var seconds = totalSeconds % 60;
+            var minutes = totalSeconds / 60;
+            var  time = minutes.ToString("00") + ":" + seconds.ToString("00") + "." + milliSeconds.ToString("00");
+
+            TimeTextInstance.Text = $"Time: {time}";
+        }
     }
 }

@@ -317,13 +317,21 @@
     <Compile Include="GumRuntimes\HorizonBoxRuntime.Generated.cs">
       <DependentUpon>HorizonBoxRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\infodisplays\AttributeDisplayRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\AttributeIconRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\AttributIconRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\ChatOptionRuntime.cs" />
     <Compile Include="GumRuntimes\infodisplays\ChatOptionRuntime.Generated.cs">
       <DependentUpon>ChatOptionRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\infodisplays\DamageTypeIconRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\EnemyInfoRuntime.cs" />
     <Compile Include="GumRuntimes\infodisplays\EnemyInfoRuntime.Generated.cs">
       <DependentUpon>EnemyInfoRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\infodisplays\ResistanceDisplayRuntime.cs" />
+    <Compile Include="GumRuntimes\infodisplays\ResistanceDisplayRuntime.Generated.cs">
+      <DependentUpon>ResistanceDisplayRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\infodisplays\ResourceIncreaseNotificationRuntime.cs" />
     <Compile Include="GumRuntimes\infodisplays\ResourceIncreaseNotificationRuntime.Generated.cs">
@@ -1214,13 +1222,29 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>HorizonBox</Name>
     </None>
+    <None Include="content\gumproject\components\infodisplays\attributedisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AttributeDisplay</Name>
+    </None>
+    <None Include="content\gumproject\components\infodisplays\attributeicon.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AttributeIcon</Name>
+    </None>
     <None Include="content\gumproject\components\infodisplays\chatoption.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ChatOption</Name>
     </None>
+    <None Include="content\gumproject\components\infodisplays\damagetypeicon.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>DamageTypeIcon</Name>
+    </None>
     <None Include="content\gumproject\components\infodisplays\enemyinfo.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>EnemyInfo</Name>
+    </None>
+    <None Include="content\gumproject\components\infodisplays\resistancedisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ResistanceDisplay</Name>
     </None>
     <None Include="content\gumproject\components\infodisplays\resourceincreasenotification.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1341,14 +1365,6 @@
     <None Include="content\gumproject\fontcache\font48bahnschrift_1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font48Bahnschrift_1</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font50moire extrabold_o2.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font50Moire ExtraBold_o2</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font50moire extrabold_o2_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font50Moire ExtraBold_o2_0</Name>
     </None>
     <None Include="content\gumproject\gumproject.gumx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

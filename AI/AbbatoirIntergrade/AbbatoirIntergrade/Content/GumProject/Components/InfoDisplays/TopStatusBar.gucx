@@ -338,7 +338,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>TimeTextInstance.CustomFontFile</Name>
-      <Value xsi:type="xsd:string">FontCache/Font50Moire ExtraBold_o2.fnt</Value>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -362,7 +362,7 @@
     <Variable>
       <Type>string</Type>
       <Name>TimeTextInstance.Text</Name>
-      <Value xsi:type="xsd:string">Time: MM:SS</Value>
+      <Value xsi:type="xsd:string">Time: 00:00.00</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -380,13 +380,13 @@
     <Variable>
       <Type>float</Type>
       <Name>TimeTextInstance.Width</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">450</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>TimeTextInstance.X</Name>
-      <Value xsi:type="xsd:float">250</Value>
+      <Value xsi:type="xsd:float">80</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -399,7 +399,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>WaveTextInstance.CustomFontFile</Name>
-      <Value xsi:type="xsd:string">FontCache/Font50Moire ExtraBold_o2.fnt</Value>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -423,7 +423,7 @@
     <Variable>
       <Type>string</Type>
       <Name>WaveTextInstance.Text</Name>
-      <Value xsi:type="xsd:string">Wave #</Value>
+      <Value xsi:type="xsd:string">Wave 0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -441,7 +441,7 @@
     <Variable>
       <Type>float</Type>
       <Name>WaveTextInstance.Width</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">300</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

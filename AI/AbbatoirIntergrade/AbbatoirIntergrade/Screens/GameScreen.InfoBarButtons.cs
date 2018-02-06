@@ -53,5 +53,10 @@ namespace AbbatoirIntergrade.Screens
             if (!TopStatusBarInstance.WasPausedWhenMenuClicked) UnpauseThisScreen();
             TopStatusBarInstance.PauseForMenu(IsPaused);
         }
+
+        private void UpdateInfoBar(object sender, EventArgs e)
+        {
+            TopStatusBarInstance.UpdateWave(CurrentLevel.CurrentWaveNumber);
+        }
     }
 }

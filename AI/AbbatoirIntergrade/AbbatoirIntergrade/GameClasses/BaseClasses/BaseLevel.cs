@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using FlatRedBall.Graphics;
 using AbbatoirIntergrade.Entities.BaseEntities;
@@ -11,6 +12,7 @@ using AbbatoirIntergrade.GameClasses.Interfaces;
 using AbbatoirIntergrade.GumRuntimes;
 using AbbatoirIntergrade.StaticManagers;
 using FlatRedBall;
+using FlatRedBall.Instructions;
 using FlatRedBall.TileGraphics;
 
 namespace AbbatoirIntergrade.GameClasses.BaseClasses
@@ -80,21 +82,11 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
                 OnWaveEnd?.Invoke(this, null);
             }
 
-            if (IsReadyForNextWave)
+            if (!IsReadyForNextWave) return;
+
+            if (!_lastEnemyWaveTime.HasValue || (TimeManager.SecondsSince(_lastEnemyWaveTime.Value) >= SecondsBetweenWaves && _enemyList.Count == 0))
             {
-                if (!_lastEnemyWaveTime.HasValue)
-                {
-                    CreateEnemiesForWave();
-                }
-                else if (TimeManager.SecondsSince(_lastEnemyWaveTime.Value) >= SecondsBetweenWaves &&
-                         _enemyList.Count == 0)
-                {
-                    CreateEnemiesForWave();
-                }
-                InstructEnemiesToReportDeaths();
-                OnNewWaveStart?.Invoke(this, null);
-                IsReadyForNextWave = false;
-                _waveHasEnded = false;
+                StartCreatingEnemiesForWave();
             }
         }
 
@@ -111,15 +103,34 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
             LevelResults.EnemiesDefeated.Add(enemy.GetEnemyType());
         }
 
-        private void CreateEnemiesForWave()
+        private void StartCreatingEnemiesForWave()
         {
-            var currentWave = CurrentWaveNumber < Waves.Count ? Waves[CurrentWaveNumber] : GenerateWave();
+            Action actionToRun = () =>
+            {
+                var currentWave = CurrentWaveNumber < Waves.Count ? Waves[CurrentWaveNumber] : GenerateWave();
+
+                Action stuffToDoOnPrimaryThread = () => FinishCreatingEnemiesForWave(currentWave);
+                InstructionManager.AddSafe(stuffToDoOnPrimaryThread);
+            };
+
+            var threadStart = new ThreadStart(actionToRun);
+            var thread = new Thread(threadStart);
+            thread.Start();
+        }
+
+        private void FinishCreatingEnemiesForWave(BaseWave currentWave)
+        {
             currentWave.CreateEnemies();
 
             CurrentWaveNumber++;
 
             LastWave = currentWave;
             _lastEnemyWaveTime = TimeManager.CurrentTime;
+
+            InstructEnemiesToReportDeaths();
+            OnNewWaveStart?.Invoke(this, null);
+            IsReadyForNextWave = false;
+            _waveHasEnded = false;
         }
 
         private BaseWave GenerateWave()

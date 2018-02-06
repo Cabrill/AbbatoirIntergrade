@@ -73,14 +73,16 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 
 	            var rotation = RotationZ;
 
-                AttachTo(enemy,false);
-	            RelativeX = impactOffsetX * (fromLeft ? -1 : 1) + CircleInstance.RelativeY-10f;
-	            RelativeY = impactOffsetY * (fromAbove ? 1 : -1);
+                AttachTo(enemy.SpriteInstance, true);
+	            RelativeX = (impactOffsetX + CircleInstance.RelativeY - 10f) * (fromLeft ? -1 : 1);
+	            RelativeY = 0;
 
-	            RelativeRotationZ = rotation;
+	            //RelativeRotationZ = rotation;
 	        }
-
-	        this.Tween(FadeOut, 1, 0f, 2, InterpolationType.Exponential, Easing.Out);
+            this.Call(() =>
+            { 
+	            this.Tween(FadeOut, 1, 0f, 2, InterpolationType.Exponential, Easing.Out);
+            }).After(3);
 	    }
 
 
