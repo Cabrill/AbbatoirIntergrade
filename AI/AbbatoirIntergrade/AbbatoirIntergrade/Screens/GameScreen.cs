@@ -66,7 +66,7 @@ namespace AbbatoirIntergrade.Screens
 #endif
             FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
 
-            MachineLearningManager.LoadData();
+            GameStateManager.LoadAllData();
 
             resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
@@ -74,11 +74,8 @@ namespace AbbatoirIntergrade.Screens
 
             //TODO:  Set these values by loading a level
             CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
-            CurrentLevel.OnNewWaveStart += UpdateInfoBar;
-            CurrentLevel.OnNewWaveStart += UpdateDialogue;
-            CurrentLevel.OnNewWaveStart += MachineLearningManager.NotifyOfWaveStart;
+            CurrentLevel.OnNewWaveStart += HandleWaveStarted;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
-            CurrentLevel.OnWaveEnd += MachineLearningManager.NotifyOfWaveEnd;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
             currentLevelDateTime = CurrentLevel.StartTime;
 
@@ -87,8 +84,6 @@ namespace AbbatoirIntergrade.Screens
             LoadTiledMap();
 
             InitializeBaseEntities();
-
-            PlayerDataManager.LoadData();
 
             AssignGumButtonEvents();
 
@@ -111,6 +106,13 @@ namespace AbbatoirIntergrade.Screens
             SoundManager.PlaySongList(CurrentLevel.SongNameList);
         }
 
+        private void HandleWaveStarted(object sender, EventArgs e)
+        {
+            UpdateInfoBar();
+            UpdateDialogue();
+            MachineLearningManager.NotifyOfWaveStart(sender, e);
+        }
+
         private void HandleWaveEnded(object sender, EventArgs e)
         {
             if (StructurePlacementList.Any(sp => sp.Visible))
@@ -121,6 +123,7 @@ namespace AbbatoirIntergrade.Screens
             {
                 ChangeGameModeToNormal();
             }
+            MachineLearningManager.NotifyOfWaveEnd();
         }
 
         private void InitializeShaders()
@@ -724,7 +727,7 @@ namespace AbbatoirIntergrade.Screens
 
         }
 
-        private void UpdateDialogue(object sender, EventArgs eventArgs)
+        private void UpdateDialogue()
         {
             if (!ChatBoxInstance.Visible)
             {
@@ -827,8 +830,6 @@ namespace AbbatoirIntergrade.Screens
 
         static void CustomLoadStaticContent(string contentManagerName)
         {
-            var allTowers = PlayerDataManager.GetAvailableTowers();
-
             foreach (var tower in PlayerDataManager.GetAvailableTowers())
             {
                 if (tower == typeof(PiercingTower))

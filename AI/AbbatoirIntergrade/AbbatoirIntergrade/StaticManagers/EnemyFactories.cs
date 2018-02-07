@@ -8,6 +8,7 @@ using AbbatoirIntergrade.Factories;
 using AbbatoirIntergrade.Performance;
 using AbbatoirIntergrade.UtilityClasses;
 using Accord.Genetic;
+using Accord.IO;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math.Geometry;
 
@@ -16,23 +17,20 @@ namespace AbbatoirIntergrade.StaticManagers
     public static class EnemyFactories
     {
         private static Polygon _groundPathing;
-        private static Polygon _airPathing;
 
-        public static void SetGroundPathing(Polygon groundPath, Polygon airPath = null)
+        public static void SetGroundPathing(Polygon groundPath)
         {
             _groundPathing = groundPath;
-            _airPathing = airPath ?? groundPath;
         }
 
         public static BaseEnemy CreateNew(EnemyTypes enemyType, SerializableChromosome chromosome = null)
         {
             BaseEnemy newEnemy = null;
-            Polygon lineToFollow = _groundPathing;
             switch (enemyType)
             {
                 case EnemyTypes.Chicken1: newEnemy = Chicken1EnemyFactory.CreateNew(); break;
                 case EnemyTypes.Chicken2: newEnemy = Chicken2EnemyFactory.CreateNew(); break;
-                case EnemyTypes.Chicken3: newEnemy = Chicken3EnemyFactory.CreateNew(); lineToFollow = _airPathing; break;
+                case EnemyTypes.Chicken3: newEnemy = Chicken3EnemyFactory.CreateNew(); break;
 
                 case EnemyTypes.Rabbit1: newEnemy = Rabbit1EnemyFactory.CreateNew(); break;
                 case EnemyTypes.Rabbit2: newEnemy = Rabbit2EnemyFactory.CreateNew(); break;
@@ -52,7 +50,7 @@ namespace AbbatoirIntergrade.StaticManagers
             }
             newEnemy?.SetGenetics(chromosome ?? GeneticsManager.GenerateNewChromsome());
 
-            newEnemy?.FollowLine(lineToFollow);
+            newEnemy?.FollowLine(_groundPathing);
 
             return newEnemy;
         }

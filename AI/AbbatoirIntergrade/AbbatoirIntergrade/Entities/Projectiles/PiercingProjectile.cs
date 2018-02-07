@@ -12,6 +12,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Math.Statistics;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using StateInterpolationPlugin;
 
@@ -64,26 +65,38 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 	    protected override void CustomHandleImpact(BaseEnemy enemy = null)
 	    {
             if (enemy != null)
-	        {
-	            var impactOffsetX = FlatRedBallServices.Random.NextFloat(enemy.SpriteInstance.Width * 0.1f);
-                var impactOffsetY = FlatRedBallServices.Random.NextFloat(enemy.SpriteInstance.Height * 0.1f);
-
-                var fromAbove = enemy.Y < Y;
-	            var fromLeft = enemy.X > X;
-
-	            var rotation = RotationZ;
-
-                AttachTo(enemy.SpriteInstance, true);
-	            RelativeX = (impactOffsetX + CircleInstance.RelativeY - 10f) * (fromLeft ? -1 : 1);
-	            RelativeY = 0;
-
-	            //RelativeRotationZ = rotation;
+            {
+                AttachProjectiledToEnemy(enemy);
 	        }
             this.Call(() =>
             { 
 	            this.Tween(FadeOut, 1, 0f, 2, InterpolationType.Exponential, Easing.Out);
             }).After(3);
 	    }
+
+	    private void AttachProjectiledToEnemy(BaseEnemy enemy)
+	    {
+	        var direction = new Vector3(
+	            (float)-Math.Cos(RotationZ),
+	            (float)-Math.Sin(RotationZ), 0);
+	        direction.Normalize();
+
+	        var fromAbove = enemy.Y < Y;
+	        var fromLeft = enemy.X > X;
+
+            AttachTo(enemy.SpriteInstance, true);
+
+	        var impactOffsetX = FlatRedBallServices.Random.NextFloat(enemy.SpriteInstance.Width * 0.1f);
+	        var impactOffsetY = FlatRedBallServices.Random.NextFloat(enemy.SpriteInstance.Height * 0.1f);
+
+            var effectiveX = (impactOffsetX * (fromLeft ? -1 : 1)) - 
+	                         (CircleInstance.RelativeY - 15f) * direction.Y;
+	        var effectiveY = (impactOffsetY * (fromAbove ? -1 : 1)) +
+	                         (CircleInstance.RelativeY - 15f) * direction.X;
+	        
+	        RelativeX = effectiveX;
+	        RelativeY = effectiveY;
+        }
 
 
 	    private void FadeOut(float newPosition)

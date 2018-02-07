@@ -54,7 +54,7 @@ namespace AbbatoirIntergrade.Screens
             TopStatusBarInstance.PauseForMenu(IsPaused);
         }
 
-        private void UpdateInfoBar(object sender, EventArgs e)
+        private void UpdateInfoBar()
         {
             TopStatusBarInstance.UpdateWave(CurrentLevel.CurrentWaveNumber);
         }

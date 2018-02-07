@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.UtilityClasses;
 using Accord.Genetic;
+using Accord.IO;
 using FlatRedBall;
+using FlatRedBall.Instructions;
 using FlatRedBall.IO;
 
 namespace AbbatoirIntergrade.StaticManagers
@@ -21,6 +23,10 @@ namespace AbbatoirIntergrade.StaticManagers
         private static FitnessFunction ChromosomeFitnessFunction;
 
         private static SerializableDictionary<EnemyTypes, List<SerializableChromosome>> EnemyTypeChromosomes;
+
+        private static string _geneticsFileName;
+
+        private static bool _CurrentlyRefreshingOrSaving = false;
 
         public static void Initialize()
         {
@@ -45,11 +51,12 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static bool Load(string fileName)
         {
-            var fileExists = FileManager.FileExists(fileName);
+            _geneticsFileName = fileName;
+            var fileExists = FileManager.FileExists(_geneticsFileName);
             if (!fileExists) return false;
             try
             {
-                EnemyTypeChromosomes = FileManager.XmlDeserialize(typeof(SerializableDictionary<EnemyTypes, List<SerializableChromosome>>), fileName) as SerializableDictionary<EnemyTypes, List<SerializableChromosome>>;
+                EnemyTypeChromosomes = FileManager.XmlDeserialize(typeof(SerializableDictionary<EnemyTypes, List<SerializableChromosome>>), _geneticsFileName) as SerializableDictionary<EnemyTypes, List<SerializableChromosome>>;
             }
             catch (Exception ex)
             {
@@ -60,21 +67,37 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static bool Save(string fileName)
         {
+            _geneticsFileName = fileName;
             try
             {
-                FileManager.XmlSerialize(EnemyTypeChromosomes, fileName);
+                FileManager.XmlSerialize(EnemyTypeChromosomes, _geneticsFileName);
             }
             catch (Exception ex)
             {
+                _CurrentlyRefreshingOrSaving = false;
                 return false;
             }
+            _CurrentlyRefreshingOrSaving = false;
             return true;
         }
 
         public static List<SerializableChromosome> GetChromosomesForEnemyType(EnemyTypes enemyType, int numberToReturn = 1)
         {
-            var chromosomeList = EnemyTypeChromosomes[enemyType];
-            ApplySelection(chromosomeList, numberToReturn);
+            List<SerializableChromosome> chromosomeList;
+
+            if (EnemyTypeChromosomes[enemyType].Any(c => c.Fitness > 0))
+            {
+                chromosomeList = EnemyTypeChromosomes[enemyType].DeepClone();
+                ApplySelection(chromosomeList, numberToReturn);
+            }
+            else
+            {
+                chromosomeList = new List<SerializableChromosome>();
+                for (var i = 0; i < numberToReturn; i++)
+                {
+                    chromosomeList.Add(FlatRedBallServices.Random.In(EnemyTypeChromosomes[enemyType]));
+                }
+            }
 
             return chromosomeList;
         }
@@ -82,29 +105,37 @@ namespace AbbatoirIntergrade.StaticManagers
         public static void EvaluateAndGenerate()
         {
             if (!MachineLearningManager.IsReadyToEvaluate) return;
-
-            RefreshAllFitnessEvaluations();
-
-            var newDictionary = new SerializableDictionary<EnemyTypes, List<SerializableChromosome>>();
-
-            foreach (var enemyTypeAndChromosomeList in EnemyTypeChromosomes)
+            _CurrentlyRefreshingOrSaving = true;
+            void RefreshAndGenerateTask()
             {
-                var enemyType = enemyTypeAndChromosomeList.Key;
-                var currentList = enemyTypeAndChromosomeList.Value;
+                RefreshAllFitnessEvaluations();
 
-                ApplySelection(currentList, NumberOfChromosomesToSelect);
+                var newDictionary = new SerializableDictionary<EnemyTypes, List<SerializableChromosome>>();
 
-                currentList.Sort((c1, c2) => c2.Fitness.CompareTo(c1.Fitness));
+                foreach (var enemyTypeAndChromosomeList in EnemyTypeChromosomes)
+                {
+                    var enemyType = enemyTypeAndChromosomeList.Key;
+                    var currentList = enemyTypeAndChromosomeList.Value;
 
-                PerformCrossover(ref currentList);
-                PerformMutation(ref currentList);
-                PerformNewGeneration(ref currentList);
+                    ApplySelection(currentList, NumberOfChromosomesToSelect);
 
-                newDictionary.Add(enemyType, currentList);
+                    currentList.Sort((c1, c2) => c2.Fitness.CompareTo(c1.Fitness));
+
+                    PerformCrossover(ref currentList);
+                    PerformMutation(ref currentList);
+                    PerformNewGeneration(ref currentList);
+
+                    newDictionary.Add(enemyType, currentList);
+                }
+                EnemyTypeChromosomes = newDictionary;
+
+                RefreshAllFitnessEvaluations();
+
+                Action UpdateAction = () => Save(_geneticsFileName); 
+                InstructionManager.AddSafe(UpdateAction);
             }
-            EnemyTypeChromosomes = newDictionary;
 
-            RefreshAllFitnessEvaluations();
+            Task.Run((Action)RefreshAndGenerateTask);
         }
 
         private static void PerformNewGeneration(ref List<SerializableChromosome> currentList)

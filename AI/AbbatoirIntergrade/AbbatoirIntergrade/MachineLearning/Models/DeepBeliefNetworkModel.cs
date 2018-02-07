@@ -73,17 +73,15 @@ namespace AbbatoirIntergrade.MachineLearning.Models
 
         public void LearnAll(WaveData waveData)
         {
-            Action learnAndUpdateAction = () =>
+            void LearnThenUpdateNetworkAction()
             {
                 var updatedNetwork = LearnOnBackgroundThread(waveData.WaveInputs.ToArray(), waveData.WaveScores.ToArray());
 
                 Action UpdateAction = () => ReplaceModelWithUpdate(updatedNetwork);
                 InstructionManager.AddSafe(UpdateAction);
-            };
+            }
 
-            var threadStart = new ThreadStart(learnAndUpdateAction);
-            var thread = new Thread(threadStart);
-            thread.Start();
+            Task.Run((Action) LearnThenUpdateNetworkAction);
         }
 
         private void ReplaceModelWithUpdate(DeepBeliefNetwork updatedNetwork)

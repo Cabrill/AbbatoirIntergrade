@@ -9,9 +9,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
     {
         #region Properties and fields
 
-        protected Vector3 _targetPointForNavigation;
-        private float _lastDistanceToNavigationTarget;
-        protected float _currentDistanceToNavigationTarget;
+        private Vector3 _targetPointForNavigation;
+        private float _currentDistanceToNavigationTarget;
         public int PathingPointIndex;
         private Polygon PathingLine;
 
@@ -22,13 +21,25 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         public void FollowLine(Polygon line)
         {
             PathingLine = line;
-            PathingPointIndex = 0;
-            var firstPoint = PathingLine.AbsolutePointPosition(PathingPointIndex);
+            Vector3 firstPoint, secondPoint;
+
+            if (IsFlying)
+            {
+                PathingPointIndex = PathingLine.Points.Count - 1;
+                firstPoint = PathingLine.AbsolutePointPosition(0);
+                secondPoint = PathingLine.AbsolutePointPosition(line.Points.Count-1);
+            }
+            else
+            {
+                PathingPointIndex = 0;
+                firstPoint = PathingLine.AbsolutePointPosition(PathingPointIndex);
+                secondPoint = PathingLine.AbsolutePointPosition(++PathingPointIndex);
+            }
+
             X = (float)firstPoint.X;
             Y = (float)firstPoint.Y;
-
-            var secondPoint = PathingLine.AbsolutePointPosition(++PathingPointIndex);
             _targetPointForNavigation = secondPoint;
+
             CurrentActionState = Action.Running;
             CurrentDirectionState = Direction.MovingRight;
         }
@@ -47,8 +58,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
 
             NavigateToTarget();
-
-            _lastDistanceToNavigationTarget = _currentDistanceToNavigationTarget;
         }
 
         private void ChoosePointForNavigation()

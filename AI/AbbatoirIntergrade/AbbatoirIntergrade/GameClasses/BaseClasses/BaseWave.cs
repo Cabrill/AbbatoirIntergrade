@@ -33,9 +33,11 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         {
             foreach (var pair in EnemyCounts.EnemyCountTuples)
             {
+                var chromosomeList = GeneticsManager.GetChromosomesForEnemyType(pair.Item2, pair.Item1);
+
                 for (var i = 0; i < pair.Item1; i++)
                 {
-                    CreatedEnemies.Add(EnemyFactories.CreateNew(pair.Item2));
+                    CreatedEnemies.Add(EnemyFactories.CreateNew(pair.Item2, chromosomeList[i]));
                 }
             }
         }

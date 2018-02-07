@@ -166,18 +166,20 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         private void PlayHitGroundSound()
 	    {
-	        var pan = Position.X / Camera.Main.OrthogonalWidth;
-	        HitGroundSound.Pan = pan;
-	        SoundManager.PlaySoundEffect(HitGroundSound);
+	        HitGroundSound.Pan = GetPan();
+            SoundManager.PlaySoundEffect(HitGroundSound);
         }
 
 	    private void PlayHitTargetSound()
 	    {
-	        var pan = Position.X / Camera.Main.OrthogonalWidth;
-	        HitTargetSound.Pan = pan;
+	        HitTargetSound.Pan = GetPan();
 	        SoundManager.PlaySoundEffect(HitTargetSound);
         }
 
+	    private float GetPan()
+	    {
+	        return MathHelper.Clamp(X / Camera.Main.OrthogonalWidth, -1f, 1f);
+	    }
 
 	    public void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
 	    {

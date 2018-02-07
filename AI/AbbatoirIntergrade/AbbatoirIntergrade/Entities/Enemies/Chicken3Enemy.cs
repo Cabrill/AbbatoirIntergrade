@@ -31,7 +31,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
 		        var deathSound = GetFile(targetDeathSoundName) as SoundEffect;
 		        DeathSound = deathSound.CreateInstance();
 		    }
-        }
+		    Altitude = 500;
+		}
 
 	    public void AddSpritesToLayers(Layer worldLayer, Layer darknessLayer, Layer hudLayer)
 	    {

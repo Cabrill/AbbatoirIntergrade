@@ -23,28 +23,27 @@ namespace AbbatoirIntergrade.StaticManagers
 {
     public static class MachineLearningManager
     {
-        public static bool IsReadyToEvaluate => MachineLearningModel.IsReady;
+        public static bool IsReadyToEvaluate => _machineLearningModel.IsReady;
 
         private static double _waveScore = 0;
-        private static WaveData waveData;
-        private static double[] currentWaveInput;
+        private static WaveData _waveData;
+        private static double[] _currentWaveInput;
 
-        private static IModel MachineLearningModel;
+        private static IModel _machineLearningModel;
         private static bool IsLearningTaskRunning = false;
 
         private static FlatRedBall.Math.PositionedObjectList<BaseStructure> _allTowers;
         private static Polygon _groundPathing;
-        private static Polygon _airPathing;
         private static double _totalPathLength;
         private static double[] _segmentLengths;
         private static int _waveEnemyCount;
 
         //Max paramters for towers
-        private static double MaxDamage = 0;
-        private static double MaxRange = 0;
-        private static double MaxMinRange = 0;
-        private static double MaxSecondsBetweenFiring = 0;
-        private static double MaxProjectileSpeed = 0;
+        private static double _maxDamage = 0;
+        private static double _maxRange = 0;
+        private static double _maxMinRange = 0;
+        private static double _maxSecondsBetweenFiring = 0;
+        private static double _maxProjectileSpeed = 0;
         
 
         //Max parameters for model input
@@ -52,43 +51,35 @@ namespace AbbatoirIntergrade.StaticManagers
         private const int MaxTowers = 10;
         private const int MaxEnemies = 30;
 
+        private static string _modelFileName;
+        private static string _waveDataFileName;
 
-        //TODO:  Remove temp hard-coded file names and use player data
-        private const string TempGeneticsFileName = "Genetics.xml";
-        private const string TempModelFileName = "DBNModel.obj";
-        private const string TempWaveDataFileName = "WaveData.obj";
-        private static string ModelFileName;
-        private static string WaveDataFileName;
-
-        public static void LoadData(string modelFileName = TempModelFileName, string waveDataFileName = TempWaveDataFileName)
+        public static void LoadData(string modelFileName, string waveDataFileName)
         {
-            ModelFileName = modelFileName;
-            WaveDataFileName = waveDataFileName;
+            _modelFileName = modelFileName;
+            _waveDataFileName = waveDataFileName;
 
-            MachineLearningModel = new DeepBeliefNetworkModel();
-            var canLoadExistingModel =  MachineLearningModel.Load(ModelFileName);
+            _machineLearningModel = new DeepBeliefNetworkModel();
+            var canLoadExistingModel =  _machineLearningModel.Load(_modelFileName);
 
             if (!canLoadExistingModel)
             {
-                MachineLearningModel.Initialize();
+                _machineLearningModel.Initialize();
             }
 
-            var waveDataExists = FileManager.FileExists(WaveDataFileName);
-            if (waveDataExists) waveData = FileManager.BinaryDeserialize(typeof(WaveData), WaveDataFileName) as WaveData;
-            waveData = waveData ?? new WaveData
+            var waveDataExists = FileManager.FileExists(_waveDataFileName);
+            if (waveDataExists) _waveData = FileManager.BinaryDeserialize(typeof(WaveData), _waveDataFileName) as WaveData;
+            _waveData = _waveData ?? new WaveData
             {
                 WaveInputs = new List<double[]>(),
                 WaveScores = new List<double>()
             };
-
-            GeneticsManager.Load(TempGeneticsFileName);
         }
 
         public static void SaveData()
         {
-            FileManager.BinarySerialize(waveData, WaveDataFileName);
-            MachineLearningModel.Save(ModelFileName);
-            GeneticsManager.Save(TempGeneticsFileName);
+            FileManager.BinarySerialize(_waveData, _waveDataFileName);
+            _machineLearningModel.Save(_modelFileName);
         }
 
         public static BaseWave GenerateWave(List<EnemyTypes> availableEnemyTypes, int pointsAvailable)
@@ -103,13 +94,6 @@ namespace AbbatoirIntergrade.StaticManagers
             //var startingCounts = new EnemyList();
             //var enemyList = RecursivelyFindBestEnemyCombination(availableEnemyTypes, inputList, startingCounts, pointsAvailable);
             var enemyList = GreedilyFindBestEnemyCombination(availableEnemyTypes, inputList, pointsAvailable);
-
-            if (enemyList == null)
-            {
-#if DEBUG
-                throw new Exception("Recursion failed");
-#endif 
-            }
 
             return new BaseWave(enemyList);
         }
@@ -159,7 +143,7 @@ namespace AbbatoirIntergrade.StaticManagers
                 if (j < enemyList.EnemyCountTuples.Count)
                 {
                     var currentEnemyType = enemyList.EnemyCountTuples[j].Item2;
-                    var chromosome = GeneticsManager.GetChromosomesForEnemyType(currentEnemyType).FirstOrDefault() as SerializableChromosome;
+                    var chromosome = GeneticsManager.GetChromosomesForEnemyType(currentEnemyType).FirstOrDefault();
                     var enemyAttributes = currentEnemyType.Attributes();
                     var effectiveAttributes = BaseEnemy.GetGeneticAttributes(enemyAttributes, chromosome);
 
@@ -171,7 +155,7 @@ namespace AbbatoirIntergrade.StaticManagers
                 }
             }
 
-            return MachineLearningModel.Predict(completedInput.ToArray());
+            return _machineLearningModel.Predict(completedInput.ToArray());
         }
 
         private static Dictionary<EnemyList, double> RecordedFitness;
@@ -222,10 +206,9 @@ namespace AbbatoirIntergrade.StaticManagers
         }
 
 
-        public static void SetPathing(Polygon gp, Polygon ap = null)
+        public static void SetPathing(Polygon gp)
         {
             _groundPathing = gp;
-            _airPathing = ap;
 
             UpdatePathingValues();
         }
@@ -241,19 +224,19 @@ namespace AbbatoirIntergrade.StaticManagers
             {
                 var newWaveEnemies = level.LastWave.CreatedEnemies;
                 _waveEnemyCount = newWaveEnemies.Count;
-                currentWaveInput = CurrentWaveToInput(newWaveEnemies);
+                _currentWaveInput = CurrentWaveToInput(newWaveEnemies);
             }
         }
 
-        public static void NotifyOfWaveEnd(object sender, EventArgs eventArgs)
+        public static void NotifyOfWaveEnd()
         {
-            waveData.WaveInputs.Add(currentWaveInput);
-            waveData.WaveScores.Add(_waveScore);
+            _waveData.WaveInputs.Add(_currentWaveInput);
+            _waveData.WaveScores.Add(_waveScore);
 
             _waveScore = 0;
             if (!IsLearningTaskRunning)
             {
-                MachineLearningModel.LearnAll(waveData);
+                _machineLearningModel.LearnAll(_waveData);
             }
             GeneticsManager.EvaluateAndGenerate();
             SaveData();
@@ -269,12 +252,12 @@ namespace AbbatoirIntergrade.StaticManagers
         public static void LearnMaxTowerValues(BaseStructure tower)
         {
             //These are multiplied by two to account for upgrades
-            MaxDamage = Math.Max(MaxDamage, tower.AttackDamage * 2);
-            MaxRange = Math.Max(MaxRange, tower.RangedRadius * 2);
-            MaxMinRange = Math.Max(MaxMinRange, tower.MinimumRangeRadius * 2);
-            MaxProjectileSpeed = Math.Max(MaxProjectileSpeed, tower.ProjectileSpeed);
+            _maxDamage = Math.Max(_maxDamage, tower.AttackDamage * 2);
+            _maxRange = Math.Max(_maxRange, tower.RangedRadius * 2);
+            _maxMinRange = Math.Max(_maxMinRange, tower.MinimumRangeRadius * 2);
+            _maxProjectileSpeed = Math.Max(_maxProjectileSpeed, tower.ProjectileSpeed);
 
-            MaxSecondsBetweenFiring = Math.Max(MaxSecondsBetweenFiring, tower.SecondsBetweenFiring);
+            _maxSecondsBetweenFiring = Math.Max(_maxSecondsBetweenFiring, tower.SecondsBetweenFiring);
         }
 
         private static void UpdatePathingValues()
@@ -353,7 +336,7 @@ namespace AbbatoirIntergrade.StaticManagers
         {
             if (tower != null)
             {
-                var relativeTowerDamage = tower.AttackDamage / MaxDamage;
+                var relativeTowerDamage = tower.AttackDamage / _maxDamage;
 
                 return new List<double>
                 {
@@ -365,10 +348,10 @@ namespace AbbatoirIntergrade.StaticManagers
                     (tower.IsFrost ? 0 : 1) * relativeTowerDamage,
                     (tower.IsFire ? 0 : 1) * relativeTowerDamage,
                     (tower.IsElectrical ? 0 : 1) * relativeTowerDamage,
-                    tower.RangedRadius / MaxRange,
-                    tower.MinimumRangeRadius / MaxMinRange,
-                    tower.SecondsBetweenFiring / MaxSecondsBetweenFiring,
-                    tower.ProjectileSpeed / MaxProjectileSpeed,
+                    tower.RangedRadius / _maxRange,
+                    tower.MinimumRangeRadius / _maxMinRange,
+                    tower.SecondsBetweenFiring / _maxSecondsBetweenFiring,
+                    tower.ProjectileSpeed / _maxProjectileSpeed,
                     tower.HasSplashDamage ? 1.0 : 0.0,
                     tower.SlowsEnemies ? 1.0 : 0.0,
                     tower.StunsEnemies ? 1.0 : 0.0
@@ -456,8 +439,8 @@ namespace AbbatoirIntergrade.StaticManagers
 
             if (enemy.IsFlying)
             {
-                var firstPoint = _airPathing.AbsolutePointPosition(0);
-                var secondPoint = _airPathing.AbsolutePointPosition(1);
+                var firstPoint = _groundPathing.AbsolutePointPosition(0);
+                var secondPoint = _groundPathing.AbsolutePointPosition(_groundPathing.Points.Count-1);
 
                 var distanceBetweenPoints = (firstPoint - secondPoint).Length();
 
@@ -531,7 +514,7 @@ namespace AbbatoirIntergrade.StaticManagers
                 inputList.AddRange(attributesAsInput);
             }
 
-            var score = MachineLearningModel.Predict(inputList.ToArray());
+            var score = _machineLearningModel.Predict(inputList.ToArray());
 
             return score;
         }

@@ -114,8 +114,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		        drowningSound = DrowningSound.CreateInstance();
 		    }
 
-		    HealthBar.AttachTo(SpriteInstance, true);
-		    HealthBar.RelativeY = HealthBar.Height + maxFrameHeight;
+		    //HealthBar.AttachTo(SpriteInstance, true);
+		    HealthBar.RelativeY = HealthBar.Height + maxFrameHeight + Altitude;
 
             SpriteInstance.AnimationChains = spriteAnimationChainList;
 
@@ -247,8 +247,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        {
 	            HealthBar.Hide();
 	        }
-	        else 
+	        else
 	        {
+	            HealthBar.RelativeX = 0;
+	            HealthBar.RelativeY = HealthBar.Height + maxFrameHeight + Altitude;
                 HealthBar.Update(HealthRemaining/MaximumHealth);
             }
         }
@@ -500,6 +502,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        _burnDurationSeconds = 0;
 	        _poisonedDurationSeconds = 0;
 	        _stunnedDurationSeconds = 0;
+
+            RemoveArrows();
 
 	        PlayDrowningSound();
 	        SpriteInstance.AnimationChains = ParticleAnimationsChainList;

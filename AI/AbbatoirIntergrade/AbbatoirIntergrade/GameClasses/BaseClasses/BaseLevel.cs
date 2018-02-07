@@ -50,6 +50,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 
         public EventHandler OnNewWaveStart;
         public EventHandler OnWaveEnd;
+        private bool _currentlyGeneratingNewWave = false;
         private bool _waveHasEnded = false;
         public bool IsReadyForNextWave { get; set; } = false;
 
@@ -82,7 +83,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
                 OnWaveEnd?.Invoke(this, null);
             }
 
-            if (!IsReadyForNextWave) return;
+            if (!IsReadyForNextWave || _currentlyGeneratingNewWave) return;
 
             if (!_lastEnemyWaveTime.HasValue || (TimeManager.SecondsSince(_lastEnemyWaveTime.Value) >= SecondsBetweenWaves && _enemyList.Count == 0))
             {
@@ -105,17 +106,16 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 
         private void StartCreatingEnemiesForWave()
         {
-            Action actionToRun = () =>
+            _currentlyGeneratingNewWave = true;
+            void GenerateWaveIfNecessary()
             {
                 var currentWave = CurrentWaveNumber < Waves.Count ? Waves[CurrentWaveNumber] : GenerateWave();
 
                 Action stuffToDoOnPrimaryThread = () => FinishCreatingEnemiesForWave(currentWave);
                 InstructionManager.AddSafe(stuffToDoOnPrimaryThread);
-            };
+            }
 
-            var threadStart = new ThreadStart(actionToRun);
-            var thread = new Thread(threadStart);
-            thread.Start();
+            Task.Run((Action) GenerateWaveIfNecessary);
         }
 
         private void FinishCreatingEnemiesForWave(BaseWave currentWave)
@@ -131,6 +131,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
             OnNewWaveStart?.Invoke(this, null);
             IsReadyForNextWave = false;
             _waveHasEnded = false;
+            _currentlyGeneratingNewWave = false;
         }
 
         private BaseWave GenerateWave()

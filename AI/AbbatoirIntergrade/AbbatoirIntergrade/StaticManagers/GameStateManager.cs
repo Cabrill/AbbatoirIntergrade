@@ -11,6 +11,10 @@ namespace AbbatoirIntergrade.StaticManagers
 {
     public static class GameStateManager
     {
+        private const string TempGeneticsFileName = "Genetics.xml";
+        private const string TempModelFileName = "DBNModel.obj";
+        private const string TempWaveDataFileName = "WaveData.obj";
+
         public static BaseLevel CurrentLevel;
 
         private static GameDialogue _gameDialogue;
@@ -25,6 +29,14 @@ namespace AbbatoirIntergrade.StaticManagers
 
                 return _gameDialogue;
             }
+        }
+
+        public static void LoadAllData()
+        {
+            PlayerDataManager.LoadData();
+            GeneticsManager.Load(TempGeneticsFileName);
+            MachineLearningManager.LoadData(TempModelFileName, TempWaveDataFileName);
+            LoadDialogue();
         }
 
         private static void LoadDialogue()
