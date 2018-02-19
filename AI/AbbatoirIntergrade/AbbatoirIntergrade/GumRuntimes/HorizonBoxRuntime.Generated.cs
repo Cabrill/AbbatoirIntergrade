@@ -5386,8 +5386,8 @@
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime DawnDuskSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime CloudCoverSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime ForegroundSprite { get; set; }
-            public HorizonBoxRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public HorizonBoxRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = false;
                 this.ExposeChildrenEvents = false;

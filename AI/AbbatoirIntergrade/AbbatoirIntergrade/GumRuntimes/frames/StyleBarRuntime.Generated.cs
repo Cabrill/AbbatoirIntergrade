@@ -531,8 +531,8 @@
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime BackgroundSprite { get; set; }
-            public StyleBarRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public StyleBarRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 if (fullInstantiation)
                 {

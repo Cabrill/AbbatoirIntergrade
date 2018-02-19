@@ -3,7 +3,7 @@
     {
         public partial class NineSliceRuntime : Gum.Wireframe.GraphicalUiElement
         {
-            public NineSliceRuntime (bool fullInstantiation = true) 
+            public NineSliceRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 this.HasEvents = false;
                 this.ExposeChildrenEvents = false;

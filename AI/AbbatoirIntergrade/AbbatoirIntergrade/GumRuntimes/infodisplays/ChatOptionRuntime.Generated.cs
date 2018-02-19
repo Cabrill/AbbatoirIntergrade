@@ -1173,8 +1173,8 @@
             }
             public event System.EventHandler ChatColorStateChanged;
             public event System.EventHandler ChatTextChanged;
-            public ChatOptionRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public ChatOptionRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = true;
                 this.ExposeChildrenEvents = false;

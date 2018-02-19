@@ -3,7 +3,7 @@
     {
         public partial class RectangleRuntime : Gum.Wireframe.GraphicalUiElement
         {
-            public RectangleRuntime (bool fullInstantiation = true) 
+            public RectangleRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 this.HasEvents = false;
                 this.ExposeChildrenEvents = false;

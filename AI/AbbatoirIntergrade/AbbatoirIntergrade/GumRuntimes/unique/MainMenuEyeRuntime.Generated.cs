@@ -1857,8 +1857,8 @@
             }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime FaceSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime EyeSprite { get; set; }
-            public MainMenuEyeRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public MainMenuEyeRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 if (fullInstantiation)
                 {

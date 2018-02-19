@@ -2176,7 +2176,7 @@
             private AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime TopStatusBarInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime ScreenShadeInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance { get; set; }
-            public GameScreenGumRuntime (bool fullInstantiation = true) 
+            public GameScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
                 {

@@ -2262,8 +2262,8 @@
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime PlayButton { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime FastForwardButton { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime TimeButtonContainer { get; set; }
-            public TopStatusBarRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public TopStatusBarRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 if (fullInstantiation)
                 {

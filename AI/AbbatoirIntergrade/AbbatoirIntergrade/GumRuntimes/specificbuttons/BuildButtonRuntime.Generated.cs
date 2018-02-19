@@ -1749,8 +1749,8 @@
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SelectSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime StructureSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ContainerInstance { get; set; }
-            public BuildButtonRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public BuildButtonRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = true;
                 this.ExposeChildrenEvents = false;

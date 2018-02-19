@@ -489,8 +489,8 @@
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
-            public ScreenShadeRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public ScreenShadeRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.ExposeChildrenEvents = false;
                 if (fullInstantiation)

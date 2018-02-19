@@ -6280,8 +6280,8 @@
             private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance4 { get; set; }
             private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance5 { get; set; }
             private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance6 { get; set; }
-            public BuildMenuRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public BuildMenuRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = false;
                 if (fullInstantiation)

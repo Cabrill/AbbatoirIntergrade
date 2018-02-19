@@ -125,60 +125,6 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>AttributeTypeState</Type>
-      <Name>PointOrSplash.AttributeIconTypeState</Name>
-      <Value xsi:type="xsd:string">PointOrSplash</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>PointOrSplash.AttributeText</Name>
-      <Value xsi:type="xsd:string">Single</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>PointOrSplash.Height</Name>
-      <Value xsi:type="xsd:float">25</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>PointOrSplash.Height Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>PointOrSplash.Parent</Name>
-      <Value xsi:type="xsd:string">StatsContainer</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>PointOrSplash.TextInstanceFontScale</Name>
-      <Value xsi:type="xsd:float">0.5</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>PointOrSplash.TextInstanceHorizontalAlignment</Name>
-      <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>PointOrSplash.Width</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>PointOrSplash.Width Units</Name>
-      <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>string</Type>
       <Name>BuildBarInstance.Parent</Name>
       <Value xsi:type="xsd:string">BackgroundRectangle</Value>
@@ -808,6 +754,60 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>AttributeTypeState</Type>
+      <Name>PointOrSplash.AttributeIconTypeState</Name>
+      <Value xsi:type="xsd:string">PointOrSplash</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>PointOrSplash.AttributeText</Name>
+      <Value xsi:type="xsd:string">Single</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PointOrSplash.Height</Name>
+      <Value xsi:type="xsd:float">25</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>PointOrSplash.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>PointOrSplash.Parent</Name>
+      <Value xsi:type="xsd:string">StatsContainer</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PointOrSplash.TextInstanceFontScale</Name>
+      <Value xsi:type="xsd:float">0.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>PointOrSplash.TextInstanceHorizontalAlignment</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PointOrSplash.Width</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>PointOrSplash.Width Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>ChildrenLayout</Type>
       <Name>RangeContainer.Children Layout</Name>
       <Value xsi:type="xsd:int">2</Value>
@@ -1099,13 +1099,13 @@
       <Name>Available</Name>
       <Variable>
         <Type>bool</Type>
-        <Name>UpgradeText.Visible</Name>
+        <Name>ButtonContainers.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>bool</Type>
-        <Name>ButtonContainers.Visible</Name>
+        <Name>UpgradeText.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>

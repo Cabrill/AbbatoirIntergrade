@@ -4786,8 +4786,8 @@
             public event FlatRedBall.Gui.WindowEvent ButtonFrameInstanceClick;
             public event FlatRedBall.Gui.WindowEvent ButtonFrameInstance1Click;
             public event System.EventHandler StructureNameChanged;
-            public StructureInfoRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public StructureInfoRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = false;
                 this.ExposeChildrenEvents = true;

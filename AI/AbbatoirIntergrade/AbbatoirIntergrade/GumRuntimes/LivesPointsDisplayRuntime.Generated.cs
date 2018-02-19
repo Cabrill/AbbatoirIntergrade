@@ -973,8 +973,8 @@
                 }
             }
             public event System.EventHandler LivesRemainingChanged;
-            public LivesPointsDisplayRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public LivesPointsDisplayRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 if (fullInstantiation)
                 {

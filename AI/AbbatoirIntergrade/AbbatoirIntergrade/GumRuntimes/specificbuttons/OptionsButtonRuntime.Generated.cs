@@ -699,8 +699,8 @@
             }
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
-            public OptionsButtonRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public OptionsButtonRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.ExposeChildrenEvents = false;
                 if (fullInstantiation)

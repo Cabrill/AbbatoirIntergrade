@@ -672,8 +672,8 @@
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime BackgroundSprite { get; set; }
-            public LargeInfoFrameRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public LargeInfoFrameRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 if (fullInstantiation)
                 {

@@ -981,8 +981,8 @@
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
-            public FourButtonFrameRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public FourButtonFrameRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = false;
                 this.ExposeChildrenEvents = false;

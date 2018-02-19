@@ -101,15 +101,15 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>SpriteInstance.Texture Top</Name>
-        <Value xsi:type="xsd:int">272</Value>
+        <Name>SpriteInstance.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>SpriteInstance.Red</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <Category>Rendering</Category>
+        <Name>SpriteInstance.Texture Top</Name>
+        <Value xsi:type="xsd:int">272</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

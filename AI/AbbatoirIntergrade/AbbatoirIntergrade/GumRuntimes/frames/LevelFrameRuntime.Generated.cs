@@ -802,8 +802,8 @@
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime BackgroundSprite { get; set; }
-            public LevelFrameRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public LevelFrameRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.ExposeChildrenEvents = false;
                 if (fullInstantiation)

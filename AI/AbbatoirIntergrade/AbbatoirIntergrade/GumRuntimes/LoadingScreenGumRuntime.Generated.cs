@@ -556,7 +556,7 @@
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
-            public LoadingScreenGumRuntime (bool fullInstantiation = true) 
+            public LoadingScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
                 {

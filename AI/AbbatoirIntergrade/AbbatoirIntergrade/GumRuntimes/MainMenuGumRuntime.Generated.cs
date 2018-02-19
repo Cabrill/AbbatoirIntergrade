@@ -945,7 +945,7 @@
             private AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime LeftEye { get; set; }
             private AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime RightEye { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
-            public MainMenuGumRuntime (bool fullInstantiation = true) 
+            public MainMenuGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
                 {

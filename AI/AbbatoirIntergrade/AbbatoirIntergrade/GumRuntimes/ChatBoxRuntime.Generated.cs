@@ -7901,8 +7901,8 @@
             }
             public event System.EventHandler ChatContainerVisibleChanged;
             public event System.EventHandler RecentResponseContainerVisibleChanged;
-            public ChatBoxRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public ChatBoxRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = false;
                 if (fullInstantiation)

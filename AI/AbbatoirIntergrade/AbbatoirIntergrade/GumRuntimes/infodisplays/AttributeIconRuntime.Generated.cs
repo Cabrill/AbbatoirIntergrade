@@ -1153,8 +1153,8 @@
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
-            public AttributeIconRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public AttributeIconRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 if (fullInstantiation)
                 {

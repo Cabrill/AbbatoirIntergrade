@@ -11787,8 +11787,8 @@
             public event System.EventHandler MiddleTextureLeftChanged;
             public event System.EventHandler MiddleTextureTopChanged;
             public event System.EventHandler MiddleTextureWidthChanged;
-            public GlowingBoxRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public GlowingBoxRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = true;
                 this.ExposeChildrenEvents = false;

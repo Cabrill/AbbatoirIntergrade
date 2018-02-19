@@ -727,8 +727,8 @@
             public event System.EventHandler TextFontScaleChanged;
             public event System.EventHandler TextHorizontalAlignmentChanged;
             public event System.EventHandler ResistanceTextChanged;
-            public ResistanceDisplayRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public ResistanceDisplayRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = false;
                 this.ExposeChildrenEvents = true;

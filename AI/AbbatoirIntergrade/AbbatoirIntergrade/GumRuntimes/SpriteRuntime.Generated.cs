@@ -3,7 +3,7 @@
     {
         public partial class SpriteRuntime : Gum.Wireframe.GraphicalUiElement
         {
-            public SpriteRuntime (bool fullInstantiation = true) 
+            public SpriteRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 this.HasEvents = false;
                 this.ExposeChildrenEvents = false;

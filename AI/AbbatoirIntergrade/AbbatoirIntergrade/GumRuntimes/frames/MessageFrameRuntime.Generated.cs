@@ -1222,8 +1222,8 @@
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime TopSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime MiddleSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime BottomSprite { get; set; }
-            public MessageFrameRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public MessageFrameRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 if (fullInstantiation)
                 {

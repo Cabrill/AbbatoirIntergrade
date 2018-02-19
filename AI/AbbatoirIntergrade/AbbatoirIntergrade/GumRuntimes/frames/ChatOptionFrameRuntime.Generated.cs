@@ -11331,8 +11331,8 @@
             public event System.EventHandler MiddleTextureLeftChanged;
             public event System.EventHandler MiddleTextureTopChanged;
             public event System.EventHandler MiddleTextureWidthChanged;
-            public ChatOptionFrameRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public ChatOptionFrameRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = false;
                 this.ExposeChildrenEvents = false;

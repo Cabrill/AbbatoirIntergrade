@@ -902,10 +902,12 @@
                 }
                 base.ApplyState(state);
             }
+            private bool tryCreateFormsObject;
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
-            public ScrollThumbRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public ScrollThumbRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
+                this.tryCreateFormsObject = tryCreateFormsObject;
                 if (fullInstantiation)
                 {
                     Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "ScrollThumb");
@@ -930,8 +932,10 @@
             private void AssignReferences () 
             {
                 SpriteInstance = this.GetGraphicalUiElementByName("SpriteInstance") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
-                FormsControl = new FlatRedBall.Forms.Controls.Button();
-                FormsControl.Visual = this;
+                if (tryCreateFormsObject)
+                {
+                    FormsControl = new FlatRedBall.Forms.Controls.Button(this);
+                }
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

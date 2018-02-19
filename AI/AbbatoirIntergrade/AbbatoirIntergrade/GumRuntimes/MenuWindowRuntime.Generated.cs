@@ -1947,8 +1947,8 @@
             public event System.EventHandler ButtonType2StateChanged;
             public event System.EventHandler ButtonType3StateChanged;
             public event System.EventHandler ButtonType4StateChanged;
-            public MenuWindowRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public MenuWindowRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = false;
                 if (fullInstantiation)

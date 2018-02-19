@@ -30,12 +30,12 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("frames/TallInfoFrame", typeof(AbbatoirIntergrade.GumRuntimes.TallInfoFrameRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("frames/WhiteFrame", typeof(AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("HorizonBox", typeof(AbbatoirIntergrade.GumRuntimes.HorizonBoxRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/AttributeDisplay", typeof(AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/AttributeIcon", typeof(AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/ChatOption", typeof(AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/DamageTypeIcon", typeof(AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/EnemyInfo", typeof(AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/ResistanceDisplay", typeof(AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime));
-                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/AttributeDisplay", typeof(AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/ResourceIncreaseNotification", typeof(AbbatoirIntergrade.GumRuntimes.ResourceIncreaseNotificationRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/StructureInfo", typeof(AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("InfoDisplays/TopStatusBar", typeof(AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime));

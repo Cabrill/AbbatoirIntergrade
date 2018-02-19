@@ -5774,8 +5774,8 @@
             public event System.EventHandler MiddleTextureLeftChanged;
             public event System.EventHandler MiddleTextureTopChanged;
             public event System.EventHandler MiddleTextureWidthChanged;
-            public WhiteFrameRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public WhiteFrameRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = true;
                 this.ExposeChildrenEvents = true;

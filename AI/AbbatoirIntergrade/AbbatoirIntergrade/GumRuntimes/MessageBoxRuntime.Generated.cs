@@ -652,8 +652,8 @@
             private AbbatoirIntergrade.GumRuntimes.ChatFrameRuntime ChatFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime YesButton { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime YesButton1 { get; set; }
-            public MessageBoxRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public MessageBoxRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 if (fullInstantiation)
                 {

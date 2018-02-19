@@ -3,7 +3,7 @@
     {
         public partial class CircleRuntime : Gum.Wireframe.GraphicalUiElement
         {
-            public CircleRuntime (bool fullInstantiation = true) 
+            public CircleRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 this.HasEvents = false;
                 this.ExposeChildrenEvents = false;

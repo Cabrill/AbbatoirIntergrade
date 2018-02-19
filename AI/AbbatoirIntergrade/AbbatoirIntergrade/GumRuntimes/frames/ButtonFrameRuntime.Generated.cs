@@ -2503,8 +2503,8 @@
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime BackgroundSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SelectSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
-            public ButtonFrameRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public ButtonFrameRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = true;
                 this.ExposeChildrenEvents = false;

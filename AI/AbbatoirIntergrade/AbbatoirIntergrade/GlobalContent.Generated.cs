@@ -513,10 +513,6 @@ namespace AbbatoirIntergrade
                 {
                     Reload(anttisinstrumentals_woman);
                 }
-                if (relativeFileName == "content/entities/enemies/enemy_attributes.csv")
-                {
-                    Reload(Enemy_Attributes);
-                }
             }
             catch{}
         }

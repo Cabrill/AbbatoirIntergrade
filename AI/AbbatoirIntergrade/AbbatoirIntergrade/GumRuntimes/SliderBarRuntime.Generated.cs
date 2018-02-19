@@ -1085,6 +1085,7 @@
                 }
                 base.ApplyState(state);
             }
+            private bool tryCreateFormsObject;
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime BackgroundRectangle { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ThumbRuntime ThumbInstance { get; set; }
@@ -1121,9 +1122,10 @@
             public event FlatRedBall.Gui.WindowEvent ThumbInstanceClick;
             public event System.EventHandler ColoredRectangleBlueChanged;
             public event System.EventHandler ColoredRectangleGreenChanged;
-            public SliderBarRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public SliderBarRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
+                this.tryCreateFormsObject = tryCreateFormsObject;
                 this.ExposeChildrenEvents = true;
                 if (fullInstantiation)
                 {
@@ -1152,8 +1154,10 @@
                 ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 ThumbInstance = this.GetGraphicalUiElementByName("ThumbInstance") as AbbatoirIntergrade.GumRuntimes.ThumbRuntime;
                 ThumbInstance.Click += (unused) => ThumbInstanceClick?.Invoke(this);
-                FormsControl = new FlatRedBall.Forms.Controls.Slider();
-                FormsControl.Visual = this;
+                if (tryCreateFormsObject)
+                {
+                    FormsControl = new FlatRedBall.Forms.Controls.Slider(this);
+                }
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

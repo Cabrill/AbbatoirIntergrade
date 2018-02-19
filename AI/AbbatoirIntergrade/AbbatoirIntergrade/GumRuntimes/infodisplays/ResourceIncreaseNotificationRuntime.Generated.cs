@@ -1667,8 +1667,8 @@
                 }
             }
             public event System.EventHandler AmountOfIncreaseChanged;
-            public ResourceIncreaseNotificationRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public ResourceIncreaseNotificationRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = true;
                 this.ExposeChildrenEvents = true;

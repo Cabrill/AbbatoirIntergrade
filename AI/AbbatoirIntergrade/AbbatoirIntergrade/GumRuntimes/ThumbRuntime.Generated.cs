@@ -1118,10 +1118,12 @@
                 }
                 base.ApplyState(state);
             }
+            private bool tryCreateFormsObject;
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime ThumbSprite { get; set; }
-            public ThumbRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public ThumbRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
+                this.tryCreateFormsObject = tryCreateFormsObject;
                 this.HasEvents = true;
                 this.ExposeChildrenEvents = false;
                 if (fullInstantiation)
@@ -1148,8 +1150,10 @@
             private void AssignReferences () 
             {
                 ThumbSprite = this.GetGraphicalUiElementByName("ThumbSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
-                FormsControl = new FlatRedBall.Forms.Controls.Button();
-                FormsControl.Visual = this;
+                if (tryCreateFormsObject)
+                {
+                    FormsControl = new FlatRedBall.Forms.Controls.Button(this);
+                }
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

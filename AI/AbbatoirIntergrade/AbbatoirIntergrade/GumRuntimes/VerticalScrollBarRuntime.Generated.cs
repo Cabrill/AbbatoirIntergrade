@@ -1574,15 +1574,17 @@
                 }
                 base.ApplyState(state);
             }
+            private bool tryCreateFormsObject;
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime BarSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ScrollThumbRuntime ThumbInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime UpButtonInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ScrollTrack { get; set; }
             private AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime DownButtonInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ContainerInstance { get; set; }
-            public VerticalScrollBarRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public VerticalScrollBarRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
+                this.tryCreateFormsObject = tryCreateFormsObject;
                 if (fullInstantiation)
                 {
                     Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "VerticalScrollBar");
@@ -1612,8 +1614,10 @@
                 ScrollTrack = this.GetGraphicalUiElementByName("ScrollTrack") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 DownButtonInstance = this.GetGraphicalUiElementByName("DownButtonInstance") as AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime;
                 ContainerInstance = this.GetGraphicalUiElementByName("ContainerInstance") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
-                FormsControl = new FlatRedBall.Forms.Controls.ScrollBar();
-                FormsControl.Visual = this;
+                if (tryCreateFormsObject)
+                {
+                    FormsControl = new FlatRedBall.Forms.Controls.ScrollBar(this);
+                }
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

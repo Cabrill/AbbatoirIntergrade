@@ -806,8 +806,8 @@
             public event System.EventHandler TextInstanceFontScaleChanged;
             public event System.EventHandler TextInstanceHorizontalAlignmentChanged;
             public event System.EventHandler AttributeTextChanged;
-            public AttributeDisplayRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public AttributeDisplayRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = false;
                 this.ExposeChildrenEvents = true;

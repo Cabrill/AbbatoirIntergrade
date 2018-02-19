@@ -1098,14 +1098,16 @@
                 }
                 base.ApplyState(state);
             }
+            private bool tryCreateFormsObject;
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime InnerPanelInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TallestInfoFrameRuntime TallestInfoFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.VerticalScrollBarRuntime VerticalScrollBarInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime CloseButton { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ClipContainerInstance { get; set; }
-            public ChatHistoryRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public ChatHistoryRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
+                this.tryCreateFormsObject = tryCreateFormsObject;
                 if (fullInstantiation)
                 {
                     Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "ChatHistory");
@@ -1134,8 +1136,10 @@
                 VerticalScrollBarInstance = this.GetGraphicalUiElementByName("VerticalScrollBarInstance") as AbbatoirIntergrade.GumRuntimes.VerticalScrollBarRuntime;
                 CloseButton = this.GetGraphicalUiElementByName("CloseButton") as AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime;
                 ClipContainerInstance = this.GetGraphicalUiElementByName("ClipContainerInstance") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
-                FormsControl = new FlatRedBall.Forms.Controls.ScrollViewer();
-                FormsControl.Visual = this;
+                if (tryCreateFormsObject)
+                {
+                    FormsControl = new FlatRedBall.Forms.Controls.ScrollViewer(this);
+                }
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

@@ -3,7 +3,7 @@
     {
         public partial class ContainerRuntime : Gum.Wireframe.GraphicalUiElement
         {
-            public ContainerRuntime (bool fullInstantiation = true) 
+            public ContainerRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 this.HasEvents = true;
                 this.ExposeChildrenEvents = true;

@@ -748,8 +748,8 @@
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
-            public CloseChatButtonRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public CloseChatButtonRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.ExposeChildrenEvents = false;
                 if (fullInstantiation)

@@ -3,7 +3,7 @@
     {
         public partial class ColoredRectangleRuntime : Gum.Wireframe.GraphicalUiElement
         {
-            public ColoredRectangleRuntime (bool fullInstantiation = true) 
+            public ColoredRectangleRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 this.HasEvents = false;
                 this.ExposeChildrenEvents = false;

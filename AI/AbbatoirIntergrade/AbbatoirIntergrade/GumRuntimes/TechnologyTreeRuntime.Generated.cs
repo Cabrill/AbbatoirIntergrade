@@ -1042,8 +1042,8 @@
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ContainerInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime TitleText { get; set; }
             public event FlatRedBall.Gui.WindowEvent ContainerInstanceClick;
-            public TechnologyTreeRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public TechnologyTreeRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = true;
                 this.ExposeChildrenEvents = true;

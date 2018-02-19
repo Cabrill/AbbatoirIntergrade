@@ -58,7 +58,7 @@
                             StatsContainer.WrapsChildren = true;
                             StatsContainer.X = 83f;
                             StatsContainer.Y = 29f;
-                            NameContainer.Height = 20f;
+                            NameContainer.Height = 19f;
                             NameContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             NameContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
                             NameContainer.Width = 100f;
@@ -469,7 +469,7 @@
                             this.LeftResistances.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setNameContainerHeightFirstValue = true;
-                        NameContainerHeightFirstValue = 20f;
+                        NameContainerHeightFirstValue = 19f;
                         if (interpolationValue < 1)
                         {
                             this.NameContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -836,7 +836,7 @@
                             this.LeftResistances.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setNameContainerHeightSecondValue = true;
-                        NameContainerHeightSecondValue = 20f;
+                        NameContainerHeightSecondValue = 19f;
                         if (interpolationValue >= 1)
                         {
                             this.NameContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -2464,7 +2464,7 @@
                             SetsValue = true,
                             Name = "NameContainer.Height",
                             Type = "float",
-                            Value = NameContainer.Height + 20f
+                            Value = NameContainer.Height + 19f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3252,8 +3252,8 @@
             public event FlatRedBall.Gui.WindowEvent LeftResistancesClick;
             public event FlatRedBall.Gui.WindowEvent RightResistancesClick;
             public event System.EventHandler EnemyNameChanged;
-            public EnemyInfoRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public EnemyInfoRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = false;
                 this.ExposeChildrenEvents = true;

@@ -90,9 +90,9 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 	        var impactOffsetY = FlatRedBallServices.Random.NextFloat(enemy.SpriteInstance.Height * 0.1f);
 
             var effectiveX = (impactOffsetX * (fromLeft ? -1 : 1)) - 
-	                         (CircleInstance.RelativeY - 15f) * direction.Y;
+	                         (CircleInstance.RelativeY - 20f) * direction.Y;
 	        var effectiveY = (impactOffsetY * (fromAbove ? -1 : 1)) +
-	                         (CircleInstance.RelativeY - 15f) * direction.X;
+	                         (CircleInstance.RelativeY - 20f) * direction.X;
 	        
 	        RelativeX = effectiveX;
 	        RelativeY = effectiveY;

@@ -1104,8 +1104,8 @@
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime OptionContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime MusicText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SliderBarRuntime MusicSlider { get; set; }
-            public OptionsControlsRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public OptionsControlsRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = false;
                 if (fullInstantiation)

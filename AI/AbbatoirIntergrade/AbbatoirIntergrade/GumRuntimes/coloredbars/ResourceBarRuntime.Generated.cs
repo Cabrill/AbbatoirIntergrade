@@ -1761,8 +1761,8 @@
             public event System.EventHandler BarFillPercentChanged;
             public event System.EventHandler TextFontScaleChanged;
             public event System.EventHandler BarTextChanged;
-            public ResourceBarRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public ResourceBarRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
                 if (fullInstantiation)
                 {

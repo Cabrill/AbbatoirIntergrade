@@ -3482,12 +3482,14 @@
                 }
                 base.ApplyState(state);
             }
+            private bool tryCreateFormsObject;
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime FrameSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime HighlightSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime NumberSprite { get; set; }
-            public LevelButtonRuntime (bool fullInstantiation = true) 
-            	: base(false)
+            public LevelButtonRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            	: base(false, tryCreateFormsObject)
             {
+                this.tryCreateFormsObject = tryCreateFormsObject;
                 this.ExposeChildrenEvents = false;
                 if (fullInstantiation)
                 {
@@ -3515,8 +3517,10 @@
                 FrameSprite = this.GetGraphicalUiElementByName("FrameSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 HighlightSprite = this.GetGraphicalUiElementByName("HighlightSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 NumberSprite = this.GetGraphicalUiElementByName("NumberSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
-                FormsControl = new FlatRedBall.Forms.Controls.Button();
-                FormsControl.Visual = this;
+                if (tryCreateFormsObject)
+                {
+                    FormsControl = new FlatRedBall.Forms.Controls.Button(this);
+                }
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

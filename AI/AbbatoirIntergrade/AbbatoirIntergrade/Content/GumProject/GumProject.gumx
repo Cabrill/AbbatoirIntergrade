@@ -101,6 +101,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>infodisplays/AttributeDisplay</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>infodisplays/AttributeIcon</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
@@ -118,10 +122,6 @@
   </ComponentReference>
   <ComponentReference>
     <Name>infodisplays/ResistanceDisplay</Name>
-    <ElementType>Component</ElementType>
-  </ComponentReference>
-  <ComponentReference>
-    <Name>infodisplays/AttributeDisplay</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
