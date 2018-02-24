@@ -37,7 +37,19 @@ namespace AbbatoirIntergrade.StaticManagers
             GeneticsManager.Load(TempGeneticsFileName);
             MachineLearningManager.LoadData(TempModelFileName, TempWaveDataFileName);
             LoadDialogue();
+#if DEBUG
+            //ExportDialogue();
         }
+
+        private static void ExportDialogue()
+        {
+            const string fileName = "dialogue-output.xml";
+            FlatRedBall.IO.FileManager.XmlSerialize(GameDialogue, fileName);
+        }
+#else
+        }
+#endif
+
 
         private static void LoadDialogue()
         {

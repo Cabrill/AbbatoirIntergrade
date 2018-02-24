@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="195">
+ <tileset firstgid="1" name="CombinedAssets" tilewidth="128" tileheight="128" tilecount="1024" columns="32">
+  <image source="../../../Tilesets/CombinedAssets.png" width="4096" height="4096"/>
+  <tile id="124" type="StructurePlacement">
+   <properties>
+    <property name="PlacementOrder" type="int" value="0"/>
+   </properties>
+  </tile>
+  <tile id="351" probability="0.1"/>
+  <tile id="352" probability="0.1"/>
+  <tile id="353" probability="0.2"/>
+  <tile id="354" probability="0.3"/>
+  <tile id="355" probability="0.4"/>
+  <tile id="360" probability="0.25"/>
+  <tile id="361" probability="0.5"/>
+  <tile id="383" probability="0.2"/>
+  <tile id="384" probability="0.1"/>
+  <tile id="385" probability="0.2"/>
+  <tile id="386" probability="0.3"/>
+  <tile id="387" probability="0.4"/>
+  <tile id="388" probability="0.5"/>
+  <tile id="389" probability="0.6"/>
+  <tile id="390" probability="0.7"/>
+  <tile id="391" probability="0.8"/>
+  <tile id="392" probability="0.9"/>
+  <tile id="393" probability="0.5"/>
+  <tile id="415" probability="0.3"/>
+  <tile id="447" probability="0.4"/>
+  <tile id="479" probability="0.5"/>
+  <tile id="511" probability="0.6"/>
+  <tile id="512" probability="0.1"/>
+  <tile id="513" probability="0.2"/>
+  <tile id="514" probability="0.3"/>
+  <tile id="515" probability="0.4"/>
+  <tile id="516" probability="0.5"/>
+  <tile id="517" probability="0.6"/>
+  <tile id="518" probability="0.7"/>
+  <tile id="519" probability="0.8"/>
+  <tile id="520" probability="0.9"/>
+  <tile id="543" probability="0.7"/>
+  <tile id="544" probability="0.1"/>
+  <tile id="545" probability="0.2"/>
+  <tile id="546" probability="0.3"/>
+  <tile id="547" probability="0.4"/>
+  <tile id="548" probability="0.5"/>
+  <tile id="549" probability="0.6"/>
+  <tile id="550" probability="0.7"/>
+  <tile id="551" probability="0.8"/>
+  <tile id="552" probability="0.9"/>
+ </tileset>
+ <tileset firstgid="1025" name="CollisionShapes" tilewidth="128" tileheight="128" tilecount="2" columns="2">
+  <image source="../../../Tilesets/CollisionShapes.png" width="256" height="128"/>
+  <tile id="0" type="TileCollisionRectangle">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="128"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="128"/>
+   </properties>
+  </tile>
+  <tile id="1" type="TileCollisionCircle"/>
+ </tileset>
+ <layer name="Ground" width="20" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC82SUQ6DIBBE4ai2KBROAvzYmiY9bjV5G6dG/2syWRZ2h9kR5/776965CrLf80KeydOKaUUkKrbaxln1v5x6/jjZT/QFYpE7Cj1ZeqqgiM73ipdgkbjIfj70d7Sp5u3+J/GOhig6R7QM9BlnF85MXaFnlrmCcBXq7KyJHvPH+I37hj7zyDyYhCMcPGpE8zGTT8w4y3pgbXeP7IcLf898/si/jXAEYPtV5jU9Hb+b39+kvsEk80bqk9/f3xeJc5tucAMAAA==
+  </data>
+ </layer>
+ <layer name="Objects" width="20" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC92SSw4BQRCGOzM3wNZROApn8AhWnMEjWHhcZBCPNVasJXbE20xY+TqZxKR1I7FTyZfuqr9SXV3dQvyPLWwhlrZeixK/Wa/xuZLvkuP5eS6ap+gJ/CTEIB7QpuxnSm4OPw8FQ0/SimglRd/h7+GgxOv4DWi+qfeLDak7gjFMDGdsiG99LTjvFGsaMpD1Yyv7Oc81+yOc4AwXuCr3DM67zFqBKtS+uK9827vmfU3WIrcNHeha+hrSD3F2GCIfenDI7UEfBoY+5N95ABPs6EpwAwAA
+  </data>
+ </layer>
+ <layer name="Overlay2" width="20" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+XSSQ6CQBCF4Ur6Hl7IERXdunc8gtMODV7BYadGxekQygKH+/gnsgBCtBPZWcmXArr6NSGIvCunRPIoKEmkWuS00fmQd2Lt/OW8NOsZZGFj8sP7pdhbRwNNbLAN5FW4rmrm1/w5iz7CWGNfj5k+BhhG5rv+/ZK+wlojb8rMDHMssIODPQ444oIrXBX+3ga9iBLKMGPO83h2wx0PPBP6N/65XjN8mOpwAwAA
+  </data>
+ </layer>
+ <layer name="Overlay" width="20" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGBqgj3mgXTAKRgHlAABDIOm2cAMAAA==
+  </data>
+ </layer>
+ <objectgroup name="EntityLayer">
+  <object id="47" gid="125" x="1468" y="790" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="50" type="StructurePlacement" gid="125" x="1130" y="866" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="51" gid="125" x="1982" y="1192" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="52" gid="125" x="208" y="1120" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="53" gid="125" x="1150" y="1410" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="54" gid="125" x="1852" y="800" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="55" gid="125" x="722" y="754" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="56" gid="125" x="646" y="1098" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="69" gid="125" x="2366" y="780" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="80" type="StructurePlacement" gid="125" x="1144" y="452" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="128" gid="125" x="1642" y="1172" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="131" type="StructurePlacement" gid="125" x="1810" y="446" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Water"/>
+ <objectgroup name="Pathing">
+  <object id="178" x="-64" y="1202">
+   <polyline points="0,0 1442,6 1378,-652 2710,-636"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="Collisions">
+  <object id="17" type="TileCollisionRectangle" gid="1025" x="1318.67" y="1340.67" width="356" height="66">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="238"/>
+   </properties>
+  </object>
+  <object id="24" type="TileCollisionRectangle" gid="1025" x="-136.303" y="259.212" width="2809.27" height="128">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="2809.27"/>
+   </properties>
+  </object>
+  <object id="25" type="TileCollisionRectangle" gid="1025" x="-134" y="1514" width="2794" height="128">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="2794"/>
+   </properties>
+  </object>
+  <object id="89" type="TileCollisionRectangle" gid="1025" x="2099" y="513" width="218" height="66">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="218"/>
+   </properties>
+  </object>
+  <object id="164" type="TileCollisionRectangle" gid="1025" x="955" y="681" width="218" height="66">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="218"/>
+   </properties>
+  </object>
+  <object id="165" type="TileCollisionRectangle" gid="1025" x="478" y="1056" width="70" height="66">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="238"/>
+   </properties>
+  </object>
+  <object id="166" type="TileCollisionCircle" gid="1026" x="452" y="980" width="128" height="128">
+   <properties>
+    <property name="Altitude" type="float" value="96"/>
+    <property name="CircleInstanceRadius" type="float" value="64"/>
+   </properties>
+  </object>
+  <object id="167" type="TileCollisionRectangle" gid="1025" x="2004" y="931" width="432" height="66">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="238"/>
+   </properties>
+  </object>
+  <object id="168" type="TileCollisionCircle" gid="1026" x="55.5" y="687.25" width="64" height="64">
+   <properties>
+    <property name="Altitude" type="float" value="260"/>
+    <property name="CircleInstanceRadius" type="float" value="32"/>
+    <property name="ZHeight" type="float" value="132"/>
+   </properties>
+  </object>
+  <object id="169" type="TileCollisionRectangle" gid="1025" x="50.5" y="978.25" width="64" height="160">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="160"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="64"/>
+   </properties>
+  </object>
+  <object id="170" type="TileCollisionCircle" gid="1026" x="53.5" y="753.25" width="64" height="64">
+   <properties>
+    <property name="Altitude" type="float" value="196"/>
+    <property name="CircleInstanceRadius" type="float" value="32"/>
+    <property name="ZHeight" type="float" value="132"/>
+   </properties>
+  </object>
+  <object id="171" type="TileCollisionCircle" gid="1026" x="53.5" y="821.25" width="64" height="64">
+   <properties>
+    <property name="Altitude" type="float" value="132"/>
+    <property name="CircleInstanceRadius" type="float" value="32"/>
+    <property name="ZHeight" type="float" value="132"/>
+   </properties>
+  </object>
+  <object id="172" type="TileCollisionCircle" gid="1026" x="-27" y="577.75" width="238" height="238">
+   <properties>
+    <property name="Altitude" type="float" value="450"/>
+    <property name="CircleInstanceRadius" type="float" value="119"/>
+   </properties>
+  </object>
+  <object id="173" type="TileCollisionCircle" gid="1026" x="59.5" y="617.25" width="64" height="64">
+   <properties>
+    <property name="Altitude" type="float" value="324"/>
+    <property name="CircleInstanceRadius" type="float" value="32"/>
+    <property name="ZHeight" type="float" value="132"/>
+   </properties>
+  </object>
+  <object id="176" type="TileCollisionCircle" gid="1026" x="1426" y="1284" width="112" height="112">
+   <properties>
+    <property name="Altitude" type="float" value="96"/>
+    <property name="CircleInstanceRadius" type="float" value="51"/>
+   </properties>
+  </object>
+  <object id="177" type="TileCollisionCircle" gid="1026" x="931" y="633" width="238" height="238">
+   <properties>
+    <property name="Altitude" type="float" value="150"/>
+    <property name="CircleInstanceRadius" type="float" value="119"/>
+   </properties>
+  </object>
+  <object id="179" type="TileCollisionRectangle" gid="1025" x="1514" y="411" width="70" height="66">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="238"/>
+   </properties>
+  </object>
+  <object id="180" type="TileCollisionCircle" gid="1026" x="1488" y="335" width="128" height="128">
+   <properties>
+    <property name="Altitude" type="float" value="96"/>
+    <property name="CircleInstanceRadius" type="float" value="64"/>
+   </properties>
+  </object>
+  <object id="181" type="TileCollisionCircle" gid="1026" x="885.665" y="989" width="128" height="128">
+   <properties>
+    <property name="Altitude" type="float" value="64"/>
+    <property name="CircleInstanceRadius" type="float" value="64"/>
+   </properties>
+  </object>
+  <object id="182" type="TileCollisionCircle" gid="1026" x="1027.66" y="1003" width="204" height="204">
+   <properties>
+    <property name="Altitude" type="float" value="96"/>
+    <property name="CircleInstanceRadius" type="float" value="102"/>
+   </properties>
+  </object>
+  <object id="183" type="TileCollisionRectangle" gid="1025" x="852.335" y="1053.67" width="356" height="66">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="66"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="356"/>
+   </properties>
+  </object>
+  <object id="184" type="TileCollisionRectangle" gid="1025" x="1571" y="879" width="218" height="66">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="218"/>
+   </properties>
+  </object>
+  <object id="185" type="TileCollisionCircle" gid="1026" x="1547" y="831" width="238" height="238">
+   <properties>
+    <property name="Altitude" type="float" value="150"/>
+    <property name="CircleInstanceRadius" type="float" value="119"/>
+   </properties>
+  </object>
+  <object id="187" type="TileCollisionCircle" gid="1026" x="2103" y="879" width="238" height="238">
+   <properties>
+    <property name="Altitude" type="float" value="150"/>
+    <property name="CircleInstanceRadius" type="float" value="119"/>
+   </properties>
+  </object>
+  <object id="188" type="TileCollisionCircle" gid="1026" x="2443.33" y="376.665" width="112" height="112">
+   <properties>
+    <property name="Altitude" type="float" value="96"/>
+    <property name="CircleInstanceRadius" type="float" value="51"/>
+   </properties>
+  </object>
+  <object id="189" type="TileCollisionRectangle" gid="1025" x="2336" y="433.335" width="356" height="66">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="238"/>
+   </properties>
+  </object>
+  <object id="190" type="TileCollisionCircle" gid="1026" x="2529.33" y="1368.66" width="112" height="112">
+   <properties>
+    <property name="Altitude" type="float" value="96"/>
+    <property name="CircleInstanceRadius" type="float" value="51"/>
+   </properties>
+  </object>
+  <object id="191" type="TileCollisionRectangle" gid="1025" x="2422" y="1425.34" width="356" height="66">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="238"/>
+   </properties>
+  </object>
+  <object id="192" type="TileCollisionRectangle" gid="1025" x="373" y="551.5" width="64" height="160">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="238"/>
+   </properties>
+  </object>
+  <object id="193" type="TileCollisionCircle" gid="1026" x="292" y="324.5" width="256" height="256">
+   <properties>
+    <property name="Altitude" type="float" value="300"/>
+    <property name="CircleInstanceRadius" type="float" value="128"/>
+    <property name="ZHeight" type="float" value="132"/>
+   </properties>
+  </object>
+  <object id="194" type="TileCollisionCircle" gid="1026" x="376" y="394.5" width="64" height="64">
+   <properties>
+    <property name="Altitude" type="float" value="132"/>
+    <property name="CircleInstanceRadius" type="float" value="32"/>
+    <property name="ZHeight" type="float" value="132"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

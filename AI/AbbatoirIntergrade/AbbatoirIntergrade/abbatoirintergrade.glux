@@ -16606,7 +16606,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\MainMenu</StartUpScreen>
+  <StartUpScreen>Screens\GameScreen</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>
@@ -16665,7 +16665,7 @@
     <AspectRatioHeight>9</AspectRatioHeight>
     <SupportLandscape>true</SupportLandscape>
     <SupportPortrait>false</SupportPortrait>
-    <RunInFullScreen>true</RunInFullScreen>
+    <RunInFullScreen>false</RunInFullScreen>
     <AllowWindowResizing>false</AllowWindowResizing>
     <Scale>75</Scale>
     <ResizeBehavior>StretchVisibleArea</ResizeBehavior>

@@ -1,35 +1,272 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="9" tilewidth="128" tileheight="128" nextobjectid="2">
- <tileset firstgid="1" source="../../../Tilesets/CombinedAssetsTileset.tsx"/>
- <layer name="Ground" width="20" height="9">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="79">
+ <tileset firstgid="1" name="CombinedAssets" tilewidth="128" tileheight="128" tilecount="1024" columns="32">
+  <image source="../../../Tilesets/CombinedAssets.png" width="4096" height="4096"/>
+  <tile id="124" type="StructurePlacement">
+   <properties>
+    <property name="PlacementOrder" type="int" value="0"/>
+   </properties>
+  </tile>
+  <tile id="320" probability="0.1"/>
+  <tile id="321" probability="0.2"/>
+  <tile id="322" probability="0.3"/>
+  <tile id="323" probability="0.4"/>
+  <tile id="324" probability="0.5"/>
+  <tile id="325" probability="0.6"/>
+  <tile id="326" probability="0.7"/>
+  <tile id="327" probability="0.8"/>
+  <tile id="328" probability="0.9"/>
+  <tile id="351" probability="0.1"/>
+  <tile id="352" probability="0.1"/>
+  <tile id="353" probability="0.2"/>
+  <tile id="354" probability="0.3"/>
+  <tile id="355" probability="0.4"/>
+  <tile id="356" probability="0.5"/>
+  <tile id="357" probability="0.6"/>
+  <tile id="358" probability="0.7"/>
+  <tile id="359" probability="0.8"/>
+  <tile id="360" probability="0.9"/>
+  <tile id="361" probability="0.5"/>
+  <tile id="383" probability="0.2"/>
+  <tile id="384" probability="0.1"/>
+  <tile id="385" probability="0.2"/>
+  <tile id="386" probability="0.3"/>
+  <tile id="387" probability="0.4"/>
+  <tile id="388" probability="0.5"/>
+  <tile id="389" probability="0.6"/>
+  <tile id="390" probability="0.7"/>
+  <tile id="391" probability="0.8"/>
+  <tile id="392" probability="0.9"/>
+  <tile id="393" probability="0.5"/>
+  <tile id="415" probability="0.3"/>
+  <tile id="436" probability="0.1"/>
+  <tile id="437" probability="0.2"/>
+  <tile id="438" probability="0.3"/>
+  <tile id="439" probability="0.4"/>
+  <tile id="440" probability="0.5"/>
+  <tile id="441" probability="0.6"/>
+  <tile id="442" probability="0.7"/>
+  <tile id="443" probability="0.8"/>
+  <tile id="444" probability="0.9"/>
+  <tile id="447" probability="0.4"/>
+  <tile id="468" probability="0.1"/>
+  <tile id="469" probability="0.2"/>
+  <tile id="470" probability="0.3"/>
+  <tile id="471" probability="0.4"/>
+  <tile id="472" probability="0.5"/>
+  <tile id="473" probability="0.6"/>
+  <tile id="474" probability="0.7"/>
+  <tile id="475" probability="0.8"/>
+  <tile id="476" probability="0.9"/>
+  <tile id="479" probability="0.5"/>
+  <tile id="486" probability="0.1"/>
+  <tile id="487" probability="0.2"/>
+  <tile id="488" probability="0.3"/>
+  <tile id="489" probability="0.4"/>
+  <tile id="490" probability="0.5"/>
+  <tile id="491" probability="0.6"/>
+  <tile id="492" probability="0.7"/>
+  <tile id="493" probability="0.8"/>
+  <tile id="494" probability="0.9"/>
+  <tile id="511" probability="0.6"/>
+  <tile id="512" probability="0.1"/>
+  <tile id="513" probability="0.2"/>
+  <tile id="514" probability="0.3"/>
+  <tile id="515" probability="0.4"/>
+  <tile id="516" probability="0.5"/>
+  <tile id="517" probability="0.6"/>
+  <tile id="518" probability="0.7"/>
+  <tile id="519" probability="0.8"/>
+  <tile id="520" probability="0.9"/>
+  <tile id="544" probability="0.1"/>
+  <tile id="545" probability="0.2"/>
+  <tile id="546" probability="0.3"/>
+  <tile id="547" probability="0.4"/>
+  <tile id="548" probability="0.5"/>
+  <tile id="549" probability="0.6"/>
+  <tile id="550" probability="0.7"/>
+  <tile id="551" probability="0.8"/>
+  <tile id="552" probability="0.9"/>
+  <tile id="576" probability="0.1"/>
+  <tile id="577" probability="0.2"/>
+  <tile id="578" probability="0.3"/>
+  <tile id="579" probability="0.4"/>
+  <tile id="580" probability="0.5"/>
+  <tile id="581" probability="0.6"/>
+  <tile id="582" probability="0.7"/>
+  <tile id="583" probability="0.8"/>
+  <tile id="584" probability="0.9"/>
+ </tileset>
+ <tileset firstgid="1025" name="CollisionShapes" tilewidth="128" tileheight="128" tilecount="2" columns="2">
+  <image source="../../../Tilesets/CollisionShapes.png" width="256" height="128"/>
+  <tile id="0" type="TileCollisionRectangle">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="128"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="128"/>
+   </properties>
+  </tile>
+  <tile id="1" type="TileCollisionCircle"/>
+ </tileset>
+ <layer name="Ground" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC3WSWQ7CMAxEk8MBWX4oEosKDT0aR+Fo2GJGGqzy8ZTGtV69tOSUdkYJ1HA20ENMc8gBzj3OLjTkN6HiXQmxuuEsknc2TsJF3D3/1sQ769I4PTdxe3ySHrV/EvuOHmfktN5zeg/4NG8LzrPJ95/GbA73LOZ72N2e1wl1HMNOOGetjb7+db3coczwVfj0P2C/sXb2+c93lTzWpCdr1135vNijsmAGypAdch8fxe/SDNACAAA=
+   H4sIAAAAAAAAC82SXQrCMBCE05sWW/pjfPFVa3sCwVhUsGpzlB7NWTILMfQAFj42TTazs0uM+e9vzgID6TPjT4gxHYnX6Z7ET2aWIdHDfl4jFsAybkEDNqDmumRseS5nT9xVnTno+yOQnBu4gpFR12Oyf6ee6sf9wnduWXMPKiL5B/BCP8hZNKK2cdQq6T3uWfRa1nGRjtzt2Uta37FmQ6RnmeUbTOi14twcfeLM60zWZq15BaOlvk3+HXNUb470dI2+8wfnuFuZc8w5eJd5/PQZ++v4FsTDhfNRXw19qUcX6vtUI3kP4n+ZqCd3v3LBa6xwAwAA
   </data>
  </layer>
- <layer name="Objects" width="20" height="9">
+ <layer name="Objects" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgwA/MGRH0VSAtwYgQIxbMAOIKAuYjA1vSjMcKrqLxq3Gos6CCXdQG5jQ025TEuKMWkILSRkBsjCY3g4r2AAD3YCj00AIAAA==
+   H4sIAAAAAAAAC2NgGAX4QDUzA0MN80C7AgK+Ad3xnQS3VBNQexsof4dCv00D6p8OxDOA+DcQ/0EzbxsTA8N2IN7BhF3/QaD6Q0B8GIiPEOGWa0BzrgPxDRzmPQSa8QiIHwPxExzmzQaKzwHiuVjk9wHF9iOJ3wWy7xFw126g/B4g3oukDpsdILMAuda373ADAAA=
   </data>
  </layer>
- <layer name="Overlay" width="20" height="9">
+ <layer name="Overlay2" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjADcQAmLhgXYECQAAOAIGKdACAAA=
+   H4sIAAAAAAAAC2NgGF4gmpmBIYaZPL3bgPq2k6kXG7gGNOs6CeZFY1EbBhQLp8BNjUC9TUDcDMQtQFwGxOUEzJvOhFtuIVDvIiBeDMRLqBhW5IJ5QDfMB+IFg8AtxAAAq0KOOnADAAA=
   </data>
  </layer>
- <layer name="Overlay2" width="20" height="9">
+ <layer name="Overlay" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYPgAAKnxXv/QAgAA
+   H4sIAAAAAAAAC2NgGAWjYBTQCwAAf45feXADAAA=
   </data>
  </layer>
- <layer name="EntityLayer" width="20" height="9">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYPgAAKnxXv/QAgAA
-  </data>
- </layer>
- <objectgroup name="Pathing">
-  <object id="1" x="57.5758" y="1148.48">
-   <polyline points="0,0 0,-187.879 381.818,-184.848 387.879,-566.667 639.394,-572.727 645.455,-700 893.939,-709.091 906.061,-827.273 1403.03,-827.273 1409.09,-193.939 1666.67,-200 1669.7,-572.727 2500,-569.697"/>
+ <objectgroup name="EntityLayer">
+  <object id="47" gid="125" x="1176" y="794" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="50" type="StructurePlacement" gid="125" x="624" y="498" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="51" gid="125" x="496" y="746" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="52" gid="125" x="2310" y="492" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="53" gid="125" x="2318" y="908" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="54" gid="125" x="2308" y="718" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="55" gid="125" x="466" y="1134" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="56" gid="125" x="916" y="1162" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="69" gid="125" x="642" y="1414" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="70" gid="125" x="2428" y="1338" width="128" height="128">
+   <properties>
+    <property name="PlacementOrder" type="int" value="2"/>
+   </properties>
   </object>
  </objectgroup>
- <objectgroup name="Collisions"/>
+ <objectgroup name="Water">
+  <object id="71" x="1325.33" y="685.333">
+   <polygon points="0,0 670.667,-9.33333 686.667,624 928,634.667 946.667,725.333 -392,721.333 -393.333,530.667 -269.333,497.333 -257.333,128 -5.33333,110.667"/>
+  </object>
+  <object id="72" x="-2" y="258">
+   <polygon points="0,0 -2,602 28,606 42,716 450,726 476,352 596,332 602,88 2464,86 2476,200 2538,216 2564,-8"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="Pathing">
+  <object id="73" x="-10" y="1216">
+   <polyline points="0,0 872,8 814,-676 2166,-618 2090,-106 2576,-138"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="Collisions">
+  <object id="2" type="TileCollisionCircle" gid="1026" x="150" y="1138" width="238" height="238">
+   <properties>
+    <property name="CircleInstanceRadius" type="float" value="119"/>
+   </properties>
+  </object>
+  <object id="7" type="TileCollisionCircle" gid="1026" x="4" y="1436" width="128" height="128"/>
+  <object id="17" type="TileCollisionRectangle" gid="1025" x="958.667" y="892.667" width="126" height="66">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="66"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="126"/>
+   </properties>
+  </object>
+  <object id="24" type="TileCollisionRectangle" gid="1025" x="-130.303" y="259.212" width="2809.27" height="128">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="2809.27"/>
+   </properties>
+  </object>
+  <object id="25" type="TileCollisionRectangle" gid="1025" x="-134" y="1514" width="2794" height="128">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="2794"/>
+   </properties>
+  </object>
+  <object id="28" type="TileCollisionRectangle" gid="1025" x="2558" y="966" width="212" height="498">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="766"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="240"/>
+   </properties>
+  </object>
+  <object id="35" type="TileCollisionRectangle" gid="1025" x="601" y="925" width="150" height="87">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="87"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="150"/>
+   </properties>
+  </object>
+  <object id="44" type="TileCollisionCircle" gid="1026" x="2130" y="1236" width="80" height="80">
+   <properties>
+    <property name="CircleInstanceRadius" type="float" value="40"/>
+   </properties>
+  </object>
+  <object id="67" type="TileCollisionCircle" gid="1026" x="158" y="983" width="204" height="204">
+   <properties>
+    <property name="Altitude" type="float" value="300"/>
+    <property name="CircleInstanceRadius" type="float" value="102"/>
+   </properties>
+  </object>
+  <object id="74" type="TileCollisionRectangle" gid="1025" x="1003" y="687" width="48" height="48">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="48"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="48"/>
+   </properties>
+  </object>
+  <object id="75" type="TileCollisionRectangle" gid="1025" x="1641" y="481" width="52" height="66">
+   <properties>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="66"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="52"/>
+   </properties>
+  </object>
+  <object id="76" type="TileCollisionCircle" gid="1026" x="1606" y="436" width="128" height="128">
+   <properties>
+    <property name="Altitude" type="float" value="96"/>
+    <property name="CircleInstanceRadius" type="float" value="64"/>
+   </properties>
+  </object>
+  <object id="77" type="TileCollisionCircle" gid="1026" x="2480" y="706" width="128" height="128">
+   <properties>
+    <property name="Altitude" type="float" value="96"/>
+    <property name="CircleInstanceRadius" type="float" value="64"/>
+   </properties>
+  </object>
+  <object id="78" type="TileCollisionCircle" gid="1026" x="600" y="848" width="128" height="128">
+   <properties>
+    <property name="Altitude" type="float" value="112"/>
+    <property name="CircleInstanceRadius" type="float" value="64"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.GameClasses;
+using FlatRedBall.Glue.StateInterpolation;
 using FlatRedBall.Gui;
 
 namespace AbbatoirIntergrade.GumRuntimes
@@ -35,7 +36,8 @@ namespace AbbatoirIntergrade.GumRuntimes
 
         public void SetupResponseAvailability()
         {
-            CurrentResponseAvailabilityState = HasResponseAvailable ? ResponseAvailability.AwaitingResponse : ResponseAvailability.AlreadyResponded;
+            var newResponseState = HasResponseAvailable ? ResponseAvailability.AwaitingResponse : ResponseAvailability.AlreadyResponded;
+            InterpolateTo(newResponseState, 1f, InterpolationType.Exponential, Easing.Out);
         }
 
         private void SetUnreadMessageIndicator()

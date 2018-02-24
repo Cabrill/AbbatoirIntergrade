@@ -388,7 +388,7 @@ namespace AbbatoirIntergrade.Screens
 	                {
 	                    var rect = TileCollisionRectangleList[j - 1];
 
-	                    enemy.CollideAgainstBounce(rect.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
+	                    enemy.SelfCollisionCircle.CollideAgainstBounce(rect.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
 	                        elasticity: 0.1f);
 	                }
 
@@ -400,7 +400,7 @@ namespace AbbatoirIntergrade.Screens
 	                    if (circle.Altitude > enemy.Altitude) continue;
 	                    if (circle.Altitude + circle.ZHeight > enemy.Altitude) continue;
 
-	                    enemy.CollideAgainstBounce(circle.CircleInstance, thisMass: 0f, otherMass: 1f,
+	                    enemy.SelfCollisionCircle.CollideAgainstBounce(circle.CircleInstance, thisMass: 0f, otherMass: 1f,
 	                        elasticity: 0.5f);
 	                }
 
