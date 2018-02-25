@@ -225,7 +225,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         protected static Microsoft.Xna.Framework.Graphics.Texture2D AllAssetsSheet;
-        protected static Microsoft.Xna.Framework.Graphics.Texture2D animation_sheet;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D AllParticles;
         protected static FlatRedBall.Graphics.Particle.EmitterList ParticleEmitterListFile;
         protected static FlatRedBall.Graphics.Animation.AnimationChainList ParticleAnimationsChainList;
@@ -655,7 +654,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     mSpriteInstance.CopyAbsoluteToRelative();
                     mSpriteInstance.AttachTo(this, false);
                 }
-                SpriteInstance.Texture = animation_sheet;
                 SpriteInstance.TextureScale = 1f;
                 SpriteInstance.IgnoreAnimationChainTextureFlip = true;
             }
@@ -957,7 +955,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     }
                 }
                 AllAssetsSheet = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/allassetssheet.png", ContentManagerName);
-                animation_sheet = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/gamescreen/animation_sheet.png", ContentManagerName);
                 AllParticles = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/projectiles/allparticles.png", ContentManagerName);
                 ParticleEmitterListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Particle.EmitterList>(@"content/entities/baseentities/baseenemy/particleemitterlistfile.emix", ContentManagerName);
                 ParticleAnimationsChainList = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/baseentities/baseenemy/particleanimationschainlist.achx", ContentManagerName);
@@ -1675,8 +1672,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 case  "AllAssetsSheet":
                     return AllAssetsSheet;
-                case  "animation_sheet":
-                    return animation_sheet;
                 case  "AllParticles":
                     return AllParticles;
                 case  "ParticleEmitterListFile":
@@ -1694,8 +1689,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 case  "AllAssetsSheet":
                     return AllAssetsSheet;
-                case  "animation_sheet":
-                    return animation_sheet;
                 case  "AllParticles":
                     return AllParticles;
                 case  "ParticleEmitterListFile":
@@ -1713,8 +1706,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 case  "AllAssetsSheet":
                     return AllAssetsSheet;
-                case  "animation_sheet":
-                    return animation_sheet;
                 case  "AllParticles":
                     return AllParticles;
                 case  "ParticleEmitterListFile":

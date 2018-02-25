@@ -1467,10 +1467,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AllAssetsSheet</Name>
     </None>
-    <None Include="content\screens\gamescreen\animation_sheet.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>animation_sheet</Name>
-    </None>
     <None Include="content\screens\gamescreen\backgrounds\bgcity.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>BGcity</Name>
