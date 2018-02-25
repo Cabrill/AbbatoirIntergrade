@@ -71,7 +71,7 @@
  </tileset>
  <layer name="Ground" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC82SYQ6CMAyFF24GQ9yWmAhG/cvRdpQdzRW/sjnxvyQvLdC+99rNmP9+fGdMyDh3JQ/kgoF3m+GAr2ok9p+9a0ayfJc4lvoosPD6Elf5rlwaRWs5wANeepNA6ie00Enqq/Ub0DrBMcNHX+1ri+wm3XO8NXBvvm1e1VA+1e+bXOeb0bR4YZbdo+bzAceEtp6bo059ezhd1aN8zx97bXH53t++n5EZQ3c84wj6Mle8ctbVmW/+Az6HhkvvIvco5v+xngM+o/sTjhcjO2o2cAMAAA==
+   H4sIAAAAAAAAC82SYQ6CMAyFF24GQ9yWmAhG/cvRdpQdzRW/sjnxvyQvLdC+99rNmP9+fGdMyDh3JQ/kgoF3m+GAr2ok9p+9a0aa+C59Y6mPAguvL3GV78qlUbSWAzzgpTcJpH5CC52kvlq/Aa0THDN89NW+tshu0j3HWwP35ku20lA+1e+bXOeb0bR4YZbdo+bzAceEtp6bo059ezhd1aN8zx97bXH53t++n5EZQ3c84wj6Mle8ctbVmW/+Az6HhkvvIvco5v+xngM+o/sTjhcHGpFOcAMAAA==
   </data>
  </layer>
  <layer name="Objects" width="20" height="11">
@@ -81,7 +81,7 @@
  </layer>
  <layer name="Overlay2" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+XQyQ3CMBCF4cGmBeAcoCbgmIUagCNZmgBOSdwEubE0wlIIv8QBZNkIBDee9CmS43kaWeT/EmmRGAmmSJVIhhyF8s9tuduggy56+n6e8s2Qo0BJR4Ua5kWfLyUdFWoY7OjY44Cj1Tfi/xgT/Tiz97NzouOMC65W34yZORaeWVda3FXQaH8w50tARx8DDB19K3ZeY/Pm24Y/2Ok5yy/6buTJNSdwAwAA
+   H4sIAAAAAAAAC+XQOw6CQBSF4esMW1BrwTWppYVrUEp5bAKseGwCOx8bEViIf0KhmTBGoh0n+UIy3Dm5GZFxZ6dFAiUSIkKs7LMVs2dMMcNcd+cB3xARYmR05ChQfuizJaMjR4ESFzquuOFu9K34v8ZGv87M/cw86KjRoDX69tw5wLfc7cuEWQUNZ8A9WxZ0uPCw7OlL2DnF6cu33f5hp/ccf+h7AkKLb7VwAwAA
   </data>
  </layer>
  <layer name="Overlay" width="20" height="11">
@@ -131,7 +131,6 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Water"/>
  <objectgroup name="Pathing">
   <object id="195" x="-84" y="558">
    <polyline points="0,0 848,6 728,582 2126,524 2018,94 2756,116"/>

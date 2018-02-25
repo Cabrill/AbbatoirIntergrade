@@ -15,7 +15,9 @@
                 ForestedHills,
                 RedMountains,
                 Plains,
-                SparseTrees
+                SparseTrees,
+                City,
+                Desert
             }
             public enum CloudCover
             {
@@ -216,34 +218,36 @@
                     switch(mCurrentSceneryState)
                     {
                         case  Scenery.Swamp:
-                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
                             CloudCoverSprite.Visible = false;
                             SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGswamp.png");
                             break;
                         case  Scenery.DeadTrees:
-                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
                             CloudCoverSprite.Visible = false;
                             SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGDeadtrees.png");
                             break;
                         case  Scenery.ForestedHills:
-                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
                             CloudCoverSprite.Visible = false;
                             SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGforesthills.png");
                             break;
                         case  Scenery.RedMountains:
-                            SetProperty("CloudCoverSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains-clouds.png");
                             CloudCoverSprite.Visible = true;
                             SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains.png");
                             break;
                         case  Scenery.Plains:
-                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
                             CloudCoverSprite.Visible = false;
                             SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGPlains.png");
                             break;
                         case  Scenery.SparseTrees:
-                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
                             CloudCoverSprite.Visible = false;
                             SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGTreeplains.png");
+                            break;
+                        case  Scenery.City:
+                            CloudCoverSprite.Visible = true;
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGcity.png");
+                            break;
+                        case  Scenery.Desert:
+                            CloudCoverSprite.Visible = true;
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGDesert.png");
                             break;
                     }
                 }
@@ -1876,10 +1880,6 @@
                     case  Scenery.Swamp:
                         if (interpolationValue < 1)
                         {
-                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
-                        }
-                        if (interpolationValue < 1)
-                        {
                             this.CloudCoverSprite.Visible = false;
                         }
                         if (interpolationValue < 1)
@@ -1888,10 +1888,6 @@
                         }
                         break;
                     case  Scenery.DeadTrees:
-                        if (interpolationValue < 1)
-                        {
-                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
-                        }
                         if (interpolationValue < 1)
                         {
                             this.CloudCoverSprite.Visible = false;
@@ -1904,10 +1900,6 @@
                     case  Scenery.ForestedHills:
                         if (interpolationValue < 1)
                         {
-                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
-                        }
-                        if (interpolationValue < 1)
-                        {
                             this.CloudCoverSprite.Visible = false;
                         }
                         if (interpolationValue < 1)
@@ -1916,10 +1908,6 @@
                         }
                         break;
                     case  Scenery.RedMountains:
-                        if (interpolationValue < 1)
-                        {
-                            SetProperty("CloudCoverSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains-clouds.png");
-                        }
                         if (interpolationValue < 1)
                         {
                             this.CloudCoverSprite.Visible = true;
@@ -1932,10 +1920,6 @@
                     case  Scenery.Plains:
                         if (interpolationValue < 1)
                         {
-                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
-                        }
-                        if (interpolationValue < 1)
-                        {
                             this.CloudCoverSprite.Visible = false;
                         }
                         if (interpolationValue < 1)
@@ -1946,15 +1930,31 @@
                     case  Scenery.SparseTrees:
                         if (interpolationValue < 1)
                         {
-                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
-                        }
-                        if (interpolationValue < 1)
-                        {
                             this.CloudCoverSprite.Visible = false;
                         }
                         if (interpolationValue < 1)
                         {
                             SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGTreeplains.png");
+                        }
+                        break;
+                    case  Scenery.City:
+                        if (interpolationValue < 1)
+                        {
+                            this.CloudCoverSprite.Visible = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGcity.png");
+                        }
+                        break;
+                    case  Scenery.Desert:
+                        if (interpolationValue < 1)
+                        {
+                            this.CloudCoverSprite.Visible = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGDesert.png");
                         }
                         break;
                 }
@@ -1963,10 +1963,6 @@
                     case  Scenery.Swamp:
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
-                        }
-                        if (interpolationValue >= 1)
-                        {
                             this.CloudCoverSprite.Visible = false;
                         }
                         if (interpolationValue >= 1)
@@ -1975,10 +1971,6 @@
                         }
                         break;
                     case  Scenery.DeadTrees:
-                        if (interpolationValue >= 1)
-                        {
-                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
-                        }
                         if (interpolationValue >= 1)
                         {
                             this.CloudCoverSprite.Visible = false;
@@ -1991,10 +1983,6 @@
                     case  Scenery.ForestedHills:
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
-                        }
-                        if (interpolationValue >= 1)
-                        {
                             this.CloudCoverSprite.Visible = false;
                         }
                         if (interpolationValue >= 1)
@@ -2003,10 +1991,6 @@
                         }
                         break;
                     case  Scenery.RedMountains:
-                        if (interpolationValue >= 1)
-                        {
-                            SetProperty("CloudCoverSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains-clouds.png");
-                        }
                         if (interpolationValue >= 1)
                         {
                             this.CloudCoverSprite.Visible = true;
@@ -2019,10 +2003,6 @@
                     case  Scenery.Plains:
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
-                        }
-                        if (interpolationValue >= 1)
-                        {
                             this.CloudCoverSprite.Visible = false;
                         }
                         if (interpolationValue >= 1)
@@ -2033,15 +2013,31 @@
                     case  Scenery.SparseTrees:
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("CloudCoverSprite.SourceFile", "Mangrove.png");
-                        }
-                        if (interpolationValue >= 1)
-                        {
                             this.CloudCoverSprite.Visible = false;
                         }
                         if (interpolationValue >= 1)
                         {
                             SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGTreeplains.png");
+                        }
+                        break;
+                    case  Scenery.City:
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloudCoverSprite.Visible = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGcity.png");
+                        }
+                        break;
+                    case  Scenery.Desert:
+                        if (interpolationValue >= 1)
+                        {
+                            this.CloudCoverSprite.Visible = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGDesert.png");
                         }
                         break;
                 }
@@ -4940,14 +4936,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "CloudCoverSprite.SourceFile",
-                            Type = "string",
-                            Value = CloudCoverSprite.SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "CloudCoverSprite.Visible",
                             Type = "bool",
                             Value = CloudCoverSprite.Visible
@@ -4963,14 +4951,6 @@
                         );
                         break;
                     case  Scenery.DeadTrees:
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "CloudCoverSprite.SourceFile",
-                            Type = "string",
-                            Value = CloudCoverSprite.SourceFile
-                        }
-                        );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -4992,14 +4972,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "CloudCoverSprite.SourceFile",
-                            Type = "string",
-                            Value = CloudCoverSprite.SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "CloudCoverSprite.Visible",
                             Type = "bool",
                             Value = CloudCoverSprite.Visible
@@ -5015,14 +4987,6 @@
                         );
                         break;
                     case  Scenery.RedMountains:
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "CloudCoverSprite.SourceFile",
-                            Type = "string",
-                            Value = CloudCoverSprite.SourceFile
-                        }
-                        );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -5044,14 +5008,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "CloudCoverSprite.SourceFile",
-                            Type = "string",
-                            Value = CloudCoverSprite.SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "CloudCoverSprite.Visible",
                             Type = "bool",
                             Value = CloudCoverSprite.Visible
@@ -5070,11 +5026,39 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "CloudCoverSprite.SourceFile",
-                            Type = "string",
-                            Value = CloudCoverSprite.SourceFile
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        break;
+                    case  Scenery.City:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        break;
+                    case  Scenery.Desert:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -5104,14 +5088,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "CloudCoverSprite.SourceFile",
-                            Type = "string",
-                            Value = CloudCoverSprite.SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "CloudCoverSprite.Visible",
                             Type = "bool",
                             Value = CloudCoverSprite.Visible
@@ -5127,14 +5103,6 @@
                         );
                         break;
                     case  Scenery.DeadTrees:
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "CloudCoverSprite.SourceFile",
-                            Type = "string",
-                            Value = CloudCoverSprite.SourceFile
-                        }
-                        );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -5156,14 +5124,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "CloudCoverSprite.SourceFile",
-                            Type = "string",
-                            Value = CloudCoverSprite.SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "CloudCoverSprite.Visible",
                             Type = "bool",
                             Value = CloudCoverSprite.Visible
@@ -5179,14 +5139,6 @@
                         );
                         break;
                     case  Scenery.RedMountains:
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "CloudCoverSprite.SourceFile",
-                            Type = "string",
-                            Value = CloudCoverSprite.SourceFile
-                        }
-                        );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -5208,14 +5160,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "CloudCoverSprite.SourceFile",
-                            Type = "string",
-                            Value = CloudCoverSprite.SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "CloudCoverSprite.Visible",
                             Type = "bool",
                             Value = CloudCoverSprite.Visible
@@ -5234,11 +5178,39 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "CloudCoverSprite.SourceFile",
-                            Type = "string",
-                            Value = CloudCoverSprite.SourceFile
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        break;
+                    case  Scenery.City:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CloudCoverSprite.Visible",
+                            Type = "bool",
+                            Value = CloudCoverSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ForegroundSprite.SourceFile",
+                            Type = "string",
+                            Value = ForegroundSprite.SourceFile
+                        }
+                        );
+                        break;
+                    case  Scenery.Desert:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -5366,6 +5338,8 @@
                         if(state.Name == "RedMountains") this.mCurrentSceneryState = Scenery.RedMountains;
                         if(state.Name == "Plains") this.mCurrentSceneryState = Scenery.Plains;
                         if(state.Name == "SparseTrees") this.mCurrentSceneryState = Scenery.SparseTrees;
+                        if(state.Name == "City") this.mCurrentSceneryState = Scenery.City;
+                        if(state.Name == "Desert") this.mCurrentSceneryState = Scenery.Desert;
                     }
                     else if (category.Name == "CloudCover")
                     {

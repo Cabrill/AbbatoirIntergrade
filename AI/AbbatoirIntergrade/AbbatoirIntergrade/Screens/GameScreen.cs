@@ -73,10 +73,11 @@ namespace AbbatoirIntergrade.Screens
             IncomingMessageSound = IncomingMessage.CreateInstance();
 
             //TODO:  Set these values by loading a level
-            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
+            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter3Level();
             CurrentLevel.OnNewWaveStart += HandleWaveStarted;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
+            HorizonBoxInstance.CurrentSceneryState = CurrentLevel.Scenery;
             currentLevelDateTime = CurrentLevel.StartTime;
 
             InitializeFactories();
@@ -711,7 +712,7 @@ namespace AbbatoirIntergrade.Screens
         private void LoadInitialDialogue()
         {
             var gameDialogue = GameStateManager.GameDialogue;
-            var firstDialogue = gameDialogue.DialogueList.First(d => d.DisplayName == CurrentLevel.MapName + "Start");
+            var firstDialogue = gameDialogue.DialogueList.FirstOrDefault(d => d.DisplayName == CurrentLevel.StartingDialogueDisplayName);
 
             if (firstDialogue != null)
             {

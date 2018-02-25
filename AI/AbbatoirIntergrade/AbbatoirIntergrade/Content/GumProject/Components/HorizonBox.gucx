@@ -1038,13 +1038,6 @@
     <State>
       <Name>Swamp</Name>
       <Variable>
-        <IsFile>true</IsFile>
-        <Type>string</Type>
-        <Name>CloudCoverSprite.SourceFile</Name>
-        <Value xsi:type="xsd:string">Mangrove.png</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>bool</Type>
         <Name>CloudCoverSprite.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
@@ -1067,13 +1060,6 @@
     </State>
     <State>
       <Name>DeadTrees</Name>
-      <Variable>
-        <IsFile>true</IsFile>
-        <Type>string</Type>
-        <Name>CloudCoverSprite.SourceFile</Name>
-        <Value xsi:type="xsd:string">Mangrove.png</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
       <Variable>
         <Type>bool</Type>
         <Name>CloudCoverSprite.Visible</Name>
@@ -1098,13 +1084,6 @@
     <State>
       <Name>ForestedHills</Name>
       <Variable>
-        <IsFile>true</IsFile>
-        <Type>string</Type>
-        <Name>CloudCoverSprite.SourceFile</Name>
-        <Value xsi:type="xsd:string">Mangrove.png</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>bool</Type>
         <Name>CloudCoverSprite.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
@@ -1127,13 +1106,6 @@
     </State>
     <State>
       <Name>RedMountains</Name>
-      <Variable>
-        <IsFile>true</IsFile>
-        <Type>string</Type>
-        <Name>CloudCoverSprite.SourceFile</Name>
-        <Value xsi:type="xsd:string">../Screens/GameScreen/Backgrounds/BGmountains-clouds.png</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
       <Variable>
         <Type>bool</Type>
         <Name>CloudCoverSprite.Visible</Name>
@@ -1158,13 +1130,6 @@
     <State>
       <Name>Plains</Name>
       <Variable>
-        <IsFile>true</IsFile>
-        <Type>string</Type>
-        <Name>CloudCoverSprite.SourceFile</Name>
-        <Value xsi:type="xsd:string">Mangrove.png</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>bool</Type>
         <Name>CloudCoverSprite.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
@@ -1188,13 +1153,6 @@
     <State>
       <Name>SparseTrees</Name>
       <Variable>
-        <IsFile>true</IsFile>
-        <Type>string</Type>
-        <Name>CloudCoverSprite.SourceFile</Name>
-        <Value xsi:type="xsd:string">Mangrove.png</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>bool</Type>
         <Name>CloudCoverSprite.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
@@ -1205,6 +1163,52 @@
         <Type>string</Type>
         <Name>ForegroundSprite.SourceFile</Name>
         <Value xsi:type="xsd:string">../Screens/GameScreen/Backgrounds/BGTreeplains.png</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>AnimationFrames</Name>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value />
+      </VariableList>
+    </State>
+    <State>
+      <Name>City</Name>
+      <Variable>
+        <Type>bool</Type>
+        <Name>CloudCoverSprite.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <IsFile>true</IsFile>
+        <Type>string</Type>
+        <Name>ForegroundSprite.SourceFile</Name>
+        <Value xsi:type="xsd:string">../Screens/GameScreen/Backgrounds/BGcity.png</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>AnimationFrames</Name>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value />
+      </VariableList>
+    </State>
+    <State>
+      <Name>Desert</Name>
+      <Variable>
+        <Type>bool</Type>
+        <Name>CloudCoverSprite.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <IsFile>true</IsFile>
+        <Type>string</Type>
+        <Name>ForegroundSprite.SourceFile</Name>
+        <Value xsi:type="xsd:string">../Screens/GameScreen/Backgrounds/BGDesert.png</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <VariableList xsi:type="VariableListSaveOfString">

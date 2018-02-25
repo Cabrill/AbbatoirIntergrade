@@ -115,7 +115,6 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Water"/>
  <objectgroup name="Pathing">
   <object id="129" x="-22" y="954">
    <polyline points="0,0 622,20 570,-544 2058,-518 1976,162 2632,120"/>

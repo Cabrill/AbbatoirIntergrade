@@ -30,7 +30,11 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 
         public virtual int StartingLives { get; } = 1;
 
+        public abstract HorizonBoxRuntime.Scenery Scenery { get; }
+
         protected double SecondsBetweenWaves = 0;
+
+        public virtual string StartingDialogueDisplayName => MapName + "Start";
 
         private List<EnemyTypes> _availableEnemyTypes;
 

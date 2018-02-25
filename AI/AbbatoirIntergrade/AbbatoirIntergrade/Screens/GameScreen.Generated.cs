@@ -56,6 +56,118 @@ namespace AbbatoirIntergrade.Screens
         }
         protected static Microsoft.Xna.Framework.Graphics.Texture2D CollisionShapes;
         protected static Microsoft.Xna.Framework.Audio.SoundEffect IncomingMessage;
+        static FlatRedBall.TileGraphics.LayeredTileMap mChapter3;
+        static string mLastContentManagerForChapter3;
+        public static FlatRedBall.TileGraphics.LayeredTileMap Chapter3
+        {
+            get
+            {
+                if (mChapter3 == null || mLastContentManagerForChapter3 != "GameScreen")
+                {
+                    mLastContentManagerForChapter3 = "GameScreen";
+                    mChapter3 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter3.tmx", "Global");
+                }
+                return mChapter3;
+            }
+        }
+        static FlatRedBall.TileGraphics.LayeredTileMap mChapter4;
+        static string mLastContentManagerForChapter4;
+        public static FlatRedBall.TileGraphics.LayeredTileMap Chapter4
+        {
+            get
+            {
+                if (mChapter4 == null || mLastContentManagerForChapter4 != "GameScreen")
+                {
+                    mLastContentManagerForChapter4 = "GameScreen";
+                    mChapter4 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter4.tmx", "Global");
+                }
+                return mChapter4;
+            }
+        }
+        static FlatRedBall.TileGraphics.LayeredTileMap mChapter5;
+        static string mLastContentManagerForChapter5;
+        public static FlatRedBall.TileGraphics.LayeredTileMap Chapter5
+        {
+            get
+            {
+                if (mChapter5 == null || mLastContentManagerForChapter5 != "GameScreen")
+                {
+                    mLastContentManagerForChapter5 = "GameScreen";
+                    mChapter5 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter5.tmx", "Global");
+                }
+                return mChapter5;
+            }
+        }
+        static FlatRedBall.TileGraphics.LayeredTileMap mChapter6;
+        static string mLastContentManagerForChapter6;
+        public static FlatRedBall.TileGraphics.LayeredTileMap Chapter6
+        {
+            get
+            {
+                if (mChapter6 == null || mLastContentManagerForChapter6 != "GameScreen")
+                {
+                    mLastContentManagerForChapter6 = "GameScreen";
+                    mChapter6 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter6.tmx", "Global");
+                }
+                return mChapter6;
+            }
+        }
+        static FlatRedBall.TileGraphics.LayeredTileMap mChapter7;
+        static string mLastContentManagerForChapter7;
+        public static FlatRedBall.TileGraphics.LayeredTileMap Chapter7
+        {
+            get
+            {
+                if (mChapter7 == null || mLastContentManagerForChapter7 != "GameScreen")
+                {
+                    mLastContentManagerForChapter7 = "GameScreen";
+                    mChapter7 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter7.tmx", "Global");
+                }
+                return mChapter7;
+            }
+        }
+        static FlatRedBall.TileGraphics.LayeredTileMap mChapter8;
+        static string mLastContentManagerForChapter8;
+        public static FlatRedBall.TileGraphics.LayeredTileMap Chapter8
+        {
+            get
+            {
+                if (mChapter8 == null || mLastContentManagerForChapter8 != "GameScreen")
+                {
+                    mLastContentManagerForChapter8 = "GameScreen";
+                    mChapter8 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter8.tmx", "Global");
+                }
+                return mChapter8;
+            }
+        }
+        static FlatRedBall.TileGraphics.LayeredTileMap mChapter9;
+        static string mLastContentManagerForChapter9;
+        public static FlatRedBall.TileGraphics.LayeredTileMap Chapter9
+        {
+            get
+            {
+                if (mChapter9 == null || mLastContentManagerForChapter9 != "GameScreen")
+                {
+                    mLastContentManagerForChapter9 = "GameScreen";
+                    mChapter9 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter9.tmx", "Global");
+                }
+                return mChapter9;
+            }
+        }
+        static FlatRedBall.TileGraphics.LayeredTileMap mChapter10;
+        static string mLastContentManagerForChapter10;
+        public static FlatRedBall.TileGraphics.LayeredTileMap Chapter10
+        {
+            get
+            {
+                if (mChapter10 == null || mLastContentManagerForChapter10 != "GameScreen")
+                {
+                    mLastContentManagerForChapter10 = "GameScreen";
+                    mChapter10 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter10.tmx", "Global");
+                }
+                return mChapter10;
+            }
+        }
         
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D WorldRenderTarget;
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D DarknessRenderTarget;
@@ -373,6 +485,46 @@ namespace AbbatoirIntergrade.Screens
             }
             CollisionShapes = null;
             IncomingMessage = null;
+            if (mChapter3 != null)
+            {
+                mChapter3.Destroy();
+                mChapter3 = null;
+            }
+            if (mChapter4 != null)
+            {
+                mChapter4.Destroy();
+                mChapter4 = null;
+            }
+            if (mChapter5 != null)
+            {
+                mChapter5.Destroy();
+                mChapter5 = null;
+            }
+            if (mChapter6 != null)
+            {
+                mChapter6.Destroy();
+                mChapter6 = null;
+            }
+            if (mChapter7 != null)
+            {
+                mChapter7.Destroy();
+                mChapter7 = null;
+            }
+            if (mChapter8 != null)
+            {
+                mChapter8.Destroy();
+                mChapter8 = null;
+            }
+            if (mChapter9 != null)
+            {
+                mChapter9.Destroy();
+                mChapter9 = null;
+            }
+            if (mChapter10 != null)
+            {
+                mChapter10.Destroy();
+                mChapter10 = null;
+            }
             
             AllStructuresList.MakeOneWay();
             AllEnemiesList.MakeOneWay();
@@ -728,6 +880,22 @@ namespace AbbatoirIntergrade.Screens
                     return CollisionShapes;
                 case  "IncomingMessage":
                     return IncomingMessage;
+                case  "Chapter3":
+                    return Chapter3;
+                case  "Chapter4":
+                    return Chapter4;
+                case  "Chapter5":
+                    return Chapter5;
+                case  "Chapter6":
+                    return Chapter6;
+                case  "Chapter7":
+                    return Chapter7;
+                case  "Chapter8":
+                    return Chapter8;
+                case  "Chapter9":
+                    return Chapter9;
+                case  "Chapter10":
+                    return Chapter10;
             }
             return null;
         }
@@ -749,6 +917,22 @@ namespace AbbatoirIntergrade.Screens
                     return CollisionShapes;
                 case  "IncomingMessage":
                     return IncomingMessage;
+                case  "Chapter3":
+                    return Chapter3;
+                case  "Chapter4":
+                    return Chapter4;
+                case  "Chapter5":
+                    return Chapter5;
+                case  "Chapter6":
+                    return Chapter6;
+                case  "Chapter7":
+                    return Chapter7;
+                case  "Chapter8":
+                    return Chapter8;
+                case  "Chapter9":
+                    return Chapter9;
+                case  "Chapter10":
+                    return Chapter10;
             }
             return null;
         }
@@ -770,6 +954,22 @@ namespace AbbatoirIntergrade.Screens
                     return CollisionShapes;
                 case  "IncomingMessage":
                     return IncomingMessage;
+                case  "Chapter3":
+                    return Chapter3;
+                case  "Chapter4":
+                    return Chapter4;
+                case  "Chapter5":
+                    return Chapter5;
+                case  "Chapter6":
+                    return Chapter6;
+                case  "Chapter7":
+                    return Chapter7;
+                case  "Chapter8":
+                    return Chapter8;
+                case  "Chapter9":
+                    return Chapter9;
+                case  "Chapter10":
+                    return Chapter10;
             }
             return null;
         }

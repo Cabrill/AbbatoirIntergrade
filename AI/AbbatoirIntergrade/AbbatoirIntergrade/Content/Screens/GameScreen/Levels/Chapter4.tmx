@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="130">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="134">
  <tileset firstgid="1" name="CombinedAssets" tilewidth="128" tileheight="128" tilecount="1024" columns="32">
   <image source="../../../Tilesets/CombinedAssets.png" width="4096" height="4096"/>
   <tile id="124" type="StructurePlacement">
@@ -42,7 +42,7 @@
    H4sIAAAAAAAAC2NgGFwgmpmBIYZ5oF1Bf9AE9HPzIPK3HNAt8oPIPcMFAAAsi0rccAMAAA==
   </data>
  </layer>
- <objectgroup name="EntityLayer" visible="0">
+ <objectgroup name="EntityLayer">
   <object id="47" gid="125" x="1474" y="826" width="128" height="128">
    <properties>
     <property name="PlacementOrder" type="int" value="2"/>
@@ -94,8 +94,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Water" visible="0"/>
- <objectgroup name="Pathing" visible="0">
+ <objectgroup name="Pathing">
   <object id="81" x="-32" y="436">
    <polyline points="0,0 882,-12 814,554 1416,516 1356,-26 2310,10 2228,550 2652,512"/>
   </object>
@@ -327,6 +326,18 @@
    <properties>
     <property name="Altitude" type="float" value="300"/>
     <property name="CircleInstanceRadius" type="float" value="102"/>
+   </properties>
+  </object>
+  <object id="131" type="TileCollisionCircle" gid="1026" x="1138" y="1122" width="204" height="204">
+   <properties>
+    <property name="Altitude" type="float" value="96"/>
+    <property name="CircleInstanceRadius" type="float" value="102"/>
+   </properties>
+  </object>
+  <object id="133" type="TileCollisionCircle" gid="1026" x="996" y="1108" width="128" height="128">
+   <properties>
+    <property name="Altitude" type="float" value="64"/>
+    <property name="CircleInstanceRadius" type="float" value="64"/>
    </properties>
   </object>
  </objectgroup>

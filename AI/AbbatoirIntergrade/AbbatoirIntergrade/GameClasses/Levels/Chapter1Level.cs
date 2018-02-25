@@ -18,6 +18,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
         public override string MapName => "Chapter1";
         public override DateTime StartTime => new DateTime(2017, 10, 21, 6, 0, 0);
         public override int StartingLives => 30;
+        public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.SparseTrees;
         public override List<string> SongNameList => new List<string>() {nameof(GlobalContent.anttisinstrumentals_badmorning), nameof(GlobalContent.anttisinstrumentals_woman)};
 
         public override List<BaseWave> Waves => new List<BaseWave>() { 
