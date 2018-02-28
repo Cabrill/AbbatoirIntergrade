@@ -23,6 +23,10 @@ namespace AbbatoirIntergrade.StaticManagers
         public static string LastLevelNameCompleted => Data.ChapterResults.Count == 0 ? "" : Data.ChapterResults.MaxBy(lr => lr.LevelNumber).LevelName;
 
         public static SerializableDictionary<string, string> DialogueHistory => Data.DialogueShownChosen;
+        public static float PositiveDialoguePercent => Data.PercentPositive;
+        public static float NeutralDialoguePercent => Data.PercentNeutral;
+        public static float NegativeDialoguePercent => Data.PercentNegative;
+        public static float SilentDialoguePercent => Data.PercentSilent;
 
         private const string SaveFileName = "PlayerSave.xml";
 

@@ -15,7 +15,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
         public override DateTime StartTime => new DateTime(2017, 10, 23, 5, 0, 0);
         public override int StartingLives => 30;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.Plains;
-        public override List<string> SongNameList => new List<string>() { nameof(GlobalContent.anttisinstrumentals_badmorning), nameof(GlobalContent.anttisinstrumentals_woman) };
+        public override List<string> SongNameList => new List<string>() { nameof(GlobalContent.Brallit_Ocular_Eclipse), nameof(GlobalContent.anttisinstrumentals_justafaceinthedarkinstrumental), nameof(GlobalContent.anttisinstrumentals_enoughexcitementforalifetime) };
 
         public override List<BaseWave> Waves => new List<BaseWave>() {
             new BaseWave(new EnemyList(EnemyTypes.Pig1)
@@ -32,7 +32,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
             }),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
                 SerializableTuple<int, EnemyTypes>.Create(5, EnemyTypes.Chicken1),
-                SerializableTuple<int, EnemyTypes>.Create(7, EnemyTypes.Sheep1)
+                SerializableTuple<int, EnemyTypes>.Create(8, EnemyTypes.Sheep1)
             }),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
                 SerializableTuple<int, EnemyTypes>.Create(5, EnemyTypes.Chicken1),

@@ -264,6 +264,10 @@ namespace AbbatoirIntergrade
             }
         }
         public static System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.Enemy_Attributes> Enemy_Attributes { get; set; }
+        public static Microsoft.Xna.Framework.Media.Song Brallit_Ocular_Eclipse { get; set; }
+        public static Microsoft.Xna.Framework.Media.Song Brallit_One_Accord { get; set; }
+        public static Microsoft.Xna.Framework.Media.Song Brallit_Robotic_Chaotic { get; set; }
+        public static Microsoft.Xna.Framework.Media.Song Brallit_Vow_of_Silence { get; set; }
         [System.Obsolete("Use GetFile instead")]
         public static object GetStaticMember (string memberName) 
         {
@@ -315,6 +319,14 @@ namespace AbbatoirIntergrade
                     return anttisinstrumentals_woman;
                 case  "Enemy_Attributes":
                     return Enemy_Attributes;
+                case  "Brallit_Ocular_Eclipse":
+                    return Brallit_Ocular_Eclipse;
+                case  "Brallit_One_Accord":
+                    return Brallit_One_Accord;
+                case  "Brallit_Robotic_Chaotic":
+                    return Brallit_Robotic_Chaotic;
+                case  "Brallit_Vow_of_Silence":
+                    return Brallit_Vow_of_Silence;
             }
             return null;
         }
@@ -368,6 +380,14 @@ namespace AbbatoirIntergrade
                     return anttisinstrumentals_woman;
                 case  "Enemy_Attributes":
                     return Enemy_Attributes;
+                case  "Brallit_Ocular_Eclipse":
+                    return Brallit_Ocular_Eclipse;
+                case  "Brallit_One_Accord":
+                    return Brallit_One_Accord;
+                case  "Brallit_Robotic_Chaotic":
+                    return Brallit_Robotic_Chaotic;
+                case  "Brallit_Vow_of_Silence":
+                    return Brallit_Vow_of_Silence;
             }
             return null;
         }
@@ -391,6 +411,10 @@ namespace AbbatoirIntergrade
                     Enemy_Attributes = temporaryCsvObject;
                 }
             }
+            Brallit_Ocular_Eclipse = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/music/brallit_ocular_eclipse", ContentManagerName);
+            Brallit_One_Accord = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/music/brallit_one_accord", ContentManagerName);
+            Brallit_Robotic_Chaotic = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/music/brallit_robotic_chaotic", ContentManagerName);
+            Brallit_Vow_of_Silence = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/music/brallit_vow_of_silence", ContentManagerName);
             			IsInitialized = true;
             #if DEBUG && WINDOWS
             InitializeFileWatch();
@@ -512,6 +536,22 @@ namespace AbbatoirIntergrade
                 if (relativeFileName == "content/globalcontent/music/anttisinstrumentals_woman.mp3")
                 {
                     Reload(anttisinstrumentals_woman);
+                }
+                if (relativeFileName == "content/globalcontent/music/brallit_ocular_eclipse.mp3")
+                {
+                    Reload(Brallit_Ocular_Eclipse);
+                }
+                if (relativeFileName == "content/globalcontent/music/brallit_one_accord.mp3")
+                {
+                    Reload(Brallit_One_Accord);
+                }
+                if (relativeFileName == "content/globalcontent/music/brallit_robotic_chaotic.mp3")
+                {
+                    Reload(Brallit_Robotic_Chaotic);
+                }
+                if (relativeFileName == "content/globalcontent/music/brallit_vow_of_silence.mp3")
+                {
+                    Reload(Brallit_Vow_of_Silence);
                 }
             }
             catch{}

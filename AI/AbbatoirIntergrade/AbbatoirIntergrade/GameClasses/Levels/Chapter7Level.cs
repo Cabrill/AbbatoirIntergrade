@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.GameClasses.BaseClasses;
 using AbbatoirIntergrade.GumRuntimes;
+using AbbatoirIntergrade.StaticManagers;
 using AbbatoirIntergrade.UtilityClasses;
 
 namespace AbbatoirIntergrade.GameClasses.Levels
@@ -15,7 +16,19 @@ namespace AbbatoirIntergrade.GameClasses.Levels
         public override DateTime StartTime => new DateTime(2017, 10, 26, 5, 0, 0);
         public override int StartingLives => 30;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.Swamp;
-        public override List<string> SongNameList => new List<string>() { nameof(GlobalContent.anttisinstrumentals_badmorning), nameof(GlobalContent.anttisinstrumentals_woman) };
+        public override List<string> SongNameList => new List<string>() { nameof(GlobalContent.anttisinstrumentals_superiorblandcrap), nameof(GlobalContent.anttisinstrumentals_irememberyou), nameof(GlobalContent.anttisinstrumentals_inmymindiamabigstar) };
+
+        public override string StartingDialogueDisplayName
+        {
+            get
+            {
+                var baseDialogueName = MapName + "Start";
+                if (PlayerDataManager.PositiveDialoguePercent >= 0.5) baseDialogueName += "Positive";
+                else if (PlayerDataManager.NegativeDialoguePercent >= 0.5) baseDialogueName += "Negative";
+
+                return baseDialogueName;
+            }
+        }
 
         public override List<BaseWave> Waves => new List<BaseWave>() {
             new BaseWave(new EnemyList(EnemyTypes.Pig1)

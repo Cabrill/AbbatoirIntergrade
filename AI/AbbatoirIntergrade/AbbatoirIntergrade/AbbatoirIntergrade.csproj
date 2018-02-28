@@ -1077,6 +1077,46 @@
       <Name>anttisinstrumentals_woman</Name>
       <Link>content\globalcontent\music\anttisinstrumentals_woman.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\brallit_ocular_eclipse.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Brallit_Ocular_Eclipse</Name>
+      <Link>content\globalcontent\music\brallit_ocular_eclipse.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\brallit_ocular_eclipse.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Brallit_Ocular_Eclipse</Name>
+      <Link>content\globalcontent\music\brallit_ocular_eclipse.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\brallit_one_accord.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Brallit_One_Accord</Name>
+      <Link>content\globalcontent\music\brallit_one_accord.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\brallit_one_accord.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Brallit_One_Accord</Name>
+      <Link>content\globalcontent\music\brallit_one_accord.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\brallit_robotic_chaotic.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Brallit_Robotic_Chaotic</Name>
+      <Link>content\globalcontent\music\brallit_robotic_chaotic.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\brallit_robotic_chaotic.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Brallit_Robotic_Chaotic</Name>
+      <Link>content\globalcontent\music\brallit_robotic_chaotic.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\brallit_vow_of_silence.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Brallit_Vow_of_Silence</Name>
+      <Link>content\globalcontent\music\brallit_vow_of_silence.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\brallit_vow_of_silence.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Brallit_Vow_of_Silence</Name>
+      <Link>content\globalcontent\music\brallit_vow_of_silence.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\desktopgl\screens\gamescreen\effects\darknessshader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>darknessshader</Name>
