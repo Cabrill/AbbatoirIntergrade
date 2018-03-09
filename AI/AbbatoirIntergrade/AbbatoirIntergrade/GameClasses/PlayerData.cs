@@ -13,6 +13,18 @@ namespace AbbatoirIntergrade.GameClasses
     [XmlRoot("PlayerData")]
     public class PlayerData
     {
+        [XmlIgnore]
+        public bool HasBeatenGame => GotPositiveEnding || GotNeutralEnding || GotNegativeEnding;
+
+        [XmlElement("GotPositiveEnding")]
+        public bool GotPositiveEnding { get; set; }
+
+        [XmlElement("GotNeutralEnding")]
+        public bool GotNeutralEnding { get; set; }
+
+        [XmlElement("GotNegativeEnding")]
+        public bool GotNegativeEnding { get; set; }
+
         [XmlElement("AvailableTowers")]
         public List<string> AvailableTowers { get; set; } = new List<string>();
 

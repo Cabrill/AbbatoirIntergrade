@@ -55,6 +55,7 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Thumb", typeof(AbbatoirIntergrade.GumRuntimes.ThumbRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("unique/MainMenuEye", typeof(AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("VerticalScrollBar", typeof(AbbatoirIntergrade.GumRuntimes.VerticalScrollBarRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("EndingScreenGum", typeof(AbbatoirIntergrade.GumRuntimes.EndingScreenGumRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("GameScreenGum", typeof(AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("LoadingScreenGum", typeof(AbbatoirIntergrade.GumRuntimes.LoadingScreenGumRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MainMenuGum", typeof(AbbatoirIntergrade.GumRuntimes.MainMenuGumRuntime));

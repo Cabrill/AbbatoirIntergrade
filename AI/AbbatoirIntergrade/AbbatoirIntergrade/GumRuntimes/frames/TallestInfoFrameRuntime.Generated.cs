@@ -27,8 +27,8 @@
                         case  VariableState.Default:
                             Height = 100f;
                             HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            Width = 100f;
-                            WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            Width = 57.64f;
+                            WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                             XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             BackgroundSprite.Height = 100f;
@@ -39,8 +39,8 @@
                             BackgroundSprite.TextureLeft = 2560;
                             BackgroundSprite.TextureTop = 2464;
                             BackgroundSprite.TextureWidth = 860;
-                            BackgroundSprite.Width = 57.64f;
-                            BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                            BackgroundSprite.Width = 100f;
+                            BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             BackgroundSprite.X = 0f;
                             BackgroundSprite.Y = 0f;
                             break;
@@ -123,10 +123,10 @@
                         setBackgroundSpriteTextureWidthFirstValue = true;
                         BackgroundSpriteTextureWidthFirstValue = 860;
                         setBackgroundSpriteWidthFirstValue = true;
-                        BackgroundSpriteWidthFirstValue = 57.64f;
+                        BackgroundSpriteWidthFirstValue = 100f;
                         if (interpolationValue < 1)
                         {
-                            this.BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                            this.BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setBackgroundSpriteXFirstValue = true;
                         BackgroundSpriteXFirstValue = 0f;
@@ -139,10 +139,10 @@
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setWidthFirstValue = true;
-                        WidthFirstValue = 100f;
+                        WidthFirstValue = 57.64f;
                         if (interpolationValue < 1)
                         {
-                            this.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                         }
                         if (interpolationValue < 1)
                         {
@@ -180,10 +180,10 @@
                         setBackgroundSpriteTextureWidthSecondValue = true;
                         BackgroundSpriteTextureWidthSecondValue = 860;
                         setBackgroundSpriteWidthSecondValue = true;
-                        BackgroundSpriteWidthSecondValue = 57.64f;
+                        BackgroundSpriteWidthSecondValue = 100f;
                         if (interpolationValue >= 1)
                         {
-                            this.BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                            this.BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setBackgroundSpriteXSecondValue = true;
                         BackgroundSpriteXSecondValue = 0f;
@@ -196,10 +196,10 @@
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setWidthSecondValue = true;
-                        WidthSecondValue = 100f;
+                        WidthSecondValue = 57.64f;
                         if (interpolationValue >= 1)
                         {
-                            this.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -505,7 +505,7 @@
                             SetsValue = true,
                             Name = "Width",
                             Type = "float",
-                            Value = Width + 100f
+                            Value = Width + 57.64f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -601,7 +601,7 @@
                             SetsValue = true,
                             Name = "BackgroundSprite.Width",
                             Type = "float",
-                            Value = BackgroundSprite.Width + 57.64f
+                            Value = BackgroundSprite.Width + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -647,6 +647,22 @@
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime BackgroundSprite { get; set; }
+            public int FrameAlpha
+            {
+                get
+                {
+                    return BackgroundSprite.Alpha;
+                }
+                set
+                {
+                    if (BackgroundSprite.Alpha != value)
+                    {
+                        BackgroundSprite.Alpha = value;
+                        FrameAlphaChanged?.Invoke(this, null);
+                    }
+                }
+            }
+            public event System.EventHandler FrameAlphaChanged;
             public TallestInfoFrameRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
             {

@@ -17,10 +17,16 @@
                 ChatHistoryShow4,
                 ChatHistoryShown
             }
+            public enum Fading
+            {
+                Faded,
+                NotFaded
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
             ChatHistoryShowing mCurrentChatHistoryShowingState;
+            Fading mCurrentFadingState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -52,6 +58,14 @@
                             ChatHistoryInstance.Y = 0f;
                             ScreenShadeInstance.Visible = false;
                             MenuWindowInstance.Visible = false;
+                            ColoredRectangleInstance.Alpha = 0;
+                            ColoredRectangleInstance.Blue = 0;
+                            ColoredRectangleInstance.Green = 0;
+                            ColoredRectangleInstance.Height = 100f;
+                            ColoredRectangleInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ColoredRectangleInstance.Red = 0;
+                            ColoredRectangleInstance.Width = 100f;
+                            ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             break;
                     }
                 }
@@ -125,6 +139,26 @@
                     }
                 }
             }
+            public Fading CurrentFadingState
+            {
+                get
+                {
+                    return mCurrentFadingState;
+                }
+                set
+                {
+                    mCurrentFadingState = value;
+                    switch(mCurrentFadingState)
+                    {
+                        case  Fading.Faded:
+                            ColoredRectangleInstance.Alpha = 255;
+                            break;
+                        case  Fading.NotFaded:
+                            ColoredRectangleInstance.Alpha = 0;
+                            break;
+                    }
+                }
+            }
             #endregion
             #region State Interpolation
             public void InterpolateBetween (VariableState firstState, VariableState secondState, float interpolationValue) 
@@ -155,6 +189,30 @@
                 bool setChatHistoryInstanceYSecondValue = false;
                 float ChatHistoryInstanceYFirstValue= 0;
                 float ChatHistoryInstanceYSecondValue= 0;
+                bool setColoredRectangleInstanceAlphaFirstValue = false;
+                bool setColoredRectangleInstanceAlphaSecondValue = false;
+                int ColoredRectangleInstanceAlphaFirstValue= 0;
+                int ColoredRectangleInstanceAlphaSecondValue= 0;
+                bool setColoredRectangleInstanceBlueFirstValue = false;
+                bool setColoredRectangleInstanceBlueSecondValue = false;
+                int ColoredRectangleInstanceBlueFirstValue= 0;
+                int ColoredRectangleInstanceBlueSecondValue= 0;
+                bool setColoredRectangleInstanceGreenFirstValue = false;
+                bool setColoredRectangleInstanceGreenSecondValue = false;
+                int ColoredRectangleInstanceGreenFirstValue= 0;
+                int ColoredRectangleInstanceGreenSecondValue= 0;
+                bool setColoredRectangleInstanceHeightFirstValue = false;
+                bool setColoredRectangleInstanceHeightSecondValue = false;
+                float ColoredRectangleInstanceHeightFirstValue= 0;
+                float ColoredRectangleInstanceHeightSecondValue= 0;
+                bool setColoredRectangleInstanceRedFirstValue = false;
+                bool setColoredRectangleInstanceRedSecondValue = false;
+                int ColoredRectangleInstanceRedFirstValue= 0;
+                int ColoredRectangleInstanceRedSecondValue= 0;
+                bool setColoredRectangleInstanceWidthFirstValue = false;
+                bool setColoredRectangleInstanceWidthSecondValue = false;
+                float ColoredRectangleInstanceWidthFirstValue= 0;
+                float ColoredRectangleInstanceWidthSecondValue= 0;
                 bool setLivesPointsDisplayInstanceWidthFirstValue = false;
                 bool setLivesPointsDisplayInstanceWidthSecondValue = false;
                 float LivesPointsDisplayInstanceWidthFirstValue= 0;
@@ -188,6 +246,26 @@
                         ChatHistoryInstanceXFirstValue = 10f;
                         setChatHistoryInstanceYFirstValue = true;
                         ChatHistoryInstanceYFirstValue = 0f;
+                        setColoredRectangleInstanceAlphaFirstValue = true;
+                        ColoredRectangleInstanceAlphaFirstValue = 0;
+                        setColoredRectangleInstanceBlueFirstValue = true;
+                        ColoredRectangleInstanceBlueFirstValue = 0;
+                        setColoredRectangleInstanceGreenFirstValue = true;
+                        ColoredRectangleInstanceGreenFirstValue = 0;
+                        setColoredRectangleInstanceHeightFirstValue = true;
+                        ColoredRectangleInstanceHeightFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ColoredRectangleInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setColoredRectangleInstanceRedFirstValue = true;
+                        ColoredRectangleInstanceRedFirstValue = 0;
+                        setColoredRectangleInstanceWidthFirstValue = true;
+                        ColoredRectangleInstanceWidthFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         if (interpolationValue < 1)
                         {
                             this.EnemyInfoInstance.Visible = false;
@@ -247,6 +325,26 @@
                         ChatHistoryInstanceXSecondValue = 10f;
                         setChatHistoryInstanceYSecondValue = true;
                         ChatHistoryInstanceYSecondValue = 0f;
+                        setColoredRectangleInstanceAlphaSecondValue = true;
+                        ColoredRectangleInstanceAlphaSecondValue = 0;
+                        setColoredRectangleInstanceBlueSecondValue = true;
+                        ColoredRectangleInstanceBlueSecondValue = 0;
+                        setColoredRectangleInstanceGreenSecondValue = true;
+                        ColoredRectangleInstanceGreenSecondValue = 0;
+                        setColoredRectangleInstanceHeightSecondValue = true;
+                        ColoredRectangleInstanceHeightSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ColoredRectangleInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setColoredRectangleInstanceRedSecondValue = true;
+                        ColoredRectangleInstanceRedSecondValue = 0;
+                        setColoredRectangleInstanceWidthSecondValue = true;
+                        ColoredRectangleInstanceWidthSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         if (interpolationValue >= 1)
                         {
                             this.EnemyInfoInstance.Visible = false;
@@ -300,6 +398,30 @@
                 if (setChatHistoryInstanceYFirstValue && setChatHistoryInstanceYSecondValue)
                 {
                     ChatHistoryInstance.Y = ChatHistoryInstanceYFirstValue * (1 - interpolationValue) + ChatHistoryInstanceYSecondValue * interpolationValue;
+                }
+                if (setColoredRectangleInstanceAlphaFirstValue && setColoredRectangleInstanceAlphaSecondValue)
+                {
+                    ColoredRectangleInstance.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceAlphaFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceAlphaSecondValue * interpolationValue);
+                }
+                if (setColoredRectangleInstanceBlueFirstValue && setColoredRectangleInstanceBlueSecondValue)
+                {
+                    ColoredRectangleInstance.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceBlueFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceBlueSecondValue * interpolationValue);
+                }
+                if (setColoredRectangleInstanceGreenFirstValue && setColoredRectangleInstanceGreenSecondValue)
+                {
+                    ColoredRectangleInstance.Green = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceGreenFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceGreenSecondValue * interpolationValue);
+                }
+                if (setColoredRectangleInstanceHeightFirstValue && setColoredRectangleInstanceHeightSecondValue)
+                {
+                    ColoredRectangleInstance.Height = ColoredRectangleInstanceHeightFirstValue * (1 - interpolationValue) + ColoredRectangleInstanceHeightSecondValue * interpolationValue;
+                }
+                if (setColoredRectangleInstanceRedFirstValue && setColoredRectangleInstanceRedSecondValue)
+                {
+                    ColoredRectangleInstance.Red = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceRedFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceRedSecondValue * interpolationValue);
+                }
+                if (setColoredRectangleInstanceWidthFirstValue && setColoredRectangleInstanceWidthSecondValue)
+                {
+                    ColoredRectangleInstance.Width = ColoredRectangleInstanceWidthFirstValue * (1 - interpolationValue) + ColoredRectangleInstanceWidthSecondValue * interpolationValue;
                 }
                 if (setLivesPointsDisplayInstanceWidthFirstValue && setLivesPointsDisplayInstanceWidthSecondValue)
                 {
@@ -645,6 +767,53 @@
                     mCurrentChatHistoryShowingState = secondState;
                 }
             }
+            public void InterpolateBetween (Fading firstState, Fading secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                bool setColoredRectangleInstanceAlphaFirstValue = false;
+                bool setColoredRectangleInstanceAlphaSecondValue = false;
+                int ColoredRectangleInstanceAlphaFirstValue= 0;
+                int ColoredRectangleInstanceAlphaSecondValue= 0;
+                switch(firstState)
+                {
+                    case  Fading.Faded:
+                        setColoredRectangleInstanceAlphaFirstValue = true;
+                        ColoredRectangleInstanceAlphaFirstValue = 255;
+                        break;
+                    case  Fading.NotFaded:
+                        setColoredRectangleInstanceAlphaFirstValue = true;
+                        ColoredRectangleInstanceAlphaFirstValue = 0;
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  Fading.Faded:
+                        setColoredRectangleInstanceAlphaSecondValue = true;
+                        ColoredRectangleInstanceAlphaSecondValue = 255;
+                        break;
+                    case  Fading.NotFaded:
+                        setColoredRectangleInstanceAlphaSecondValue = true;
+                        ColoredRectangleInstanceAlphaSecondValue = 0;
+                        break;
+                }
+                if (setColoredRectangleInstanceAlphaFirstValue && setColoredRectangleInstanceAlphaSecondValue)
+                {
+                    ColoredRectangleInstance.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceAlphaFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceAlphaSecondValue * interpolationValue);
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentFadingState = firstState;
+                }
+                else
+                {
+                    mCurrentFadingState = secondState;
+                }
+            }
             #endregion
             #region State Interpolate To
             public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
@@ -751,6 +920,60 @@
                 }
                 tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
                 tweener.Ended += ()=> this.CurrentChatHistoryShowingState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime.Fading fromState,AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime.Fading toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (Fading toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "Fading").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentFadingState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (Fading toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentFadingState = toState;
                 tweener.Start();
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
@@ -1105,6 +1328,136 @@
                     return hideChatHistoryAnimationRelative;
                 }
             }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> FadeInAnimationInstructions (object target) 
+            {
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction( ()=> this.CurrentFadingState = Fading.Faded);
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(Fading.NotFaded, 1, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, FadeInAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    yield return toReturn;
+                }
+            }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> FadeInAnimationRelativeInstructions (object target) 
+            {
+                {
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "Fading/Faded").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "Fading/NotFaded").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(Fading.NotFaded);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 1, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation fadeInAnimation;
+            public FlatRedBall.Gum.Animation.GumAnimation FadeInAnimation
+            {
+                get
+                {
+                    if (fadeInAnimation == null)
+                    {
+                        fadeInAnimation = new FlatRedBall.Gum.Animation.GumAnimation(1, FadeInAnimationInstructions);
+                    }
+                    return fadeInAnimation;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation fadeInAnimationRelative;
+            public FlatRedBall.Gum.Animation.GumAnimation FadeInAnimationRelative
+            {
+                get
+                {
+                    if (fadeInAnimationRelative == null)
+                    {
+                        fadeInAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(1, FadeInAnimationRelativeInstructions);
+                    }
+                    return fadeInAnimationRelative;
+                }
+            }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> FadeOutAnimationInstructions (object target) 
+            {
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction( ()=> this.CurrentFadingState = Fading.NotFaded);
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(Fading.Faded, 2, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, FadeOutAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    yield return toReturn;
+                }
+            }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> FadeOutAnimationRelativeInstructions (object target) 
+            {
+                {
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "Fading/NotFaded").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "Fading/Faded").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(Fading.Faded);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 2, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation fadeOutAnimation;
+            public FlatRedBall.Gum.Animation.GumAnimation FadeOutAnimation
+            {
+                get
+                {
+                    if (fadeOutAnimation == null)
+                    {
+                        fadeOutAnimation = new FlatRedBall.Gum.Animation.GumAnimation(2, FadeOutAnimationInstructions);
+                    }
+                    return fadeOutAnimation;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation fadeOutAnimationRelative;
+            public FlatRedBall.Gum.Animation.GumAnimation FadeOutAnimationRelative
+            {
+                get
+                {
+                    if (fadeOutAnimationRelative == null)
+                    {
+                        fadeOutAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(2, FadeOutAnimationRelativeInstructions);
+                    }
+                    return fadeOutAnimationRelative;
+                }
+            }
             #endregion
             public override void StopAnimations () 
             {
@@ -1121,6 +1474,8 @@
                 MenuWindowInstance.StopAnimations();
                 ShowChatHistoryAnimation.Stop();
                 HideChatHistoryAnimation.Stop();
+                FadeInAnimation.Stop();
+                FadeOutAnimation.Stop();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -1263,6 +1618,70 @@
                             Name = "MenuWindowInstance.Visible",
                             Type = "bool",
                             Value = MenuWindowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Alpha",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Blue",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Green",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Height",
+                            Type = "float",
+                            Value = ColoredRectangleInstance.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ColoredRectangleInstance.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Red",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Width",
+                            Type = "float",
+                            Value = ColoredRectangleInstance.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ColoredRectangleInstance.WidthUnits
                         }
                         );
                         break;
@@ -1409,6 +1828,70 @@
                             Name = "MenuWindowInstance.Visible",
                             Type = "bool",
                             Value = MenuWindowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Alpha",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Alpha + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Blue",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Green",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Height",
+                            Type = "float",
+                            Value = ColoredRectangleInstance.Height + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ColoredRectangleInstance.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Red",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Width",
+                            Type = "float",
+                            Value = ColoredRectangleInstance.Width + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ColoredRectangleInstance.WidthUnits
                         }
                         );
                         break;
@@ -2143,6 +2626,62 @@
                 }
                 return newState;
             }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (Fading state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Fading.Faded:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Alpha",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Alpha
+                        }
+                        );
+                        break;
+                    case  Fading.NotFaded:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Alpha",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Alpha
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (Fading state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Fading.Faded:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Alpha",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Alpha + 255
+                        }
+                        );
+                        break;
+                    case  Fading.NotFaded:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Alpha",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Alpha + 0
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
             #endregion
             public override void ApplyState (Gum.DataTypes.Variables.StateSave state) 
             {
@@ -2163,6 +2702,11 @@
                         if(state.Name == "ChatHistoryShow4") this.mCurrentChatHistoryShowingState = ChatHistoryShowing.ChatHistoryShow4;
                         if(state.Name == "ChatHistoryShown") this.mCurrentChatHistoryShowingState = ChatHistoryShowing.ChatHistoryShown;
                     }
+                    else if (category.Name == "Fading")
+                    {
+                        if(state.Name == "Faded") this.mCurrentFadingState = Fading.Faded;
+                        if(state.Name == "NotFaded") this.mCurrentFadingState = Fading.NotFaded;
+                    }
                 }
                 base.ApplyState(state);
             }
@@ -2176,6 +2720,7 @@
             private AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime TopStatusBarInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime ScreenShadeInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
             public GameScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -2211,6 +2756,7 @@
                 TopStatusBarInstance = this.GetGraphicalUiElementByName("TopStatusBarInstance") as AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime;
                 ScreenShadeInstance = this.GetGraphicalUiElementByName("ScreenShadeInstance") as AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime;
                 MenuWindowInstance = this.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
+                ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

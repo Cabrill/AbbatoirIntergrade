@@ -38,7 +38,7 @@ namespace AbbatoirIntergrade.StaticManagers
             MachineLearningManager.LoadData(TempModelFileName, TempWaveDataFileName);
             LoadDialogue();
 #if DEBUG
-            //ExportDialogue();
+            ExportDialogue();
         }
 
         private static void ExportDialogue()
