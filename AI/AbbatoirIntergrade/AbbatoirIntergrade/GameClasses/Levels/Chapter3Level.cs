@@ -46,11 +46,8 @@ namespace AbbatoirIntergrade.GameClasses.Levels
                 SerializableTuple<int, EnemyTypes>.Create(1, EnemyTypes.Cow1)
             }),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
-                SerializableTuple<int, EnemyTypes>.Create(6, EnemyTypes.Chicken1),
-                SerializableTuple<int, EnemyTypes>.Create(6, EnemyTypes.Rabbit1),
-                SerializableTuple<int, EnemyTypes>.Create(3, EnemyTypes.Sheep1),
-                SerializableTuple<int, EnemyTypes>.Create(1, EnemyTypes.Cow1),
-                SerializableTuple<int, EnemyTypes>.Create(2, EnemyTypes.Pig1)
+                SerializableTuple<int, EnemyTypes>.Create(12, EnemyTypes.Chicken1),
+                SerializableTuple<int, EnemyTypes>.Create(6, EnemyTypes.Chicken2),
             }),
         };
     }

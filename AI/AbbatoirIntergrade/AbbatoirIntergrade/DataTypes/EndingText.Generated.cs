@@ -3,8 +3,8 @@ namespace AbbatoirIntergrade.DataTypes
 {
     public partial class EndingText
     {
-        public string Name;
-        public float Health;
+        public string EndingName;
+        public string EndingText;
         public const string Positive = "Positive";
         public const string Neutral = "Neutral";
         public const string Negative = "Negative";
