@@ -281,7 +281,7 @@
       <LocalizedString>Positive</LocalizedString>
     </DisplayName>
     <Text Count="1">
-      <LocalizedString>This is Shepherd Cartalia of Planet X1407.  Confirm security clearance.</LocalizedString>
+      <LocalizedString>This is Shephard Cartalia of Planet X1407.  Confirm security clearance.</LocalizedString>
     </Text>
     <Pins>
       <Pin Id="0x0100000000000D4A" Index="0" Semantic="Input" />
@@ -12384,6 +12384,54 @@
       <Pin Id="0x0100000000003AC1" Index="0" Semantic="Output" />
     </Pins>
   </Dialogue>
+  <Dialogue Id="0x0100000000003AC8">
+    <DisplayName Count="1">
+      <LocalizedString>Silence</LocalizedString>
+    </DisplayName>
+    <Text Count="1">
+      <LocalizedString>...</LocalizedString>
+    </Text>
+    <Pins>
+      <Pin Id="0x0100000000003AC9" Index="0" Semantic="Input" />
+      <Pin Id="0x0100000000003ACA" Index="0" Semantic="Output" />
+    </Pins>
+  </Dialogue>
+  <Dialogue Id="0x0100000000003AD1">
+    <DisplayName Count="1">
+      <LocalizedString>Silence</LocalizedString>
+    </DisplayName>
+    <Text Count="1">
+      <LocalizedString>...</LocalizedString>
+    </Text>
+    <Pins>
+      <Pin Id="0x0100000000003AD2" Index="0" Semantic="Input" />
+      <Pin Id="0x0100000000003AD3" Index="0" Semantic="Output" />
+    </Pins>
+  </Dialogue>
+  <Dialogue Id="0x0100000000003ADA">
+    <DisplayName Count="1">
+      <LocalizedString>Silence</LocalizedString>
+    </DisplayName>
+    <Text Count="1">
+      <LocalizedString>...</LocalizedString>
+    </Text>
+    <Pins>
+      <Pin Id="0x0100000000003ADB" Index="0" Semantic="Input" />
+      <Pin Id="0x0100000000003ADC" Index="0" Semantic="Output" />
+    </Pins>
+  </Dialogue>
+  <Dialogue Id="0x0100000000003AE4">
+    <DisplayName Count="1">
+      <LocalizedString>Silence</LocalizedString>
+    </DisplayName>
+    <Text Count="1">
+      <LocalizedString>...</LocalizedString>
+    </Text>
+    <Pins>
+      <Pin Id="0x0100000000003AE5" Index="0" Semantic="Input" />
+      <Pin Id="0x0100000000003AE6" Index="0" Semantic="Output" />
+    </Pins>
+  </Dialogue>
   <Dialogue Id="0x01000000000007D9">
     <DisplayName Count="1">
       <LocalizedString>Chapter1Start</LocalizedString>
@@ -21523,10 +21571,6 @@
     <Target IdRef="0x01000000000037F3" PinRef="0x01000000000037F4" />
   </Connection>
   <Connection>
-    <Source IdRef="0x0100000000003A33" PinRef="0x0100000000003A38" />
-    <Target IdRef="0x0100000000002659" PinRef="0x010000000000265A" />
-  </Connection>
-  <Connection>
     <Source IdRef="0x0100000000003A2A" PinRef="0x0100000000003A2C" />
     <Target IdRef="0x0100000000003A43" PinRef="0x0100000000003A44" />
   </Connection>
@@ -21567,10 +21611,6 @@
     <Target IdRef="0x0100000000003877" PinRef="0x0100000000003878" />
   </Connection>
   <Connection>
-    <Source IdRef="0x0100000000003A53" PinRef="0x0100000000003A58" />
-    <Target IdRef="0x0100000000002659" PinRef="0x010000000000265A" />
-  </Connection>
-  <Connection>
     <Source IdRef="0x0100000000003877" PinRef="0x0100000000003879" />
     <Target IdRef="0x0100000000002659" PinRef="0x010000000000265A" />
   </Connection>
@@ -21595,10 +21635,6 @@
     <Target IdRef="0x01000000000038A7" PinRef="0x01000000000038A8" />
   </Connection>
   <Connection>
-    <Source IdRef="0x0100000000003A64" PinRef="0x0100000000003A69" />
-    <Target IdRef="0x0100000000002659" PinRef="0x010000000000265A" />
-  </Connection>
-  <Connection>
     <Source IdRef="0x01000000000038DA" PinRef="0x01000000000038DC" />
     <Target IdRef="0x0100000000003A7D" PinRef="0x0100000000003A7E" />
   </Connection>
@@ -21613,10 +21649,6 @@
   <Connection>
     <Source IdRef="0x0100000000003A7D" PinRef="0x0100000000003A81" />
     <Target IdRef="0x01000000000038D3" PinRef="0x01000000000038D4" />
-  </Connection>
-  <Connection>
-    <Source IdRef="0x0100000000003A7D" PinRef="0x0100000000003A82" />
-    <Target IdRef="0x0100000000002659" PinRef="0x010000000000265A" />
   </Connection>
   <Connection>
     <Source IdRef="0x01000000000038D3" PinRef="0x01000000000038D5" />
@@ -21688,6 +21720,42 @@
   </Connection>
   <Connection>
     <Source IdRef="0x0100000000003ABF" PinRef="0x0100000000003AC1" />
+    <Target IdRef="0x0100000000002659" PinRef="0x010000000000265A" />
+  </Connection>
+  <Connection>
+    <Source IdRef="0x0100000000003A53" PinRef="0x0100000000003A58" />
+    <Target IdRef="0x0100000000003AC8" PinRef="0x0100000000003AC9" />
+  </Connection>
+  <Connection>
+    <Source IdRef="0x0100000000003AC8" PinRef="0x0100000000003ACA" />
+    <Target IdRef="0x0100000000002659" PinRef="0x010000000000265A" />
+  </Connection>
+  <Connection>
+    <Source IdRef="0x0100000000003A64" PinRef="0x0100000000003A69" />
+    <Target IdRef="0x0100000000003AD1" PinRef="0x0100000000003AD2" />
+  </Connection>
+  <Connection>
+    <Source IdRef="0x0100000000003AD1" PinRef="0x0100000000003AD3" />
+    <Target IdRef="0x0100000000002659" PinRef="0x010000000000265A" />
+  </Connection>
+  <Connection>
+    <Source IdRef="0x0100000000003A7D" PinRef="0x0100000000003A82" />
+    <Target IdRef="0x0100000000003ADA" PinRef="0x0100000000003ADB" />
+  </Connection>
+  <Connection>
+    <Source IdRef="0x0100000000003ADA" PinRef="0x0100000000003ADC" />
+    <Target IdRef="0x0100000000002659" PinRef="0x010000000000265A" />
+  </Connection>
+  <Connection>
+    <Source IdRef="0x0100000000003906" PinRef="0x0100000000003908" />
+    <Target IdRef="0x0100000000003A9A" PinRef="0x0100000000003A9B" />
+  </Connection>
+  <Connection>
+    <Source IdRef="0x0100000000003A33" PinRef="0x0100000000003A38" />
+    <Target IdRef="0x0100000000003AE4" PinRef="0x0100000000003AE5" />
+  </Connection>
+  <Connection>
+    <Source IdRef="0x0100000000003AE4" PinRef="0x0100000000003AE6" />
     <Target IdRef="0x0100000000002659" PinRef="0x010000000000265A" />
   </Connection>
   <Connection>

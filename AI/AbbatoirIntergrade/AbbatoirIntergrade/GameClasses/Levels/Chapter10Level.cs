@@ -14,7 +14,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
     {
         public override string MapName => "Chapter10";
         public override DateTime StartTime => new DateTime(2017, 10, 30, 5, 0, 0);
-        public override int StartingLives => 150;
+        public override int StartingLives => 982;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.City;
         public override List<string> SongNameList => new List<string>() { nameof(GlobalContent.anttisinstrumentals_alieninhochiminh), nameof(GlobalContent.anttisinstrumentals_marchoftheages) };
 

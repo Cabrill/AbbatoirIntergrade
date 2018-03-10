@@ -42,8 +42,8 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
             }
         }
 
-        private int _pointValue = 0;
-        public int PointValue
+        private double _pointValue = 0;
+        public double PointValue
         {
             get
             {
@@ -57,7 +57,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 
         private void CalculatePointValue()
         {
-            var points = 0;
+            var points = 0.0;
 
             foreach (var tuple in EnemyCounts.EnemyCountTuples)
             {

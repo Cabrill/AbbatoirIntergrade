@@ -18,6 +18,7 @@ using AbbatoirIntergrade.GameClasses.Levels;
 using AbbatoirIntergrade.GumRuntimes;
 using AbbatoirIntergrade.Performance;
 using AbbatoirIntergrade.StaticManagers;
+using FlatRedBall.Instructions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -73,7 +74,7 @@ namespace AbbatoirIntergrade.Screens
             IncomingMessageSound = IncomingMessage.CreateInstance();
 
             //TODO:  Set these values by loading a level
-            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter3Level();
+            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter9Level();
             CurrentLevel.OnNewWaveStart += HandleWaveStarted;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
@@ -105,6 +106,8 @@ namespace AbbatoirIntergrade.Screens
             PauseAndBuildAjustedTime = 0;
 
             SoundManager.PlaySongList(CurrentLevel.SongNameList);
+
+            GameScreenGumInstance.CurrentFadingState = GameScreenGumRuntime.Fading.Faded;
         }
 
         private void HandleWaveStarted(object sender, EventArgs e)
@@ -261,8 +264,10 @@ namespace AbbatoirIntergrade.Screens
         #region Activity
         void CustomActivity(bool firstTimeCalled)
         {
+            if (firstTimeCalled) GameScreenGumInstance.FadeInAnimation.Play();
+
 #if DEBUG
-            FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
+            FlatRedBall.Debugging.Debugger.Write(GuiManager.Cursor.WindowOver);
             HandleDebugInput();
             ShowDebugInfo();
 #endif
@@ -748,7 +753,12 @@ namespace AbbatoirIntergrade.Screens
                 }
             }
 
-            if (!string.IsNullOrEmpty(chosenDialogue))
+            if (CurrentLevel.MapName == "Chapter10" &&
+                ChatBoxInstance.CurrentIncomingMessage.DisplayName.Contains("Ending"))
+            {
+                HandleGameEnd();
+            }
+            else if (!string.IsNullOrEmpty(chosenDialogue))
             {
                 var newDialogue = gameDialogue.GetResponseFor(chosenDialogue);
 
@@ -760,6 +770,32 @@ namespace AbbatoirIntergrade.Screens
                     SoundManager.PlaySoundEffect(IncomingMessageSound);
                 }
             }
+        }
+
+        private void HandleGameEnd()
+        {
+            var currentDisplayMessageName = ChatBoxInstance.CurrentIncomingMessage.DisplayName;
+
+            if (currentDisplayMessageName.Contains("Positive"))
+            {
+                PlayerDataManager.MarkPlayerReachedEnding(1);
+            }
+            else if (currentDisplayMessageName.Contains("Negative"))
+            {
+                PlayerDataManager.MarkPlayerReachedEnding(-1);
+            }
+            else
+            {
+                PlayerDataManager.MarkPlayerReachedEnding(0);
+            }
+            var levelResults = CurrentLevel.GetFinalResults();
+            levelResults.TimePlayed = PauseAndBuildAjustedTime;
+            PlayerDataManager.RecordChapterResults(levelResults);
+            PlayerDataManager.SaveData();
+
+            GameScreenGumInstance.FadeOutAnimation.Play(this);
+            this.Call(() => LoadingScreen.TransitionToScreen(typeof(EndingScreen))
+            ).After(GameScreenGumInstance.FadeOutAnimation.Length);
         }
 
         private void DialogueChosen(object sender, EventArgs eventArgs)

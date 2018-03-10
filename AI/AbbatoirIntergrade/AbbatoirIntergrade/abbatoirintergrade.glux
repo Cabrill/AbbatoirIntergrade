@@ -35,6 +35,35 @@
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
+      <NamedObjects>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/EndingScreenGum.gusx</SourceFile>
+          <SourceName>this (AbbatoirIntergrade.GumRuntimes.EndingScreenGumRuntime)</SourceName>
+          <InstanceName>EndingScreenGumInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/EndingScreenGum.gusx</SourceFile>
+          <SourceName>EndingText (AbbatoirIntergrade.GumRuntimes.TextRuntime)</SourceName>
+          <InstanceName>EndingTextRuntimeInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/EndingScreenGum.gusx</SourceFile>
+          <SourceName>ButtonFrameInstance (AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime)</SourceName>
+          <InstanceName>ButtonInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
     </ScreenSave>
     <ScreenSave>
       <Tags>
@@ -12921,7 +12950,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Blue</Member>
-            <ValueAsFloat>0.8</ValueAsFloat>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>BlendOperation</Type>

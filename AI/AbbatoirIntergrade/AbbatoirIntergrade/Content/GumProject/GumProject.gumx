@@ -197,6 +197,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>TowerSelectionBox</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>unique/MainMenuEye</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>

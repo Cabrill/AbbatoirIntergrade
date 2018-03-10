@@ -27,6 +27,9 @@ namespace AbbatoirIntergrade.Screens
         protected static Microsoft.Xna.Framework.Graphics.Texture2D spacebg;
         protected static System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.EndingText> EndingText;
         
+        private AbbatoirIntergrade.GumRuntimes.EndingScreenGumRuntime EndingScreenGumInstance;
+        private AbbatoirIntergrade.GumRuntimes.TextRuntime EndingTextRuntimeInstance;
+        private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonInstance;
         public EndingScreen () 
         	: base ("EndingScreen")
         {
@@ -34,6 +37,9 @@ namespace AbbatoirIntergrade.Screens
         public override void Initialize (bool addToManagers) 
         {
             LoadStaticContent(ContentManagerName);
+            EndingScreenGumInstance = EndingScreenGum.GetGraphicalUiElementByName("this") as AbbatoirIntergrade.GumRuntimes.EndingScreenGumRuntime;
+            EndingTextRuntimeInstance = EndingScreenGum.GetGraphicalUiElementByName("EndingText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+            ButtonInstance = EndingScreenGum.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
             
             
             PostInitialize();
@@ -73,6 +79,18 @@ namespace AbbatoirIntergrade.Screens
             spacebg = null;
             EndingText = null;
             
+            if (EndingScreenGumInstance != null)
+            {
+                EndingScreenGumInstance.RemoveFromManagers();
+            }
+            if (EndingTextRuntimeInstance != null)
+            {
+                EndingTextRuntimeInstance.RemoveFromManagers();
+            }
+            if (ButtonInstance != null)
+            {
+                ButtonInstance.RemoveFromManagers();
+            }
             FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
         }
@@ -89,6 +107,18 @@ namespace AbbatoirIntergrade.Screens
         }
         public virtual void RemoveFromManagers () 
         {
+            if (EndingScreenGumInstance != null)
+            {
+                EndingScreenGumInstance.RemoveFromManagers();
+            }
+            if (EndingTextRuntimeInstance != null)
+            {
+                EndingTextRuntimeInstance.RemoveFromManagers();
+            }
+            if (ButtonInstance != null)
+            {
+                ButtonInstance.RemoveFromManagers();
+            }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 
         {

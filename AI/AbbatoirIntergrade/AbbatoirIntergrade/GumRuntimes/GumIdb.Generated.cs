@@ -53,6 +53,7 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("specificbuttons/UpDownButton", typeof(AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("TechnologyTree", typeof(AbbatoirIntergrade.GumRuntimes.TechnologyTreeRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Thumb", typeof(AbbatoirIntergrade.GumRuntimes.ThumbRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("TowerSelectionBox", typeof(AbbatoirIntergrade.GumRuntimes.TowerSelectionBoxRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("unique/MainMenuEye", typeof(AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("VerticalScrollBar", typeof(AbbatoirIntergrade.GumRuntimes.VerticalScrollBarRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("EndingScreenGum", typeof(AbbatoirIntergrade.GumRuntimes.EndingScreenGumRuntime));

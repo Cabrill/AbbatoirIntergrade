@@ -398,6 +398,7 @@
     <Compile Include="GumRuntimes\TechnologyTreeRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TextRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ThumbRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\TowerSelectionBoxRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\unique\MainMenuEyeRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\VerticalScrollBarRuntime.Generated.cs" />
     <Compile Include="MachineLearning\IModel.cs" />
@@ -1368,6 +1369,10 @@
     <None Include="content\gumproject\components\thumb.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Thumb</Name>
+    </None>
+    <None Include="content\gumproject\components\towerselectionbox.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>towerselectionbox</Name>
     </None>
     <None Include="content\gumproject\components\unique\mainmenueye.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

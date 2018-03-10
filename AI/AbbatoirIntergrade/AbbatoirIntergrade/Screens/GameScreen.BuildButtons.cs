@@ -31,6 +31,7 @@ namespace AbbatoirIntergrade.Screens
                     var newBuilding = buildButton.BuildingFactory.CreateNew(WorldLayer) as BaseStructure;
 
                     newBuilding.Position = BuildMenuInstance.CurrentPlacement.Position;
+                    newBuilding.Z = 1;
                     newBuilding.IsBeingPlaced = false;
                     newBuilding.PlacementOrder = placement.PlacementOrder;
 

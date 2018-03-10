@@ -31,7 +31,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
         }
 
         public override List<BaseWave> Waves => new List<BaseWave>() {
-            new BaseWave(new EnemyList(EnemyTypes.Rabbit3)
+            new BaseWave(new EnemyList(EnemyTypes.Pig3)
             ),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
                 SerializableTuple<int, EnemyTypes>.Create(2, EnemyTypes.Rabbit3),
@@ -45,7 +45,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
                 SerializableTuple<int, EnemyTypes>.Create(3, EnemyTypes.Chicken2),
                 SerializableTuple<int, EnemyTypes>.Create(4, EnemyTypes.Cow3)
             }),
-            new BaseWave(new EnemyList(EnemyTypes.Pig3,4)),
+            new BaseWave(new EnemyList(EnemyTypes.Rabbit3,4)),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
                 SerializableTuple<int, EnemyTypes>.Create(5, EnemyTypes.Chicken2),
                 SerializableTuple<int, EnemyTypes>.Create(2, EnemyTypes.Rabbit3),

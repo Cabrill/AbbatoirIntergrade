@@ -59,14 +59,14 @@
                             SetProperty("HighlightSprite.SourceFile", "AllUIAssets.png");
                             HighlightSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             HighlightSprite.TextureHeight = 156;
-                            HighlightSprite.TextureLeft = 564;
-                            HighlightSprite.TextureTop = 1036;
+                            HighlightSprite.TextureLeft = 2435;
+                            HighlightSprite.TextureTop = 601;
                             HighlightSprite.TextureWidth = 156;
                             HighlightSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            HighlightSprite.X = 17f;
+                            HighlightSprite.X = 0f;
                             HighlightSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             HighlightSprite.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                            HighlightSprite.Y = -1f;
+                            HighlightSprite.Y = 0f;
                             HighlightSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             HighlightSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             NumberSprite.Height = 50f;
@@ -102,6 +102,8 @@
                     {
                         case  ButtonCategory.Enabled:
                             FrameSprite.TextureLeft = 0;
+                            HighlightSprite.Blue = 255;
+                            HighlightSprite.Red = 255;
                             HighlightSprite.Visible = false;
                             NumberSprite.Blue = 255;
                             NumberSprite.Green = 255;
@@ -110,6 +112,8 @@
                             break;
                         case  ButtonCategory.Disabled:
                             FrameSprite.TextureLeft = 256;
+                            HighlightSprite.Blue = 255;
+                            HighlightSprite.Red = 255;
                             HighlightSprite.Visible = false;
                             NumberSprite.Blue = 255;
                             NumberSprite.Green = 255;
@@ -118,6 +122,8 @@
                             break;
                         case  ButtonCategory.Highlighted:
                             FrameSprite.TextureLeft = 0;
+                            HighlightSprite.Blue = 255;
+                            HighlightSprite.Red = 255;
                             HighlightSprite.Visible = true;
                             NumberSprite.Blue = 255;
                             NumberSprite.Green = 255;
@@ -126,10 +132,12 @@
                             break;
                         case  ButtonCategory.Pushed:
                             FrameSprite.TextureLeft = 0;
+                            HighlightSprite.Blue = 50;
+                            HighlightSprite.Red = 50;
                             HighlightSprite.Visible = true;
                             NumberSprite.Blue = 0;
                             NumberSprite.Green = 255;
-                            NumberSprite.Red = 255;
+                            NumberSprite.Red = 50;
                             NumberSprite.Visible = true;
                             break;
                     }
@@ -353,9 +361,9 @@
                         setHighlightSpriteTextureHeightFirstValue = true;
                         HighlightSpriteTextureHeightFirstValue = 156;
                         setHighlightSpriteTextureLeftFirstValue = true;
-                        HighlightSpriteTextureLeftFirstValue = 564;
+                        HighlightSpriteTextureLeftFirstValue = 2435;
                         setHighlightSpriteTextureTopFirstValue = true;
-                        HighlightSpriteTextureTopFirstValue = 1036;
+                        HighlightSpriteTextureTopFirstValue = 601;
                         setHighlightSpriteTextureWidthFirstValue = true;
                         HighlightSpriteTextureWidthFirstValue = 156;
                         if (interpolationValue < 1)
@@ -363,7 +371,7 @@
                             this.HighlightSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setHighlightSpriteXFirstValue = true;
-                        HighlightSpriteXFirstValue = 17f;
+                        HighlightSpriteXFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
                             this.HighlightSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
@@ -373,7 +381,7 @@
                             this.HighlightSprite.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setHighlightSpriteYFirstValue = true;
-                        HighlightSpriteYFirstValue = -1f;
+                        HighlightSpriteYFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
                             this.HighlightSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
@@ -474,9 +482,9 @@
                         setHighlightSpriteTextureHeightSecondValue = true;
                         HighlightSpriteTextureHeightSecondValue = 156;
                         setHighlightSpriteTextureLeftSecondValue = true;
-                        HighlightSpriteTextureLeftSecondValue = 564;
+                        HighlightSpriteTextureLeftSecondValue = 2435;
                         setHighlightSpriteTextureTopSecondValue = true;
-                        HighlightSpriteTextureTopSecondValue = 1036;
+                        HighlightSpriteTextureTopSecondValue = 601;
                         setHighlightSpriteTextureWidthSecondValue = true;
                         HighlightSpriteTextureWidthSecondValue = 156;
                         if (interpolationValue >= 1)
@@ -484,7 +492,7 @@
                             this.HighlightSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setHighlightSpriteXSecondValue = true;
-                        HighlightSpriteXSecondValue = 17f;
+                        HighlightSpriteXSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
                             this.HighlightSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
@@ -494,7 +502,7 @@
                             this.HighlightSprite.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setHighlightSpriteYSecondValue = true;
-                        HighlightSpriteYSecondValue = -1f;
+                        HighlightSpriteYSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
                             this.HighlightSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
@@ -646,6 +654,14 @@
                 bool setFrameSpriteTextureLeftSecondValue = false;
                 int FrameSpriteTextureLeftFirstValue= 0;
                 int FrameSpriteTextureLeftSecondValue= 0;
+                bool setHighlightSpriteBlueFirstValue = false;
+                bool setHighlightSpriteBlueSecondValue = false;
+                int HighlightSpriteBlueFirstValue= 0;
+                int HighlightSpriteBlueSecondValue= 0;
+                bool setHighlightSpriteRedFirstValue = false;
+                bool setHighlightSpriteRedSecondValue = false;
+                int HighlightSpriteRedFirstValue= 0;
+                int HighlightSpriteRedSecondValue= 0;
                 bool setNumberSpriteBlueFirstValue = false;
                 bool setNumberSpriteBlueSecondValue = false;
                 int NumberSpriteBlueFirstValue= 0;
@@ -663,6 +679,10 @@
                     case  ButtonCategory.Enabled:
                         setFrameSpriteTextureLeftFirstValue = true;
                         FrameSpriteTextureLeftFirstValue = 0;
+                        setHighlightSpriteBlueFirstValue = true;
+                        HighlightSpriteBlueFirstValue = 255;
+                        setHighlightSpriteRedFirstValue = true;
+                        HighlightSpriteRedFirstValue = 255;
                         if (interpolationValue < 1)
                         {
                             this.HighlightSprite.Visible = false;
@@ -681,6 +701,10 @@
                     case  ButtonCategory.Disabled:
                         setFrameSpriteTextureLeftFirstValue = true;
                         FrameSpriteTextureLeftFirstValue = 256;
+                        setHighlightSpriteBlueFirstValue = true;
+                        HighlightSpriteBlueFirstValue = 255;
+                        setHighlightSpriteRedFirstValue = true;
+                        HighlightSpriteRedFirstValue = 255;
                         if (interpolationValue < 1)
                         {
                             this.HighlightSprite.Visible = false;
@@ -699,6 +723,10 @@
                     case  ButtonCategory.Highlighted:
                         setFrameSpriteTextureLeftFirstValue = true;
                         FrameSpriteTextureLeftFirstValue = 0;
+                        setHighlightSpriteBlueFirstValue = true;
+                        HighlightSpriteBlueFirstValue = 255;
+                        setHighlightSpriteRedFirstValue = true;
+                        HighlightSpriteRedFirstValue = 255;
                         if (interpolationValue < 1)
                         {
                             this.HighlightSprite.Visible = true;
@@ -717,6 +745,10 @@
                     case  ButtonCategory.Pushed:
                         setFrameSpriteTextureLeftFirstValue = true;
                         FrameSpriteTextureLeftFirstValue = 0;
+                        setHighlightSpriteBlueFirstValue = true;
+                        HighlightSpriteBlueFirstValue = 50;
+                        setHighlightSpriteRedFirstValue = true;
+                        HighlightSpriteRedFirstValue = 50;
                         if (interpolationValue < 1)
                         {
                             this.HighlightSprite.Visible = true;
@@ -726,7 +758,7 @@
                         setNumberSpriteGreenFirstValue = true;
                         NumberSpriteGreenFirstValue = 255;
                         setNumberSpriteRedFirstValue = true;
-                        NumberSpriteRedFirstValue = 255;
+                        NumberSpriteRedFirstValue = 50;
                         if (interpolationValue < 1)
                         {
                             this.NumberSprite.Visible = true;
@@ -738,6 +770,10 @@
                     case  ButtonCategory.Enabled:
                         setFrameSpriteTextureLeftSecondValue = true;
                         FrameSpriteTextureLeftSecondValue = 0;
+                        setHighlightSpriteBlueSecondValue = true;
+                        HighlightSpriteBlueSecondValue = 255;
+                        setHighlightSpriteRedSecondValue = true;
+                        HighlightSpriteRedSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
                             this.HighlightSprite.Visible = false;
@@ -756,6 +792,10 @@
                     case  ButtonCategory.Disabled:
                         setFrameSpriteTextureLeftSecondValue = true;
                         FrameSpriteTextureLeftSecondValue = 256;
+                        setHighlightSpriteBlueSecondValue = true;
+                        HighlightSpriteBlueSecondValue = 255;
+                        setHighlightSpriteRedSecondValue = true;
+                        HighlightSpriteRedSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
                             this.HighlightSprite.Visible = false;
@@ -774,6 +814,10 @@
                     case  ButtonCategory.Highlighted:
                         setFrameSpriteTextureLeftSecondValue = true;
                         FrameSpriteTextureLeftSecondValue = 0;
+                        setHighlightSpriteBlueSecondValue = true;
+                        HighlightSpriteBlueSecondValue = 255;
+                        setHighlightSpriteRedSecondValue = true;
+                        HighlightSpriteRedSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
                             this.HighlightSprite.Visible = true;
@@ -792,6 +836,10 @@
                     case  ButtonCategory.Pushed:
                         setFrameSpriteTextureLeftSecondValue = true;
                         FrameSpriteTextureLeftSecondValue = 0;
+                        setHighlightSpriteBlueSecondValue = true;
+                        HighlightSpriteBlueSecondValue = 50;
+                        setHighlightSpriteRedSecondValue = true;
+                        HighlightSpriteRedSecondValue = 50;
                         if (interpolationValue >= 1)
                         {
                             this.HighlightSprite.Visible = true;
@@ -801,7 +849,7 @@
                         setNumberSpriteGreenSecondValue = true;
                         NumberSpriteGreenSecondValue = 255;
                         setNumberSpriteRedSecondValue = true;
-                        NumberSpriteRedSecondValue = 255;
+                        NumberSpriteRedSecondValue = 50;
                         if (interpolationValue >= 1)
                         {
                             this.NumberSprite.Visible = true;
@@ -811,6 +859,14 @@
                 if (setFrameSpriteTextureLeftFirstValue && setFrameSpriteTextureLeftSecondValue)
                 {
                     FrameSprite.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(FrameSpriteTextureLeftFirstValue* (1 - interpolationValue) + FrameSpriteTextureLeftSecondValue * interpolationValue);
+                }
+                if (setHighlightSpriteBlueFirstValue && setHighlightSpriteBlueSecondValue)
+                {
+                    HighlightSprite.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(HighlightSpriteBlueFirstValue* (1 - interpolationValue) + HighlightSpriteBlueSecondValue * interpolationValue);
+                }
+                if (setHighlightSpriteRedFirstValue && setHighlightSpriteRedSecondValue)
+                {
+                    HighlightSprite.Red = FlatRedBall.Math.MathFunctions.RoundToInt(HighlightSpriteRedFirstValue* (1 - interpolationValue) + HighlightSpriteRedSecondValue * interpolationValue);
                 }
                 if (setNumberSpriteBlueFirstValue && setNumberSpriteBlueSecondValue)
                 {
@@ -1809,7 +1865,7 @@
                             SetsValue = true,
                             Name = "HighlightSprite.Texture Left",
                             Type = "int",
-                            Value = HighlightSprite.TextureLeft + 564
+                            Value = HighlightSprite.TextureLeft + 2435
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1817,7 +1873,7 @@
                             SetsValue = true,
                             Name = "HighlightSprite.Texture Top",
                             Type = "int",
-                            Value = HighlightSprite.TextureTop + 1036
+                            Value = HighlightSprite.TextureTop + 601
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1841,7 +1897,7 @@
                             SetsValue = true,
                             Name = "HighlightSprite.X",
                             Type = "float",
-                            Value = HighlightSprite.X + 17f
+                            Value = HighlightSprite.X + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1865,7 +1921,7 @@
                             SetsValue = true,
                             Name = "HighlightSprite.Y",
                             Type = "float",
-                            Value = HighlightSprite.Y + -1f
+                            Value = HighlightSprite.Y + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2033,6 +2089,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "HighlightSprite.Blue",
+                            Type = "int",
+                            Value = HighlightSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HighlightSprite.Red",
+                            Type = "int",
+                            Value = HighlightSprite.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "HighlightSprite.Visible",
                             Type = "bool",
                             Value = HighlightSprite.Visible
@@ -2078,6 +2150,22 @@
                             Name = "FrameSprite.Texture Left",
                             Type = "int",
                             Value = FrameSprite.TextureLeft
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HighlightSprite.Blue",
+                            Type = "int",
+                            Value = HighlightSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HighlightSprite.Red",
+                            Type = "int",
+                            Value = HighlightSprite.Red
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2133,6 +2221,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "HighlightSprite.Blue",
+                            Type = "int",
+                            Value = HighlightSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HighlightSprite.Red",
+                            Type = "int",
+                            Value = HighlightSprite.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "HighlightSprite.Visible",
                             Type = "bool",
                             Value = HighlightSprite.Visible
@@ -2178,6 +2282,22 @@
                             Name = "FrameSprite.Texture Left",
                             Type = "int",
                             Value = FrameSprite.TextureLeft
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HighlightSprite.Blue",
+                            Type = "int",
+                            Value = HighlightSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HighlightSprite.Red",
+                            Type = "int",
+                            Value = HighlightSprite.Red
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2241,6 +2361,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "HighlightSprite.Blue",
+                            Type = "int",
+                            Value = HighlightSprite.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HighlightSprite.Red",
+                            Type = "int",
+                            Value = HighlightSprite.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "HighlightSprite.Visible",
                             Type = "bool",
                             Value = HighlightSprite.Visible
@@ -2286,6 +2422,22 @@
                             Name = "FrameSprite.Texture Left",
                             Type = "int",
                             Value = FrameSprite.TextureLeft + 256
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HighlightSprite.Blue",
+                            Type = "int",
+                            Value = HighlightSprite.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HighlightSprite.Red",
+                            Type = "int",
+                            Value = HighlightSprite.Red + 255
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2341,6 +2493,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "HighlightSprite.Blue",
+                            Type = "int",
+                            Value = HighlightSprite.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HighlightSprite.Red",
+                            Type = "int",
+                            Value = HighlightSprite.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "HighlightSprite.Visible",
                             Type = "bool",
                             Value = HighlightSprite.Visible
@@ -2391,6 +2559,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "HighlightSprite.Blue",
+                            Type = "int",
+                            Value = HighlightSprite.Blue + 50
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HighlightSprite.Red",
+                            Type = "int",
+                            Value = HighlightSprite.Red + 50
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "HighlightSprite.Visible",
                             Type = "bool",
                             Value = HighlightSprite.Visible
@@ -2417,7 +2601,7 @@
                             SetsValue = true,
                             Name = "NumberSprite.Red",
                             Type = "int",
-                            Value = NumberSprite.Red + 255
+                            Value = NumberSprite.Red + 50
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

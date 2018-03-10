@@ -82,7 +82,7 @@ namespace AbbatoirIntergrade.StaticManagers
             _machineLearningModel.Save(_modelFileName);
         }
 
-        public static BaseWave GenerateWave(List<EnemyTypes> availableEnemyTypes, int pointsAvailable)
+        public static BaseWave GenerateWave(List<EnemyTypes> availableEnemyTypes, double pointsAvailable)
         {
             var inputList = new List<double>();
 
@@ -99,7 +99,7 @@ namespace AbbatoirIntergrade.StaticManagers
         }
 
         private static EnemyList GreedilyFindBestEnemyCombination(List<EnemyTypes> availableEnemyTypes,
-            List<double> partialInput, int pointsAvailable)
+            List<double> partialInput, double pointsAvailable)
         {
             var enemyList = new EnemyList();
             var minPointValue = availableEnemyTypes.Min(e => e.PointValue());
@@ -160,7 +160,7 @@ namespace AbbatoirIntergrade.StaticManagers
 
         private static Dictionary<EnemyList, double> RecordedFitness;
         private static int RecursionCount;
-        private static EnemyList RecursivelyFindBestEnemyCombination(List<EnemyTypes> availableEnemyTypes, List<double> partialInput, EnemyList existingList, int pointsRemaining)
+        private static EnemyList RecursivelyFindBestEnemyCombination(List<EnemyTypes> availableEnemyTypes, List<double> partialInput, EnemyList existingList, double pointsRemaining)
         {
             if (pointsRemaining == 0 || existingList.TotalEnemies >= MaxEnemies) return existingList;
 

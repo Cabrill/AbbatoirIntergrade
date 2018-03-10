@@ -1,7 +1,7 @@
-﻿"EnemyName (string, required)",Health (float),Speed (float),PiercingResist (float),BombardResist (float),ChemicalResist (float),FrostResist (float),FireResist (float),ElectricResist (float),Mass (float),IsFlying (bool)
+"EnemyName (string, required)",Health (float),Speed (float),PiercingResist (float),BombardResist (float),ChemicalResist (float),FrostResist (float),FireResist (float),ElectricResist (float),Mass (float),IsFlying (bool)
 Chicken1,60,75,0.1,0.5,0.3,0.4,0.2,0.4,0.1,FALSE
 Chicken2,80,200,0.125,0.6,0.3,0.5,0.4,0.3,0.2,FALSE
-Chicken3,150,125,0.25,0.8,0.35,0.7,0.4,0.5,0.3,TRUE
+Chicken3,150,125,0.25,0.8,0.35,0.7,0.4,0.5,0.6,TRUE
 Cow1,75,250,0.3,0.3,0.1,0.3,0.1,0.025,0.5,FALSE
 Cow2,100,275,0.3,0.3,0.2,0.25,0.15,0.05,0.45,FALSE
 Cow3,115,450,0.3,0.35,0.3,0.1,0.2,0.1,0.4,FALSE

@@ -4,7 +4,7 @@ namespace AbbatoirIntergrade.DataTypes
     public partial class EndingText
     {
         public string EndingName;
-        public string EndingText;
+        public string EndingWords;
         public const string Positive = "Positive";
         public const string Neutral = "Neutral";
         public const string Negative = "Negative";

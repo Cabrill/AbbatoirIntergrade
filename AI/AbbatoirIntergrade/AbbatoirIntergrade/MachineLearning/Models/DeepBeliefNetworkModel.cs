@@ -158,7 +158,16 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             var sw = Stopwatch.StartNew();
 
             var prediction = network.Compute(input)[0];
+
             sw.Stop();
+
+            if (double.IsInfinity(prediction) || double.IsNaN(prediction))
+            {
+#if DEBUG
+                throw new Exception("Prediction was NaN");
+#endif
+                prediction = 0;
+            }
 
             LastPredictTime = sw.ElapsedMilliseconds;
             LastPrediction = prediction;

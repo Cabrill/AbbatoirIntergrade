@@ -39,20 +39,66 @@ namespace AbbatoirIntergrade
 
     public static class EnumExtensions
     {
-        private static readonly Dictionary<EnemyTypes, int> PointValues = new Dictionary<EnemyTypes, int>();
+        private static readonly Dictionary<EnemyTypes, double> PointValues = new Dictionary<EnemyTypes, double>();
         private static readonly Dictionary<EnemyTypes, BaseEnemy.BaseAttributes> EnemyAttributes = new Dictionary<EnemyTypes, BaseEnemy.BaseAttributes>();
 
-        public static int PointValue(this EnemyTypes enemyType)
+        private static bool HasCalculatedMinimums;
+        private static float minHealth = float.MaxValue;
+        private static float minSpeed = float.MaxValue;
+        private static float minPierce = float.MaxValue;
+        private static float minBombard = float.MaxValue;
+        private static float minChemical = float.MaxValue;
+        private static float minFrost = float.MaxValue;
+        private static float minFire = float.MaxValue;
+        private static float minElectric = float.MaxValue;
+
+        public static double PointValue(this EnemyTypes enemyType)
         {
             if (PointValues.ContainsKey(enemyType)) return PointValues[enemyType];
+            if (!HasCalculatedMinimums) CalculateMinimums();
 
-            var pointValue = 0;
-            var pointString = Regex.Replace(enemyType.ToString(), "[^0-9.]", "");
-            int.TryParse(pointString, out pointValue);
+            var enemyAttributes = enemyType.Attributes();
+
+            var healthPoints = enemyAttributes.Health / minHealth;
+            var speedPoints = enemyAttributes.Speed / minSpeed;
+            var flyingPoints = enemyAttributes.IsFlying ? 1.5 : 1;
+
+            var survivalPoints = ((healthPoints + speedPoints) / 2) * flyingPoints;
+
+            var piercePoints = enemyAttributes.PiercingResist - minPierce;
+            var bombardPoints = enemyAttributes.BombardResist - minBombard;
+            var chemicalPoints = enemyAttributes.ChemicalResist - minChemical;
+            var frostPoints = enemyAttributes.FrostResist - minFrost;
+            var firePoints = enemyAttributes.FireResist - minFire;
+            var electricPoints = enemyAttributes.ElectricResist - minElectric;
+            
+            var resistPoints = piercePoints + bombardPoints + chemicalPoints + frostPoints + firePoints +
+                                electricPoints;
+            
+            var pointValue = survivalPoints * resistPoints;
+            //var pointString = Regex.Replace(enemyType.ToString(), "[^0-9.]", "");
+            //int.TryParse(pointString, out pointValue);
 
             PointValues.Add(enemyType, pointValue);
 
             return pointValue;
+        }
+
+        private static void CalculateMinimums()
+        {
+            foreach (var enemyAttributes in GlobalContent.Enemy_Attributes.Values)
+            {
+                minHealth = (enemyAttributes.Health < minHealth ? enemyAttributes.Health : minHealth);
+                minSpeed = (enemyAttributes.Speed < minSpeed ? enemyAttributes.Speed : minSpeed);
+                minPierce = (enemyAttributes.PiercingResist < minPierce ? enemyAttributes.PiercingResist : minPierce);
+                minBombard = (enemyAttributes.BombardResist < minBombard ? enemyAttributes.BombardResist : minBombard);
+                minChemical = (enemyAttributes.ChemicalResist < minChemical ? enemyAttributes.ChemicalResist : minChemical);
+                minFrost = (enemyAttributes.FrostResist < minFrost ? enemyAttributes.FrostResist : minFrost);
+                minFire = (enemyAttributes.FireResist < minFire ? enemyAttributes.FireResist : minFire);
+                minElectric = (enemyAttributes.ElectricResist < minElectric ? enemyAttributes.ElectricResist : minElectric);
+            }
+
+            HasCalculatedMinimums = true;
         }
 
         public static BaseEnemy.BaseAttributes Attributes(this EnemyTypes enemyType)

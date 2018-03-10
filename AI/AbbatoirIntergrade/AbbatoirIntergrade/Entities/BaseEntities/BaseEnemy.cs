@@ -346,31 +346,40 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	            CurrentStatusState = Status.FrozenAndPoisoned;
 	            EffectiveSpeed = BaseSpeed * (1 - (float)(GetEffectiveMultiplier(DamageTypes.Frost) * 0.8 +
 	                                     GetEffectiveMultiplier(DamageTypes.Chemical) * 0.2));
-                
-	        }
+
+                PoisonedParticles.RelativeY = Altitude + SpriteInstance.Height / 2;
+	            FrozenParticles.RelativeY = Altitude + SpriteInstance.Height / 2;
+            }
             else if (IsBurning && IsPoisoned)
 	        {
 	            CurrentStatusState = Status.BurningAndPoisoned;
 	            EffectiveSpeed = BaseSpeed * (1 - (float)(GetEffectiveMultiplier(DamageTypes.Chemical) * 0.2));
+
+	            SmokeParticles.RelativeY = Altitude + SpriteInstance.Height / 2;
+	            PoisonedParticles.RelativeY = Altitude + SpriteInstance.Height / 2;
             }
             else if (IsBurning)
 	        {
 	            CurrentStatusState = Status.Burning;
-	        }
+	            SmokeParticles.RelativeY = Altitude + SpriteInstance.Height / 2;
+            }
             else if (IsFrozen)
 	        {
 	            CurrentStatusState = Status.Frozen;
 	            EffectiveSpeed = BaseSpeed * (1 - (float)(GetEffectiveMultiplier(DamageTypes.Frost) * 0.8));
+	            FrozenParticles.RelativeY = Altitude + SpriteInstance.Height / 2;
             }
             else if (IsPoisoned)
 	        {
 	            CurrentStatusState = Status.Poisoned;
 	            EffectiveSpeed = BaseSpeed * (1 - (float)(GetEffectiveMultiplier(DamageTypes.Chemical) * 0.2));
+	            PoisonedParticles.RelativeY = Altitude + SpriteInstance.Height / 2;
             }
             else if (IsStunned)
 	        {
 	            EffectiveSpeed = 0f;
-	        }
+	            StunParticles.RelativeY = Altitude + SpriteInstance.Height / 2;
+            }
 	        else
 	        {
 	            CurrentStatusState = Status.Normal;

@@ -92,13 +92,13 @@
     <Variable>
       <Type>int</Type>
       <Name>HighlightSprite.Texture Left</Name>
-      <Value xsi:type="xsd:int">564</Value>
+      <Value xsi:type="xsd:int">2435</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>HighlightSprite.Texture Top</Name>
-      <Value xsi:type="xsd:int">1036</Value>
+      <Value xsi:type="xsd:int">601</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -116,7 +116,7 @@
     <Variable>
       <Type>float</Type>
       <Name>HighlightSprite.X</Name>
-      <Value xsi:type="xsd:float">17</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -134,7 +134,7 @@
     <Variable>
       <Type>float</Type>
       <Name>HighlightSprite.Y</Name>
-      <Value xsi:type="xsd:float">-1</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -307,6 +307,20 @@
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>HighlightSprite.Blue</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>HighlightSprite.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
     </State>
     <State>
       <Name>Disabled</Name>
@@ -347,6 +361,20 @@
         <Type>bool</Type>
         <Name>NumberSprite.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>HighlightSprite.Blue</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>HighlightSprite.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -391,6 +419,20 @@
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>HighlightSprite.Blue</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>HighlightSprite.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
     </State>
     <State>
       <Name>Pushed</Name>
@@ -398,6 +440,18 @@
         <Type>int</Type>
         <Name>FrameSprite.Texture Left</Name>
         <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>HighlightSprite.Blue</Name>
+        <Value xsi:type="xsd:int">50</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>HighlightSprite.Red</Name>
+        <Value xsi:type="xsd:int">50</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -421,7 +475,7 @@
       <Variable>
         <Type>int</Type>
         <Name>NumberSprite.Red</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">50</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>

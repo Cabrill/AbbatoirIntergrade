@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="211">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="213">
  <tileset firstgid="1" name="CombinedAssets" tilewidth="128" tileheight="128" tilecount="1024" columns="32">
   <image source="../../../Tilesets/CombinedAssets.png" width="4096" height="4096"/>
   <tile id="124" type="StructurePlacement">
@@ -164,9 +164,9 @@
     <property name="ZHeight" type="float" value="132"/>
    </properties>
   </object>
-  <object id="169" type="TileCollisionRectangle" gid="1025" x="808.5" y="1256.25" width="64" height="160">
+  <object id="169" type="TileCollisionRectangle" gid="1025" x="808.5" y="1256.25" width="64" height="52">
    <properties>
-    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="160"/>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="52"/>
     <property name="AxisAlignedRectangleInstanceWidth" type="float" value="64"/>
    </properties>
   </object>
@@ -310,6 +310,20 @@
   <object id="210" type="TileCollisionRectangle" gid="1025" x="1691" y="1243" width="218" height="66">
    <properties>
     <property name="AxisAlignedRectangleInstanceWidth" type="float" value="218"/>
+   </properties>
+  </object>
+  <object id="211" type="TileCollisionCircle" gid="1026" x="810" y="1160" width="64" height="64">
+   <properties>
+    <property name="Altitude" type="float" value="100"/>
+    <property name="CircleInstanceRadius" type="float" value="32"/>
+    <property name="ZHeight" type="float" value="132"/>
+   </properties>
+  </object>
+  <object id="212" type="TileCollisionCircle" gid="1026" x="812" y="1212" width="64" height="64">
+   <properties>
+    <property name="Altitude" type="float" value="64"/>
+    <property name="CircleInstanceRadius" type="float" value="32"/>
+    <property name="ZHeight" type="float" value="132"/>
    </properties>
   </object>
  </objectgroup>

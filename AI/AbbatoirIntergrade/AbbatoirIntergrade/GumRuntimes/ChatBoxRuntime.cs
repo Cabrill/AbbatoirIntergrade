@@ -16,7 +16,7 @@ namespace AbbatoirIntergrade.GumRuntimes
         public EventHandler ChatHistoryButtonClick;
 
         private bool HasResponseAvailable;
-        private Dialogue CurrentIncomingMessage;
+        public Dialogue CurrentIncomingMessage;
 
         partial void CustomInitialize()
         {

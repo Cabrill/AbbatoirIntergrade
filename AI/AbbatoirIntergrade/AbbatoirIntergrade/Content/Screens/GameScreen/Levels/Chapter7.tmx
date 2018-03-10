@@ -57,7 +57,7 @@
  </tileset>
  <layer name="Ground" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC81SSQ6DMBALP+0VcekmHgCEJuHSlkPb3/C0ZoQtWaM+oEhWZvcshPDfX252LECsKBWpYobN/De8I+QFMSYPkEfkEi1e1i+Sk6FHkckVIRt/J/XM92nC1qPOJLV1hk5sSXwRPurs5ejyB7zsk3OzRna8ymE5J/ExjzPMbred4744nCuuFWvFE1idTvRym0l6TVI/73HbuwkH3XeRXOIBH/fGeN6E/4XNeHcxuj/O+Poxn8W1bgcZ3El2RT7ejLcvkFvYv8Xmq35wAwAA
+   H4sIAAAAAAAAC82SOw7CMAyG05uyVl14qQMghrYpSbvwGIAFrtKjYav/jyyLA1DpU+z47SaE//5yMTOCKAxCEnrcqf2Es4U8wkflBnKLWFLiZP7BxGTo0cisFSFr/crkU9uzCFONPJ3JbWeozF0ytggbdfaydPENTvbJuZkju7q2hsasjI1xnKF3u61c7Y1jLWyFm3AFN6eT2vybzvSaTP48+02PIizsvgcTSy6wcW/05z/hu9AZz85nJxykjrLH3f3HfOpfuh1k1E5mV5JjeglvkY+z/n03HXJoLx9ri8s4cAMAAA==
   </data>
  </layer>
  <layer name="Objects" width="20" height="11">
@@ -67,7 +67,7 @@
  </layer>
  <layer name="Overlay2" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC7XRSQ4BQRTG8decA6cxcwKCjZkLIE1iSgzhBCxMiSEcwYrEcCBW/qYEEWlTJb+kuuvV1/W6RD4bDr2IEy640dCJNJFnXtC/nxdjTxwJJDEla4YO867GPAN1RphQQRU11D84z+MYkjHCGBNYYP0id8XeNTbYIoTwJW9H33vdfb2PNT8CGr5ZpKaE8otalbUschryetT0MfjBf/SQ4cUCy4e8Z33/a6QUkYwi86O0cn5nvrlXG+wa+r2emYx5C22yVOX0LMGbe40gigNBiLuFcAMAAA==
+   H4sIAAAAAAAAC73RSQrCQBCF4SI5h/E0znoCRd046xViwAkc0Ds4BBzQUyg4HEhX/gsXMUjoRLHgg4aufulKiwSrpC6SQhoZTDWRGTqsu7r/vDpnGmiihT1ZB8xZLxTzQvQZCGOIEcaYBLiPu9ZkbLDFDlHEvsg9c/aCK24oo/LKuzP3Q3vvz7NXQFHhmz16+hh49JrstWEp5C3pWcH+wX/MkpHDESdX3qe5/1kRx7vGkVCY1+vOJce7VlHDE6cG6ntwAwAA
   </data>
  </layer>
  <layer name="Overlay" width="20" height="11">

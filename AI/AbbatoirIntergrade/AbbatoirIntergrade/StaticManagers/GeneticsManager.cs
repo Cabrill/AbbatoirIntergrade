@@ -87,7 +87,7 @@ namespace AbbatoirIntergrade.StaticManagers
 
             if (EnemyTypeChromosomes[enemyType].Any(c => c.Fitness > 0))
             {
-                chromosomeList = EnemyTypeChromosomes[enemyType].DeepClone();
+                chromosomeList = EnemyTypeChromosomes[enemyType].ToList();
                 ApplySelection(chromosomeList, numberToReturn);
             }
             else
@@ -115,17 +115,20 @@ namespace AbbatoirIntergrade.StaticManagers
                 foreach (var enemyTypeAndChromosomeList in EnemyTypeChromosomes)
                 {
                     var enemyType = enemyTypeAndChromosomeList.Key;
-                    var currentList = enemyTypeAndChromosomeList.Value;
+                    var currentList = CloneList(enemyTypeAndChromosomeList.Value);
 
-                    ApplySelection(currentList, NumberOfChromosomesToSelect);
+                    if (currentList.Count > 0)
+                    {
+                        ApplySelection(currentList, NumberOfChromosomesToSelect);
 
-                    currentList.Sort((c1, c2) => c2.Fitness.CompareTo(c1.Fitness));
+                        currentList.Sort((c1, c2) => c2.Fitness.CompareTo(c1.Fitness));
 
-                    PerformCrossover(ref currentList);
-                    PerformMutation(ref currentList);
-                    PerformNewGeneration(ref currentList);
+                        PerformCrossover(ref currentList);
+                        PerformMutation(ref currentList);
+                        PerformNewGeneration(ref currentList);
 
-                    newDictionary.Add(enemyType, currentList);
+                        newDictionary.Add(enemyType, currentList);
+                    }
                 }
                 EnemyTypeChromosomes = newDictionary;
 
@@ -136,6 +139,18 @@ namespace AbbatoirIntergrade.StaticManagers
             }
 
             Task.Run((Action)RefreshAndGenerateTask);
+        }
+
+        private static List<SerializableChromosome> CloneList(List<SerializableChromosome> originalList)
+        {
+            List<SerializableChromosome> newList = new List<SerializableChromosome>();
+
+            for (var i = originalList.Count-1; i >= 0; i--)
+            {
+                if (originalList[i] != null) newList.Add(originalList[i].Clone() as SerializableChromosome);
+            }
+
+            return newList;
         }
 
         private static void PerformNewGeneration(ref List<SerializableChromosome> currentList)
@@ -207,7 +222,7 @@ namespace AbbatoirIntergrade.StaticManagers
             var random = FlatRedBallServices.Random;
             var chromosomeList = new List<SerializableChromosome>();
             var count = chromosomes.Count;
-            var num1 = chromosomes.Sum(chromosome => chromosome.Fitness);
+            var num1 = chromosomes.Sum(chromosome => Double.IsNaN(chromosome.Fitness) || Double.IsInfinity(chromosome.Fitness) ? 0 : chromosome.Fitness);
             var numArray = new double[count];
             var num2 = 0.0;
             var num3 = 0;

@@ -34,7 +34,7 @@ namespace AbbatoirIntergrade.Screens
 
 
             AssignClickEventsAndStatusToButtons();
-
+            MapScreenGumInstance.CurrentFadingState = MapScreenGumRuntime.Fading.Faded;
 		    //FillChatHistory();
 		}
 
@@ -61,8 +61,11 @@ namespace AbbatoirIntergrade.Screens
 
 	    void CustomActivity(bool firstTimeCalled)
 		{
-		    //FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
-		    SoundManager.Update();
+            if (firstTimeCalled) MapScreenGumInstance.FadeInAnimation.Play();
+#if DEBUG
+            //FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
+#endif
+            SoundManager.Update();
         }
 
 		void CustomDestroy()
@@ -86,16 +89,21 @@ namespace AbbatoirIntergrade.Screens
 	        {
 	            if (element is LevelButtonRuntime levelButton)
 	            {
-	                if (results.Any(lr => lr.LevelName == levelButton.LevelName))
+	                if (results.Any(lr => lr.LevelName+"Level" == levelButton.LevelName))
 	                {
-	                    //TODO:  Show level as completed
-	                }
+                        //TODO:  Show level as completed
+	                    levelButton.Visible = true;
+	                    levelButton.Disable();
+
+                    }
 	                else if (levelButton.LevelAsNumber == nextLevel)
 	                {
 	                    levelButton.Click += LoadLevel;
+	                    levelButton.Visible = true;
                     }
 	                else
 	                {
+	                    levelButton.Visible = false;
 	                    levelButton.Disable();
 	                }
 	            }
@@ -135,7 +143,10 @@ namespace AbbatoirIntergrade.Screens
 	        var level = (BaseLevel) Activator.CreateInstance(type);
 
 	        GameStateManager.CurrentLevel = level;
-            LoadingScreen.TransitionToScreen(typeof(GameScreen));
+
+            MapScreenGumInstance.FadeOutAnimation.Play();
+	        this.Call(() =>
+	            LoadingScreen.TransitionToScreen(typeof(GameScreen))).After(MapScreenGumInstance.FadeOutAnimation.Length);
 	    }
 	}
 }

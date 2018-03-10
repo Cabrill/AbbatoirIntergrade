@@ -140,7 +140,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 
         private BaseWave GenerateWave()
         {
-            var pointsAvailable = Waves.Last().PointValue + (CurrentWaveNumber - Waves.Count);
+            var pointsAvailable = Waves.Last().PointValue + CurrentWaveNumber;
             var generatedWave = MachineLearningManager.GenerateWave(AvailableEnemyTypes, pointsAvailable);
 
             return generatedWave;

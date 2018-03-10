@@ -364,7 +364,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             #endif
             base.LightOrShadowSprite.Red = 0f;
             base.LightOrShadowSprite.Green = 0f;
-            base.LightOrShadowSprite.Blue = 0.8f;
+            base.LightOrShadowSprite.Blue = 1f;
             base.LightOrShadowSprite.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
             base.LightOrShadowSprite.Alpha = 1f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
@@ -440,7 +440,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             #endif
             base.LightOrShadowSprite.Red = 0f;
             base.LightOrShadowSprite.Green = 0f;
-            base.LightOrShadowSprite.Blue = 0.8f;
+            base.LightOrShadowSprite.Blue = 1f;
             base.LightOrShadowSprite.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
             base.LightOrShadowSprite.Alpha = 1f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;

@@ -30,6 +30,8 @@ namespace AbbatoirIntergrade.StaticManagers
 
         private const string SaveFileName = "PlayerSave.xml";
 
+        public static int PlayerEndingReached => Data.GotPositiveEnding ? 1 : Data.GotNegativeEnding ? -1 : 0;
+
         public static void SaveData()
         {
             FlatRedBall.IO.FileManager.XmlSerialize(Data, SaveFileName);
@@ -106,6 +108,15 @@ namespace AbbatoirIntergrade.StaticManagers
                 Data.ChapterResults.RemoveAt(existingResultIndex);
             }
             Data.ChapterResults.Add(result);
+        }
+
+        public static void MarkPlayerReachedEnding(int endingValue)
+        {
+
+            Data.GotPositiveEnding = endingValue > 0;
+
+            Data.GotNeutralEnding = endingValue == 0;
+            Data.GotNegativeEnding = endingValue < 0;
         }
     }
 }
