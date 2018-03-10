@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using Accord.Genetic;
 using Accord.Math.Random;
 
 namespace AbbatoirIntergrade.UtilityClasses
 {
     [Serializable]
+    [XmlRoot("SerializableChromosome")]
     public class SerializableChromosome : SerializableChromosomeBase
     {
         /// <summary>Chromosome's length in number of elements.</summary>
@@ -26,16 +28,20 @@ namespace AbbatoirIntergrade.UtilityClasses
 
         /// <summary>Chromosome's length.</summary>
         /// <remarks><para>Length of the chromosome in array elements.</para></remarks>
+        [XmlElement("Length")]
         public int Length
         {
             get { return this.length; }
+            set { length = value; }
         }
 
         /// <summary>Chromosome's value.</summary>
         /// <remarks><para>Current value of the chromosome.</para></remarks>
+        [XmlArrayAttribute(ElementName = "Values")]
         public ushort[] Value
         {
             get { return this.val; }
+            set { val = value; }
         }
 
         /// <summary>
@@ -43,9 +49,11 @@ namespace AbbatoirIntergrade.UtilityClasses
         /// </summary>
         /// <remarks><para>Maximum possible numerical value, which may be represented
         /// by single chromosome's gene (array element).</para></remarks>
+        [XmlElement("MaxValue")]
         public int MaxValue
         {
             get { return this.maxValue; }
+            set { maxValue = value; }
         }
 
         public SerializableChromosome() : this(8, (int) ushort.MaxValue)
