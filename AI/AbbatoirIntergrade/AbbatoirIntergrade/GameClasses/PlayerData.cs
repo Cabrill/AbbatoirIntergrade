@@ -13,6 +13,9 @@ namespace AbbatoirIntergrade.GameClasses
     [XmlRoot("PlayerData")]
     public class PlayerData
     {
+        [XmlElement("HasSeenIntro")]
+        public bool HasSeenIntro { get; set; }
+
         [XmlIgnore]
         public bool HasBeatenGame => GotPositiveEnding || GotNeutralEnding || GotNegativeEnding;
 
@@ -24,6 +27,9 @@ namespace AbbatoirIntergrade.GameClasses
 
         [XmlElement("GotNegativeEnding")]
         public bool GotNegativeEnding { get; set; }
+
+        [XmlElement("HasTowerChoiceAvailable")]
+        public bool HasTowerChoiceAvailable { get; set; }
 
         [XmlElement("AvailableTowers")]
         public List<string> AvailableTowers { get; set; } = new List<string>();
@@ -110,5 +116,10 @@ namespace AbbatoirIntergrade.GameClasses
             }
         }
 
+        [XmlElement("PreferredSoundVolume")]
+        public float PreferredSoundVolume { get; set; } = 80f;
+
+        [XmlElement("PreferredMusicVolume")]
+        public float PreferredMusicVolume { get; set; } = 80f;
     }
 }

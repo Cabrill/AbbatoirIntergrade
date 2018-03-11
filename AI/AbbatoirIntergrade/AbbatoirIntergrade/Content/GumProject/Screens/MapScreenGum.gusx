@@ -83,6 +83,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>ColoredRectangleInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>ColoredRectangleInstance.Width</Name>
       <Value xsi:type="xsd:float">100</Value>
@@ -366,7 +372,7 @@
     <Variable>
       <Type>ButtonTypeState</Type>
       <Name>MenuWindowInstance.ButtonType4State</Name>
-      <Value xsi:type="xsd:string">Play</Value>
+      <Value xsi:type="xsd:string">Menu</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -397,6 +403,12 @@
       <Type>PositionUnitType</Type>
       <Name>MenuWindowInstance.Y Units</Name>
       <Value xsi:type="xsd:int">7</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>OkMessageInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -546,6 +558,12 @@
     <Variable>
       <Type>bool</Type>
       <Name>TechnologyTreeInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>TowerSelectionBoxInstance.Visible</Name>
       <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -1028,7 +1046,15 @@
     <BaseType>ChatHistory</BaseType>
   </Instance>
   <Instance>
+    <Name>TowerSelectionBoxInstance</Name>
+    <BaseType>TowerSelectionBox</BaseType>
+  </Instance>
+  <Instance>
     <Name>ColoredRectangleInstance</Name>
     <BaseType>ColoredRectangle</BaseType>
+  </Instance>
+  <Instance>
+    <Name>OkMessageInstance</Name>
+    <BaseType>infodisplays/OkMessage</BaseType>
   </Instance>
 </ScreenSave>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FlatRedBall.Gui;
 using AbbatoirIntergrade.GumRuntimes;
+using FlatRedBall;
 
 namespace AbbatoirIntergrade.Screens
 {
@@ -19,7 +20,8 @@ namespace AbbatoirIntergrade.Screens
             TopStatusBarInstance.FastForwardButtonInstanceClick += OnFastForwardButtonClick;
 
             MenuWindowInstance.AssignEventToCloseButton(OnMenuCloseButtonClick);
-            
+            MenuWindowInstance.AssignEventToButton0(window => LoadingScreen.TransitionToScreen(typeof(MapScreen)));
+            //MenuWindowInstance.AssignEventToButton4(window => OkMessageInstance.ShowMessage(Messages["Intro"].MessageText));
         }
 
         private void OnFastForwardButtonClick(IWindow obj)
@@ -40,6 +42,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void OnMenuButtonClick(IWindow window)
         {
+            MenuWindowInstance.RefreshOptions();
             MenuWindowInstance.Visible = true;
             ScreenShadeInstance.Visible = true;
             if (!IsPaused) PauseThisScreen();

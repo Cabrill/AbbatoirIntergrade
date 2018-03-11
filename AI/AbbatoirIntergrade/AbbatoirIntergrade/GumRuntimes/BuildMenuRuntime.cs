@@ -27,7 +27,7 @@ namespace AbbatoirIntergrade.GumRuntimes
             {
                 CurrentCapacityState = Capacity.Seven;
 
-                if (BuildButtonInstance6.AbsoluteY < 0)
+                if (BuildButtonInstance6.AbsoluteY < 0 || X > 0.9f*Camera.Main.OrthogonalWidth/2 || X < -0.9f*Camera.Main.OrthogonalWidth/2)
                 {
                     CurrentCapacityState = X < 0 ? Capacity.SevenRight : Capacity.SevenLeft;
                 }
@@ -36,7 +36,7 @@ namespace AbbatoirIntergrade.GumRuntimes
             {
                 CurrentCapacityState = Capacity.Four;
 
-                if (BuildButtonInstance3.AbsoluteY < 0)
+                if (BuildButtonInstance3.AbsoluteY < 0 || X > 0.9f * Camera.Main.OrthogonalWidth / 2 || X < -0.9f * Camera.Main.OrthogonalWidth / 2)
                 {
                     CurrentCapacityState = X < 0 ? Capacity.FourRight : Capacity.FourLeft;
                 }

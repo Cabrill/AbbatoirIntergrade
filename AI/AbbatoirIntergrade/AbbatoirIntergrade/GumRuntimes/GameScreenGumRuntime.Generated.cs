@@ -57,6 +57,7 @@
                             ChatHistoryInstance.X = 10f;
                             ChatHistoryInstance.Y = 0f;
                             ScreenShadeInstance.Visible = false;
+                            MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
                             MenuWindowInstance.Visible = false;
                             ColoredRectangleInstance.Alpha = 0;
                             ColoredRectangleInstance.Blue = 0;
@@ -288,6 +289,10 @@
                         }
                         if (interpolationValue < 1)
                         {
+                            this.MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.MenuWindowInstance.Visible = false;
                         }
                         if (interpolationValue < 1)
@@ -364,6 +369,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.LivesPointsDisplayInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1615,6 +1624,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "MenuWindowInstance.ButtonType1State",
+                            Type = "ButtonTypeState",
+                            Value = MenuWindowInstance.ButtonType1State
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "MenuWindowInstance.Visible",
                             Type = "bool",
                             Value = MenuWindowInstance.Visible
@@ -1820,6 +1837,14 @@
                             Name = "ScreenShadeInstance.Visible",
                             Type = "bool",
                             Value = ScreenShadeInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.ButtonType1State",
+                            Type = "ButtonTypeState",
+                            Value = MenuWindowInstance.ButtonType1State
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

@@ -26,7 +26,8 @@
                 Disabled,
                 Menu,
                 Pause,
-                FastForward
+                FastForward,
+                Restart
             }
             #endregion
             #region State Fields
@@ -185,6 +186,12 @@
                             BackgroundSprite.Alpha = 255;
                             SpriteInstance.TextureLeft = 3550;
                             SpriteInstance.TextureTop = 2212;
+                            SpriteInstance.Visible = true;
+                            break;
+                        case  ButtonType.Restart:
+                            BackgroundSprite.Alpha = 255;
+                            SpriteInstance.TextureLeft = 3805;
+                            SpriteInstance.TextureTop = 2205;
                             SpriteInstance.Visible = true;
                             break;
                     }
@@ -835,6 +842,18 @@
                             this.SpriteInstance.Visible = true;
                         }
                         break;
+                    case  ButtonType.Restart:
+                        setBackgroundSpriteAlphaFirstValue = true;
+                        BackgroundSpriteAlphaFirstValue = 255;
+                        setSpriteInstanceTextureLeftFirstValue = true;
+                        SpriteInstanceTextureLeftFirstValue = 3805;
+                        setSpriteInstanceTextureTopFirstValue = true;
+                        SpriteInstanceTextureTopFirstValue = 2205;
+                        if (interpolationValue < 1)
+                        {
+                            this.SpriteInstance.Visible = true;
+                        }
+                        break;
                 }
                 switch(secondState)
                 {
@@ -917,6 +936,18 @@
                         SpriteInstanceTextureLeftSecondValue = 3550;
                         setSpriteInstanceTextureTopSecondValue = true;
                         SpriteInstanceTextureTopSecondValue = 2212;
+                        if (interpolationValue >= 1)
+                        {
+                            this.SpriteInstance.Visible = true;
+                        }
+                        break;
+                    case  ButtonType.Restart:
+                        setBackgroundSpriteAlphaSecondValue = true;
+                        BackgroundSpriteAlphaSecondValue = 255;
+                        setSpriteInstanceTextureLeftSecondValue = true;
+                        SpriteInstanceTextureLeftSecondValue = 3805;
+                        setSpriteInstanceTextureTopSecondValue = true;
+                        SpriteInstanceTextureTopSecondValue = 2205;
                         if (interpolationValue >= 1)
                         {
                             this.SpriteInstance.Visible = true;
@@ -2217,6 +2248,40 @@
                         }
                         );
                         break;
+                    case  ButtonType.Restart:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Alpha",
+                            Type = "int",
+                            Value = BackgroundSprite.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Texture Left",
+                            Type = "int",
+                            Value = SpriteInstance.TextureLeft
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Texture Top",
+                            Type = "int",
+                            Value = SpriteInstance.TextureTop
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Visible",
+                            Type = "bool",
+                            Value = SpriteInstance.Visible
+                        }
+                        );
+                        break;
                 }
                 return newState;
             }
@@ -2463,6 +2528,40 @@
                         }
                         );
                         break;
+                    case  ButtonType.Restart:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Alpha",
+                            Type = "int",
+                            Value = BackgroundSprite.Alpha + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Texture Left",
+                            Type = "int",
+                            Value = SpriteInstance.TextureLeft + 3805
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Texture Top",
+                            Type = "int",
+                            Value = SpriteInstance.TextureTop + 2205
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Visible",
+                            Type = "bool",
+                            Value = SpriteInstance.Visible
+                        }
+                        );
+                        break;
                 }
                 return newState;
             }
@@ -2496,6 +2595,7 @@
                         if(state.Name == "Menu") this.mCurrentButtonTypeState = ButtonType.Menu;
                         if(state.Name == "Pause") this.mCurrentButtonTypeState = ButtonType.Pause;
                         if(state.Name == "FastForward") this.mCurrentButtonTypeState = ButtonType.FastForward;
+                        if(state.Name == "Restart") this.mCurrentButtonTypeState = ButtonType.Restart;
                     }
                 }
                 base.ApplyState(state);

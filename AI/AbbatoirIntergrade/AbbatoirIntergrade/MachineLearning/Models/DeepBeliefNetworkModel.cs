@@ -164,7 +164,7 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             if (double.IsInfinity(prediction) || double.IsNaN(prediction))
             {
 #if DEBUG
-                throw new Exception("Prediction was NaN");
+                //throw new Exception("Prediction was NaN");
 #endif
                 prediction = 0;
             }

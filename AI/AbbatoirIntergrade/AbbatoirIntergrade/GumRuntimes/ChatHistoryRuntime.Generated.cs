@@ -60,6 +60,13 @@
                             ClipContainerInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             ClipContainerInstance.Y = 4.222222f;
                             ClipContainerInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            SetProperty("EndingText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            EndingText.FontScale = 0.6f;
+                            EndingText.Height = 0f;
+                            EndingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InnerPanelInstance");
+                            EndingText.UseCustomFont = true;
+                            EndingText.Width = 100f;
+                            EndingText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             break;
                     }
                 }
@@ -106,6 +113,18 @@
                 bool setCloseButtonYSecondValue = false;
                 float CloseButtonYFirstValue= 0;
                 float CloseButtonYSecondValue= 0;
+                bool setEndingTextFontScaleFirstValue = false;
+                bool setEndingTextFontScaleSecondValue = false;
+                float EndingTextFontScaleFirstValue= 0;
+                float EndingTextFontScaleSecondValue= 0;
+                bool setEndingTextHeightFirstValue = false;
+                bool setEndingTextHeightSecondValue = false;
+                float EndingTextHeightFirstValue= 0;
+                float EndingTextHeightSecondValue= 0;
+                bool setEndingTextWidthFirstValue = false;
+                bool setEndingTextWidthSecondValue = false;
+                float EndingTextWidthFirstValue= 0;
+                float EndingTextWidthSecondValue= 0;
                 bool setHeightFirstValue = false;
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
@@ -192,6 +211,28 @@
                         if (interpolationValue < 1)
                         {
                             this.CloseButton.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("EndingText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
+                        setEndingTextFontScaleFirstValue = true;
+                        EndingTextFontScaleFirstValue = 0.6f;
+                        setEndingTextHeightFirstValue = true;
+                        EndingTextHeightFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.EndingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InnerPanelInstance");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.EndingText.UseCustomFont = true;
+                        }
+                        setEndingTextWidthFirstValue = true;
+                        EndingTextWidthFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.EndingText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setHeightFirstValue = true;
                         HeightFirstValue = 100f;
@@ -306,6 +347,28 @@
                         {
                             this.CloseButton.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("EndingText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
+                        setEndingTextFontScaleSecondValue = true;
+                        EndingTextFontScaleSecondValue = 0.6f;
+                        setEndingTextHeightSecondValue = true;
+                        EndingTextHeightSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.EndingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InnerPanelInstance");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.EndingText.UseCustomFont = true;
+                        }
+                        setEndingTextWidthSecondValue = true;
+                        EndingTextWidthSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.EndingText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         setHeightSecondValue = true;
                         HeightSecondValue = 100f;
                         if (interpolationValue >= 1)
@@ -395,6 +458,18 @@
                 if (setCloseButtonYFirstValue && setCloseButtonYSecondValue)
                 {
                     CloseButton.Y = CloseButtonYFirstValue * (1 - interpolationValue) + CloseButtonYSecondValue * interpolationValue;
+                }
+                if (setEndingTextFontScaleFirstValue && setEndingTextFontScaleSecondValue)
+                {
+                    EndingText.FontScale = EndingTextFontScaleFirstValue * (1 - interpolationValue) + EndingTextFontScaleSecondValue * interpolationValue;
+                }
+                if (setEndingTextHeightFirstValue && setEndingTextHeightSecondValue)
+                {
+                    EndingText.Height = EndingTextHeightFirstValue * (1 - interpolationValue) + EndingTextHeightSecondValue * interpolationValue;
+                }
+                if (setEndingTextWidthFirstValue && setEndingTextWidthSecondValue)
+                {
+                    EndingText.Width = EndingTextWidthFirstValue * (1 - interpolationValue) + EndingTextWidthSecondValue * interpolationValue;
                 }
                 if (setHeightFirstValue && setHeightSecondValue)
                 {
@@ -790,6 +865,62 @@
                             Value = ClipContainerInstance.YUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingText.CustomFontFile",
+                            Type = "string",
+                            Value = EndingText.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingText.Font Scale",
+                            Type = "float",
+                            Value = EndingText.FontScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingText.Height",
+                            Type = "float",
+                            Value = EndingText.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingText.Parent",
+                            Type = "string",
+                            Value = EndingText.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingText.UseCustomFont",
+                            Type = "bool",
+                            Value = EndingText.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingText.Width",
+                            Type = "float",
+                            Value = EndingText.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingText.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = EndingText.WidthUnits
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -1080,6 +1211,62 @@
                             Value = ClipContainerInstance.YUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingText.CustomFontFile",
+                            Type = "string",
+                            Value = EndingText.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingText.Font Scale",
+                            Type = "float",
+                            Value = EndingText.FontScale + 0.6f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingText.Height",
+                            Type = "float",
+                            Value = EndingText.Height + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingText.Parent",
+                            Type = "string",
+                            Value = EndingText.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingText.UseCustomFont",
+                            Type = "bool",
+                            Value = EndingText.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingText.Width",
+                            Type = "float",
+                            Value = EndingText.Width + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingText.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = EndingText.WidthUnits
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -1104,6 +1291,23 @@
             private AbbatoirIntergrade.GumRuntimes.VerticalScrollBarRuntime VerticalScrollBarInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime CloseButton { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ClipContainerInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.TextRuntime EndingText { get; set; }
+            public string EndingTextText
+            {
+                get
+                {
+                    return EndingText.Text;
+                }
+                set
+                {
+                    if (EndingText.Text != value)
+                    {
+                        EndingText.Text = value;
+                        EndingTextTextChanged?.Invoke(this, null);
+                    }
+                }
+            }
+            public event System.EventHandler EndingTextTextChanged;
             public ChatHistoryRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
             {
@@ -1136,6 +1340,7 @@
                 VerticalScrollBarInstance = this.GetGraphicalUiElementByName("VerticalScrollBarInstance") as AbbatoirIntergrade.GumRuntimes.VerticalScrollBarRuntime;
                 CloseButton = this.GetGraphicalUiElementByName("CloseButton") as AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime;
                 ClipContainerInstance = this.GetGraphicalUiElementByName("ClipContainerInstance") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
+                EndingText = this.GetGraphicalUiElementByName("EndingText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 if (tryCreateFormsObject)
                 {
                     FormsControl = new FlatRedBall.Forms.Controls.ScrollViewer(this);

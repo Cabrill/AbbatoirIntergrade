@@ -35,6 +35,20 @@ namespace AbbatoirIntergrade.GumRuntimes
             }
         }
 
+        public void DisplayChoice(BaseStructure structure)
+        {
+            structureShown = structure;
+
+            structureShown.RangePreviewSprite.Visible = false;
+            StructureName = structureShown.DisplayName;
+            AttackDamageType.ResistanceText = structure.AttackDamage.ToString();
+            MinRange.AttributeText = structure.MinimumRangeRadius.ToString();
+            MaxRange.AttributeText = structure.RangedRadius.ToString();
+            AttackSpeed.AttributeText = structure.SecondsBetweenFiring.ToString() + " sec";
+            PointOrSplash.AttributeText = structure.HasSplashDamage ? "Group" : "Single";
+            SetIcon(structure.GetType());
+        }
+
         private void SetDisplayFor(BaseStructure structure)
         {
             Visible = true;

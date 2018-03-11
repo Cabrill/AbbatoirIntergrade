@@ -79,14 +79,14 @@ namespace AbbatoirIntergrade.Screens
 
             foreach (var towerType in listOfAllTowerTypes)
             {
-                var towerInstantiation = GetNewObject(towerType) as BaseStructure;
+                var towerInstantiation = StructureFactories.GetNewObject(towerType) as BaseStructure;
                 MachineLearningManager.LearnMaxTowerValues(towerInstantiation);
                 listOfAllInstantiatedTowers.Add(towerInstantiation);
 
                 if (listOfAvailableTowerTypes.Contains(towerType))
                 {
                     listOfAvailableTowers.Add(towerInstantiation);
-                    listOfAvailableTowerFactories.Add(GetFactory(towerType.Name));
+                    listOfAvailableTowerFactories.Add(StructureFactories.GetFactory(towerType.Name));
                 }
             }
 
@@ -110,68 +110,6 @@ namespace AbbatoirIntergrade.Screens
             };
             GameScreenGumInstance.HideChatHistoryAnimation.AddAction("SetupResponseAvailability", ChatBoxInstance.SetupResponseAvailability);
 
-        }
-
-        private object GetNewObject(Type t)
-        {
-            try
-            {
-                return t.GetConstructor(new Type[] { })?.Invoke(new object[] { });
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        static IEnumerable<IEntityFactory> factoriesInThisAssembly;
-        private static IEntityFactory GetFactory(string entityType)
-        {
-            if (factoriesInThisAssembly == null)
-            {
-
-#if WINDOWS_8 || UWP
-                var assembly = typeof(TileEntityInstantiator).GetTypeInfo().Assembly;
-                var typesInThisAssembly = assembly.DefinedTypes.Select(item=>item.AsType()).ToArray();
-
-#else
-                var assembly = Assembly.GetExecutingAssembly();
-                var typesInThisAssembly = assembly.GetTypes();
-#endif
-
-
-#if WINDOWS_8 || UWP
-                var filteredTypes = typesInThisAssembly.Where(t => t.GetInterfaces().Contains(typeof(IEntityFactory))
-                            && t.GetConstructors().Any(c=>c.GetParameters().Count() == 0));
-#else
-                var filteredTypes = typesInThisAssembly.Where(t => t.GetInterfaces().Contains(typeof(IEntityFactory))
-                                                   && t.GetConstructor(Type.EmptyTypes) != null);
-#endif
-
-                factoriesInThisAssembly = filteredTypes
-                    .Select(
-                        t =>
-                        {
-#if WINDOWS_8 || UWP
-                        var propertyInfo = t.GetProperty("Self");
-#else
-                            var propertyInfo = t.GetProperty("Self");
-#endif
-                            var value = propertyInfo.GetValue(null, null);
-                            return value as IEntityFactory;
-                        }).ToList();
-
-            }
-
-            var factory = factoriesInThisAssembly.FirstOrDefault(item =>
-            {
-                var type = item.GetType();
-                var methodInfo = type.GetMethod("CreateNew", new[] { typeof(Layer), typeof(float), typeof(float) });
-                var returntypeString = methodInfo.ReturnType.Name;
-
-                return entityType == returntypeString || entityType.EndsWith("\\" + returntypeString);
-            });
-            return factory;
         }
     }
 }

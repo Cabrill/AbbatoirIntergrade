@@ -11,10 +11,7 @@ namespace AbbatoirIntergrade.GumRuntimes
     {
         partial void CustomInitialize()
         {
-            RefreshValues();
-
             SoundSlider.FormsControl.ValueChanged += SoundVolumeSliderValueChanged;
-
             MusicSlider.FormsControl.ValueChanged += MusicVolumeSliderValueChanged;
         }
 

@@ -121,12 +121,20 @@ namespace AbbatoirIntergrade.StaticManagers
                     {
                         ApplySelection(currentList, NumberOfChromosomesToSelect);
 
-                        currentList.Sort((c1, c2) => c2.Fitness.CompareTo(c1.Fitness));
+                        if (currentList.Count > 0)
+                        {
+                            currentList.Sort((c1, c2) => c2.Fitness.CompareTo(c1.Fitness));
 
-                        PerformCrossover(ref currentList);
-                        PerformMutation(ref currentList);
-                        PerformNewGeneration(ref currentList);
-
+                            PerformCrossover(ref currentList);
+                            PerformMutation(ref currentList);
+                            PerformNewGeneration(ref currentList);
+                        }
+                        else
+                        {
+#if DEBUG
+                            var x = "uhoh";
+#endif
+                        }
                         newDictionary.Add(enemyType, currentList);
                     }
                 }

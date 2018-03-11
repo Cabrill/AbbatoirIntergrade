@@ -43,34 +43,19 @@
   </data>
  </layer>
  <objectgroup name="EntityLayer">
-  <object id="47" gid="125" x="1474" y="826" width="128" height="128">
+  <object id="47" gid="125" x="1510.36" y="765.394" width="128" height="128">
    <properties>
     <property name="PlacementOrder" type="int" value="2"/>
    </properties>
   </object>
-  <object id="50" type="StructurePlacement" gid="125" x="922" y="826" width="128" height="128">
-   <properties>
-    <property name="PlacementOrder" type="int" value="3"/>
-   </properties>
-  </object>
-  <object id="51" gid="125" x="1710" y="650" width="128" height="128">
-   <properties>
-    <property name="PlacementOrder" type="int" value="5"/>
-   </properties>
-  </object>
-  <object id="52" gid="125" x="2000" y="658" width="128" height="128">
+  <object id="52" gid="125" x="1980.36" y="715.697" width="128" height="128">
    <properties>
     <property name="PlacementOrder" type="int" value="6"/>
    </properties>
   </object>
-  <object id="53" gid="125" x="1124" y="428" width="128" height="128">
+  <object id="53" gid="125" x="1177.09" y="399.515" width="128" height="128">
    <properties>
     <property name="PlacementOrder" type="int" value="7"/>
-   </properties>
-  </object>
-  <object id="54" gid="125" x="1470" y="1262" width="128" height="128">
-   <properties>
-    <property name="PlacementOrder" type="int" value="8"/>
    </properties>
   </object>
   <object id="55" gid="125" x="622" y="1156" width="128" height="128">
@@ -78,17 +63,12 @@
     <property name="PlacementOrder" type="int" value="1"/>
    </properties>
   </object>
-  <object id="56" gid="125" x="558" y="830" width="128" height="128">
+  <object id="56" gid="125" x="512.545" y="772.424" width="128" height="128">
    <properties>
     <property name="PlacementOrder" type="int" value="4"/>
    </properties>
   </object>
-  <object id="69" gid="125" x="1974" y="1026" width="128" height="128">
-   <properties>
-    <property name="PlacementOrder" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="80" type="StructurePlacement" gid="125" x="1110" y="824" width="128" height="128">
+  <object id="80" type="StructurePlacement" gid="125" x="1018" y="820" width="128" height="128">
    <properties>
     <property name="PlacementOrder" type="int" value="3"/>
    </properties>
@@ -96,7 +76,7 @@
  </objectgroup>
  <objectgroup name="Pathing">
   <object id="81" x="-32" y="436">
-   <polyline points="0,0 882,-12 814,554 1416,516 1356,-26 2310,10 2228,550 2652,512"/>
+   <polyline points="0,0 882,-12 844.303,526.727 1388.73,509.939 1374.18,7.33333 2279.7,13.0303 2258.3,519.697 2652,512"/>
   </object>
  </objectgroup>
  <objectgroup name="Collisions">
@@ -310,7 +290,7 @@
     <property name="AxisAlignedRectangleInstanceWidth" type="float" value="214"/>
    </properties>
   </object>
-  <object id="127" type="TileCollisionRectangle" gid="1025" x="2145" y="349" width="70" height="66">
+  <object id="127" type="TileCollisionRectangle" gid="1025" x="2139" y="361" width="70" height="66">
    <properties>
     <property name="AxisAlignedRectangleInstanceHeight" type="float" value="66"/>
     <property name="AxisAlignedRectangleInstanceWidth" type="float" value="70"/>

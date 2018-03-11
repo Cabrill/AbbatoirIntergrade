@@ -14,7 +14,6 @@ using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
 
 
-
 namespace AbbatoirIntergrade.Screens
 {
 	public partial class EndingScreen
@@ -23,12 +22,30 @@ namespace AbbatoirIntergrade.Screens
 
 		void CustomInitialize()
 		{
-		    endingReached = PlayerDataManager.PlayerEndingReached;
+#if WINDOWS || DESKTOP_GL
+		    FlatRedBallServices.IsWindowsCursorVisible = true;
+#endif
+            GameStateManager.LoadIfNecessary();
+
+            endingReached = PlayerDataManager.PlayerEndingReached;
 
             var endingText = endingReached > 0 ? "Positive" : endingReached < 0 ? "Negative" : "Neutral";
-		    EndingTextRuntimeInstance.Text = EndingText[endingText].EndingWords;
+            EndingTextContainer.EndingTextText = EndingText[endingText].EndingWords;
 
             ButtonInstance.Click += HandleButtonClick;
+
+		    if (endingReached > 0)
+		    {
+		        SoundManager.PlaySong(GlobalContent.Brallit_Robotic_Chaotic, true, true);
+            }
+            else if (endingReached < 0)
+		    {
+		        SoundManager.PlaySong(GlobalContent.Brallit_One_Accord, true, true);
+            }
+		    else
+		    {
+		        SoundManager.PlaySong(GlobalContent.anttisinstrumentals_glitchthis, true, true);
+            }
             
             EndingScreenGumInstance.CurrentFadingState = EndingScreenGumRuntime.Fading.Faded;
 		}

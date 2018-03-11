@@ -125,6 +125,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>infodisplays/OkMessage</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>infodisplays/ResistanceDisplay</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
@@ -198,6 +202,10 @@
   </ComponentReference>
   <ComponentReference>
     <Name>TowerSelectionBox</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>unique/Dimming</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>

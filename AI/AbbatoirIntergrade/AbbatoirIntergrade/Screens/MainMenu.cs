@@ -12,7 +12,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
-
+using StateInterpolationPlugin;
 
 
 namespace AbbatoirIntergrade.Screens
@@ -22,18 +22,37 @@ namespace AbbatoirIntergrade.Screens
 
 	    void CustomInitialize()
 	    {
+	        GameStateManager.LoadIfNecessary();
+
 #if WINDOWS || DESKTOP_GL
-	        FlatRedBallServices.IsWindowsCursorVisible = true;
+            FlatRedBallServices.IsWindowsCursorVisible = true;
 #endif
-            MainMenuGumRuntime.OpenEyesAnimation.PlayAfter(3, this);
+	        OrchestrateIntroAnimation();
+            
             SoundManager.PlaySong(GlobalContent.anttisinstrumentals_aluodetunefish, true,true );
+	    }
+
+	    void OrchestrateIntroAnimation()
+	    {
+	        MainMenuGumRuntime.CurrentAnyKeyState = MainMenuGumRuntime.AnyKey.NotReady;
+            MainMenuGumRuntime.CurrentFadeState = MainMenuGumRuntime.Fade.FadedOut;
+
+	        BbatoirSpriteInstance.Alpha = 0;
+	        BbatoirSpriteInstance.AlphaRate = 0.33f;
+
+	        NtergradeSpriteInstance.Alpha = 0;
+	        NtergradeSpriteInstance.AlphaRate = 0.33f;
+
+	        MainMenuGumRuntime.OpenEyesAnimation.PlayAfter(3, this);
+
+            MainMenuGumRuntime.FadeInAnimation.PlayAfter(3f, this);
+	        MainMenuGumRuntime.ShowAnyKeyAnimation.PlayAfter(5f);
 	    }
 
 	    void CustomActivity(bool firstTimeCalled)
 	    {
-	        //FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
             SoundManager.Update();
-	        if (InputManager.Keyboard.AnyKeyPushed() || InputManager.Mouse.AnyButtonPushed())
+	        if (MainMenuGumRuntime.CurrentAnyKeyState == MainMenuGumRuntime.AnyKey.Ready && (InputManager.Keyboard.AnyKeyPushed() || InputManager.Mouse.AnyButtonPushed()))
 	        {
 	            LoadingScreen.TransitionToScreen(typeof(MapScreen));
 	        }
@@ -45,6 +64,11 @@ namespace AbbatoirIntergrade.Screens
 	            {
 	                MainMenuGumRuntime.BlinkEyesAnimation.Play(this);
 	            }
+	        }
+
+	        if (MainMenuGumRuntime.CurrentFadeState == MainMenuGumRuntime.Fade.NotFaded)
+	        {
+	            MainMenuGumRuntime.UpdateDimming();
 	        }
 	    }
 

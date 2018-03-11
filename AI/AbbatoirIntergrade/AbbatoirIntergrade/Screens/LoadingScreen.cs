@@ -21,8 +21,8 @@ namespace AbbatoirIntergrade.Screens
 
 		void CustomInitialize()
 		{
-            
-		}
+
+        }
 
 		void CustomActivity(bool firstTimeCalled)
 		{

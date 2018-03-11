@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Reflection;
+using AbbatoirIntergrade.Entities.BaseEntities;
+using AbbatoirIntergrade.Factories;
 using AbbatoirIntergrade.GameClasses.BaseClasses;
 using AbbatoirIntergrade.GumRuntimes;
 using AbbatoirIntergrade.StaticManagers;
@@ -16,6 +18,7 @@ using FlatRedBall.Gui;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
 using Gum.Converters;
+using Microsoft.Xna.Framework.Input;
 using RenderingLibrary.Graphics;
 
 
@@ -26,17 +29,77 @@ namespace AbbatoirIntergrade.Screens
 
 		void CustomInitialize()
 		{
+		    GameStateManager.LoadIfNecessary();
+
 #if WINDOWS || DESKTOP_GL
-		    FlatRedBallServices.IsWindowsCursorVisible = true;
+            FlatRedBallServices.IsWindowsCursorVisible = true;
 #endif
-		    PlayerDataManager.LoadData();
-
-
 
             AssignClickEventsAndStatusToButtons();
             MapScreenGumInstance.CurrentFadingState = MapScreenGumRuntime.Fading.Faded;
-		    //FillChatHistory();
+		    FillChatHistory();
+
+		    OfferStructureChoiceIfAvailable();
+
+		    ShowIntroMessageIfNecessary();
 		}
+
+	    private void ShowIntroMessageIfNecessary()
+	    {
+	        if (!PlayerDataManager.PlayerHasSeenIntro)
+	        {
+	            OkMessageInstance.ShowMessage(Messages["Intro"].MessageText);
+	            PlayerDataManager.MarkSeenIntro();
+	        }
+	    }
+
+	    private void OfferStructureChoiceIfAvailable()
+	    {
+	        var potentialTowers = PlayerDataManager.GetPossibleNewTowers();
+	        var numberOfChoices = potentialTowers.Count;
+
+            if (numberOfChoices > 0)
+	        {
+	            var structure1 = StructureFactories.GetFactory(potentialTowers[0].Name).CreateNew(StructureLayer) as BaseStructure;
+
+                if (numberOfChoices == 1)
+	            {
+	                TowerSelectionBoxInstance.SetOnlyChoice(structure1);
+                }
+	            else
+	            {
+                    var structure2 = StructureFactories.GetFactory(potentialTowers[1].Name).CreateNew(StructureLayer) as BaseStructure;
+
+	                TowerSelectionBoxInstance.SetChoices(structure1, structure2);
+                }
+
+	            TowerSelectionBoxInstance.Visible = true;
+	            
+	            TowerSelectionBoxInstance.ConfirmTowerSelection += ConfirmTowerSelection;
+	        }
+	        else
+	        {
+	            TowerSelectionBoxInstance.Visible = false;
+	        }
+	    }
+
+	    private void ConfirmTowerSelection(IWindow window)
+	    {
+	        if (window is TowerSelectionBoxRuntime towerSelectionBox)
+	        {
+	            var selectedTower = towerSelectionBox.StructureTypeChosen;
+
+                PlayerDataManager.AddTowerAvailability(selectedTower);
+                PlayerDataManager.SaveData();
+
+	            for (var i = StructureList.Count - 1; i >= 0; i--)
+	            {
+	                StructureList[i].Destroy();
+	            }
+
+	            towerSelectionBox.Visible = false;
+	        }
+	    }
 
 	    private void FillChatHistory()
 	    {
@@ -63,12 +126,28 @@ namespace AbbatoirIntergrade.Screens
 		{
             if (firstTimeCalled) MapScreenGumInstance.FadeInAnimation.Play();
 #if DEBUG
-            //FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
+            FlatRedBall.Debugging.Debugger.Write(GuiManager.Cursor.WindowOver);
 #endif
             SoundManager.Update();
-        }
+		    HandleKeyboardInput();
+		}
 
-		void CustomDestroy()
+	    private void HandleKeyboardInput()
+	    {
+	        if (InputManager.Keyboard.KeyPushed(Keys.Escape))
+	        {
+	            if (MenuWindowInstance.Visible)
+	            {
+	                MenuWindowInstance.SimulateCloseButtonClick();
+	            }
+	            else
+	            {
+	                ShowMenu(null);
+	            }
+	        }
+	    }
+
+        void CustomDestroy()
 		{
 
 
@@ -114,14 +193,18 @@ namespace AbbatoirIntergrade.Screens
 	            if (element is MenuWindowRuntime menuWindow)
 	            {
 	                menuWindow.AssignEventToCloseButton(window => MapScreenGumInstance.HideMenuAnimation.Play(this));
+                    menuWindow.AssignEventToButton0(window => FlatRedBallServices.Game.Exit());
+                    menuWindow.AssignEventToButton3(window => OkMessageInstance.ShowMessage(Messages["Intro"].MessageText));
 	            }
 	        }
 	    }
 
 	    private void ShowMenu(IWindow window)
 	    {
-            MenuWindowInstance.RefreshOptions();
-	        MapScreenGumInstance.ShowMenuAnimation.Play(this);
+	        MenuWindowInstance.RefreshOptions();
+
+            MapScreenGumInstance.ShowMenuAnimation.Play(this);
+	        //this.Call(() =>MenuWindowInstance.RefreshOptions()).After(MapScreenGumInstance.ShowMenuAnimation.Length + 0.001f);
 	    }
 
 	    private void LoadLevel(IWindow window)

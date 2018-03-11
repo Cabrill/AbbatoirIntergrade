@@ -1857,6 +1857,22 @@
             }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime FaceSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime EyeSprite { get; set; }
+            public int CurrentEyeHeight
+            {
+                get
+                {
+                    return EyeSprite.TextureHeight;
+                }
+                set
+                {
+                    if (EyeSprite.TextureHeight != value)
+                    {
+                        EyeSprite.TextureHeight = value;
+                        CurrentEyeHeightChanged?.Invoke(this, null);
+                    }
+                }
+            }
+            public event System.EventHandler CurrentEyeHeightChanged;
             public MainMenuEyeRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
             {

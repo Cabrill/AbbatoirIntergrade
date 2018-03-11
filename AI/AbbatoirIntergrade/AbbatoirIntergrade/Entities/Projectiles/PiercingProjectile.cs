@@ -95,7 +95,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 	                         (CircleInstance.RelativeY - 20f) * direction.X;
 	        
 	        RelativeX = effectiveX;
-	        RelativeY = effectiveY;
+	        RelativeY = effectiveY + enemy.Altitude;
         }
 
 

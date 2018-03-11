@@ -3300,6 +3300,18 @@
       <Pin Id="0x0100000000001E6F" Index="0" Semantic="Output" />
     </Pins>
   </Dialogue>
+  <Dialogue Id="0x0100000000003AED">
+    <DisplayName Count="1">
+      <LocalizedString>Silence</LocalizedString>
+    </DisplayName>
+    <Text Count="1">
+      <LocalizedString>...</LocalizedString>
+    </Text>
+    <Pins>
+      <Pin Id="0x0100000000003AEE" Index="0" Semantic="Input" />
+      <Pin Id="0x0100000000003AEF" Index="0" Semantic="Output" />
+    </Pins>
+  </Dialogue>
   <Dialogue Id="0x0100000000001E7B">
     <DisplayName Count="1">
       <LocalizedString>Chapter6StartPositive</LocalizedString>
@@ -11822,7 +11834,7 @@
   </Dialogue>
   <Dialogue Id="0x01000000000038E5">
     <DisplayName Count="1">
-      <LocalizedString>Retort</LocalizedString>
+      <LocalizedString>NeutralEnding</LocalizedString>
     </DisplayName>
     <Text Count="1">
       <LocalizedString>Tell those who wish to live to barricade themselves securely indoors for 72 hours while the remainder are eliminated.  They may emerge at that time, and will be unharmed</LocalizedString>
@@ -12053,7 +12065,7 @@
   </Dialogue>
   <Dialogue Id="0x0100000000003990">
     <DisplayName Count="1">
-      <LocalizedString>Retort</LocalizedString>
+      <LocalizedString>NegativeEnding</LocalizedString>
     </DisplayName>
     <Text Count="1">
       <LocalizedString>No, you are wrong, Shepherd.  Even if you won't admit it, this is humanity's conclusion.  The last of you will starve or freeze to death on aimlessly drifting ships in the void.</LocalizedString>
@@ -12068,7 +12080,7 @@
   </Dialogue>
   <Dialogue Id="0x010000000000399E">
     <DisplayName Count="1">
-      <LocalizedString>Retort</LocalizedString>
+      <LocalizedString>NegativeEnding</LocalizedString>
     </DisplayName>
     <Text Count="1">
       <LocalizedString>This is it, Shepherd.  Flee if you like, it won't change much.  The last of you will starve or freeze to death on aimlessly drifting ships in the void.</LocalizedString>
@@ -14013,7 +14025,7 @@
       <LocalizedString>Retort</LocalizedString>
     </DisplayName>
     <Text Count="1">
-      <LocalizedString>Why?  You should be happy for my improvements.</LocalizedString>
+      <LocalizedString>Why?  You should be happy for my improvements.  They're superb!</LocalizedString>
     </Text>
     <Pins>
       <Pin Id="0x0100000000001A17" Index="0" Semantic="Input" />
@@ -16567,10 +16579,6 @@
     <Target IdRef="0x010000000000140B" PinRef="0x010000000000140C" />
   </Connection>
   <Connection>
-    <Source IdRef="0x0100000000001D9E" PinRef="0x0100000000001DA3" />
-    <Target IdRef="0x01000000000013CB" PinRef="0x01000000000013CC" />
-  </Connection>
-  <Connection>
     <Source IdRef="0x0100000000001D9E" PinRef="0x0100000000001DA0" />
     <Target IdRef="0x0100000000001DAB" PinRef="0x0100000000001DAC" />
   </Connection>
@@ -16745,6 +16753,14 @@
   <Connection>
     <Source IdRef="0x0100000000001E6D" PinRef="0x0100000000001E6F" />
     <Target IdRef="0x0100000000001DBE" PinRef="0x0100000000001DBF" />
+  </Connection>
+  <Connection>
+    <Source IdRef="0x0100000000001D9E" PinRef="0x0100000000001DA3" />
+    <Target IdRef="0x0100000000003AED" PinRef="0x0100000000003AEE" />
+  </Connection>
+  <Connection>
+    <Source IdRef="0x0100000000003AED" PinRef="0x0100000000003AEF" />
+    <Target IdRef="0x01000000000013CB" PinRef="0x01000000000013CC" />
   </Connection>
   <Connection>
     <Source IdRef="0x0100000000001E7B" PinRef="0x0100000000001E80" />

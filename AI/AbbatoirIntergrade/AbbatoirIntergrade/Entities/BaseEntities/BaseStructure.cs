@@ -74,11 +74,15 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (DebugVariables.ShowDebugShapes)
             {
                 AxisAlignedRectangleInstance.Visible = true;
+                RangeCircleInstance.Visible = true;
+                MinimumRangeCircleInstance.Visible = true;
             }
             else
 #endif
             {
                 AxisAlignedRectangleInstance.Visible = false;
+                RangeCircleInstance.Visible = false;
+                MinimumRangeCircleInstance.Visible = false;
             }
 
             CurrentOnOffState = OnOff.On;
@@ -141,7 +145,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     targetEnemy = null;
                 }
 
-                if (targetEnemy == null && _potentialTargetList.Count > 0)
+                if (targetEnemy == null && _potentialTargetList != null && _potentialTargetList.Count > 0)
                 {
                     ChooseTarget();
                 }
@@ -267,6 +271,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         public static void Initialize(PositionedObjectList<BaseEnemy> potentialTargets)
         {
             _potentialTargetList = potentialTargets;
+        }
+
+        public static void Reset()
+        {
+            _potentialTargetList = null;
         }
 
 #if DEBUG

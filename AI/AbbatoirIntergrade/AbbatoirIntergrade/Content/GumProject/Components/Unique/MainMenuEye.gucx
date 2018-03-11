@@ -37,6 +37,7 @@
       <Type>int</Type>
       <Name>EyeSprite.Texture Height</Name>
       <Value xsi:type="xsd:int">428</Value>
+      <ExposedAsName>CurrentEyeHeight</ExposedAsName>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

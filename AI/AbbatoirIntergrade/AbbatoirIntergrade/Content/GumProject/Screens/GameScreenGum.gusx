@@ -147,6 +147,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>ButtonTypeState</Type>
+      <Name>MenuWindowInstance.ButtonType1State</Name>
+      <Value xsi:type="xsd:string">X</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>bool</Type>
       <Name>MenuWindowInstance.Visible</Name>
       <Value xsi:type="xsd:boolean">false</Value>

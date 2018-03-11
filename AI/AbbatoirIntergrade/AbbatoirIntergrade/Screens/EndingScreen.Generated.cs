@@ -30,6 +30,7 @@ namespace AbbatoirIntergrade.Screens
         private AbbatoirIntergrade.GumRuntimes.EndingScreenGumRuntime EndingScreenGumInstance;
         private AbbatoirIntergrade.GumRuntimes.TextRuntime EndingTextRuntimeInstance;
         private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonInstance;
+        private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime EndingTextContainer;
         public EndingScreen () 
         	: base ("EndingScreen")
         {
@@ -40,6 +41,7 @@ namespace AbbatoirIntergrade.Screens
             EndingScreenGumInstance = EndingScreenGum.GetGraphicalUiElementByName("this") as AbbatoirIntergrade.GumRuntimes.EndingScreenGumRuntime;
             EndingTextRuntimeInstance = EndingScreenGum.GetGraphicalUiElementByName("EndingText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
             ButtonInstance = EndingScreenGum.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
+            EndingTextContainer = EndingScreenGum.GetGraphicalUiElementByName("EndingTextContainer") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
             
             
             PostInitialize();
@@ -91,6 +93,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 ButtonInstance.RemoveFromManagers();
             }
+            if (EndingTextContainer != null)
+            {
+                EndingTextContainer.RemoveFromManagers();
+            }
             FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
         }
@@ -118,6 +124,10 @@ namespace AbbatoirIntergrade.Screens
             if (ButtonInstance != null)
             {
                 ButtonInstance.RemoveFromManagers();
+            }
+            if (EndingTextContainer != null)
+            {
+                EndingTextContainer.RemoveFromManagers();
             }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 

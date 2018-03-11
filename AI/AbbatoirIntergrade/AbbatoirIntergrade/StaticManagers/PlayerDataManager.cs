@@ -31,6 +31,17 @@ namespace AbbatoirIntergrade.StaticManagers
         private const string SaveFileName = "PlayerSave.xml";
 
         public static int PlayerEndingReached => Data.GotPositiveEnding ? 1 : Data.GotNegativeEnding ? -1 : 0;
+        public static bool PlayerHasSeenIntro => Data.HasSeenIntro;
+
+        private static readonly List<string> AllPossibleTowers = new List<string>()
+        {
+            typeof(PiercingTower).AssemblyQualifiedName,
+            typeof(ElectricTower).AssemblyQualifiedName,
+            typeof(FireTower).AssemblyQualifiedName,
+            typeof(ChemicalTower).AssemblyQualifiedName,
+            typeof(FrostTower).AssemblyQualifiedName,
+            typeof(BombardingTower).AssemblyQualifiedName,
+        };
 
         public static void SaveData()
         {
@@ -51,17 +62,15 @@ namespace AbbatoirIntergrade.StaticManagers
             {
                 InitializeNewData();
             }
+
+            SoundManager.MusicVolumeLevel = Data.PreferredMusicVolume;
+            SoundManager.SoundVolumeLevel = Data.PreferredSoundVolume;
         }
 
         private static void InitializeNewData()
         {
             Data = new PlayerData();
             Data.AvailableTowers.Add(typeof(PiercingTower).AssemblyQualifiedName);
-            Data.AvailableTowers.Add(typeof(BombardingTower).AssemblyQualifiedName);
-            Data.AvailableTowers.Add(typeof(FireTower).AssemblyQualifiedName);
-            Data.AvailableTowers.Add(typeof(FrostTower).AssemblyQualifiedName);
-            Data.AvailableTowers.Add(typeof(ElectricTower).AssemblyQualifiedName);
-            Data.AvailableTowers.Add(typeof(ChemicalTower).AssemblyQualifiedName);
 
             Reset();
         }
@@ -94,6 +103,31 @@ namespace AbbatoirIntergrade.StaticManagers
             LastChosenDialogueId = "";
         }
 
+        public static void AllowPlayerNewTowerChoice()
+        {
+            Data.HasTowerChoiceAvailable = Data.AvailableTowers.Count < AllPossibleTowers.Count;
+        }
+
+        public static List<Type> GetPossibleNewTowers()
+        {
+            if (!Data.HasTowerChoiceAvailable) return new List<Type>();
+
+            var currentTowers = Data.AvailableTowers;
+            var possibleTowers = AllPossibleTowers.ToList();
+            possibleTowers.RemoveAll(t => currentTowers.Contains(t));
+
+            return possibleTowers.Select(Type.GetType).Where(towerType => towerType != null).ToList();
+        }
+
+        public static void AddTowerAvailability(Type towerType)
+        {
+            if (Data.HasTowerChoiceAvailable)
+            {
+                Data.AvailableTowers.Add(towerType.AssemblyQualifiedName);
+                Data.HasTowerChoiceAvailable = false;
+            }
+        }
+
         public static List<Type> GetAvailableTowers()
         {
             if (Data == null) LoadData();
@@ -117,6 +151,11 @@ namespace AbbatoirIntergrade.StaticManagers
 
             Data.GotNeutralEnding = endingValue == 0;
             Data.GotNegativeEnding = endingValue < 0;
+        }
+
+        public static void MarkSeenIntro()
+        {
+            Data.HasSeenIntro = true;
         }
     }
 }

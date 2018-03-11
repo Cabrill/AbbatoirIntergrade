@@ -14,6 +14,10 @@ using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using AbbatoirIntergrade.DataTypes;
+using FlatRedBall.IO.Csv;
+using FlatRedBall.Math;
+using FlatRedBall.Graphics;
 namespace AbbatoirIntergrade.Screens
 {
     public partial class MapScreen : FlatRedBall.Screens.Screen
@@ -23,10 +27,17 @@ namespace AbbatoirIntergrade.Screens
         #endif
         protected static Microsoft.Xna.Framework.Graphics.Texture2D worldmap;
         protected static FlatRedBall.Gum.GumIdb MapScreenGum;
+        protected static System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.Messages> Messages;
         
         private AbbatoirIntergrade.GumRuntimes.MapScreenGumRuntime MapScreenGumInstance;
         private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance;
         private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime ChatHistoryInstance;
+        private AbbatoirIntergrade.GumRuntimes.TowerSelectionBoxRuntime TowerSelectionBoxInstance;
+        private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BaseStructure> StructureList;
+        private FlatRedBall.Graphics.Layer StructureLayer;
+        private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BasePlayerProjectile> ProjectileList;
+        private AbbatoirIntergrade.GumRuntimes.OkMessageRuntime OkMessageInstance;
+        protected global::RenderingLibrary.Graphics.Layer StructureLayerGum;
         public MapScreen () 
         	: base ("MapScreen")
         {
@@ -37,6 +48,14 @@ namespace AbbatoirIntergrade.Screens
             MapScreenGumInstance = MapScreenGum.GetGraphicalUiElementByName("this") as AbbatoirIntergrade.GumRuntimes.MapScreenGumRuntime;
             MenuWindowInstance = MapScreenGum.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
             ChatHistoryInstance = MapScreenGum.GetGraphicalUiElementByName("ChatHistoryInstance") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
+            TowerSelectionBoxInstance = MapScreenGum.GetGraphicalUiElementByName("TowerSelectionBoxInstance") as AbbatoirIntergrade.GumRuntimes.TowerSelectionBoxRuntime;
+            StructureList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BaseStructure>();
+            StructureList.Name = "StructureList";
+            StructureLayer = new FlatRedBall.Graphics.Layer();
+            StructureLayer.Name = "StructureLayer";
+            ProjectileList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BasePlayerProjectile>();
+            ProjectileList.Name = "ProjectileList";
+            OkMessageInstance = MapScreenGum.GetGraphicalUiElementByName("OkMessageInstance") as AbbatoirIntergrade.GumRuntimes.OkMessageRuntime;
             
             
             PostInitialize();
@@ -49,6 +68,28 @@ namespace AbbatoirIntergrade.Screens
         public override void AddToManagers () 
         {
             MapScreenGum.InstanceInitialize(); FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged += MapScreenGum.HandleResolutionChanged;
+            FlatRedBall.SpriteManager.AddLayer(StructureLayer);
+            StructureLayer.UsePixelCoordinates();
+            if (FlatRedBall.SpriteManager.Camera.Orthogonal)
+            {
+                StructureLayer.LayerCameraSettings.OrthogonalWidth = FlatRedBall.SpriteManager.Camera.OrthogonalWidth;
+                StructureLayer.LayerCameraSettings.OrthogonalHeight = FlatRedBall.SpriteManager.Camera.OrthogonalHeight;
+            }
+            StructureLayerGum = RenderingLibrary.SystemManagers.Default.Renderer.AddLayer();
+            StructureLayerGum.Name = "StructureLayerGum";
+            MapScreenGum.AddGumLayerToFrbLayer(StructureLayerGum, StructureLayer);
+            Factories.BombardingTowerFactory.AddList(StructureList);
+            Factories.ChemicalTowerFactory.AddList(StructureList);
+            Factories.ElectricTowerFactory.AddList(StructureList);
+            Factories.FireTowerFactory.AddList(StructureList);
+            Factories.FrostTowerFactory.AddList(StructureList);
+            Factories.PiercingTowerFactory.AddList(StructureList);
+            Factories.CannonProjectileFactory.AddList(ProjectileList);
+            Factories.ChemicalProjectileFactory.AddList(ProjectileList);
+            Factories.ElectricProjectileFactory.AddList(ProjectileList);
+            Factories.FireProjectileFactory.AddList(ProjectileList);
+            Factories.FrostProjectileFactory.AddList(ProjectileList);
+            Factories.PiercingProjectileFactory.AddList(ProjectileList);
             base.AddToManagers();
             AddToManagersBottomUp();
             CustomInitialize();
@@ -58,6 +99,22 @@ namespace AbbatoirIntergrade.Screens
             if (!IsPaused)
             {
                 
+                for (int i = StructureList.Count - 1; i > -1; i--)
+                {
+                    if (i < StructureList.Count)
+                    {
+                        // We do the extra if-check because activity could destroy any number of entities
+                        StructureList[i].Activity();
+                    }
+                }
+                for (int i = ProjectileList.Count - 1; i > -1; i--)
+                {
+                    if (i < ProjectileList.Count)
+                    {
+                        // We do the extra if-check because activity could destroy any number of entities
+                        ProjectileList[i].Activity();
+                    }
+                }
             }
             else
             {
@@ -71,10 +128,25 @@ namespace AbbatoirIntergrade.Screens
         public override void Destroy () 
         {
             base.Destroy();
+            Factories.BombardingTowerFactory.Destroy();
+            Factories.ChemicalTowerFactory.Destroy();
+            Factories.ElectricTowerFactory.Destroy();
+            Factories.FireTowerFactory.Destroy();
+            Factories.FrostTowerFactory.Destroy();
+            Factories.PiercingTowerFactory.Destroy();
+            Factories.CannonProjectileFactory.Destroy();
+            Factories.ChemicalProjectileFactory.Destroy();
+            Factories.ElectricProjectileFactory.Destroy();
+            Factories.FireProjectileFactory.Destroy();
+            Factories.FrostProjectileFactory.Destroy();
+            Factories.PiercingProjectileFactory.Destroy();
             worldmap = null;
             FlatRedBall.SpriteManager.RemoveDrawableBatch(MapScreenGum); FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged -= MapScreenGum.HandleResolutionChanged;
             MapScreenGum = null;
+            Messages = null;
             
+            StructureList.MakeOneWay();
+            ProjectileList.MakeOneWay();
             if (MapScreenGumInstance != null)
             {
                 MapScreenGumInstance.RemoveFromManagers();
@@ -87,6 +159,28 @@ namespace AbbatoirIntergrade.Screens
             {
                 ChatHistoryInstance.RemoveFromManagers();
             }
+            if (TowerSelectionBoxInstance != null)
+            {
+                TowerSelectionBoxInstance.RemoveFromManagers();
+            }
+            for (int i = StructureList.Count - 1; i > -1; i--)
+            {
+                StructureList[i].Destroy();
+            }
+            if (StructureLayer != null)
+            {
+                FlatRedBall.SpriteManager.RemoveLayer(StructureLayer);
+            }
+            for (int i = ProjectileList.Count - 1; i > -1; i--)
+            {
+                ProjectileList[i].Destroy();
+            }
+            if (OkMessageInstance != null)
+            {
+                OkMessageInstance.RemoveFromManagers();
+            }
+            StructureList.MakeTwoWay();
+            ProjectileList.MakeTwoWay();
             FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
         }
@@ -115,6 +209,26 @@ namespace AbbatoirIntergrade.Screens
             {
                 ChatHistoryInstance.RemoveFromManagers();
             }
+            if (TowerSelectionBoxInstance != null)
+            {
+                TowerSelectionBoxInstance.RemoveFromManagers();
+            }
+            for (int i = StructureList.Count - 1; i > -1; i--)
+            {
+                StructureList[i].Destroy();
+            }
+            if (StructureLayer != null)
+            {
+                FlatRedBall.SpriteManager.RemoveLayer(StructureLayer);
+            }
+            for (int i = ProjectileList.Count - 1; i > -1; i--)
+            {
+                ProjectileList[i].Destroy();
+            }
+            if (OkMessageInstance != null)
+            {
+                OkMessageInstance.RemoveFromManagers();
+            }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 
         {
@@ -124,6 +238,14 @@ namespace AbbatoirIntergrade.Screens
         }
         public virtual void ConvertToManuallyUpdated () 
         {
+            for (int i = 0; i < StructureList.Count; i++)
+            {
+                StructureList[i].ConvertToManuallyUpdated();
+            }
+            for (int i = 0; i < ProjectileList.Count; i++)
+            {
+                ProjectileList[i].ConvertToManuallyUpdated();
+            }
         }
         public static void LoadStaticContent (string contentManagerName) 
         {
@@ -149,6 +271,18 @@ namespace AbbatoirIntergrade.Screens
             #endif
             worldmap = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/mapscreen/worldmap.png", contentManagerName);
             Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;  MapScreenGum = new FlatRedBall.Gum.GumIdb();  MapScreenGum.LoadFromFile("content/gumproject/screens/mapscreengum.gusx");  MapScreenGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false; MapScreenGum.Element.UpdateLayout(); MapScreenGum.Element.UpdateLayout();
+            if (Messages == null)
+            {
+                {
+                    // We put the { and } to limit the scope of oldDelimiter
+                    char oldDelimiter = FlatRedBall.IO.Csv.CsvFileManager.Delimiter;
+                    FlatRedBall.IO.Csv.CsvFileManager.Delimiter = ',';
+                    System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.Messages> temporaryCsvObject = new System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.Messages>();
+                    FlatRedBall.IO.Csv.CsvFileManager.CsvDeserializeDictionary<string, AbbatoirIntergrade.DataTypes.Messages>("content/screens/mapscreen/messages.csv", temporaryCsvObject);
+                    FlatRedBall.IO.Csv.CsvFileManager.Delimiter = oldDelimiter;
+                    Messages = temporaryCsvObject;
+                }
+            }
             CustomLoadStaticContent(contentManagerName);
         }
         [System.Obsolete("Use GetFile instead")]
@@ -160,6 +294,8 @@ namespace AbbatoirIntergrade.Screens
                     return worldmap;
                 case  "MapScreenGum":
                     return MapScreenGum;
+                case  "Messages":
+                    return Messages;
             }
             return null;
         }
@@ -171,6 +307,8 @@ namespace AbbatoirIntergrade.Screens
                     return worldmap;
                 case  "MapScreenGum":
                     return MapScreenGum;
+                case  "Messages":
+                    return Messages;
             }
             return null;
         }

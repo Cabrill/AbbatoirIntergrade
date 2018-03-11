@@ -4,11 +4,21 @@
   <State>
     <Name>Default</Name>
     <Variable>
+      <Type>AnyKeyState</Type>
+      <Name>AnyKeyState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>BackgroundSprite.SourceFile</Name>
       <Value xsi:type="xsd:string">../Screens/MainMenu/empty_building.png</Value>
       <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>FadeState</Type>
+      <Name>FadeState</Name>
+      <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
       <Type>EyeOpeningState</Type>
@@ -38,6 +48,78 @@
       <Type>PositionUnitType</Type>
       <Name>LeftEye.Y Units</Name>
       <Value xsi:type="xsd:int">7</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>PressAnyKeyText.Alpha</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>PressAnyKeyText.Font</Name>
+      <Value xsi:type="xsd:string">Bahnschrift</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>PressAnyKeyText.FontSize</Name>
+      <Value xsi:type="xsd:int">48</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PressAnyKeyText.Height</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>PressAnyKeyText.HorizontalAlignment</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>PressAnyKeyText.Text</Name>
+      <Value xsi:type="xsd:string">Press any key to begin...</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PressAnyKeyText.Width</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PressAnyKeyText.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>PressAnyKeyText.X Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>PressAnyKeyText.X Units</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PressAnyKeyText.Y</Name>
+      <Value xsi:type="xsd:float">1193</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>PressAnyKeyText.Y Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -88,72 +170,6 @@
       <Value xsi:type="xsd:int">7</Value>
       <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>TextInstance.Font</Name>
-      <Value xsi:type="xsd:string">Bahnschrift</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>TextInstance.FontSize</Name>
-      <Value xsi:type="xsd:int">48</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>TextInstance.Height</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>TextInstance.HorizontalAlignment</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>TextInstance.Text</Name>
-      <Value xsi:type="xsd:string">Press any key to begin...</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>TextInstance.Width</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>TextInstance.X</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>TextInstance.X Origin</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>TextInstance.X Units</Name>
-      <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>TextInstance.Y</Name>
-      <Value xsi:type="xsd:float">1193</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>TextInstance.Y Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
     <VariableList xsi:type="VariableListSaveOfString">
       <Type>string</Type>
       <Name>AnimationFrames</Name>
@@ -162,9 +178,57 @@
       <Value />
     </VariableList>
   </State>
+  <Category>
+    <Name>Fade</Name>
+    <State>
+      <Name>FadedOut</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>DimmingInstance.DimmingAlpha</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>NotFaded</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>DimmingInstance.DimmingAlpha</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <ExposedAsName>DimmingAlpha</ExposedAsName>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
+  <Category>
+    <Name>AnyKey</Name>
+    <State>
+      <Name>Ready</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>PressAnyKeyText.Alpha</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>NotReady</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>PressAnyKeyText.Alpha</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
   <Instance>
     <Name>BackgroundSprite</Name>
     <BaseType>Sprite</BaseType>
+  </Instance>
+  <Instance>
+    <Name>DimmingInstance</Name>
+    <BaseType>unique/Dimming</BaseType>
   </Instance>
   <Instance>
     <Name>LeftEye</Name>
@@ -175,7 +239,7 @@
     <BaseType>unique/MainMenuEye</BaseType>
   </Instance>
   <Instance>
-    <Name>TextInstance</Name>
+    <Name>PressAnyKeyText</Name>
     <BaseType>Text</BaseType>
   </Instance>
 </ScreenSave>

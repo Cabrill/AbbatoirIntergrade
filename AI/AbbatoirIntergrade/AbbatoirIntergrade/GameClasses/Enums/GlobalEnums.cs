@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.Entities.BaseEntities;
+using FlatRedBall;
 
 namespace AbbatoirIntergrade
 {
@@ -124,6 +125,19 @@ namespace AbbatoirIntergrade
             EnemyAttributes[enemyType] = enemyAttributes;
 
             return enemyAttributes;
+        }
+
+        public static void Shuffle<T>(this IList<T> list)
+        {
+            var n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                var k = FlatRedBallServices.Random.Next(n + 1);
+                var value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
         }
     }
 }

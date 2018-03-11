@@ -82,49 +82,6 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <IsFile>true</IsFile>
-      <Type>string</Type>
-      <Name>EndingText.CustomFontFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>EndingText.Parent</Name>
-      <Value xsi:type="xsd:string">EndingTextContainer</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>EndingText.UseCustomFont</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>EndingTextContainer.Height</Name>
-      <Value xsi:type="xsd:float">1302</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>EndingTextContainer.Width</Name>
-      <Value xsi:type="xsd:float">572</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>EndingTextContainer.X</Name>
-      <Value xsi:type="xsd:float">134</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>EndingTextContainer.Y</Name>
-      <Value xsi:type="xsd:float">59</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>FadingState</Type>
       <Name>FadingState</Name>
       <SetsValue>false</SetsValue>
@@ -209,15 +166,11 @@
     <BaseType>frames/ButtonFrame</BaseType>
   </Instance>
   <Instance>
-    <Name>EndingTextContainer</Name>
-    <BaseType>Container</BaseType>
-  </Instance>
-  <Instance>
     <Name>BlackFade</Name>
     <BaseType>ColoredRectangle</BaseType>
   </Instance>
   <Instance>
-    <Name>EndingText</Name>
-    <BaseType>Text</BaseType>
+    <Name>EndingTextContainer</Name>
+    <BaseType>ChatHistory</BaseType>
   </Instance>
 </ScreenSave>

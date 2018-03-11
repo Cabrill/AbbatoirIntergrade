@@ -13,10 +13,16 @@
                 Available,
                 NotAvailable
             }
+            public enum Selection
+            {
+                Selected,
+                NotSelected
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
             UpgradeAvailability mCurrentUpgradeAvailabilityState;
+            Selection mCurrentSelectionState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -43,6 +49,21 @@
                             XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddleInverted;
+                            GlowSprite.Height = 120f;
+                            GlowSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            SetProperty("GlowSprite.SourceFile", "AllUIAssets.png");
+                            GlowSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                            GlowSprite.TextureHeight = 160;
+                            GlowSprite.TextureLeft = 2435;
+                            GlowSprite.TextureTop = 601;
+                            GlowSprite.TextureWidth = 160;
+                            GlowSprite.Visible = false;
+                            GlowSprite.Width = 120f;
+                            GlowSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            GlowSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            GlowSprite.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            GlowSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            GlowSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             NameContainer.Height = 10f;
                             NameContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             NameContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
@@ -92,10 +113,12 @@
                             UpgradeText.Text = "Upgrade:";
                             UpgradeText.UseCustomFont = true;
                             UpgradeText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                            UpgradeText.Visible = false;
                             UpgradeText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ButtonContainers.Height = 20f;
                             ButtonContainers.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ButtonContainers.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            ButtonContainers.Visible = false;
                             ButtonContainers.Width = 72.8125f;
                             ButtonContainers.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ButtonContainers.X = 70f;
@@ -220,6 +243,46 @@
                     }
                 }
             }
+            public Selection CurrentSelectionState
+            {
+                get
+                {
+                    return mCurrentSelectionState;
+                }
+                set
+                {
+                    mCurrentSelectionState = value;
+                    switch(mCurrentSelectionState)
+                    {
+                        case  Selection.Selected:
+                            GlowSprite.Blue = 0;
+                            GlowSprite.Red = 0;
+                            GlowSprite.Visible = true;
+                            NameText.Alpha = 255;
+                            NameText.Blue = 47;
+                            NameText.Green = 255;
+                            NameText.Red = 173;
+                            ColoredRectangleInstance.Alpha = 255;
+                            ColoredRectangleInstance.Blue = 0;
+                            ColoredRectangleInstance.Green = 252;
+                            ColoredRectangleInstance.Red = 124;
+                            break;
+                        case  Selection.NotSelected:
+                            GlowSprite.Blue = 255;
+                            GlowSprite.Red = 255;
+                            GlowSprite.Visible = false;
+                            NameText.Alpha = 150;
+                            NameText.Blue = 0;
+                            NameText.Green = 165;
+                            NameText.Red = 255;
+                            ColoredRectangleInstance.Alpha = 150;
+                            ColoredRectangleInstance.Blue = 0;
+                            ColoredRectangleInstance.Green = 165;
+                            ColoredRectangleInstance.Red = 255;
+                            break;
+                    }
+                }
+            }
             #endregion
             #region State Interpolation
             public void InterpolateBetween (VariableState firstState, VariableState secondState, float interpolationValue) 
@@ -306,6 +369,30 @@
                 bool setColoredRectangleInstanceHeightSecondValue = false;
                 float ColoredRectangleInstanceHeightFirstValue= 0;
                 float ColoredRectangleInstanceHeightSecondValue= 0;
+                bool setGlowSpriteHeightFirstValue = false;
+                bool setGlowSpriteHeightSecondValue = false;
+                float GlowSpriteHeightFirstValue= 0;
+                float GlowSpriteHeightSecondValue= 0;
+                bool setGlowSpriteTextureHeightFirstValue = false;
+                bool setGlowSpriteTextureHeightSecondValue = false;
+                int GlowSpriteTextureHeightFirstValue= 0;
+                int GlowSpriteTextureHeightSecondValue= 0;
+                bool setGlowSpriteTextureLeftFirstValue = false;
+                bool setGlowSpriteTextureLeftSecondValue = false;
+                int GlowSpriteTextureLeftFirstValue= 0;
+                int GlowSpriteTextureLeftSecondValue= 0;
+                bool setGlowSpriteTextureTopFirstValue = false;
+                bool setGlowSpriteTextureTopSecondValue = false;
+                int GlowSpriteTextureTopFirstValue= 0;
+                int GlowSpriteTextureTopSecondValue= 0;
+                bool setGlowSpriteTextureWidthFirstValue = false;
+                bool setGlowSpriteTextureWidthSecondValue = false;
+                int GlowSpriteTextureWidthFirstValue= 0;
+                int GlowSpriteTextureWidthSecondValue= 0;
+                bool setGlowSpriteWidthFirstValue = false;
+                bool setGlowSpriteWidthSecondValue = false;
+                float GlowSpriteWidthFirstValue= 0;
+                float GlowSpriteWidthSecondValue= 0;
                 bool setHeightFirstValue = false;
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
@@ -575,6 +662,10 @@
                         {
                             this.ButtonContainers.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.ButtonContainers.Visible = false;
+                        }
                         setButtonContainersWidthFirstValue = true;
                         ButtonContainersWidthFirstValue = 72.8125f;
                         if (interpolationValue < 1)
@@ -654,6 +745,54 @@
                         if (interpolationValue < 1)
                         {
                             this.ColoredRectangleInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
+                        setGlowSpriteHeightFirstValue = true;
+                        GlowSpriteHeightFirstValue = 120f;
+                        if (interpolationValue < 1)
+                        {
+                            this.GlowSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("GlowSprite.SourceFile", "AllUIAssets.png");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.GlowSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                        }
+                        setGlowSpriteTextureHeightFirstValue = true;
+                        GlowSpriteTextureHeightFirstValue = 160;
+                        setGlowSpriteTextureLeftFirstValue = true;
+                        GlowSpriteTextureLeftFirstValue = 2435;
+                        setGlowSpriteTextureTopFirstValue = true;
+                        GlowSpriteTextureTopFirstValue = 601;
+                        setGlowSpriteTextureWidthFirstValue = true;
+                        GlowSpriteTextureWidthFirstValue = 160;
+                        if (interpolationValue < 1)
+                        {
+                            this.GlowSprite.Visible = false;
+                        }
+                        setGlowSpriteWidthFirstValue = true;
+                        GlowSpriteWidthFirstValue = 120f;
+                        if (interpolationValue < 1)
+                        {
+                            this.GlowSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.GlowSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.GlowSprite.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.GlowSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.GlowSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setHeightFirstValue = true;
                         HeightFirstValue = 45f;
@@ -987,6 +1126,10 @@
                         }
                         if (interpolationValue < 1)
                         {
+                            this.UpgradeText.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.UpgradeText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
@@ -1098,6 +1241,10 @@
                         {
                             this.ButtonContainers.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ButtonContainers.Visible = false;
+                        }
                         setButtonContainersWidthSecondValue = true;
                         ButtonContainersWidthSecondValue = 72.8125f;
                         if (interpolationValue >= 1)
@@ -1177,6 +1324,54 @@
                         if (interpolationValue >= 1)
                         {
                             this.ColoredRectangleInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
+                        setGlowSpriteHeightSecondValue = true;
+                        GlowSpriteHeightSecondValue = 120f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.GlowSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("GlowSprite.SourceFile", "AllUIAssets.png");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.GlowSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                        }
+                        setGlowSpriteTextureHeightSecondValue = true;
+                        GlowSpriteTextureHeightSecondValue = 160;
+                        setGlowSpriteTextureLeftSecondValue = true;
+                        GlowSpriteTextureLeftSecondValue = 2435;
+                        setGlowSpriteTextureTopSecondValue = true;
+                        GlowSpriteTextureTopSecondValue = 601;
+                        setGlowSpriteTextureWidthSecondValue = true;
+                        GlowSpriteTextureWidthSecondValue = 160;
+                        if (interpolationValue >= 1)
+                        {
+                            this.GlowSprite.Visible = false;
+                        }
+                        setGlowSpriteWidthSecondValue = true;
+                        GlowSpriteWidthSecondValue = 120f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.GlowSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.GlowSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.GlowSprite.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.GlowSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.GlowSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setHeightSecondValue = true;
                         HeightSecondValue = 45f;
@@ -1510,6 +1705,10 @@
                         }
                         if (interpolationValue >= 1)
                         {
+                            this.UpgradeText.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
                             this.UpgradeText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
@@ -1619,6 +1818,30 @@
                 if (setColoredRectangleInstanceHeightFirstValue && setColoredRectangleInstanceHeightSecondValue)
                 {
                     ColoredRectangleInstance.Height = ColoredRectangleInstanceHeightFirstValue * (1 - interpolationValue) + ColoredRectangleInstanceHeightSecondValue * interpolationValue;
+                }
+                if (setGlowSpriteHeightFirstValue && setGlowSpriteHeightSecondValue)
+                {
+                    GlowSprite.Height = GlowSpriteHeightFirstValue * (1 - interpolationValue) + GlowSpriteHeightSecondValue * interpolationValue;
+                }
+                if (setGlowSpriteTextureHeightFirstValue && setGlowSpriteTextureHeightSecondValue)
+                {
+                    GlowSprite.TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(GlowSpriteTextureHeightFirstValue* (1 - interpolationValue) + GlowSpriteTextureHeightSecondValue * interpolationValue);
+                }
+                if (setGlowSpriteTextureLeftFirstValue && setGlowSpriteTextureLeftSecondValue)
+                {
+                    GlowSprite.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(GlowSpriteTextureLeftFirstValue* (1 - interpolationValue) + GlowSpriteTextureLeftSecondValue * interpolationValue);
+                }
+                if (setGlowSpriteTextureTopFirstValue && setGlowSpriteTextureTopSecondValue)
+                {
+                    GlowSprite.TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(GlowSpriteTextureTopFirstValue* (1 - interpolationValue) + GlowSpriteTextureTopSecondValue * interpolationValue);
+                }
+                if (setGlowSpriteTextureWidthFirstValue && setGlowSpriteTextureWidthSecondValue)
+                {
+                    GlowSprite.TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(GlowSpriteTextureWidthFirstValue* (1 - interpolationValue) + GlowSpriteTextureWidthSecondValue * interpolationValue);
+                }
+                if (setGlowSpriteWidthFirstValue && setGlowSpriteWidthSecondValue)
+                {
+                    GlowSprite.Width = GlowSpriteWidthFirstValue * (1 - interpolationValue) + GlowSpriteWidthSecondValue * interpolationValue;
                 }
                 if (setHeightFirstValue && setHeightSecondValue)
                 {
@@ -1884,6 +2107,213 @@
                     mCurrentUpgradeAvailabilityState = secondState;
                 }
             }
+            public void InterpolateBetween (Selection firstState, Selection secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                bool setColoredRectangleInstanceAlphaFirstValue = false;
+                bool setColoredRectangleInstanceAlphaSecondValue = false;
+                int ColoredRectangleInstanceAlphaFirstValue= 0;
+                int ColoredRectangleInstanceAlphaSecondValue= 0;
+                bool setColoredRectangleInstanceBlueFirstValue = false;
+                bool setColoredRectangleInstanceBlueSecondValue = false;
+                int ColoredRectangleInstanceBlueFirstValue= 0;
+                int ColoredRectangleInstanceBlueSecondValue= 0;
+                bool setColoredRectangleInstanceGreenFirstValue = false;
+                bool setColoredRectangleInstanceGreenSecondValue = false;
+                int ColoredRectangleInstanceGreenFirstValue= 0;
+                int ColoredRectangleInstanceGreenSecondValue= 0;
+                bool setColoredRectangleInstanceRedFirstValue = false;
+                bool setColoredRectangleInstanceRedSecondValue = false;
+                int ColoredRectangleInstanceRedFirstValue= 0;
+                int ColoredRectangleInstanceRedSecondValue= 0;
+                bool setGlowSpriteBlueFirstValue = false;
+                bool setGlowSpriteBlueSecondValue = false;
+                int GlowSpriteBlueFirstValue= 0;
+                int GlowSpriteBlueSecondValue= 0;
+                bool setGlowSpriteRedFirstValue = false;
+                bool setGlowSpriteRedSecondValue = false;
+                int GlowSpriteRedFirstValue= 0;
+                int GlowSpriteRedSecondValue= 0;
+                bool setNameTextAlphaFirstValue = false;
+                bool setNameTextAlphaSecondValue = false;
+                int NameTextAlphaFirstValue= 0;
+                int NameTextAlphaSecondValue= 0;
+                bool setNameTextBlueFirstValue = false;
+                bool setNameTextBlueSecondValue = false;
+                int NameTextBlueFirstValue= 0;
+                int NameTextBlueSecondValue= 0;
+                bool setNameTextGreenFirstValue = false;
+                bool setNameTextGreenSecondValue = false;
+                int NameTextGreenFirstValue= 0;
+                int NameTextGreenSecondValue= 0;
+                bool setNameTextRedFirstValue = false;
+                bool setNameTextRedSecondValue = false;
+                int NameTextRedFirstValue= 0;
+                int NameTextRedSecondValue= 0;
+                switch(firstState)
+                {
+                    case  Selection.Selected:
+                        setColoredRectangleInstanceAlphaFirstValue = true;
+                        ColoredRectangleInstanceAlphaFirstValue = 255;
+                        setColoredRectangleInstanceBlueFirstValue = true;
+                        ColoredRectangleInstanceBlueFirstValue = 0;
+                        setColoredRectangleInstanceGreenFirstValue = true;
+                        ColoredRectangleInstanceGreenFirstValue = 252;
+                        setColoredRectangleInstanceRedFirstValue = true;
+                        ColoredRectangleInstanceRedFirstValue = 124;
+                        setGlowSpriteBlueFirstValue = true;
+                        GlowSpriteBlueFirstValue = 0;
+                        setGlowSpriteRedFirstValue = true;
+                        GlowSpriteRedFirstValue = 0;
+                        if (interpolationValue < 1)
+                        {
+                            this.GlowSprite.Visible = true;
+                        }
+                        setNameTextAlphaFirstValue = true;
+                        NameTextAlphaFirstValue = 255;
+                        setNameTextBlueFirstValue = true;
+                        NameTextBlueFirstValue = 47;
+                        setNameTextGreenFirstValue = true;
+                        NameTextGreenFirstValue = 255;
+                        setNameTextRedFirstValue = true;
+                        NameTextRedFirstValue = 173;
+                        break;
+                    case  Selection.NotSelected:
+                        setColoredRectangleInstanceAlphaFirstValue = true;
+                        ColoredRectangleInstanceAlphaFirstValue = 150;
+                        setColoredRectangleInstanceBlueFirstValue = true;
+                        ColoredRectangleInstanceBlueFirstValue = 0;
+                        setColoredRectangleInstanceGreenFirstValue = true;
+                        ColoredRectangleInstanceGreenFirstValue = 165;
+                        setColoredRectangleInstanceRedFirstValue = true;
+                        ColoredRectangleInstanceRedFirstValue = 255;
+                        setGlowSpriteBlueFirstValue = true;
+                        GlowSpriteBlueFirstValue = 255;
+                        setGlowSpriteRedFirstValue = true;
+                        GlowSpriteRedFirstValue = 255;
+                        if (interpolationValue < 1)
+                        {
+                            this.GlowSprite.Visible = false;
+                        }
+                        setNameTextAlphaFirstValue = true;
+                        NameTextAlphaFirstValue = 150;
+                        setNameTextBlueFirstValue = true;
+                        NameTextBlueFirstValue = 0;
+                        setNameTextGreenFirstValue = true;
+                        NameTextGreenFirstValue = 165;
+                        setNameTextRedFirstValue = true;
+                        NameTextRedFirstValue = 255;
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  Selection.Selected:
+                        setColoredRectangleInstanceAlphaSecondValue = true;
+                        ColoredRectangleInstanceAlphaSecondValue = 255;
+                        setColoredRectangleInstanceBlueSecondValue = true;
+                        ColoredRectangleInstanceBlueSecondValue = 0;
+                        setColoredRectangleInstanceGreenSecondValue = true;
+                        ColoredRectangleInstanceGreenSecondValue = 252;
+                        setColoredRectangleInstanceRedSecondValue = true;
+                        ColoredRectangleInstanceRedSecondValue = 124;
+                        setGlowSpriteBlueSecondValue = true;
+                        GlowSpriteBlueSecondValue = 0;
+                        setGlowSpriteRedSecondValue = true;
+                        GlowSpriteRedSecondValue = 0;
+                        if (interpolationValue >= 1)
+                        {
+                            this.GlowSprite.Visible = true;
+                        }
+                        setNameTextAlphaSecondValue = true;
+                        NameTextAlphaSecondValue = 255;
+                        setNameTextBlueSecondValue = true;
+                        NameTextBlueSecondValue = 47;
+                        setNameTextGreenSecondValue = true;
+                        NameTextGreenSecondValue = 255;
+                        setNameTextRedSecondValue = true;
+                        NameTextRedSecondValue = 173;
+                        break;
+                    case  Selection.NotSelected:
+                        setColoredRectangleInstanceAlphaSecondValue = true;
+                        ColoredRectangleInstanceAlphaSecondValue = 150;
+                        setColoredRectangleInstanceBlueSecondValue = true;
+                        ColoredRectangleInstanceBlueSecondValue = 0;
+                        setColoredRectangleInstanceGreenSecondValue = true;
+                        ColoredRectangleInstanceGreenSecondValue = 165;
+                        setColoredRectangleInstanceRedSecondValue = true;
+                        ColoredRectangleInstanceRedSecondValue = 255;
+                        setGlowSpriteBlueSecondValue = true;
+                        GlowSpriteBlueSecondValue = 255;
+                        setGlowSpriteRedSecondValue = true;
+                        GlowSpriteRedSecondValue = 255;
+                        if (interpolationValue >= 1)
+                        {
+                            this.GlowSprite.Visible = false;
+                        }
+                        setNameTextAlphaSecondValue = true;
+                        NameTextAlphaSecondValue = 150;
+                        setNameTextBlueSecondValue = true;
+                        NameTextBlueSecondValue = 0;
+                        setNameTextGreenSecondValue = true;
+                        NameTextGreenSecondValue = 165;
+                        setNameTextRedSecondValue = true;
+                        NameTextRedSecondValue = 255;
+                        break;
+                }
+                if (setColoredRectangleInstanceAlphaFirstValue && setColoredRectangleInstanceAlphaSecondValue)
+                {
+                    ColoredRectangleInstance.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceAlphaFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceAlphaSecondValue * interpolationValue);
+                }
+                if (setColoredRectangleInstanceBlueFirstValue && setColoredRectangleInstanceBlueSecondValue)
+                {
+                    ColoredRectangleInstance.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceBlueFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceBlueSecondValue * interpolationValue);
+                }
+                if (setColoredRectangleInstanceGreenFirstValue && setColoredRectangleInstanceGreenSecondValue)
+                {
+                    ColoredRectangleInstance.Green = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceGreenFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceGreenSecondValue * interpolationValue);
+                }
+                if (setColoredRectangleInstanceRedFirstValue && setColoredRectangleInstanceRedSecondValue)
+                {
+                    ColoredRectangleInstance.Red = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceRedFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceRedSecondValue * interpolationValue);
+                }
+                if (setGlowSpriteBlueFirstValue && setGlowSpriteBlueSecondValue)
+                {
+                    GlowSprite.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(GlowSpriteBlueFirstValue* (1 - interpolationValue) + GlowSpriteBlueSecondValue * interpolationValue);
+                }
+                if (setGlowSpriteRedFirstValue && setGlowSpriteRedSecondValue)
+                {
+                    GlowSprite.Red = FlatRedBall.Math.MathFunctions.RoundToInt(GlowSpriteRedFirstValue* (1 - interpolationValue) + GlowSpriteRedSecondValue * interpolationValue);
+                }
+                if (setNameTextAlphaFirstValue && setNameTextAlphaSecondValue)
+                {
+                    NameText.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(NameTextAlphaFirstValue* (1 - interpolationValue) + NameTextAlphaSecondValue * interpolationValue);
+                }
+                if (setNameTextBlueFirstValue && setNameTextBlueSecondValue)
+                {
+                    NameText.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(NameTextBlueFirstValue* (1 - interpolationValue) + NameTextBlueSecondValue * interpolationValue);
+                }
+                if (setNameTextGreenFirstValue && setNameTextGreenSecondValue)
+                {
+                    NameText.Green = FlatRedBall.Math.MathFunctions.RoundToInt(NameTextGreenFirstValue* (1 - interpolationValue) + NameTextGreenSecondValue * interpolationValue);
+                }
+                if (setNameTextRedFirstValue && setNameTextRedSecondValue)
+                {
+                    NameText.Red = FlatRedBall.Math.MathFunctions.RoundToInt(NameTextRedFirstValue* (1 - interpolationValue) + NameTextRedSecondValue * interpolationValue);
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentSelectionState = firstState;
+                }
+                else
+                {
+                    mCurrentSelectionState = secondState;
+                }
+            }
             #endregion
             #region State Interpolate To
             public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
@@ -1990,6 +2420,60 @@
                 }
                 tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
                 tweener.Ended += ()=> this.CurrentUpgradeAvailabilityState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.Selection fromState,AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.Selection toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (Selection toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "Selection").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentSelectionState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (Selection toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentSelectionState = toState;
                 tweener.Start();
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
@@ -2110,6 +2594,126 @@
                             Name = "Y Units",
                             Type = "PositionUnitType",
                             Value = YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Height",
+                            Type = "float",
+                            Value = GlowSprite.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = GlowSprite.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.SourceFile",
+                            Type = "string",
+                            Value = GlowSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Texture Address",
+                            Type = "TextureAddress",
+                            Value = GlowSprite.TextureAddress
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Texture Height",
+                            Type = "int",
+                            Value = GlowSprite.TextureHeight
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Texture Left",
+                            Type = "int",
+                            Value = GlowSprite.TextureLeft
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Texture Top",
+                            Type = "int",
+                            Value = GlowSprite.TextureTop
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Texture Width",
+                            Type = "int",
+                            Value = GlowSprite.TextureWidth
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Visible",
+                            Type = "bool",
+                            Value = GlowSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Width",
+                            Type = "float",
+                            Value = GlowSprite.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = GlowSprite.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = GlowSprite.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.X Units",
+                            Type = "PositionUnitType",
+                            Value = GlowSprite.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = GlowSprite.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Y Units",
+                            Type = "PositionUnitType",
+                            Value = GlowSprite.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2507,6 +3111,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "UpgradeText.Visible",
+                            Type = "bool",
+                            Value = UpgradeText.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "UpgradeText.Width Units",
                             Type = "DimensionUnitType",
                             Value = UpgradeText.WidthUnits
@@ -2534,6 +3146,14 @@
                             Name = "ButtonContainers.Parent",
                             Type = "string",
                             Value = ButtonContainers.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ButtonContainers.Visible",
+                            Type = "bool",
+                            Value = ButtonContainers.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3429,6 +4049,126 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "GlowSprite.Height",
+                            Type = "float",
+                            Value = GlowSprite.Height + 120f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = GlowSprite.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.SourceFile",
+                            Type = "string",
+                            Value = GlowSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Texture Address",
+                            Type = "TextureAddress",
+                            Value = GlowSprite.TextureAddress
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Texture Height",
+                            Type = "int",
+                            Value = GlowSprite.TextureHeight + 160
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Texture Left",
+                            Type = "int",
+                            Value = GlowSprite.TextureLeft + 2435
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Texture Top",
+                            Type = "int",
+                            Value = GlowSprite.TextureTop + 601
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Texture Width",
+                            Type = "int",
+                            Value = GlowSprite.TextureWidth + 160
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Visible",
+                            Type = "bool",
+                            Value = GlowSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Width",
+                            Type = "float",
+                            Value = GlowSprite.Width + 120f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = GlowSprite.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = GlowSprite.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.X Units",
+                            Type = "PositionUnitType",
+                            Value = GlowSprite.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = GlowSprite.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Y Units",
+                            Type = "PositionUnitType",
+                            Value = GlowSprite.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "NameContainer.Height",
                             Type = "float",
                             Value = NameContainer.Height + 10f
@@ -3821,6 +4561,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "UpgradeText.Visible",
+                            Type = "bool",
+                            Value = UpgradeText.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "UpgradeText.Width Units",
                             Type = "DimensionUnitType",
                             Value = UpgradeText.WidthUnits
@@ -3848,6 +4596,14 @@
                             Name = "ButtonContainers.Parent",
                             Type = "string",
                             Value = ButtonContainers.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ButtonContainers.Visible",
+                            Type = "bool",
+                            Value = ButtonContainers.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4726,6 +5482,382 @@
                 }
                 return newState;
             }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (Selection state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Selection.Selected:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Blue",
+                            Type = "int",
+                            Value = GlowSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Red",
+                            Type = "int",
+                            Value = GlowSprite.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Visible",
+                            Type = "bool",
+                            Value = GlowSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NameText.Alpha",
+                            Type = "int",
+                            Value = NameText.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NameText.Blue",
+                            Type = "int",
+                            Value = NameText.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NameText.Green",
+                            Type = "int",
+                            Value = NameText.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NameText.Red",
+                            Type = "int",
+                            Value = NameText.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Alpha",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Blue",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Green",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Red",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Red
+                        }
+                        );
+                        break;
+                    case  Selection.NotSelected:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Blue",
+                            Type = "int",
+                            Value = GlowSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Red",
+                            Type = "int",
+                            Value = GlowSprite.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Visible",
+                            Type = "bool",
+                            Value = GlowSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NameText.Alpha",
+                            Type = "int",
+                            Value = NameText.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NameText.Blue",
+                            Type = "int",
+                            Value = NameText.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NameText.Green",
+                            Type = "int",
+                            Value = NameText.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NameText.Red",
+                            Type = "int",
+                            Value = NameText.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Alpha",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Blue",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Green",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Red",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Red
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (Selection state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Selection.Selected:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Blue",
+                            Type = "int",
+                            Value = GlowSprite.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Red",
+                            Type = "int",
+                            Value = GlowSprite.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Visible",
+                            Type = "bool",
+                            Value = GlowSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NameText.Alpha",
+                            Type = "int",
+                            Value = NameText.Alpha + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NameText.Blue",
+                            Type = "int",
+                            Value = NameText.Blue + 47
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NameText.Green",
+                            Type = "int",
+                            Value = NameText.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NameText.Red",
+                            Type = "int",
+                            Value = NameText.Red + 173
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Alpha",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Alpha + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Blue",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Green",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Green + 252
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Red",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Red + 124
+                        }
+                        );
+                        break;
+                    case  Selection.NotSelected:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Blue",
+                            Type = "int",
+                            Value = GlowSprite.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Red",
+                            Type = "int",
+                            Value = GlowSprite.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GlowSprite.Visible",
+                            Type = "bool",
+                            Value = GlowSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NameText.Alpha",
+                            Type = "int",
+                            Value = NameText.Alpha + 150
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NameText.Blue",
+                            Type = "int",
+                            Value = NameText.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NameText.Green",
+                            Type = "int",
+                            Value = NameText.Green + 165
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "NameText.Red",
+                            Type = "int",
+                            Value = NameText.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Alpha",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Alpha + 150
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Blue",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Green",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Green + 165
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ColoredRectangleInstance.Red",
+                            Type = "int",
+                            Value = ColoredRectangleInstance.Red + 255
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
             #endregion
             public override void ApplyState (Gum.DataTypes.Variables.StateSave state) 
             {
@@ -4742,9 +5874,15 @@
                         if(state.Name == "Available") this.mCurrentUpgradeAvailabilityState = UpgradeAvailability.Available;
                         if(state.Name == "NotAvailable") this.mCurrentUpgradeAvailabilityState = UpgradeAvailability.NotAvailable;
                     }
+                    else if (category.Name == "Selection")
+                    {
+                        if(state.Name == "Selected") this.mCurrentSelectionState = Selection.Selected;
+                        if(state.Name == "NotSelected") this.mCurrentSelectionState = Selection.NotSelected;
+                    }
                 }
                 base.ApplyState(state);
             }
+            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime GlowSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime NameContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime NameText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TallInfoFrameRuntime TallInfoFrameInstance { get; set; }
@@ -4778,7 +5916,6 @@
                 }
             }
             public event FlatRedBall.Gui.WindowEvent NameContainerClick;
-            public event FlatRedBall.Gui.WindowEvent TallInfoFrameInstanceClick;
             public event FlatRedBall.Gui.WindowEvent StatsContainerClick;
             public event FlatRedBall.Gui.WindowEvent ButtonContainersClick;
             public event FlatRedBall.Gui.WindowEvent InfoContainerClick;
@@ -4814,6 +5951,7 @@
             }
             private void AssignReferences () 
             {
+                GlowSprite = this.GetGraphicalUiElementByName("GlowSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 NameContainer = this.GetGraphicalUiElementByName("NameContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 NameText = this.GetGraphicalUiElementByName("NameText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 TallInfoFrameInstance = this.GetGraphicalUiElementByName("TallInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.TallInfoFrameRuntime;
@@ -4832,7 +5970,6 @@
                 ButtonFrameInstance1 = this.GetGraphicalUiElementByName("ButtonFrameInstance1") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
                 OrTextInstance = this.GetGraphicalUiElementByName("OrTextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 NameContainer.Click += (unused) => NameContainerClick?.Invoke(this);
-                TallInfoFrameInstance.Click += (unused) => TallInfoFrameInstanceClick?.Invoke(this);
                 StatsContainer.Click += (unused) => StatsContainerClick?.Invoke(this);
                 ButtonContainers.Click += (unused) => ButtonContainersClick?.Invoke(this);
                 InfoContainer.Click += (unused) => InfoContainerClick?.Invoke(this);

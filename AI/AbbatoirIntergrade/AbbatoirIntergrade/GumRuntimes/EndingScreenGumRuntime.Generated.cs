@@ -42,10 +42,6 @@
                             ButtonFrameInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                             ButtonFrameInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
                             ButtonFrameInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
-                            EndingTextContainer.Height = 1302f;
-                            EndingTextContainer.Width = 572f;
-                            EndingTextContainer.X = 134f;
-                            EndingTextContainer.Y = 59f;
                             BlackFade.Alpha = 0;
                             BlackFade.Blue = 0;
                             BlackFade.Green = 0;
@@ -54,9 +50,6 @@
                             BlackFade.Red = 0;
                             BlackFade.Width = 100f;
                             BlackFade.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            SetProperty("EndingText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
-                            EndingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "EndingTextContainer");
-                            EndingText.UseCustomFont = true;
                             break;
                     }
                 }
@@ -119,22 +112,6 @@
                 bool setButtonFrameInstanceCurrentButtonTypeStateSecondValue = false;
                 ButtonFrameRuntime.ButtonType ButtonFrameInstanceCurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
                 ButtonFrameRuntime.ButtonType ButtonFrameInstanceCurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
-                bool setEndingTextContainerHeightFirstValue = false;
-                bool setEndingTextContainerHeightSecondValue = false;
-                float EndingTextContainerHeightFirstValue= 0;
-                float EndingTextContainerHeightSecondValue= 0;
-                bool setEndingTextContainerWidthFirstValue = false;
-                bool setEndingTextContainerWidthSecondValue = false;
-                float EndingTextContainerWidthFirstValue= 0;
-                float EndingTextContainerWidthSecondValue= 0;
-                bool setEndingTextContainerXFirstValue = false;
-                bool setEndingTextContainerXSecondValue = false;
-                float EndingTextContainerXFirstValue= 0;
-                float EndingTextContainerXSecondValue= 0;
-                bool setEndingTextContainerYFirstValue = false;
-                bool setEndingTextContainerYSecondValue = false;
-                float EndingTextContainerYFirstValue= 0;
-                float EndingTextContainerYSecondValue= 0;
                 bool setTallestInfoFrameInstanceFrameAlphaFirstValue = false;
                 bool setTallestInfoFrameInstanceFrameAlphaSecondValue = false;
                 int TallestInfoFrameInstanceFrameAlphaFirstValue= 0;
@@ -180,26 +157,6 @@
                         {
                             this.ButtonFrameInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                         }
-                        if (interpolationValue < 1)
-                        {
-                            SetProperty("EndingText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.EndingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "EndingTextContainer");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.EndingText.UseCustomFont = true;
-                        }
-                        setEndingTextContainerHeightFirstValue = true;
-                        EndingTextContainerHeightFirstValue = 1302f;
-                        setEndingTextContainerWidthFirstValue = true;
-                        EndingTextContainerWidthFirstValue = 572f;
-                        setEndingTextContainerXFirstValue = true;
-                        EndingTextContainerXFirstValue = 134f;
-                        setEndingTextContainerYFirstValue = true;
-                        EndingTextContainerYFirstValue = 59f;
                         if (interpolationValue < 1)
                         {
                             this.SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -267,26 +224,6 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("EndingText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.EndingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "EndingTextContainer");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.EndingText.UseCustomFont = true;
-                        }
-                        setEndingTextContainerHeightSecondValue = true;
-                        EndingTextContainerHeightSecondValue = 1302f;
-                        setEndingTextContainerWidthSecondValue = true;
-                        EndingTextContainerWidthSecondValue = 572f;
-                        setEndingTextContainerXSecondValue = true;
-                        EndingTextContainerXSecondValue = 134f;
-                        setEndingTextContainerYSecondValue = true;
-                        EndingTextContainerYSecondValue = 59f;
-                        if (interpolationValue >= 1)
-                        {
                             this.SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
@@ -336,22 +273,6 @@
                 if (setButtonFrameInstanceCurrentButtonTypeStateFirstValue && setButtonFrameInstanceCurrentButtonTypeStateSecondValue)
                 {
                     ButtonFrameInstance.InterpolateBetween(ButtonFrameInstanceCurrentButtonTypeStateFirstValue, ButtonFrameInstanceCurrentButtonTypeStateSecondValue, interpolationValue);
-                }
-                if (setEndingTextContainerHeightFirstValue && setEndingTextContainerHeightSecondValue)
-                {
-                    EndingTextContainer.Height = EndingTextContainerHeightFirstValue * (1 - interpolationValue) + EndingTextContainerHeightSecondValue * interpolationValue;
-                }
-                if (setEndingTextContainerWidthFirstValue && setEndingTextContainerWidthSecondValue)
-                {
-                    EndingTextContainer.Width = EndingTextContainerWidthFirstValue * (1 - interpolationValue) + EndingTextContainerWidthSecondValue * interpolationValue;
-                }
-                if (setEndingTextContainerXFirstValue && setEndingTextContainerXSecondValue)
-                {
-                    EndingTextContainer.X = EndingTextContainerXFirstValue * (1 - interpolationValue) + EndingTextContainerXSecondValue * interpolationValue;
-                }
-                if (setEndingTextContainerYFirstValue && setEndingTextContainerYSecondValue)
-                {
-                    EndingTextContainer.Y = EndingTextContainerYFirstValue * (1 - interpolationValue) + EndingTextContainerYSecondValue * interpolationValue;
                 }
                 if (setTallestInfoFrameInstanceFrameAlphaFirstValue && setTallestInfoFrameInstanceFrameAlphaSecondValue)
                 {
@@ -661,6 +582,7 @@
                 base.StopAnimations();
                 TallestInfoFrameInstance.StopAnimations();
                 ButtonFrameInstance.StopAnimations();
+                EndingTextContainer.StopAnimations();
                 FadeInAnimation.Stop();
                 FadeOutAnimation.Stop();
             }
@@ -762,38 +684,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "EndingTextContainer.Height",
-                            Type = "float",
-                            Value = EndingTextContainer.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "EndingTextContainer.Width",
-                            Type = "float",
-                            Value = EndingTextContainer.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "EndingTextContainer.X",
-                            Type = "float",
-                            Value = EndingTextContainer.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "EndingTextContainer.Y",
-                            Type = "float",
-                            Value = EndingTextContainer.Y
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "BlackFade.Alpha",
                             Type = "int",
                             Value = BlackFade.Alpha
@@ -853,30 +743,6 @@
                             Name = "BlackFade.Width Units",
                             Type = "DimensionUnitType",
                             Value = BlackFade.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "EndingText.CustomFontFile",
-                            Type = "string",
-                            Value = EndingText.CustomFontFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "EndingText.Parent",
-                            Type = "string",
-                            Value = EndingText.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "EndingText.UseCustomFont",
-                            Type = "bool",
-                            Value = EndingText.UseCustomFont
                         }
                         );
                         break;
@@ -980,38 +846,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "EndingTextContainer.Height",
-                            Type = "float",
-                            Value = EndingTextContainer.Height + 1302f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "EndingTextContainer.Width",
-                            Type = "float",
-                            Value = EndingTextContainer.Width + 572f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "EndingTextContainer.X",
-                            Type = "float",
-                            Value = EndingTextContainer.X + 134f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "EndingTextContainer.Y",
-                            Type = "float",
-                            Value = EndingTextContainer.Y + 59f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "BlackFade.Alpha",
                             Type = "int",
                             Value = BlackFade.Alpha + 0
@@ -1071,30 +905,6 @@
                             Name = "BlackFade.Width Units",
                             Type = "DimensionUnitType",
                             Value = BlackFade.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "EndingText.CustomFontFile",
-                            Type = "string",
-                            Value = EndingText.CustomFontFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "EndingText.Parent",
-                            Type = "string",
-                            Value = EndingText.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "EndingText.UseCustomFont",
-                            Type = "bool",
-                            Value = EndingText.UseCustomFont
                         }
                         );
                         break;
@@ -1179,9 +989,8 @@
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TallestInfoFrameRuntime TallestInfoFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ContainerRuntime EndingTextContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime BlackFade { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TextRuntime EndingText { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime EndingTextContainer { get; set; }
             public EndingScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -1210,9 +1019,8 @@
                 SpriteInstance = this.GetGraphicalUiElementByName("SpriteInstance") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 TallestInfoFrameInstance = this.GetGraphicalUiElementByName("TallestInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.TallestInfoFrameRuntime;
                 ButtonFrameInstance = this.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                EndingTextContainer = this.GetGraphicalUiElementByName("EndingTextContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 BlackFade = this.GetGraphicalUiElementByName("BlackFade") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
-                EndingText = this.GetGraphicalUiElementByName("EndingText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+                EndingTextContainer = this.GetGraphicalUiElementByName("EndingTextContainer") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

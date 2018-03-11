@@ -96,7 +96,7 @@
                             MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
                             MenuWindowInstance.ButtonType2State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Disabled;
                             MenuWindowInstance.ButtonType3State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Disabled;
-                            MenuWindowInstance.ButtonType4State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Play;
+                            MenuWindowInstance.ButtonType4State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Menu;
                             MenuWindowInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             MenuWindowInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             MenuWindowInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
@@ -121,14 +121,17 @@
                             ChatHistoryInstance.Width = 33f;
                             ChatHistoryInstance.X = 31.48438f;
                             ChatHistoryInstance.Y = 0f;
+                            TowerSelectionBoxInstance.Visible = false;
                             ColoredRectangleInstance.Alpha = 0;
                             ColoredRectangleInstance.Blue = 0;
                             ColoredRectangleInstance.Green = 0;
                             ColoredRectangleInstance.Height = 100f;
                             ColoredRectangleInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ColoredRectangleInstance.Red = 0;
+                            ColoredRectangleInstance.Visible = true;
                             ColoredRectangleInstance.Width = 100f;
                             ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            OkMessageInstance.Visible = false;
                             break;
                     }
                 }
@@ -538,6 +541,10 @@
                         }
                         setColoredRectangleInstanceRedFirstValue = true;
                         ColoredRectangleInstanceRedFirstValue = 0;
+                        if (interpolationValue < 1)
+                        {
+                            this.ColoredRectangleInstance.Visible = true;
+                        }
                         setColoredRectangleInstanceWidthFirstValue = true;
                         ColoredRectangleInstanceWidthFirstValue = 100f;
                         if (interpolationValue < 1)
@@ -638,7 +645,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.MenuWindowInstance.ButtonType4State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Play;
+                            this.MenuWindowInstance.ButtonType4State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Menu;
                         }
                         if (interpolationValue < 1)
                         {
@@ -655,6 +662,10 @@
                         if (interpolationValue < 1)
                         {
                             this.MenuWindowInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.OkMessageInstance.Visible = false;
                         }
                         setOptionsButtonInstanceCurrentButtonTypeStateFirstValue = true;
                         OptionsButtonInstanceCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Menu;
@@ -726,6 +737,10 @@
                         {
                             this.TechnologyTreeInstance.Visible = false;
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.TowerSelectionBoxInstance.Visible = false;
+                        }
                         break;
                 }
                 switch(secondState)
@@ -767,6 +782,10 @@
                         }
                         setColoredRectangleInstanceRedSecondValue = true;
                         ColoredRectangleInstanceRedSecondValue = 0;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ColoredRectangleInstance.Visible = true;
+                        }
                         setColoredRectangleInstanceWidthSecondValue = true;
                         ColoredRectangleInstanceWidthSecondValue = 100f;
                         if (interpolationValue >= 1)
@@ -867,7 +886,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.MenuWindowInstance.ButtonType4State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Play;
+                            this.MenuWindowInstance.ButtonType4State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Menu;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -884,6 +903,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.MenuWindowInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.OkMessageInstance.Visible = false;
                         }
                         setOptionsButtonInstanceCurrentButtonTypeStateSecondValue = true;
                         OptionsButtonInstanceCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Menu;
@@ -954,6 +977,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.TechnologyTreeInstance.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TowerSelectionBoxInstance.Visible = false;
                         }
                         break;
                 }
@@ -2329,6 +2356,8 @@
                 StyleBarInstance.StopAnimations();
                 OptionsButtonInstance.StopAnimations();
                 ChatHistoryInstance.StopAnimations();
+                TowerSelectionBoxInstance.StopAnimations();
+                OkMessageInstance.StopAnimations();
                 ShowMenuAnimation.Stop();
                 HideMenuAnimation.Stop();
                 FadeInAnimation.Stop();
@@ -2984,6 +3013,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TowerSelectionBoxInstance.Visible",
+                            Type = "bool",
+                            Value = TowerSelectionBoxInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ColoredRectangleInstance.Alpha",
                             Type = "int",
                             Value = ColoredRectangleInstance.Alpha
@@ -3032,6 +3069,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "ColoredRectangleInstance.Visible",
+                            Type = "bool",
+                            Value = ColoredRectangleInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ColoredRectangleInstance.Width",
                             Type = "float",
                             Value = ColoredRectangleInstance.Width
@@ -3043,6 +3088,14 @@
                             Name = "ColoredRectangleInstance.Width Units",
                             Type = "DimensionUnitType",
                             Value = ColoredRectangleInstance.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OkMessageInstance.Visible",
+                            Type = "bool",
+                            Value = OkMessageInstance.Visible
                         }
                         );
                         break;
@@ -3698,6 +3751,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TowerSelectionBoxInstance.Visible",
+                            Type = "bool",
+                            Value = TowerSelectionBoxInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ColoredRectangleInstance.Alpha",
                             Type = "int",
                             Value = ColoredRectangleInstance.Alpha + 0
@@ -3746,6 +3807,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "ColoredRectangleInstance.Visible",
+                            Type = "bool",
+                            Value = ColoredRectangleInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "ColoredRectangleInstance.Width",
                             Type = "float",
                             Value = ColoredRectangleInstance.Width + 100f
@@ -3757,6 +3826,14 @@
                             Name = "ColoredRectangleInstance.Width Units",
                             Type = "DimensionUnitType",
                             Value = ColoredRectangleInstance.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OkMessageInstance.Visible",
+                            Type = "bool",
+                            Value = OkMessageInstance.Visible
                         }
                         );
                         break;
@@ -4768,7 +4845,9 @@
             private AbbatoirIntergrade.GumRuntimes.StyleBarRuntime StyleBarInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime OptionsButtonInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime ChatHistoryInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.TowerSelectionBoxRuntime TowerSelectionBoxInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.OkMessageRuntime OkMessageInstance { get; set; }
             public MapScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -4811,7 +4890,9 @@
                 StyleBarInstance = this.GetGraphicalUiElementByName("StyleBarInstance") as AbbatoirIntergrade.GumRuntimes.StyleBarRuntime;
                 OptionsButtonInstance = this.GetGraphicalUiElementByName("OptionsButtonInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
                 ChatHistoryInstance = this.GetGraphicalUiElementByName("ChatHistoryInstance") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
+                TowerSelectionBoxInstance = this.GetGraphicalUiElementByName("TowerSelectionBoxInstance") as AbbatoirIntergrade.GumRuntimes.TowerSelectionBoxRuntime;
                 ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
+                OkMessageInstance = this.GetGraphicalUiElementByName("OkMessageInstance") as AbbatoirIntergrade.GumRuntimes.OkMessageRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

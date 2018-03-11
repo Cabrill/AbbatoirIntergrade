@@ -8,9 +8,21 @@
             {
                 Default
             }
+            public enum Fade
+            {
+                FadedOut,
+                NotFaded
+            }
+            public enum AnyKey
+            {
+                Ready,
+                NotReady
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
+            Fade mCurrentFadeState;
+            AnyKey mCurrentAnyKeyState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -39,17 +51,58 @@
                             RightEye.Y = -150f;
                             RightEye.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             RightEye.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                            TextInstance.Font = "Bahnschrift";
-                            TextInstance.FontSize = 48;
-                            TextInstance.Height = 0f;
-                            TextInstance.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            TextInstance.Text = "Press any key to begin...";
-                            TextInstance.Width = 0f;
-                            TextInstance.X = 0f;
-                            TextInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            TextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                            TextInstance.Y = 1193f;
-                            TextInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                            PressAnyKeyText.Alpha = 0;
+                            PressAnyKeyText.Font = "Bahnschrift";
+                            PressAnyKeyText.FontSize = 48;
+                            PressAnyKeyText.Height = 0f;
+                            PressAnyKeyText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            PressAnyKeyText.Text = "Press any key to begin...";
+                            PressAnyKeyText.Width = 0f;
+                            PressAnyKeyText.X = 0f;
+                            PressAnyKeyText.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            PressAnyKeyText.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            PressAnyKeyText.Y = 1193f;
+                            PressAnyKeyText.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                            break;
+                    }
+                }
+            }
+            public Fade CurrentFadeState
+            {
+                get
+                {
+                    return mCurrentFadeState;
+                }
+                set
+                {
+                    mCurrentFadeState = value;
+                    switch(mCurrentFadeState)
+                    {
+                        case  Fade.FadedOut:
+                            DimmingInstance.DimmingAlpha = 255;
+                            break;
+                        case  Fade.NotFaded:
+                            DimmingInstance.DimmingAlpha = 0;
+                            break;
+                    }
+                }
+            }
+            public AnyKey CurrentAnyKeyState
+            {
+                get
+                {
+                    return mCurrentAnyKeyState;
+                }
+                set
+                {
+                    mCurrentAnyKeyState = value;
+                    switch(mCurrentAnyKeyState)
+                    {
+                        case  AnyKey.Ready:
+                            PressAnyKeyText.Alpha = 255;
+                            break;
+                        case  AnyKey.NotReady:
+                            PressAnyKeyText.Alpha = 0;
                             break;
                     }
                 }
@@ -76,6 +129,30 @@
                 bool setLeftEyeYSecondValue = false;
                 float LeftEyeYFirstValue= 0;
                 float LeftEyeYSecondValue= 0;
+                bool setPressAnyKeyTextAlphaFirstValue = false;
+                bool setPressAnyKeyTextAlphaSecondValue = false;
+                int PressAnyKeyTextAlphaFirstValue= 0;
+                int PressAnyKeyTextAlphaSecondValue= 0;
+                bool setPressAnyKeyTextFontSizeFirstValue = false;
+                bool setPressAnyKeyTextFontSizeSecondValue = false;
+                int PressAnyKeyTextFontSizeFirstValue= 0;
+                int PressAnyKeyTextFontSizeSecondValue= 0;
+                bool setPressAnyKeyTextHeightFirstValue = false;
+                bool setPressAnyKeyTextHeightSecondValue = false;
+                float PressAnyKeyTextHeightFirstValue= 0;
+                float PressAnyKeyTextHeightSecondValue= 0;
+                bool setPressAnyKeyTextWidthFirstValue = false;
+                bool setPressAnyKeyTextWidthSecondValue = false;
+                float PressAnyKeyTextWidthFirstValue= 0;
+                float PressAnyKeyTextWidthSecondValue= 0;
+                bool setPressAnyKeyTextXFirstValue = false;
+                bool setPressAnyKeyTextXSecondValue = false;
+                float PressAnyKeyTextXFirstValue= 0;
+                float PressAnyKeyTextXSecondValue= 0;
+                bool setPressAnyKeyTextYFirstValue = false;
+                bool setPressAnyKeyTextYSecondValue = false;
+                float PressAnyKeyTextYFirstValue= 0;
+                float PressAnyKeyTextYSecondValue= 0;
                 bool setRightEyeCurrentEyeOpeningStateFirstValue = false;
                 bool setRightEyeCurrentEyeOpeningStateSecondValue = false;
                 MainMenuEyeRuntime.EyeOpening RightEyeCurrentEyeOpeningStateFirstValue= MainMenuEyeRuntime.EyeOpening.Closed;
@@ -92,26 +169,6 @@
                 bool setRightEyeYSecondValue = false;
                 float RightEyeYFirstValue= 0;
                 float RightEyeYSecondValue= 0;
-                bool setTextInstanceFontSizeFirstValue = false;
-                bool setTextInstanceFontSizeSecondValue = false;
-                int TextInstanceFontSizeFirstValue= 0;
-                int TextInstanceFontSizeSecondValue= 0;
-                bool setTextInstanceHeightFirstValue = false;
-                bool setTextInstanceHeightSecondValue = false;
-                float TextInstanceHeightFirstValue= 0;
-                float TextInstanceHeightSecondValue= 0;
-                bool setTextInstanceWidthFirstValue = false;
-                bool setTextInstanceWidthSecondValue = false;
-                float TextInstanceWidthFirstValue= 0;
-                float TextInstanceWidthSecondValue= 0;
-                bool setTextInstanceXFirstValue = false;
-                bool setTextInstanceXSecondValue = false;
-                float TextInstanceXFirstValue= 0;
-                float TextInstanceXSecondValue= 0;
-                bool setTextInstanceYFirstValue = false;
-                bool setTextInstanceYSecondValue = false;
-                float TextInstanceYFirstValue= 0;
-                float TextInstanceYSecondValue= 0;
                 switch(firstState)
                 {
                     case  VariableState.Default:
@@ -132,6 +189,42 @@
                         if (interpolationValue < 1)
                         {
                             this.LeftEye.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        setPressAnyKeyTextAlphaFirstValue = true;
+                        PressAnyKeyTextAlphaFirstValue = 0;
+                        if (interpolationValue < 1)
+                        {
+                            this.PressAnyKeyText.Font = "Bahnschrift";
+                        }
+                        setPressAnyKeyTextFontSizeFirstValue = true;
+                        PressAnyKeyTextFontSizeFirstValue = 48;
+                        setPressAnyKeyTextHeightFirstValue = true;
+                        PressAnyKeyTextHeightFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.PressAnyKeyText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.PressAnyKeyText.Text = "Press any key to begin...";
+                        }
+                        setPressAnyKeyTextWidthFirstValue = true;
+                        PressAnyKeyTextWidthFirstValue = 0f;
+                        setPressAnyKeyTextXFirstValue = true;
+                        PressAnyKeyTextXFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.PressAnyKeyText.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.PressAnyKeyText.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        setPressAnyKeyTextYFirstValue = true;
+                        PressAnyKeyTextYFirstValue = 1193f;
+                        if (interpolationValue < 1)
+                        {
+                            this.PressAnyKeyText.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setRightEyeCurrentEyeOpeningStateFirstValue = true;
                         RightEyeCurrentEyeOpeningStateFirstValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Closed;
@@ -157,40 +250,6 @@
                         {
                             this.RightEye.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
-                        if (interpolationValue < 1)
-                        {
-                            this.TextInstance.Font = "Bahnschrift";
-                        }
-                        setTextInstanceFontSizeFirstValue = true;
-                        TextInstanceFontSizeFirstValue = 48;
-                        setTextInstanceHeightFirstValue = true;
-                        TextInstanceHeightFirstValue = 0f;
-                        if (interpolationValue < 1)
-                        {
-                            this.TextInstance.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.TextInstance.Text = "Press any key to begin...";
-                        }
-                        setTextInstanceWidthFirstValue = true;
-                        TextInstanceWidthFirstValue = 0f;
-                        setTextInstanceXFirstValue = true;
-                        TextInstanceXFirstValue = 0f;
-                        if (interpolationValue < 1)
-                        {
-                            this.TextInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.TextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                        }
-                        setTextInstanceYFirstValue = true;
-                        TextInstanceYFirstValue = 1193f;
-                        if (interpolationValue < 1)
-                        {
-                            this.TextInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
-                        }
                         break;
                 }
                 switch(secondState)
@@ -213,6 +272,42 @@
                         if (interpolationValue >= 1)
                         {
                             this.LeftEye.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        setPressAnyKeyTextAlphaSecondValue = true;
+                        PressAnyKeyTextAlphaSecondValue = 0;
+                        if (interpolationValue >= 1)
+                        {
+                            this.PressAnyKeyText.Font = "Bahnschrift";
+                        }
+                        setPressAnyKeyTextFontSizeSecondValue = true;
+                        PressAnyKeyTextFontSizeSecondValue = 48;
+                        setPressAnyKeyTextHeightSecondValue = true;
+                        PressAnyKeyTextHeightSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.PressAnyKeyText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.PressAnyKeyText.Text = "Press any key to begin...";
+                        }
+                        setPressAnyKeyTextWidthSecondValue = true;
+                        PressAnyKeyTextWidthSecondValue = 0f;
+                        setPressAnyKeyTextXSecondValue = true;
+                        PressAnyKeyTextXSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.PressAnyKeyText.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.PressAnyKeyText.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        setPressAnyKeyTextYSecondValue = true;
+                        PressAnyKeyTextYSecondValue = 1193f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.PressAnyKeyText.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setRightEyeCurrentEyeOpeningStateSecondValue = true;
                         RightEyeCurrentEyeOpeningStateSecondValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Closed;
@@ -238,40 +333,6 @@
                         {
                             this.RightEye.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
-                        if (interpolationValue >= 1)
-                        {
-                            this.TextInstance.Font = "Bahnschrift";
-                        }
-                        setTextInstanceFontSizeSecondValue = true;
-                        TextInstanceFontSizeSecondValue = 48;
-                        setTextInstanceHeightSecondValue = true;
-                        TextInstanceHeightSecondValue = 0f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.TextInstance.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.TextInstance.Text = "Press any key to begin...";
-                        }
-                        setTextInstanceWidthSecondValue = true;
-                        TextInstanceWidthSecondValue = 0f;
-                        setTextInstanceXSecondValue = true;
-                        TextInstanceXSecondValue = 0f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.TextInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.TextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                        }
-                        setTextInstanceYSecondValue = true;
-                        TextInstanceYSecondValue = 1193f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.TextInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
-                        }
                         break;
                 }
                 if (setLeftEyeCurrentEyeOpeningStateFirstValue && setLeftEyeCurrentEyeOpeningStateSecondValue)
@@ -285,6 +346,30 @@
                 if (setLeftEyeYFirstValue && setLeftEyeYSecondValue)
                 {
                     LeftEye.Y = LeftEyeYFirstValue * (1 - interpolationValue) + LeftEyeYSecondValue * interpolationValue;
+                }
+                if (setPressAnyKeyTextAlphaFirstValue && setPressAnyKeyTextAlphaSecondValue)
+                {
+                    PressAnyKeyText.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(PressAnyKeyTextAlphaFirstValue* (1 - interpolationValue) + PressAnyKeyTextAlphaSecondValue * interpolationValue);
+                }
+                if (setPressAnyKeyTextFontSizeFirstValue && setPressAnyKeyTextFontSizeSecondValue)
+                {
+                    PressAnyKeyText.FontSize = FlatRedBall.Math.MathFunctions.RoundToInt(PressAnyKeyTextFontSizeFirstValue* (1 - interpolationValue) + PressAnyKeyTextFontSizeSecondValue * interpolationValue);
+                }
+                if (setPressAnyKeyTextHeightFirstValue && setPressAnyKeyTextHeightSecondValue)
+                {
+                    PressAnyKeyText.Height = PressAnyKeyTextHeightFirstValue * (1 - interpolationValue) + PressAnyKeyTextHeightSecondValue * interpolationValue;
+                }
+                if (setPressAnyKeyTextWidthFirstValue && setPressAnyKeyTextWidthSecondValue)
+                {
+                    PressAnyKeyText.Width = PressAnyKeyTextWidthFirstValue * (1 - interpolationValue) + PressAnyKeyTextWidthSecondValue * interpolationValue;
+                }
+                if (setPressAnyKeyTextXFirstValue && setPressAnyKeyTextXSecondValue)
+                {
+                    PressAnyKeyText.X = PressAnyKeyTextXFirstValue * (1 - interpolationValue) + PressAnyKeyTextXSecondValue * interpolationValue;
+                }
+                if (setPressAnyKeyTextYFirstValue && setPressAnyKeyTextYSecondValue)
+                {
+                    PressAnyKeyText.Y = PressAnyKeyTextYFirstValue * (1 - interpolationValue) + PressAnyKeyTextYSecondValue * interpolationValue;
                 }
                 if (setRightEyeCurrentEyeOpeningStateFirstValue && setRightEyeCurrentEyeOpeningStateSecondValue)
                 {
@@ -302,26 +387,6 @@
                 {
                     RightEye.Y = RightEyeYFirstValue * (1 - interpolationValue) + RightEyeYSecondValue * interpolationValue;
                 }
-                if (setTextInstanceFontSizeFirstValue && setTextInstanceFontSizeSecondValue)
-                {
-                    TextInstance.FontSize = FlatRedBall.Math.MathFunctions.RoundToInt(TextInstanceFontSizeFirstValue* (1 - interpolationValue) + TextInstanceFontSizeSecondValue * interpolationValue);
-                }
-                if (setTextInstanceHeightFirstValue && setTextInstanceHeightSecondValue)
-                {
-                    TextInstance.Height = TextInstanceHeightFirstValue * (1 - interpolationValue) + TextInstanceHeightSecondValue * interpolationValue;
-                }
-                if (setTextInstanceWidthFirstValue && setTextInstanceWidthSecondValue)
-                {
-                    TextInstance.Width = TextInstanceWidthFirstValue * (1 - interpolationValue) + TextInstanceWidthSecondValue * interpolationValue;
-                }
-                if (setTextInstanceXFirstValue && setTextInstanceXSecondValue)
-                {
-                    TextInstance.X = TextInstanceXFirstValue * (1 - interpolationValue) + TextInstanceXSecondValue * interpolationValue;
-                }
-                if (setTextInstanceYFirstValue && setTextInstanceYSecondValue)
-                {
-                    TextInstance.Y = TextInstanceYFirstValue * (1 - interpolationValue) + TextInstanceYSecondValue * interpolationValue;
-                }
                 if (interpolationValue < 1)
                 {
                     mCurrentVariableState = firstState;
@@ -329,6 +394,100 @@
                 else
                 {
                     mCurrentVariableState = secondState;
+                }
+            }
+            public void InterpolateBetween (Fade firstState, Fade secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                bool setDimmingInstanceDimmingAlphaFirstValue = false;
+                bool setDimmingInstanceDimmingAlphaSecondValue = false;
+                int DimmingInstanceDimmingAlphaFirstValue= 0;
+                int DimmingInstanceDimmingAlphaSecondValue= 0;
+                switch(firstState)
+                {
+                    case  Fade.FadedOut:
+                        setDimmingInstanceDimmingAlphaFirstValue = true;
+                        DimmingInstanceDimmingAlphaFirstValue = 255;
+                        break;
+                    case  Fade.NotFaded:
+                        setDimmingInstanceDimmingAlphaFirstValue = true;
+                        DimmingInstanceDimmingAlphaFirstValue = 0;
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  Fade.FadedOut:
+                        setDimmingInstanceDimmingAlphaSecondValue = true;
+                        DimmingInstanceDimmingAlphaSecondValue = 255;
+                        break;
+                    case  Fade.NotFaded:
+                        setDimmingInstanceDimmingAlphaSecondValue = true;
+                        DimmingInstanceDimmingAlphaSecondValue = 0;
+                        break;
+                }
+                if (setDimmingInstanceDimmingAlphaFirstValue && setDimmingInstanceDimmingAlphaSecondValue)
+                {
+                    DimmingInstance.DimmingAlpha = FlatRedBall.Math.MathFunctions.RoundToInt(DimmingInstanceDimmingAlphaFirstValue* (1 - interpolationValue) + DimmingInstanceDimmingAlphaSecondValue * interpolationValue);
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentFadeState = firstState;
+                }
+                else
+                {
+                    mCurrentFadeState = secondState;
+                }
+            }
+            public void InterpolateBetween (AnyKey firstState, AnyKey secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                bool setPressAnyKeyTextAlphaFirstValue = false;
+                bool setPressAnyKeyTextAlphaSecondValue = false;
+                int PressAnyKeyTextAlphaFirstValue= 0;
+                int PressAnyKeyTextAlphaSecondValue= 0;
+                switch(firstState)
+                {
+                    case  AnyKey.Ready:
+                        setPressAnyKeyTextAlphaFirstValue = true;
+                        PressAnyKeyTextAlphaFirstValue = 255;
+                        break;
+                    case  AnyKey.NotReady:
+                        setPressAnyKeyTextAlphaFirstValue = true;
+                        PressAnyKeyTextAlphaFirstValue = 0;
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  AnyKey.Ready:
+                        setPressAnyKeyTextAlphaSecondValue = true;
+                        PressAnyKeyTextAlphaSecondValue = 255;
+                        break;
+                    case  AnyKey.NotReady:
+                        setPressAnyKeyTextAlphaSecondValue = true;
+                        PressAnyKeyTextAlphaSecondValue = 0;
+                        break;
+                }
+                if (setPressAnyKeyTextAlphaFirstValue && setPressAnyKeyTextAlphaSecondValue)
+                {
+                    PressAnyKeyText.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(PressAnyKeyTextAlphaFirstValue* (1 - interpolationValue) + PressAnyKeyTextAlphaSecondValue * interpolationValue);
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentAnyKeyState = firstState;
+                }
+                else
+                {
+                    mCurrentAnyKeyState = secondState;
                 }
             }
             #endregion
@@ -383,6 +542,114 @@
                 }
                 tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
                 tweener.Ended += ()=> this.CurrentVariableState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.MainMenuGumRuntime.Fade fromState,AbbatoirIntergrade.GumRuntimes.MainMenuGumRuntime.Fade toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (Fade toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "Fade").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentFadeState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (Fade toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentFadeState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.MainMenuGumRuntime.AnyKey fromState,AbbatoirIntergrade.GumRuntimes.MainMenuGumRuntime.AnyKey toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AnyKey toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "AnyKey").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentAnyKeyState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (AnyKey toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentAnyKeyState = toState;
                 tweener.Start();
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
@@ -497,14 +764,147 @@
                     return blinkEyesAnimationRelative;
                 }
             }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> FadeInAnimationInstructions (object target) 
+            {
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction( ()=> this.CurrentFadeState = Fade.FadedOut);
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(Fade.NotFaded, 0.5f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Quadratic, FlatRedBall.Glue.StateInterpolation.Easing.Out, FadeInAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    yield return toReturn;
+                }
+            }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> FadeInAnimationRelativeInstructions (object target) 
+            {
+                {
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "Fade/FadedOut").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "Fade/NotFaded").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(Fade.NotFaded);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.5f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Quadratic, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation fadeInAnimation;
+            public FlatRedBall.Gum.Animation.GumAnimation FadeInAnimation
+            {
+                get
+                {
+                    if (fadeInAnimation == null)
+                    {
+                        fadeInAnimation = new FlatRedBall.Gum.Animation.GumAnimation(0.5f, FadeInAnimationInstructions);
+                    }
+                    return fadeInAnimation;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation fadeInAnimationRelative;
+            public FlatRedBall.Gum.Animation.GumAnimation FadeInAnimationRelative
+            {
+                get
+                {
+                    if (fadeInAnimationRelative == null)
+                    {
+                        fadeInAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(0.5f, FadeInAnimationRelativeInstructions);
+                    }
+                    return fadeInAnimationRelative;
+                }
+            }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> ShowAnyKeyAnimationInstructions (object target) 
+            {
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction( ()=> this.CurrentAnyKeyState = AnyKey.NotReady);
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(AnyKey.Ready, 1, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, ShowAnyKeyAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    yield return toReturn;
+                }
+            }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> ShowAnyKeyAnimationRelativeInstructions (object target) 
+            {
+                {
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "AnyKey/NotReady").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "AnyKey/Ready").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(AnyKey.Ready);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 1, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation showAnyKeyAnimation;
+            public FlatRedBall.Gum.Animation.GumAnimation ShowAnyKeyAnimation
+            {
+                get
+                {
+                    if (showAnyKeyAnimation == null)
+                    {
+                        showAnyKeyAnimation = new FlatRedBall.Gum.Animation.GumAnimation(1, ShowAnyKeyAnimationInstructions);
+                    }
+                    return showAnyKeyAnimation;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation showAnyKeyAnimationRelative;
+            public FlatRedBall.Gum.Animation.GumAnimation ShowAnyKeyAnimationRelative
+            {
+                get
+                {
+                    if (showAnyKeyAnimationRelative == null)
+                    {
+                        showAnyKeyAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(1, ShowAnyKeyAnimationRelativeInstructions);
+                    }
+                    return showAnyKeyAnimationRelative;
+                }
+            }
             #endregion
             public override void StopAnimations () 
             {
                 base.StopAnimations();
+                DimmingInstance.StopAnimations();
                 LeftEye.StopAnimations();
                 RightEye.StopAnimations();
                 OpenEyesAnimation.Stop();
                 BlinkEyesAnimation.Stop();
+                FadeInAnimation.Stop();
+                ShowAnyKeyAnimation.Stop();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -628,89 +1028,97 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.Font",
-                            Type = "string",
-                            Value = TextInstance.Font
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TextInstance.FontSize",
+                            Name = "PressAnyKeyText.Alpha",
                             Type = "int",
-                            Value = TextInstance.FontSize
+                            Value = PressAnyKeyText.Alpha
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.Height",
-                            Type = "float",
-                            Value = TextInstance.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TextInstance.HorizontalAlignment",
-                            Type = "HorizontalAlignment",
-                            Value = TextInstance.HorizontalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TextInstance.Text",
+                            Name = "PressAnyKeyText.Font",
                             Type = "string",
-                            Value = TextInstance.Text
+                            Value = PressAnyKeyText.Font
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.Width",
+                            Name = "PressAnyKeyText.FontSize",
+                            Type = "int",
+                            Value = PressAnyKeyText.FontSize
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.Height",
                             Type = "float",
-                            Value = TextInstance.Width
+                            Value = PressAnyKeyText.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.X",
-                            Type = "float",
-                            Value = TextInstance.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TextInstance.X Origin",
+                            Name = "PressAnyKeyText.HorizontalAlignment",
                             Type = "HorizontalAlignment",
-                            Value = TextInstance.XOrigin
+                            Value = PressAnyKeyText.HorizontalAlignment
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.X Units",
-                            Type = "PositionUnitType",
-                            Value = TextInstance.XUnits
+                            Name = "PressAnyKeyText.Text",
+                            Type = "string",
+                            Value = PressAnyKeyText.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.Y",
+                            Name = "PressAnyKeyText.Width",
                             Type = "float",
-                            Value = TextInstance.Y
+                            Value = PressAnyKeyText.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.Y Units",
+                            Name = "PressAnyKeyText.X",
+                            Type = "float",
+                            Value = PressAnyKeyText.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = PressAnyKeyText.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.X Units",
                             Type = "PositionUnitType",
-                            Value = TextInstance.YUnits
+                            Value = PressAnyKeyText.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.Y",
+                            Type = "float",
+                            Value = PressAnyKeyText.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.Y Units",
+                            Type = "PositionUnitType",
+                            Value = PressAnyKeyText.YUnits
                         }
                         );
                         break;
@@ -838,89 +1246,209 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.Font",
-                            Type = "string",
-                            Value = TextInstance.Font
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TextInstance.FontSize",
+                            Name = "PressAnyKeyText.Alpha",
                             Type = "int",
-                            Value = TextInstance.FontSize + 48
+                            Value = PressAnyKeyText.Alpha + 0
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.Height",
-                            Type = "float",
-                            Value = TextInstance.Height + 0f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TextInstance.HorizontalAlignment",
-                            Type = "HorizontalAlignment",
-                            Value = TextInstance.HorizontalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TextInstance.Text",
+                            Name = "PressAnyKeyText.Font",
                             Type = "string",
-                            Value = TextInstance.Text
+                            Value = PressAnyKeyText.Font
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.Width",
+                            Name = "PressAnyKeyText.FontSize",
+                            Type = "int",
+                            Value = PressAnyKeyText.FontSize + 48
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.Height",
                             Type = "float",
-                            Value = TextInstance.Width + 0f
+                            Value = PressAnyKeyText.Height + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.X",
-                            Type = "float",
-                            Value = TextInstance.X + 0f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TextInstance.X Origin",
+                            Name = "PressAnyKeyText.HorizontalAlignment",
                             Type = "HorizontalAlignment",
-                            Value = TextInstance.XOrigin
+                            Value = PressAnyKeyText.HorizontalAlignment
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.X Units",
-                            Type = "PositionUnitType",
-                            Value = TextInstance.XUnits
+                            Name = "PressAnyKeyText.Text",
+                            Type = "string",
+                            Value = PressAnyKeyText.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.Y",
+                            Name = "PressAnyKeyText.Width",
                             Type = "float",
-                            Value = TextInstance.Y + 1193f
+                            Value = PressAnyKeyText.Width + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.Y Units",
+                            Name = "PressAnyKeyText.X",
+                            Type = "float",
+                            Value = PressAnyKeyText.X + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = PressAnyKeyText.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.X Units",
                             Type = "PositionUnitType",
-                            Value = TextInstance.YUnits
+                            Value = PressAnyKeyText.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.Y",
+                            Type = "float",
+                            Value = PressAnyKeyText.Y + 1193f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.Y Units",
+                            Type = "PositionUnitType",
+                            Value = PressAnyKeyText.YUnits
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (Fade state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Fade.FadedOut:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DimmingInstance.DimmingAlpha",
+                            Type = "int",
+                            Value = DimmingInstance.DimmingAlpha
+                        }
+                        );
+                        break;
+                    case  Fade.NotFaded:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DimmingInstance.DimmingAlpha",
+                            Type = "int",
+                            Value = DimmingInstance.DimmingAlpha
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (Fade state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Fade.FadedOut:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DimmingInstance.DimmingAlpha",
+                            Type = "int",
+                            Value = DimmingInstance.DimmingAlpha + 255
+                        }
+                        );
+                        break;
+                    case  Fade.NotFaded:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DimmingInstance.DimmingAlpha",
+                            Type = "int",
+                            Value = DimmingInstance.DimmingAlpha + 0
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (AnyKey state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  AnyKey.Ready:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.Alpha",
+                            Type = "int",
+                            Value = PressAnyKeyText.Alpha
+                        }
+                        );
+                        break;
+                    case  AnyKey.NotReady:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.Alpha",
+                            Type = "int",
+                            Value = PressAnyKeyText.Alpha
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (AnyKey state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  AnyKey.Ready:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.Alpha",
+                            Type = "int",
+                            Value = PressAnyKeyText.Alpha + 255
+                        }
+                        );
+                        break;
+                    case  AnyKey.NotReady:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.Alpha",
+                            Type = "int",
+                            Value = PressAnyKeyText.Alpha + 0
                         }
                         );
                         break;
@@ -938,13 +1466,24 @@
                     {
                         if (state.Name == "Default") this.mCurrentVariableState = VariableState.Default;
                     }
+                    else if (category.Name == "Fade")
+                    {
+                        if(state.Name == "FadedOut") this.mCurrentFadeState = Fade.FadedOut;
+                        if(state.Name == "NotFaded") this.mCurrentFadeState = Fade.NotFaded;
+                    }
+                    else if (category.Name == "AnyKey")
+                    {
+                        if(state.Name == "Ready") this.mCurrentAnyKeyState = AnyKey.Ready;
+                        if(state.Name == "NotReady") this.mCurrentAnyKeyState = AnyKey.NotReady;
+                    }
                 }
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime BackgroundSprite { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.DimmingRuntime DimmingInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime LeftEye { get; set; }
             private AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime RightEye { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.TextRuntime PressAnyKeyText { get; set; }
             public MainMenuGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -971,9 +1510,10 @@
             private void AssignReferences () 
             {
                 BackgroundSprite = this.GetGraphicalUiElementByName("BackgroundSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
+                DimmingInstance = this.GetGraphicalUiElementByName("DimmingInstance") as AbbatoirIntergrade.GumRuntimes.DimmingRuntime;
                 LeftEye = this.GetGraphicalUiElementByName("LeftEye") as AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime;
                 RightEye = this.GetGraphicalUiElementByName("RightEye") as AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime;
-                TextInstance = this.GetGraphicalUiElementByName("TextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+                PressAnyKeyText = this.GetGraphicalUiElementByName("PressAnyKeyText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

@@ -67,7 +67,7 @@ namespace AbbatoirIntergrade.Screens
 #endif
             FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
 
-            GameStateManager.LoadAllData();
+            GameStateManager.LoadIfNecessary();
 
             resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
@@ -228,7 +228,7 @@ namespace AbbatoirIntergrade.Screens
             currentMap.Position.X = -currentMap.Width / 2;
 
             currentMap.Position.Y = -(Camera.Main.OrthogonalHeight / 2 - currentMap.Height);
-            currentMap.Z = -1f;
+            currentMap.Z = -0.1f;
 
             Pathing?.UpdateDependencies(TimeManager.CurrentTime);
             if (WaterShapes != null)
@@ -333,6 +333,7 @@ namespace AbbatoirIntergrade.Screens
 
             var levelResults = CurrentLevel.GetFinalResults();
             levelResults.TimePlayed = PauseAndBuildAjustedTime;
+            PlayerDataManager.AllowPlayerNewTowerChoice();
             PlayerDataManager.RecordChapterResults(levelResults);
             PlayerDataManager.SaveData();
             LoadingScreen.TransitionToScreen(typeof(MapScreen));
@@ -740,36 +741,42 @@ namespace AbbatoirIntergrade.Screens
                 LoadInitialDialogue();
                 return;
             }
-            
-            var gameDialogue = GameStateManager.GameDialogue;
-            var chosenDialogue = PlayerDataManager.LastChosenDialogueId;
 
-            if (chosenDialogue == "")
+            var randomDelay = FlatRedBallServices.Random.Between(1.5f, (1.5f + CurrentLevel.CurrentWaveNumber * 0.5f));
+            this.Call(() =>
             {
-                chosenDialogue = ChatBoxInstance.SilentDialogue?.Id;
-                if (!string.IsNullOrEmpty(chosenDialogue))
+                var gameDialogue = GameStateManager.GameDialogue;
+                var chosenDialogue = PlayerDataManager.LastChosenDialogueId;
+
+                if (chosenDialogue == "")
                 {
-                    PlayerDataManager.AddChosenDialogueId(chosenDialogue);
+                    chosenDialogue = ChatBoxInstance.SilentDialogue?.Id;
+                    if (!string.IsNullOrEmpty(chosenDialogue))
+                    {
+                        PlayerDataManager.AddChosenDialogueId(chosenDialogue);
+                    }
                 }
-            }
 
-            if (CurrentLevel.MapName == "Chapter10" &&
-                ChatBoxInstance.CurrentIncomingMessage.DisplayName.Contains("Ending"))
-            {
-                HandleGameEnd();
-            }
-            else if (!string.IsNullOrEmpty(chosenDialogue))
-            {
-                var newDialogue = gameDialogue.GetResponseFor(chosenDialogue);
-
-                if (newDialogue != null)
+                if (CurrentLevel.MapName == "Chapter10" &&
+                    ChatBoxInstance.CurrentIncomingMessage.DisplayName.Contains("Ending"))
                 {
-                    var dialogueOptions = gameDialogue.GetDialogueOptionsFor(newDialogue);
-                    PlayerDataManager.AddShownDialogueId(newDialogue.Id);
-                    ChatBoxInstance.UpdateDialogue(newDialogue, dialogueOptions);
-                    SoundManager.PlaySoundEffect(IncomingMessageSound);
+                    HandleGameEnd();
                 }
-            }
+                else if (!string.IsNullOrEmpty(chosenDialogue))
+                {
+                    var newDialogue = gameDialogue.GetResponseFor(chosenDialogue);
+
+                    if (newDialogue != null)
+                    {
+                        var dialogueOptions = gameDialogue.GetDialogueOptionsFor(newDialogue);
+                        dialogueOptions.Shuffle();
+
+                        PlayerDataManager.AddShownDialogueId(newDialogue.Id);
+                        ChatBoxInstance.UpdateDialogue(newDialogue, dialogueOptions);
+                        SoundManager.PlaySoundEffect(IncomingMessageSound);
+                    }
+                }
+            }).After(randomDelay);
         }
 
         private void HandleGameEnd()
@@ -862,6 +869,7 @@ namespace AbbatoirIntergrade.Screens
 		    {
 		        Pathing.RemoveSelfFromListsBelongingTo();
             }
+            BaseStructure.Reset();
 		}
 #endregion
 
