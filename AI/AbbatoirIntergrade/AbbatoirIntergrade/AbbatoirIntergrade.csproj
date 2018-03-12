@@ -1147,6 +1147,11 @@
       <Name>IncomingMessage</Name>
       <Link>content\screens\gamescreen\sounds\incomingmessage.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\outgoingmessage.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>OutgoingMessage</Name>
+      <Link>content\screens\gamescreen\sounds\outgoingmessage.xnb</Link>
+    </None>
     <None Include="content\entities\baseentities\baseenemy\particleanimationschainlist.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ParticleAnimationsChainList</Name>

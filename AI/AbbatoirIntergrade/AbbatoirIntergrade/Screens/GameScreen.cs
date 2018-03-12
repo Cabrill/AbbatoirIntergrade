@@ -55,6 +55,7 @@ namespace AbbatoirIntergrade.Screens
         private List<ResourceIncreaseNotificationRuntime> resourceIncreaseNotificationList;
 
         private SoundEffectInstance IncomingMessageSound;
+        private SoundEffectInstance OutgoingMessageSound;
 
         #endregion
 
@@ -72,9 +73,10 @@ namespace AbbatoirIntergrade.Screens
             resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
             IncomingMessageSound = IncomingMessage.CreateInstance();
+            OutgoingMessageSound = OutgoingMessage.CreateInstance();
 
             //TODO:  Set these values by loading a level
-            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter9Level();
+            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
             CurrentLevel.OnNewWaveStart += HandleWaveStarted;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
@@ -312,6 +314,10 @@ namespace AbbatoirIntergrade.Screens
                 {
                     TopStatusBarInstance.SimulateMenuButtonClick();
                 }
+            }
+            else if (InputManager.Keyboard.KeyPushed(Keys.Space))
+            {
+                if (!MenuWindowInstance.Visible) OnPauseButtonClick(null);
             }
         }
 
@@ -628,6 +634,11 @@ namespace AbbatoirIntergrade.Screens
         {
             //FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
 
+            if (InputManager.Keyboard.KeyPushed(Keys.F5))
+            {
+                RestartScreen(true, false);
+            }
+
             //Stage 1
             if (InputManager.Keyboard.KeyPushed(Keys.Z))
             {
@@ -814,6 +825,7 @@ namespace AbbatoirIntergrade.Screens
 
                 ChatBoxInstance.CurrentMessageIndicatorState = ChatBoxRuntime.MessageIndicator.NoMessage;
                 ChatBoxInstance.DisappearAnimation.Play(this);
+                SoundManager.PlaySoundEffect(OutgoingMessageSound);
             }
         }
     #endregion
@@ -855,23 +867,23 @@ namespace AbbatoirIntergrade.Screens
 		    {
 		        for (var i = resourceIncreaseNotificationList.Count - 1; i >= 0; i--)
 		        {
-		            resourceIncreaseNotificationList[i].Destroy();
+		            resourceIncreaseNotificationList[i]?.Destroy();
 		        }
 		    }
 		    if (WaterShapes != null)
 		    {
 		        for (var i = WaterShapes.Count - 1; i >= 0; i--)
 		        {
-		            WaterShapes[i].RemoveSelfFromListsBelongingTo();
+		            WaterShapes[i]?.RemoveSelfFromListsBelongingTo();
 		        }
             }
-		    if (Pathing != null)
-		    {
-		        Pathing.RemoveSelfFromListsBelongingTo();
-            }
-            BaseStructure.Reset();
+
+		    Pathing?.RemoveSelfFromListsBelongingTo();
+		    BaseStructure.Reset();
+            if (IncomingMessageSound != null && !IncomingMessageSound.IsDisposed) IncomingMessageSound.Dispose();
+		    if (OutgoingMessageSound != null && !OutgoingMessageSound.IsDisposed) OutgoingMessageSound.Dispose();
 		}
-#endregion
+        #endregion
 
         static void CustomLoadStaticContent(string contentManagerName)
         {

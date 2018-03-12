@@ -15,8 +15,9 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
 {
 	public partial class ResourceBar
 	{
-
-	    public float Height => FrameSprite.Height;
+	    private double CurrentPct = 1.0;
+	    private static float RecoverRate = 2f;
+        public float Height => FrameSprite.Height;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -25,9 +26,9 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
         /// </summary>
 		private void CustomInitialize()
 		{
-
-
-		}
+		    FrameSprite.GreenRate = RecoverRate;
+		    FrameSprite.BlueRate = RecoverRate;
+        }
 
 	    public void SetWidth(float newWidth)
 	    {
@@ -44,11 +45,20 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
 	    public void Update(double newPct)
 	    {
 	        if (!FrameSprite.Visible) Show();
-	        BarSprite.Green = (float)Math.Min(1, newPct * 2);
+
+	        if (newPct < CurrentPct)
+	        {
+	            FrameSprite.Green = 0;
+	            FrameSprite.Blue = 0;
+	        }
+
+            BarSprite.Green = (float)Math.Min(1, newPct * 2);
             BarSprite.Red = (float)Math.Min(1, 2 - newPct * 2);
             BarSprite.Width = (float)Math.Max(0.001,BackgroundSprite.Width * newPct);
 	        BarSprite.RelativeX = (BarSprite.Width - BackgroundSprite.Width)/2;
-	    }
+
+	        CurrentPct = newPct;
+        }
 
 	    public void Show()
 	    {
