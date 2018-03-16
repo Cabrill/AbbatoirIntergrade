@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AESettingsSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <OffsetMultiplier>1</OffsetMultiplier>
+  <AnimationChainSettings />
+  <ExpandedNode>Bamboo</ExpandedNode>
+  <ExpandedNode>Bonsai</ExpandedNode>
+  <ExpandedNode>WillowTree</ExpandedNode>
+  <ExpandedNode>TallestTree</ExpandedNode>
+  <ExpandedNode>JustTree</ExpandedNode>
+  <ExpandedNode>WideTree</ExpandedNode>
+  <ExpandedNode>LongLog</ExpandedNode>
+  <ExpandedNode>Fence</ExpandedNode>
+  <ExpandedNode>Cactus</ExpandedNode>
+  <ExpandedNode>Stump</ExpandedNode>
+  <ExpandedNode>Fern</ExpandedNode>
+  <ExpandedNode>WideRock</ExpandedNode>
+  <ExpandedNode>StackedRock</ExpandedNode>
+  <ExpandedNode>MediumRock</ExpandedNode>
+  <ExpandedNode>WideBush</ExpandedNode>
+  <UnitType>Pixel</UnitType>
+</AESettingsSave>

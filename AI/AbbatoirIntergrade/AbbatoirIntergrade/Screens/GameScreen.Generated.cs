@@ -35,7 +35,7 @@ namespace AbbatoirIntergrade.Screens
                 if (mChapter1 == null || mLastContentManagerForChapter1 != "GameScreen")
                 {
                     mLastContentManagerForChapter1 = "GameScreen";
-                    mChapter1 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter1.tmx", "Global");
+                    mChapter1 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter1.tmx", "GameScreen");
                 }
                 return mChapter1;
             }
@@ -49,7 +49,7 @@ namespace AbbatoirIntergrade.Screens
                 if (mChapter2 == null || mLastContentManagerForChapter2 != "GameScreen")
                 {
                     mLastContentManagerForChapter2 = "GameScreen";
-                    mChapter2 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter2.tmx", "Global");
+                    mChapter2 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter2.tmx", "GameScreen");
                 }
                 return mChapter2;
             }
@@ -65,7 +65,7 @@ namespace AbbatoirIntergrade.Screens
                 if (mChapter3 == null || mLastContentManagerForChapter3 != "GameScreen")
                 {
                     mLastContentManagerForChapter3 = "GameScreen";
-                    mChapter3 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter3.tmx", "Global");
+                    mChapter3 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter3.tmx", "GameScreen");
                 }
                 return mChapter3;
             }
@@ -79,7 +79,7 @@ namespace AbbatoirIntergrade.Screens
                 if (mChapter4 == null || mLastContentManagerForChapter4 != "GameScreen")
                 {
                     mLastContentManagerForChapter4 = "GameScreen";
-                    mChapter4 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter4.tmx", "Global");
+                    mChapter4 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter4.tmx", "GameScreen");
                 }
                 return mChapter4;
             }
@@ -93,7 +93,7 @@ namespace AbbatoirIntergrade.Screens
                 if (mChapter5 == null || mLastContentManagerForChapter5 != "GameScreen")
                 {
                     mLastContentManagerForChapter5 = "GameScreen";
-                    mChapter5 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter5.tmx", "Global");
+                    mChapter5 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter5.tmx", "GameScreen");
                 }
                 return mChapter5;
             }
@@ -107,7 +107,7 @@ namespace AbbatoirIntergrade.Screens
                 if (mChapter6 == null || mLastContentManagerForChapter6 != "GameScreen")
                 {
                     mLastContentManagerForChapter6 = "GameScreen";
-                    mChapter6 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter6.tmx", "Global");
+                    mChapter6 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter6.tmx", "GameScreen");
                 }
                 return mChapter6;
             }
@@ -121,7 +121,7 @@ namespace AbbatoirIntergrade.Screens
                 if (mChapter7 == null || mLastContentManagerForChapter7 != "GameScreen")
                 {
                     mLastContentManagerForChapter7 = "GameScreen";
-                    mChapter7 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter7.tmx", "Global");
+                    mChapter7 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter7.tmx", "GameScreen");
                 }
                 return mChapter7;
             }
@@ -135,7 +135,7 @@ namespace AbbatoirIntergrade.Screens
                 if (mChapter8 == null || mLastContentManagerForChapter8 != "GameScreen")
                 {
                     mLastContentManagerForChapter8 = "GameScreen";
-                    mChapter8 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter8.tmx", "Global");
+                    mChapter8 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter8.tmx", "GameScreen");
                 }
                 return mChapter8;
             }
@@ -149,7 +149,7 @@ namespace AbbatoirIntergrade.Screens
                 if (mChapter9 == null || mLastContentManagerForChapter9 != "GameScreen")
                 {
                     mLastContentManagerForChapter9 = "GameScreen";
-                    mChapter9 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter9.tmx", "Global");
+                    mChapter9 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter9.tmx", "GameScreen");
                 }
                 return mChapter9;
             }
@@ -163,11 +163,12 @@ namespace AbbatoirIntergrade.Screens
                 if (mChapter10 == null || mLastContentManagerForChapter10 != "GameScreen")
                 {
                     mLastContentManagerForChapter10 = "GameScreen";
-                    mChapter10 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter10.tmx", "Global");
+                    mChapter10 = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/chapter10.tmx", "GameScreen");
                 }
                 return mChapter10;
             }
         }
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect OutgoingMessage;
         
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D WorldRenderTarget;
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D DarknessRenderTarget;
@@ -196,6 +197,7 @@ namespace AbbatoirIntergrade.Screens
         private AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime TopStatusBarInstance;
         private AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime ScreenShadeInstance;
         private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance;
+        private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TiledOverlay> TiledOverlayList;
         protected global::RenderingLibrary.Graphics.Layer BackgroundLayerGum;
         protected global::RenderingLibrary.Graphics.Layer WorldLayerGum;
         protected global::RenderingLibrary.Graphics.Layer LightLayerGum;
@@ -203,7 +205,7 @@ namespace AbbatoirIntergrade.Screens
         protected global::RenderingLibrary.Graphics.Layer InfoLayerGum;
         protected global::RenderingLibrary.Graphics.Layer HUDLayerGum;
         public GameScreen () 
-        	: base ("Global")
+        	: base ("GameScreen")
         {
         }
         public override void Initialize (bool addToManagers) 
@@ -249,6 +251,8 @@ namespace AbbatoirIntergrade.Screens
             TopStatusBarInstance = GameScreenGum.GetGraphicalUiElementByName("TopStatusBarInstance") as AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime;
             ScreenShadeInstance = GameScreenGum.GetGraphicalUiElementByName("ScreenShadeInstance") as AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime;
             MenuWindowInstance = GameScreenGum.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
+            TiledOverlayList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TiledOverlay>();
+            TiledOverlayList.Name = "TiledOverlayList";
             
             
             PostInitialize();
@@ -324,6 +328,7 @@ namespace AbbatoirIntergrade.Screens
             Factories.StructurePlacementFactory.Initialize(ContentManagerName);
             Factories.TileCollisionRectangleFactory.Initialize(ContentManagerName);
             Factories.TileCollisionCircleFactory.Initialize(ContentManagerName);
+            Factories.TiledOverlayFactory.Initialize(ContentManagerName);
             Factories.BombardingTowerFactory.AddList(AllStructuresList);
             Factories.ChemicalTowerFactory.AddList(AllStructuresList);
             Factories.ElectricTowerFactory.AddList(AllStructuresList);
@@ -354,6 +359,7 @@ namespace AbbatoirIntergrade.Screens
             Factories.StructurePlacementFactory.AddList(StructurePlacementList);
             Factories.TileCollisionRectangleFactory.AddList(TileCollisionRectangleList);
             Factories.TileCollisionCircleFactory.AddList(TileCollisionCircleList);
+            Factories.TiledOverlayFactory.AddList(TiledOverlayList);
             
             
             ShaderRendererInstance.AddToManagers(ShaderOutputLayer);
@@ -426,6 +432,14 @@ namespace AbbatoirIntergrade.Screens
                         TileCollisionCircleList[i].Activity();
                     }
                 }
+                for (int i = TiledOverlayList.Count - 1; i > -1; i--)
+                {
+                    if (i < TiledOverlayList.Count)
+                    {
+                        // We do the extra if-check because activity could destroy any number of entities
+                        TiledOverlayList[i].Activity();
+                    }
+                }
             }
             else
             {
@@ -442,6 +456,7 @@ namespace AbbatoirIntergrade.Screens
             Factories.StructurePlacementFactory.Destroy();
             Factories.TileCollisionRectangleFactory.Destroy();
             Factories.TileCollisionCircleFactory.Destroy();
+            Factories.TiledOverlayFactory.Destroy();
             Factories.BombardingTowerFactory.Destroy();
             Factories.ChemicalTowerFactory.Destroy();
             Factories.ElectricTowerFactory.Destroy();
@@ -525,6 +540,7 @@ namespace AbbatoirIntergrade.Screens
                 mChapter10.Destroy();
                 mChapter10 = null;
             }
+            OutgoingMessage = null;
             
             AllStructuresList.MakeOneWay();
             AllEnemiesList.MakeOneWay();
@@ -532,6 +548,7 @@ namespace AbbatoirIntergrade.Screens
             StructurePlacementList.MakeOneWay();
             TileCollisionRectangleList.MakeOneWay();
             TileCollisionCircleList.MakeOneWay();
+            TiledOverlayList.MakeOneWay();
             if (WorldRenderTarget != null)
             {
                 WorldRenderTarget.Dispose();
@@ -641,12 +658,17 @@ namespace AbbatoirIntergrade.Screens
             {
                 MenuWindowInstance.RemoveFromManagers();
             }
+            for (int i = TiledOverlayList.Count - 1; i > -1; i--)
+            {
+                TiledOverlayList[i].Destroy();
+            }
             AllStructuresList.MakeTwoWay();
             AllEnemiesList.MakeTwoWay();
             PlayerProjectileList.MakeTwoWay();
             StructurePlacementList.MakeTwoWay();
             TileCollisionRectangleList.MakeTwoWay();
             TileCollisionCircleList.MakeTwoWay();
+            TiledOverlayList.MakeTwoWay();
             FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
         }
@@ -787,6 +809,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 MenuWindowInstance.RemoveFromManagers();
             }
+            for (int i = TiledOverlayList.Count - 1; i > -1; i--)
+            {
+                TiledOverlayList[i].Destroy();
+            }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 
         {
@@ -830,6 +856,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 TileCollisionCircleList[i].ConvertToManuallyUpdated();
             }
+            for (int i = 0; i < TiledOverlayList.Count; i++)
+            {
+                TiledOverlayList[i].ConvertToManuallyUpdated();
+            }
         }
         public static void LoadStaticContent (string contentManagerName) 
         {
@@ -858,6 +888,7 @@ namespace AbbatoirIntergrade.Screens
             CombinedAssets = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/tilesets/combinedassets.png", contentManagerName);
             CollisionShapes = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/tilesets/collisionshapes.png", contentManagerName);
             IncomingMessage = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/incomingmessage", contentManagerName);
+            OutgoingMessage = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/outgoingmessage", contentManagerName);
             AbbatoirIntergrade.Entities.ShaderRenderer.LoadStaticContent(contentManagerName);
             CustomLoadStaticContent(contentManagerName);
         }
@@ -896,6 +927,8 @@ namespace AbbatoirIntergrade.Screens
                     return Chapter9;
                 case  "Chapter10":
                     return Chapter10;
+                case  "OutgoingMessage":
+                    return OutgoingMessage;
             }
             return null;
         }
@@ -933,6 +966,8 @@ namespace AbbatoirIntergrade.Screens
                     return Chapter9;
                 case  "Chapter10":
                     return Chapter10;
+                case  "OutgoingMessage":
+                    return OutgoingMessage;
             }
             return null;
         }
@@ -970,6 +1005,8 @@ namespace AbbatoirIntergrade.Screens
                     return Chapter9;
                 case  "Chapter10":
                     return Chapter10;
+                case  "OutgoingMessage":
+                    return OutgoingMessage;
             }
             return null;
         }

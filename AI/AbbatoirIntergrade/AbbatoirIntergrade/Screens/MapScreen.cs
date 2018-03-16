@@ -89,8 +89,16 @@ namespace AbbatoirIntergrade.Screens
 	        {
 	            var selectedTower = towerSelectionBox.StructureTypeChosen;
 
+	            var towerSelectionEvent = new
+	            {
+                    TowerSelected = selectedTower.Name,
+                    SelectionNumber = PlayerDataManager.GetAvailableTowers().Count - 1,
+	            };
+                AnalyticsManager.SendEventImmediately("TowerSelection", towerSelectionEvent);
+
                 PlayerDataManager.AddTowerAvailability(selectedTower);
                 PlayerDataManager.SaveData();
+
 
 	            for (var i = StructureList.Count - 1; i >= 0; i--)
 	            {
@@ -193,7 +201,11 @@ namespace AbbatoirIntergrade.Screens
 	            if (element is MenuWindowRuntime menuWindow)
 	            {
 	                menuWindow.AssignEventToCloseButton(window => MapScreenGumInstance.HideMenuAnimation.Play(this));
-                    menuWindow.AssignEventToButton0(window => FlatRedBallServices.Game.Exit());
+                    menuWindow.AssignEventToButton0(window =>
+                    {
+                        PlayerDataManager.SaveData();
+                        FlatRedBallServices.Game.Exit();
+                    });
                     menuWindow.AssignEventToButton3(window => OkMessageInstance.ShowMessage(Messages["Intro"].MessageText));
 	            }
 	        }

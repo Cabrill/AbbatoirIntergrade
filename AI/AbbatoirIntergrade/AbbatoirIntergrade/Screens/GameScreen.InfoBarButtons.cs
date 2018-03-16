@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FlatRedBall.Gui;
 using AbbatoirIntergrade.GumRuntimes;
+using AbbatoirIntergrade.StaticManagers;
 using FlatRedBall;
 
 namespace AbbatoirIntergrade.Screens
@@ -20,7 +21,12 @@ namespace AbbatoirIntergrade.Screens
             TopStatusBarInstance.FastForwardButtonInstanceClick += OnFastForwardButtonClick;
 
             MenuWindowInstance.AssignEventToCloseButton(OnMenuCloseButtonClick);
-            MenuWindowInstance.AssignEventToButton0(window => LoadingScreen.TransitionToScreen(typeof(MapScreen)));
+            MenuWindowInstance.AssignEventToButton0(window =>
+            {
+                AnalyticsManager.FlushDeferredEvents();
+                PlayerDataManager.LoadData();
+                LoadingScreen.TransitionToScreen(typeof(MapScreen));
+            });
             //MenuWindowInstance.AssignEventToButton4(window => OkMessageInstance.ShowMessage(Messages["Intro"].MessageText));
         }
 

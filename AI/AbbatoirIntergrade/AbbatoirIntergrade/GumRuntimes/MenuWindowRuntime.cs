@@ -3,12 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FlatRedBall;
 using FlatRedBall.Gui;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace AbbatoirIntergrade.GumRuntimes
 {
     public partial class MenuWindowRuntime
     {
+        public List<DisplayMode> DisplayModes
+        {
+            get
+            {
+                var allModes = FlatRedBallServices.GraphicsDevice.Adapter.SupportedDisplayModes;
+                return allModes.Where(m => m.Height >= 1024).ToList();
+            }
+        }
+
         partial void CustomInitialize()
         {
             

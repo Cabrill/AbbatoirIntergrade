@@ -32,6 +32,7 @@ namespace AbbatoirIntergrade.MachineLearning.Models
 
         public double LastPrediction { get; private set; }
         public double LastMSE { get; private set; }
+        public int LastSampleSize { get; private set; }
         public bool IsReady { get; private set; }
 
         public void Initialize()
@@ -91,7 +92,7 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             void LearnThenUpdateNetworkAction()
             {
                 var updatedNetwork = LearnOnBackgroundThread(waveData.WaveInputs.ToArray(), waveData.WaveScores.ToArray());
-
+                MeanSquaredError(waveData);
                 Action UpdateAction = () => ReplaceModelWithUpdate(updatedNetwork);
                 InstructionManager.AddSafe(UpdateAction);
             }
@@ -167,6 +168,7 @@ namespace AbbatoirIntergrade.MachineLearning.Models
 
             error /= outputData.Length;
 
+            LastSampleSize = outputData.Length;
             LastMSE = error;
 
             return error;

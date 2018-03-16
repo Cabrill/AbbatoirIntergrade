@@ -33,9 +33,16 @@ namespace AbbatoirIntergrade.Screens
 {
     public partial class GameScreen
     {
-        #region Properties and Fields
+        //OPEN A URL
+        //private void OpenUrl(string url)
+        //{
+            //System.Diagnostics.Process.Start(url);
+        //}
 
-        private enum GameMode
+
+    #region Properties and Fields
+
+    private enum GameMode
         {
             Normal,
             Building,
@@ -69,6 +76,7 @@ namespace AbbatoirIntergrade.Screens
             FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
 
             GameStateManager.LoadIfNecessary();
+            PlayerDataManager.LoadData();
 
             resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
@@ -166,7 +174,6 @@ namespace AbbatoirIntergrade.Screens
         {
             SunlightManager.Initialize(HorizonBoxInstance, currentLevelDateTime);
             MachineLearningManager.SetTowerList(AllStructuresList);
-            GeneticsManager.Initialize();
         }
 
         private void InitializeBaseEntities()
@@ -180,11 +187,18 @@ namespace AbbatoirIntergrade.Screens
             currentMap = GetFile(CurrentLevel.MapName) as FlatRedBall.TileGraphics.LayeredTileMap;
             FlatRedBall.TileEntities.TileEntityInstantiator.CreateEntitiesFrom(currentMap);
 
+            foreach (var overlay in TiledOverlayList)
+            {
+                overlay.MoveToLayer(WorldLayer);
+                overlay.AttachTo(currentMap, true);
+                overlay.RelativeZ = 3;
+            }
+
             foreach (var place in StructurePlacementList)
             {
                 place.OnClick += OnStructurePlacementClick;
                 place.AttachTo(currentMap, true);
-                place.Z = 2;
+                place.RelativeZ = 3;
             }
             foreach (var circle in TileCollisionCircleList)
             {
@@ -230,7 +244,7 @@ namespace AbbatoirIntergrade.Screens
             currentMap.Position.X = -currentMap.Width / 2;
 
             currentMap.Position.Y = -(Camera.Main.OrthogonalHeight / 2 - currentMap.Height);
-            currentMap.Z = -0.1f;
+            currentMap.Z = -2f;
 
             Pathing?.UpdateDependencies(TimeManager.CurrentTime);
             if (WaterShapes != null)
@@ -342,6 +356,11 @@ namespace AbbatoirIntergrade.Screens
             PlayerDataManager.AllowPlayerNewTowerChoice();
             PlayerDataManager.RecordChapterResults(levelResults);
             PlayerDataManager.SaveData();
+
+            AnalyticsManager.SendLevelCompleteEvent(levelResults);
+
+            AnalyticsManager.SendDeferredEvents();
+
             LoadingScreen.TransitionToScreen(typeof(MapScreen));
         }
 
@@ -363,6 +382,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void RestartLevel(IWindow window)
         {
+            AnalyticsManager.FlushDeferredEvents();
             CameraZoomManager.Reset();
             RestartScreen(false);
         }
@@ -792,24 +812,30 @@ namespace AbbatoirIntergrade.Screens
 
         private void HandleGameEnd()
         {
-            var currentDisplayMessageName = ChatBoxInstance.CurrentIncomingMessage.DisplayName;
-
-            if (currentDisplayMessageName.Contains("Positive"))
-            {
-                PlayerDataManager.MarkPlayerReachedEnding(1);
-            }
-            else if (currentDisplayMessageName.Contains("Negative"))
-            {
-                PlayerDataManager.MarkPlayerReachedEnding(-1);
-            }
-            else
-            {
-                PlayerDataManager.MarkPlayerReachedEnding(0);
-            }
             var levelResults = CurrentLevel.GetFinalResults();
             levelResults.TimePlayed = PauseAndBuildAjustedTime;
             PlayerDataManager.RecordChapterResults(levelResults);
+            AnalyticsManager.SendLevelCompleteEvent(levelResults);
+
+            var currentDisplayMessageName = ChatBoxInstance.CurrentIncomingMessage.DisplayName;
+
+            var endingResult = 0;
+
+            if (currentDisplayMessageName.Contains("Positive"))
+            {
+                endingResult = 1;
+            }
+            else if (currentDisplayMessageName.Contains("Negative"))
+            {
+                endingResult = -1;    
+            }
+
+            PlayerDataManager.MarkPlayerReachedEnding(endingResult);
+            AnalyticsManager.SendGameCompleteEvent(endingResult);
+
             PlayerDataManager.SaveData();
+            
+            AnalyticsManager.SendDeferredEvents();
 
             GameScreenGumInstance.FadeOutAnimation.Play(this);
             this.Call(() => LoadingScreen.TransitionToScreen(typeof(EndingScreen))

@@ -15,6 +15,14 @@ namespace AbbatoirIntergrade.StaticManagers
     public static class PlayerDataManager
     {
         private static PlayerData Data { get; set; }
+
+        public static string CurrentPlayerId => Data.PlayerId;
+
+        private static double? RecordedPlayTime = null;
+        public static double TotalPlayTimeInSeconds => RecordedPlayTime.Value + FlatRedBall.TimeManager.CurrentTime;
+
+        public static int GameLaunchCount => Data.GameLaunchCount;
+        
         private static string LastShownDialogueId;
         public static string LastChosenDialogueId;
 
@@ -23,6 +31,7 @@ namespace AbbatoirIntergrade.StaticManagers
         public static string LastLevelNameCompleted => Data.ChapterResults.Count == 0 ? "" : Data.ChapterResults.MaxBy(lr => lr.LevelNumber).LevelName;
 
         public static SerializableDictionary<string, string> DialogueHistory => Data.DialogueShownChosen;
+        public static float TotalResponseCount => Data.ChosenDialogueIds.Count;
         public static float PositiveDialoguePercent => Data.PercentPositive;
         public static float NeutralDialoguePercent => Data.PercentNeutral;
         public static float NegativeDialoguePercent => Data.PercentNegative;
@@ -30,6 +39,9 @@ namespace AbbatoirIntergrade.StaticManagers
 
         private const string SaveFileName = "PlayerSave.xml";
 
+        public static int TotalWavesSent => Data.ChapterResults.Sum(r => r.WavesCompleted);
+        public static int TotalEnemiesKilled => Data.ChapterResults.Sum(r => r.EnemiesDefeated.TotalEnemies);
+        public static bool PlayerHasBeatGame => Data.HasBeatenGame;
         public static int PlayerEndingReached => Data.GotPositiveEnding ? 1 : Data.GotNegativeEnding ? -1 : 0;
         public static bool PlayerHasSeenIntro => Data.HasSeenIntro;
 
@@ -45,12 +57,13 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static void SaveData()
         {
+            if (RecordedPlayTime.HasValue) Data.PlayTimeInSeconds = RecordedPlayTime.Value + FlatRedBall.TimeManager.CurrentTime;
             FlatRedBall.IO.FileManager.XmlSerialize(Data, SaveFileName);
 
             FlatRedBall.Debugging.Debugger.CommandLineWrite("Saved " + SaveFileName);
         }
 
-        public static void LoadData()
+        public static void LoadData(bool firstLoad = false)
         {
             var doesFileExist = FlatRedBall.IO.FileManager.FileExists(SaveFileName);
 
@@ -62,6 +75,8 @@ namespace AbbatoirIntergrade.StaticManagers
             {
                 InitializeNewData();
             }
+            if (!RecordedPlayTime.HasValue) RecordedPlayTime = Data.PlayTimeInSeconds;
+            if (firstLoad) Data.GameLaunchCount += 1;
 
             SoundManager.MusicVolumeLevel = Data.PreferredMusicVolume;
             SoundManager.SoundVolumeLevel = Data.PreferredSoundVolume;

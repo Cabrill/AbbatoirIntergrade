@@ -12,8 +12,6 @@ namespace AbbatoirIntergrade.StaticManagers
     public static class GameStateManager
     {
         public static bool HasLoadedData = false;
-
-        private const string TempGeneticsFileName = "Genetics.xml";
         private const string TempModelFileName = "DBNModel.obj";
         private const string TempWaveDataFileName = "WaveData.obj";
 
@@ -35,13 +33,12 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static void LoadIfNecessary()
         {
-            if (!HasLoadedData) LoadAllData();
+            if (!HasLoadedData) LoadAllGameData();
         }
 
-        private static void LoadAllData()
+        private static void LoadAllGameData()
         {
-            PlayerDataManager.LoadData();
-            GeneticsManager.Load(TempGeneticsFileName);
+            GeneticsManager.Initialize();
             MachineLearningManager.LoadData(TempModelFileName, TempWaveDataFileName);
             LoadDialogue();
             HasLoadedData = true;

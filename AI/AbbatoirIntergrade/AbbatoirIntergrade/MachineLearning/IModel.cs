@@ -13,6 +13,8 @@ namespace AbbatoirIntergrade.MachineLearning
         double Predict(double[] input);
         long LastLearnTime { get; }
         bool IsReady { get; }
+        double LastMSE { get; }
+        int LastSampleSize { get; }
 
         bool Save(string fileName);
         bool Load(string fileName);

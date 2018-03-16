@@ -24,7 +24,9 @@ namespace AbbatoirIntergrade.StaticManagers
     public static class MachineLearningManager
     {
         public static bool IsReadyToEvaluate => _machineLearningModel.IsReady;
-
+        public static double CurrentMeanSquaredError => _machineLearningModel.LastMSE;
+        public static int SampleSize => _machineLearningModel.LastSampleSize;
+        
         private static double _waveScore = 0;
         private static WaveData _waveData;
         private static double[] _currentWaveInput;

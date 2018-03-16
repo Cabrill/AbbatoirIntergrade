@@ -459,7 +459,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         public BaseStructure (string contentManagerName, bool addToManagers) 
         	: base()
         {
-            ContentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
+            ContentManagerName = contentManagerName;
             InitializeEntity(addToManagers);
         }
         protected virtual void InitializeEntity (bool addToManagers) 
@@ -591,11 +591,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 }
                 if (AimSpriteInstance.Parent == null)
                 {
-                    AimSpriteInstance.Z = 1f;
+                    AimSpriteInstance.Z = 0f;
                 }
                 else
                 {
-                    AimSpriteInstance.RelativeZ = 1f;
+                    AimSpriteInstance.RelativeZ = 0f;
                 }
                 AimSpriteInstance.Texture = AllParticles;
                 AimSpriteInstance.TextureScale = 1f;
@@ -715,12 +715,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 throw new System.ArgumentException("contentManagerName cannot be empty or null");
             }
-            // Set to use global content
-            contentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
-            ContentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
+            ContentManagerName = contentManagerName;
             // Set the content manager for Gum
             var contentManagerWrapper = new FlatRedBall.Gum.ContentManagerWrapper();
-            contentManagerWrapper.ContentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
+            contentManagerWrapper.ContentManagerName = contentManagerName;
             RenderingLibrary.Content.LoaderManager.Self.ContentLoader = contentManagerWrapper;
             // Access the GumProject just in case it's async loaded
             var throwaway = GlobalContent.GumProject;
@@ -734,6 +732,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 throw new System.Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
             }
             #endif
+            bool registerUnload = false;
             if (LoadedContentManagers.Contains(contentManagerName) == false)
             {
                 LoadedContentManagers.Add(contentManagerName);
@@ -745,16 +744,66 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                         mRegisteredUnloads.Add(ContentManagerName);
                     }
                 }
+                if (!FlatRedBall.FlatRedBallServices.IsLoaded<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/baseentities/basestructure/basestructureanimationchainlistfile.achx", ContentManagerName))
+                {
+                    registerUnload = true;
+                }
                 BaseStructureAnimationChainListFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/baseentities/basestructure/basestructureanimationchainlistfile.achx", ContentManagerName);
+                if (!FlatRedBall.FlatRedBallServices.IsLoaded<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/projectiles/allparticles.png", ContentManagerName))
+                {
+                    registerUnload = true;
+                }
                 AllParticles = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/projectiles/allparticles.png", ContentManagerName);
+                if (!FlatRedBall.FlatRedBallServices.IsLoaded<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/baseentities/basestructure/rangecircletexture.png", ContentManagerName))
+                {
+                    registerUnload = true;
+                }
                 RangeCircleTexture = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/baseentities/basestructure/rangecircletexture.png", ContentManagerName);
+                if (!FlatRedBall.FlatRedBallServices.IsLoaded<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/baseentities/basestructure/minrangecircletexture.png", ContentManagerName))
+                {
+                    registerUnload = true;
+                }
                 MinRangeCircleTexture = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/baseentities/basestructure/minrangecircletexture.png", ContentManagerName);
+            }
+            if (registerUnload && ContentManagerName != FlatRedBall.FlatRedBallServices.GlobalContentManager)
+            {
+                lock (mLockObject)
+                {
+                    if (!mRegisteredUnloads.Contains(ContentManagerName) && ContentManagerName != FlatRedBall.FlatRedBallServices.GlobalContentManager)
+                    {
+                        FlatRedBall.FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("BaseStructureStaticUnload", UnloadStaticContent);
+                        mRegisteredUnloads.Add(ContentManagerName);
+                    }
+                }
             }
             CustomLoadStaticContent(contentManagerName);
         }
         public static void UnloadStaticContent () 
         {
-            // Intentionally left blank because this element uses global content, so it should never be unloaded
+            if (LoadedContentManagers.Count != 0)
+            {
+                LoadedContentManagers.RemoveAt(0);
+                mRegisteredUnloads.RemoveAt(0);
+            }
+            if (LoadedContentManagers.Count == 0)
+            {
+                if (BaseStructureAnimationChainListFile != null)
+                {
+                    BaseStructureAnimationChainListFile= null;
+                }
+                if (AllParticles != null)
+                {
+                    AllParticles= null;
+                }
+                if (RangeCircleTexture != null)
+                {
+                    RangeCircleTexture= null;
+                }
+                if (MinRangeCircleTexture != null)
+                {
+                    MinRangeCircleTexture= null;
+                }
+            }
         }
         static VariableState mLoadingState = VariableState.Uninitialized;
         public static VariableState LoadingState
@@ -1029,7 +1078,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         }
         public static void PreloadStateContent (VariableState state, string contentManagerName) 
         {
-            ContentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
+            ContentManagerName = contentManagerName;
             switch(state)
             {
                 case  VariableState.ValidLocation:
@@ -1046,7 +1095,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         }
         public static void PreloadStateContent (OnOff state, string contentManagerName) 
         {
-            ContentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
+            ContentManagerName = contentManagerName;
             switch(state)
             {
                 case  OnOff.On:

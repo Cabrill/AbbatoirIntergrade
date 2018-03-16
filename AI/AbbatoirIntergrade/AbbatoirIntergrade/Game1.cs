@@ -17,6 +17,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using AbbatoirIntergrade.GameClasses;
+using AbbatoirIntergrade.StaticManagers;
 using TMXGlueLib.DataTypes;
 
 namespace AbbatoirIntergrade
@@ -47,6 +48,18 @@ namespace AbbatoirIntergrade
                 this.GetType().GetTypeInfo().Assembly;
 #endif
 
+            PlayerDataManager.LoadData(firstLoad:true);
+            AnalyticsManager.Initialize();
+
+            var currentStatus = new
+            {
+                CurrentDateTime = DateTime.UtcNow.ToString(),
+                FirstLaunch = (!PlayerDataManager.PlayerHasSeenIntro).ToString(),
+                LaunchCount = PlayerDataManager.GameLaunchCount,
+                HasBeatenGame = PlayerDataManager.PlayerHasBeatGame.ToString(),
+            };
+
+            AnalyticsManager.SendEventImmediately("GameLaunch", currentStatus);
         }
 
         protected override void Initialize()
@@ -65,7 +78,7 @@ namespace AbbatoirIntergrade
 
 			CameraSetup.SetupCamera(SpriteManager.Camera, graphics);
 			GlobalContent.Initialize();
-			FlatRedBall.Screens.ScreenManager.Start(typeof(AbbatoirIntergrade.Screens.MainMenu));
+			FlatRedBall.Screens.ScreenManager.Start(typeof(AbbatoirIntergrade.Screens.GameScreen));
             base.Initialize();
         }
 

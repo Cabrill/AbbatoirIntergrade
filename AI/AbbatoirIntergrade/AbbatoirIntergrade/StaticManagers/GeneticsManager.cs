@@ -9,11 +9,14 @@ using Accord.IO;
 using FlatRedBall;
 using FlatRedBall.Instructions;
 using FlatRedBall.IO;
+using MoreLinq;
 
 namespace AbbatoirIntergrade.StaticManagers
 {
     public static class GeneticsManager
     {
+        private const string TempGeneticsFileName = "Genetics.xml";
+
         private const int ChromosomeLength = 8;
         private const int PopulationSize = 50;
         private const int NumberOfChromosomesToSelect = 10;
@@ -23,6 +26,7 @@ namespace AbbatoirIntergrade.StaticManagers
         private static FitnessFunction ChromosomeFitnessFunction;
 
         private static SerializableDictionary<EnemyTypes, List<SerializableChromosome>> EnemyTypeChromosomes;
+        private static SerializableDictionary<EnemyTypes, List<SerializableChromosome>> LegacyChromosomes;
 
         private static string _geneticsFileName;
 
@@ -34,29 +38,38 @@ namespace AbbatoirIntergrade.StaticManagers
 
             if (EnemyTypeChromosomes == null)
             {
-                EnemyTypeChromosomes = new SerializableDictionary<EnemyTypes, List<SerializableChromosome>>();
-                foreach (EnemyTypes enemyType in Enum.GetValues(typeof(EnemyTypes)))
+                var loadWasSuccessful = Load(TempGeneticsFileName);
+                if (!loadWasSuccessful) CreateNewGeneticPool();
+            }
+        }
+
+        private static void CreateNewGeneticPool()
+        {
+            EnemyTypeChromosomes = new SerializableDictionary<EnemyTypes, List<SerializableChromosome>>();
+            foreach (EnemyTypes enemyType in Enum.GetValues(typeof(EnemyTypes)))
+            {
+                var chromosomeList = new List<SerializableChromosome>();
+
+                for (var i = 0; i < PopulationSize; i++)
                 {
-                    var chromosomeList = new List<SerializableChromosome>();
-
-                    for (var i = 0; i < PopulationSize; i++)
-                    {
-                        chromosomeList.Add(GenerateNewChromsome());
-                    }
-
-                    EnemyTypeChromosomes.Add(enemyType, chromosomeList);
+                    chromosomeList.Add(GenerateNewChromsome());
                 }
+
+                EnemyTypeChromosomes.Add(enemyType, chromosomeList);
             }
         }
 
         public static bool Load(string fileName)
         {
             _geneticsFileName = fileName;
+            var _legacyGeneticsFileName = "Legacy" + fileName;
+
             var fileExists = FileManager.FileExists(_geneticsFileName);
             if (!fileExists) return false;
             try
             {
                 EnemyTypeChromosomes = FileManager.XmlDeserialize(typeof(SerializableDictionary<EnemyTypes, List<SerializableChromosome>>), _geneticsFileName) as SerializableDictionary<EnemyTypes, List<SerializableChromosome>>;
+                LegacyChromosomes = FileManager.XmlDeserialize(typeof(SerializableDictionary<EnemyTypes, List<SerializableChromosome>>), _legacyGeneticsFileName) as SerializableDictionary<EnemyTypes, List<SerializableChromosome>>;
             }
             catch (Exception ex)
             {
@@ -68,9 +81,11 @@ namespace AbbatoirIntergrade.StaticManagers
         public static bool Save(string fileName)
         {
             _geneticsFileName = fileName;
+            var _legacyGeneticsFileName = "Legacy" + fileName;
             try
             {
                 FileManager.XmlSerialize(EnemyTypeChromosomes, _geneticsFileName);
+                FileManager.XmlSerialize(LegacyChromosomes, _legacyGeneticsFileName);
             }
             catch (Exception ex)
             {
@@ -100,6 +115,42 @@ namespace AbbatoirIntergrade.StaticManagers
             }
 
             return chromosomeList;
+        }
+
+        public static SerializableChromosome GetBestChromsomeForEnemyType(EnemyTypes enemyType)
+        {
+            try
+            {
+                RankFitness(enemyType, EnemyTypeChromosomes[enemyType]);
+
+                return EnemyTypeChromosomes[enemyType].MaxBy(e => e.Fitness);
+            }
+            catch (Exception e)
+            {
+#if DEBUG
+                throw;
+#else
+                return null;
+#endif
+            }
+        }
+
+        public static SerializableChromosome GetBestLegacyChromosomeForEnemyType(EnemyTypes enemyType)
+        {
+            try
+            {
+                RankFitness(enemyType, LegacyChromosomes[enemyType]);
+
+                return LegacyChromosomes[enemyType].MaxBy(e => e.Fitness);
+            }
+            catch (Exception e)
+            {
+#if DEBUG
+                throw;
+#else
+                return null;
+#endif
+            }
         }
 
         public static void EvaluateAndGenerate()

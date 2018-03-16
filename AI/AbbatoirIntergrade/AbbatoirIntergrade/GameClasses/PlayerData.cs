@@ -13,6 +13,15 @@ namespace AbbatoirIntergrade.GameClasses
     [XmlRoot("PlayerData")]
     public class PlayerData
     {
+        [XmlElement("PlayerId")]
+        public string PlayerId { get; set; } = Guid.NewGuid().ToString("N");
+
+        [XmlElement("PlayTimeInSeconds")]
+        public double PlayTimeInSeconds { get; set; }
+
+        [XmlElement("GameLaunchCount")]
+        public int GameLaunchCount { get; set; }
+
         [XmlElement("HasSeenIntro")]
         public bool HasSeenIntro { get; set; }
 

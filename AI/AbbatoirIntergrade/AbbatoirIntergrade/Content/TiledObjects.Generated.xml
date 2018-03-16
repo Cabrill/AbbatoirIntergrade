@@ -124,6 +124,9 @@
     <property name="AxisAlignedRectangleInstanceWidth" type="float" default="128" />
     <property name="AxisAlignedRectangleInstanceHeight" type="float" default="128" />
   </objecttype>
+  <objecttype name="TiledOverlay">
+    <property name="ChainName" type="string" />
+  </objecttype>
   <objecttype name="CannonProjectile">
     <property name="DamageInflicted" type="float" default="1" />
     <property name="HasLightSource" type="bool" default="false" />

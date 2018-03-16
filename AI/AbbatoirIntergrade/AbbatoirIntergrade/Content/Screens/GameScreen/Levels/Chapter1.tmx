@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="72">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="74">
  <tileset firstgid="1" name="CombinedAssets" tilewidth="128" tileheight="128" tilecount="1024" columns="32">
   <image source="../../../Tilesets/CombinedAssets.png" width="4096" height="4096"/>
   <tile id="124" type="StructurePlacement">
@@ -11,6 +11,118 @@
   <tile id="361" probability="0.5"/>
   <tile id="392" probability="0.25"/>
   <tile id="393" probability="0.5"/>
+  <tile id="696" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="SmallFence"/>
+   </properties>
+  </tile>
+  <tile id="700" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="StackedRock"/>
+   </properties>
+  </tile>
+  <tile id="719" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="WideTree"/>
+   </properties>
+  </tile>
+  <tile id="755" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="YellowFlower"/>
+   </properties>
+  </tile>
+  <tile id="765" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="SmallLog"/>
+   </properties>
+  </tile>
+  <tile id="776" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="Bonsai"/>
+   </properties>
+  </tile>
+  <tile id="801" type="TiledOverlay"/>
+  <tile id="812" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="TallestTree"/>
+   </properties>
+  </tile>
+  <tile id="816" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="LongLog"/>
+   </properties>
+  </tile>
+  <tile id="821" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="Fence"/>
+   </properties>
+  </tile>
+  <tile id="829" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="MediumRock"/>
+   </properties>
+  </tile>
+  <tile id="833" type="TiledOverlay"/>
+  <tile id="891" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="Bush"/>
+   </properties>
+  </tile>
+  <tile id="914" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="WideBush"/>
+   </properties>
+  </tile>
+  <tile id="918" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="Stump"/>
+   </properties>
+  </tile>
+  <tile id="920" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="Fern"/>
+   </properties>
+  </tile>
+  <tile id="961" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="TallRock"/>
+   </properties>
+  </tile>
+  <tile id="974" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="JustTree"/>
+   </properties>
+  </tile>
+  <tile id="977">
+   <properties>
+    <property name="ChainName" value=""/>
+   </properties>
+  </tile>
+  <tile id="984" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="Cactus"/>
+   </properties>
+  </tile>
+  <tile id="997" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="Bamboo"/>
+   </properties>
+  </tile>
+  <tile id="1002" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="WillowTree"/>
+   </properties>
+  </tile>
+  <tile id="1010" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="WideRock"/>
+   </properties>
+  </tile>
+  <tile id="1013" type="TiledOverlay">
+   <properties>
+    <property name="ChainName" value="PinkFlower"/>
+   </properties>
+  </tile>
  </tileset>
  <tileset firstgid="1025" name="CollisionShapes" tilewidth="128" tileheight="128" tilecount="2" columns="2">
   <image source="../../../Tilesets/CollisionShapes.png" width="256" height="128"/>
@@ -29,17 +141,12 @@
  </layer>
  <layer name="Objects" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC83RSw7BQBjA8cn0AF7X8BaPDW6CM+Ak2OEQbLULjz3lHp4JYeWfqGQibWckFib5pe3MN998nU+I/xwTS4ip9bt8Lrm2WGCJ1UfuPd8HHA3PPBF3VmLD9t+lEA8Zns9m3dHEmI4qNdRQRwRRxBBHwqe+IXMjjAP+fa7cWwZZ5JBHwWfPjDkbTkC+dy92X/a3QXwTLW/fmvvawJWvXlzQRgddL6bIs4QyKsp5Sd5TSGtq6LHex0ATd6WGm0H/nteG5QBwAwAA
+   H4sIAAAAAAAAC2NgGJxgIzN97XsHtO89EH8g0158+n8yMTD8YqLMfbQEs4FungPEc6kU5ruB5uwB4r1UjsM4oHnxQJxABXN1oGbUA+kGKpj3DRi/34mIYwBQdrLWcAMAAA==
   </data>
  </layer>
- <layer name="Overlay2" width="20" height="11">
+ <layer name="OverlayedObjects" width="20" height="11" visible="0">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC7WSuQ5BQRRAb+a16CwN/sle8ReoSFB6tgI1Svt34EtQ0jrFS0wsE8V1k5O5s9wzd5IR0Y2WJ9KGjqfjm+GZw0LJpxE3I3I3z3mB3opQcvTY5bwPPfO+l6QuBemgvspYg7rDt8SzgvUH32uM8Uxg6vAd8BzhZPn65AMYwuiHe+w4c/4CV6tuQ76FHeyD9Qw9ZSEHeYhCDOKQsPoNkYch8uUNZdYrin+kgav5hz/3AAm/BadwAwAA
-  </data>
- </layer>
- <layer name="Overlay" width="20" height="11">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAXkgDlMDAxzmahjViMzA0MTEDczU8e8hUBzFgHxYiqZtxFoziYg3kwl8y5SyRwY+Ehl82gJAB2chOJwAwAA
+   H4sIAAAAAAAAC2NgoA1oYaZM/0YK9eMCh4DmHgbiIxSa/xGo/xMV3biHiYFhLxOqWAWZ5tsC9dkBsT0Q8wOxABBPB2IhIBYmw8yDzIhw0wdiAyA2BGIjIDamcjyJAs0TA2JxIJZAMpsHhz0XmBBx8RmIi4C4GIhLoOpNgbQZEJsDsQWSGTpAti4et9cB5eqBeBIQTwbiKQT8+Q3oju9M+NWAAACGDZ4+cAMAAA==
   </data>
  </layer>
  <objectgroup name="EntityLayer">
@@ -94,7 +201,7 @@
    <polyline points="0,0 1240.12,20 1167.09,-282.485 678.061,-235.576 710,-1061.15 2144.12,-1018.18 2077.12,-602.515 1704.3,-652.303 1778.3,28.0606 2575.14,-25.3485"/>
   </object>
  </objectgroup>
- <objectgroup name="Collisions">
+ <objectgroup name="Collisions" visible="0">
   <object id="2" type="TileCollisionCircle" gid="1026" x="120" y="1266" width="238" height="238">
    <properties>
     <property name="CircleInstanceRadius" type="float" value="119"/>
@@ -117,7 +224,7 @@
     <property name="AxisAlignedRectangleInstanceWidth" type="float" value="2794"/>
    </properties>
   </object>
-  <object id="28" type="TileCollisionRectangle" gid="1025" x="2338" y="1150" width="212" height="880">
+  <object id="28" type="TileCollisionRectangle" gid="1025" x="2353" y="1144" width="197" height="874">
    <properties>
     <property name="AxisAlignedRectangleInstanceHeight" type="float" value="880"/>
     <property name="AxisAlignedRectangleInstanceWidth" type="float" value="212"/>
