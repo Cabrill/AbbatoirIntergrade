@@ -256,6 +256,17 @@ namespace AbbatoirIntergrade.Screens
             }
             ShapeManager.AddToLayer(Pathing, WorldLayer);
 
+            foreach (var overlay in TiledOverlayList)
+            {
+                overlay.ForceUpdateDependenciesDeep();
+                overlay.Detach();
+            }
+            foreach (var place in StructurePlacementList)
+            {
+                place.ForceUpdateDependenciesDeep();
+                place.Detach();
+            }
+
 #if DEBUG
             if (DebugVariables.ShowDebugShapes)
             {
@@ -312,6 +323,13 @@ namespace AbbatoirIntergrade.Screens
                 if (CurrentLevel.HasReachedDefeat())
                 {
                     LevelFailed();
+                }
+            }
+            else
+            {
+                foreach (var enemy in AllEnemiesList)
+                {
+                    enemy.UpdateSpritesRelativeY();
                 }
             }
         }

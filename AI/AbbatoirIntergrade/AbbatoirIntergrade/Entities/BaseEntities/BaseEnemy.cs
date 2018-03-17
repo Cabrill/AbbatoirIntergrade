@@ -105,9 +105,13 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		        StunParticles.ScaleY = SpriteInstance.Height / 2;
 		        StunParticles.RelativeY = SpriteInstance.Height / 2;
 
-		        HealthBar.SetWidth(SpriteInstance.Width);
+		        var healthbarWidth = (SpriteInstance.AnimationChains[0][0].RightCoordinate -
+		                              SpriteInstance.AnimationChains[0][0].LeftCoordinate) * SpriteInstance.AnimationChains[0][0].Texture.Width;
+
+
+                HealthBar.SetWidth(healthbarWidth);
 		        maxFrameHeight = GetMaxFrameHeight();
-		    }
+            }
 
 		    if (drowningSound == null || drowningSound.IsDisposed)
 		    {
@@ -143,7 +147,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 		    SetGenetics();
 
-            UpdateAnimation();
+            UpdateSpritesRelativeY();
 		}
 
 	    private void SetBaseAttributes()
@@ -219,11 +223,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		        SetDirection();
 		    }
 
-		    UpdateAnimation();
+		    UpdateSpritesRelativeY();
             UpdateHealthBar();
 		}
 
-        private void UpdateAnimation()
+        public void UpdateSpritesRelativeY()
 	    {
 	        SpriteInstance.RelativeY = Altitude + _spriteRelativeY + SpriteInstance.CurrentChain[SpriteInstance.CurrentFrameIndex].RelativeY;
 
@@ -301,7 +305,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        {
                 CurrentActionState = Action.Hurt;
                 SpriteInstance.UpdateToCurrentAnimationFrame();
-	            UpdateAnimation();
+	            UpdateSpritesRelativeY();
 	        }
 	    }
 
