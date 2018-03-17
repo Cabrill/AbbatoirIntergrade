@@ -22,6 +22,7 @@ namespace AbbatoirIntergrade.StaticManagers
         private const int NumberOfChromosomesToSelect = 10;
         private const float PercentToCrossover= 0.5f;
         private const float PercentToMutate = 0.3f;
+        private static int? GenerationCount;
         
         private static FitnessFunction ChromosomeFitnessFunction;
 
@@ -45,6 +46,7 @@ namespace AbbatoirIntergrade.StaticManagers
 
         private static void CreateNewGeneticPool()
         {
+            GenerationCount = 0;
             EnemyTypeChromosomes = new SerializableDictionary<EnemyTypes, List<SerializableChromosome>>();
             foreach (EnemyTypes enemyType in Enum.GetValues(typeof(EnemyTypes)))
             {
@@ -63,6 +65,7 @@ namespace AbbatoirIntergrade.StaticManagers
         {
             _geneticsFileName = fileName;
             var _legacyGeneticsFileName = "Legacy" + fileName;
+            var _generationCountFileName = "Count" + fileName;
 
             var fileExists = FileManager.FileExists(_geneticsFileName);
             if (!fileExists) return false;
@@ -70,6 +73,7 @@ namespace AbbatoirIntergrade.StaticManagers
             {
                 EnemyTypeChromosomes = FileManager.XmlDeserialize(typeof(SerializableDictionary<EnemyTypes, List<SerializableChromosome>>), _geneticsFileName) as SerializableDictionary<EnemyTypes, List<SerializableChromosome>>;
                 LegacyChromosomes = FileManager.XmlDeserialize(typeof(SerializableDictionary<EnemyTypes, List<SerializableChromosome>>), _legacyGeneticsFileName) as SerializableDictionary<EnemyTypes, List<SerializableChromosome>>;
+                GenerationCount = FileManager.XmlDeserialize(typeof(int?), _generationCountFileName) as int?;
             }
             catch (Exception ex)
             {
@@ -82,10 +86,13 @@ namespace AbbatoirIntergrade.StaticManagers
         {
             _geneticsFileName = fileName;
             var _legacyGeneticsFileName = "Legacy" + fileName;
+            var _generationCountFileName = "Count" + fileName;
+
             try
             {
                 FileManager.XmlSerialize(EnemyTypeChromosomes, _geneticsFileName);
                 FileManager.XmlSerialize(LegacyChromosomes, _legacyGeneticsFileName);
+                FileManager.XmlSerialize(GenerationCount, _generationCountFileName);
             }
             catch (Exception ex)
             {
@@ -190,14 +197,63 @@ namespace AbbatoirIntergrade.StaticManagers
                     }
                 }
                 EnemyTypeChromosomes = newDictionary;
+                GenerationCount++;
 
                 RefreshAllFitnessEvaluations();
+                
+                AnalyticsManager.SendEventImmediately("GeneticGeneration", CreateEventObject());
 
                 Action UpdateAction = () => Save(_geneticsFileName); 
                 InstructionManager.AddSafe(UpdateAction);
             }
 
             Task.Run((Action)RefreshAndGenerateTask);
+        }
+
+        private static object CreateEventObject()
+        {
+            var eventObject = new
+            {
+                GenerationNumber = GenerationCount ?? 0,
+
+                Chicken1Legacy = GetBestLegacyChromosomeForEnemyType(EnemyTypes.Chicken1)?.Fitness,
+                Chicken1Current = GetBestChromsomeForEnemyType(EnemyTypes.Chicken1)?.Fitness,
+                Chicken2Legacy = GetBestLegacyChromosomeForEnemyType(EnemyTypes.Chicken2)?.Fitness,
+                Chicken2Current = GetBestChromsomeForEnemyType(EnemyTypes.Chicken2)?.Fitness,
+                Chicken3Legacy = GetBestLegacyChromosomeForEnemyType(EnemyTypes.Chicken3)?.Fitness,
+                Chicken3Current = GetBestChromsomeForEnemyType(EnemyTypes.Chicken3)?.Fitness,
+
+                Pig1Legacy = GetBestLegacyChromosomeForEnemyType(EnemyTypes.Pig1)?.Fitness,
+                Pig1Current = GetBestChromsomeForEnemyType(EnemyTypes.Pig1)?.Fitness,
+                Pig2Legacy = GetBestLegacyChromosomeForEnemyType(EnemyTypes.Pig2)?.Fitness,
+                Pig2Current = GetBestChromsomeForEnemyType(EnemyTypes.Pig2)?.Fitness,
+                Pig3Legacy = GetBestLegacyChromosomeForEnemyType(EnemyTypes.Pig3)?.Fitness,
+                Pig3Current = GetBestChromsomeForEnemyType(EnemyTypes.Pig3)?.Fitness,
+
+                Cow1Legacy = GetBestLegacyChromosomeForEnemyType(EnemyTypes.Cow1)?.Fitness,
+                Cow1Current = GetBestChromsomeForEnemyType(EnemyTypes.Cow1)?.Fitness,
+                Cow2Legacy = GetBestLegacyChromosomeForEnemyType(EnemyTypes.Cow2)?.Fitness,
+                Cow2Current = GetBestChromsomeForEnemyType(EnemyTypes.Cow2)?.Fitness,
+                Cow3Legacy = GetBestLegacyChromosomeForEnemyType(EnemyTypes.Cow3)?.Fitness,
+                Cow3Current = GetBestChromsomeForEnemyType(EnemyTypes.Cow3)?.Fitness,
+
+                Rabbit1Legacy = GetBestLegacyChromosomeForEnemyType(EnemyTypes.Rabbit1)?.Fitness,
+                Rabbit1Current = GetBestChromsomeForEnemyType(EnemyTypes.Rabbit1)?.Fitness,
+                Rabbit2Legacy = GetBestLegacyChromosomeForEnemyType(EnemyTypes.Rabbit2)?.Fitness,
+                Rabbit2Current = GetBestChromsomeForEnemyType(EnemyTypes.Rabbit2)?.Fitness,
+                Rabbit3Legacy = GetBestLegacyChromosomeForEnemyType(EnemyTypes.Rabbit3)?.Fitness,
+                Rabbit3Current = GetBestChromsomeForEnemyType(EnemyTypes.Rabbit3)?.Fitness,
+
+                Sheep1Legacy = GetBestLegacyChromosomeForEnemyType(EnemyTypes.Sheep1)?.Fitness,
+                Sheep1Current = GetBestChromsomeForEnemyType(EnemyTypes.Sheep1)?.Fitness,
+                Sheep2Legacy = GetBestLegacyChromosomeForEnemyType(EnemyTypes.Sheep2)?.Fitness,
+                Sheep2Current = GetBestChromsomeForEnemyType(EnemyTypes.Sheep2)?.Fitness,
+                Sheep3Legacy = GetBestLegacyChromosomeForEnemyType(EnemyTypes.Sheep3)?.Fitness,
+                Sheep3Current = GetBestChromsomeForEnemyType(EnemyTypes.Sheep3)?.Fitness,
+                
+            };
+
+            return eventObject;
         }
 
         private static List<SerializableChromosome> CloneList(List<SerializableChromosome> originalList)

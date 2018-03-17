@@ -5,11 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using AbbatoirIntergrade.StaticManagers;
 using Accord.IO;
 using Accord.Math;
 using Accord.Neuro;
 using Accord.Neuro.Learning;
 using Accord.Neuro.Networks;
+using FlatRedBall;
 using FlatRedBall.Instructions;
 using FlatRedBall.IO;
 
@@ -93,6 +95,13 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             {
                 var updatedNetwork = LearnOnBackgroundThread(waveData.WaveInputs.ToArray(), waveData.WaveScores.ToArray());
                 MeanSquaredError(waveData);
+                var performanceData = new
+                {
+                    MSE = LastMSE,
+                    SampleSize = LastSampleSize,
+                    LearnTime = LastLearnTime,
+                };
+                AnalyticsManager.SendEventImmediately("ModelUpdate", performanceData);
                 Action UpdateAction = () => ReplaceModelWithUpdate(updatedNetwork);
                 InstructionManager.AddSafe(UpdateAction);
             }
@@ -186,9 +195,16 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             if (double.IsInfinity(prediction) || double.IsNaN(prediction))
             {
 #if DEBUG
-                //throw new Exception("Prediction was NaN");
+                throw new Exception("Prediction was NaN");
 #endif
-                prediction = 0;
+                var errorEventObject = new
+                {
+                    SampleSize = LastSampleSize,
+                    LearnTime = LastLearnTime,
+                    MSE = LastMSE
+                };
+                AnalyticsManager.SendEventImmediately("PredictionError", errorEventObject);
+                prediction = FlatRedBallServices.Random.Between(0.00000001f, 0.00000005f);
             }
 
             LastPredictTime = sw.ElapsedMilliseconds;
