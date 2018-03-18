@@ -1754,17 +1754,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>CollisionShapes</Name>
     </None>
-    <None Include="content\tilesets\collisionshapes.tsx">
+    <None Include="content\tilesets\collisionshapestileset.tsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>CollisionShapes</Name>
+      <Name>collisionshapestileset</Name>
     </None>
     <None Include="content\tilesets\combinedassets.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>CombinedAssets</Name>
     </None>
+    <None Include="content\tilesets\combinedassets.tsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combinedassets</Name>
+    </None>
     <None Include="content\tilesets\combinedassetstileset.tsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>CombinedAssetsTileset</Name>
+      <Name>combinedassetstileset</Name>
     </None>
     <None Include="packages.config" />
     <None Include="x64\SDL2.dll">
@@ -1837,6 +1841,14 @@
       <Project>{fc2030b0-e60b-434d-a513-400270b8d7c6}</Project>
       <Name>GumCoreDesktopGL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="content\screens\gamescreen\levels\CollisionShapesTilesets.tsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="content\screens\gamescreen\levels\CombinedAssetsTileset.tsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

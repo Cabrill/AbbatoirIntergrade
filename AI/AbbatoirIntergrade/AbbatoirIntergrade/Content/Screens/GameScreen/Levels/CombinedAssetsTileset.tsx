@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="CombinedAssets" tilewidth="128" tileheight="128" tilecount="1024" columns="32">
- <image source="CombinedAssets.png" width="4096" height="4096"/>
- <tile id="124">
+ <image source="../../../Tilesets/CombinedAssets.png" width="4096" height="4096"/>
+ <tile id="124" type="StructurePlacement">
   <properties>
    <property name="PlacementOrder" type="int" value="0"/>
   </properties>
@@ -10,84 +10,100 @@
  <tile id="361" probability="0.5"/>
  <tile id="392" probability="0.25"/>
  <tile id="393" probability="0.5"/>
- <tile id="696">
+ <tile id="696" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="SmallFence"/>
   </properties>
  </tile>
- <tile id="700">
+ <tile id="700" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="StackedRock"/>
   </properties>
  </tile>
- <tile id="719">
+ <tile id="719" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="WideTree"/>
   </properties>
  </tile>
- <tile id="755">
+ <tile id="723" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="YellowFlower"/>
   </properties>
  </tile>
- <tile id="765">
+ <tile id="733" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="SmallLog"/>
   </properties>
  </tile>
- <tile id="776">
+ <tile id="776" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="Bonsai"/>
   </properties>
  </tile>
- <tile id="812">
+ <tile id="812" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="TallestTree"/>
   </properties>
  </tile>
- <tile id="816">
+ <tile id="816" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="LongLog"/>
   </properties>
  </tile>
- <tile id="821">
+ <tile id="821" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="Fence"/>
   </properties>
  </tile>
- <tile id="829">
+ <tile id="826" type="TiledOverlay">
+  <properties>
+   <property name="ChainName" value="Weed"/>
+  </properties>
+ </tile>
+ <tile id="829" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="MediumRock"/>
   </properties>
  </tile>
- <tile id="882">
+ <tile id="833" type="TiledOverlay"/>
+ <tile id="882" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="WideBush"/>
   </properties>
  </tile>
- <tile id="891">
-  <properties>
-   <property name="ChainName" value="Bush"/>
-  </properties>
- </tile>
- <tile id="918">
+ <tile id="886" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="Stump"/>
   </properties>
  </tile>
- <tile id="920">
+ <tile id="891" type="TiledOverlay">
+  <properties>
+   <property name="ChainName" value="Bush"/>
+  </properties>
+ </tile>
+ <tile id="920" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="Fern"/>
   </properties>
  </tile>
- <tile id="961">
+ <tile id="942" type="TiledOverlay">
+  <properties>
+   <property name="ChainName" value="JustTree"/>
+  </properties>
+ </tile>
+ <tile id="957" type="TiledOverlay">
+  <properties>
+   <property name="ChainName" value="OrangeFlower"/>
+  </properties>
+ </tile>
+ <tile id="961" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="TallRock"/>
   </properties>
  </tile>
- <tile id="974">
+ <tile id="965" type="TiledOverlay">
   <properties>
-   <property name="ChainName" value="JustTree"/>
+   <property name="ChainName" value="Bamboo"/>
   </properties>
  </tile>
  <tile id="977">
@@ -95,12 +111,17 @@
    <property name="ChainName" value=""/>
   </properties>
  </tile>
- <tile id="978">
+ <tile id="978" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="WideRock"/>
   </properties>
  </tile>
- <tile id="984">
+ <tile id="981" type="TiledOverlay">
+  <properties>
+   <property name="ChainName" value="PinkFlower"/>
+  </properties>
+ </tile>
+ <tile id="984" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="Cactus"/>
   </properties>
@@ -110,14 +131,9 @@
    <property name="ChainName" value="Bamboo"/>
   </properties>
  </tile>
- <tile id="1002">
+ <tile id="1002" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="WillowTree"/>
-  </properties>
- </tile>
- <tile id="1013">
-  <properties>
-   <property name="ChainName" value="PinkFlower"/>
   </properties>
  </tile>
 </tileset>

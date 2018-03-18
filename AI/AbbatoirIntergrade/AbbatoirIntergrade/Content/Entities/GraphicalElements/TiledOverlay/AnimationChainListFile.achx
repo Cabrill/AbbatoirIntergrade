@@ -94,7 +94,7 @@
       <TopCoordinate>2573</TopCoordinate>
       <BottomCoordinate>2940</BottomCoordinate>
       <RelativeX>34</RelativeX>
-      <RelativeY>40</RelativeY>
+      <RelativeY>128</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -143,7 +143,7 @@
       <TopCoordinate>3347</TopCoordinate>
       <BottomCoordinate>3617</BottomCoordinate>
       <RelativeX>-55</RelativeX>
-      <RelativeY>165</RelativeY>
+      <RelativeY>37</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -166,7 +166,8 @@
       <RightCoordinate>2586</RightCoordinate>
       <TopCoordinate>3726</TopCoordinate>
       <BottomCoordinate>4036</BottomCoordinate>
-      <RelativeY>-70</RelativeY>
+      <RelativeX>-16</RelativeX>
+      <RelativeY>24</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -189,8 +190,8 @@
       <RightCoordinate>3913</RightCoordinate>
       <TopCoordinate>3095</TopCoordinate>
       <BottomCoordinate>3265</BottomCoordinate>
-      <RelativeX>110</RelativeX>
-      <RelativeY>-10</RelativeY>
+      <RelativeX>-24</RelativeX>
+      <RelativeY>85</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>

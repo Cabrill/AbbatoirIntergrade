@@ -102,6 +102,7 @@
         <ReferencedFileSave>
           <Name>Tilesets/CombinedAssets.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>true</IncludeDirectoryRelativeToContainer>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
@@ -122,6 +123,7 @@
         <ReferencedFileSave>
           <Name>Tilesets/CollisionShapes.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>true</IncludeDirectoryRelativeToContainer>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
