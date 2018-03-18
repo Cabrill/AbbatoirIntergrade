@@ -1650,14 +1650,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Chapter9</Name>
     </None>
-    <None Include="content\screens\gamescreen\levels\nope.tsx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>nope</Name>
-    </None>
-    <None Include="content\screens\gamescreen\levels\nope2.tsx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>nope2</Name>
-    </None>
     <None Include="content\screens\gamescreen\monsters\chicken1animations.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Chicken1Animations</Name>

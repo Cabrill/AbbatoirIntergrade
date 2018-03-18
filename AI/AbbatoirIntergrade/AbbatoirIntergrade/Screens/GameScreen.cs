@@ -772,14 +772,19 @@ namespace AbbatoirIntergrade.Screens
 
             if (firstDialogue != null)
             {
-                PlayerDataManager.AddShownDialogueId(firstDialogue.Id);
+                var randomDelay = FlatRedBallServices.Random.Between(1.5f, 3f);
+                this.Call(() =>
+                {
+                    PlayerDataManager.AddShownDialogueId(firstDialogue.Id);
 
-                var dialogueOptions = gameDialogue.GetDialogueOptionsFor(firstDialogue);
+                    var dialogueOptions = gameDialogue.GetDialogueOptionsFor(firstDialogue);
 
-                ChatBoxInstance.UpdateDialogue(firstDialogue, dialogueOptions);
-                ChatBoxInstance.DialogueChosen += DialogueChosen;
-                ChatBoxInstance.Visible = true;
-                SoundManager.PlaySoundEffect(IncomingMessageSound);
+                    ChatBoxInstance.UpdateDialogue(firstDialogue, dialogueOptions);
+                    ChatBoxInstance.DialogueChosen += DialogueChosen;
+                    ChatBoxInstance.Visible = true;
+                    ChatBoxInstance.NewMessageAnimation.Play();
+                    SoundManager.PlaySoundEffect(IncomingMessageSound);
+                }).After(randomDelay);
             }
 
         }
@@ -817,12 +822,13 @@ namespace AbbatoirIntergrade.Screens
                     var newDialogue = gameDialogue.GetResponseFor(chosenDialogue);
 
                     if (newDialogue != null)
-                    {
+                    {)
                         var dialogueOptions = gameDialogue.GetDialogueOptionsFor(newDialogue);
                         dialogueOptions.Shuffle();
 
                         PlayerDataManager.AddShownDialogueId(newDialogue.Id);
                         ChatBoxInstance.UpdateDialogue(newDialogue, dialogueOptions);
+                        ChatBoxInstance.NewMessageAnimation.Play();
                         SoundManager.PlaySoundEffect(IncomingMessageSound);
                     }
                 }

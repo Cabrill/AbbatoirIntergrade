@@ -99,5 +99,31 @@
         </NamedEventSave>
       </Events>
     </AnimationSave>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>NewMessage</Name>
+      <States>
+        <AnimatedStateSave>
+          <StateName>MessageIndicator/NewMessage</StateName>
+          <Time>0</Time>
+          <InterpolationType>Circular</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>MessageIndicator/NewMessageBig</StateName>
+          <Time>1</Time>
+          <InterpolationType>Circular</InterpolationType>
+          <Easing>InOut</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>MessageIndicator/NewMessage</StateName>
+          <Time>2</Time>
+          <InterpolationType>Circular</InterpolationType>
+          <Easing>In</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
   </Animations>
 </ElementAnimationsSave>

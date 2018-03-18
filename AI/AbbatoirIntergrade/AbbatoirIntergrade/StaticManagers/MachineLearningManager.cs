@@ -18,6 +18,8 @@ using FlatRedBall;
 using FlatRedBall.Instructions;
 using FlatRedBall.IO;
 using FlatRedBall.Math.Geometry;
+using Microsoft.Xna.Framework;
+using Point = FlatRedBall.Math.Geometry.Point;
 
 namespace AbbatoirIntergrade.StaticManagers
 {
@@ -486,12 +488,12 @@ namespace AbbatoirIntergrade.StaticManagers
 
         private static double AbsoluteXCoordinateToRelative(float xcoord)
         {
-            return (xcoord + Camera.Main.OrthogonalWidth / 2) / Camera.Main.OrthogonalWidth;
+            return MathHelper.Clamp((xcoord + Camera.Main.OrthogonalWidth / 2) / Camera.Main.OrthogonalWidth, 0, 1);
         }
 
         private static double AbsoluteYCoordinateToRelative(float ycoord)
         {
-            return (ycoord + Camera.Main.OrthogonalHeight / 2) / Camera.Main.OrthogonalHeight;
+            return MathHelper.Clamp((ycoord + Camera.Main.OrthogonalHeight / 2) / Camera.Main.OrthogonalHeight,0,1);
         }
 
         public static List<double> GetPathingAndTowersPartialInput()
