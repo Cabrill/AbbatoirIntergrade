@@ -84,7 +84,7 @@ namespace AbbatoirIntergrade.Screens
             OutgoingMessageSound = OutgoingMessage.CreateInstance();
 
             //TODO:  Set these values by loading a level
-            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
+            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter4Level();
             CurrentLevel.OnNewWaveStart += HandleWaveStarted;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
@@ -197,6 +197,7 @@ namespace AbbatoirIntergrade.Screens
             foreach (var place in StructurePlacementList)
             {
                 place.OnClick += OnStructurePlacementClick;
+                place.SetToIgnorePausing();
                 place.AttachTo(currentMap, true);
                 place.RelativeZ = 3;
             }

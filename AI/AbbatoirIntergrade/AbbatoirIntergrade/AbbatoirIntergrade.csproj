@@ -1650,6 +1650,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Chapter9</Name>
     </None>
+    <None Include="content\screens\gamescreen\levels\nope.tsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>nope</Name>
+    </None>
+    <None Include="content\screens\gamescreen\levels\nope2.tsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>nope2</Name>
+    </None>
     <None Include="content\screens\gamescreen\monsters\chicken1animations.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Chicken1Animations</Name>
@@ -1754,17 +1762,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>CollisionShapes</Name>
     </None>
-    <None Include="content\tilesets\collisionshapestileset.tsx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>collisionshapestileset</Name>
-    </None>
     <None Include="content\tilesets\combinedassets.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>CombinedAssets</Name>
-    </None>
-    <None Include="content\tilesets\combinedassets.tsx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>combinedassets</Name>
     </None>
     <None Include="content\tilesets\combinedassetstileset.tsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

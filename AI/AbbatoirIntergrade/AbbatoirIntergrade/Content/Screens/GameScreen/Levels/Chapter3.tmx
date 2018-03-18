@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="117">
- <tileset firstgid="1" name="CombinedAssets" tilewidth="128" tileheight="128" tilecount="1024" columns="32">
-  <image source="../../../Tilesets/CombinedAssets.png" width="4096" height="4096"/>
-  <tile id="124" type="StructurePlacement">
-   <properties>
-    <property name="PlacementOrder" type="int" value="0"/>
-   </properties>
-  </tile>
-  <tile id="360" probability="0.25"/>
-  <tile id="361" probability="0.5"/>
-  <tile id="392" probability="0.25"/>
-  <tile id="393" probability="0.5"/>
- </tileset>
- <tileset firstgid="1025" name="CollisionShapes" tilewidth="128" tileheight="128" tilecount="2" columns="2">
-  <image source="../../../Tilesets/CollisionShapes.png" width="256" height="128"/>
-  <tile id="0" type="TileCollisionRectangle">
-   <properties>
-    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="128"/>
-    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="128"/>
-   </properties>
-  </tile>
-  <tile id="1" type="TileCollisionCircle"/>
- </tileset>
+ <tileset firstgid="1" source="CombinedAssetsTileset.tsx"/>
+ <tileset firstgid="1025" source="CollisionShapesTilesets.tsx"/>
  <layer name="Ground" width="20" height="11">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC81SWw7CIBAk3KSVAi1+WI2PVI1X8WgexaO5pDNxQuK/TSZ0WXZ2dsC5//6Cd64YOkM0ZMSjIRkmxD3yE3IbxBFxzQ+oKZIbZE2oOxoOgr2g3b96916AB/T10JvAO/t1joR8hz494oxc1XkXGOdzwEzUNoJvQh21FyDL7PXszbvXsup0pu8VhS+j9vxjzpP4G8FbOQJmCNI3iP+ciTFzMzQV6b9tPGVf6g9Ah3iUu6IPnf++kR185RvI2OPMRXykT1xn4Q/Cx3tkr9av9k3w/4LagB619gPMfjVdcAMAAA==
@@ -32,14 +12,14 @@
    H4sIAAAAAAAAC2NgGAWDAfAzMzAIMKOK6QD5ukCsx4xdzx4mBoa9QLyPCVNOH6jHAIc+SgA2Nx0Esg8B8WEgPkKknWVAdeU41D4Eij8C4sdA/ARNjSOQ7wTEzmji04D86cyIcBQEYiEgFkZTZwvk2wGxPVQ8EUgnAXEylH8RSF8C4stAfIUZEY6GQGwExMYkhulHoPpPQPwZiL8AMQD168C2cAMAAA==
   </data>
  </layer>
- <layer name="Overlay2" width="20" height="11">
+ <layer name="Overlay2" width="20" height="11" visible="0">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC63QuQ3CQBCF4WGXEOgAEEdNUI+PEKgAkHyEgMTRAYRADxwhUAN/xsoaOzAe6ZNs78zTeEV+NTEiU8yMVFIrctbY/JHn7nTGBdeCPI8zHwFCpc/d6YU3PgV5EWcxEqRKn7tTw4o00bJ61pyeBZY44qTkaTt55PkIEGayb/Td8cBTydN2iniOkSDN5NV4N7CoO2cjnsc5/1VUPWb6GGBYYr7NTAfdnNkt33fY41AiXyv3vqso976/5Sr2Y3ADAAA=
+   H4sIAAAAAAAAC63PSw7BUBTG8aM1xA4QjzWxntt2iBUg6WNYEo8dMMQePIZYg/9E3DSnHVRP8kvu7T3ny6nIryaOyBQzRyqplJwV1n/k2TudcMalIM/w5sFHoPTZOz3xwrsgL+QtQoxE6bN3argiTbRcPWtOzwJLHHBU8rSdDHkefASZ7Ct9N9zxUPK0nULOEWIkmbwadwcu6tbbiPM457+KqsdMHwMMS8y3memgmzO74fsWO+xL5GtlKsr5VmjlfQDC4lfUcAMAAA==
   </data>
  </layer>
- <layer name="Overlay" width="20" height="11">
+ <layer name="Overlay" width="20" height="11" visible="0">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC93MQRGAMBAEwc2dEkApiRJACUQJYCQjYj8wVfNt6V+tIVVu4fE2nJ0Pk3fiXNxN3o3z8GvySkrBmR5vwpl5MXlfbwCreILncAMAAA==
+   H4sIAAAAAAAAC93SwRFAQBBE0TYTyRIpIlkisSJBIr4c+rK66l/fqaV/bQ5poTU8XsXZaDd5B06j0+RdODc9Jm9IKSjT4xWckSaT1/O+T74QteobcAMAAA==
   </data>
  </layer>
  <objectgroup name="EntityLayer">

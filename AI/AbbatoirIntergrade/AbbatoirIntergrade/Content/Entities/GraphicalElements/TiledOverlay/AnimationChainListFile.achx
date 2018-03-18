@@ -12,6 +12,8 @@
       <RightCoordinate>371</RightCoordinate>
       <TopCoordinate>2643</TopCoordinate>
       <BottomCoordinate>3460</BottomCoordinate>
+      <RelativeX>36</RelativeX>
+      <RelativeY>350</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -179,6 +181,7 @@
       <RightCoordinate>3809</RightCoordinate>
       <TopCoordinate>2574</TopCoordinate>
       <BottomCoordinate>2766</BottomCoordinate>
+      <RelativeY>80</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>

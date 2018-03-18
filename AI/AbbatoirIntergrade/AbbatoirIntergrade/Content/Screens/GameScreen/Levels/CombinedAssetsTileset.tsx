@@ -65,7 +65,11 @@
    <property name="ChainName" value="MediumRock"/>
   </properties>
  </tile>
- <tile id="833" type="TiledOverlay"/>
+ <tile id="833" type="TiledOverlay">
+  <properties>
+   <property name="ChainName" value="TallDeadTree"/>
+  </properties>
+ </tile>
  <tile id="882" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="WideBush"/>
@@ -106,11 +110,6 @@
    <property name="ChainName" value="Bamboo"/>
   </properties>
  </tile>
- <tile id="977">
-  <properties>
-   <property name="ChainName" value=""/>
-  </properties>
- </tile>
  <tile id="978" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="WideRock"/>
@@ -126,7 +125,7 @@
    <property name="ChainName" value="Cactus"/>
   </properties>
  </tile>
- <tile id="997">
+ <tile id="997" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="Bamboo"/>
   </properties>
