@@ -18,5 +18,12 @@
   <ExpandedNode>StackedRock</ExpandedNode>
   <ExpandedNode>MediumRock</ExpandedNode>
   <ExpandedNode>WideBush</ExpandedNode>
+  <ExpandedNode>Weed</ExpandedNode>
+  <ExpandedNode>YellowFlower</ExpandedNode>
+  <ExpandedNode>OrangeFlower</ExpandedNode>
+  <ExpandedNode>PinkFlower</ExpandedNode>
+  <ExpandedNode>SmallLog</ExpandedNode>
+  <ExpandedNode>Bush</ExpandedNode>
+  <ExpandedNode>SmallFence</ExpandedNode>
   <UnitType>Pixel</UnitType>
 </AESettingsSave>

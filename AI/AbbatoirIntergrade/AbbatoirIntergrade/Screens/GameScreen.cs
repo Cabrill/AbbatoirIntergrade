@@ -84,7 +84,7 @@ namespace AbbatoirIntergrade.Screens
             OutgoingMessageSound = OutgoingMessage.CreateInstance();
 
             //TODO:  Set these values by loading a level
-            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter4Level();
+            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter10Level();
             CurrentLevel.OnNewWaveStart += HandleWaveStarted;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);

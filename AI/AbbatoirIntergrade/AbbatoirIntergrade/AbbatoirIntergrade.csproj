@@ -1766,10 +1766,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>CombinedAssets</Name>
     </None>
-    <None Include="content\tilesets\combinedassetstileset.tsx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>combinedassetstileset</Name>
-    </None>
     <None Include="packages.config" />
     <None Include="x64\SDL2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

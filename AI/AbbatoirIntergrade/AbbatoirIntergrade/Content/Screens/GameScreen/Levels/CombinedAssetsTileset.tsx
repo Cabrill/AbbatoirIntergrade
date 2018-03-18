@@ -125,11 +125,6 @@
    <property name="ChainName" value="Cactus"/>
   </properties>
  </tile>
- <tile id="997" type="TiledOverlay">
-  <properties>
-   <property name="ChainName" value="Bamboo"/>
-  </properties>
- </tile>
  <tile id="1002" type="TiledOverlay">
   <properties>
    <property name="ChainName" value="WillowTree"/>

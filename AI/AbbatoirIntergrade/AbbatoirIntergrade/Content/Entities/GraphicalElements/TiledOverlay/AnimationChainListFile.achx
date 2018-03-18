@@ -38,6 +38,8 @@
       <RightCoordinate>1042</RightCoordinate>
       <TopCoordinate>3339</TopCoordinate>
       <BottomCoordinate>4022</BottomCoordinate>
+      <RelativeX>75</RelativeX>
+      <RelativeY>220</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -49,6 +51,8 @@
       <RightCoordinate>1327</RightCoordinate>
       <TopCoordinate>2601</TopCoordinate>
       <BottomCoordinate>3221</BottomCoordinate>
+      <RelativeX>-150</RelativeX>
+      <RelativeY>250</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -60,6 +64,8 @@
       <RightCoordinate>1590</RightCoordinate>
       <TopCoordinate>3355</TopCoordinate>
       <BottomCoordinate>4073</BottomCoordinate>
+      <RelativeX>40</RelativeX>
+      <RelativeY>320</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -84,6 +90,8 @@
       <RightCoordinate>1973</RightCoordinate>
       <TopCoordinate>3335</TopCoordinate>
       <BottomCoordinate>3887</BottomCoordinate>
+      <RelativeX>-20</RelativeX>
+      <RelativeY>164</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -133,6 +141,8 @@
       <RightCoordinate>3253</RightCoordinate>
       <TopCoordinate>3717</TopCoordinate>
       <BottomCoordinate>3963</BottomCoordinate>
+      <RelativeX>48</RelativeX>
+      <RelativeY>60</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -208,6 +218,97 @@
       <BottomCoordinate>3612</BottomCoordinate>
       <RelativeX>-45</RelativeX>
       <RelativeY>42</RelativeY>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>Weed</Name>
+    <Frame>
+      <TextureName>../../../Tilesets/CombinedAssets.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>3215</LeftCoordinate>
+      <RightCoordinate>3496</RightCoordinate>
+      <TopCoordinate>3083</TopCoordinate>
+      <BottomCoordinate>3296</BottomCoordinate>
+      <RelativeX>-35</RelativeX>
+      <RelativeY>72</RelativeY>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>YellowFlower</Name>
+    <Frame>
+      <TextureName>../../../Tilesets/CombinedAssets.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>2308</LeftCoordinate>
+      <RightCoordinate>2659</RightCoordinate>
+      <TopCoordinate>2550</TopCoordinate>
+      <BottomCoordinate>2990</BottomCoordinate>
+      <RelativeX>-10</RelativeX>
+      <RelativeY>110</RelativeY>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>OrangeFlower</Name>
+    <Frame>
+      <TextureName>../../../Tilesets/CombinedAssets.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>3732</LeftCoordinate>
+      <RightCoordinate>4032</RightCoordinate>
+      <TopCoordinate>3585</TopCoordinate>
+      <BottomCoordinate>3790</BottomCoordinate>
+      <RelativeX>102</RelativeX>
+      <RelativeY>85</RelativeY>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>PinkFlower</Name>
+    <Frame>
+      <TextureName>../../../Tilesets/CombinedAssets.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>2715</LeftCoordinate>
+      <RightCoordinate>2935</RightCoordinate>
+      <TopCoordinate>3715</TopCoordinate>
+      <BottomCoordinate>4015</BottomCoordinate>
+      <RelativeX>72</RelativeX>
+      <RelativeY>38</RelativeY>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>SmallLog</Name>
+    <Frame>
+      <TextureName>../../../Tilesets/CombinedAssets.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>3558</LeftCoordinate>
+      <RightCoordinate>3895</RightCoordinate>
+      <TopCoordinate>2819</TopCoordinate>
+      <BottomCoordinate>2985</BottomCoordinate>
+      <RelativeX>-30</RelativeX>
+      <RelativeY>-20</RelativeY>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>Bush</Name>
+    <Frame>
+      <TextureName>../../../Tilesets/CombinedAssets.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>3350</LeftCoordinate>
+      <RightCoordinate>3573</RightCoordinate>
+      <TopCoordinate>3374</TopCoordinate>
+      <BottomCoordinate>3548</BottomCoordinate>
+      <RelativeX>-54</RelativeX>
+      <RelativeY>58</RelativeY>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>SmallFence</Name>
+    <Frame>
+      <TextureName>../../../Tilesets/CombinedAssets.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>3087</LeftCoordinate>
+      <RightCoordinate>3330</RightCoordinate>
+      <TopCoordinate>2564</TopCoordinate>
+      <BottomCoordinate>2802</BottomCoordinate>
+      <RelativeX>70</RelativeX>
+      <RelativeY>70</RelativeY>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>
