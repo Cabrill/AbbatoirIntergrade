@@ -13,7 +13,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
     class Chapter9Level : BaseLevel
     {
         public override string MapName => "Chapter9";
-        public override DateTime StartTime => new DateTime(2017, 10, 29, 5, 0, 0);
+        public override DateTime StartTime => new DateTime(2017, 10, 29, 19, 0, 0);
         public override int StartingLives => 30;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.DeadTrees;
         public override List<string> SongNameList => new List<string>() { nameof(GlobalContent.Brallit_Vow_of_Silence), nameof(GlobalContent.anttisinstrumentals_melancholysound), nameof(GlobalContent.anttisinstrumentals_marchoftheages) };

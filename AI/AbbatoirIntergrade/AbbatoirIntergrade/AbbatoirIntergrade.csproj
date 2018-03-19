@@ -1190,6 +1190,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>RangeCircleTexture</Name>
     </None>
+    <None Include="content\entities\baseentities\basestructure\structureglowanimationchainlist.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>StructureGlowAnimationChainList</Name>
+    </None>
     <None Include="content\entities\enemies\enemy_attributes.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Enemy_Attributes</Name>

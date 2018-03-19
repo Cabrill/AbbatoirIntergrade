@@ -214,13 +214,15 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.LightSpriteInstance.TextureScale = 1f;
             base.LightSpriteInstance.Width = 1f;
             base.LightSpriteInstance.Height = 1f;
+            base.LightSpriteInstance.AnimationChains = StructureGlowAnimationChainList;
+            base.LightSpriteInstance.CurrentChainName = "ElectricGlow";
             #if FRB_MDX
             LightSpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
             base.LightSpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
             base.LightSpriteInstance.Blue = 0.5f;
-            base.LightSpriteInstance.Alpha = 0.25f;
+            base.LightSpriteInstance.Alpha = 0.5f;
             if (AimSpriteInstance.Parent == null)
             {
                 AimSpriteInstance.CopyAbsoluteToRelative();
@@ -344,13 +346,15 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.LightSpriteInstance.TextureScale = 1f;
             base.LightSpriteInstance.Width = 1f;
             base.LightSpriteInstance.Height = 1f;
+            base.LightSpriteInstance.AnimationChains = StructureGlowAnimationChainList;
+            base.LightSpriteInstance.CurrentChainName = "ElectricGlow";
             #if FRB_MDX
             LightSpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
             base.LightSpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
             base.LightSpriteInstance.Blue = 0.5f;
-            base.LightSpriteInstance.Alpha = 0.25f;
+            base.LightSpriteInstance.Alpha = 0.5f;
             if (AimSpriteInstance.Parent == null)
             {
                 base.AimSpriteInstance.X = 16.07512f;
@@ -390,7 +394,7 @@ namespace AbbatoirIntergrade.Entities.Structures
                 base.PivotPoint.RelativeY = 95f;
             }
             DisplayName = "Electric";
-            HasLightSource = false;
+            HasLightSource = true;
             ProjectileSpeed = 1500f;
             RangedRadius = 650f;
             AttackDamage = 50f;

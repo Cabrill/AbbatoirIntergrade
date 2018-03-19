@@ -84,7 +84,7 @@ namespace AbbatoirIntergrade.Screens
             OutgoingMessageSound = OutgoingMessage.CreateInstance();
 
             //TODO:  Set these values by loading a level
-            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter10Level();
+            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter5Level();
             CurrentLevel.OnNewWaveStart += HandleWaveStarted;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
@@ -105,7 +105,11 @@ namespace AbbatoirIntergrade.Screens
 
             HorizonBoxInstance.Initialize(currentLevelDateTime);
 
+
             InitializeManagers();
+
+            HorizonBoxInstance.Update(currentLevelDateTime);
+            SunlightManager.UpdateConditions(currentLevelDateTime);
 
             //StartButtonInstance.Click += OnStartButtonInstanceClick;
             //GameHasStarted = false;
@@ -116,6 +120,8 @@ namespace AbbatoirIntergrade.Screens
             PauseAndBuildAjustedTime = 0;
 
             SoundManager.PlaySongList(CurrentLevel.SongNameList);
+
+            UpdateGameTime();
 
             GameScreenGumInstance.CurrentFadingState = GameScreenGumRuntime.Fading.Faded;
         }
@@ -822,7 +828,7 @@ namespace AbbatoirIntergrade.Screens
                     var newDialogue = gameDialogue.GetResponseFor(chosenDialogue);
 
                     if (newDialogue != null)
-                    {)
+                    {
                         var dialogueOptions = gameDialogue.GetDialogueOptionsFor(newDialogue);
                         dialogueOptions.Shuffle();
 

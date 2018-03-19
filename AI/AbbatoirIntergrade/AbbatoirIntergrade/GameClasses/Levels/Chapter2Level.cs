@@ -12,7 +12,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
     class Chapter2Level : BaseLevel
     {
         public override string MapName => "Chapter2";
-        public override DateTime StartTime => new DateTime(2017, 10, 22, 5, 0, 0);
+        public override DateTime StartTime => new DateTime(2017, 10, 23, 12, 0, 0);
         public override int StartingLives => 35;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.Swamp;
         public override List<string> SongNameList => new List<string>() { nameof(GlobalContent.anttisinstrumentals_scrambledeggs), nameof(GlobalContent.anttisinstrumentals_sidish), nameof(GlobalContent.anttisinstrumentals_justafaceinthedarkinstrumental) };

@@ -366,7 +366,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.Red = 1f;
             base.LightOrShadowSprite.Green = 0.2f;
             base.LightOrShadowSprite.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
-            base.LightOrShadowSprite.Alpha = 0.5f;
+            base.LightOrShadowSprite.Alpha = 0.3f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (SpriteInstance.Parent == null)
             {
@@ -385,6 +385,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.SpriteInstance.AnimationChains = FireProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
             base.SpriteInstance.Visible = true;
+            base.SpriteInstance.Alpha = 0.65f;
             base.SpriteInstance.ParentRotationChangesPosition = false;
             if (mCircleInstance.Parent == null)
             {
@@ -437,7 +438,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.Red = 1f;
             base.LightOrShadowSprite.Green = 0.2f;
             base.LightOrShadowSprite.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
-            base.LightOrShadowSprite.Alpha = 0.5f;
+            base.LightOrShadowSprite.Alpha = 0.3f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (LightOrShadowSprite.Parent == null)
             {
@@ -549,6 +550,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.SpriteInstance.AnimationChains = FireProjectileAnimationChainListFile;
             base.SpriteInstance.CurrentChainName = "Shot";
             base.SpriteInstance.Visible = true;
+            base.SpriteInstance.Alpha = 0.65f;
             base.SpriteInstance.ParentRotationChangesPosition = false;
             if (SpriteInstance.Parent == null)
             {

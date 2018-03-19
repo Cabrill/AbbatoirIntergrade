@@ -366,7 +366,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.Green = 0f;
             base.LightOrShadowSprite.Blue = 1f;
             base.LightOrShadowSprite.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
-            base.LightOrShadowSprite.Alpha = 1f;
+            base.LightOrShadowSprite.Alpha = 0.2f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (SpriteInstance.Parent == null)
             {
@@ -390,6 +390,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             #else
             base.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
             #endif
+            base.SpriteInstance.Alpha = 0.7f;
             base.SpriteInstance.ParentRotationChangesPosition = false;
             if (mCircleInstance.Parent == null)
             {
@@ -442,7 +443,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             base.LightOrShadowSprite.Green = 0f;
             base.LightOrShadowSprite.Blue = 1f;
             base.LightOrShadowSprite.BlendOperation = FlatRedBall.Graphics.BlendOperation.Regular;
-            base.LightOrShadowSprite.Alpha = 1f;
+            base.LightOrShadowSprite.Alpha = 0.2f;
             base.LightOrShadowSprite.ParentRotationChangesPosition = false;
             if (LightOrShadowSprite.Parent == null)
             {
@@ -559,6 +560,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             #else
             base.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
             #endif
+            base.SpriteInstance.Alpha = 0.7f;
             base.SpriteInstance.ParentRotationChangesPosition = false;
             if (SpriteInstance.Parent == null)
             {

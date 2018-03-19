@@ -137,6 +137,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         protected static Microsoft.Xna.Framework.Graphics.Texture2D AllParticles;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D RangeCircleTexture;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D MinRangeCircleTexture;
+        protected static FlatRedBall.Graphics.Animation.AnimationChainList StructureGlowAnimationChainList;
         
         protected FlatRedBall.Sprite mSpriteInstance;
         public FlatRedBall.Sprite SpriteInstance
@@ -764,6 +765,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     registerUnload = true;
                 }
                 MinRangeCircleTexture = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/entities/baseentities/basestructure/minrangecircletexture.png", ContentManagerName);
+                if (!FlatRedBall.FlatRedBallServices.IsLoaded<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/baseentities/basestructure/structureglowanimationchainlist.achx", ContentManagerName))
+                {
+                    registerUnload = true;
+                }
+                StructureGlowAnimationChainList = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/baseentities/basestructure/structureglowanimationchainlist.achx", ContentManagerName);
             }
             if (registerUnload && ContentManagerName != FlatRedBall.FlatRedBallServices.GlobalContentManager)
             {
@@ -802,6 +808,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 if (MinRangeCircleTexture != null)
                 {
                     MinRangeCircleTexture= null;
+                }
+                if (StructureGlowAnimationChainList != null)
+                {
+                    StructureGlowAnimationChainList= null;
                 }
             }
         }
@@ -1117,6 +1127,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return RangeCircleTexture;
                 case  "MinRangeCircleTexture":
                     return MinRangeCircleTexture;
+                case  "StructureGlowAnimationChainList":
+                    return StructureGlowAnimationChainList;
             }
             return null;
         }
@@ -1132,6 +1144,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return RangeCircleTexture;
                 case  "MinRangeCircleTexture":
                     return MinRangeCircleTexture;
+                case  "StructureGlowAnimationChainList":
+                    return StructureGlowAnimationChainList;
             }
             return null;
         }
@@ -1147,6 +1161,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     return RangeCircleTexture;
                 case  "MinRangeCircleTexture":
                     return MinRangeCircleTexture;
+                case  "StructureGlowAnimationChainList":
+                    return StructureGlowAnimationChainList;
             }
             return null;
         }

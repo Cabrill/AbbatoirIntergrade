@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AbbatoirIntergrade.Entities;
 using AbbatoirIntergrade.Entities.BaseEntities;
 using AbbatoirIntergrade.Entities.Structures;
 using AbbatoirIntergrade.GameClasses;
@@ -145,6 +146,9 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static List<Type> GetAvailableTowers()
         {
+#if DEBUG
+            if (DebugVariables.UnlockAllTurrets) return AllPossibleTowers.Select(Type.GetType).ToList();
+#endif
             if (Data == null) LoadData();
             return Data.AvailableTowers.Select(Type.GetType).Where(towerType => towerType != null).ToList();
         }

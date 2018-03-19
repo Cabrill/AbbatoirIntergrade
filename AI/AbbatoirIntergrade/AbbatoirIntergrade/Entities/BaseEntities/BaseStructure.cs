@@ -87,9 +87,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             CurrentOnOffState = OnOff.On;
 
-            LightSpriteInstance.Width = SpriteInstance.Width;
-            LightSpriteInstance.Height = LightSpriteInstance.Width / 4;
-
             _startingRectangleScaleX = AxisAlignedRectangleInstance.ScaleX;
             _startingRectangleScaleY = AxisAlignedRectangleInstance.ScaleY;
 

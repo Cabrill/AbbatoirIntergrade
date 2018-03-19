@@ -223,6 +223,7 @@ namespace AbbatoirIntergrade.Entities.Structures
             {
                 base.LightSpriteInstance.RelativeZ = -1f;
             }
+            base.LightSpriteInstance.Texture = AllParticles;
             base.LightSpriteInstance.LeftTexturePixel = 1792f;
             base.LightSpriteInstance.RightTexturePixel = 2048f;
             base.LightSpriteInstance.TopTexturePixel = 1792f;
@@ -230,13 +231,15 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.LightSpriteInstance.TextureScale = 1f;
             base.LightSpriteInstance.Width = 1f;
             base.LightSpriteInstance.Height = 1f;
+            base.LightSpriteInstance.AnimationChains = StructureGlowAnimationChainList;
+            base.LightSpriteInstance.CurrentChainName = "FireGlow";
             #if FRB_MDX
             LightSpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
             base.LightSpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
             base.LightSpriteInstance.Blue = 0.5f;
-            base.LightSpriteInstance.Alpha = 0.25f;
+            base.LightSpriteInstance.Alpha = 1f;
             if (AimSpriteInstance.Parent == null)
             {
                 AimSpriteInstance.CopyAbsoluteToRelative();
@@ -377,6 +380,7 @@ namespace AbbatoirIntergrade.Entities.Structures
             {
                 base.LightSpriteInstance.RelativeZ = -1f;
             }
+            base.LightSpriteInstance.Texture = AllParticles;
             base.LightSpriteInstance.LeftTexturePixel = 1792f;
             base.LightSpriteInstance.RightTexturePixel = 2048f;
             base.LightSpriteInstance.TopTexturePixel = 1792f;
@@ -384,13 +388,15 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.LightSpriteInstance.TextureScale = 1f;
             base.LightSpriteInstance.Width = 1f;
             base.LightSpriteInstance.Height = 1f;
+            base.LightSpriteInstance.AnimationChains = StructureGlowAnimationChainList;
+            base.LightSpriteInstance.CurrentChainName = "FireGlow";
             #if FRB_MDX
             LightSpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
             base.LightSpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
             base.LightSpriteInstance.Blue = 0.5f;
-            base.LightSpriteInstance.Alpha = 0.25f;
+            base.LightSpriteInstance.Alpha = 1f;
             if (AimSpriteInstance.Parent == null)
             {
                 base.AimSpriteInstance.X = 19f;
@@ -438,7 +444,7 @@ namespace AbbatoirIntergrade.Entities.Structures
                 base.PivotPoint.RelativeY = 70f;
             }
             DisplayName = "Fire";
-            HasLightSource = false;
+            HasLightSource = true;
             ProjectileSpeed = 800f;
             RangedRadius = 550f;
             AttackDamage = 15f;

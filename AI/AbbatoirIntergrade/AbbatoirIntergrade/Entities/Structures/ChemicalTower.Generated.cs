@@ -228,13 +228,15 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.LightSpriteInstance.TopTexturePixel = 1792f;
             base.LightSpriteInstance.BottomTexturePixel = 2048f;
             base.LightSpriteInstance.TextureScale = 1f;
+            base.LightSpriteInstance.AnimationChains = StructureGlowAnimationChainList;
+            base.LightSpriteInstance.CurrentChainName = "ChemicalGlow";
             #if FRB_MDX
             LightSpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
             base.LightSpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
             base.LightSpriteInstance.Blue = 0.5f;
-            base.LightSpriteInstance.Alpha = 0.25f;
+            base.LightSpriteInstance.Alpha = 0.8f;
             if (AimSpriteInstance.Parent == null)
             {
                 AimSpriteInstance.CopyAbsoluteToRelative();
@@ -380,13 +382,15 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.LightSpriteInstance.TopTexturePixel = 1792f;
             base.LightSpriteInstance.BottomTexturePixel = 2048f;
             base.LightSpriteInstance.TextureScale = 1f;
+            base.LightSpriteInstance.AnimationChains = StructureGlowAnimationChainList;
+            base.LightSpriteInstance.CurrentChainName = "ChemicalGlow";
             #if FRB_MDX
             LightSpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
             base.LightSpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
             #endif
             base.LightSpriteInstance.Blue = 0.5f;
-            base.LightSpriteInstance.Alpha = 0.25f;
+            base.LightSpriteInstance.Alpha = 0.8f;
             if (AimSpriteInstance.Parent == null)
             {
                 base.AimSpriteInstance.X = -5.16644f;
@@ -434,7 +438,7 @@ namespace AbbatoirIntergrade.Entities.Structures
                 base.PivotPoint.RelativeY = 60f;
             }
             DisplayName = "Chemical";
-            HasLightSource = false;
+            HasLightSource = true;
             ProjectileSpeed = 750f;
             RangedRadius = 450f;
             AttackDamage = 2f;

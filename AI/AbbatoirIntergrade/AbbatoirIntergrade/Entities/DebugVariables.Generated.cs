@@ -30,12 +30,13 @@ namespace AbbatoirIntergrade.Entities
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         
-        public static bool ShowDebugShapes = true;
+        public static bool ShowDebugShapes = false;
         public static bool EnableDebugHotkeys = true;
         public static bool IgnoreStructureBuildCost = true;
         public static bool ShowPerformanceStats = false;
         public static bool TurretsAimAtMouse = false;
         public static bool SlowTimeForShots = false;
+        public static bool UnlockAllTurrets = true;
         protected FlatRedBall.Graphics.Layer LayerProvidedByContainer = null;
         public DebugVariables () 
         	: this(FlatRedBall.Screens.ScreenManager.CurrentScreen.ContentManagerName, true)
