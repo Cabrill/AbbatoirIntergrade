@@ -26,7 +26,14 @@ namespace AbbatoirIntergrade.Entities.Structures
 		private void CustomInitialize()
 		{
             DamageType = DamageTypes.Bombarding;
-		    if (FiringSound == null || FiringSound.IsDisposed)
+		    LightAimSpriteInstance.Visible = true;
+		    LightAimSpriteInstance.Visible = false;
+            LightAimSpriteInstance.AlphaRate = -6f;
+
+            OnFire = CustomOnFire;
+
+
+            if (FiringSound == null || FiringSound.IsDisposed)
 		    {
 		        const int maxSoundIndex = 2;
 		        var soundIndex = FlatRedBallServices.Random.Next(1, maxSoundIndex);
@@ -36,6 +43,12 @@ namespace AbbatoirIntergrade.Entities.Structures
 		        FiringSound = firingSound.CreateInstance();
 		    }
         }
+
+	    private void CustomOnFire()
+	    {
+	        LightAimSpriteInstance.Visible = true;
+	        LightAimSpriteInstance.Alpha = 1;
+	    }
 
 	    public void AddSpritesToLayers(FlatRedBall.Graphics.Layer darknessLayer, Layer hudLayer)
 	    {

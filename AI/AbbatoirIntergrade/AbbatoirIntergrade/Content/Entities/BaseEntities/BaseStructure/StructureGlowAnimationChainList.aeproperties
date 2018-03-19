@@ -6,5 +6,9 @@
   <ExpandedNode>IceGlow</ExpandedNode>
   <ExpandedNode>ChemicalGlow</ExpandedNode>
   <ExpandedNode>ElectricGlow</ExpandedNode>
+  <ExpandedNode>FireAimGlow</ExpandedNode>
+  <ExpandedNode>IceAimGlow</ExpandedNode>
+  <ExpandedNode>ChemicalAimGlow</ExpandedNode>
+  <ExpandedNode>BombardAimGlow</ExpandedNode>
   <UnitType>Pixel</UnitType>
 </AESettingsSave>

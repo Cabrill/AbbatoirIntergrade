@@ -322,6 +322,15 @@ namespace AbbatoirIntergrade.Entities.Structures
             {
                 base.PivotPoint.RelativeY = 36f;
             }
+            if (LightAimSpriteInstance.Parent == null)
+            {
+                LightAimSpriteInstance.CopyAbsoluteToRelative();
+                LightAimSpriteInstance.AttachTo(this, false);
+            }
+            base.LightAimSpriteInstance.Texture = AllParticles;
+            base.LightAimSpriteInstance.TextureScale = 1f;
+            base.LightAimSpriteInstance.AnimationChains = StructureGlowAnimationChainList;
+            base.LightAimSpriteInstance.Visible = false;
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
         public override void AddToManagersBottomUp (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -485,6 +494,10 @@ namespace AbbatoirIntergrade.Entities.Structures
             {
                 base.PivotPoint.RelativeY = 36f;
             }
+            base.LightAimSpriteInstance.Texture = AllParticles;
+            base.LightAimSpriteInstance.TextureScale = 1f;
+            base.LightAimSpriteInstance.AnimationChains = StructureGlowAnimationChainList;
+            base.LightAimSpriteInstance.Visible = false;
             DisplayName = "Arrow";
             HasLightSource = false;
             ProjectileSpeed = 1200f;
@@ -661,6 +674,10 @@ namespace AbbatoirIntergrade.Entities.Structures
             {
                 return true;
             }
+            if (LightAimSpriteInstance.Alpha != 0 && LightAimSpriteInstance.AbsoluteVisible && cursor.IsOn3D(LightAimSpriteInstance, LayerProvidedByContainer))
+            {
+                return true;
+            }
             return false;
         }
         public override bool WasClickedThisFrame (FlatRedBall.Gui.Cursor cursor) 
@@ -675,6 +692,7 @@ namespace AbbatoirIntergrade.Entities.Structures
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(LightSpriteInstance);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(AimSpriteInstance);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(ArrowSpriteInstance);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(LightAimSpriteInstance);
         }
         public override void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {

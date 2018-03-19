@@ -111,6 +111,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             PivotPoint.RelativeY -= yOffset;
             PivotPoint.RelativeX -= xOffset;
             AimSpriteInstance.ParentRotationChangesPosition = false;
+            LightAimSpriteInstance.AttachTo(AimSpriteInstance);
 
             RangePreviewSprite.RelativeX = PivotPoint.RelativeX;
             RangePreviewSprite.RelativeY = SpriteInstance.RelativeY;
@@ -243,16 +244,19 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             ShapeManager.AddToLayer(AxisAlignedRectangleInstance, hudLayer);
 
             LayerProvidedByContainer.Remove(SpriteInstance);
-            FlatRedBall.SpriteManager.AddToLayer(SpriteInstance, hudLayer);
+            SpriteManager.AddToLayer(SpriteInstance, hudLayer);
 
             LayerProvidedByContainer.Remove(RangePreviewSprite);
-            FlatRedBall.SpriteManager.AddToLayer(RangePreviewSprite, hudLayer);
+            SpriteManager.AddToLayer(RangePreviewSprite, hudLayer);
 
             LayerProvidedByContainer.Remove(AimSpriteInstance);
-            FlatRedBall.SpriteManager.AddToLayer(AimSpriteInstance, hudLayer);
+            SpriteManager.AddToLayer(AimSpriteInstance, hudLayer);
 
             LayerProvidedByContainer.Remove(LightSpriteInstance);
-            FlatRedBall.SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
+            SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
+
+            LayerProvidedByContainer.Remove(LightAimSpriteInstance);
+            SpriteManager.AddToLayer(LightAimSpriteInstance, darknessLayer);
 
 
             LayerProvidedByContainer.Remove(RangeCircleInstance);
