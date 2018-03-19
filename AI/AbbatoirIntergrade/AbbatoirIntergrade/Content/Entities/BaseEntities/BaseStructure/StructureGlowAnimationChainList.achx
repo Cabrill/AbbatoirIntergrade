@@ -170,32 +170,33 @@
     <Name>ElectricGlow</Name>
     <Frame>
       <TextureName>../../Projectiles/AllParticles.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.03333333</FrameLength>
       <LeftCoordinate>1919</LeftCoordinate>
       <RightCoordinate>2056</RightCoordinate>
       <TopCoordinate>1088</TopCoordinate>
       <BottomCoordinate>1269</BottomCoordinate>
-      <RelativeY>110</RelativeY>
+      <RelativeX>5</RelativeX>
+      <RelativeY>115</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../Projectiles/AllParticles.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>1806</LeftCoordinate>
-      <RightCoordinate>1945</RightCoordinate>
-      <TopCoordinate>1283</TopCoordinate>
+      <FrameLength>0.03333333</FrameLength>
+      <LeftCoordinate>1785</LeftCoordinate>
+      <RightCoordinate>1916</RightCoordinate>
+      <TopCoordinate>1289</TopCoordinate>
       <BottomCoordinate>1461</BottomCoordinate>
-      <RelativeX>32</RelativeX>
-      <RelativeY>108</RelativeY>
+      <RelativeX>10</RelativeX>
+      <RelativeY>109</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../Projectiles/AllParticles.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.03333333</FrameLength>
       <LeftCoordinate>1945</LeftCoordinate>
       <RightCoordinate>2084</RightCoordinate>
       <TopCoordinate>1283</TopCoordinate>
       <BottomCoordinate>1461</BottomCoordinate>
-      <RelativeX>30</RelativeX>
-      <RelativeY>108</RelativeY>
+      <RelativeX>32</RelativeX>
+      <RelativeY>113</RelativeY>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>
