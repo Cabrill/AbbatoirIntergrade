@@ -43,7 +43,8 @@ namespace AbbatoirIntergrade.Screens
 		    OfferStructureChoiceIfAvailable();
 
 		    ShowIntroMessageIfNecessary();
-		}
+		    CurrentMusicDisplayInstance.TimedDisplay(true);
+        }
 
 	    private void ShowIntroMessageIfNecessary()
 	    {
@@ -116,7 +117,7 @@ namespace AbbatoirIntergrade.Screens
 #if DEBUG
             FlatRedBall.Debugging.Debugger.Write(GuiManager.Cursor.WindowOver);
 #endif
-            SoundManager.Update();
+		    if (SoundManager.Update()) CurrentMusicDisplayInstance.TimedDisplay();
 		    HandleKeyboardInput();
 		}
 

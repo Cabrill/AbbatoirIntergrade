@@ -31,6 +31,7 @@ namespace AbbatoirIntergrade.Screens
         private AbbatoirIntergrade.GumRuntimes.TextRuntime EndingTextRuntimeInstance;
         private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonInstance;
         private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime EndingTextContainer;
+        private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance;
         public EndingScreen () 
         	: base ("EndingScreen")
         {
@@ -42,6 +43,7 @@ namespace AbbatoirIntergrade.Screens
             EndingTextRuntimeInstance = EndingScreenGum.GetGraphicalUiElementByName("EndingText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
             ButtonInstance = EndingScreenGum.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
             EndingTextContainer = EndingScreenGum.GetGraphicalUiElementByName("EndingTextContainer") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
+            CurrentMusicDisplayInstance = EndingScreenGum.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
             
             
             PostInitialize();
@@ -97,6 +99,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 EndingTextContainer.RemoveFromManagers();
             }
+            if (CurrentMusicDisplayInstance != null)
+            {
+                CurrentMusicDisplayInstance.RemoveFromManagers();
+            }
             FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
         }
@@ -128,6 +134,10 @@ namespace AbbatoirIntergrade.Screens
             if (EndingTextContainer != null)
             {
                 EndingTextContainer.RemoveFromManagers();
+            }
+            if (CurrentMusicDisplayInstance != null)
+            {
+                CurrentMusicDisplayInstance.RemoveFromManagers();
             }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 

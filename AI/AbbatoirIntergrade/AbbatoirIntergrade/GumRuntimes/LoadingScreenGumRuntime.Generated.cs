@@ -26,20 +26,37 @@
                     {
                         case  VariableState.Default:
                             TextInstance.Blue = 255;
+                            SetProperty("TextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             TextInstance.FontScale = 2.5f;
                             TextInstance.FontSize = 22;
                             TextInstance.Green = 255;
-                            TextInstance.Height = 100f;
+                            TextInstance.Height = 20f;
                             TextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             TextInstance.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ColoredRectangleInstance");
                             TextInstance.Red = 255;
-                            TextInstance.Text = "Loading.\nPlease Wait...";
+                            TextInstance.Text = "Loading...";
+                            TextInstance.UseCustomFont = true;
                             TextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             TextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            TextInstance.X = -9f;
                             TextInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                             TextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                            TextInstance.Y = 1151f;
                             TextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                            LeftEye.CurrentEyeOpeningState = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Open;
+                            LeftEye.CurrentEyePositionState = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition.Left;
+                            LeftEye.Y = -150f;
+                            LeftEye.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            LeftEye.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            RightEye.CurrentEyeOpeningState = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Open;
+                            RightEye.CurrentEyePositionState = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition.Right;
+                            RightEye.X = 0f;
+                            RightEye.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                            RightEye.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                            RightEye.Y = -150f;
+                            RightEye.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            RightEye.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             break;
                     }
                 }
@@ -54,6 +71,34 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
+                bool setLeftEyeCurrentEyeOpeningStateFirstValue = false;
+                bool setLeftEyeCurrentEyeOpeningStateSecondValue = false;
+                MainMenuEyeRuntime.EyeOpening LeftEyeCurrentEyeOpeningStateFirstValue= MainMenuEyeRuntime.EyeOpening.Closed;
+                MainMenuEyeRuntime.EyeOpening LeftEyeCurrentEyeOpeningStateSecondValue= MainMenuEyeRuntime.EyeOpening.Closed;
+                bool setLeftEyeCurrentEyePositionStateFirstValue = false;
+                bool setLeftEyeCurrentEyePositionStateSecondValue = false;
+                MainMenuEyeRuntime.EyePosition LeftEyeCurrentEyePositionStateFirstValue= MainMenuEyeRuntime.EyePosition.Left;
+                MainMenuEyeRuntime.EyePosition LeftEyeCurrentEyePositionStateSecondValue= MainMenuEyeRuntime.EyePosition.Left;
+                bool setLeftEyeYFirstValue = false;
+                bool setLeftEyeYSecondValue = false;
+                float LeftEyeYFirstValue= 0;
+                float LeftEyeYSecondValue= 0;
+                bool setRightEyeCurrentEyeOpeningStateFirstValue = false;
+                bool setRightEyeCurrentEyeOpeningStateSecondValue = false;
+                MainMenuEyeRuntime.EyeOpening RightEyeCurrentEyeOpeningStateFirstValue= MainMenuEyeRuntime.EyeOpening.Closed;
+                MainMenuEyeRuntime.EyeOpening RightEyeCurrentEyeOpeningStateSecondValue= MainMenuEyeRuntime.EyeOpening.Closed;
+                bool setRightEyeCurrentEyePositionStateFirstValue = false;
+                bool setRightEyeCurrentEyePositionStateSecondValue = false;
+                MainMenuEyeRuntime.EyePosition RightEyeCurrentEyePositionStateFirstValue= MainMenuEyeRuntime.EyePosition.Left;
+                MainMenuEyeRuntime.EyePosition RightEyeCurrentEyePositionStateSecondValue= MainMenuEyeRuntime.EyePosition.Left;
+                bool setRightEyeXFirstValue = false;
+                bool setRightEyeXSecondValue = false;
+                float RightEyeXFirstValue= 0;
+                float RightEyeXSecondValue= 0;
+                bool setRightEyeYFirstValue = false;
+                bool setRightEyeYSecondValue = false;
+                float RightEyeYFirstValue= 0;
+                float RightEyeYSecondValue= 0;
                 bool setTextInstanceBlueFirstValue = false;
                 bool setTextInstanceBlueSecondValue = false;
                 int TextInstanceBlueFirstValue= 0;
@@ -78,11 +123,61 @@
                 bool setTextInstanceRedSecondValue = false;
                 int TextInstanceRedFirstValue= 0;
                 int TextInstanceRedSecondValue= 0;
+                bool setTextInstanceXFirstValue = false;
+                bool setTextInstanceXSecondValue = false;
+                float TextInstanceXFirstValue= 0;
+                float TextInstanceXSecondValue= 0;
+                bool setTextInstanceYFirstValue = false;
+                bool setTextInstanceYSecondValue = false;
+                float TextInstanceYFirstValue= 0;
+                float TextInstanceYSecondValue= 0;
                 switch(firstState)
                 {
                     case  VariableState.Default:
+                        setLeftEyeCurrentEyeOpeningStateFirstValue = true;
+                        LeftEyeCurrentEyeOpeningStateFirstValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Open;
+                        setLeftEyeCurrentEyePositionStateFirstValue = true;
+                        LeftEyeCurrentEyePositionStateFirstValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition.Left;
+                        setLeftEyeYFirstValue = true;
+                        LeftEyeYFirstValue = -150f;
+                        if (interpolationValue < 1)
+                        {
+                            this.LeftEye.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.LeftEye.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        setRightEyeCurrentEyeOpeningStateFirstValue = true;
+                        RightEyeCurrentEyeOpeningStateFirstValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Open;
+                        setRightEyeCurrentEyePositionStateFirstValue = true;
+                        RightEyeCurrentEyePositionStateFirstValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition.Right;
+                        setRightEyeXFirstValue = true;
+                        RightEyeXFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.RightEye.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.RightEye.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
+                        setRightEyeYFirstValue = true;
+                        RightEyeYFirstValue = -150f;
+                        if (interpolationValue < 1)
+                        {
+                            this.RightEye.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.RightEye.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
                         setTextInstanceBlueFirstValue = true;
                         TextInstanceBlueFirstValue = 255;
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("TextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
                         setTextInstanceFontScaleFirstValue = true;
                         TextInstanceFontScaleFirstValue = 2.5f;
                         setTextInstanceFontSizeFirstValue = true;
@@ -90,7 +185,7 @@
                         setTextInstanceGreenFirstValue = true;
                         TextInstanceGreenFirstValue = 255;
                         setTextInstanceHeightFirstValue = true;
-                        TextInstanceHeightFirstValue = 100f;
+                        TextInstanceHeightFirstValue = 20f;
                         if (interpolationValue < 1)
                         {
                             this.TextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -107,7 +202,11 @@
                         TextInstanceRedFirstValue = 255;
                         if (interpolationValue < 1)
                         {
-                            this.TextInstance.Text = "Loading.\nPlease Wait...";
+                            this.TextInstance.Text = "Loading...";
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TextInstance.UseCustomFont = true;
                         }
                         if (interpolationValue < 1)
                         {
@@ -117,6 +216,8 @@
                         {
                             this.TextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setTextInstanceXFirstValue = true;
+                        TextInstanceXFirstValue = -9f;
                         if (interpolationValue < 1)
                         {
                             this.TextInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
@@ -125,6 +226,8 @@
                         {
                             this.TextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
+                        setTextInstanceYFirstValue = true;
+                        TextInstanceYFirstValue = 1151f;
                         if (interpolationValue < 1)
                         {
                             this.TextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
@@ -134,8 +237,50 @@
                 switch(secondState)
                 {
                     case  VariableState.Default:
+                        setLeftEyeCurrentEyeOpeningStateSecondValue = true;
+                        LeftEyeCurrentEyeOpeningStateSecondValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Open;
+                        setLeftEyeCurrentEyePositionStateSecondValue = true;
+                        LeftEyeCurrentEyePositionStateSecondValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition.Left;
+                        setLeftEyeYSecondValue = true;
+                        LeftEyeYSecondValue = -150f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.LeftEye.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.LeftEye.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        setRightEyeCurrentEyeOpeningStateSecondValue = true;
+                        RightEyeCurrentEyeOpeningStateSecondValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Open;
+                        setRightEyeCurrentEyePositionStateSecondValue = true;
+                        RightEyeCurrentEyePositionStateSecondValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition.Right;
+                        setRightEyeXSecondValue = true;
+                        RightEyeXSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.RightEye.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.RightEye.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
+                        setRightEyeYSecondValue = true;
+                        RightEyeYSecondValue = -150f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.RightEye.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.RightEye.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
                         setTextInstanceBlueSecondValue = true;
                         TextInstanceBlueSecondValue = 255;
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("TextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
                         setTextInstanceFontScaleSecondValue = true;
                         TextInstanceFontScaleSecondValue = 2.5f;
                         setTextInstanceFontSizeSecondValue = true;
@@ -143,7 +288,7 @@
                         setTextInstanceGreenSecondValue = true;
                         TextInstanceGreenSecondValue = 255;
                         setTextInstanceHeightSecondValue = true;
-                        TextInstanceHeightSecondValue = 100f;
+                        TextInstanceHeightSecondValue = 20f;
                         if (interpolationValue >= 1)
                         {
                             this.TextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -160,7 +305,11 @@
                         TextInstanceRedSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
-                            this.TextInstance.Text = "Loading.\nPlease Wait...";
+                            this.TextInstance.Text = "Loading...";
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TextInstance.UseCustomFont = true;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -170,6 +319,8 @@
                         {
                             this.TextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setTextInstanceXSecondValue = true;
+                        TextInstanceXSecondValue = -9f;
                         if (interpolationValue >= 1)
                         {
                             this.TextInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
@@ -178,11 +329,41 @@
                         {
                             this.TextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
+                        setTextInstanceYSecondValue = true;
+                        TextInstanceYSecondValue = 1151f;
                         if (interpolationValue >= 1)
                         {
                             this.TextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                         }
                         break;
+                }
+                if (setLeftEyeCurrentEyeOpeningStateFirstValue && setLeftEyeCurrentEyeOpeningStateSecondValue)
+                {
+                    LeftEye.InterpolateBetween(LeftEyeCurrentEyeOpeningStateFirstValue, LeftEyeCurrentEyeOpeningStateSecondValue, interpolationValue);
+                }
+                if (setLeftEyeCurrentEyePositionStateFirstValue && setLeftEyeCurrentEyePositionStateSecondValue)
+                {
+                    LeftEye.InterpolateBetween(LeftEyeCurrentEyePositionStateFirstValue, LeftEyeCurrentEyePositionStateSecondValue, interpolationValue);
+                }
+                if (setLeftEyeYFirstValue && setLeftEyeYSecondValue)
+                {
+                    LeftEye.Y = LeftEyeYFirstValue * (1 - interpolationValue) + LeftEyeYSecondValue * interpolationValue;
+                }
+                if (setRightEyeCurrentEyeOpeningStateFirstValue && setRightEyeCurrentEyeOpeningStateSecondValue)
+                {
+                    RightEye.InterpolateBetween(RightEyeCurrentEyeOpeningStateFirstValue, RightEyeCurrentEyeOpeningStateSecondValue, interpolationValue);
+                }
+                if (setRightEyeCurrentEyePositionStateFirstValue && setRightEyeCurrentEyePositionStateSecondValue)
+                {
+                    RightEye.InterpolateBetween(RightEyeCurrentEyePositionStateFirstValue, RightEyeCurrentEyePositionStateSecondValue, interpolationValue);
+                }
+                if (setRightEyeXFirstValue && setRightEyeXSecondValue)
+                {
+                    RightEye.X = RightEyeXFirstValue * (1 - interpolationValue) + RightEyeXSecondValue * interpolationValue;
+                }
+                if (setRightEyeYFirstValue && setRightEyeYSecondValue)
+                {
+                    RightEye.Y = RightEyeYFirstValue * (1 - interpolationValue) + RightEyeYSecondValue * interpolationValue;
                 }
                 if (setTextInstanceBlueFirstValue && setTextInstanceBlueSecondValue)
                 {
@@ -207,6 +388,14 @@
                 if (setTextInstanceRedFirstValue && setTextInstanceRedSecondValue)
                 {
                     TextInstance.Red = FlatRedBall.Math.MathFunctions.RoundToInt(TextInstanceRedFirstValue* (1 - interpolationValue) + TextInstanceRedSecondValue * interpolationValue);
+                }
+                if (setTextInstanceXFirstValue && setTextInstanceXSecondValue)
+                {
+                    TextInstance.X = TextInstanceXFirstValue * (1 - interpolationValue) + TextInstanceXSecondValue * interpolationValue;
+                }
+                if (setTextInstanceYFirstValue && setTextInstanceYSecondValue)
+                {
+                    TextInstance.Y = TextInstanceYFirstValue * (1 - interpolationValue) + TextInstanceYSecondValue * interpolationValue;
                 }
                 if (interpolationValue < 1)
                 {
@@ -279,6 +468,8 @@
             public override void StopAnimations () 
             {
                 base.StopAnimations();
+                LeftEye.StopAnimations();
+                RightEye.StopAnimations();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -293,6 +484,14 @@
                             Name = "TextInstance.Blue",
                             Type = "int",
                             Value = TextInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.CustomFontFile",
+                            Type = "string",
+                            Value = TextInstance.CustomFontFile
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -370,6 +569,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TextInstance.UseCustomFont",
+                            Type = "bool",
+                            Value = TextInstance.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TextInstance.VerticalAlignment",
                             Type = "VerticalAlignment",
                             Value = TextInstance.VerticalAlignment
@@ -381,6 +588,14 @@
                             Name = "TextInstance.Width Units",
                             Type = "DimensionUnitType",
                             Value = TextInstance.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.X",
+                            Type = "float",
+                            Value = TextInstance.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -402,9 +617,121 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TextInstance.Y",
+                            Type = "float",
+                            Value = TextInstance.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TextInstance.Y Origin",
                             Type = "VerticalAlignment",
                             Value = TextInstance.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftEye.EyeOpeningState",
+                            Type = "EyeOpeningState",
+                            Value = LeftEye.CurrentEyeOpeningState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftEye.EyePositionState",
+                            Type = "EyePositionState",
+                            Value = LeftEye.CurrentEyePositionState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftEye.Y",
+                            Type = "float",
+                            Value = LeftEye.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftEye.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = LeftEye.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftEye.Y Units",
+                            Type = "PositionUnitType",
+                            Value = LeftEye.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightEye.EyeOpeningState",
+                            Type = "EyeOpeningState",
+                            Value = RightEye.CurrentEyeOpeningState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightEye.EyePositionState",
+                            Type = "EyePositionState",
+                            Value = RightEye.CurrentEyePositionState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightEye.X",
+                            Type = "float",
+                            Value = RightEye.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightEye.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = RightEye.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightEye.X Units",
+                            Type = "PositionUnitType",
+                            Value = RightEye.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightEye.Y",
+                            Type = "float",
+                            Value = RightEye.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightEye.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = RightEye.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightEye.Y Units",
+                            Type = "PositionUnitType",
+                            Value = RightEye.YUnits
                         }
                         );
                         break;
@@ -423,6 +750,14 @@
                             Name = "TextInstance.Blue",
                             Type = "int",
                             Value = TextInstance.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.CustomFontFile",
+                            Type = "string",
+                            Value = TextInstance.CustomFontFile
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -454,7 +789,7 @@
                             SetsValue = true,
                             Name = "TextInstance.Height",
                             Type = "float",
-                            Value = TextInstance.Height + 100f
+                            Value = TextInstance.Height + 20f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -500,6 +835,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TextInstance.UseCustomFont",
+                            Type = "bool",
+                            Value = TextInstance.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TextInstance.VerticalAlignment",
                             Type = "VerticalAlignment",
                             Value = TextInstance.VerticalAlignment
@@ -511,6 +854,14 @@
                             Name = "TextInstance.Width Units",
                             Type = "DimensionUnitType",
                             Value = TextInstance.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.X",
+                            Type = "float",
+                            Value = TextInstance.X + -9f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -532,9 +883,121 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TextInstance.Y",
+                            Type = "float",
+                            Value = TextInstance.Y + 1151f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TextInstance.Y Origin",
                             Type = "VerticalAlignment",
                             Value = TextInstance.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftEye.EyeOpeningState",
+                            Type = "EyeOpeningState",
+                            Value = LeftEye.CurrentEyeOpeningState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftEye.EyePositionState",
+                            Type = "EyePositionState",
+                            Value = LeftEye.CurrentEyePositionState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftEye.Y",
+                            Type = "float",
+                            Value = LeftEye.Y + -150f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftEye.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = LeftEye.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LeftEye.Y Units",
+                            Type = "PositionUnitType",
+                            Value = LeftEye.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightEye.EyeOpeningState",
+                            Type = "EyeOpeningState",
+                            Value = RightEye.CurrentEyeOpeningState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightEye.EyePositionState",
+                            Type = "EyePositionState",
+                            Value = RightEye.CurrentEyePositionState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightEye.X",
+                            Type = "float",
+                            Value = RightEye.X + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightEye.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = RightEye.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightEye.X Units",
+                            Type = "PositionUnitType",
+                            Value = RightEye.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightEye.Y",
+                            Type = "float",
+                            Value = RightEye.Y + -150f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightEye.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = RightEye.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "RightEye.Y Units",
+                            Type = "PositionUnitType",
+                            Value = RightEye.YUnits
                         }
                         );
                         break;
@@ -556,6 +1019,8 @@
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime LeftEye { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime RightEye { get; set; }
             public LoadingScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -582,6 +1047,8 @@
             private void AssignReferences () 
             {
                 TextInstance = this.GetGraphicalUiElementByName("TextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+                LeftEye = this.GetGraphicalUiElementByName("LeftEye") as AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime;
+                RightEye = this.GetGraphicalUiElementByName("RightEye") as AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

@@ -72,6 +72,15 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/EndingScreenGum.gusx</SourceFile>
+          <SourceName>CurrentMusicDisplayInstance (AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime)</SourceName>
+          <InstanceName>CurrentMusicDisplayInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
     </ScreenSave>
     <ScreenSave>
@@ -561,6 +570,16 @@
           <IndependentOfCamera>true</IndependentOfCamera>
           <LayerOn>HUDLayer</LayerOn>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
+          <SourceName>CurrentMusicDisplayInstance (AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime)</SourceName>
+          <InstanceName>CurrentMusicDisplayInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn>InfoLayer</LayerOn>
+        </NamedObjectSave>
       </NamedObjects>
     </ScreenSave>
     <ScreenSave>
@@ -1023,6 +1042,15 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
           <Is2D>true</Is2D>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/MapScreenGum.gusx</SourceFile>
+          <SourceName>CurrentMusicDisplayInstance (AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime)</SourceName>
+          <InstanceName>CurrentMusicDisplayInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
     </ScreenSave>
@@ -17355,13 +17383,20 @@
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Name>GlobalContent/SongNames.csv</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <HasPublicProperty>true</HasPublicProperty>
+      <CreatesDictionary>true</CreatesDictionary>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
   </GlobalFiles>
   <GlobalContentSettingsSave>
     <LoadAsynchronously>false</LoadAsynchronously>
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\MapScreen</StartUpScreen>
+  <StartUpScreen>Screens\MainMenu</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>
@@ -17422,7 +17457,7 @@
     <SupportPortrait>false</SupportPortrait>
     <RunInFullScreen>false</RunInFullScreen>
     <AllowWindowResizing>false</AllowWindowResizing>
-    <Scale>75</Scale>
+    <Scale>40</Scale>
     <ResizeBehavior>StretchVisibleArea</ResizeBehavior>
   </DisplaySettings>
 </GlueProjectSave>

@@ -84,7 +84,7 @@ namespace AbbatoirIntergrade.Screens
             OutgoingMessageSound = OutgoingMessage.CreateInstance();
 
             //TODO:  Set these values by loading a level
-            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter5Level();
+            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
             CurrentLevel.OnNewWaveStart += HandleWaveStarted;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
@@ -133,6 +133,8 @@ namespace AbbatoirIntergrade.Screens
 
             GameScreenGumInstance.CurrentFadingState = GameScreenGumRuntime.Fading.Faded;
             LocationTimeInstance.Display(CurrentLevel.LocationName, currentLevelDateTime);
+
+            CurrentMusicDisplayInstance.TimedDisplay(true);
         }
 
         private void HandleWaveStarted(object sender, EventArgs e)
@@ -314,7 +316,7 @@ namespace AbbatoirIntergrade.Screens
             HandleDebugInput();
             ShowDebugInfo();
 #endif
-            SoundManager.Update();
+            if (SoundManager.Update()) CurrentMusicDisplayInstance.TimedDisplay();
             HandleKeyboardInput();
             HandleTouchActivity();
             SelectedItemActivity();

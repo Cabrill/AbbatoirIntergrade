@@ -51,8 +51,8 @@ namespace AbbatoirIntergrade.Screens
 
 	    void CustomActivity(bool firstTimeCalled)
 	    {
-            SoundManager.Update();
-	        if (MainMenuGumRuntime.CurrentAnyKeyState == MainMenuGumRuntime.AnyKey.Ready && (InputManager.Keyboard.AnyKeyPushed() || InputManager.Mouse.AnyButtonPushed()))
+	        SoundManager.Update();
+            if (MainMenuGumRuntime.CurrentAnyKeyState == MainMenuGumRuntime.AnyKey.Ready && (InputManager.Keyboard.AnyKeyPushed() || InputManager.Mouse.AnyButtonPushed()))
 	        {
 	            LoadingScreen.TransitionToScreen(typeof(MapScreen));
 	        }

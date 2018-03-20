@@ -112,6 +112,24 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>AppearingState</Type>
+      <Name>CurrentMusicDisplayInstance.AppearingState</Name>
+      <Value xsi:type="xsd:string">Hidden</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CurrentMusicDisplayInstance.X</Name>
+      <Value xsi:type="xsd:float">-10</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CurrentMusicDisplayInstance.Y</Name>
+      <Value xsi:type="xsd:float">230</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>bool</Type>
       <Name>EnemyInfoInstance.Visible</Name>
       <Value xsi:type="xsd:boolean">false</Value>
@@ -574,5 +592,9 @@
   <Instance>
     <Name>ConfirmationWindowInstance</Name>
     <BaseType>ConfirmationWindow</BaseType>
+  </Instance>
+  <Instance>
+    <Name>CurrentMusicDisplayInstance</Name>
+    <BaseType>infodisplays/CurrentMusicDisplay</BaseType>
   </Instance>
 </ScreenSave>

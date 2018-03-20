@@ -17,6 +17,8 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static BaseLevel CurrentLevel;
 
+        public static string CurrentTrackName { get; set; }
+
         private static GameDialogue _gameDialogue;
         public static GameDialogue GameDialogue
         {

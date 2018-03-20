@@ -50,6 +50,7 @@
                             BlackFade.Red = 0;
                             BlackFade.Width = 100f;
                             BlackFade.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            CurrentMusicDisplayInstance.CurrentAppearingState = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
                             break;
                     }
                 }
@@ -112,6 +113,10 @@
                 bool setButtonFrameInstanceCurrentButtonTypeStateSecondValue = false;
                 ButtonFrameRuntime.ButtonType ButtonFrameInstanceCurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
                 ButtonFrameRuntime.ButtonType ButtonFrameInstanceCurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
+                bool setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = false;
+                bool setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = false;
+                CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue= CurrentMusicDisplayRuntime.Appearing.Hidden;
+                CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue= CurrentMusicDisplayRuntime.Appearing.Hidden;
                 bool setTallestInfoFrameInstanceFrameAlphaFirstValue = false;
                 bool setTallestInfoFrameInstanceFrameAlphaSecondValue = false;
                 int TallestInfoFrameInstanceFrameAlphaFirstValue= 0;
@@ -157,6 +162,8 @@
                         {
                             this.ButtonFrameInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                         }
+                        setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = true;
+                        CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
                         if (interpolationValue < 1)
                         {
                             this.SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -222,6 +229,8 @@
                         {
                             this.ButtonFrameInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                         }
+                        setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = true;
+                        CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
                         if (interpolationValue >= 1)
                         {
                             this.SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -273,6 +282,10 @@
                 if (setButtonFrameInstanceCurrentButtonTypeStateFirstValue && setButtonFrameInstanceCurrentButtonTypeStateSecondValue)
                 {
                     ButtonFrameInstance.InterpolateBetween(ButtonFrameInstanceCurrentButtonTypeStateFirstValue, ButtonFrameInstanceCurrentButtonTypeStateSecondValue, interpolationValue);
+                }
+                if (setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue && setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue)
+                {
+                    CurrentMusicDisplayInstance.InterpolateBetween(CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue, CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue, interpolationValue);
                 }
                 if (setTallestInfoFrameInstanceFrameAlphaFirstValue && setTallestInfoFrameInstanceFrameAlphaSecondValue)
                 {
@@ -583,6 +596,7 @@
                 TallestInfoFrameInstance.StopAnimations();
                 ButtonFrameInstance.StopAnimations();
                 EndingTextContainer.StopAnimations();
+                CurrentMusicDisplayInstance.StopAnimations();
                 FadeInAnimation.Stop();
                 FadeOutAnimation.Stop();
             }
@@ -743,6 +757,14 @@
                             Name = "BlackFade.Width Units",
                             Type = "DimensionUnitType",
                             Value = BlackFade.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CurrentMusicDisplayInstance.AppearingState",
+                            Type = "AppearingState",
+                            Value = CurrentMusicDisplayInstance.CurrentAppearingState
                         }
                         );
                         break;
@@ -907,6 +929,14 @@
                             Value = BlackFade.WidthUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CurrentMusicDisplayInstance.AppearingState",
+                            Type = "AppearingState",
+                            Value = CurrentMusicDisplayInstance.CurrentAppearingState
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -991,6 +1021,7 @@
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime BlackFade { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime EndingTextContainer { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
             public EndingScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -1021,6 +1052,7 @@
                 ButtonFrameInstance = this.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
                 BlackFade = this.GetGraphicalUiElementByName("BlackFade") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 EndingTextContainer = this.GetGraphicalUiElementByName("EndingTextContainer") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
+                CurrentMusicDisplayInstance = this.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

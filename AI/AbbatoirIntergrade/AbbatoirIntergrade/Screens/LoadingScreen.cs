@@ -21,12 +21,11 @@ namespace AbbatoirIntergrade.Screens
 
 		void CustomInitialize()
 		{
-
+		    
         }
 
 		void CustomActivity(bool firstTimeCalled)
 		{
-		    SoundManager.Update();
             //Currently MonoGame does not allow asynchronously loading :(  Have to directly load screen after showing this one for 1 frame
             if (HasDrawBeenCalled) MoveToScreen(typeof(GameScreen));
 		    //if (this.AsyncLoadingState == FlatRedBall.Screens.AsyncLoadingState.NotStarted)

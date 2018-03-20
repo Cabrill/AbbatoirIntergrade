@@ -44,6 +44,7 @@
     <Compile Include="DataTypes\EndingText.Generated.cs" />
     <Compile Include="DataTypes\Enemy_Attributes.Generated.cs" />
     <Compile Include="DataTypes\Messages.Generated.cs" />
+    <Compile Include="DataTypes\SongNames.Generated.cs" />
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
     <Compile Include="Entities\BaseEntities\BaseEnemy.cs" />
     <Compile Include="Entities\BaseEntities\BaseEnemy.Event.cs">
@@ -344,6 +345,10 @@
     <Compile Include="GumRuntimes\infodisplays\ChatOptionRuntime.cs" />
     <Compile Include="GumRuntimes\infodisplays\ChatOptionRuntime.Generated.cs">
       <DependentUpon>ChatOptionRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\infodisplays\CurrentMusicDisplayRuntime.cs" />
+    <Compile Include="GumRuntimes\infodisplays\CurrentMusicDisplayRuntime.Generated.cs">
+      <DependentUpon>CurrentMusicDisplayRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\infodisplays\DamageTypeIconRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\EnemyInfoRuntime.cs" />
@@ -1246,6 +1251,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font50MoireExtraBold</Name>
     </None>
+    <None Include="content\globalcontent\songnames.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SongNames</Name>
+    </None>
     <None Include="content\gumproject\alluiassets.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AllUIAssets</Name>
@@ -1341,6 +1350,10 @@
     <None Include="content\gumproject\components\infodisplays\chatoption.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ChatOption</Name>
+    </None>
+    <None Include="content\gumproject\components\infodisplays\currentmusicdisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>currentmusicdisplay</Name>
     </None>
     <None Include="content\gumproject\components\infodisplays\damagetypeicon.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1453,14 +1466,6 @@
     <None Include="content\gumproject\fontcache\font18arial_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font22arial.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font22Arial</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font22arial_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font22Arial_0</Name>
     </None>
     <None Include="content\gumproject\fontcache\font30svi_basic_manual.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

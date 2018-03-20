@@ -39,6 +39,7 @@ namespace AbbatoirIntergrade.Screens
         private AbbatoirIntergrade.GumRuntimes.OkMessageRuntime OkMessageInstance;
         private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance;
         private FlatRedBall.Graphics.Layer HUDLayer;
+        private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance;
         protected global::RenderingLibrary.Graphics.Layer StructureLayerGum;
         protected global::RenderingLibrary.Graphics.Layer HUDLayerGum;
         public MapScreen () 
@@ -62,6 +63,7 @@ namespace AbbatoirIntergrade.Screens
             ConfirmationWindowInstance = MapScreenGum.GetGraphicalUiElementByName("ConfirmationWindowInstance") as AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime;
             HUDLayer = new FlatRedBall.Graphics.Layer();
             HUDLayer.Name = "HUDLayer";
+            CurrentMusicDisplayInstance = MapScreenGum.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
             
             
             PostInitialize();
@@ -207,6 +209,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 FlatRedBall.SpriteManager.RemoveLayer(HUDLayer);
             }
+            if (CurrentMusicDisplayInstance != null)
+            {
+                CurrentMusicDisplayInstance.RemoveFromManagers();
+            }
             StructureList.MakeTwoWay();
             ProjectileList.MakeTwoWay();
             FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
@@ -269,6 +275,10 @@ namespace AbbatoirIntergrade.Screens
             if (HUDLayer != null)
             {
                 FlatRedBall.SpriteManager.RemoveLayer(HUDLayer);
+            }
+            if (CurrentMusicDisplayInstance != null)
+            {
+                CurrentMusicDisplayInstance.RemoveFromManagers();
             }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 

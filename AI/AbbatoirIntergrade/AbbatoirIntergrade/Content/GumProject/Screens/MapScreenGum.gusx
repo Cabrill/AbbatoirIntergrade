@@ -107,6 +107,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>AppearingState</Type>
+      <Name>CurrentMusicDisplayInstance.AppearingState</Name>
+      <Value xsi:type="xsd:string">Hidden</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>FadingState</Type>
       <Name>FadingState</Name>
       <SetsValue>false</SetsValue>
@@ -1066,5 +1072,9 @@
   <Instance>
     <Name>ConfirmationWindowInstance</Name>
     <BaseType>ConfirmationWindow</BaseType>
+  </Instance>
+  <Instance>
+    <Name>CurrentMusicDisplayInstance</Name>
+    <BaseType>infodisplays/CurrentMusicDisplay</BaseType>
   </Instance>
 </ScreenSave>

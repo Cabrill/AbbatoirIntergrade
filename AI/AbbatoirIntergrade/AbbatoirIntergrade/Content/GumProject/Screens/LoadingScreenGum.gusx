@@ -4,6 +4,84 @@
   <State>
     <Name>Default</Name>
     <Variable>
+      <Type>EyeOpeningState</Type>
+      <Name>LeftEye.EyeOpeningState</Name>
+      <Value xsi:type="xsd:string">Open</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>EyePositionState</Type>
+      <Name>LeftEye.EyePositionState</Name>
+      <Value xsi:type="xsd:string">Left</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LeftEye.Y</Name>
+      <Value xsi:type="xsd:float">-150</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>LeftEye.Y Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>LeftEye.Y Units</Name>
+      <Value xsi:type="xsd:int">7</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>EyeOpeningState</Type>
+      <Name>RightEye.EyeOpeningState</Name>
+      <Value xsi:type="xsd:string">Open</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>EyePositionState</Type>
+      <Name>RightEye.EyePositionState</Name>
+      <Value xsi:type="xsd:string">Right</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>RightEye.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>RightEye.X Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>RightEye.X Units</Name>
+      <Value xsi:type="xsd:int">4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>RightEye.Y</Name>
+      <Value xsi:type="xsd:float">-150</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>RightEye.Y Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>RightEye.Y Units</Name>
+      <Value xsi:type="xsd:int">7</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>SpinState</Type>
       <Name>SpinState</Name>
       <SetsValue>false</SetsValue>
@@ -12,6 +90,13 @@
       <Type>int</Type>
       <Name>TextInstance.Blue</Name>
       <Value xsi:type="xsd:int">255</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>TextInstance.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -35,7 +120,7 @@
     <Variable>
       <Type>float</Type>
       <Name>TextInstance.Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
+      <Value xsi:type="xsd:float">20</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -65,8 +150,13 @@
     <Variable>
       <Type>string</Type>
       <Name>TextInstance.Text</Name>
-      <Value xsi:type="xsd:string">Loading.
-Please Wait...</Value>
+      <Value xsi:type="xsd:string">Loading...</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>TextInstance.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -82,6 +172,12 @@ Please Wait...</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float</Type>
+      <Name>TextInstance.X</Name>
+      <Value xsi:type="xsd:float">-9</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>HorizontalAlignment</Type>
       <Name>TextInstance.X Origin</Name>
       <Value xsi:type="xsd:int">0</Value>
@@ -91,6 +187,12 @@ Please Wait...</Value>
       <Type>PositionUnitType</Type>
       <Name>TextInstance.X Units</Name>
       <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TextInstance.Y</Name>
+      <Value xsi:type="xsd:float">1151</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -110,5 +212,13 @@ Please Wait...</Value>
   <Instance>
     <Name>TextInstance</Name>
     <BaseType>Text</BaseType>
+  </Instance>
+  <Instance>
+    <Name>LeftEye</Name>
+    <BaseType>unique/MainMenuEye</BaseType>
+  </Instance>
+  <Instance>
+    <Name>RightEye</Name>
+    <BaseType>unique/MainMenuEye</BaseType>
   </Instance>
 </ScreenSave>

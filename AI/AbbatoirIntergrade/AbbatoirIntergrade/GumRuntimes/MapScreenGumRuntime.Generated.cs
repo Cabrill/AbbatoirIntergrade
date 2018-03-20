@@ -133,6 +133,7 @@
                             ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             OkMessageInstance.Visible = false;
                             ConfirmationWindowInstance.Visible = false;
+                            CurrentMusicDisplayInstance.CurrentAppearingState = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
                             break;
                     }
                 }
@@ -283,6 +284,10 @@
                 bool setColoredRectangleInstanceWidthSecondValue = false;
                 float ColoredRectangleInstanceWidthFirstValue= 0;
                 float ColoredRectangleInstanceWidthSecondValue= 0;
+                bool setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = false;
+                bool setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = false;
+                CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue= CurrentMusicDisplayRuntime.Appearing.Hidden;
+                CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue= CurrentMusicDisplayRuntime.Appearing.Hidden;
                 bool setLevelButtonInstance1CurrentButtonCategoryStateFirstValue = false;
                 bool setLevelButtonInstance1CurrentButtonCategoryStateSecondValue = false;
                 LevelButtonRuntime.ButtonCategory LevelButtonInstance1CurrentButtonCategoryStateFirstValue= LevelButtonRuntime.ButtonCategory.Enabled;
@@ -556,6 +561,8 @@
                         {
                             this.ConfirmationWindowInstance.Visible = false;
                         }
+                        setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = true;
+                        CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
                         setLevelButtonInstance1CurrentButtonCategoryStateFirstValue = true;
                         LevelButtonInstance1CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance1CurrentLevelNumberStateFirstValue = true;
@@ -801,6 +808,8 @@
                         {
                             this.ConfirmationWindowInstance.Visible = false;
                         }
+                        setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = true;
+                        CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
                         setLevelButtonInstance1CurrentButtonCategoryStateSecondValue = true;
                         LevelButtonInstance1CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance1CurrentLevelNumberStateSecondValue = true;
@@ -1028,6 +1037,10 @@
                 if (setColoredRectangleInstanceWidthFirstValue && setColoredRectangleInstanceWidthSecondValue)
                 {
                     ColoredRectangleInstance.Width = ColoredRectangleInstanceWidthFirstValue * (1 - interpolationValue) + ColoredRectangleInstanceWidthSecondValue * interpolationValue;
+                }
+                if (setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue && setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue)
+                {
+                    CurrentMusicDisplayInstance.InterpolateBetween(CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue, CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue, interpolationValue);
                 }
                 if (setLevelButtonInstance1CurrentButtonCategoryStateFirstValue && setLevelButtonInstance1CurrentButtonCategoryStateSecondValue)
                 {
@@ -2368,6 +2381,7 @@
                 TowerSelectionBoxInstance.StopAnimations();
                 OkMessageInstance.StopAnimations();
                 ConfirmationWindowInstance.StopAnimations();
+                CurrentMusicDisplayInstance.StopAnimations();
                 ShowMenuAnimation.Stop();
                 HideMenuAnimation.Stop();
                 FadeInAnimation.Stop();
@@ -3116,6 +3130,14 @@
                             Value = ConfirmationWindowInstance.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CurrentMusicDisplayInstance.AppearingState",
+                            Type = "AppearingState",
+                            Value = CurrentMusicDisplayInstance.CurrentAppearingState
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -3860,6 +3882,14 @@
                             Name = "ConfirmationWindowInstance.Visible",
                             Type = "bool",
                             Value = ConfirmationWindowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CurrentMusicDisplayInstance.AppearingState",
+                            Type = "AppearingState",
+                            Value = CurrentMusicDisplayInstance.CurrentAppearingState
                         }
                         );
                         break;
@@ -4875,6 +4905,7 @@
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.OkMessageRuntime OkMessageInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
             public MapScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -4921,6 +4952,7 @@
                 ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 OkMessageInstance = this.GetGraphicalUiElementByName("OkMessageInstance") as AbbatoirIntergrade.GumRuntimes.OkMessageRuntime;
                 ConfirmationWindowInstance = this.GetGraphicalUiElementByName("ConfirmationWindowInstance") as AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime;
+                CurrentMusicDisplayInstance = this.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

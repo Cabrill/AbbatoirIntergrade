@@ -121,6 +121,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>infodisplays/CurrentMusicDisplay</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>infodisplays/DamageTypeIcon</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>

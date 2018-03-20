@@ -5,7 +5,7 @@
     {
         internal static class CameraSetup
         {
-            const float Scale = 0.75f;
+            const float Scale = 0.4f;
             internal static void ResetCamera (Camera cameraToReset) 
             {
                 FlatRedBall.Camera.Main.Orthogonal = true;

@@ -268,6 +268,7 @@ namespace AbbatoirIntergrade
         public static Microsoft.Xna.Framework.Media.Song Brallit_One_Accord { get; set; }
         public static Microsoft.Xna.Framework.Media.Song Brallit_Robotic_Chaotic { get; set; }
         public static Microsoft.Xna.Framework.Media.Song Brallit_Vow_of_Silence { get; set; }
+        public static System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.SongNames> SongNames { get; set; }
         [System.Obsolete("Use GetFile instead")]
         public static object GetStaticMember (string memberName) 
         {
@@ -327,6 +328,8 @@ namespace AbbatoirIntergrade
                     return Brallit_Robotic_Chaotic;
                 case  "Brallit_Vow_of_Silence":
                     return Brallit_Vow_of_Silence;
+                case  "SongNames":
+                    return SongNames;
             }
             return null;
         }
@@ -388,6 +391,8 @@ namespace AbbatoirIntergrade
                     return Brallit_Robotic_Chaotic;
                 case  "Brallit_Vow_of_Silence":
                     return Brallit_Vow_of_Silence;
+                case  "SongNames":
+                    return SongNames;
             }
             return null;
         }
@@ -415,6 +420,18 @@ namespace AbbatoirIntergrade
             Brallit_One_Accord = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/music/brallit_one_accord", ContentManagerName);
             Brallit_Robotic_Chaotic = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/music/brallit_robotic_chaotic", ContentManagerName);
             Brallit_Vow_of_Silence = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/music/brallit_vow_of_silence", ContentManagerName);
+            if (SongNames == null)
+            {
+                {
+                    // We put the { and } to limit the scope of oldDelimiter
+                    char oldDelimiter = FlatRedBall.IO.Csv.CsvFileManager.Delimiter;
+                    FlatRedBall.IO.Csv.CsvFileManager.Delimiter = ',';
+                    System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.SongNames> temporaryCsvObject = new System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.SongNames>();
+                    FlatRedBall.IO.Csv.CsvFileManager.CsvDeserializeDictionary<string, AbbatoirIntergrade.DataTypes.SongNames>("content/globalcontent/songnames.csv", temporaryCsvObject);
+                    FlatRedBall.IO.Csv.CsvFileManager.Delimiter = oldDelimiter;
+                    SongNames = temporaryCsvObject;
+                }
+            }
             			IsInitialized = true;
             #if DEBUG && WINDOWS
             InitializeFileWatch();
@@ -425,6 +442,10 @@ namespace AbbatoirIntergrade
             if (whatToReload == Enemy_Attributes)
             {
                 FlatRedBall.IO.Csv.CsvFileManager.UpdateDictionaryValuesFromCsv(Enemy_Attributes, "content/entities/enemies/enemy_attributes.csv");
+            }
+            if (whatToReload == SongNames)
+            {
+                FlatRedBall.IO.Csv.CsvFileManager.UpdateDictionaryValuesFromCsv(SongNames, "content/globalcontent/songnames.csv");
             }
         }
         #if DEBUG && WINDOWS

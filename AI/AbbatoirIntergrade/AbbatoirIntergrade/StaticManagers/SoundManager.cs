@@ -14,10 +14,10 @@ namespace AbbatoirIntergrade.StaticManagers
     public static class SoundManager
     {
         public static string CurrentArtistName => (AudioManager.CurrentlyPlayingSong != null
-            ? AudioManager.CurrentlyPlayingSong.Artist.Name
+            ? GlobalContent.SongNames[AudioManager.CurrentlyPlayingSong.Name].ArtistName
             : "");
         public static string CurrentTrackName => (AudioManager.CurrentlyPlayingSong != null
-            ? AudioManager.CurrentlyPlayingSong.Name
+            ? GlobalContent.SongNames[AudioManager.CurrentlyPlayingSong.Name].TrackName
             : "");
 
         private static double _soundVolumeVolumeLevel = 100;
@@ -51,13 +51,15 @@ namespace AbbatoirIntergrade.StaticManagers
         private static bool _shouldLoopPlaylist;
         private static bool _shouldLoopOneSong;
 
-        public static void Update()
+        public static bool Update()
         {
             if (AudioManager.CurrentlyPlayingSong == null)
             {
                 if (_shouldLoopOneSong) AudioManager.PlaySong();
                 else if (_currentPlayList != null) PlayNextSongInList();
+                return true;
             }
+            return false;
         }
 
         public static void PlaySoundEffect(SoundEffectInstance effect)

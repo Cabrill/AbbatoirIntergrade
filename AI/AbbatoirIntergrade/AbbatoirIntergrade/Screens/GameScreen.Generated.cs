@@ -200,6 +200,7 @@ namespace AbbatoirIntergrade.Screens
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TiledOverlay> TiledOverlayList;
         private AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime LocationTimeInstance;
         private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance;
+        private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance;
         protected global::RenderingLibrary.Graphics.Layer BackgroundLayerGum;
         protected global::RenderingLibrary.Graphics.Layer WorldLayerGum;
         protected global::RenderingLibrary.Graphics.Layer LightLayerGum;
@@ -257,6 +258,7 @@ namespace AbbatoirIntergrade.Screens
             TiledOverlayList.Name = "TiledOverlayList";
             LocationTimeInstance = GameScreenGum.GetGraphicalUiElementByName("LocationTimeAnnouncementInstance") as AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime;
             ConfirmationWindowInstance = GameScreenGum.GetGraphicalUiElementByName("ConfirmationWindowInstance") as AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime;
+            CurrentMusicDisplayInstance = GameScreenGum.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
             
             
             PostInitialize();
@@ -380,6 +382,7 @@ namespace AbbatoirIntergrade.Screens
             MenuWindowInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             LocationTimeInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             ConfirmationWindowInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            CurrentMusicDisplayInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(InfoLayer)));
             base.AddToManagers();
             AddToManagersBottomUp();
             CustomInitialize();
@@ -676,6 +679,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 ConfirmationWindowInstance.RemoveFromManagers();
             }
+            if (CurrentMusicDisplayInstance != null)
+            {
+                CurrentMusicDisplayInstance.RemoveFromManagers();
+            }
             AllStructuresList.MakeTwoWay();
             AllEnemiesList.MakeTwoWay();
             PlayerProjectileList.MakeTwoWay();
@@ -716,6 +723,7 @@ namespace AbbatoirIntergrade.Screens
             MenuWindowInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             LocationTimeInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             ConfirmationWindowInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            CurrentMusicDisplayInstance.MoveToFrbLayer(InfoLayer, InfoLayerGum);
             FlatRedBall.Gui.GuiManager.SortZAndLayerBased();
         }
         public virtual void RemoveFromManagers () 
@@ -836,6 +844,10 @@ namespace AbbatoirIntergrade.Screens
             if (ConfirmationWindowInstance != null)
             {
                 ConfirmationWindowInstance.RemoveFromManagers();
+            }
+            if (CurrentMusicDisplayInstance != null)
+            {
+                CurrentMusicDisplayInstance.RemoveFromManagers();
             }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 

@@ -68,7 +68,7 @@ namespace AbbatoirIntergrade.GumRuntimes
 
         private void UpdateStarrySky(DateTime timeOfDay)
         {
-            StarrySkySprite.Rotation = (float)(timeOfDay.TimeOfDay.TotalSeconds % 86400) * -0.004167f;
+            StarrySkySprite.Rotation = (float)(timeOfDay.TimeOfDay.TotalSeconds % 86400) * -0.020835f;
 
             var skyOpacity = 1 - Max(0,SunPercentageBelowHorizon - 0.5f)*2;
 

@@ -34,6 +34,7 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/AttributeDisplay", typeof(AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/AttributeIcon", typeof(AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/ChatOption", typeof(AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/CurrentMusicDisplay", typeof(AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/DamageTypeIcon", typeof(AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/EnemyInfo", typeof(AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/LocationTimeAnnouncement", typeof(AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime));

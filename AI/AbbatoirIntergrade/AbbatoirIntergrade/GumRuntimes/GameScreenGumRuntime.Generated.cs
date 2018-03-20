@@ -69,6 +69,9 @@
                             ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             LocationTimeAnnouncementInstance.CurrentDisplayingState = AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime.Displaying.Start;
                             ConfirmationWindowInstance.Visible = false;
+                            CurrentMusicDisplayInstance.CurrentAppearingState = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
+                            CurrentMusicDisplayInstance.X = -10f;
+                            CurrentMusicDisplayInstance.Y = 230f;
                             break;
                     }
                 }
@@ -216,6 +219,18 @@
                 bool setColoredRectangleInstanceWidthSecondValue = false;
                 float ColoredRectangleInstanceWidthFirstValue= 0;
                 float ColoredRectangleInstanceWidthSecondValue= 0;
+                bool setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = false;
+                bool setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = false;
+                CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue= CurrentMusicDisplayRuntime.Appearing.Hidden;
+                CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue= CurrentMusicDisplayRuntime.Appearing.Hidden;
+                bool setCurrentMusicDisplayInstanceXFirstValue = false;
+                bool setCurrentMusicDisplayInstanceXSecondValue = false;
+                float CurrentMusicDisplayInstanceXFirstValue= 0;
+                float CurrentMusicDisplayInstanceXSecondValue= 0;
+                bool setCurrentMusicDisplayInstanceYFirstValue = false;
+                bool setCurrentMusicDisplayInstanceYSecondValue = false;
+                float CurrentMusicDisplayInstanceYFirstValue= 0;
+                float CurrentMusicDisplayInstanceYSecondValue= 0;
                 bool setLivesPointsDisplayInstanceWidthFirstValue = false;
                 bool setLivesPointsDisplayInstanceWidthSecondValue = false;
                 float LivesPointsDisplayInstanceWidthFirstValue= 0;
@@ -277,6 +292,12 @@
                         {
                             this.ConfirmationWindowInstance.Visible = false;
                         }
+                        setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = true;
+                        CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
+                        setCurrentMusicDisplayInstanceXFirstValue = true;
+                        CurrentMusicDisplayInstanceXFirstValue = -10f;
+                        setCurrentMusicDisplayInstanceYFirstValue = true;
+                        CurrentMusicDisplayInstanceYFirstValue = 230f;
                         if (interpolationValue < 1)
                         {
                             this.EnemyInfoInstance.Visible = false;
@@ -366,6 +387,12 @@
                         {
                             this.ConfirmationWindowInstance.Visible = false;
                         }
+                        setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = true;
+                        CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
+                        setCurrentMusicDisplayInstanceXSecondValue = true;
+                        CurrentMusicDisplayInstanceXSecondValue = -10f;
+                        setCurrentMusicDisplayInstanceYSecondValue = true;
+                        CurrentMusicDisplayInstanceYSecondValue = 230f;
                         if (interpolationValue >= 1)
                         {
                             this.EnemyInfoInstance.Visible = false;
@@ -449,6 +476,18 @@
                 if (setColoredRectangleInstanceWidthFirstValue && setColoredRectangleInstanceWidthSecondValue)
                 {
                     ColoredRectangleInstance.Width = ColoredRectangleInstanceWidthFirstValue * (1 - interpolationValue) + ColoredRectangleInstanceWidthSecondValue * interpolationValue;
+                }
+                if (setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue && setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue)
+                {
+                    CurrentMusicDisplayInstance.InterpolateBetween(CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue, CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue, interpolationValue);
+                }
+                if (setCurrentMusicDisplayInstanceXFirstValue && setCurrentMusicDisplayInstanceXSecondValue)
+                {
+                    CurrentMusicDisplayInstance.X = CurrentMusicDisplayInstanceXFirstValue * (1 - interpolationValue) + CurrentMusicDisplayInstanceXSecondValue * interpolationValue;
+                }
+                if (setCurrentMusicDisplayInstanceYFirstValue && setCurrentMusicDisplayInstanceYSecondValue)
+                {
+                    CurrentMusicDisplayInstance.Y = CurrentMusicDisplayInstanceYFirstValue * (1 - interpolationValue) + CurrentMusicDisplayInstanceYSecondValue * interpolationValue;
                 }
                 if (setLivesPointsDisplayInstanceWidthFirstValue && setLivesPointsDisplayInstanceWidthSecondValue)
                 {
@@ -1505,6 +1544,7 @@
                 MenuWindowInstance.StopAnimations();
                 LocationTimeAnnouncementInstance.StopAnimations();
                 ConfirmationWindowInstance.StopAnimations();
+                CurrentMusicDisplayInstance.StopAnimations();
                 ShowChatHistoryAnimation.Stop();
                 HideChatHistoryAnimation.Stop();
                 FadeInAnimation.Stop();
@@ -1741,6 +1781,30 @@
                             Value = ConfirmationWindowInstance.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CurrentMusicDisplayInstance.AppearingState",
+                            Type = "AppearingState",
+                            Value = CurrentMusicDisplayInstance.CurrentAppearingState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CurrentMusicDisplayInstance.X",
+                            Type = "float",
+                            Value = CurrentMusicDisplayInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CurrentMusicDisplayInstance.Y",
+                            Type = "float",
+                            Value = CurrentMusicDisplayInstance.Y
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -1973,6 +2037,30 @@
                             Name = "ConfirmationWindowInstance.Visible",
                             Type = "bool",
                             Value = ConfirmationWindowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CurrentMusicDisplayInstance.AppearingState",
+                            Type = "AppearingState",
+                            Value = CurrentMusicDisplayInstance.CurrentAppearingState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CurrentMusicDisplayInstance.X",
+                            Type = "float",
+                            Value = CurrentMusicDisplayInstance.X + -10f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CurrentMusicDisplayInstance.Y",
+                            Type = "float",
+                            Value = CurrentMusicDisplayInstance.Y + 230f
                         }
                         );
                         break;
@@ -2804,6 +2892,7 @@
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime LocationTimeAnnouncementInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
             public GameScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -2842,6 +2931,7 @@
                 ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 LocationTimeAnnouncementInstance = this.GetGraphicalUiElementByName("LocationTimeAnnouncementInstance") as AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime;
                 ConfirmationWindowInstance = this.GetGraphicalUiElementByName("ConfirmationWindowInstance") as AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime;
+                CurrentMusicDisplayInstance = this.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {
