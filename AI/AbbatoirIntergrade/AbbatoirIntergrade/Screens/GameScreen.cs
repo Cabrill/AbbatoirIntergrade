@@ -89,7 +89,15 @@ namespace AbbatoirIntergrade.Screens
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
             HorizonBoxInstance.CurrentSceneryState = CurrentLevel.Scenery;
-            currentLevelDateTime = CurrentLevel.StartTime;
+
+            if (PlayerDataManager.CurrentGameDateTime == DateTime.MinValue)
+            {
+                currentLevelDateTime = CurrentLevel.StartTime;
+            }
+            else
+            {
+                currentLevelDateTime = PlayerDataManager.CurrentGameDateTime;
+            }
 
             InitializeFactories();
 
@@ -124,6 +132,7 @@ namespace AbbatoirIntergrade.Screens
             UpdateGameTime();
 
             GameScreenGumInstance.CurrentFadingState = GameScreenGumRuntime.Fading.Faded;
+            LocationTimeInstance.Display(CurrentLevel.LocationName, currentLevelDateTime);
         }
 
         private void HandleWaveStarted(object sender, EventArgs e)
@@ -362,7 +371,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void UpdateGameTime()
         {
-            var addSeconds = TimeManager.SecondDifference * 60;
+            var addSeconds = TimeManager.SecondDifference * 48;
             currentLevelDateTime = currentLevelDateTime.AddSeconds(addSeconds);
         }
 
@@ -382,7 +391,7 @@ namespace AbbatoirIntergrade.Screens
             catch (Exception){};
             ShowGameEndDisplay(playerWon: false);
 
-            var levelResults = CurrentLevel.GetFinalResults();
+            var levelResults = CurrentLevel.GetFinalResults(currentLevelDateTime);
             levelResults.TimePlayed = PauseAndBuildAjustedTime;
             PlayerDataManager.AllowPlayerNewTowerChoice();
             PlayerDataManager.RecordChapterResults(levelResults);
@@ -855,7 +864,7 @@ namespace AbbatoirIntergrade.Screens
                 PlayerDataManager.AddChosenDialogueId(chosenDialogue);
             }
 
-            var levelResults = CurrentLevel.GetFinalResults();
+            var levelResults = CurrentLevel.GetFinalResults(currentLevelDateTime);
             levelResults.TimePlayed = PauseAndBuildAjustedTime;
             PlayerDataManager.RecordChapterResults(levelResults);
             AnalyticsManager.SendLevelCompleteEvent(levelResults);

@@ -180,15 +180,15 @@ namespace AbbatoirIntergrade.Screens
 	            if (element is MenuWindowRuntime menuWindow)
 	            {
 	                menuWindow.AssignEventToCloseButton(window => MapScreenGumInstance.HideMenuAnimation.Play(this));
-                    menuWindow.AssignEventToButton0(window =>
+                    menuWindow.AssignEventToButton1(window =>
                     {
                         PlayerDataManager.SaveData();
                         FlatRedBallServices.Game.Exit();
                     });
-                    menuWindow.AssignEventToButton2(window => {
+                    menuWindow.AssignEventToButton3(window => {
                         ChatHistoryInstance.PopulateWithAllChatHistory();
                         ChatHistoryInstance.Visible = true; });
-                    menuWindow.AssignEventToButton3(window => OkMessageInstance.ShowMessage(Messages["Intro"].MessageText));
+                    menuWindow.AssignEventToButton4(window => OkMessageInstance.ShowMessage(Messages["Intro"].MessageText));
 	            }
 	        }
 	        ChatHistoryInstance.CloseButtonClick += (sender, args) => ChatHistoryInstance.Visible = false;

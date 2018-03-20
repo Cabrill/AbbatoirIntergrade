@@ -75,6 +75,7 @@ namespace AbbatoirIntergrade.StaticManagers
                 LevelName = results.LevelName,
                 LevelStarted = results.DateTimeStarted,
                 LevelFinished = results.DateTimeFinished,
+                InGameTime = results.InGameDateTime,
                 TimePlayed = results.TimePlayed,
                 EnemiesDefeated = results.EnemiesDefeated,
                 WavesCompleted = results.WavesCompleted,

@@ -13,6 +13,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
     class Chapter8Level : BaseLevel
     {
         public override string MapName => "Chapter8";
+        public override string LocationName => "Overton Keep";
         public override DateTime StartTime => new DateTime(2017, 10, 28, 15, 0, 0);
         public override int StartingLives => 30;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.SparseTrees;

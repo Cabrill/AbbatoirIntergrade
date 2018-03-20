@@ -21,25 +21,25 @@ namespace AbbatoirIntergrade.Screens
             TopStatusBarInstance.FastForwardButtonInstanceClick += OnFastForwardButtonClick;
 
             MenuWindowInstance.AssignEventToCloseButton(OnMenuCloseButtonClick);
-            MenuWindowInstance.AssignEventToButton0(window =>
+            MenuWindowInstance.AssignEventToButton1(window =>
             {
                 AnalyticsManager.FlushDeferredEvents();
                 PlayerDataManager.LoadData();
                 LoadingScreen.TransitionToScreen(typeof(MapScreen));
             });
+            MenuWindowInstance.ButtonType2State = ButtonFrameRuntime.ButtonType.Restart;
+            MenuWindowInstance.AssignEventToButton2(RestartLevel);
 
             if (CurrentLevel.MapName != "Chapter1")
             {
                 MenuWindowInstance.ButtonType3State = ButtonFrameRuntime.ButtonType.History;
-                MenuWindowInstance.AssignEventToButton2(window =>
+                MenuWindowInstance.AssignEventToButton3(window =>
                 {
                     ChatHistoryInstance.PopulateWithAllChatHistory();
                     ChatHistoryInstance.Visible = true;
                     ChatHistoryInstance.CloseButtonClick = (sender, args) => ChatHistoryInstance.Visible = false;
                 });
             }
-
-            //MenuWindowInstance.AssignEventToButton4(window => OkMessageInstance.ShowMessage(Messages["Intro"].MessageText));
         }
 
         private void OnFastForwardButtonClick(IWindow obj)

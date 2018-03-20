@@ -198,6 +198,7 @@ namespace AbbatoirIntergrade.Screens
         private AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime ScreenShadeInstance;
         private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance;
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TiledOverlay> TiledOverlayList;
+        private AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime LocationTimeInstance;
         protected global::RenderingLibrary.Graphics.Layer BackgroundLayerGum;
         protected global::RenderingLibrary.Graphics.Layer WorldLayerGum;
         protected global::RenderingLibrary.Graphics.Layer LightLayerGum;
@@ -253,6 +254,7 @@ namespace AbbatoirIntergrade.Screens
             MenuWindowInstance = GameScreenGum.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
             TiledOverlayList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TiledOverlay>();
             TiledOverlayList.Name = "TiledOverlayList";
+            LocationTimeInstance = GameScreenGum.GetGraphicalUiElementByName("LocationTimeAnnouncementInstance") as AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime;
             
             
             PostInitialize();
@@ -374,6 +376,7 @@ namespace AbbatoirIntergrade.Screens
             TopStatusBarInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             ScreenShadeInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             MenuWindowInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            LocationTimeInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             base.AddToManagers();
             AddToManagersBottomUp();
             CustomInitialize();
@@ -662,6 +665,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 TiledOverlayList[i].Destroy();
             }
+            if (LocationTimeInstance != null)
+            {
+                LocationTimeInstance.RemoveFromManagers();
+            }
             AllStructuresList.MakeTwoWay();
             AllEnemiesList.MakeTwoWay();
             PlayerProjectileList.MakeTwoWay();
@@ -700,6 +707,7 @@ namespace AbbatoirIntergrade.Screens
             TopStatusBarInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             ScreenShadeInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             MenuWindowInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            LocationTimeInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             FlatRedBall.Gui.GuiManager.SortZAndLayerBased();
         }
         public virtual void RemoveFromManagers () 
@@ -812,6 +820,10 @@ namespace AbbatoirIntergrade.Screens
             for (int i = TiledOverlayList.Count - 1; i > -1; i--)
             {
                 TiledOverlayList[i].Destroy();
+            }
+            if (LocationTimeInstance != null)
+            {
+                LocationTimeInstance.RemoveFromManagers();
             }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 

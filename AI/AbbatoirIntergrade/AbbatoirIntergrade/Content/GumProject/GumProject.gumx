@@ -125,6 +125,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>infodisplays/LocationTimeAnnouncement</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>infodisplays/OkMessage</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>

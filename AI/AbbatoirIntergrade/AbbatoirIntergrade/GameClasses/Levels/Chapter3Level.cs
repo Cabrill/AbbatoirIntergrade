@@ -12,6 +12,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
     class Chapter3Level : BaseLevel
     {
         public override string MapName => "Chapter3";
+        public override string LocationName => "Jugahn Village";
         public override DateTime StartTime => new DateTime(2017, 10, 24, 15, 0, 0);
         public override int StartingLives => 15;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.Plains;

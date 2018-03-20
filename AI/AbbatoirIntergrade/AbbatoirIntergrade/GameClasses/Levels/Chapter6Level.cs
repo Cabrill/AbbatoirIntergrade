@@ -13,6 +13,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
     class Chapter6Level : BaseLevel
     {
         public override string MapName => "Chapter6";
+        public override string LocationName => "Danshing Pass";
         public override DateTime StartTime => new DateTime(2017, 10, 26, 21, 0, 0);
         public override int StartingLives => 30;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.RedMountains;

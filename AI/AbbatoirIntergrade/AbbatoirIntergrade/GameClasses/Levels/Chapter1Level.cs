@@ -16,7 +16,8 @@ namespace AbbatoirIntergrade.GameClasses.Levels
     class Chapter1Level : BaseLevel
     {
         public override string MapName => "Chapter1";
-        public override DateTime StartTime => new DateTime(2017, 10, 21, 6, 0, 0);
+        public override string LocationName => "Nixuey Farm";
+        public override DateTime StartTime => new DateTime(2238, 10, 21, 6, 11, 0);
         public override int StartingLives => 20;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.SparseTrees;
         public override List<string> SongNameList => new List<string>() {nameof(GlobalContent.anttisinstrumentals_badmorning), nameof(GlobalContent.anttisinstrumentals_woman), nameof(GlobalContent.anttisinstrumentals_sidish) };

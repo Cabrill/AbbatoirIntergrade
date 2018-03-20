@@ -346,6 +346,10 @@
     <Compile Include="GumRuntimes\infodisplays\EnemyInfoRuntime.Generated.cs">
       <DependentUpon>EnemyInfoRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\infodisplays\LocationTimeAnnouncementRuntime.cs" />
+    <Compile Include="GumRuntimes\infodisplays\LocationTimeAnnouncementRuntime.Generated.cs">
+      <DependentUpon>LocationTimeAnnouncementRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\infodisplays\OkMessageRuntime.cs" />
     <Compile Include="GumRuntimes\infodisplays\OkMessageRuntime.Generated.cs">
       <DependentUpon>OkMessageRuntime.cs</DependentUpon>
@@ -1337,6 +1341,10 @@
     <None Include="content\gumproject\components\infodisplays\enemyinfo.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>EnemyInfo</Name>
+    </None>
+    <None Include="content\gumproject\components\infodisplays\locationtimeannouncement.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>locationtimeannouncement</Name>
     </None>
     <None Include="content\gumproject\components\infodisplays\okmessage.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

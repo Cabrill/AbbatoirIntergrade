@@ -13,6 +13,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
     class Chapter7Level : BaseLevel
     {
         public override string MapName => "Chapter7";
+        public override string LocationName => "Harrows Field";
         public override DateTime StartTime => new DateTime(2017, 10, 26, 3, 0, 0);
         public override int StartingLives => 30;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.Swamp;

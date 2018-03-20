@@ -67,6 +67,7 @@
                             ColoredRectangleInstance.Red = 0;
                             ColoredRectangleInstance.Width = 100f;
                             ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            LocationTimeAnnouncementInstance.CurrentDisplayingState = AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime.Displaying.Start;
                             break;
                     }
                 }
@@ -222,6 +223,10 @@
                 bool setLivesPointsDisplayInstanceXSecondValue = false;
                 float LivesPointsDisplayInstanceXFirstValue= 0;
                 float LivesPointsDisplayInstanceXSecondValue= 0;
+                bool setLocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue = false;
+                bool setLocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue = false;
+                LocationTimeAnnouncementRuntime.Displaying LocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue= LocationTimeAnnouncementRuntime.Displaying.Start;
+                LocationTimeAnnouncementRuntime.Displaying LocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue= LocationTimeAnnouncementRuntime.Displaying.Start;
                 switch(firstState)
                 {
                     case  VariableState.Default:
@@ -287,6 +292,8 @@
                         {
                             this.LivesPointsDisplayInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
+                        setLocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue = true;
+                        LocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue = AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime.Displaying.Start;
                         if (interpolationValue < 1)
                         {
                             this.MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
@@ -370,6 +377,8 @@
                         {
                             this.LivesPointsDisplayInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
+                        setLocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue = true;
+                        LocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue = AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime.Displaying.Start;
                         if (interpolationValue >= 1)
                         {
                             this.MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
@@ -439,6 +448,10 @@
                 if (setLivesPointsDisplayInstanceXFirstValue && setLivesPointsDisplayInstanceXSecondValue)
                 {
                     LivesPointsDisplayInstance.X = LivesPointsDisplayInstanceXFirstValue * (1 - interpolationValue) + LivesPointsDisplayInstanceXSecondValue * interpolationValue;
+                }
+                if (setLocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue && setLocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue)
+                {
+                    LocationTimeAnnouncementInstance.InterpolateBetween(LocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue, LocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue, interpolationValue);
                 }
                 if (interpolationValue < 1)
                 {
@@ -1481,6 +1494,7 @@
                 TopStatusBarInstance.StopAnimations();
                 ScreenShadeInstance.StopAnimations();
                 MenuWindowInstance.StopAnimations();
+                LocationTimeAnnouncementInstance.StopAnimations();
                 ShowChatHistoryAnimation.Stop();
                 HideChatHistoryAnimation.Stop();
                 FadeInAnimation.Stop();
@@ -1701,6 +1715,14 @@
                             Value = ColoredRectangleInstance.WidthUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LocationTimeAnnouncementInstance.DisplayingState",
+                            Type = "DisplayingState",
+                            Value = LocationTimeAnnouncementInstance.CurrentDisplayingState
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -1917,6 +1939,14 @@
                             Name = "ColoredRectangleInstance.Width Units",
                             Type = "DimensionUnitType",
                             Value = ColoredRectangleInstance.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LocationTimeAnnouncementInstance.DisplayingState",
+                            Type = "DisplayingState",
+                            Value = LocationTimeAnnouncementInstance.CurrentDisplayingState
                         }
                         );
                         break;
@@ -2746,6 +2776,7 @@
             private AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime ScreenShadeInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime LocationTimeAnnouncementInstance { get; set; }
             public GameScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -2782,6 +2813,7 @@
                 ScreenShadeInstance = this.GetGraphicalUiElementByName("ScreenShadeInstance") as AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime;
                 MenuWindowInstance = this.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
                 ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
+                LocationTimeAnnouncementInstance = this.GetGraphicalUiElementByName("LocationTimeAnnouncementInstance") as AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

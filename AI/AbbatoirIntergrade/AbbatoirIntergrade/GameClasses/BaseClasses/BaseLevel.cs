@@ -20,6 +20,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
     public abstract class BaseLevel
     {
         public abstract string MapName { get; }
+        public abstract string LocationName { get; }
         public abstract DateTime StartTime { get; }
         public abstract List<BaseWave> Waves { get; }
         public abstract List<string> SongNameList { get;  }
@@ -146,9 +147,10 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
             return generatedWave;
         }
 
-        public LevelResult GetFinalResults()
+        public LevelResult GetFinalResults(DateTime currentGameDateTime)
         {
             LevelResults.DateTimeFinished = DateTime.Now;
+            LevelResults.InGameDateTime = currentGameDateTime;
             LevelResults.WavesCompleted = CurrentWaveNumber;
             return LevelResults;
         }

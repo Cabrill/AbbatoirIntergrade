@@ -13,6 +13,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
     class Chapter5Level : BaseLevel
     {
         public override string MapName => "Chapter5";
+        public override string LocationName => "Highpass Outpost";
         public override DateTime StartTime => new DateTime(2017, 10, 25, 21, 0, 0);
         public override int StartingLives => 30;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.Desert;

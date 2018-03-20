@@ -13,6 +13,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
     class Chapter10Level : BaseLevel
     {
         public override string MapName => "Chapter10";
+        public override string LocationName => "Pilgrim Point";
         public override DateTime StartTime => new DateTime(2017, 10, 30, 5, 0, 0);
         public override int StartingLives => 982;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.City;

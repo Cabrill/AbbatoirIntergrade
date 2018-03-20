@@ -18,6 +18,7 @@ namespace AbbatoirIntergrade.StaticManagers
         private static PlayerData Data { get; set; }
 
         public static string CurrentPlayerId => Data.PlayerId;
+        public static DateTime CurrentGameDateTime => Data.CurrentPlayDateTime;
 
         private static double? RecordedPlayTime = null;
         public static double TotalPlayTimeInSeconds => RecordedPlayTime.Value + FlatRedBall.TimeManager.CurrentTime;
@@ -161,13 +162,12 @@ namespace AbbatoirIntergrade.StaticManagers
                 Data.ChapterResults.RemoveAt(existingResultIndex);
             }
             Data.ChapterResults.Add(result);
+            Data.CurrentPlayDateTime = result.InGameDateTime;
         }
 
         public static void MarkPlayerReachedEnding(int endingValue)
         {
-
             Data.GotPositiveEnding = endingValue > 0;
-
             Data.GotNeutralEnding = endingValue == 0;
             Data.GotNegativeEnding = endingValue < 0;
         }

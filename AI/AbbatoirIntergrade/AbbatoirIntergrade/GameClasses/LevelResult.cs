@@ -15,6 +15,8 @@ namespace AbbatoirIntergrade.GameClasses
         public DateTime DateTimeStarted;
         public DateTime DateTimeFinished;
 
+        public DateTime InGameDateTime;
+
         public double TimePlayed;
 
         public int WavesCompleted;

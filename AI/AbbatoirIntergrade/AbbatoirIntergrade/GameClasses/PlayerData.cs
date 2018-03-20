@@ -16,6 +16,9 @@ namespace AbbatoirIntergrade.GameClasses
         [XmlElement("PlayerId")]
         public string PlayerId { get; set; } = Guid.NewGuid().ToString("N");
 
+        [XmlElement("CurrentPlayDateTime")]
+        public DateTime CurrentPlayDateTime { get; set; } = DateTime.MinValue;
+
         [XmlElement("PlayTimeInSeconds")]
         public double PlayTimeInSeconds { get; set; }
 

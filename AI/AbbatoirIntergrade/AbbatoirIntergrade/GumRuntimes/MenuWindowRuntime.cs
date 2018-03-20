@@ -30,22 +30,22 @@ namespace AbbatoirIntergrade.GumRuntimes
             CloseButton.Click += assignedEvent.Invoke;
         }
 
-        public void AssignEventToButton0(Action<IWindow> assignedEvent)
+        public void AssignEventToButton1(Action<IWindow> assignedEvent)
         {
             ButtonFrameInstance.Click += assignedEvent.Invoke;
         }
 
-        public void AssignEventToButton1(Action<IWindow> assignedEvent)
+        public void AssignEventToButton2(Action<IWindow> assignedEvent)
         {
             ButtonFrameInstance1.Click += assignedEvent.Invoke;
         }
 
-        public void AssignEventToButton2(Action<IWindow> assignedEvent)
+        public void AssignEventToButton3(Action<IWindow> assignedEvent)
         {
             ButtonFrameInstance2.Click += assignedEvent.Invoke;
         }
 
-        public void AssignEventToButton3(Action<IWindow> assignedEvent)
+        public void AssignEventToButton4(Action<IWindow> assignedEvent)
         {
             ButtonFrameInstance3.Click += assignedEvent.Invoke;
         }
