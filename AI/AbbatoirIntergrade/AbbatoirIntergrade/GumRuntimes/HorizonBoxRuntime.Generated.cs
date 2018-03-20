@@ -100,9 +100,12 @@
                             StarrySkySprite.Y = 50f;
                             StarrySkySprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             StarrySkySprite.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            SunSprite.Blue = 255;
+                            SunSprite.Green = 191;
                             SunSprite.Height = 22.222f;
                             SunSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             SunSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer");
+                            SunSprite.Red = 0;
                             SetProperty("SunSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
                             SunSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             SunSprite.TextureHeight = 256;
@@ -117,9 +120,12 @@
                             SunSprite.Y = 0f;
                             SunSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                             SunSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddleInverted;
+                            MoonSprite.Blue = 255;
+                            MoonSprite.Green = 191;
                             MoonSprite.Height = 13.3332f;
                             MoonSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             MoonSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer");
+                            MoonSprite.Red = 0;
                             SetProperty("MoonSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
                             MoonSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             MoonSprite.TextureHeight = 256;
@@ -424,10 +430,22 @@
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
                 float HeightSecondValue= 0;
+                bool setMoonSpriteBlueFirstValue = false;
+                bool setMoonSpriteBlueSecondValue = false;
+                int MoonSpriteBlueFirstValue= 0;
+                int MoonSpriteBlueSecondValue= 0;
+                bool setMoonSpriteGreenFirstValue = false;
+                bool setMoonSpriteGreenSecondValue = false;
+                int MoonSpriteGreenFirstValue= 0;
+                int MoonSpriteGreenSecondValue= 0;
                 bool setMoonSpriteHeightFirstValue = false;
                 bool setMoonSpriteHeightSecondValue = false;
                 float MoonSpriteHeightFirstValue= 0;
                 float MoonSpriteHeightSecondValue= 0;
+                bool setMoonSpriteRedFirstValue = false;
+                bool setMoonSpriteRedSecondValue = false;
+                int MoonSpriteRedFirstValue= 0;
+                int MoonSpriteRedSecondValue= 0;
                 bool setMoonSpriteTextureHeightFirstValue = false;
                 bool setMoonSpriteTextureHeightSecondValue = false;
                 int MoonSpriteTextureHeightFirstValue= 0;
@@ -532,10 +550,22 @@
                 bool setSunMoonContainerWidthSecondValue = false;
                 float SunMoonContainerWidthFirstValue= 0;
                 float SunMoonContainerWidthSecondValue= 0;
+                bool setSunSpriteBlueFirstValue = false;
+                bool setSunSpriteBlueSecondValue = false;
+                int SunSpriteBlueFirstValue= 0;
+                int SunSpriteBlueSecondValue= 0;
+                bool setSunSpriteGreenFirstValue = false;
+                bool setSunSpriteGreenSecondValue = false;
+                int SunSpriteGreenFirstValue= 0;
+                int SunSpriteGreenSecondValue= 0;
                 bool setSunSpriteHeightFirstValue = false;
                 bool setSunSpriteHeightSecondValue = false;
                 float SunSpriteHeightFirstValue= 0;
                 float SunSpriteHeightSecondValue= 0;
+                bool setSunSpriteRedFirstValue = false;
+                bool setSunSpriteRedSecondValue = false;
+                int SunSpriteRedFirstValue= 0;
+                int SunSpriteRedSecondValue= 0;
                 bool setSunSpriteTextureHeightFirstValue = false;
                 bool setSunSpriteTextureHeightSecondValue = false;
                 int SunSpriteTextureHeightFirstValue= 0;
@@ -757,6 +787,10 @@
                         {
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setMoonSpriteBlueFirstValue = true;
+                        MoonSpriteBlueFirstValue = 255;
+                        setMoonSpriteGreenFirstValue = true;
+                        MoonSpriteGreenFirstValue = 191;
                         setMoonSpriteHeightFirstValue = true;
                         MoonSpriteHeightFirstValue = 13.3332f;
                         if (interpolationValue < 1)
@@ -767,6 +801,8 @@
                         {
                             this.MoonSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer");
                         }
+                        setMoonSpriteRedFirstValue = true;
+                        MoonSpriteRedFirstValue = 0;
                         if (interpolationValue < 1)
                         {
                             SetProperty("MoonSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
@@ -967,6 +1003,10 @@
                         {
                             this.SunMoonContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setSunSpriteBlueFirstValue = true;
+                        SunSpriteBlueFirstValue = 255;
+                        setSunSpriteGreenFirstValue = true;
+                        SunSpriteGreenFirstValue = 191;
                         setSunSpriteHeightFirstValue = true;
                         SunSpriteHeightFirstValue = 22.222f;
                         if (interpolationValue < 1)
@@ -977,6 +1017,8 @@
                         {
                             this.SunSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer");
                         }
+                        setSunSpriteRedFirstValue = true;
+                        SunSpriteRedFirstValue = 0;
                         if (interpolationValue < 1)
                         {
                             SetProperty("SunSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
@@ -1252,6 +1294,10 @@
                         {
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setMoonSpriteBlueSecondValue = true;
+                        MoonSpriteBlueSecondValue = 255;
+                        setMoonSpriteGreenSecondValue = true;
+                        MoonSpriteGreenSecondValue = 191;
                         setMoonSpriteHeightSecondValue = true;
                         MoonSpriteHeightSecondValue = 13.3332f;
                         if (interpolationValue >= 1)
@@ -1262,6 +1308,8 @@
                         {
                             this.MoonSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer");
                         }
+                        setMoonSpriteRedSecondValue = true;
+                        MoonSpriteRedSecondValue = 0;
                         if (interpolationValue >= 1)
                         {
                             SetProperty("MoonSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
@@ -1462,6 +1510,10 @@
                         {
                             this.SunMoonContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setSunSpriteBlueSecondValue = true;
+                        SunSpriteBlueSecondValue = 255;
+                        setSunSpriteGreenSecondValue = true;
+                        SunSpriteGreenSecondValue = 191;
                         setSunSpriteHeightSecondValue = true;
                         SunSpriteHeightSecondValue = 22.222f;
                         if (interpolationValue >= 1)
@@ -1472,6 +1524,8 @@
                         {
                             this.SunSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer");
                         }
+                        setSunSpriteRedSecondValue = true;
+                        SunSpriteRedSecondValue = 0;
                         if (interpolationValue >= 1)
                         {
                             SetProperty("SunSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
@@ -1706,9 +1760,21 @@
                 {
                     Height = HeightFirstValue * (1 - interpolationValue) + HeightSecondValue * interpolationValue;
                 }
+                if (setMoonSpriteBlueFirstValue && setMoonSpriteBlueSecondValue)
+                {
+                    MoonSprite.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(MoonSpriteBlueFirstValue* (1 - interpolationValue) + MoonSpriteBlueSecondValue * interpolationValue);
+                }
+                if (setMoonSpriteGreenFirstValue && setMoonSpriteGreenSecondValue)
+                {
+                    MoonSprite.Green = FlatRedBall.Math.MathFunctions.RoundToInt(MoonSpriteGreenFirstValue* (1 - interpolationValue) + MoonSpriteGreenSecondValue * interpolationValue);
+                }
                 if (setMoonSpriteHeightFirstValue && setMoonSpriteHeightSecondValue)
                 {
                     MoonSprite.Height = MoonSpriteHeightFirstValue * (1 - interpolationValue) + MoonSpriteHeightSecondValue * interpolationValue;
+                }
+                if (setMoonSpriteRedFirstValue && setMoonSpriteRedSecondValue)
+                {
+                    MoonSprite.Red = FlatRedBall.Math.MathFunctions.RoundToInt(MoonSpriteRedFirstValue* (1 - interpolationValue) + MoonSpriteRedSecondValue * interpolationValue);
                 }
                 if (setMoonSpriteTextureHeightFirstValue && setMoonSpriteTextureHeightSecondValue)
                 {
@@ -1814,9 +1880,21 @@
                 {
                     SunMoonContainer.Width = SunMoonContainerWidthFirstValue * (1 - interpolationValue) + SunMoonContainerWidthSecondValue * interpolationValue;
                 }
+                if (setSunSpriteBlueFirstValue && setSunSpriteBlueSecondValue)
+                {
+                    SunSprite.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(SunSpriteBlueFirstValue* (1 - interpolationValue) + SunSpriteBlueSecondValue * interpolationValue);
+                }
+                if (setSunSpriteGreenFirstValue && setSunSpriteGreenSecondValue)
+                {
+                    SunSprite.Green = FlatRedBall.Math.MathFunctions.RoundToInt(SunSpriteGreenFirstValue* (1 - interpolationValue) + SunSpriteGreenSecondValue * interpolationValue);
+                }
                 if (setSunSpriteHeightFirstValue && setSunSpriteHeightSecondValue)
                 {
                     SunSprite.Height = SunSpriteHeightFirstValue * (1 - interpolationValue) + SunSpriteHeightSecondValue * interpolationValue;
+                }
+                if (setSunSpriteRedFirstValue && setSunSpriteRedSecondValue)
+                {
+                    SunSprite.Red = FlatRedBall.Math.MathFunctions.RoundToInt(SunSpriteRedFirstValue* (1 - interpolationValue) + SunSpriteRedSecondValue * interpolationValue);
                 }
                 if (setSunSpriteTextureHeightFirstValue && setSunSpriteTextureHeightSecondValue)
                 {
@@ -2828,6 +2906,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "SunSprite.Blue",
+                            Type = "int",
+                            Value = SunSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SunSprite.Green",
+                            Type = "int",
+                            Value = SunSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "SunSprite.Height",
                             Type = "float",
                             Value = SunSprite.Height
@@ -2847,6 +2941,14 @@
                             Name = "SunSprite.Parent",
                             Type = "string",
                             Value = SunSprite.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SunSprite.Red",
+                            Type = "int",
+                            Value = SunSprite.Red
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2964,6 +3066,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "MoonSprite.Blue",
+                            Type = "int",
+                            Value = MoonSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MoonSprite.Green",
+                            Type = "int",
+                            Value = MoonSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "MoonSprite.Height",
                             Type = "float",
                             Value = MoonSprite.Height
@@ -2983,6 +3101,14 @@
                             Name = "MoonSprite.Parent",
                             Type = "string",
                             Value = MoonSprite.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MoonSprite.Red",
+                            Type = "int",
+                            Value = MoonSprite.Red
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4110,6 +4236,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "SunSprite.Blue",
+                            Type = "int",
+                            Value = SunSprite.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SunSprite.Green",
+                            Type = "int",
+                            Value = SunSprite.Green + 191
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "SunSprite.Height",
                             Type = "float",
                             Value = SunSprite.Height + 22.222f
@@ -4129,6 +4271,14 @@
                             Name = "SunSprite.Parent",
                             Type = "string",
                             Value = SunSprite.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SunSprite.Red",
+                            Type = "int",
+                            Value = SunSprite.Red + 0
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4246,6 +4396,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "MoonSprite.Blue",
+                            Type = "int",
+                            Value = MoonSprite.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MoonSprite.Green",
+                            Type = "int",
+                            Value = MoonSprite.Green + 191
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "MoonSprite.Height",
                             Type = "float",
                             Value = MoonSprite.Height + 13.3332f
@@ -4265,6 +4431,14 @@
                             Name = "MoonSprite.Parent",
                             Type = "string",
                             Value = MoonSprite.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MoonSprite.Red",
+                            Type = "int",
+                            Value = MoonSprite.Red + 0
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

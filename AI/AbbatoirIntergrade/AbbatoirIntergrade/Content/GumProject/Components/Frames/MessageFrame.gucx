@@ -7,7 +7,7 @@
     <Variable>
       <Type>float</Type>
       <Name>BottomSprite.Height</Name>
-      <Value xsi:type="xsd:float">23.5</Value>
+      <Value xsi:type="xsd:float">23</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -152,7 +152,7 @@
     <Variable>
       <Type>float</Type>
       <Name>TopSprite.Height</Name>
-      <Value xsi:type="xsd:float">23.5</Value>
+      <Value xsi:type="xsd:float">23</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

@@ -68,6 +68,7 @@
                             ColoredRectangleInstance.Width = 100f;
                             ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             LocationTimeAnnouncementInstance.CurrentDisplayingState = AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime.Displaying.Start;
+                            ConfirmationWindowInstance.Visible = false;
                             break;
                     }
                 }
@@ -274,6 +275,10 @@
                         }
                         if (interpolationValue < 1)
                         {
+                            this.ConfirmationWindowInstance.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.EnemyInfoInstance.Visible = false;
                         }
                         if (interpolationValue < 1)
@@ -356,6 +361,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ConfirmationWindowInstance.Visible = false;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1495,6 +1504,7 @@
                 ScreenShadeInstance.StopAnimations();
                 MenuWindowInstance.StopAnimations();
                 LocationTimeAnnouncementInstance.StopAnimations();
+                ConfirmationWindowInstance.StopAnimations();
                 ShowChatHistoryAnimation.Stop();
                 HideChatHistoryAnimation.Stop();
                 FadeInAnimation.Stop();
@@ -1723,6 +1733,14 @@
                             Value = LocationTimeAnnouncementInstance.CurrentDisplayingState
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConfirmationWindowInstance.Visible",
+                            Type = "bool",
+                            Value = ConfirmationWindowInstance.Visible
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -1947,6 +1965,14 @@
                             Name = "LocationTimeAnnouncementInstance.DisplayingState",
                             Type = "DisplayingState",
                             Value = LocationTimeAnnouncementInstance.CurrentDisplayingState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConfirmationWindowInstance.Visible",
+                            Type = "bool",
+                            Value = ConfirmationWindowInstance.Visible
                         }
                         );
                         break;
@@ -2777,6 +2803,7 @@
             private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime LocationTimeAnnouncementInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance { get; set; }
             public GameScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -2814,6 +2841,7 @@
                 MenuWindowInstance = this.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
                 ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 LocationTimeAnnouncementInstance = this.GetGraphicalUiElementByName("LocationTimeAnnouncementInstance") as AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime;
+                ConfirmationWindowInstance = this.GetGraphicalUiElementByName("ConfirmationWindowInstance") as AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

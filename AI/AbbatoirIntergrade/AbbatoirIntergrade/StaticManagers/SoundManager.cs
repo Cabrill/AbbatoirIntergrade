@@ -13,6 +13,13 @@ namespace AbbatoirIntergrade.StaticManagers
 {
     public static class SoundManager
     {
+        public static string CurrentArtistName => (AudioManager.CurrentlyPlayingSong != null
+            ? AudioManager.CurrentlyPlayingSong.Artist.Name
+            : "");
+        public static string CurrentTrackName => (AudioManager.CurrentlyPlayingSong != null
+            ? AudioManager.CurrentlyPlayingSong.Name
+            : "");
+
         private static double _soundVolumeVolumeLevel = 100;
         public static double SoundVolumeLevel
         {
@@ -22,7 +29,7 @@ namespace AbbatoirIntergrade.StaticManagers
                 _soundVolumeVolumeLevel = value;
                 effectiveSoundVolumeLevel = getSmoothedVolumeLevel(_soundVolumeVolumeLevel);
             }
-    }
+        }
 
         private static double _musicVolumeLevel = 100;
         public static double MusicVolumeLevel

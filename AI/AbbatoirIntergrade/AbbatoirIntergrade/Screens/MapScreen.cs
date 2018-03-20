@@ -31,6 +31,7 @@ namespace AbbatoirIntergrade.Screens
 		void CustomInitialize()
 		{
 		    GameStateManager.LoadIfNecessary();
+            PlayerDataManager.LoadData();
 
 #if WINDOWS || DESKTOP_GL
             FlatRedBallServices.IsWindowsCursorVisible = true;
@@ -182,8 +183,11 @@ namespace AbbatoirIntergrade.Screens
 	                menuWindow.AssignEventToCloseButton(window => MapScreenGumInstance.HideMenuAnimation.Play(this));
                     menuWindow.AssignEventToButton1(window =>
                     {
-                        PlayerDataManager.SaveData();
-                        FlatRedBallServices.Game.Exit();
+                        ConfirmationWindowInstance.Confirm("Exit and return to desktop?", () =>
+                        {
+                            PlayerDataManager.SaveData();
+                            FlatRedBallServices.Game.Exit();
+                        });
                     });
                     menuWindow.AssignEventToButton3(window => {
                         ChatHistoryInstance.PopulateWithAllChatHistory();

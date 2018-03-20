@@ -107,6 +107,12 @@
     </Variable>
     <Variable>
       <Type>bool</Type>
+      <Name>ConfirmationWindowInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
       <Name>EnemyInfoInstance.Visible</Name>
       <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
@@ -564,5 +570,9 @@
   <Instance>
     <Name>LocationTimeAnnouncementInstance</Name>
     <BaseType>infodisplays/LocationTimeAnnouncement</BaseType>
+  </Instance>
+  <Instance>
+    <Name>ConfirmationWindowInstance</Name>
+    <BaseType>ConfirmationWindow</BaseType>
   </Instance>
 </ScreenSave>

@@ -101,6 +101,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>ConfirmationWindowInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>FadingState</Type>
       <Name>FadingState</Name>
       <SetsValue>false</SetsValue>
@@ -1056,5 +1062,9 @@
   <Instance>
     <Name>OkMessageInstance</Name>
     <BaseType>infodisplays/OkMessage</BaseType>
+  </Instance>
+  <Instance>
+    <Name>ConfirmationWindowInstance</Name>
+    <BaseType>ConfirmationWindow</BaseType>
   </Instance>
 </ScreenSave>

@@ -132,6 +132,7 @@
                             ColoredRectangleInstance.Width = 100f;
                             ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             OkMessageInstance.Visible = false;
+                            ConfirmationWindowInstance.Visible = false;
                             break;
                     }
                 }
@@ -551,6 +552,10 @@
                         {
                             this.ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.ConfirmationWindowInstance.Visible = false;
+                        }
                         setLevelButtonInstance1CurrentButtonCategoryStateFirstValue = true;
                         LevelButtonInstance1CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance1CurrentLevelNumberStateFirstValue = true;
@@ -791,6 +796,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ConfirmationWindowInstance.Visible = false;
                         }
                         setLevelButtonInstance1CurrentButtonCategoryStateSecondValue = true;
                         LevelButtonInstance1CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
@@ -2358,6 +2367,7 @@
                 ChatHistoryInstance.StopAnimations();
                 TowerSelectionBoxInstance.StopAnimations();
                 OkMessageInstance.StopAnimations();
+                ConfirmationWindowInstance.StopAnimations();
                 ShowMenuAnimation.Stop();
                 HideMenuAnimation.Stop();
                 FadeInAnimation.Stop();
@@ -3098,6 +3108,14 @@
                             Value = OkMessageInstance.Visible
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConfirmationWindowInstance.Visible",
+                            Type = "bool",
+                            Value = ConfirmationWindowInstance.Visible
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -3834,6 +3852,14 @@
                             Name = "OkMessageInstance.Visible",
                             Type = "bool",
                             Value = OkMessageInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConfirmationWindowInstance.Visible",
+                            Type = "bool",
+                            Value = ConfirmationWindowInstance.Visible
                         }
                         );
                         break;
@@ -4848,6 +4874,7 @@
             private AbbatoirIntergrade.GumRuntimes.TowerSelectionBoxRuntime TowerSelectionBoxInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.OkMessageRuntime OkMessageInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance { get; set; }
             public MapScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -4893,6 +4920,7 @@
                 TowerSelectionBoxInstance = this.GetGraphicalUiElementByName("TowerSelectionBoxInstance") as AbbatoirIntergrade.GumRuntimes.TowerSelectionBoxRuntime;
                 ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 OkMessageInstance = this.GetGraphicalUiElementByName("OkMessageInstance") as AbbatoirIntergrade.GumRuntimes.OkMessageRuntime;
+                ConfirmationWindowInstance = this.GetGraphicalUiElementByName("ConfirmationWindowInstance") as AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

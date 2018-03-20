@@ -15,6 +15,7 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ChatBox", typeof(AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ChatHistory", typeof(AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("coloredbars/ResourceBar", typeof(AbbatoirIntergrade.GumRuntimes.ResourceBarRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ConfirmationWindow", typeof(AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("frames/ButtonFrame", typeof(AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("frames/ChatFrame", typeof(AbbatoirIntergrade.GumRuntimes.ChatFrameRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Frames/ChatOptionFrame", typeof(AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime));

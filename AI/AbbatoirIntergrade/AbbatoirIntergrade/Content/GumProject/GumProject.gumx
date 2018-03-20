@@ -45,6 +45,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>ConfirmationWindow</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>frames/ButtonFrame</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>

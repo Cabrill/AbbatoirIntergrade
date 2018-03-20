@@ -34,7 +34,7 @@
                             XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             Y = 24.14021f;
                             YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            TopSprite.Height = 23.5f;
+                            TopSprite.Height = 23f;
                             TopSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             SetProperty("TopSprite.SourceFile", "AllUIAssets.png");
                             TopSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
@@ -54,7 +54,7 @@
                             MiddleSprite.TextureWidth = 1320;
                             MiddleSprite.Width = 100f;
                             MiddleSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            BottomSprite.Height = 23.5f;
+                            BottomSprite.Height = 23f;
                             BottomSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             SetProperty("BottomSprite.SourceFile", "AllUIAssets.png");
                             BottomSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
@@ -170,7 +170,7 @@
                 {
                     case  VariableState.Default:
                         setBottomSpriteHeightFirstValue = true;
-                        BottomSpriteHeightFirstValue = 23.5f;
+                        BottomSpriteHeightFirstValue = 23f;
                         if (interpolationValue < 1)
                         {
                             this.BottomSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -236,7 +236,7 @@
                             this.MiddleSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setTopSpriteHeightFirstValue = true;
-                        TopSpriteHeightFirstValue = 23.5f;
+                        TopSpriteHeightFirstValue = 23f;
                         if (interpolationValue < 1)
                         {
                             this.TopSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -287,7 +287,7 @@
                 {
                     case  VariableState.Default:
                         setBottomSpriteHeightSecondValue = true;
-                        BottomSpriteHeightSecondValue = 23.5f;
+                        BottomSpriteHeightSecondValue = 23f;
                         if (interpolationValue >= 1)
                         {
                             this.BottomSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -353,7 +353,7 @@
                             this.MiddleSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setTopSpriteHeightSecondValue = true;
-                        TopSpriteHeightSecondValue = 23.5f;
+                        TopSpriteHeightSecondValue = 23f;
                         if (interpolationValue >= 1)
                         {
                             this.TopSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -966,7 +966,7 @@
                             SetsValue = true,
                             Name = "TopSprite.Height",
                             Type = "float",
-                            Value = TopSprite.Height + 23.5f
+                            Value = TopSprite.Height + 23f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1126,7 +1126,7 @@
                             SetsValue = true,
                             Name = "BottomSprite.Height",
                             Type = "float",
-                            Value = BottomSprite.Height + 23.5f
+                            Value = BottomSprite.Height + 23f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

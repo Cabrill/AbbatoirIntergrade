@@ -37,7 +37,10 @@ namespace AbbatoirIntergrade.Screens
         private FlatRedBall.Graphics.Layer StructureLayer;
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BasePlayerProjectile> ProjectileList;
         private AbbatoirIntergrade.GumRuntimes.OkMessageRuntime OkMessageInstance;
+        private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance;
+        private FlatRedBall.Graphics.Layer HUDLayer;
         protected global::RenderingLibrary.Graphics.Layer StructureLayerGum;
+        protected global::RenderingLibrary.Graphics.Layer HUDLayerGum;
         public MapScreen () 
         	: base ("MapScreen")
         {
@@ -56,6 +59,9 @@ namespace AbbatoirIntergrade.Screens
             ProjectileList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BasePlayerProjectile>();
             ProjectileList.Name = "ProjectileList";
             OkMessageInstance = MapScreenGum.GetGraphicalUiElementByName("OkMessageInstance") as AbbatoirIntergrade.GumRuntimes.OkMessageRuntime;
+            ConfirmationWindowInstance = MapScreenGum.GetGraphicalUiElementByName("ConfirmationWindowInstance") as AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime;
+            HUDLayer = new FlatRedBall.Graphics.Layer();
+            HUDLayer.Name = "HUDLayer";
             
             
             PostInitialize();
@@ -75,9 +81,19 @@ namespace AbbatoirIntergrade.Screens
                 StructureLayer.LayerCameraSettings.OrthogonalWidth = FlatRedBall.SpriteManager.Camera.OrthogonalWidth;
                 StructureLayer.LayerCameraSettings.OrthogonalHeight = FlatRedBall.SpriteManager.Camera.OrthogonalHeight;
             }
+            FlatRedBall.SpriteManager.AddLayer(HUDLayer);
+            HUDLayer.UsePixelCoordinates();
+            if (FlatRedBall.SpriteManager.Camera.Orthogonal)
+            {
+                HUDLayer.LayerCameraSettings.OrthogonalWidth = FlatRedBall.SpriteManager.Camera.OrthogonalWidth;
+                HUDLayer.LayerCameraSettings.OrthogonalHeight = FlatRedBall.SpriteManager.Camera.OrthogonalHeight;
+            }
             StructureLayerGum = RenderingLibrary.SystemManagers.Default.Renderer.AddLayer();
             StructureLayerGum.Name = "StructureLayerGum";
             MapScreenGum.AddGumLayerToFrbLayer(StructureLayerGum, StructureLayer);
+            HUDLayerGum = RenderingLibrary.SystemManagers.Default.Renderer.AddLayer();
+            HUDLayerGum.Name = "HUDLayerGum";
+            MapScreenGum.AddGumLayerToFrbLayer(HUDLayerGum, HUDLayer);
             Factories.BombardingTowerFactory.AddList(StructureList);
             Factories.ChemicalTowerFactory.AddList(StructureList);
             Factories.ElectricTowerFactory.AddList(StructureList);
@@ -90,6 +106,10 @@ namespace AbbatoirIntergrade.Screens
             Factories.FireProjectileFactory.AddList(ProjectileList);
             Factories.FrostProjectileFactory.AddList(ProjectileList);
             Factories.PiercingProjectileFactory.AddList(ProjectileList);
+            MenuWindowInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            ChatHistoryInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            OkMessageInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            ConfirmationWindowInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             base.AddToManagers();
             AddToManagersBottomUp();
             CustomInitialize();
@@ -179,6 +199,14 @@ namespace AbbatoirIntergrade.Screens
             {
                 OkMessageInstance.RemoveFromManagers();
             }
+            if (ConfirmationWindowInstance != null)
+            {
+                ConfirmationWindowInstance.RemoveFromManagers();
+            }
+            if (HUDLayer != null)
+            {
+                FlatRedBall.SpriteManager.RemoveLayer(HUDLayer);
+            }
             StructureList.MakeTwoWay();
             ProjectileList.MakeTwoWay();
             FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
@@ -194,6 +222,11 @@ namespace AbbatoirIntergrade.Screens
         {
             CameraSetup.ResetCamera(SpriteManager.Camera);
             AssignCustomVariables(false);
+            MenuWindowInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            ChatHistoryInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            OkMessageInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            ConfirmationWindowInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            FlatRedBall.Gui.GuiManager.SortZAndLayerBased();
         }
         public virtual void RemoveFromManagers () 
         {
@@ -228,6 +261,14 @@ namespace AbbatoirIntergrade.Screens
             if (OkMessageInstance != null)
             {
                 OkMessageInstance.RemoveFromManagers();
+            }
+            if (ConfirmationWindowInstance != null)
+            {
+                ConfirmationWindowInstance.RemoveFromManagers();
+            }
+            if (HUDLayer != null)
+            {
+                FlatRedBall.SpriteManager.RemoveLayer(HUDLayer);
             }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 

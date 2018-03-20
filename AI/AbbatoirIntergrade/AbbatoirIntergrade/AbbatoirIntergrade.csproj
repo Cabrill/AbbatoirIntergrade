@@ -308,6 +308,10 @@
       <DependentUpon>ResourceBarRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ConfirmationWindowRuntime.cs" />
+    <Compile Include="GumRuntimes\ConfirmationWindowRuntime.Generated.cs">
+      <DependentUpon>ConfirmationWindowRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\EndingScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\frames\ButtonFrameRuntime.cs" />
     <Compile Include="GumRuntimes\frames\ButtonFrameRuntime.Generated.cs">
@@ -1261,6 +1265,10 @@
     <None Include="content\gumproject\components\coloredbars\resourcebar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ResourceBar</Name>
+    </None>
+    <None Include="content\gumproject\components\confirmationwindow.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>confirmationwindow</Name>
     </None>
     <None Include="content\gumproject\components\frames\buttonframe.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

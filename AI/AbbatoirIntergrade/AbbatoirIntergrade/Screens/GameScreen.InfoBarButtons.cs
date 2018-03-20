@@ -21,14 +21,20 @@ namespace AbbatoirIntergrade.Screens
             TopStatusBarInstance.FastForwardButtonInstanceClick += OnFastForwardButtonClick;
 
             MenuWindowInstance.AssignEventToCloseButton(OnMenuCloseButtonClick);
-            MenuWindowInstance.AssignEventToButton1(window =>
-            {
-                AnalyticsManager.FlushDeferredEvents();
-                PlayerDataManager.LoadData();
-                LoadingScreen.TransitionToScreen(typeof(MapScreen));
-            });
+            MenuWindowInstance.AssignEventToButton1((window) =>
+                ConfirmationWindowInstance.Confirm("Quit level and lose current progress?", () =>
+                {
+                    AnalyticsManager.FlushDeferredEvents();
+                    LoadingScreen.TransitionToScreen(typeof(MapScreen));
+                })
+            );
             MenuWindowInstance.ButtonType2State = ButtonFrameRuntime.ButtonType.Restart;
-            MenuWindowInstance.AssignEventToButton2(RestartLevel);
+            MenuWindowInstance.AssignEventToButton2((window) =>
+                ConfirmationWindowInstance.Confirm("Restart level and lose current progress?", () =>
+                {
+                    RestartLevel(window);
+                })
+            );
 
             if (CurrentLevel.MapName != "Chapter1")
             {
