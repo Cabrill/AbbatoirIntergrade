@@ -134,7 +134,7 @@ namespace AbbatoirIntergrade.Screens
             GameScreenGumInstance.CurrentFadingState = GameScreenGumRuntime.Fading.Faded;
             LocationTimeInstance.Display(CurrentLevel.LocationName, currentLevelDateTime);
 
-            CurrentMusicDisplayInstance.TimedDisplay(true);
+            this.Call(() =>CurrentMusicDisplayInstance.TimedDisplay(true)).After(5f);
         }
 
         private void HandleWaveStarted(object sender, EventArgs e)

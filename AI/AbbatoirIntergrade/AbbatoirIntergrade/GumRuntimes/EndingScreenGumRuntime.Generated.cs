@@ -13,10 +13,17 @@
                 Faded,
                 NotFaded
             }
+            public enum Endings
+            {
+                Positive,
+                Neutral,
+                Negative
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
             Fading mCurrentFadingState;
+            Endings mCurrentEndingsState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -32,11 +39,8 @@
                     {
                         case  VariableState.Default:
                             SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/spacebg.png");
+                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/positive.png");
                             SpriteInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            TallestInfoFrameInstance.FrameAlpha = 200;
-                            TallestInfoFrameInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                            TallestInfoFrameInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                             ButtonFrameInstance.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
                             ButtonFrameInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
                             ButtonFrameInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
@@ -71,6 +75,35 @@
                             break;
                         case  Fading.NotFaded:
                             BlackFade.Alpha = 0;
+                            break;
+                    }
+                }
+            }
+            public Endings CurrentEndingsState
+            {
+                get
+                {
+                    return mCurrentEndingsState;
+                }
+                set
+                {
+                    mCurrentEndingsState = value;
+                    switch(mCurrentEndingsState)
+                    {
+                        case  Endings.Positive:
+                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/positive.png");
+                            EndingTextContainer.X = 0f;
+                            EndingTextContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                            break;
+                        case  Endings.Neutral:
+                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/neutral.png");
+                            EndingTextContainer.X = 40f;
+                            EndingTextContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                            break;
+                        case  Endings.Negative:
+                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/negative.png");
+                            EndingTextContainer.X = 50f;
+                            EndingTextContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             break;
                     }
                 }
@@ -117,10 +150,6 @@
                 bool setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = false;
                 CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue= CurrentMusicDisplayRuntime.Appearing.Hidden;
                 CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue= CurrentMusicDisplayRuntime.Appearing.Hidden;
-                bool setTallestInfoFrameInstanceFrameAlphaFirstValue = false;
-                bool setTallestInfoFrameInstanceFrameAlphaSecondValue = false;
-                int TallestInfoFrameInstanceFrameAlphaFirstValue= 0;
-                int TallestInfoFrameInstanceFrameAlphaSecondValue= 0;
                 switch(firstState)
                 {
                     case  VariableState.Default:
@@ -170,21 +199,11 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/spacebg.png");
+                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/positive.png");
                         }
                         if (interpolationValue < 1)
                         {
                             this.SpriteInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setTallestInfoFrameInstanceFrameAlphaFirstValue = true;
-                        TallestInfoFrameInstanceFrameAlphaFirstValue = 200;
-                        if (interpolationValue < 1)
-                        {
-                            this.TallestInfoFrameInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.TallestInfoFrameInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         break;
                 }
@@ -237,21 +256,11 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/spacebg.png");
+                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/positive.png");
                         }
                         if (interpolationValue >= 1)
                         {
                             this.SpriteInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setTallestInfoFrameInstanceFrameAlphaSecondValue = true;
-                        TallestInfoFrameInstanceFrameAlphaSecondValue = 200;
-                        if (interpolationValue >= 1)
-                        {
-                            this.TallestInfoFrameInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.TallestInfoFrameInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         break;
                 }
@@ -286,10 +295,6 @@
                 if (setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue && setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue)
                 {
                     CurrentMusicDisplayInstance.InterpolateBetween(CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue, CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue, interpolationValue);
-                }
-                if (setTallestInfoFrameInstanceFrameAlphaFirstValue && setTallestInfoFrameInstanceFrameAlphaSecondValue)
-                {
-                    TallestInfoFrameInstance.FrameAlpha = FlatRedBall.Math.MathFunctions.RoundToInt(TallestInfoFrameInstanceFrameAlphaFirstValue* (1 - interpolationValue) + TallestInfoFrameInstanceFrameAlphaSecondValue * interpolationValue);
                 }
                 if (interpolationValue < 1)
                 {
@@ -345,6 +350,109 @@
                 else
                 {
                     mCurrentFadingState = secondState;
+                }
+            }
+            public void InterpolateBetween (Endings firstState, Endings secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                bool setEndingTextContainerXFirstValue = false;
+                bool setEndingTextContainerXSecondValue = false;
+                float EndingTextContainerXFirstValue= 0;
+                float EndingTextContainerXSecondValue= 0;
+                switch(firstState)
+                {
+                    case  Endings.Positive:
+                        setEndingTextContainerXFirstValue = true;
+                        EndingTextContainerXFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.EndingTextContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/positive.png");
+                        }
+                        break;
+                    case  Endings.Neutral:
+                        setEndingTextContainerXFirstValue = true;
+                        EndingTextContainerXFirstValue = 40f;
+                        if (interpolationValue < 1)
+                        {
+                            this.EndingTextContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/neutral.png");
+                        }
+                        break;
+                    case  Endings.Negative:
+                        setEndingTextContainerXFirstValue = true;
+                        EndingTextContainerXFirstValue = 50f;
+                        if (interpolationValue < 1)
+                        {
+                            this.EndingTextContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/negative.png");
+                        }
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  Endings.Positive:
+                        setEndingTextContainerXSecondValue = true;
+                        EndingTextContainerXSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.EndingTextContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/positive.png");
+                        }
+                        break;
+                    case  Endings.Neutral:
+                        setEndingTextContainerXSecondValue = true;
+                        EndingTextContainerXSecondValue = 40f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.EndingTextContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/neutral.png");
+                        }
+                        break;
+                    case  Endings.Negative:
+                        setEndingTextContainerXSecondValue = true;
+                        EndingTextContainerXSecondValue = 50f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.EndingTextContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/negative.png");
+                        }
+                        break;
+                }
+                if (setEndingTextContainerXFirstValue && setEndingTextContainerXSecondValue)
+                {
+                    EndingTextContainer.X = EndingTextContainerXFirstValue * (1 - interpolationValue) + EndingTextContainerXSecondValue * interpolationValue;
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentEndingsState = firstState;
+                }
+                else
+                {
+                    mCurrentEndingsState = secondState;
                 }
             }
             #endregion
@@ -453,6 +561,60 @@
                 }
                 tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
                 tweener.Ended += ()=> this.CurrentFadingState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.EndingScreenGumRuntime.Endings fromState,AbbatoirIntergrade.GumRuntimes.EndingScreenGumRuntime.Endings toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (Endings toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "Endings").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentEndingsState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (Endings toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentEndingsState = toState;
                 tweener.Start();
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
@@ -593,7 +755,6 @@
             public override void StopAnimations () 
             {
                 base.StopAnimations();
-                TallestInfoFrameInstance.StopAnimations();
                 ButtonFrameInstance.StopAnimations();
                 EndingTextContainer.StopAnimations();
                 CurrentMusicDisplayInstance.StopAnimations();
@@ -629,30 +790,6 @@
                             Name = "SpriteInstance.Width Units",
                             Type = "DimensionUnitType",
                             Value = SpriteInstance.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TallestInfoFrameInstance.FrameAlpha",
-                            Type = "int",
-                            Value = TallestInfoFrameInstance.FrameAlpha
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TallestInfoFrameInstance.X Origin",
-                            Type = "HorizontalAlignment",
-                            Value = TallestInfoFrameInstance.XOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TallestInfoFrameInstance.X Units",
-                            Type = "PositionUnitType",
-                            Value = TallestInfoFrameInstance.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -799,30 +936,6 @@
                             Name = "SpriteInstance.Width Units",
                             Type = "DimensionUnitType",
                             Value = SpriteInstance.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TallestInfoFrameInstance.FrameAlpha",
-                            Type = "int",
-                            Value = TallestInfoFrameInstance.FrameAlpha + 200
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TallestInfoFrameInstance.X Origin",
-                            Type = "HorizontalAlignment",
-                            Value = TallestInfoFrameInstance.XOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TallestInfoFrameInstance.X Units",
-                            Type = "PositionUnitType",
-                            Value = TallestInfoFrameInstance.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -997,6 +1110,178 @@
                 }
                 return newState;
             }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (Endings state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Endings.Positive:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.SourceFile",
+                            Type = "string",
+                            Value = SpriteInstance.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingTextContainer.X",
+                            Type = "float",
+                            Value = EndingTextContainer.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingTextContainer.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = EndingTextContainer.XOrigin
+                        }
+                        );
+                        break;
+                    case  Endings.Neutral:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.SourceFile",
+                            Type = "string",
+                            Value = SpriteInstance.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingTextContainer.X",
+                            Type = "float",
+                            Value = EndingTextContainer.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingTextContainer.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = EndingTextContainer.XOrigin
+                        }
+                        );
+                        break;
+                    case  Endings.Negative:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.SourceFile",
+                            Type = "string",
+                            Value = SpriteInstance.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingTextContainer.X",
+                            Type = "float",
+                            Value = EndingTextContainer.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingTextContainer.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = EndingTextContainer.XOrigin
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (Endings state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Endings.Positive:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.SourceFile",
+                            Type = "string",
+                            Value = SpriteInstance.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingTextContainer.X",
+                            Type = "float",
+                            Value = EndingTextContainer.X + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingTextContainer.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = EndingTextContainer.XOrigin
+                        }
+                        );
+                        break;
+                    case  Endings.Neutral:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.SourceFile",
+                            Type = "string",
+                            Value = SpriteInstance.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingTextContainer.X",
+                            Type = "float",
+                            Value = EndingTextContainer.X + 40f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingTextContainer.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = EndingTextContainer.XOrigin
+                        }
+                        );
+                        break;
+                    case  Endings.Negative:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.SourceFile",
+                            Type = "string",
+                            Value = SpriteInstance.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingTextContainer.X",
+                            Type = "float",
+                            Value = EndingTextContainer.X + 50f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingTextContainer.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = EndingTextContainer.XOrigin
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
             #endregion
             public override void ApplyState (Gum.DataTypes.Variables.StateSave state) 
             {
@@ -1013,11 +1298,16 @@
                         if(state.Name == "Faded") this.mCurrentFadingState = Fading.Faded;
                         if(state.Name == "NotFaded") this.mCurrentFadingState = Fading.NotFaded;
                     }
+                    else if (category.Name == "Endings")
+                    {
+                        if(state.Name == "Positive") this.mCurrentEndingsState = Endings.Positive;
+                        if(state.Name == "Neutral") this.mCurrentEndingsState = Endings.Neutral;
+                        if(state.Name == "Negative") this.mCurrentEndingsState = Endings.Negative;
+                    }
                 }
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TallestInfoFrameRuntime TallestInfoFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime BlackFade { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime EndingTextContainer { get; set; }
@@ -1048,7 +1338,6 @@
             private void AssignReferences () 
             {
                 SpriteInstance = this.GetGraphicalUiElementByName("SpriteInstance") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
-                TallestInfoFrameInstance = this.GetGraphicalUiElementByName("TallestInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.TallestInfoFrameRuntime;
                 ButtonFrameInstance = this.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
                 BlackFade = this.GetGraphicalUiElementByName("BlackFade") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 EndingTextContainer = this.GetGraphicalUiElementByName("EndingTextContainer") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;

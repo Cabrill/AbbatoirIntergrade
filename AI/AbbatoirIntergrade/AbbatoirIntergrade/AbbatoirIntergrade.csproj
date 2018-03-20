@@ -1591,6 +1591,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>EndingText</Name>
     </None>
+    <None Include="content\screens\endingscreen\negative.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>negative</Name>
+    </None>
+    <None Include="content\screens\endingscreen\neutral.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>neutral</Name>
+    </None>
+    <None Include="content\screens\endingscreen\positive.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>positive</Name>
+    </None>
     <None Include="content\screens\endingscreen\spacebg.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>spacebg</Name>

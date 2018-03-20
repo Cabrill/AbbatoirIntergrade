@@ -24,8 +24,10 @@ namespace AbbatoirIntergrade.Screens
         static bool HasBeenLoadedWithGlobalContentManager = false;
         #endif
         protected static FlatRedBall.Gum.GumIdb EndingScreenGum;
-        protected static Microsoft.Xna.Framework.Graphics.Texture2D spacebg;
         protected static System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.EndingText> EndingText;
+        protected static Microsoft.Xna.Framework.Graphics.Texture2D negative;
+        protected static Microsoft.Xna.Framework.Graphics.Texture2D neutral;
+        protected static Microsoft.Xna.Framework.Graphics.Texture2D positive;
         
         private AbbatoirIntergrade.GumRuntimes.EndingScreenGumRuntime EndingScreenGumInstance;
         private AbbatoirIntergrade.GumRuntimes.TextRuntime EndingTextRuntimeInstance;
@@ -80,8 +82,10 @@ namespace AbbatoirIntergrade.Screens
             base.Destroy();
             FlatRedBall.SpriteManager.RemoveDrawableBatch(EndingScreenGum); FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged -= EndingScreenGum.HandleResolutionChanged;
             EndingScreenGum = null;
-            spacebg = null;
             EndingText = null;
+            negative = null;
+            neutral = null;
+            positive = null;
             
             if (EndingScreenGumInstance != null)
             {
@@ -172,7 +176,6 @@ namespace AbbatoirIntergrade.Screens
             }
             #endif
             Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;  EndingScreenGum = new FlatRedBall.Gum.GumIdb();  EndingScreenGum.LoadFromFile("content/gumproject/screens/endingscreengum.gusx");  EndingScreenGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false; EndingScreenGum.Element.UpdateLayout(); EndingScreenGum.Element.UpdateLayout();
-            spacebg = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/endingscreen/spacebg.png", contentManagerName);
             if (EndingText == null)
             {
                 {
@@ -185,6 +188,9 @@ namespace AbbatoirIntergrade.Screens
                     EndingText = temporaryCsvObject;
                 }
             }
+            negative = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/endingscreen/negative.png", contentManagerName);
+            neutral = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/endingscreen/neutral.png", contentManagerName);
+            positive = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/endingscreen/positive.png", contentManagerName);
             CustomLoadStaticContent(contentManagerName);
         }
         [System.Obsolete("Use GetFile instead")]
@@ -194,10 +200,14 @@ namespace AbbatoirIntergrade.Screens
             {
                 case  "EndingScreenGum":
                     return EndingScreenGum;
-                case  "spacebg":
-                    return spacebg;
                 case  "EndingText":
                     return EndingText;
+                case  "negative":
+                    return negative;
+                case  "neutral":
+                    return neutral;
+                case  "positive":
+                    return positive;
             }
             return null;
         }
@@ -207,10 +217,14 @@ namespace AbbatoirIntergrade.Screens
             {
                 case  "EndingScreenGum":
                     return EndingScreenGum;
-                case  "spacebg":
-                    return spacebg;
                 case  "EndingText":
                     return EndingText;
+                case  "negative":
+                    return negative;
+                case  "neutral":
+                    return neutral;
+                case  "positive":
+                    return positive;
             }
             return null;
         }
@@ -220,8 +234,12 @@ namespace AbbatoirIntergrade.Screens
             {
                 case  "EndingScreenGum":
                     return EndingScreenGum;
-                case  "spacebg":
-                    return spacebg;
+                case  "negative":
+                    return negative;
+                case  "neutral":
+                    return neutral;
+                case  "positive":
+                    return positive;
             }
             return null;
         }

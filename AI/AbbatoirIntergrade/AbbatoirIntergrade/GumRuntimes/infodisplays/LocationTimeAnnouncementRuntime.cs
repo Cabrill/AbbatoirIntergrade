@@ -12,7 +12,7 @@ namespace AbbatoirIntergrade.GumRuntimes
         {
             LocationText.Text = location;
             DateTimeText.Text = time.ToString("F") + " UTC";
-            AppearAnimation.PlayAfter(1.5f);
+            AppearAnimation.PlayAfter(1f);
         }
     }
 }

@@ -37,14 +37,17 @@ namespace AbbatoirIntergrade.Screens
 		    if (endingReached > 0)
 		    {
 		        SoundManager.PlaySong(GlobalContent.Brallit_Robotic_Chaotic, true, true);
+                EndingScreenGumInstance.CurrentEndingsState = EndingScreenGumRuntime.Endings.Positive;
             }
             else if (endingReached < 0)
 		    {
 		        SoundManager.PlaySong(GlobalContent.Brallit_One_Accord, true, true);
+		        EndingScreenGumInstance.CurrentEndingsState = EndingScreenGumRuntime.Endings.Negative;
             }
 		    else
 		    {
-		        SoundManager.PlaySong(GlobalContent.anttisinstrumentals_glitchthis, true, true);
+                SoundManager.PlaySong(GlobalContent.anttisinstrumentals_glitchthis, true, true);
+		        EndingScreenGumInstance.CurrentEndingsState = EndingScreenGumRuntime.Endings.Neutral;
             }
             
             EndingScreenGumInstance.CurrentFadingState = EndingScreenGumRuntime.Fading.Faded;
