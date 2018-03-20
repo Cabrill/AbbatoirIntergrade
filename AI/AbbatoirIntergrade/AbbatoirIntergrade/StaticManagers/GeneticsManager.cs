@@ -47,7 +47,10 @@ namespace AbbatoirIntergrade.StaticManagers
         private static void CreateNewGeneticPool()
         {
             GenerationCount = 0;
+
             EnemyTypeChromosomes = new SerializableDictionary<EnemyTypes, List<SerializableChromosome>>();
+            LegacyChromosomes = new SerializableDictionary<EnemyTypes, List<SerializableChromosome>>();
+
             foreach (EnemyTypes enemyType in Enum.GetValues(typeof(EnemyTypes)))
             {
                 var chromosomeList = new List<SerializableChromosome>();
@@ -58,6 +61,7 @@ namespace AbbatoirIntergrade.StaticManagers
                 }
 
                 EnemyTypeChromosomes.Add(enemyType, chromosomeList);
+                LegacyChromosomes.Add(enemyType, chromosomeList);
             }
         }
 

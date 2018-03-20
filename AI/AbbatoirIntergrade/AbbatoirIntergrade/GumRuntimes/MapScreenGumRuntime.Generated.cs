@@ -95,7 +95,7 @@
                             ScreenDimRectangle.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
                             MenuWindowInstance.ButtonType2State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Disabled;
-                            MenuWindowInstance.ButtonType3State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Disabled;
+                            MenuWindowInstance.ButtonType3State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.History;
                             MenuWindowInstance.ButtonType4State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Menu;
                             MenuWindowInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             MenuWindowInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
@@ -641,7 +641,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.MenuWindowInstance.ButtonType3State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Disabled;
+                            this.MenuWindowInstance.ButtonType3State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.History;
                         }
                         if (interpolationValue < 1)
                         {
@@ -882,7 +882,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.MenuWindowInstance.ButtonType3State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Disabled;
+                            this.MenuWindowInstance.ButtonType3State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.History;
                         }
                         if (interpolationValue >= 1)
                         {

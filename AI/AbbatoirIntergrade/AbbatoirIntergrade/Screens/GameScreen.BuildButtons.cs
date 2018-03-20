@@ -99,7 +99,7 @@ namespace AbbatoirIntergrade.Screens
 
             ChatBoxInstance.ChatHistoryButtonClick += delegate(object sender, EventArgs args)
             {
-                ChatHistoryInstance.PopulateWithChatHistory();
+                ChatHistoryInstance.PopulateWithRecentChatHistory();
                 GameScreenGumInstance.ShowChatHistoryAnimation.Play();
             };
 

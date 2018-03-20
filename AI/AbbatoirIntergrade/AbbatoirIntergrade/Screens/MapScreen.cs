@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using AbbatoirIntergrade.Entities.BaseEntities;
 using AbbatoirIntergrade.Factories;
+using AbbatoirIntergrade.GameClasses;
 using AbbatoirIntergrade.GameClasses.BaseClasses;
 using AbbatoirIntergrade.GumRuntimes;
 using AbbatoirIntergrade.StaticManagers;
@@ -37,7 +38,6 @@ namespace AbbatoirIntergrade.Screens
 
             AssignClickEventsAndStatusToButtons();
             MapScreenGumInstance.CurrentFadingState = MapScreenGumRuntime.Fading.Faded;
-		    FillChatHistory();
 
 		    OfferStructureChoiceIfAvailable();
 
@@ -106,27 +106,6 @@ namespace AbbatoirIntergrade.Screens
 	            }
 
 	            towerSelectionBox.Visible = false;
-	        }
-	    }
-
-	    private void FillChatHistory()
-	    {
-	        for (int i = 0; i < 50; i++)
-	        {
-	            var chatOption = new ChatOptionRuntime(true);
-	            chatOption.ChatText = "Hello to you and to me, this is message # " + i;
-                if (i % 2 == 0)
-                { 
-	                chatOption.XOrigin = HorizontalAlignment.Left;
-                    chatOption.XUnits = GeneralUnitType.PixelsFromSmall;
-                }
-                else
-                {
-                    chatOption.XOrigin = HorizontalAlignment.Right;
-                    chatOption.XUnits = GeneralUnitType.PixelsFromLarge;
-                }
-	            //chatOption.HasEvents = false;
-	            chatOption.Parent = ChatHistoryInstance.FormsControl.InnerPanel;
 	        }
 	    }
 
@@ -206,9 +185,13 @@ namespace AbbatoirIntergrade.Screens
                         PlayerDataManager.SaveData();
                         FlatRedBallServices.Game.Exit();
                     });
+                    menuWindow.AssignEventToButton2(window => {
+                        ChatHistoryInstance.PopulateWithAllChatHistory();
+                        ChatHistoryInstance.Visible = true; });
                     menuWindow.AssignEventToButton3(window => OkMessageInstance.ShowMessage(Messages["Intro"].MessageText));
 	            }
 	        }
+	        ChatHistoryInstance.CloseButtonClick += (sender, args) => ChatHistoryInstance.Visible = false;
 	    }
 
 	    private void ShowMenu(IWindow window)

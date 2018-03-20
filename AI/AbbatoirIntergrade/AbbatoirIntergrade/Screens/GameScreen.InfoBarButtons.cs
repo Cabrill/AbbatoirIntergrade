@@ -27,6 +27,18 @@ namespace AbbatoirIntergrade.Screens
                 PlayerDataManager.LoadData();
                 LoadingScreen.TransitionToScreen(typeof(MapScreen));
             });
+
+            if (CurrentLevel.MapName != "Chapter1")
+            {
+                MenuWindowInstance.ButtonType3State = ButtonFrameRuntime.ButtonType.History;
+                MenuWindowInstance.AssignEventToButton2(window =>
+                {
+                    ChatHistoryInstance.PopulateWithAllChatHistory();
+                    ChatHistoryInstance.Visible = true;
+                    ChatHistoryInstance.CloseButtonClick = (sender, args) => ChatHistoryInstance.Visible = false;
+                });
+            }
+
             //MenuWindowInstance.AssignEventToButton4(window => OkMessageInstance.ShowMessage(Messages["Intro"].MessageText));
         }
 

@@ -434,8 +434,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             if (!SoundPanning.HasValue)
             {
-                var pan = Position.X / Camera.Main.OrthogonalWidth;
-                FiringSound.Pan = pan;
+                SoundPanning = Position.X / Camera.Main.OrthogonalWidth;
+                FiringSound.Pan = SoundPanning.Value;
             }
 
             SoundManager.PlaySoundEffect(FiringSound);

@@ -13,13 +13,13 @@ namespace AbbatoirIntergrade.GumRuntimes
     public partial class ChatHistoryRuntime
     {
         public EventHandler CloseButtonClick;
-        
+
         partial void CustomInitialize()
         {
             CloseButton.Click += window => CloseButtonClick?.Invoke(CloseButton, null);
         }
 
-        public void PopulateWithChatHistory()
+        public void PopulateWithRecentChatHistory()
         {
             InnerPanelInstance.Children.Clear();
 
@@ -46,6 +46,38 @@ namespace AbbatoirIntergrade.GumRuntimes
                     responseBox.HasEvents = false;
                     responseBox.Parent = InnerPanelInstance;
                 }
+            }
+        }
+
+        public void PopulateWithAllChatHistory()
+        {
+            InnerPanelInstance.Children.Clear();
+
+            var chatHistory = PlayerDataManager.DialogueHistory;
+            var allDialogue = GameStateManager.GameDialogue;
+
+            foreach (var chat in chatHistory)
+            {
+                var aiMessage = new ChatOptionRuntime(true)
+                {
+                    ChatText = allDialogue.GetDialogueText(chat.Key),
+                    XOrigin = HorizontalAlignment.Left,
+                    XUnits = GeneralUnitType.PixelsFromSmall,
+                    Parent = FormsControl.InnerPanel,
+                    HasEvents = false,
+                    ChatColorState = ChatOptionFrameRuntime.ColorState.Green
+                };
+
+
+                var response = new ChatOptionRuntime(true)
+                {
+                    ChatText = allDialogue.GetDialogueText(chat.Value),
+                    XOrigin = HorizontalAlignment.Right,
+                    XUnits = GeneralUnitType.PixelsFromLarge,
+                    Parent = FormsControl.InnerPanel,
+                    HasEvents = false,
+                    ChatColorState = ChatOptionFrameRuntime.ColorState.Black
+                };
             }
         }
     }

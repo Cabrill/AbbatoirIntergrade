@@ -42,6 +42,11 @@ namespace AbbatoirIntergrade.GameClasses
 
             return response;
         }
+
+        public string GetDialogueText(string dialogueId)
+        {
+            return DialogueList.FirstOrDefault(d => d.Id == dialogueId)?.DisplayText;
+        }
     }
 
     public class DialogueConnection

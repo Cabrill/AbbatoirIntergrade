@@ -366,7 +366,7 @@
     <Variable>
       <Type>ButtonTypeState</Type>
       <Name>MenuWindowInstance.ButtonType3State</Name>
-      <Value xsi:type="xsd:string">Disabled</Value>
+      <Value xsi:type="xsd:string">History</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

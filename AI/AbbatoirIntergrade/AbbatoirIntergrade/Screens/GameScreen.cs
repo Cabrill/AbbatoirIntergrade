@@ -368,6 +368,12 @@ namespace AbbatoirIntergrade.Screens
 
         private void LevelFailed()
         {
+            var chosenDialogue = PlayerDataManager.LastChosenDialogueId;
+            if (!string.IsNullOrEmpty(chosenDialogue))
+            {
+                PlayerDataManager.AddChosenDialogueId(chosenDialogue);
+            }
+
             AudioManager.StopSong();
             try
             {
@@ -843,6 +849,12 @@ namespace AbbatoirIntergrade.Screens
 
         private void HandleGameEnd()
         {
+            var chosenDialogue = PlayerDataManager.LastChosenDialogueId;
+            if (!string.IsNullOrEmpty(chosenDialogue))
+            {
+                PlayerDataManager.AddChosenDialogueId(chosenDialogue);
+            }
+
             var levelResults = CurrentLevel.GetFinalResults();
             levelResults.TimePlayed = PauseAndBuildAjustedTime;
             PlayerDataManager.RecordChapterResults(levelResults);

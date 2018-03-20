@@ -64,6 +64,7 @@
                             EndingText.FontScale = 0.6f;
                             EndingText.Height = 0f;
                             EndingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InnerPanelInstance");
+                            EndingText.Text = "";
                             EndingText.UseCustomFont = true;
                             EndingText.Width = 100f;
                             EndingText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -226,6 +227,10 @@
                         }
                         if (interpolationValue < 1)
                         {
+                            this.EndingText.Text = "";
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.EndingText.UseCustomFont = true;
                         }
                         setEndingTextWidthFirstValue = true;
@@ -358,6 +363,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.EndingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InnerPanelInstance");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.EndingText.Text = "";
                         }
                         if (interpolationValue >= 1)
                         {
@@ -900,6 +909,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "EndingText.Text",
+                            Type = "string",
+                            Value = EndingText.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "EndingText.UseCustomFont",
                             Type = "bool",
                             Value = EndingText.UseCustomFont
@@ -1241,6 +1258,14 @@
                             Name = "EndingText.Parent",
                             Type = "string",
                             Value = EndingText.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "EndingText.Text",
+                            Type = "string",
+                            Value = EndingText.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

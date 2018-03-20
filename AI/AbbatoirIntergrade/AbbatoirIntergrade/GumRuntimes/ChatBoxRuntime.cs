@@ -15,7 +15,7 @@ namespace AbbatoirIntergrade.GumRuntimes
         public EventHandler DialogueChosen;
         public EventHandler ChatHistoryButtonClick;
 
-        private bool HasResponseAvailable;
+        private bool _hasResponseAvailable;
         public Dialogue CurrentIncomingMessage;
 
         partial void CustomInitialize()
@@ -36,13 +36,17 @@ namespace AbbatoirIntergrade.GumRuntimes
 
         public void SetupResponseAvailability()
         {
-            var newResponseState = HasResponseAvailable ? ResponseAvailability.AwaitingResponse : ResponseAvailability.AlreadyResponded;
+            CurrentAppearanceState = Appearance.ChatOpen;
+
+            var newResponseState = _hasResponseAvailable ? ResponseAvailability.AwaitingResponse : ResponseAvailability.AlreadyResponded;
             InterpolateTo(newResponseState, 1f, InterpolationType.Exponential, Easing.Out);
         }
 
         private void SetUnreadMessageIndicator()
         {
-            CurrentMessageIndicatorState = HasResponseAvailable
+            CurrentAppearanceState = Appearance.ChatClosed;
+
+            CurrentMessageIndicatorState = _hasResponseAvailable
                 ? MessageIndicator.NewMessage
                 : MessageIndicator.NoMessage;
         }
@@ -66,7 +70,7 @@ namespace AbbatoirIntergrade.GumRuntimes
                 ResponseChosenChatOption.HasEvents = false;
 
                 DialogueChosen?.Invoke(chatoption, null);
-                HasResponseAvailable = false;
+                _hasResponseAvailable = false;
             }
         }
 
@@ -127,7 +131,7 @@ namespace AbbatoirIntergrade.GumRuntimes
             ChatOption1.SetDialogue(options.Count > 1 ? options[1] : null);
             ChatOption2.SetDialogue(options.Count > 2 ? options[2] : null);
 
-            HasResponseAvailable = true;
+            _hasResponseAvailable = true;
 
             AlertNewMessage();
         }

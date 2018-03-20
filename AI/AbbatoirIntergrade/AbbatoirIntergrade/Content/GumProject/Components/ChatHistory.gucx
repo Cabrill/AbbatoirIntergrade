@@ -134,8 +134,9 @@
     <Variable>
       <Type>string</Type>
       <Name>EndingText.Text</Name>
+      <Value xsi:type="xsd:string"></Value>
       <ExposedAsName>EndingTextText</ExposedAsName>
-      <SetsValue>false</SetsValue>
+      <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>bool</Type>
