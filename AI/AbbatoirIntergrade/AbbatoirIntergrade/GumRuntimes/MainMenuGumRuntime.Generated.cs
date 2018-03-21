@@ -11,7 +11,8 @@
             public enum Fade
             {
                 FadedOut,
-                NotFaded
+                NotFaded,
+                TextGone
             }
             public enum AnyKey
             {
@@ -80,9 +81,15 @@
                     {
                         case  Fade.FadedOut:
                             DimmingInstance.DimmingAlpha = 255;
+                            PressAnyKeyText.Alpha = 0;
                             break;
                         case  Fade.NotFaded:
                             DimmingInstance.DimmingAlpha = 0;
+                            PressAnyKeyText.Alpha = 0;
+                            break;
+                        case  Fade.TextGone:
+                            DimmingInstance.DimmingAlpha = 150;
+                            PressAnyKeyText.Alpha = 0;
                             break;
                     }
                 }
@@ -408,15 +415,29 @@
                 bool setDimmingInstanceDimmingAlphaSecondValue = false;
                 int DimmingInstanceDimmingAlphaFirstValue= 0;
                 int DimmingInstanceDimmingAlphaSecondValue= 0;
+                bool setPressAnyKeyTextAlphaFirstValue = false;
+                bool setPressAnyKeyTextAlphaSecondValue = false;
+                int PressAnyKeyTextAlphaFirstValue= 0;
+                int PressAnyKeyTextAlphaSecondValue= 0;
                 switch(firstState)
                 {
                     case  Fade.FadedOut:
                         setDimmingInstanceDimmingAlphaFirstValue = true;
                         DimmingInstanceDimmingAlphaFirstValue = 255;
+                        setPressAnyKeyTextAlphaFirstValue = true;
+                        PressAnyKeyTextAlphaFirstValue = 0;
                         break;
                     case  Fade.NotFaded:
                         setDimmingInstanceDimmingAlphaFirstValue = true;
                         DimmingInstanceDimmingAlphaFirstValue = 0;
+                        setPressAnyKeyTextAlphaFirstValue = true;
+                        PressAnyKeyTextAlphaFirstValue = 0;
+                        break;
+                    case  Fade.TextGone:
+                        setDimmingInstanceDimmingAlphaFirstValue = true;
+                        DimmingInstanceDimmingAlphaFirstValue = 150;
+                        setPressAnyKeyTextAlphaFirstValue = true;
+                        PressAnyKeyTextAlphaFirstValue = 0;
                         break;
                 }
                 switch(secondState)
@@ -424,15 +445,29 @@
                     case  Fade.FadedOut:
                         setDimmingInstanceDimmingAlphaSecondValue = true;
                         DimmingInstanceDimmingAlphaSecondValue = 255;
+                        setPressAnyKeyTextAlphaSecondValue = true;
+                        PressAnyKeyTextAlphaSecondValue = 0;
                         break;
                     case  Fade.NotFaded:
                         setDimmingInstanceDimmingAlphaSecondValue = true;
                         DimmingInstanceDimmingAlphaSecondValue = 0;
+                        setPressAnyKeyTextAlphaSecondValue = true;
+                        PressAnyKeyTextAlphaSecondValue = 0;
+                        break;
+                    case  Fade.TextGone:
+                        setDimmingInstanceDimmingAlphaSecondValue = true;
+                        DimmingInstanceDimmingAlphaSecondValue = 150;
+                        setPressAnyKeyTextAlphaSecondValue = true;
+                        PressAnyKeyTextAlphaSecondValue = 0;
                         break;
                 }
                 if (setDimmingInstanceDimmingAlphaFirstValue && setDimmingInstanceDimmingAlphaSecondValue)
                 {
                     DimmingInstance.DimmingAlpha = FlatRedBall.Math.MathFunctions.RoundToInt(DimmingInstanceDimmingAlphaFirstValue* (1 - interpolationValue) + DimmingInstanceDimmingAlphaSecondValue * interpolationValue);
+                }
+                if (setPressAnyKeyTextAlphaFirstValue && setPressAnyKeyTextAlphaSecondValue)
+                {
+                    PressAnyKeyText.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(PressAnyKeyTextAlphaFirstValue* (1 - interpolationValue) + PressAnyKeyTextAlphaSecondValue * interpolationValue);
                 }
                 if (interpolationValue < 1)
                 {
@@ -894,6 +929,98 @@
                     return showAnyKeyAnimationRelative;
                 }
             }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> FadeOutAnimationInstructions (object target) 
+            {
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction( ()=> this.CurrentFadeState = Fade.NotFaded);
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(Fade.TextGone, 0.1f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, FadeOutAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(Fade.FadedOut, 0.4f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, FadeOutAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.1f;
+                    yield return toReturn;
+                }
+            }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> FadeOutAnimationRelativeInstructions (object target) 
+            {
+                {
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "Fade/NotFaded").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "Fade/TextGone").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(Fade.TextGone);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.1f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "Fade/TextGone").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "Fade/FadedOut").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(Fade.FadedOut);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.4f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.1f;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation fadeOutAnimation;
+            public FlatRedBall.Gum.Animation.GumAnimation FadeOutAnimation
+            {
+                get
+                {
+                    if (fadeOutAnimation == null)
+                    {
+                        fadeOutAnimation = new FlatRedBall.Gum.Animation.GumAnimation(0.5f, FadeOutAnimationInstructions);
+                    }
+                    return fadeOutAnimation;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation fadeOutAnimationRelative;
+            public FlatRedBall.Gum.Animation.GumAnimation FadeOutAnimationRelative
+            {
+                get
+                {
+                    if (fadeOutAnimationRelative == null)
+                    {
+                        fadeOutAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(0.5f, FadeOutAnimationRelativeInstructions);
+                    }
+                    return fadeOutAnimationRelative;
+                }
+            }
             #endregion
             public override void StopAnimations () 
             {
@@ -905,6 +1032,7 @@
                 BlinkEyesAnimation.Stop();
                 FadeInAnimation.Stop();
                 ShowAnyKeyAnimation.Stop();
+                FadeOutAnimation.Stop();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -1357,6 +1485,14 @@
                             Value = DimmingInstance.DimmingAlpha
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.Alpha",
+                            Type = "int",
+                            Value = PressAnyKeyText.Alpha
+                        }
+                        );
                         break;
                     case  Fade.NotFaded:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1365,6 +1501,32 @@
                             Name = "DimmingInstance.DimmingAlpha",
                             Type = "int",
                             Value = DimmingInstance.DimmingAlpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.Alpha",
+                            Type = "int",
+                            Value = PressAnyKeyText.Alpha
+                        }
+                        );
+                        break;
+                    case  Fade.TextGone:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DimmingInstance.DimmingAlpha",
+                            Type = "int",
+                            Value = DimmingInstance.DimmingAlpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.Alpha",
+                            Type = "int",
+                            Value = PressAnyKeyText.Alpha
                         }
                         );
                         break;
@@ -1385,6 +1547,14 @@
                             Value = DimmingInstance.DimmingAlpha + 255
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.Alpha",
+                            Type = "int",
+                            Value = PressAnyKeyText.Alpha + 0
+                        }
+                        );
                         break;
                     case  Fade.NotFaded:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1393,6 +1563,32 @@
                             Name = "DimmingInstance.DimmingAlpha",
                             Type = "int",
                             Value = DimmingInstance.DimmingAlpha + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.Alpha",
+                            Type = "int",
+                            Value = PressAnyKeyText.Alpha + 0
+                        }
+                        );
+                        break;
+                    case  Fade.TextGone:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DimmingInstance.DimmingAlpha",
+                            Type = "int",
+                            Value = DimmingInstance.DimmingAlpha + 150
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PressAnyKeyText.Alpha",
+                            Type = "int",
+                            Value = PressAnyKeyText.Alpha + 0
                         }
                         );
                         break;
@@ -1470,6 +1666,7 @@
                     {
                         if(state.Name == "FadedOut") this.mCurrentFadeState = Fade.FadedOut;
                         if(state.Name == "NotFaded") this.mCurrentFadeState = Fade.NotFaded;
+                        if(state.Name == "TextGone") this.mCurrentFadeState = Fade.TextGone;
                     }
                     else if (category.Name == "AnyKey")
                     {

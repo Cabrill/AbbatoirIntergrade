@@ -840,13 +840,13 @@
     <Variable>
       <Type>int</Type>
       <Name>SunSprite.Blue</Name>
-      <Value xsi:type="xsd:int">75</Value>
+      <Value xsi:type="xsd:int">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>SunSprite.Green</Name>
-      <Value xsi:type="xsd:int">50</Value>
+      <Value xsi:type="xsd:int">160</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

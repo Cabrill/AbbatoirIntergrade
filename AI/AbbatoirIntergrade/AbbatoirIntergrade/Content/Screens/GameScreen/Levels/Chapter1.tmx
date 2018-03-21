@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="77">
+<map version="1.0" tiledversion="1.1.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" infinite="0" nextobjectid="77">
  <tileset firstgid="1" source="CombinedAssetsTileset.tsx"/>
  <tileset firstgid="1025" source="CollisionShapesTilesets.tsx"/>
  <layer name="Ground" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC82SzQ6CMBCE2zflCj0RoybqA0h7aoxK/H8UHs2tzMQJ4eBRki/dhe3sbItz//1E71yasDQWP3Lyo0Yja9EIiGujxbfCxth5N5Ct/3rojIw4Ym8Haug10EvQenhXPW0ld8v3qAvQ61DfSJykb4ta8/NSLeodZd4eGhF70ox2i9z8VeZvUD3rUWWZj2fEnJo8vyDzlvhi+2+jrw9X80w91kTxxDthXL6vJ3e4wnv2zvDCM9IzS5Lr/FHg/PSQUdvJTAE9fvnH+kmvs3GYodS+AS1tMr5wAwAA
+   H4sIAAAAAAAACs2SzQ6CMBCE2zflCj0RoybqA0h7aoxK/H8UHs2tzMQJ4eBRki/dhe3sbItz//1E71yasDQWP3Lyo0Yja9EIiGujxbfCxth5N5Ct/3rojIw4Ym8Haug10EvQenhXPW0ld8v3qAvQ61DfSJykb4ta8/NSLeodZd4eGhF70ox2i9z8VeZvUD3rUWWZj2fEnJo8vyDzlvhi+2+jrw9X80w91kTxxDthXL6vJ3e4wnv2zvDCM9IzS5Lr/FHg/PSQUdvJTAE9fvnH+kmvs3GYodS+AS1tMr5wAwAA
   </data>
  </layer>
  <layer name="Objects" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgIB1sZSZDE4lgIx3sQAbvgPa9B+IPZNqLT/9PJgaGX0yUuY+WYDbQzXOAeC6Vwnw30Jw9QLyXynEYBzQvHogTqGCuDtSMeiDdQAXzvgHj9zsRcQwACYMqKXADAAA=
+   H4sIAAAAAAAACmNgIB1sZSZDE4lgIx3sQAbvgPa9B+IPZNqLT/9PJgaGX0yUuY+WYDbQzXOAeC6Vwnw30Jw9QLyXynEYBzQvHogTqGCuDtSMeiDdQAXzvgHj9zsRcQwACYMqKXADAAA=
   </data>
  </layer>
  <layer name="OverlayedObjects" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgoBw0MjMwNAFxMzNCrIUZt3pCYCNQ7yYg3kyBGcjgINCcQ0B8GIk+QqHZe5gYGPYyUcd9tkC32AGxPZKbyoHsCjLdeBGo7xIQXwZifiAWAOLpQCwExMJkmikL1CcHxPpAbADEhkBsBMTGZJgHil+Yn9GBKFBMDIjFgVgCSZ4Hhz0XmFD9WwTExUBcAlVvCqTNgNgciC2QzNABsnWJcPskoJrJQDyFgNpvQHd8JyI9AABOVLJRcAMAAA==
+   H4sIAAAAAAAACmNgoBw0MjMwNAFxMzNCrIUZt3pCYCNQ7yYg3kyBGcjgINCcQ0B8GIk+QqHZe5gYGPYyUcd9tkC32AGxPZKbyoHsCjLdeBGo7xIQXwZifiAWAOLpQCwExMJkmikL1CcHxPpAbADEhkBsBMTGZJgHil+Yn9GBKFBMDIjFgVgCSZ4Hhz0XmFD9WwTExUBcAlVvCqTNgNgciC2QzNABsnWJcPskoJrJQDyFgNpvQHd8JyI9AABOVLJRcAMAAA==
   </data>
  </layer>
  <objectgroup name="EntityLayer">
@@ -118,9 +118,9 @@
     <property name="AxisAlignedRectangleInstanceWidth" type="float" value="484"/>
    </properties>
   </object>
-  <object id="38" type="TileCollisionCircle" gid="1026" x="18" y="484" width="256" height="256">
+  <object id="38" type="TileCollisionCircle" gid="1026" x="10" y="506" width="256" height="256">
    <properties>
-    <property name="Altitude" type="float" value="128"/>
+    <property name="Altitude" type="float" value="0"/>
     <property name="CircleInstanceRadius" type="float" value="128"/>
     <property name="ZHeight" type="float" value="132"/>
    </properties>

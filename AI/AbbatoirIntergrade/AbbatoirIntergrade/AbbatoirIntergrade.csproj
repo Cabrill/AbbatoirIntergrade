@@ -457,6 +457,7 @@
     <Compile Include="StaticManagers\GameStateManager.cs" />
     <Compile Include="StaticManagers\GeneticsManager.cs" />
     <Compile Include="StaticManagers\MachineLearningManager.cs" />
+    <Compile Include="StaticManagers\NodeNetworkGenerator.cs" />
     <Compile Include="StaticManagers\PlayerDataManager.cs" />
     <Compile Include="Screens\GameScreen.BuildButtons.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
@@ -1602,10 +1603,6 @@
     <None Include="content\screens\endingscreen\positive.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>positive</Name>
-    </None>
-    <None Include="content\screens\endingscreen\spacebg.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>spacebg</Name>
     </None>
     <None Include="content\screens\gamescreen\allassetssheet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

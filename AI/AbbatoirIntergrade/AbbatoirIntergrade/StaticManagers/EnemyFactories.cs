@@ -9,6 +9,7 @@ using AbbatoirIntergrade.Performance;
 using AbbatoirIntergrade.UtilityClasses;
 using Accord.Genetic;
 using Accord.IO;
+using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math.Geometry;
 
@@ -16,13 +17,6 @@ namespace AbbatoirIntergrade.StaticManagers
 {
     public static class EnemyFactories
     {
-        private static Polygon _groundPathing;
-
-        public static void SetGroundPathing(Polygon groundPath)
-        {
-            _groundPathing = groundPath;
-        }
-
         public static BaseEnemy CreateNew(EnemyTypes enemyType, SerializableChromosome chromosome = null)
         {
             BaseEnemy newEnemy = null;
@@ -50,7 +44,7 @@ namespace AbbatoirIntergrade.StaticManagers
             }
             newEnemy?.SetGenetics(chromosome ?? GeneticsManager.GenerateNewChromsome());
 
-            newEnemy?.FollowLine(_groundPathing);
+            newEnemy?.FollowLine();
 
             return newEnemy;
         }

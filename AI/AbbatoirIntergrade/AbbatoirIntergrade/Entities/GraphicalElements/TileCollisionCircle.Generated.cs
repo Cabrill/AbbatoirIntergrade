@@ -139,6 +139,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
                 mCircleInstance.AttachTo(this, false);
             }
             CircleInstance.Radius = 64f;
+            CircleInstance.Color = Color.Maroon;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
@@ -162,6 +163,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             {
             }
             CircleInstance.Radius = 64f;
+            CircleInstance.Color = Color.Maroon;
             CircleInstanceRadius = 64f;
         }
         public virtual void ConvertToManuallyUpdated () 

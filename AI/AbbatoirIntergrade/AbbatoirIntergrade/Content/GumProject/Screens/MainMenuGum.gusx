@@ -188,6 +188,12 @@
         <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PressAnyKeyText.Alpha</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
     </State>
     <State>
       <Name>NotFaded</Name>
@@ -196,6 +202,28 @@
         <Name>DimmingInstance.DimmingAlpha</Name>
         <Value xsi:type="xsd:int">0</Value>
         <ExposedAsName>DimmingAlpha</ExposedAsName>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PressAnyKeyText.Alpha</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>TextGone</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>DimmingInstance.DimmingAlpha</Name>
+        <Value xsi:type="xsd:int">150</Value>
+        <ExposedAsName>DimmingAlpha</ExposedAsName>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PressAnyKeyText.Alpha</Name>
+        <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

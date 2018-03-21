@@ -37,6 +37,7 @@ namespace AbbatoirIntergrade.Entities
         public static bool TurretsAimAtMouse = false;
         public static bool SlowTimeForShots = false;
         public static bool UnlockAllTurrets = true;
+        public static bool ShowNodeNetwork = true;
         protected FlatRedBall.Graphics.Layer LayerProvidedByContainer = null;
         public DebugVariables () 
         	: this(FlatRedBall.Screens.ScreenManager.CurrentScreen.ContentManagerName, true)

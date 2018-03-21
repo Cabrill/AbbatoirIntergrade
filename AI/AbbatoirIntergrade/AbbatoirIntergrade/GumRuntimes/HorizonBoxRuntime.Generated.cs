@@ -100,8 +100,8 @@
                             StarrySkySprite.Y = 50f;
                             StarrySkySprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             StarrySkySprite.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            SunSprite.Blue = 75;
-                            SunSprite.Green = 50;
+                            SunSprite.Blue = 100;
+                            SunSprite.Green = 160;
                             SunSprite.Height = 22.222f;
                             SunSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             SunSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer");
@@ -992,9 +992,9 @@
                             this.SunMoonContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setSunSpriteBlueFirstValue = true;
-                        SunSpriteBlueFirstValue = 75;
+                        SunSpriteBlueFirstValue = 100;
                         setSunSpriteGreenFirstValue = true;
-                        SunSpriteGreenFirstValue = 50;
+                        SunSpriteGreenFirstValue = 160;
                         setSunSpriteHeightFirstValue = true;
                         SunSpriteHeightFirstValue = 22.222f;
                         if (interpolationValue < 1)
@@ -1495,9 +1495,9 @@
                             this.SunMoonContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setSunSpriteBlueSecondValue = true;
-                        SunSpriteBlueSecondValue = 75;
+                        SunSpriteBlueSecondValue = 100;
                         setSunSpriteGreenSecondValue = true;
-                        SunSpriteGreenSecondValue = 50;
+                        SunSpriteGreenSecondValue = 160;
                         setSunSpriteHeightSecondValue = true;
                         SunSpriteHeightSecondValue = 22.222f;
                         if (interpolationValue >= 1)
@@ -4196,7 +4196,7 @@
                             SetsValue = true,
                             Name = "SunSprite.Blue",
                             Type = "int",
-                            Value = SunSprite.Blue + 75
+                            Value = SunSprite.Blue + 100
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4204,7 +4204,7 @@
                             SetsValue = true,
                             Name = "SunSprite.Green",
                             Type = "int",
-                            Value = SunSprite.Green + 50
+                            Value = SunSprite.Green + 160
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

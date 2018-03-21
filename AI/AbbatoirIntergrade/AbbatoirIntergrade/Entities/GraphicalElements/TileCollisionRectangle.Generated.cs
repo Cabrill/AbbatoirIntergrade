@@ -149,6 +149,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             }
             AxisAlignedRectangleInstance.Width = 128f;
             AxisAlignedRectangleInstance.Height = 128f;
+            AxisAlignedRectangleInstance.Color = Color.Red;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.AxisAlignedRectangles.AddOneWay(mAxisAlignedRectangleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
@@ -173,6 +174,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             }
             AxisAlignedRectangleInstance.Width = 128f;
             AxisAlignedRectangleInstance.Height = 128f;
+            AxisAlignedRectangleInstance.Color = Color.Red;
             AxisAlignedRectangleInstanceWidth = 128f;
             AxisAlignedRectangleInstanceHeight = 128f;
         }

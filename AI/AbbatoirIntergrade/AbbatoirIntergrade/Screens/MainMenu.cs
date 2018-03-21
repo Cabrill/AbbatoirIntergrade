@@ -38,14 +38,17 @@ namespace AbbatoirIntergrade.Screens
             MainMenuGumRuntime.CurrentFadeState = MainMenuGumRuntime.Fade.FadedOut;
 
 	        BbatoirSpriteInstance.Alpha = 0;
-	        BbatoirSpriteInstance.AlphaRate = 0.33f;
-
 	        NtergradeSpriteInstance.Alpha = 0;
-	        NtergradeSpriteInstance.AlphaRate = 0.33f;
 
-	        MainMenuGumRuntime.OpenEyesAnimation.PlayAfter(3, this);
+	        this.Call(() =>
+	        {
+	            BbatoirSpriteInstance.AlphaRate = 0.33f;
+	            NtergradeSpriteInstance.AlphaRate = 0.33f;
+	        }).After(1.5f);
 
-            MainMenuGumRuntime.FadeInAnimation.PlayAfter(3f, this);
+	        MainMenuGumRuntime.OpenEyesAnimation.PlayAfter(4, this);
+
+            MainMenuGumRuntime.FadeInAnimation.PlayAfter(4.5f, this);
 	        MainMenuGumRuntime.ShowAnyKeyAnimation.PlayAfter(5f);
 	    }
 
@@ -54,7 +57,8 @@ namespace AbbatoirIntergrade.Screens
 	        SoundManager.Update();
             if (MainMenuGumRuntime.CurrentAnyKeyState == MainMenuGumRuntime.AnyKey.Ready && (InputManager.Keyboard.AnyKeyPushed() || InputManager.Mouse.AnyButtonPushed()))
 	        {
-	            LoadingScreen.TransitionToScreen(typeof(MapScreen));
+                MainMenuGumRuntime.FadeOutAnimation.Play();
+                this.Call(()=>LoadingScreen.TransitionToScreen(typeof(MapScreen))).After(MainMenuGumRuntime.FadeOutAnimation.Length);
 	        }
             else if (LeftEye.CurrentEyeOpeningState == MainMenuEyeRuntime.EyeOpening.Open && !MainMenuGumRuntime.OpenEyesAnimation.IsPlaying() && !MainMenuGumRuntime.BlinkEyesAnimation.IsPlaying())
 	        {

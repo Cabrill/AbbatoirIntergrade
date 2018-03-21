@@ -5,6 +5,7 @@ using AbbatoirIntergrade.StaticManagers;
 using AbbatoirIntergrade.UtilityClasses;
 using Accord.Genetic;
 using FlatRedBall;
+using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
@@ -17,6 +18,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	public partial class BaseEnemy
 	{
         private bool _AddedToLayers = false;
+	    private bool _wasHurtLastUpdate;
 
         public event Action<BaseEnemy> OnDeath;
 	    public float Altitude { get; protected set; }
@@ -217,15 +219,27 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		        CurrentActionState = Action.Standing;
 		    }
 
-		    if (!IsDead && !IsHurt)
+		    if (!IsDead)
 		    {
-		        NavigationActivity();
-		        SetDirection();
-		    }
+		        UpdateNavigationTargetProgress();
+
+		        if (!IsHurt)
+		        {
+		            NavigationActivity();
+		            SetDirection();
+                }
+            }
 
 		    UpdateSpritesRelativeY();
             UpdateHealthBar();
+		    _wasHurtLastUpdate = IsHurt;
 		}
+
+        internal static void Initialize(Polygon pathing, TileNodeNetwork pathingNodeNetwork)
+        {
+            PathingLine = pathing;
+            NodeNetwork = pathingNodeNetwork;
+        }
 
         public void UpdateSpritesRelativeY()
 	    {

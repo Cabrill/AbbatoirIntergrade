@@ -18,6 +18,7 @@ using AbbatoirIntergrade.GameClasses.Levels;
 using AbbatoirIntergrade.GumRuntimes;
 using AbbatoirIntergrade.Performance;
 using AbbatoirIntergrade.StaticManagers;
+using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Instructions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -51,6 +52,7 @@ namespace AbbatoirIntergrade.Screens
         private double PauseAndBuildAjustedTime;
         private BaseLevel CurrentLevel;
         private FlatRedBall.TileGraphics.LayeredTileMap currentMap;
+        private TileNodeNetwork PathingNodeNetwork;
         private Polygon Pathing;
         private List<Polygon> WaterShapes;
         private DateTime currentLevelDateTime;
@@ -112,7 +114,6 @@ namespace AbbatoirIntergrade.Screens
             InitializeShaders();
 
             HorizonBoxInstance.Initialize(currentLevelDateTime);
-
 
             InitializeManagers();
 
@@ -196,7 +197,7 @@ namespace AbbatoirIntergrade.Screens
         private void InitializeBaseEntities()
         {
             BaseStructure.Initialize(AllEnemiesList);
-            EnemyFactories.SetGroundPathing(Pathing);
+            BaseEnemy.Initialize(Pathing, PathingNodeNetwork);
         }
         
         void LoadTiledMap()
@@ -258,10 +259,10 @@ namespace AbbatoirIntergrade.Screens
             currentMap.AddToManagers(WorldLayer);
 
             //This centers the map in the middle of the screen
+            var shiftVector = new Vector3(-currentMap.Width / 2, -(Camera.Main.OrthogonalHeight / 2 - currentMap.Height), 0);
 
-            currentMap.Position.X = -currentMap.Width / 2;
-
-            currentMap.Position.Y = -(Camera.Main.OrthogonalHeight / 2 - currentMap.Height);
+            currentMap.Position.X = shiftVector.X;
+            currentMap.Position.Y = shiftVector.Y;
             currentMap.Z = -2f;
 
             Pathing?.UpdateDependencies(TimeManager.CurrentTime);
@@ -285,6 +286,15 @@ namespace AbbatoirIntergrade.Screens
                 place.Detach();
             }
 
+
+            PathingNodeNetwork = NodeNetworkGenerator.CreateFromTiledMap(currentMap);
+            shiftVector.X += currentMap.WidthPerTile.Value/2;
+            shiftVector.Y += currentMap.HeightPerTile.Value/2;
+            PathingNodeNetwork.Shift(shiftVector);
+            NodeNetworkGenerator.RemoveNodesWithCollisions(ref PathingNodeNetwork, TileCollisionRectangleList, TileCollisionCircleList, StructurePlacementList);
+            
+            MachineLearningManager.SetPathing(Pathing);
+
 #if DEBUG
             if (DebugVariables.ShowDebugShapes)
             {
@@ -298,10 +308,15 @@ namespace AbbatoirIntergrade.Screens
                     }
                 }
             }
+            if (DebugVariables.ShowNodeNetwork)
+            {
+                PathingNodeNetwork.LayerToDrawOn = HUDLayer;
+                PathingNodeNetwork.Visible = true;
+            }
 #else
             Pathing.Visible = false;
+            PathingNodeNetwork.Visible = true;
 #endif
-            MachineLearningManager.SetPathing(Pathing);
         }
 
         #endregion
@@ -962,6 +977,11 @@ namespace AbbatoirIntergrade.Screens
 		    BaseStructure.Reset();
             if (IncomingMessageSound != null && !IncomingMessageSound.IsDisposed) IncomingMessageSound.Dispose();
 		    if (OutgoingMessageSound != null && !OutgoingMessageSound.IsDisposed) OutgoingMessageSound.Dispose();
+
+		    PathingNodeNetwork.LayerToDrawOn = null;
+            PathingNodeNetwork.Visible = false;
+            PathingNodeNetwork = null;
+
 		}
         #endregion
 
