@@ -41,7 +41,7 @@
                             XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             Y = 25f;
-                            YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
                             YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             SetProperty("LocationText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             LocationText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
@@ -80,7 +80,7 @@
                             DateTimeText.FontScale = 0.7f;
                             break;
                         case  Displaying.Middle:
-                            Y = 25f;
+                            Y = 30f;
                             LocationText.Alpha = 255;
                             LocationText.FontScale = 1f;
                             DateTimeText.Alpha = 255;
@@ -217,7 +217,7 @@
                         YFirstValue = 25f;
                         if (interpolationValue < 1)
                         {
-                            this.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            this.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
                         }
                         if (interpolationValue < 1)
                         {
@@ -308,7 +308,7 @@
                         YSecondValue = 25f;
                         if (interpolationValue >= 1)
                         {
-                            this.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            this.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -405,7 +405,7 @@
                         setLocationTextFontScaleFirstValue = true;
                         LocationTextFontScaleFirstValue = 1f;
                         setYFirstValue = true;
-                        YFirstValue = 25f;
+                        YFirstValue = 30f;
                         break;
                     case  Displaying.End:
                         setDateTimeTextAlphaFirstValue = true;
@@ -444,7 +444,7 @@
                         setLocationTextFontScaleSecondValue = true;
                         LocationTextFontScaleSecondValue = 1f;
                         setYSecondValue = true;
-                        YSecondValue = 25f;
+                        YSecondValue = 30f;
                         break;
                     case  Displaying.End:
                         setDateTimeTextAlphaSecondValue = true;
@@ -620,6 +620,12 @@
                     toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1;
                     yield return toReturn;
                 }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(Displaying.Start, 0.0999999f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, AppearAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 5;
+                    yield return toReturn;
+                }
             }
             private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> AppearAnimationRelativeInstructions (object target) 
             {
@@ -667,6 +673,27 @@
                     toReturn.Target = target;
                     yield return toReturn;
                 }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "Displaying/End").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "Displaying/Start").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(Displaying.Start);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.0999999f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 5;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
             }
             private FlatRedBall.Gum.Animation.GumAnimation appearAnimation;
             public FlatRedBall.Gum.Animation.GumAnimation AppearAnimation
@@ -675,7 +702,7 @@
                 {
                     if (appearAnimation == null)
                     {
-                        appearAnimation = new FlatRedBall.Gum.Animation.GumAnimation(5, AppearAnimationInstructions);
+                        appearAnimation = new FlatRedBall.Gum.Animation.GumAnimation(5.1f, AppearAnimationInstructions);
                     }
                     return appearAnimation;
                 }
@@ -687,7 +714,7 @@
                 {
                     if (appearAnimationRelative == null)
                     {
-                        appearAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(5, AppearAnimationRelativeInstructions);
+                        appearAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(5.1f, AppearAnimationRelativeInstructions);
                     }
                     return appearAnimationRelative;
                 }
@@ -1306,7 +1333,7 @@
                             SetsValue = true,
                             Name = "Y",
                             Type = "float",
-                            Value = Y + 25f
+                            Value = Y + 30f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

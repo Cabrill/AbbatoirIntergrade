@@ -23,6 +23,12 @@
           <InterpolationType>Linear</InterpolationType>
           <Easing>Out</Easing>
         </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>Displaying/Start</StateName>
+          <Time>5.1</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
       </States>
       <Animations />
       <Events />

@@ -157,7 +157,7 @@
     <Variable>
       <Type>VerticalAlignment</Type>
       <Name>Y Origin</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -178,15 +178,15 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>int</Type>
-        <Name>LocationText.Alpha</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Type>float</Type>
+        <Name>DateTimeText.Font Scale</Name>
+        <Value xsi:type="xsd:float">0.7</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>Y</Name>
-        <Value xsi:type="xsd:float">0</Value>
+        <Type>int</Type>
+        <Name>LocationText.Alpha</Name>
+        <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -198,20 +198,13 @@
       </Variable>
       <Variable>
         <Type>float</Type>
-        <Name>DateTimeText.Font Scale</Name>
-        <Value xsi:type="xsd:float">0.7</Value>
+        <Name>Y</Name>
+        <Value xsi:type="xsd:float">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Middle</Name>
-      <Variable>
-        <Type>int</Type>
-        <Name>LocationText.Alpha</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <Category>Rendering</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
       <Variable>
         <Type>int</Type>
         <Name>DateTimeText.Alpha</Name>
@@ -221,8 +214,15 @@
       </Variable>
       <Variable>
         <Type>float</Type>
-        <Name>Y</Name>
-        <Value xsi:type="xsd:float">25</Value>
+        <Name>DateTimeText.Font Scale</Name>
+        <Value xsi:type="xsd:float">0.7</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>LocationText.Alpha</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -234,8 +234,8 @@
       </Variable>
       <Variable>
         <Type>float</Type>
-        <Name>DateTimeText.Font Scale</Name>
-        <Value xsi:type="xsd:float">0.7</Value>
+        <Name>Y</Name>
+        <Value xsi:type="xsd:float">30</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
