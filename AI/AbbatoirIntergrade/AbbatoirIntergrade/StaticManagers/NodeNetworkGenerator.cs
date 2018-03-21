@@ -22,81 +22,61 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static TileNodeNetwork CreateFromTiledMap(LayeredTileMap map)
         {
-            float[] costs = new float[32];
+            var costs = new float[32];
             costs[(int)NodeType.Normal] = 2;
             costs[(int)NodeType.Path] = 1;
 
-            var GridWidth = 64;
+            const int gridWidth = 64;
             
             var network = new TileNodeNetwork(0,//GridWidth / 2f,
                 -map.Height,// + GridWidth / 2f,
-                GridWidth,
-                MathFunctions.RoundToInt(map.Width / GridWidth),
-                MathFunctions.RoundToInt(map.Height / GridWidth),
+                gridWidth,
+                MathFunctions.RoundToInt(map.Width / gridWidth),
+                MathFunctions.RoundToInt(map.Height / gridWidth),
                 DirectionalType.Eight);
+
+            AddNodes(map, "Ground", NodeType.Normal, ref network, gridWidth);
+            AddNodes(map, "Ground", NodeType.Path, ref network, gridWidth);
             
-            var groundLayer = map.MapLayers.FirstOrDefault(l => l.Name == "Ground");
-
-            var tileNamesForPath = map.TileProperties
-                .Where(item => item.Value
-                    .Any(customProperty => customProperty.Value.Equals("Normal")))
-                .Select(item => item.Key)
-                .ToArray();
-
-
-            foreach (var tileName in tileNamesForPath)
-            {
-                var indexes = groundLayer.NamedTileOrderedIndexes.ContainsKey(tileName)
-                    ? groundLayer.NamedTileOrderedIndexes[tileName]
-                    : null;
-
-                if (indexes != null)
-                {
-                    var count = indexes.Count;
-                    for (var i = count - 1; i > -1; i--)
-                    {
-                        var gridWidthAdjust = GridWidth;
-                        groundLayer.GetBottomLeftWorldCoordinateForOrderedTile(indexes[i], out float x, out float y);
-                        
-                        network.AddAndLinkTiledNodeWorld(x, y).PropertyField = (1 << (int)(NodeType.Normal)); 
-                        network.AddAndLinkTiledNodeWorld(x+ gridWidthAdjust, y).PropertyField = (1 << (int)(NodeType.Normal));
-                        network.AddAndLinkTiledNodeWorld(x, y+ gridWidthAdjust).PropertyField = (1 << (int)(NodeType.Normal));
-                        network.AddAndLinkTiledNodeWorld(x+gridWidthAdjust, y+gridWidthAdjust).PropertyField = (1 << (int)(NodeType.Normal));
-                    }
-                }
-            }
-
-            tileNamesForPath = map.TileProperties
-                .Where(item => item.Value
-                    .Any(customProperty => customProperty.Value.Equals("Path")))
-                .Select(item => item.Key)
-                .ToArray();
-
-            foreach (var tileName in tileNamesForPath)
-            {
-                var indexes = groundLayer.NamedTileOrderedIndexes.ContainsKey(tileName)
-                    ? groundLayer.NamedTileOrderedIndexes[tileName]
-                    : null;
-
-                if (indexes != null)
-                {
-                    var count = indexes.Count;
-                    for (var i = count - 1; i > -1; i--)
-                    {
-                        var gridWidthAdjust = GridWidth;
-                        groundLayer.GetBottomLeftWorldCoordinateForOrderedTile(indexes[i], out float x, out float y);
-
-                        network.AddAndLinkTiledNodeWorld(x, y).PropertyField = (1 << (int)(NodeType.Path));
-                        network.AddAndLinkTiledNodeWorld(x + gridWidthAdjust, y).PropertyField = (1 << (int)(NodeType.Path));
-                        network.AddAndLinkTiledNodeWorld(x, y + gridWidthAdjust).PropertyField = (1 << (int)(NodeType.Path));
-                        network.AddAndLinkTiledNodeWorld(x + gridWidthAdjust, y + gridWidthAdjust).PropertyField = (1 << (int)(NodeType.Path));
-                    }
-                }
-            }
             network.SetCosts(costs);
             
 
             return network;
+        }
+
+        private static void AddNodes(LayeredTileMap map, string layerName, NodeType tileProperty, ref TileNodeNetwork network, int gridWidth)
+        {
+            var layer = map.MapLayers.FirstOrDefault(l => l.Name.Equals(layerName));
+            var tileNamesForPath = map.TileProperties
+                .Where(item => item.Value
+                    .Any(customProperty => customProperty.Value.Equals(tileProperty.ToString())))
+                .Select(item => item.Key)
+                .ToArray();
+
+            foreach (var tileName in tileNamesForPath)
+            {
+                var indexes = layer != null && layer.NamedTileOrderedIndexes.ContainsKey(tileName)
+                    ? layer.NamedTileOrderedIndexes[tileName]
+                    : null;
+
+                if (indexes == null) continue;
+
+                for (var i = indexes.Count - 1; i > -1; i--)
+                {
+                    var gridIncrement = map.WidthPerTile / gridWidth;
+
+                    layer.GetBottomLeftWorldCoordinateForOrderedTile(indexes[i], out float x, out float y);
+
+                    for (var j = 0; j < gridIncrement; j++)
+                    {
+                        for (var k = 0; k < gridIncrement; k++)
+                        {
+                            var node = network.AddAndLinkTiledNodeWorld(x + (gridWidth * j), y + (gridWidth * k));
+                            node.PropertyField = (1 << (int) (tileProperty));
+                        }
+                    }
+                }
+            }
         }
 
         public static void RemoveNodesWithCollisions(ref TileNodeNetwork network, 
@@ -114,19 +94,22 @@ namespace AbbatoirIntergrade.StaticManagers
                 tileCollisionCircle.ForceUpdateDependenciesDeep();
             }
 
+            var nodeCircle = new Circle {Radius = 20f};
+
             for (var i = network.Nodes.Count - 1; i >= 0; i--)
             {
                 var node = network.Nodes[i];
                 var nodeRemoved = false;
+                nodeCircle.Position = node.Position;
 
-                if (rectangleCollision.Any(rect => rect.IsPointInsideCollision(node.X, node.Y)))
+                if (rectangleCollision.Any(rect => rect.CollideAgainst(nodeCircle)))
                 {
                     network.Remove(node);
                     nodeRemoved = true;
                 }
                 if (!nodeRemoved)
                 {
-                    if (circleCollision.Any(circle => circle.Altitude == 0 && circle.IsPointInsideCollision(node.X, node.Y)))
+                    if (circleCollision.Any(circle => circle.Altitude == 0 && circle.CollideAgainst(nodeCircle)))
                     {
                         network.Remove(node);
                         nodeRemoved = true;
@@ -134,7 +117,7 @@ namespace AbbatoirIntergrade.StaticManagers
                 }
                 if (!nodeRemoved)
                 {
-                    if (structurePlacementList.Any(placement => placement.Collision.IsPointInside(node.X, node.Y)))
+                    if (structurePlacementList.Any(placement => placement.Collision.CollideAgainst(nodeCircle)))
                     {
                         network.Remove(node);
                         nodeRemoved = true;

@@ -82,7 +82,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (!PathingLine.CollideAgainst(SelfCollisionCircle))
             {
                 var nextNodes = NodeNetwork.GetPathOrClosest(ref Position, ref _targetPointForNavigation);
-                var nextNode = nextNodes.Count > 0 ? nextNodes[1] : nextNodes[0];
+                var nextNode = nextNodes.Count > 1 ? nextNodes[1] : nextNodes[0];
 
                 var angle = (float)Math.Atan2(Y - nextNode.Y,
                     X - nextNode.X);
