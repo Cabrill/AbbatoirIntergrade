@@ -71,6 +71,18 @@
       <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>Height</Name>
       <Value xsi:type="xsd:float">10</Value>
@@ -180,7 +192,7 @@
       <Variable>
         <Type>float</Type>
         <Name>DateTimeText.Font Scale</Name>
-        <Value xsi:type="xsd:float">0.7</Value>
+        <Value xsi:type="xsd:float">0.35</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -192,7 +204,7 @@
       <Variable>
         <Type>float</Type>
         <Name>LocationText.Font Scale</Name>
-        <Value xsi:type="xsd:float">1</Value>
+        <Value xsi:type="xsd:float">0.5</Value>
         <Category>Font</Category>
         <SetsValue>true</SetsValue>
       </Variable>

@@ -28,12 +28,14 @@ namespace AbbatoirIntergrade.Screens
         protected static Microsoft.Xna.Framework.Graphics.Texture2D negative;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D neutral;
         protected static Microsoft.Xna.Framework.Graphics.Texture2D positive;
+        protected static System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.EndingCredits> EndingCredits;
         
         private AbbatoirIntergrade.GumRuntimes.EndingScreenGumRuntime EndingScreenGumInstance;
         private AbbatoirIntergrade.GumRuntimes.TextRuntime EndingTextRuntimeInstance;
         private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonInstance;
         private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime EndingTextContainer;
         private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance;
+        private AbbatoirIntergrade.GumRuntimes.ContainerRuntime CreditsContainer;
         public EndingScreen () 
         	: base ("EndingScreen")
         {
@@ -46,6 +48,7 @@ namespace AbbatoirIntergrade.Screens
             ButtonInstance = EndingScreenGum.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
             EndingTextContainer = EndingScreenGum.GetGraphicalUiElementByName("EndingTextContainer") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
             CurrentMusicDisplayInstance = EndingScreenGum.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
+            CreditsContainer = EndingScreenGum.GetGraphicalUiElementByName("CreditsContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
             
             
             PostInitialize();
@@ -86,6 +89,7 @@ namespace AbbatoirIntergrade.Screens
             negative = null;
             neutral = null;
             positive = null;
+            EndingCredits = null;
             
             if (EndingScreenGumInstance != null)
             {
@@ -106,6 +110,10 @@ namespace AbbatoirIntergrade.Screens
             if (CurrentMusicDisplayInstance != null)
             {
                 CurrentMusicDisplayInstance.RemoveFromManagers();
+            }
+            if (CreditsContainer != null)
+            {
+                CreditsContainer.RemoveFromManagers();
             }
             FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
@@ -142,6 +150,10 @@ namespace AbbatoirIntergrade.Screens
             if (CurrentMusicDisplayInstance != null)
             {
                 CurrentMusicDisplayInstance.RemoveFromManagers();
+            }
+            if (CreditsContainer != null)
+            {
+                CreditsContainer.RemoveFromManagers();
             }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 
@@ -191,6 +203,18 @@ namespace AbbatoirIntergrade.Screens
             negative = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/endingscreen/negative.png", contentManagerName);
             neutral = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/endingscreen/neutral.png", contentManagerName);
             positive = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/endingscreen/positive.png", contentManagerName);
+            if (EndingCredits == null)
+            {
+                {
+                    // We put the { and } to limit the scope of oldDelimiter
+                    char oldDelimiter = FlatRedBall.IO.Csv.CsvFileManager.Delimiter;
+                    FlatRedBall.IO.Csv.CsvFileManager.Delimiter = ',';
+                    System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.EndingCredits> temporaryCsvObject = new System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.EndingCredits>();
+                    FlatRedBall.IO.Csv.CsvFileManager.CsvDeserializeDictionary<string, AbbatoirIntergrade.DataTypes.EndingCredits>("content/screens/endingscreen/endingcredits.csv", temporaryCsvObject);
+                    FlatRedBall.IO.Csv.CsvFileManager.Delimiter = oldDelimiter;
+                    EndingCredits = temporaryCsvObject;
+                }
+            }
             CustomLoadStaticContent(contentManagerName);
         }
         [System.Obsolete("Use GetFile instead")]
@@ -208,6 +232,8 @@ namespace AbbatoirIntergrade.Screens
                     return neutral;
                 case  "positive":
                     return positive;
+                case  "EndingCredits":
+                    return EndingCredits;
             }
             return null;
         }
@@ -225,6 +251,8 @@ namespace AbbatoirIntergrade.Screens
                     return neutral;
                 case  "positive":
                     return positive;
+                case  "EndingCredits":
+                    return EndingCredits;
             }
             return null;
         }

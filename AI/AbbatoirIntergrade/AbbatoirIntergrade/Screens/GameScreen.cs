@@ -418,6 +418,8 @@ namespace AbbatoirIntergrade.Screens
 
             AnalyticsManager.SendDeferredEvents();
 
+            TimeManager.TimeFactor = 1;
+
             LoadingScreen.TransitionToScreen(typeof(MapScreen));
         }
 
@@ -439,6 +441,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void RestartLevel(IWindow window)
         {
+            TimeManager.TimeFactor = 1;
             AnalyticsManager.FlushDeferredEvents();
             CameraZoomManager.Reset();
             RestartScreen(false);
@@ -875,6 +878,8 @@ namespace AbbatoirIntergrade.Screens
 
         private void HandleGameEnd()
         {
+            TimeManager.TimeFactor = 1;
+
             var chosenDialogue = PlayerDataManager.LastChosenDialogueId;
             if (!string.IsNullOrEmpty(chosenDialogue))
             {

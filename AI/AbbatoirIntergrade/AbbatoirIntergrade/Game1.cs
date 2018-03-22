@@ -78,7 +78,7 @@ namespace AbbatoirIntergrade
 
 			CameraSetup.SetupCamera(SpriteManager.Camera, graphics);
 			GlobalContent.Initialize();
-			FlatRedBall.Screens.ScreenManager.Start(typeof(AbbatoirIntergrade.Screens.GameScreen));
+			FlatRedBall.Screens.ScreenManager.Start(typeof(AbbatoirIntergrade.Screens.EndingScreen));
             base.Initialize();
         }
 

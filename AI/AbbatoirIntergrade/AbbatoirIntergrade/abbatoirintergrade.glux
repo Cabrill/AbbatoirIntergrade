@@ -46,6 +46,12 @@
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Screens/EndingScreen/EndingCredits.csv</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <CreatesDictionary>true</CreatesDictionary>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
       </ReferencedFiles>
       <NamedObjects>
         <NamedObjectSave>
@@ -89,6 +95,15 @@
           <SourceFile>GumProject/Screens/EndingScreenGum.gusx</SourceFile>
           <SourceName>CurrentMusicDisplayInstance (AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime)</SourceName>
           <InstanceName>CurrentMusicDisplayInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/EndingScreenGum.gusx</SourceFile>
+          <SourceName>CreditsContainer (AbbatoirIntergrade.GumRuntimes.ContainerRuntime)</SourceName>
+          <InstanceName>CreditsContainer</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -17430,7 +17445,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\GameScreen</StartUpScreen>
+  <StartUpScreen>Screens\EndingScreen</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>

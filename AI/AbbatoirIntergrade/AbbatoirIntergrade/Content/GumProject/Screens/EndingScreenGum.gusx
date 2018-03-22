@@ -82,6 +82,54 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>ChildrenLayout</Type>
+      <Name>CreditsContainer.Children Layout</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CreditsContainer.Height</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>CreditsContainer.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CreditsContainer.Width</Name>
+      <Value xsi:type="xsd:float">80</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>CreditsContainer.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>CreditsContainer.Wraps Children</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>CreditsContainer.X Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>CreditsContainer.X Units</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>AppearingState</Type>
       <Name>CurrentMusicDisplayInstance.AppearingState</Name>
       <Value xsi:type="xsd:string">Hidden</Value>
@@ -151,13 +199,6 @@
     <State>
       <Name>Positive</Name>
       <Variable>
-        <IsFile>true</IsFile>
-        <Type>string</Type>
-        <Name>SpriteInstance.SourceFile</Name>
-        <Value xsi:type="xsd:string">../Screens/EndingScreen/positive.png</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>float</Type>
         <Name>EndingTextContainer.X</Name>
         <Value xsi:type="xsd:float">0</Value>
@@ -169,6 +210,13 @@
         <Name>EndingTextContainer.X Origin</Name>
         <Value xsi:type="xsd:int">0</Value>
         <Category>Position</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <IsFile>true</IsFile>
+        <Type>string</Type>
+        <Name>SpriteInstance.SourceFile</Name>
+        <Value xsi:type="xsd:string">../Screens/EndingScreen/positive.png</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -242,15 +290,19 @@
     <BaseType>frames/ButtonFrame</BaseType>
   </Instance>
   <Instance>
-    <Name>BlackFade</Name>
-    <BaseType>ColoredRectangle</BaseType>
-  </Instance>
-  <Instance>
     <Name>EndingTextContainer</Name>
     <BaseType>ChatHistory</BaseType>
   </Instance>
   <Instance>
+    <Name>BlackFade</Name>
+    <BaseType>ColoredRectangle</BaseType>
+  </Instance>
+  <Instance>
     <Name>CurrentMusicDisplayInstance</Name>
     <BaseType>infodisplays/CurrentMusicDisplay</BaseType>
+  </Instance>
+  <Instance>
+    <Name>CreditsContainer</Name>
+    <BaseType>Container</BaseType>
   </Instance>
 </ScreenSave>

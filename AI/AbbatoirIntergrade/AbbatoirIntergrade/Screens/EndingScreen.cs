@@ -12,6 +12,9 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
+using Gum.Wireframe;
+using RenderingLibrary;
+using Camera = FlatRedBall.Camera;
 
 
 namespace AbbatoirIntergrade.Screens
@@ -19,6 +22,7 @@ namespace AbbatoirIntergrade.Screens
 	public partial class EndingScreen
 	{
 	    private int endingReached;
+	    private bool isDisplayingCredits;
 
 		void CustomInitialize()
 		{
@@ -57,14 +61,63 @@ namespace AbbatoirIntergrade.Screens
 		{
             if(firstTimeCalled) EndingScreenGumInstance.FadeInAnimation.Play();
 
+		    if (isDisplayingCredits)
+		    {
+		        (CreditsContainer.Children[0] as GraphicalUiElement).Y -= (float)TimeManager.CurrentTime/3;
+
+		        var lastItem = CreditsContainer.Children[CreditsContainer.Children.Count - 1];
+		        var lastItemHeight = lastItem.Height;
+		        var lastItemY = IPositionedSizedObjectExtensionMethods.GetAbsoluteY(lastItem);
+
+		        if (lastItemY < -lastItemHeight)
+		        {
+		            ReturnToMenu();
+		        }
+		    }
 		}
 
         private void HandleButtonClick(FlatRedBall.Gui.IWindow window)
         {
             EndingScreenGumInstance.FadeOutAnimation.Play();
-            this.Call(() => LoadingScreen.TransitionToScreen(typeof(MainMenu)))
+            this.Call(RollCredits)
                 .After(EndingScreenGumInstance.FadeOutAnimation.Length);
         }
+
+	    private void RollCredits()
+	    {
+	        var setFirst = false;
+	        foreach (var item in EndingCredits.Values)
+	        {
+	            var titleDisplay = new CreditDisplayRuntime
+	                {
+	                    CurrentCreditTypeState = CreditDisplayRuntime.CreditType.Header,
+	                    Parent = CreditsContainer,
+	                    DisplayText = item.Title
+	                };
+	            if (!setFirst)
+	            {
+	                titleDisplay.Y = Camera.Main.OrthogonalHeight;
+	                setFirst = true;
+	            }
+
+	            foreach (var credit in item.Credit)
+	            {
+	                var creditDisplay =
+	                    new CreditDisplayRuntime
+	                    {
+	                        CurrentCreditTypeState = CreditDisplayRuntime.CreditType.Detail,
+	                        Parent = CreditsContainer,
+	                        DisplayText = credit
+	                    };
+	            }
+	        }
+            isDisplayingCredits = true;
+	    }
+
+	    private void ReturnToMenu()
+	    {
+	        LoadingScreen.TransitionToScreen(typeof(MainMenu));
+	    }
 
 
 		void CustomDestroy()

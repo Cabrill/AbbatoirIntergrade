@@ -55,6 +55,14 @@
                             BlackFade.Width = 100f;
                             BlackFade.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             CurrentMusicDisplayInstance.CurrentAppearingState = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
+                            CreditsContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
+                            CreditsContainer.Height = 100f;
+                            CreditsContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            CreditsContainer.Width = 80f;
+                            CreditsContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            CreditsContainer.WrapsChildren = true;
+                            CreditsContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            CreditsContainer.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             break;
                     }
                 }
@@ -146,6 +154,14 @@
                 bool setButtonFrameInstanceCurrentButtonTypeStateSecondValue = false;
                 ButtonFrameRuntime.ButtonType ButtonFrameInstanceCurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
                 ButtonFrameRuntime.ButtonType ButtonFrameInstanceCurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
+                bool setCreditsContainerHeightFirstValue = false;
+                bool setCreditsContainerHeightSecondValue = false;
+                float CreditsContainerHeightFirstValue= 0;
+                float CreditsContainerHeightSecondValue= 0;
+                bool setCreditsContainerWidthFirstValue = false;
+                bool setCreditsContainerWidthSecondValue = false;
+                float CreditsContainerWidthFirstValue= 0;
+                float CreditsContainerWidthSecondValue= 0;
                 bool setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = false;
                 bool setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = false;
                 CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue= CurrentMusicDisplayRuntime.Appearing.Hidden;
@@ -190,6 +206,34 @@
                         if (interpolationValue < 1)
                         {
                             this.ButtonFrameInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CreditsContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
+                        }
+                        setCreditsContainerHeightFirstValue = true;
+                        CreditsContainerHeightFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.CreditsContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setCreditsContainerWidthFirstValue = true;
+                        CreditsContainerWidthFirstValue = 80f;
+                        if (interpolationValue < 1)
+                        {
+                            this.CreditsContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CreditsContainer.WrapsChildren = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CreditsContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CreditsContainer.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = true;
                         CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
@@ -248,6 +292,34 @@
                         {
                             this.ButtonFrameInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CreditsContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
+                        }
+                        setCreditsContainerHeightSecondValue = true;
+                        CreditsContainerHeightSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.CreditsContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setCreditsContainerWidthSecondValue = true;
+                        CreditsContainerWidthSecondValue = 80f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.CreditsContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CreditsContainer.WrapsChildren = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CreditsContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CreditsContainer.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
                         setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = true;
                         CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
                         if (interpolationValue >= 1)
@@ -291,6 +363,14 @@
                 if (setButtonFrameInstanceCurrentButtonTypeStateFirstValue && setButtonFrameInstanceCurrentButtonTypeStateSecondValue)
                 {
                     ButtonFrameInstance.InterpolateBetween(ButtonFrameInstanceCurrentButtonTypeStateFirstValue, ButtonFrameInstanceCurrentButtonTypeStateSecondValue, interpolationValue);
+                }
+                if (setCreditsContainerHeightFirstValue && setCreditsContainerHeightSecondValue)
+                {
+                    CreditsContainer.Height = CreditsContainerHeightFirstValue * (1 - interpolationValue) + CreditsContainerHeightSecondValue * interpolationValue;
+                }
+                if (setCreditsContainerWidthFirstValue && setCreditsContainerWidthSecondValue)
+                {
+                    CreditsContainer.Width = CreditsContainerWidthFirstValue * (1 - interpolationValue) + CreditsContainerWidthSecondValue * interpolationValue;
                 }
                 if (setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue && setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue)
                 {
@@ -904,6 +984,70 @@
                             Value = CurrentMusicDisplayInstance.CurrentAppearingState
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CreditsContainer.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = CreditsContainer.ChildrenLayout
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CreditsContainer.Height",
+                            Type = "float",
+                            Value = CreditsContainer.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CreditsContainer.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = CreditsContainer.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CreditsContainer.Width",
+                            Type = "float",
+                            Value = CreditsContainer.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CreditsContainer.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = CreditsContainer.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CreditsContainer.Wraps Children",
+                            Type = "bool",
+                            Value = CreditsContainer.WrapsChildren
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CreditsContainer.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = CreditsContainer.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CreditsContainer.X Units",
+                            Type = "PositionUnitType",
+                            Value = CreditsContainer.XUnits
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -1048,6 +1192,70 @@
                             Name = "CurrentMusicDisplayInstance.AppearingState",
                             Type = "AppearingState",
                             Value = CurrentMusicDisplayInstance.CurrentAppearingState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CreditsContainer.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = CreditsContainer.ChildrenLayout
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CreditsContainer.Height",
+                            Type = "float",
+                            Value = CreditsContainer.Height + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CreditsContainer.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = CreditsContainer.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CreditsContainer.Width",
+                            Type = "float",
+                            Value = CreditsContainer.Width + 80f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CreditsContainer.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = CreditsContainer.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CreditsContainer.Wraps Children",
+                            Type = "bool",
+                            Value = CreditsContainer.WrapsChildren
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CreditsContainer.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = CreditsContainer.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CreditsContainer.X Units",
+                            Type = "PositionUnitType",
+                            Value = CreditsContainer.XUnits
                         }
                         );
                         break;
@@ -1309,9 +1517,10 @@
             }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime BlackFade { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime EndingTextContainer { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime BlackFade { get; set; }
             private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ContainerRuntime CreditsContainer { get; set; }
             public EndingScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -1339,9 +1548,10 @@
             {
                 SpriteInstance = this.GetGraphicalUiElementByName("SpriteInstance") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 ButtonFrameInstance = this.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                BlackFade = this.GetGraphicalUiElementByName("BlackFade") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 EndingTextContainer = this.GetGraphicalUiElementByName("EndingTextContainer") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
+                BlackFade = this.GetGraphicalUiElementByName("BlackFade") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 CurrentMusicDisplayInstance = this.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
+                CreditsContainer = this.GetGraphicalUiElementByName("CreditsContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

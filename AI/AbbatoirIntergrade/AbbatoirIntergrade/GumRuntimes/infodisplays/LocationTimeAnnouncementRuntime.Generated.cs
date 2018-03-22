@@ -75,9 +75,9 @@
                         case  Displaying.Start:
                             Y = 0f;
                             LocationText.Alpha = 0;
-                            LocationText.FontScale = 1f;
+                            LocationText.FontScale = 0.5f;
                             DateTimeText.Alpha = 0;
-                            DateTimeText.FontScale = 0.7f;
+                            DateTimeText.FontScale = 0.35f;
                             break;
                         case  Displaying.Middle:
                             Y = 30f;
@@ -387,11 +387,11 @@
                         setDateTimeTextAlphaFirstValue = true;
                         DateTimeTextAlphaFirstValue = 0;
                         setDateTimeTextFontScaleFirstValue = true;
-                        DateTimeTextFontScaleFirstValue = 0.7f;
+                        DateTimeTextFontScaleFirstValue = 0.35f;
                         setLocationTextAlphaFirstValue = true;
                         LocationTextAlphaFirstValue = 0;
                         setLocationTextFontScaleFirstValue = true;
-                        LocationTextFontScaleFirstValue = 1f;
+                        LocationTextFontScaleFirstValue = 0.5f;
                         setYFirstValue = true;
                         YFirstValue = 0f;
                         break;
@@ -426,11 +426,11 @@
                         setDateTimeTextAlphaSecondValue = true;
                         DateTimeTextAlphaSecondValue = 0;
                         setDateTimeTextFontScaleSecondValue = true;
-                        DateTimeTextFontScaleSecondValue = 0.7f;
+                        DateTimeTextFontScaleSecondValue = 0.35f;
                         setLocationTextAlphaSecondValue = true;
                         LocationTextAlphaSecondValue = 0;
                         setLocationTextFontScaleSecondValue = true;
-                        LocationTextFontScaleSecondValue = 1f;
+                        LocationTextFontScaleSecondValue = 0.5f;
                         setYSecondValue = true;
                         YSecondValue = 0f;
                         break;
@@ -1307,7 +1307,7 @@
                             SetsValue = true,
                             Name = "LocationText.Font Scale",
                             Type = "float",
-                            Value = LocationText.FontScale + 1f
+                            Value = LocationText.FontScale + 0.5f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1323,7 +1323,7 @@
                             SetsValue = true,
                             Name = "DateTimeText.Font Scale",
                             Type = "float",
-                            Value = DateTimeText.FontScale + 0.7f
+                            Value = DateTimeText.FontScale + 0.35f
                         }
                         );
                         break;
@@ -1439,6 +1439,8 @@
             public LocationTimeAnnouncementRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
             {
+                this.HasEvents = false;
+                this.ExposeChildrenEvents = false;
                 if (fullInstantiation)
                 {
                     Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "infodisplays/LocationTimeAnnouncement");

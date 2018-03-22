@@ -41,6 +41,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DataTypes\EndingCredits.Generated.cs" />
     <Compile Include="DataTypes\EndingText.Generated.cs" />
     <Compile Include="DataTypes\Enemy_Attributes.Generated.cs" />
     <Compile Include="DataTypes\Messages.Generated.cs" />
@@ -313,6 +314,7 @@
     <Compile Include="GumRuntimes\ConfirmationWindowRuntime.Generated.cs">
       <DependentUpon>ConfirmationWindowRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\CreditDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\EndingScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\frames\ButtonFrameRuntime.cs" />
     <Compile Include="GumRuntimes\frames\ButtonFrameRuntime.Generated.cs">
@@ -1280,6 +1282,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>confirmationwindow</Name>
     </None>
+    <None Include="content\gumproject\components\creditdisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>creditdisplay</Name>
+    </None>
     <None Include="content\gumproject\components\frames\buttonframe.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ButtonFrame</Name>
@@ -1587,6 +1593,10 @@
     <None Include="content\gumproject\standards\text.gutx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Text</Name>
+    </None>
+    <None Include="content\screens\endingscreen\endingcredits.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EndingCredits</Name>
     </None>
     <None Include="content\screens\endingscreen\endingtext.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

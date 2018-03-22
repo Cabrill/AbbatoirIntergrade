@@ -49,6 +49,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>CreditDisplay</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>frames/ButtonFrame</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
