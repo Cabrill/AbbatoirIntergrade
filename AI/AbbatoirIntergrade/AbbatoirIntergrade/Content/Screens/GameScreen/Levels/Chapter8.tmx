@@ -86,7 +86,7 @@
  </objectgroup>
  <objectgroup name="Pathing">
   <object id="178" x="-64" y="1202">
-   <polyline points="0,0 1442,6 1378,-652 2710,-636"/>
+   <polyline points="0,0 1406,6 1420,-624 2710,-636"/>
   </object>
  </objectgroup>
  <objectgroup name="Collisions">

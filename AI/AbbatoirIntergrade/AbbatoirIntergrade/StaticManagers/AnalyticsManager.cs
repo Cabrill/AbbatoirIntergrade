@@ -26,6 +26,7 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static void Initialize()
         {
+            LocalLogManager.AddLine("Analytics manager initialization");
             var projectSettings = new ProjectSettingsProvider(KeenProjectID, writeKey: KeenWriteKey);
             Client = new KeenClient(projectSettings);
             DeferredClient = new KeenClient(projectSettings, new EventCacheMemory());

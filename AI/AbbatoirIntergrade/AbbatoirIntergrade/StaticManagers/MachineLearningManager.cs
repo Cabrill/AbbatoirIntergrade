@@ -60,6 +60,8 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static void LoadData(string modelFileName, string waveDataFileName)
         {
+            LocalLogManager.AddLine("Machine Learning manager initialization");
+
             _modelFileName = modelFileName;
             _waveDataFileName = waveDataFileName;
 

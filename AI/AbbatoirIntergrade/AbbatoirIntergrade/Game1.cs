@@ -28,6 +28,9 @@ namespace AbbatoirIntergrade
 
         public Game1() : base ()
         {
+            LocalLogManager.StartLog();
+            AppDomain currentDomain = AppDomain.CurrentDomain;
+            currentDomain.UnhandledException += new UnhandledExceptionEventHandler(LocalLogManager.UncaughtExceptionLogger);
             graphics = new GraphicsDeviceManager(this);
 
 #if WINDOWS_PHONE || ANDROID || IOS
@@ -78,7 +81,7 @@ namespace AbbatoirIntergrade
 
 			CameraSetup.SetupCamera(SpriteManager.Camera, graphics);
 			GlobalContent.Initialize();
-			FlatRedBall.Screens.ScreenManager.Start(typeof(AbbatoirIntergrade.Screens.EndingScreen));
+			FlatRedBall.Screens.ScreenManager.Start(typeof(AbbatoirIntergrade.Screens.MainMenu));
             base.Initialize();
         }
 

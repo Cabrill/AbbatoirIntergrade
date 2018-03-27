@@ -5,7 +5,7 @@
     {
         internal static class CameraSetup
         {
-            const float Scale = 0.4f;
+            const float Scale = 1f;
             internal static void ResetCamera (Camera cameraToReset) 
             {
                 FlatRedBall.Camera.Main.Orthogonal = true;
@@ -18,11 +18,20 @@
             {
                 #if WINDOWS || DESKTOP_GL
                 FlatRedBall.FlatRedBallServices.Game.Window.AllowUserResizing = false;
-                FlatRedBall.FlatRedBallServices.GraphicsOptions.SetResolution((int)(width * Scale), (int)(height * Scale));
+                #if DESKTOP_GL
+                graphicsDeviceManager.HardwareModeSwitch = false;
+                FlatRedBall.FlatRedBallServices.GraphicsOptions.SetResolution(Microsoft.Xna.Framework.Graphics.GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, Microsoft.Xna.Framework.Graphics.GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height, FlatRedBall.Graphics.WindowedFullscreenMode.FullscreenBorderless);
+                #elif WINDOWS
+                System.IntPtr hWnd = FlatRedBall.FlatRedBallServices.Game.Window.Handle;
+                var control = System.Windows.Forms.Control.FromHandle(hWnd);
+                var form = control.FindForm();
+                form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                form.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+                #endif
                 #elif IOS || ANDROID
                 FlatRedBall.FlatRedBallServices.GraphicsOptions.SetFullScreen(FlatRedBall.FlatRedBallServices.GraphicsOptions.ResolutionWidth, FlatRedBall.FlatRedBallServices.GraphicsOptions.ResolutionHeight);
                 #elif UWP
-                FlatRedBall.FlatRedBallServices.GraphicsOptions.SetResolution((int)(width * Scale), (int)(height * Scale));
+                FlatRedBall.FlatRedBallServices.GraphicsOptions.SetFullScreen(width, height);
                 #endif
                 ResetCamera(cameraToSetUp);
                 FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged += HandleResolutionChange;

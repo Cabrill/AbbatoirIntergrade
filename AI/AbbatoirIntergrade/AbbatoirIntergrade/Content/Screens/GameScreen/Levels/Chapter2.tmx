@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" nextobjectid="79">
+<map version="1.0" tiledversion="1.1.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" infinite="0" nextobjectid="79">
  <tileset firstgid="1" source="CombinedAssetsTileset.tsx"/>
  <tileset firstgid="1025" source="CollisionShapesTilesets.tsx"/>
  <layer name="Ground" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC82SXQrCMBCE05sWW/pjfPFVa3sCwVhUsGpzlB7NWTILMfQAFj42TTazs0uM+e9vzgID6TPjT4gxHYnX6Z7ET2aWIdHDfl4jFsAybkEDNqDmumRseS5nT9xVnTno+yOQnBu4gpFR12Oyf6ee6sf9wnduWXMPKiL5B/BCP8hZNKK2cdQq6T3uWfRa1nGRjtzt2Uta37FmQ6RnmeUbTOi14twcfeLM60zWZq15BaOlvk3+HXNUb470dI2+8wfnuFuZc8w5eJd5/PQZ++v4FsTDhfNRXw19qUcX6vtUI3kP4n+ZqCd3v3LBa6xwAwAA
+   H4sIAAAAAAAACs2SXQrCMBCE05sWW/pjfPFVa3sCwVhUsGpzlB7NWTILMfQAFj42TTazs0uM+e9vzgID6TPjT4gxHYnX6Z7ET2aWIdHDfl4jFsAybkEDNqDmumRseS5nT9xVnTno+yOQnBu4gpFR12Oyf6ee6sf9wnduWXMPKiL5B/BCP8hZNKK2cdQq6T3uWfRa1nGRjtzt2Uta37FmQ6RnmeUbTOi14twcfeLM60zWZq15BaOlvk3+HXNUb470dI2+8wfnuFuZc8w5eJd5/PQZ++v4FsTDhfNRXw19qUcX6vtUI3kP4n+ZqCd3v3LBa6xwAwAA
   </data>
  </layer>
  <layer name="Objects" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAX4QDUzA0MN80C7AgK+Ad3xnQS3VBNQexsof4dCv00D6p8OxDOA+DcQ/0EzbxsTA8N2IN7BhF3/QaD6Q0B8GIiPEOGWa0BzrgPxDRzmPQSa8QiIHwPxExzmzQaKzwHiuVjk9wHF9iOJ3wWy7xFw126g/B4g3oukDpsdILMAuda373ADAAA=
+   H4sIAAAAAAAACmNgGAX4QDUzA0MN80C7AgK+Ad3xnQS3VBNQexsof4dCv00D6p8OxDOA+DcQ/0EzbxsTA8N2IN7BhF3/QaD6Q0B8GIiPEOGWa0BzrgPxDRzmPQSa8QiIHwPxExzmzQaKzwHiuVjk9wHF9iOJ3wWy7xFw126g/B4g3oukDpsdILMAuda373ADAAA=
   </data>
  </layer>
  <layer name="Overlay2" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGF4gmpmBIYaZPL3bgPq2k6kXG7gGNOs6CeZFY1EbBhQLp8BNjUC9TUDcDMQtQFwGxOUEzJvOhFtuIVDvIiBeDMRLqBhW5IJ5QDfMB+IFg8AtxAAAq0KOOnADAAA=
+   H4sIAAAAAAAACmNgGF4gmpmBIYaZPL3bgPq2k6kXG7gGNOs6CeZFY1EbBhQLp8BNjUC9TUDcDMQtQFwGxOUEzJvOhFtuIVDvIiBeDMRLqBhW5IJ5QDfMB+IFg8AtxAAAq0KOOnADAAA=
   </data>
  </layer>
  <layer name="Overlay" width="20" height="11">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYBTQCwAAf45feXADAAA=
+   H4sIAAAAAAAACmNgGAWjYBTQCwAAf45feXADAAA=
   </data>
  </layer>
  <objectgroup name="EntityLayer">
@@ -84,7 +84,7 @@
  </objectgroup>
  <objectgroup name="Pathing">
   <object id="73" x="-10" y="1216">
-   <polyline points="0,0 872,8 814,-676 2166,-618 2090,-106 2576,-138"/>
+   <polyline points="0,0 838.667,-4.12121 841.273,-642.667 2126.61,-636.182 2120.3,-127.212 2609.33,-131.939"/>
   </object>
  </objectgroup>
  <objectgroup name="Collisions">

@@ -61,8 +61,6 @@ namespace AbbatoirIntergrade.StaticManagers
         {
             if (RecordedPlayTime.HasValue) Data.PlayTimeInSeconds = RecordedPlayTime.Value + FlatRedBall.TimeManager.CurrentTime;
             FlatRedBall.IO.FileManager.XmlSerialize(Data, SaveFileName);
-
-            FlatRedBall.Debugging.Debugger.CommandLineWrite("Saved " + SaveFileName);
         }
 
         public static void LoadData(bool firstLoad = false)

@@ -22,6 +22,7 @@ namespace AbbatoirIntergrade.Screens
 
 	    void CustomInitialize()
 	    {
+            LocalLogManager.AddLine("Main Menu");
 	        GameStateManager.LoadIfNecessary();
 
 #if WINDOWS || DESKTOP_GL
@@ -58,6 +59,7 @@ namespace AbbatoirIntergrade.Screens
             if (MainMenuGumRuntime.CurrentAnyKeyState == MainMenuGumRuntime.AnyKey.Ready && (InputManager.Keyboard.AnyKeyPushed() || InputManager.Mouse.AnyButtonPushed()))
 	        {
                 MainMenuGumRuntime.FadeOutAnimation.Play();
+	            LocalLogManager.AddLine("Transition to MapScreen");
                 this.Call(()=>LoadingScreen.TransitionToScreen(typeof(MapScreen))).After(MainMenuGumRuntime.FadeOutAnimation.Length);
 	        }
             else if (LeftEye.CurrentEyeOpeningState == MainMenuEyeRuntime.EyeOpening.Open && !MainMenuGumRuntime.OpenEyesAnimation.IsPlaying() && !MainMenuGumRuntime.BlinkEyesAnimation.IsPlaying())

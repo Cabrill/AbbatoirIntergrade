@@ -67,6 +67,19 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         {
             RemainingLives = StartingLives;
             _waveHasEnded = true;
+            CurrentWaveNumber = 0;
+            LevelResults = CreateResults();
+        }
+
+        public void Reset()
+        {
+            RemainingLives = StartingLives;
+            CurrentWaveNumber = 0;
+            _lastEnemyWaveTime = 0;
+            _waveHasEnded = true;
+            _currentlyGeneratingNewWave = false;
+            LastWave = null;
+            IsReadyForNextWave = false;
             LevelResults = CreateResults();
         }
 

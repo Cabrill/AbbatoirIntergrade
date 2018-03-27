@@ -228,6 +228,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 FiringSound.Stop(true);
                 FiringSound.Dispose();
             }
+
+            AfterIsBeingPlacedSet = null;
+            targetEnemy = null;
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)

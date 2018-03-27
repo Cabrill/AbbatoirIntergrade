@@ -30,7 +30,9 @@ namespace AbbatoirIntergrade.Screens
 
 		void CustomInitialize()
 		{
-		    GameStateManager.LoadIfNecessary();
+		    LocalLogManager.AddLine("Main Menu - Load GameState Data");
+            GameStateManager.LoadIfNecessary();
+		    LocalLogManager.AddLine("Main Menu - Load Player Data");
             PlayerDataManager.LoadData();
 
 #if WINDOWS || DESKTOP_GL
@@ -50,14 +52,17 @@ namespace AbbatoirIntergrade.Screens
 	    {
 	        if (!PlayerDataManager.PlayerHasSeenIntro)
 	        {
-	            OkMessageInstance.ShowMessage(Messages["Intro"].MessageText);
+	            LocalLogManager.AddLine("Main Menu - Show Intro Message");
+                OkMessageInstance.ShowMessage(Messages["Intro"].MessageText);
 	            PlayerDataManager.MarkSeenIntro();
+                PlayerDataManager.SaveData();
 	        }
 	    }
 
 	    private void OfferStructureChoiceIfAvailable()
 	    {
-	        var potentialTowers = PlayerDataManager.GetPossibleNewTowers();
+	        LocalLogManager.AddLine("Main Menu - Offer structure choice");
+            var potentialTowers = PlayerDataManager.GetPossibleNewTowers();
 	        var numberOfChoices = potentialTowers.Count;
 
             if (numberOfChoices > 0)
@@ -89,7 +94,8 @@ namespace AbbatoirIntergrade.Screens
 	    {
 	        if (window is TowerSelectionBoxRuntime towerSelectionBox)
 	        {
-	            var selectedTower = towerSelectionBox.StructureTypeChosen;
+	            LocalLogManager.AddLine("Main Menu - Add tower selection");
+                var selectedTower = towerSelectionBox.StructureTypeChosen;
 
 	            var towerSelectionEvent = new
 	            {
@@ -139,8 +145,18 @@ namespace AbbatoirIntergrade.Screens
         void CustomDestroy()
 		{
 
-
-		}
+            foreach (var element in MapScreenGumInstance.ContainedElements)
+		    {
+		        if (element is LevelButtonRuntime levelButton)
+		        {
+		            levelButton.Click -= LoadLevel;
+		        }
+		        if (element is ButtonFrameRuntime optionsButton)
+		        {
+		            optionsButton.Click -= ShowMenu;
+		        }
+		    }
+        }
 
         static void CustomLoadStaticContent(string contentManagerName)
         {
@@ -186,11 +202,13 @@ namespace AbbatoirIntergrade.Screens
                     {
                         ConfirmationWindowInstance.Confirm("Exit and return to desktop?", () =>
                         {
+                            LocalLogManager.AddLine("Main Menu - Exiting game");
                             PlayerDataManager.SaveData();
                             FlatRedBallServices.Game.Exit();
                         });
                     });
                     menuWindow.AssignEventToButton3(window => {
+                        LocalLogManager.AddLine("Main Menu - Show chat history");
                         ChatHistoryInstance.PopulateWithAllChatHistory();
                         ChatHistoryInstance.Visible = true; });
                     menuWindow.AssignEventToButton4(window => OkMessageInstance.ShowMessage(Messages["Intro"].MessageText));
@@ -212,7 +230,7 @@ namespace AbbatoirIntergrade.Screens
             //Don't react to level button presses if menu is open
 	        if (MapScreenGumInstance.CurrentMenuDisplayState != MapScreenGumRuntime.MenuDisplay.MenuHidden) return;
 
-	        var windowAsLevelButton = window as LevelButtonRuntime;
+            var windowAsLevelButton = window as LevelButtonRuntime;
 
             //Don't do anything if level is disabled
 	        if (windowAsLevelButton == null || !windowAsLevelButton.IsEnabled) return;
@@ -226,6 +244,8 @@ namespace AbbatoirIntergrade.Screens
 	        var level = (BaseLevel) Activator.CreateInstance(type);
 
 	        GameStateManager.CurrentLevel = level;
+
+	        LocalLogManager.AddLine("Main Menu - Load Level " + level);
 
             MapScreenGumInstance.FadeOutAnimation.Play();
 	        this.Call(() =>

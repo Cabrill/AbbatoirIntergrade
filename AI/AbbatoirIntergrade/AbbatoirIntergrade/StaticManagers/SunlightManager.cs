@@ -17,7 +17,6 @@ namespace AbbatoirIntergrade.StaticManagers
         public static bool MoonIsUp { get; private set; }
 
         private static HorizonBoxRuntime _horizon;
-        private static DateTime _lastUpdate;
 
         public static void Initialize(HorizonBoxRuntime horizonBox, DateTime gameDateTime)
         {
@@ -25,8 +24,6 @@ namespace AbbatoirIntergrade.StaticManagers
             SunlightEffectiveness = 1f;
             SunIsUp = true;
             MoonIsUp = false;
-
-            _lastUpdate = gameDateTime;
         }
 
         public static void UpdateConditions(DateTime gameDateTime)

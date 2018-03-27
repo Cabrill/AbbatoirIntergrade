@@ -480,7 +480,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		        DeathSound.Stop(true);
 		        DeathSound.Dispose();
             }
-        }
+
+		    OnDeath = null;
+		}
 
         private static void CustomLoadStaticContent(string contentManagerName)
         {

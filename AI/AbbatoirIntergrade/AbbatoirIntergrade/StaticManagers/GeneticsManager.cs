@@ -35,6 +35,7 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static void Initialize()
         {
+            LocalLogManager.AddLine("Genetics manager initialization");
             ChromosomeFitnessFunction = new FitnessFunction();
 
             if (EnemyTypeChromosomes == null)

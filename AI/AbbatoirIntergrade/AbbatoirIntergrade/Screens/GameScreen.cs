@@ -72,21 +72,25 @@ namespace AbbatoirIntergrade.Screens
 
         void CustomInitialize()
         {
+            LocalLogManager.AddLine("Game Screen - Initialize");
 #if WINDOWS || DESKTOP_GL
             FlatRedBallServices.IsWindowsCursorVisible = true;
 #endif
             FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
 
+            LocalLogManager.AddLine("Game Screen - Load GameState Data");
             GameStateManager.LoadIfNecessary();
+            LocalLogManager.AddLine("Game Screen - Load Player Data");
             PlayerDataManager.LoadData();
 
             resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
-
+            LocalLogManager.AddLine("Game Screen - Load sounds");
             IncomingMessageSound = IncomingMessage.CreateInstance();
             OutgoingMessageSound = OutgoingMessage.CreateInstance();
 
-            //TODO:  Set these values by loading a level
+            LocalLogManager.AddLine("Game Screen - Load Level");
             CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
+            CurrentLevel.Reset();
             CurrentLevel.OnNewWaveStart += HandleWaveStarted;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
@@ -101,22 +105,29 @@ namespace AbbatoirIntergrade.Screens
                 currentLevelDateTime = PlayerDataManager.CurrentGameDateTime;
             }
 
+            LocalLogManager.AddLine("Game Screen - Initialize factories");
             InitializeFactories();
 
+            LocalLogManager.AddLine("Game Screen - Load Tile Map");
             LoadTiledMap();
 
+            LocalLogManager.AddLine("Game Screen - Initialize base entities");
             InitializeBaseEntities();
 
+            LocalLogManager.AddLine("Game Screen - Assign gum events");
             AssignGumButtonEvents();
 
+            LocalLogManager.AddLine("Game Screen - Camera and shaders");
             CameraZoomManager.Initialize();
             AdjustLayerOrthoValues();
             InitializeShaders();
 
             HorizonBoxInstance.Initialize(currentLevelDateTime);
 
+            LocalLogManager.AddLine("Game Screen - Initialize managers");
             InitializeManagers();
 
+            LocalLogManager.AddLine("Game Screen - Set skybox");
             HorizonBoxInstance.Update(currentLevelDateTime);
             SunlightManager.UpdateConditions(currentLevelDateTime);
 
@@ -128,11 +139,14 @@ namespace AbbatoirIntergrade.Screens
             GameHasStarted = true;
             PauseAndBuildAjustedTime = 0;
 
+            LocalLogManager.AddLine("Game Screen - Start music");
             SoundManager.PlaySongList(CurrentLevel.SongNameList);
 
+            LocalLogManager.AddLine("Game Screen - Update gametime");
             UpdateGameTime();
 
             GameScreenGumInstance.CurrentFadingState = GameScreenGumRuntime.Fading.Faded;
+            LocalLogManager.AddLine("Game Screen - Display local time");
             LocationTimeInstance.Display(CurrentLevel.LocationName, currentLevelDateTime);
 
             this.Call(() =>CurrentMusicDisplayInstance.TimedDisplay(true)).After(5f);
@@ -140,6 +154,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void HandleWaveStarted(object sender, EventArgs e)
         {
+            LocalLogManager.AddLine("Game Screen - Start Wave");
             UpdateInfoBar();
             UpdateDialogue();
             MachineLearningManager.NotifyOfWaveStart(sender, e);
@@ -147,6 +162,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void HandleWaveEnded(object sender, EventArgs e)
         {
+            LocalLogManager.AddLine("Game Screen - Wave ended");
             if (StructurePlacementList.Any(sp => sp.Visible))
             {
                 ChangeGameModeToBuilding();
@@ -203,8 +219,10 @@ namespace AbbatoirIntergrade.Screens
         void LoadTiledMap()
         {
             currentMap = GetFile(CurrentLevel.MapName) as FlatRedBall.TileGraphics.LayeredTileMap;
+            LocalLogManager.AddLine("Game Screen - Instantiate tiles");
             FlatRedBall.TileEntities.TileEntityInstantiator.CreateEntitiesFrom(currentMap);
 
+            LocalLogManager.AddLine("Game Screen - Set tiled overlays");
             foreach (var overlay in TiledOverlayList)
             {
                 overlay.MoveToLayer(WorldLayer);
@@ -212,6 +230,7 @@ namespace AbbatoirIntergrade.Screens
                 overlay.RelativeZ = 3;
             }
 
+            LocalLogManager.AddLine("Game Screen - Set structure placements");
             foreach (var place in StructurePlacementList)
             {
                 place.OnClick += OnStructurePlacementClick;
@@ -219,6 +238,7 @@ namespace AbbatoirIntergrade.Screens
                 place.AttachTo(currentMap, true);
                 place.RelativeZ = 3;
             }
+            LocalLogManager.AddLine("Game Screen - Set circle collisions");
             foreach (var circle in TileCollisionCircleList)
             {
                 if (circle.CircleInstanceRadius > 64)
@@ -232,6 +252,7 @@ namespace AbbatoirIntergrade.Screens
                 }
                 circle.AttachTo(currentMap, true);
             }
+            LocalLogManager.AddLine("Game Screen - Set rectangle collisions");
             foreach (var rect in TileCollisionRectangleList)
             {
                 if (rect.AxisAlignedRectangleInstanceWidth > 128)
@@ -245,6 +266,7 @@ namespace AbbatoirIntergrade.Screens
                 rect.AttachTo(currentMap, true);
             }
 
+            LocalLogManager.AddLine("Game Screen - Set water shapes");
             WaterShapes = currentMap.ShapeCollections.FirstOrDefault(sc => sc.Name == "Water")?.Polygons.ToList();
             if (WaterShapes != null)
             {
@@ -254,6 +276,7 @@ namespace AbbatoirIntergrade.Screens
                 }
             }
 
+            LocalLogManager.AddLine("Game Screen - Set pathing");
             Pathing = currentMap.ShapeCollections.FirstOrDefault(sc => sc.Name == "Pathing")?.Polygons.FirstOrDefault();
             Pathing?.AttachTo(currentMap, true);
             currentMap.AddToManagers(WorldLayer);
@@ -286,11 +309,12 @@ namespace AbbatoirIntergrade.Screens
                 place.Detach();
             }
 
-
+            LocalLogManager.AddLine("Game Screen - Create pathing node network");
             PathingNodeNetwork = NodeNetworkGenerator.CreateFromTiledMap(currentMap);
             shiftVector.X += currentMap.WidthPerTile.Value/2;
             shiftVector.Y += currentMap.HeightPerTile.Value/2;
             PathingNodeNetwork.Shift(shiftVector);
+            LocalLogManager.AddLine("Game Screen - Remove collisions from node network");
             NodeNetworkGenerator.RemoveNodesWithCollisions(ref PathingNodeNetwork, TileCollisionRectangleList, TileCollisionCircleList, StructurePlacementList);
             
             MachineLearningManager.SetPathing(Pathing);
@@ -394,6 +418,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void LevelFailed()
         {
+            LocalLogManager.AddLine("Game Screen - Level End");
             var chosenDialogue = PlayerDataManager.LastChosenDialogueId;
             if (!string.IsNullOrEmpty(chosenDialogue))
             {
@@ -441,6 +466,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void RestartLevel(IWindow window)
         {
+            LocalLogManager.AddLine("Game Screen - Restarting level");
             TimeManager.TimeFactor = 1;
             AnalyticsManager.FlushDeferredEvents();
             CameraZoomManager.Reset();
@@ -808,6 +834,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void LoadInitialDialogue()
         {
+            LocalLogManager.AddLine("Game Screen - Loading intial dialogue");
             var gameDialogue = GameStateManager.GameDialogue;
             var firstDialogue = gameDialogue.DialogueList.FirstOrDefault(d => d.DisplayName == CurrentLevel.StartingDialogueDisplayName);
 
@@ -832,6 +859,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void UpdateDialogue()
         {
+            LocalLogManager.AddLine("Game Screen - Updating dialogue");
             if (!ChatBoxInstance.Visible)
             {
                 LoadInitialDialogue();
@@ -987,11 +1015,42 @@ namespace AbbatoirIntergrade.Screens
             PathingNodeNetwork.Visible = false;
             PathingNodeNetwork = null;
 
-		}
+		    for (var i = PlayerProjectileList.Count - 1; i >= 0; i--)
+		    {
+		        PlayerProjectileList[i].Destroy();
+		    }
+
+		    for (var i = StructurePlacementList.Count - 1; i >= 0; i--)
+		    {
+		        StructurePlacementList[i].OnClick = null;
+                StructurePlacementList[i].Destroy();
+		    }
+
+		    for (var i = AllEnemiesList.Count - 1; i >= 0; i--)
+		    {
+		        AllEnemiesList[i].Destroy();
+		    }
+
+		    for (var i = AllStructuresList.Count - 1; i >= 0; i--)
+		    {
+		        AllStructuresList[i].Destroy();
+		    }
+
+		    ChatBoxInstance.DialogueChosen = null;
+		    CurrentLevel.OnNewWaveStart = null;
+		    CurrentLevel.OnWaveEnd = null;
+            currentMap?.Destroy();
+		    currentMap = null;
+		    selectedObject = null;
+
+            BaseStructure.Initialize(null);
+            BaseEnemy.Initialize(null, null);
+        }
         #endregion
 
         static void CustomLoadStaticContent(string contentManagerName)
         {
+            LocalLogManager.AddLine("Game Screen - Load static content");
             foreach (var tower in PlayerDataManager.GetAvailableTowers())
             {
                 if (tower == typeof(PiercingTower))
