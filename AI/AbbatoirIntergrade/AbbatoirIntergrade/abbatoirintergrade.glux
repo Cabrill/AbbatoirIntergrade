@@ -503,6 +503,7 @@
           <InstanceName>TileCollisionRectangleList</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <CallActivity>false</CallActivity>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -514,6 +515,7 @@
           <InstanceName>TileCollisionCircleList</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <CallActivity>false</CallActivity>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -575,6 +577,7 @@
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInICollidable>false</IncludeInICollidable>
+          <CallActivity>false</CallActivity>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -605,7 +608,7 @@
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
-          <LayerOn>InfoLayer</LayerOn>
+          <LayerOn>HUDLayer</LayerOn>
         </NamedObjectSave>
       </NamedObjects>
     </ScreenSave>
@@ -3408,7 +3411,7 @@
           </Properties>
           <Name>ShowDebugShapes</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -3492,7 +3495,7 @@
           </Properties>
           <Name>ShowNodeNetwork</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
       </CustomVariables>
@@ -17107,7 +17110,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_alieninhochiminh.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17121,7 +17123,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_alittlebell.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17135,7 +17136,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_aluodetunefish.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17149,7 +17149,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_badmorning.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17163,7 +17162,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_brokentimesiqnatureinaminor.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17177,7 +17175,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_crocketttubbs.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17191,7 +17188,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_digitalconcertoremake.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17205,7 +17201,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_enoughexcitementforalifetime.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17219,7 +17214,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_fiveminutesofwhy.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17233,7 +17227,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_glitchthis.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17247,7 +17240,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_inmymindiamabigstar.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17261,7 +17253,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_irememberyou.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17275,7 +17266,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_justafaceinthedarkinstrumental.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17289,7 +17279,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_marchoftheages.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17303,7 +17292,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_melancholysound.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17317,7 +17305,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_quietlyintothenight.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17331,7 +17318,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_scrambledeggs.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17345,7 +17331,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_sidish.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17359,7 +17344,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_superiorblandcrap.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17373,7 +17357,6 @@
       <Name>globalcontent/Music/anttisinstrumentals_woman.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-      <DestroyOnUnload>false</DestroyOnUnload>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17393,6 +17376,7 @@
       </Properties>
       <Name>globalcontent/Music/Brallit_Ocular_Eclipse.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17405,6 +17389,7 @@
       </Properties>
       <Name>globalcontent/Music/Brallit_One_Accord.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17417,6 +17402,7 @@
       </Properties>
       <Name>globalcontent/Music/Brallit_Robotic_Chaotic.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17429,6 +17415,7 @@
       </Properties>
       <Name>globalcontent/Music/Brallit_Vow_of_Silence.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
@@ -17439,13 +17426,26 @@
       <CreatesDictionary>true</CreatesDictionary>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>globalcontent/Music/Zach_Darshon_Sea_of_Dead_Thoughts.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+      <HasPublicProperty>true</HasPublicProperty>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
   </GlobalFiles>
   <GlobalContentSettingsSave>
     <LoadAsynchronously>false</LoadAsynchronously>
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\MainMenu</StartUpScreen>
+  <StartUpScreen>Screens\GameScreen</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>
@@ -17504,9 +17504,9 @@
     <AspectRatioHeight>9</AspectRatioHeight>
     <SupportLandscape>true</SupportLandscape>
     <SupportPortrait>false</SupportPortrait>
-    <RunInFullScreen>true</RunInFullScreen>
+    <RunInFullScreen>false</RunInFullScreen>
     <AllowWindowResizing>false</AllowWindowResizing>
-    <Scale>100</Scale>
+    <Scale>50</Scale>
     <ResizeBehavior>StretchVisibleArea</ResizeBehavior>
   </DisplaySettings>
 </GlueProjectSave>

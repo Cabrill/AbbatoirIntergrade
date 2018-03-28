@@ -8,6 +8,7 @@ using FlatRedBall.Gui;
 using FlatRedBall.Math.Geometry;
 using AbbatoirIntergrade.Entities;
 using AbbatoirIntergrade.Entities.BaseEntities;
+using AbbatoirIntergrade.Entities.Enemies;
 using AbbatoirIntergrade.Entities.GraphicalElements;
 using AbbatoirIntergrade.Entities.Projectiles;
 using AbbatoirIntergrade.Entities.Structures;
@@ -89,7 +90,7 @@ namespace AbbatoirIntergrade.Screens
             OutgoingMessageSound = OutgoingMessage.CreateInstance();
 
             LocalLogManager.AddLine("Game Screen - Load Level");
-            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
+            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter9Level();
             CurrentLevel.Reset();
             CurrentLevel.OnNewWaveStart += HandleWaveStarted;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
@@ -1085,8 +1086,59 @@ namespace AbbatoirIntergrade.Screens
                 }
             }
 
-        }
+            if (GameStateManager.CurrentLevel == null) return;
 
-        
+            foreach (var enemy in GameStateManager.CurrentLevel.AvailableEnemyTypes)
+            {
+                switch (enemy)
+                {
+                    case EnemyTypes.Chicken1:
+                        Chicken1Enemy.LoadStaticContent(contentManagerName);
+                        continue;
+                    case EnemyTypes.Chicken2:
+                        Chicken1Enemy.LoadStaticContent(contentManagerName);
+                        continue;
+                    case EnemyTypes.Chicken3:
+                        Chicken1Enemy.LoadStaticContent(contentManagerName);
+                        continue;
+                    case EnemyTypes.Pig1:
+                        Pig1Enemy.LoadStaticContent(contentManagerName);
+                        continue;
+                    case EnemyTypes.Pig2:
+                        Pig1Enemy.LoadStaticContent(contentManagerName);
+                        continue;
+                    case EnemyTypes.Pig3:
+                        Pig1Enemy.LoadStaticContent(contentManagerName);
+                        continue;
+                    case EnemyTypes.Cow1:
+                        Cow1Enemy.LoadStaticContent(contentManagerName);
+                        continue;
+                    case EnemyTypes.Cow2:
+                        Cow1Enemy.LoadStaticContent(contentManagerName);
+                        continue;
+                    case EnemyTypes.Cow3:
+                        Cow1Enemy.LoadStaticContent(contentManagerName);
+                        continue;
+                    case EnemyTypes.Sheep1:
+                        Sheep1Enemy.LoadStaticContent(contentManagerName);
+                        continue;
+                    case EnemyTypes.Sheep2:
+                        Sheep1Enemy.LoadStaticContent(contentManagerName);
+                        continue;
+                    case EnemyTypes.Sheep3:
+                        Sheep1Enemy.LoadStaticContent(contentManagerName);
+                        continue;
+                    case EnemyTypes.Rabbit1:
+                        Rabbit1Enemy.LoadStaticContent(contentManagerName);
+                        continue;
+                    case EnemyTypes.Rabbit2:
+                        Rabbit1Enemy.LoadStaticContent(contentManagerName);
+                        continue;
+                    case EnemyTypes.Rabbit3:
+                        Rabbit1Enemy.LoadStaticContent(contentManagerName);
+                        continue;
+                }
+            }
+        }
     }
 }

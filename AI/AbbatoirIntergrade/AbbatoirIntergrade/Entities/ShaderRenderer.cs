@@ -37,7 +37,7 @@ namespace AbbatoirIntergrade.Entities
         private Color WorldColor = Color.White;
         private Tweener _lastColorTween;
         private Color DayColor = Color.White;
-        private Color NightColor = Color.SkyBlue;
+        private Color NightColor = Color.Plum;
         private Vector3 DayColorAsVector;
         private Vector3 NightColorAsVector;
 

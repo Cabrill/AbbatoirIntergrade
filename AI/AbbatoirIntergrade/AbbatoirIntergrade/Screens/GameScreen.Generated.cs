@@ -382,7 +382,7 @@ namespace AbbatoirIntergrade.Screens
             MenuWindowInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             LocationTimeInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             ConfirmationWindowInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
-            CurrentMusicDisplayInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(InfoLayer)));
+            CurrentMusicDisplayInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             base.AddToManagers();
             AddToManagersBottomUp();
             CustomInitialize();
@@ -423,30 +423,6 @@ namespace AbbatoirIntergrade.Screens
                     {
                         // We do the extra if-check because activity could destroy any number of entities
                         StructurePlacementList[i].Activity();
-                    }
-                }
-                for (int i = TileCollisionRectangleList.Count - 1; i > -1; i--)
-                {
-                    if (i < TileCollisionRectangleList.Count)
-                    {
-                        // We do the extra if-check because activity could destroy any number of entities
-                        TileCollisionRectangleList[i].Activity();
-                    }
-                }
-                for (int i = TileCollisionCircleList.Count - 1; i > -1; i--)
-                {
-                    if (i < TileCollisionCircleList.Count)
-                    {
-                        // We do the extra if-check because activity could destroy any number of entities
-                        TileCollisionCircleList[i].Activity();
-                    }
-                }
-                for (int i = TiledOverlayList.Count - 1; i > -1; i--)
-                {
-                    if (i < TiledOverlayList.Count)
-                    {
-                        // We do the extra if-check because activity could destroy any number of entities
-                        TiledOverlayList[i].Activity();
                     }
                 }
             }
@@ -723,7 +699,7 @@ namespace AbbatoirIntergrade.Screens
             MenuWindowInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             LocationTimeInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             ConfirmationWindowInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
-            CurrentMusicDisplayInstance.MoveToFrbLayer(InfoLayer, InfoLayerGum);
+            CurrentMusicDisplayInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             FlatRedBall.Gui.GuiManager.SortZAndLayerBased();
         }
         public virtual void RemoveFromManagers () 

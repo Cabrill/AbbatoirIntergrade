@@ -16,6 +16,8 @@ namespace AbbatoirIntergrade.GumRuntimes
         public StructurePlacement CurrentPlacement { get; private set; }
         private bool MoreThanFour = false;
 
+        private StructureInfoRuntime structureInfoDisplay;
+
         public void DisplayForPlacement(StructurePlacement placement)
         {
             CurrentPlacement = placement;
@@ -45,8 +47,9 @@ namespace AbbatoirIntergrade.GumRuntimes
             Visible = true;
         }
 
-        public void AssociateTowers(List<BaseStructure> listOfTowers, List<IEntityFactory> listOfFactories)
+        public void AssociateTowers(List<BaseStructure> listOfTowers, List<IEntityFactory> listOfFactories, StructureInfoRuntime structureInfoRuntime)
         {
+            structureInfoDisplay = structureInfoRuntime;
             for (var i = 0; i < 7; i++)
             {
                 var button = GetButtonNumber(i);
@@ -58,8 +61,10 @@ namespace AbbatoirIntergrade.GumRuntimes
                     var factory = listOfFactories[i];
 
                     button.UpdateFromStructure(tower, factory);
-                    button.RollOverAction = ShowRangePreview;
-                    button.RollOffAction = HideRangePreview;
+                    button.RangeDisplayAction = ShowRangePreview;
+                    button.InfoDisplayAction = ShowStructureInfoPreview;
+                    button.HideRangePreviewAction = HideRangePreview;
+                    button.HideStructurePreviewAction = HideStructureInfoPreview;
                     MoreThanFour = (i > 3);
                 }
                 else
@@ -114,6 +119,57 @@ namespace AbbatoirIntergrade.GumRuntimes
             if (CurrentPlacement == null) return;
 
             CurrentPlacement.RangePreviewSprite.Visible = false;
+        }
+
+        private void ShowStructureInfoPreview(StructureInfoRuntime.StructureInfoSaveState structureInfo)
+        {
+            float xPos, yPos;
+
+            if (CurrentCapacityState == Capacity.Four || CurrentCapacityState == Capacity.Seven)
+            {
+                xPos = X + (X > 0 ? -structureInfoDisplay.GetAbsoluteWidth() : structureInfoDisplay.GetAbsoluteWidth());
+                if (CurrentCapacityState == Capacity.Seven)
+                {
+                    yPos = Y + (Y > 0
+                               ? -structureInfoDisplay.GetAbsoluteHeight()
+                               : structureInfoDisplay.GetAbsoluteHeight() / 2);
+                }
+                else
+                {
+                    yPos = Y + structureInfoDisplay.GetAbsoluteHeight() / 3;
+                }
+            }
+            else if (CurrentCapacityState == Capacity.FourRight || CurrentCapacityState == Capacity.SevenRight)
+            {
+                xPos = X + GetAbsoluteHeight() / 2;
+                if (Y > 0)
+                {
+                    yPos = Y - structureInfoDisplay.GetAbsoluteWidth();
+                }
+                else
+                {
+                    yPos = Y + structureInfoDisplay.GetAbsoluteWidth();
+                }
+            }
+            else
+            {
+                xPos = X - GetAbsoluteHeight() / 2;
+                if (Y > 0)
+                {
+                    yPos = Y - structureInfoDisplay.GetAbsoluteWidth();
+                }
+                else
+                {
+                    yPos = Y + structureInfoDisplay.GetAbsoluteWidth();
+                }
+            }
+
+            structureInfoDisplay.Show(structureInfo, xPos, yPos);
+        }
+
+        private void HideStructureInfoPreview()
+        {
+            structureInfoDisplay.Hide(true);
         }
     }
 }

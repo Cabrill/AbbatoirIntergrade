@@ -239,6 +239,19 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             PathingLine = pathing;
             NodeNetwork = pathingNodeNetwork;
+
+            if (PathingLine != null)
+            {
+                PathingSegments = new Segment[PathingLine.Points.Count - 1];
+                for (var i = 0; i <= pathing.Points.Count - 2; i++)
+                {
+                    PathingSegments[i] = new Segment(PathingLine.Points[i], PathingLine.Points[i + 1]);
+                }
+
+                firstNavigationPoint = PathingLine.AbsolutePointPosition(0);
+                secondNavigationPoint = PathingLine.AbsolutePointPosition(1);
+                secondNavigationPointFlying = PathingLine.AbsolutePointPosition(PathingLine.Points.Count - 1);
+            }
         }
 
         public void UpdateSpritesRelativeY()
@@ -537,9 +550,9 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        PlayDrowningSound();
 	        SpriteInstance.AnimationChains = ParticleAnimationsChainList;
 	        ShadowSprite.Visible = false;
-	        SpriteInstance.RelativeY = 0;
 	        CurrentActionState = Action.Drowning;
-	        HealthRemaining = 0;
+	        SpriteInstance.RelativeY = 0;
+            HealthRemaining = 0;
 	        Velocity = Vector3.Zero;
 	    }
 

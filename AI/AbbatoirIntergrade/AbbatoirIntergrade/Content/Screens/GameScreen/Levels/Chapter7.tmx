@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" infinite="0" nextobjectid="178">
+<map version="1.0" tiledversion="1.1.3" orientation="orthogonal" renderorder="right-down" width="20" height="11" tilewidth="128" tileheight="128" infinite="0" nextobjectid="180">
  <tileset firstgid="1" source="CombinedAssetsTileset.tsx"/>
  <tileset firstgid="1025" source="CollisionShapesTilesets.tsx"/>
  <layer name="Ground" width="20" height="11">
@@ -75,9 +75,10 @@
   </object>
  </objectgroup>
  <objectgroup name="Collisions">
-  <object id="17" type="TileCollisionRectangle" gid="1025" x="1406.67" y="450.67" width="356" height="66">
+  <object id="17" type="TileCollisionRectangle" gid="1025" x="1436.97" y="484.003" width="277.212" height="41.7576">
    <properties>
-    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="238"/>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="41"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="277"/>
    </properties>
   </object>
   <object id="24" type="TileCollisionRectangle" gid="1025" x="-136.303" y="259.212" width="2809.27" height="128">
@@ -90,35 +91,36 @@
     <property name="AxisAlignedRectangleInstanceWidth" type="float" value="2794"/>
    </properties>
   </object>
-  <object id="89" type="TileCollisionRectangle" gid="1025" x="803" y="765" width="218" height="66">
+  <object id="89" type="TileCollisionRectangle" gid="1025" x="815.121" y="813.485" width="184.667" height="38.7273">
    <properties>
-    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="218"/>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="38"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="184"/>
    </properties>
   </object>
-  <object id="137" type="TileCollisionCircle" gid="1026" x="1965.5" y="579.25" width="64" height="64">
+  <object id="137" type="TileCollisionCircle" gid="1026" x="1953.38" y="579.25" width="64" height="64">
    <properties>
     <property name="Altitude" type="float" value="132"/>
     <property name="CircleInstanceRadius" type="float" value="32"/>
     <property name="ZHeight" type="float" value="132"/>
    </properties>
   </object>
-  <object id="138" type="TileCollisionCircle" gid="1026" x="1965.5" y="511.25" width="64" height="64">
+  <object id="138" type="TileCollisionCircle" gid="1026" x="1953.38" y="511.25" width="64" height="64">
    <properties>
     <property name="Altitude" type="float" value="196"/>
     <property name="CircleInstanceRadius" type="float" value="32"/>
     <property name="ZHeight" type="float" value="132"/>
    </properties>
   </object>
-  <object id="139" type="TileCollisionCircle" gid="1026" x="1971.5" y="375.25" width="64" height="64">
+  <object id="139" type="TileCollisionCircle" gid="1026" x="1959.38" y="375.25" width="64" height="64">
    <properties>
     <property name="Altitude" type="float" value="324"/>
     <property name="CircleInstanceRadius" type="float" value="32"/>
     <property name="ZHeight" type="float" value="132"/>
    </properties>
   </object>
-  <object id="140" type="TileCollisionRectangle" gid="1025" x="1962.5" y="736.25" width="64" height="160">
+  <object id="140" type="TileCollisionRectangle" gid="1025" x="1920.08" y="739.28" width="64" height="81.2121">
    <properties>
-    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="160"/>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="81"/>
     <property name="AxisAlignedRectangleInstanceWidth" type="float" value="64"/>
    </properties>
   </object>
@@ -128,21 +130,23 @@
     <property name="CircleInstanceRadius" type="float" value="119"/>
    </properties>
   </object>
-  <object id="142" type="TileCollisionCircle" gid="1026" x="1967.5" y="445.25" width="64" height="64">
+  <object id="142" type="TileCollisionCircle" gid="1026" x="1955.38" y="445.25" width="64" height="64">
    <properties>
     <property name="Altitude" type="float" value="260"/>
     <property name="CircleInstanceRadius" type="float" value="32"/>
     <property name="ZHeight" type="float" value="132"/>
    </properties>
   </object>
-  <object id="164" type="TileCollisionRectangle" gid="1025" x="-75" y="505" width="218" height="66">
+  <object id="164" type="TileCollisionRectangle" gid="1025" x="-78.0303" y="547.424" width="218" height="66">
    <properties>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="66"/>
     <property name="AxisAlignedRectangleInstanceWidth" type="float" value="218"/>
    </properties>
   </object>
-  <object id="165" type="TileCollisionRectangle" gid="1025" x="2142" y="1122" width="70" height="66">
+  <object id="165" type="TileCollisionRectangle" gid="1025" x="2114.73" y="1146.24" width="70" height="66">
    <properties>
-    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="238"/>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="64"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="64"/>
    </properties>
   </object>
   <object id="166" type="TileCollisionCircle" gid="1026" x="2118" y="1078" width="128" height="128">
@@ -151,9 +155,10 @@
     <property name="CircleInstanceRadius" type="float" value="64"/>
    </properties>
   </object>
-  <object id="167" type="TileCollisionRectangle" gid="1025" x="2282" y="815" width="432" height="66">
+  <object id="167" type="TileCollisionRectangle" gid="1025" x="2288.06" y="842.273" width="432" height="66">
    <properties>
-    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="238"/>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="66"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="432"/>
    </properties>
   </object>
   <object id="168" type="TileCollisionCircle" gid="1026" x="2339.5" y="761.25" width="64" height="64">
@@ -163,10 +168,10 @@
     <property name="ZHeight" type="float" value="132"/>
    </properties>
   </object>
-  <object id="169" type="TileCollisionRectangle" gid="1025" x="2334.5" y="1052.25" width="64" height="160">
+  <object id="169" type="TileCollisionRectangle" gid="1025" x="2298.14" y="1076.49" width="96" height="60">
    <properties>
-    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="160"/>
-    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="64"/>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="64"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="96"/>
    </properties>
   </object>
   <object id="170" type="TileCollisionCircle" gid="1026" x="2337.5" y="827.25" width="64" height="64">
@@ -196,10 +201,10 @@
     <property name="ZHeight" type="float" value="132"/>
    </properties>
   </object>
-  <object id="174" type="TileCollisionRectangle" gid="1025" x="2449" y="371" width="126" height="90">
+  <object id="174" type="TileCollisionRectangle" gid="1025" x="2439.91" y="383.121" width="126" height="90">
    <properties>
-    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="90"/>
-    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="126"/>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="64"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="64"/>
    </properties>
   </object>
   <object id="175" type="TileCollisionCircle" gid="1026" x="2387" y="267" width="238" height="238">
@@ -218,6 +223,20 @@
    <properties>
     <property name="Altitude" type="float" value="150"/>
     <property name="CircleInstanceRadius" type="float" value="119"/>
+   </properties>
+  </object>
+  <object id="178" type="TileCollisionCircle" gid="1026" x="1949.82" y="649.818" width="64" height="64">
+   <properties>
+    <property name="Altitude" type="float" value="100"/>
+    <property name="CircleInstanceRadius" type="float" value="32"/>
+    <property name="ZHeight" type="float" value="132"/>
+   </properties>
+  </object>
+  <object id="179" type="TileCollisionCircle" gid="1026" x="2337.7" y="974.061" width="64" height="64">
+   <properties>
+    <property name="Altitude" type="float" value="100"/>
+    <property name="CircleInstanceRadius" type="float" value="32"/>
+    <property name="ZHeight" type="float" value="132"/>
    </properties>
   </object>
  </objectgroup>

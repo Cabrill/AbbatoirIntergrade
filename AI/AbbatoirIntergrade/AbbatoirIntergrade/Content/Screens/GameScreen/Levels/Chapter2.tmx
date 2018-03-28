@@ -88,16 +88,16 @@
   </object>
  </objectgroup>
  <objectgroup name="Collisions">
-  <object id="2" type="TileCollisionCircle" gid="1026" x="150" y="1138" width="238" height="238">
+  <object id="2" type="TileCollisionCircle" gid="1026" x="143.939" y="1150.12" width="238" height="238">
    <properties>
     <property name="CircleInstanceRadius" type="float" value="119"/>
    </properties>
   </object>
   <object id="7" type="TileCollisionCircle" gid="1026" x="4" y="1436" width="128" height="128"/>
-  <object id="17" type="TileCollisionRectangle" gid="1025" x="958.667" y="892.667" width="126" height="66">
+  <object id="17" type="TileCollisionRectangle" gid="1025" x="955.637" y="910.849" width="89.6364" height="66">
    <properties>
     <property name="AxisAlignedRectangleInstanceHeight" type="float" value="66"/>
-    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="126"/>
+    <property name="AxisAlignedRectangleInstanceWidth" type="float" value="89"/>
    </properties>
   </object>
   <object id="24" type="TileCollisionRectangle" gid="1025" x="-130.303" y="259.212" width="2809.27" height="128">
@@ -116,9 +116,9 @@
     <property name="AxisAlignedRectangleInstanceWidth" type="float" value="240"/>
    </properties>
   </object>
-  <object id="35" type="TileCollisionRectangle" gid="1025" x="601" y="925" width="150" height="87">
+  <object id="35" type="TileCollisionRectangle" gid="1025" x="597.97" y="946.212" width="150" height="62.7576">
    <properties>
-    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="87"/>
+    <property name="AxisAlignedRectangleInstanceHeight" type="float" value="62"/>
     <property name="AxisAlignedRectangleInstanceWidth" type="float" value="150"/>
    </properties>
   </object>
@@ -133,13 +133,13 @@
     <property name="CircleInstanceRadius" type="float" value="102"/>
    </properties>
   </object>
-  <object id="74" type="TileCollisionRectangle" gid="1025" x="1003" y="687" width="48" height="48">
+  <object id="74" type="TileCollisionRectangle" gid="1025" x="951.485" y="714.273" width="48" height="48">
    <properties>
     <property name="AxisAlignedRectangleInstanceHeight" type="float" value="48"/>
     <property name="AxisAlignedRectangleInstanceWidth" type="float" value="48"/>
    </properties>
   </object>
-  <object id="75" type="TileCollisionRectangle" gid="1025" x="1641" y="481" width="52" height="66">
+  <object id="75" type="TileCollisionRectangle" gid="1025" x="1610.7" y="505.242" width="52" height="66">
    <properties>
     <property name="AxisAlignedRectangleInstanceHeight" type="float" value="66"/>
     <property name="AxisAlignedRectangleInstanceWidth" type="float" value="52"/>
@@ -151,7 +151,7 @@
     <property name="CircleInstanceRadius" type="float" value="64"/>
    </properties>
   </object>
-  <object id="77" type="TileCollisionCircle" gid="1026" x="2480" y="706" width="128" height="128">
+  <object id="77" type="TileCollisionCircle" gid="1026" x="2480" y="733.273" width="128" height="128">
    <properties>
     <property name="Altitude" type="float" value="96"/>
     <property name="CircleInstanceRadius" type="float" value="64"/>

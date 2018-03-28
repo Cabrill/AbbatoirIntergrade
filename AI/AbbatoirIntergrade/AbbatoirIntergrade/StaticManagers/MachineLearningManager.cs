@@ -82,7 +82,7 @@ namespace AbbatoirIntergrade.StaticManagers
             };
         }
 
-        public static void SaveData()
+        private static void SaveData()
         {
             FileManager.BinarySerialize(_waveData, _waveDataFileName);
             _machineLearningModel.Save(_modelFileName);
@@ -240,12 +240,22 @@ namespace AbbatoirIntergrade.StaticManagers
             _waveData.WaveScores.Add(_waveScore);
 
             _waveScore = 0;
-            if (!IsLearningTaskRunning)
+
+            if (IsLearningTaskRunning) return;
+
+            void LearnAndRefreshTask()
             {
                 _machineLearningModel.LearnAll(_waveData);
+                GeneticsManager.EvaluateAndGenerate();
+                Action UpdateAction = () =>
+                {
+                    SaveData();
+                    IsLearningTaskRunning = false;
+                };
+                InstructionManager.AddSafe(UpdateAction);
             }
-            GeneticsManager.EvaluateAndGenerate();
-            SaveData();
+
+            Task.Run((Action)LearnAndRefreshTask);
         }
 
         public static void UpdateWaveScore(BaseEnemy enemy)

@@ -30,6 +30,7 @@ namespace AbbatoirIntergrade.DataTypes
         public const string Brallit_One_Accord = "Brallit_One_Accord";
         public const string Brallit_Robotic_Chaotic = "Brallit_Robotic_Chaotic";
         public const string Brallit_Vow_of_Silence = "Brallit_Vow_of_Silence";
+        public const string Zach_Darshon_Sea_of_Dead_Thoughts = "Zach_Darshon_Sea_of_Dead_Thoughts";
         public static System.Collections.Generic.List<System.String> OrderedList = new System.Collections.Generic.List<System.String>
         {
         anttisinstrumentals_alieninhochiminh
@@ -56,6 +57,7 @@ namespace AbbatoirIntergrade.DataTypes
         ,Brallit_One_Accord
         ,Brallit_Robotic_Chaotic
         ,Brallit_Vow_of_Silence
+        ,Zach_Darshon_Sea_of_Dead_Thoughts
         };
         
         

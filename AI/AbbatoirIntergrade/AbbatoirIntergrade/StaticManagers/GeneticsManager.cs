@@ -168,6 +168,7 @@ namespace AbbatoirIntergrade.StaticManagers
         public static void EvaluateAndGenerate()
         {
             if (!MachineLearningManager.IsReadyToEvaluate) return;
+            if (_CurrentlyRefreshingOrSaving) return;
             _CurrentlyRefreshingOrSaving = true;
             void RefreshAndGenerateTask()
             {

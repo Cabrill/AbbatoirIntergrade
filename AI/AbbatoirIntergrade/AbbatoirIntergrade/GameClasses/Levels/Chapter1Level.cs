@@ -16,11 +16,11 @@ namespace AbbatoirIntergrade.GameClasses.Levels
     class Chapter1Level : BaseLevel
     {
         public override string MapName => "Chapter1";
-        public override string LocationName => "Nixuey Farm";
-        public override DateTime StartTime => new DateTime(2238, 10, 21, 6, 11, 0);
+        public override string LocationName => "Nixeuy Farm";
+        public override DateTime StartTime => new DateTime(2238, 10, 21, 4, 11, 0);
         public override int StartingLives => 20;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.SparseTrees;
-        public override List<string> SongNameList => new List<string>() {nameof(GlobalContent.anttisinstrumentals_badmorning), nameof(GlobalContent.anttisinstrumentals_woman), nameof(GlobalContent.anttisinstrumentals_sidish) };
+        public override List<string> SongNameList => new List<string>() {nameof(GlobalContent.Zach_Darshon_Sea_of_Dead_Thoughts), nameof(GlobalContent.anttisinstrumentals_badmorning), nameof(GlobalContent.anttisinstrumentals_woman), nameof(GlobalContent.anttisinstrumentals_sidish) };
 
         public override List<BaseWave> Waves => new List<BaseWave>() { 
             new BaseWave(new EnemyList(EnemyTypes.Chicken1, 2)),
@@ -57,6 +57,10 @@ namespace AbbatoirIntergrade.GameClasses.Levels
                 SerializableTuple<int, EnemyTypes>.Create(5, EnemyTypes.Chicken1),
                 SerializableTuple<int, EnemyTypes>.Create(20, EnemyTypes.Sheep1),
                 SerializableTuple<int, EnemyTypes>.Create(5, EnemyTypes.Rabbit1)
+            }),
+            new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
+                SerializableTuple<int, EnemyTypes>.Create(5, EnemyTypes.Chicken1),
+                SerializableTuple<int, EnemyTypes>.Create(25, EnemyTypes.Sheep1),
             }),
         };
     }

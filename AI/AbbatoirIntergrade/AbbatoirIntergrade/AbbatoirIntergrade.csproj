@@ -1168,6 +1168,16 @@
       <Name>Brallit_Vow_of_Silence</Name>
       <Link>content\globalcontent\music\brallit_vow_of_silence.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\zach_darshon_sea_of_dead_thoughts.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Zach_Darshon_Sea_of_Dead_Thoughts</Name>
+      <Link>content\globalcontent\music\zach_darshon_sea_of_dead_thoughts.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\zach_darshon_sea_of_dead_thoughts.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Zach_Darshon_Sea_of_Dead_Thoughts</Name>
+      <Link>content\globalcontent\music\zach_darshon_sea_of_dead_thoughts.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\desktopgl\screens\gamescreen\effects\darknessshader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>darknessshader</Name>

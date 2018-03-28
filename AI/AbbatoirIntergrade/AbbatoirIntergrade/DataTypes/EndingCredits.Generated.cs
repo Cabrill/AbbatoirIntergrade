@@ -9,6 +9,7 @@ namespace AbbatoirIntergrade.DataTypes
         public const string Character_Design = "Character Design";
         public const string Music = "Music";
         public const string Game_Engine = "Game Engine";
+        public const string Development_Support = "Development Support";
         public const string Game_Framework = "Game Framework";
         public const string Level_Design_Software = "Level Design Software";
         public const string Story_Editing_Software = "Story Editing Software";
@@ -20,6 +21,7 @@ namespace AbbatoirIntergrade.DataTypes
         ,Character_Design
         ,Music
         ,Game_Engine
+        ,Development_Support
         ,Game_Framework
         ,Level_Design_Software
         ,Story_Editing_Software

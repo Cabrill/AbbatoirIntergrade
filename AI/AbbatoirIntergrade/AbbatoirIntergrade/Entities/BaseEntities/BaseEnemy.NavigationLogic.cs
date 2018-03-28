@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using FlatRedBall;
 using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
@@ -14,7 +15,13 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         private float _currentDistanceToNavigationTarget;
         public int PathingPointIndex;
         private static Polygon PathingLine;
+        private static Segment[] PathingSegments;
         private static TileNodeNetwork NodeNetwork;
+        private const int DistanceToAchievePoint = 30;
+
+        private static Vector3 firstNavigationPoint;
+        private static Vector3 secondNavigationPoint;
+        private static Vector3 secondNavigationPointFlying;
 
         #endregion
 
@@ -24,25 +31,21 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             Vector3 firstPoint, secondPoint;
 
-            if (IsFlying)
-            {
-                PathingPointIndex = PathingLine.Points.Count - 1;
-                firstPoint = PathingLine.AbsolutePointPosition(0);
-                secondPoint = PathingLine.AbsolutePointPosition(PathingLine.Points.Count-1);
-            }
-            else
-            {
-                PathingPointIndex = 0;
-                firstPoint = PathingLine.AbsolutePointPosition(PathingPointIndex);
-                secondPoint = PathingLine.AbsolutePointPosition(++PathingPointIndex);
-            }
+            PathingPointIndex = 1;
+            firstPoint = firstNavigationPoint;
+            secondPoint = (IsFlying ? secondNavigationPointFlying : secondNavigationPoint);
 
-            X = (float)firstPoint.X;
-            Y = (float)firstPoint.Y;
+            X = (float)firstPoint.X + FlatRedBallServices.Random.Next(-1, 1) * FlatRedBallServices.Random.Next(5, 25);
+            Y = (float)firstPoint.Y + FlatRedBallServices.Random.Next(-1, 1) * FlatRedBallServices.Random.Next(5, 25);
+
             _targetPointForNavigation = secondPoint;
 
             CurrentActionState = Action.Running;
             CurrentDirectionState = Direction.MovingRight;
+
+            var randomStartingFrame =
+                FlatRedBallServices.Random.Next(0, spriteAnimationChainList[SpriteInstance.CurrentChainIndex].Count - 1);
+            SpriteInstance.CurrentFrameIndex = randomStartingFrame;
         }
         #endregion
 
@@ -52,10 +55,24 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             _currentDistanceToNavigationTarget = Vector3.Distance(Position, _targetPointForNavigation);
 
-            if (_currentDistanceToNavigationTarget < 30)
+            if (_currentDistanceToNavigationTarget < DistanceToAchievePoint)
             {
                 ChoosePointForNavigation();
                 _currentDistanceToNavigationTarget = Vector3.Distance(Position, _targetPointForNavigation);
+            }
+            else if (PathingPointIndex < PathingLine.Points.Count - 1)
+            {
+                var currentSegment = PathingSegments[PathingPointIndex - 1];
+                var nextSegment = PathingSegments[PathingPointIndex];
+
+                if (currentSegment.DistanceTo(Position) > nextSegment.DistanceTo(Position))
+                {
+                    _targetPointForNavigation = PathingLine.AbsolutePointPosition(++PathingPointIndex);
+                }
+            }
+            else if (X+ DistanceToAchievePoint > Camera.Main.OrthogonalWidth / 2)
+            {
+                HasReachedGoal = true;
             }
         }
 

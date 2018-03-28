@@ -264,11 +264,67 @@ namespace AbbatoirIntergrade
             }
         }
         public static System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.Enemy_Attributes> Enemy_Attributes { get; set; }
-        public static Microsoft.Xna.Framework.Media.Song Brallit_Ocular_Eclipse { get; set; }
-        public static Microsoft.Xna.Framework.Media.Song Brallit_One_Accord { get; set; }
-        public static Microsoft.Xna.Framework.Media.Song Brallit_Robotic_Chaotic { get; set; }
-        public static Microsoft.Xna.Framework.Media.Song Brallit_Vow_of_Silence { get; set; }
+        static Microsoft.Xna.Framework.Media.Song mBrallit_Ocular_Eclipse;
+        public static Microsoft.Xna.Framework.Media.Song Brallit_Ocular_Eclipse
+        {
+            get
+            {
+                if (mBrallit_Ocular_Eclipse == null)
+                {
+                    mBrallit_Ocular_Eclipse = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/music/brallit_ocular_eclipse", ContentManagerName);
+                }
+                return mBrallit_Ocular_Eclipse;
+            }
+        }
+        static Microsoft.Xna.Framework.Media.Song mBrallit_One_Accord;
+        public static Microsoft.Xna.Framework.Media.Song Brallit_One_Accord
+        {
+            get
+            {
+                if (mBrallit_One_Accord == null)
+                {
+                    mBrallit_One_Accord = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/music/brallit_one_accord", ContentManagerName);
+                }
+                return mBrallit_One_Accord;
+            }
+        }
+        static Microsoft.Xna.Framework.Media.Song mBrallit_Robotic_Chaotic;
+        public static Microsoft.Xna.Framework.Media.Song Brallit_Robotic_Chaotic
+        {
+            get
+            {
+                if (mBrallit_Robotic_Chaotic == null)
+                {
+                    mBrallit_Robotic_Chaotic = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/music/brallit_robotic_chaotic", ContentManagerName);
+                }
+                return mBrallit_Robotic_Chaotic;
+            }
+        }
+        static Microsoft.Xna.Framework.Media.Song mBrallit_Vow_of_Silence;
+        public static Microsoft.Xna.Framework.Media.Song Brallit_Vow_of_Silence
+        {
+            get
+            {
+                if (mBrallit_Vow_of_Silence == null)
+                {
+                    mBrallit_Vow_of_Silence = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/music/brallit_vow_of_silence", ContentManagerName);
+                }
+                return mBrallit_Vow_of_Silence;
+            }
+        }
         public static System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.SongNames> SongNames { get; set; }
+        static Microsoft.Xna.Framework.Media.Song mZach_Darshon_Sea_of_Dead_Thoughts;
+        public static Microsoft.Xna.Framework.Media.Song Zach_Darshon_Sea_of_Dead_Thoughts
+        {
+            get
+            {
+                if (mZach_Darshon_Sea_of_Dead_Thoughts == null)
+                {
+                    mZach_Darshon_Sea_of_Dead_Thoughts = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/music/zach_darshon_sea_of_dead_thoughts", ContentManagerName);
+                }
+                return mZach_Darshon_Sea_of_Dead_Thoughts;
+            }
+        }
         [System.Obsolete("Use GetFile instead")]
         public static object GetStaticMember (string memberName) 
         {
@@ -330,6 +386,8 @@ namespace AbbatoirIntergrade
                     return Brallit_Vow_of_Silence;
                 case  "SongNames":
                     return SongNames;
+                case  "Zach_Darshon_Sea_of_Dead_Thoughts":
+                    return Zach_Darshon_Sea_of_Dead_Thoughts;
             }
             return null;
         }
@@ -393,6 +451,8 @@ namespace AbbatoirIntergrade
                     return Brallit_Vow_of_Silence;
                 case  "SongNames":
                     return SongNames;
+                case  "Zach_Darshon_Sea_of_Dead_Thoughts":
+                    return Zach_Darshon_Sea_of_Dead_Thoughts;
             }
             return null;
         }
@@ -416,10 +476,6 @@ namespace AbbatoirIntergrade
                     Enemy_Attributes = temporaryCsvObject;
                 }
             }
-            Brallit_Ocular_Eclipse = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/music/brallit_ocular_eclipse", ContentManagerName);
-            Brallit_One_Accord = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/music/brallit_one_accord", ContentManagerName);
-            Brallit_Robotic_Chaotic = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/music/brallit_robotic_chaotic", ContentManagerName);
-            Brallit_Vow_of_Silence = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/music/brallit_vow_of_silence", ContentManagerName);
             if (SongNames == null)
             {
                 {
@@ -573,6 +629,10 @@ namespace AbbatoirIntergrade
                 if (relativeFileName == "content/globalcontent/music/brallit_vow_of_silence.mp3")
                 {
                     Reload(Brallit_Vow_of_Silence);
+                }
+                if (relativeFileName == "content/globalcontent/music/zach_darshon_sea_of_dead_thoughts.mp3")
+                {
+                    Reload(Zach_Darshon_Sea_of_Dead_Thoughts);
                 }
             }
             catch{}

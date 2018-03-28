@@ -22,9 +22,12 @@ namespace AbbatoirIntergrade.GumRuntimes
         public IEntityFactory BuildingFactory { get; private set; }
         public Type BuildingType { get; private set; }
         public bool IsEnabled => Enabled;
-        public Action<Tuple<int, int>, float, float> RollOverAction;
-        public Action RollOffAction;
+        public Action<Tuple<int, int>, float, float> RangeDisplayAction;
+        public Action<StructureInfoRuntime.StructureInfoSaveState> InfoDisplayAction;
+        public Action HideRangePreviewAction;
+        public Action HideStructurePreviewAction;
 
+        private StructureInfoRuntime.StructureInfoSaveState structureInfo;
         private Tuple<int, int> RangeTuple;
         private float RangeXOffset;
         private float RangeYOffset;
@@ -42,7 +45,8 @@ namespace AbbatoirIntergrade.GumRuntimes
                 CurrentHighlightState = HasCursorOver(GuiManager.Cursor) 
                     ? Highlight.Highlighted
                     : Highlight.NotHighlighted;
-                RollOverAction(RangeTuple, RangeXOffset, RangeYOffset);
+                RangeDisplayAction(RangeTuple, RangeXOffset, RangeYOffset);
+                InfoDisplayAction(structureInfo);
             }
         }
 
@@ -51,7 +55,8 @@ namespace AbbatoirIntergrade.GumRuntimes
             if (Enabled)
             {
                 CurrentHighlightState = Highlight.NotHighlighted;
-                RollOffAction?.Invoke();
+                HideRangePreviewAction?.Invoke();
+                HideStructurePreviewAction?.Invoke();
             }
         }
 
@@ -62,6 +67,7 @@ namespace AbbatoirIntergrade.GumRuntimes
             RangeXOffset = structure.PivotPoint.RelativeX;
             RangeYOffset = structure.SpriteInstance.RelativeY;
             BuildingType = structure.GetType();
+            structureInfo = new StructureInfoRuntime.StructureInfoSaveState(structure);
 
             RenderTarget2D renderTarget = null;
             var renderName = BuildingType.FullName + ".png";

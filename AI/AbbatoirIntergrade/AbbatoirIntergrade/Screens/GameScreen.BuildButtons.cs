@@ -90,7 +90,7 @@ namespace AbbatoirIntergrade.Screens
                 }
             }
 
-            BuildMenuInstance.AssociateTowers(listOfAvailableTowers, listOfAvailableTowerFactories);
+            BuildMenuInstance.AssociateTowers(listOfAvailableTowers, listOfAvailableTowerFactories, StructureInfoInstance);
 
             for (var i = listOfAllInstantiatedTowers.Count - 1; i >= 0; i--)
             {

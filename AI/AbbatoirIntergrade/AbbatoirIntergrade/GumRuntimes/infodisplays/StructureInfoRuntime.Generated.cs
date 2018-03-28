@@ -90,7 +90,7 @@
                             TallInfoFrameInstance.Height = 100f;
                             TallInfoFrameInstance.Width = 100f;
                             StatsContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
-                            StatsContainer.Height = 60f;
+                            StatsContainer.Height = 60.5f;
                             StatsContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             StatsContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
                             StatsContainer.Width = 69.21875f;
@@ -115,7 +115,7 @@
                             UpgradeText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Top;
                             UpgradeText.Visible = false;
                             UpgradeText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ButtonContainers.Height = 20f;
+                            ButtonContainers.Height = 18f;
                             ButtonContainers.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ButtonContainers.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
                             ButtonContainers.Visible = false;
@@ -653,7 +653,7 @@
                             this.AttackSpeed.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                         }
                         setButtonContainersHeightFirstValue = true;
-                        ButtonContainersHeightFirstValue = 20f;
+                        ButtonContainersHeightFirstValue = 18f;
                         if (interpolationValue < 1)
                         {
                             this.ButtonContainers.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -1051,7 +1051,7 @@
                             this.StatsContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                         }
                         setStatsContainerHeightFirstValue = true;
-                        StatsContainerHeightFirstValue = 60f;
+                        StatsContainerHeightFirstValue = 60.5f;
                         if (interpolationValue < 1)
                         {
                             this.StatsContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -1232,7 +1232,7 @@
                             this.AttackSpeed.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                         }
                         setButtonContainersHeightSecondValue = true;
-                        ButtonContainersHeightSecondValue = 20f;
+                        ButtonContainersHeightSecondValue = 18f;
                         if (interpolationValue >= 1)
                         {
                             this.ButtonContainers.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -1630,7 +1630,7 @@
                             this.StatsContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                         }
                         setStatsContainerHeightSecondValue = true;
-                        StatsContainerHeightSecondValue = 60f;
+                        StatsContainerHeightSecondValue = 60.5f;
                         if (interpolationValue >= 1)
                         {
                             this.StatsContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -4379,7 +4379,7 @@
                             SetsValue = true,
                             Name = "StatsContainer.Height",
                             Type = "float",
-                            Value = StatsContainer.Height + 60f
+                            Value = StatsContainer.Height + 60.5f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4579,7 +4579,7 @@
                             SetsValue = true,
                             Name = "ButtonContainers.Height",
                             Type = "float",
-                            Value = ButtonContainers.Height + 20f
+                            Value = ButtonContainers.Height + 18f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

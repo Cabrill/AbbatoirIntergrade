@@ -61,7 +61,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 
         private double? _lastEnemyWaveTime;
 
-        protected FlatRedBall.Math.PositionedObjectList<BaseEnemy> _enemyList;
+        private FlatRedBall.Math.PositionedObjectList<BaseEnemy> _enemyList;
 
         protected BaseLevel()
         {
