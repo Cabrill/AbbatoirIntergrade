@@ -23,12 +23,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         public event Action<BaseEnemy> OnDeath;
 	    public float Altitude { get; protected set; }
 	    protected float AltitudeVelocity { get; set; }
-	    protected float GravityDrag { get; set; } = -650f;
+	    protected virtual float GravityDrag { get; set; } = -650f;
 
         public double HealthRemaining { get; set; }
 
         public bool IsDead => HealthRemaining <= 0;
-	    private bool IsHurt => CurrentActionState == Action.Hurt;
+	    protected bool IsHurt => CurrentActionState == Action.Hurt;
 	    protected bool IsPoisoned => _poisonedDurationSeconds > 0;
 	    protected bool IsFrozen => _frostDurationSeconds > 0;
 	    protected bool IsStunned => _stunnedDurationSeconds > 0;
@@ -188,9 +188,20 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		{
             UpdateStatusEffect();
 
-            if (!IsFlying || (IsFlying && IsDead))
+            if (!IsFlying || IsDead || IsStunned || IsHurt)
 		    {
                 AltitudeVelocity += GravityDrag * TimeManager.SecondDifference;
+
+		        if (IsFlying && IsHurt && !IsStunned && IsOnFinalFrameOfAnimation)
+		        {
+		            CurrentActionState = Action.Standing;
+                    SpriteInstance.Animate = true;
+		        }
+            }
+            else if (IsFlying)
+            {
+                if (Altitude < 300) AltitudeVelocity += 10;
+                else AltitudeVelocity = 0;
             }
 
 		    if (AltitudeVelocity > 0 || (Altitude > 0 && AltitudeVelocity < 0))
@@ -256,7 +267,18 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         public void UpdateSpritesRelativeY()
 	    {
-	        SpriteInstance.RelativeY = Altitude + _spriteRelativeY + SpriteInstance.CurrentChain[SpriteInstance.CurrentFrameIndex].RelativeY;
+	        if (IsStunned)
+	        {
+	            SpriteInstance.RelativeY = Altitude + _spriteRelativeY +
+	                                       SpriteInstance.CurrentChain[SpriteInstance.CurrentFrameIndex].RelativeY + FlatRedBallServices.Random.Next(-5, 5);
+	            SpriteInstance.RelativeX = SpriteInstance.CurrentChain[SpriteInstance.CurrentFrameIndex].RelativeX +
+	                                       FlatRedBallServices.Random.Next(-5, 5);
+	        }
+	        else
+	        {
+	            SpriteInstance.RelativeY = Altitude + _spriteRelativeY +
+	                                       SpriteInstance.CurrentChain[SpriteInstance.CurrentFrameIndex].RelativeY;
+	        }
 
 	        var pctLightShadow = MathHelper.Clamp(1 - (Altitude / (800)), 0, 1);
 

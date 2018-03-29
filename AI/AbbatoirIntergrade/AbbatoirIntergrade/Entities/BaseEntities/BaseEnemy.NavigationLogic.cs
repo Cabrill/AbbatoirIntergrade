@@ -31,7 +31,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             Vector3 firstPoint, secondPoint;
 
-            PathingPointIndex = 1;
+            PathingPointIndex = IsFlying ? PathingLine.Points.Count-1 : 1;
             firstPoint = firstNavigationPoint;
             secondPoint = (IsFlying ? secondNavigationPointFlying : secondNavigationPoint);
 

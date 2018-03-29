@@ -15,6 +15,16 @@ namespace AbbatoirIntergrade.Entities.Enemies
 {
 	public partial class Chicken3Enemy
 	{
+	    protected override float GravityDrag
+	    {
+	        get
+	        {
+	            if (IsDead) return -650f;
+                if (IsStunned) return -100f;
+                if (IsHurt) return -25f;
+	            return -650f;
+	        }
+	    }
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
