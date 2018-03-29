@@ -18,7 +18,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	public partial class BaseEnemy
 	{
         private bool _AddedToLayers = false;
-	    private bool _wasHurtLastUpdate;
 
         public event Action<BaseEnemy> OnDeath;
 	    public float Altitude { get; protected set; }
@@ -47,7 +46,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         private float? _startingShadowWidth;
 	    private float _startingShadowHeight;
 	    private float _startingShadowAlpha;
-	    private float _startingLightScale;
 	    private AnimationChainList spriteAnimationChainList;
 	    private bool IsDrowning => CurrentActionState == Action.Drowning;
 
@@ -83,7 +81,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 		    if (!_startingShadowWidth.HasValue)
 		    {
-		        _startingLightScale = LightSprite.TextureScale;
 		        _startingShadowWidth = ShadowSprite.Width;
 		        _startingShadowHeight = ShadowSprite.Height;
 		        _startingShadowAlpha = ShadowSprite.Alpha;
@@ -107,11 +104,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		        StunParticles.ScaleY = SpriteInstance.Height / 2;
 		        StunParticles.RelativeY = SpriteInstance.Height / 2;
 
-		        var healthbarWidth = (SpriteInstance.AnimationChains[0][0].RightCoordinate -
-		                              SpriteInstance.AnimationChains[0][0].LeftCoordinate) * SpriteInstance.AnimationChains[0][0].Texture.Width;
+		        //var healthbarWidth = (SpriteInstance.AnimationChains[0][0].RightCoordinate -
+		        //                      SpriteInstance.AnimationChains[0][0].LeftCoordinate) * SpriteInstance.AnimationChains[0][0].Texture.Width;
 
 
-                HealthBar.SetWidth(healthbarWidth);
+                HealthBar.SetWidth(150f);
 		        maxFrameHeight = GetMaxFrameHeight();
             }
 
@@ -243,7 +240,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 		    UpdateSpritesRelativeY();
             UpdateHealthBar();
-		    _wasHurtLastUpdate = IsHurt;
 		}
 
         internal static void Initialize(Polygon pathing, TileNodeNetwork pathingNodeNetwork)
@@ -256,7 +252,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 PathingSegments = new Segment[PathingLine.Points.Count - 1];
                 for (var i = 0; i <= pathing.Points.Count - 2; i++)
                 {
-                    PathingSegments[i] = new Segment(PathingLine.Points[i], PathingLine.Points[i + 1]);
+                    PathingSegments[i] = new Segment(pathing.AbsolutePointPosition(i), pathing.AbsolutePointPosition(i + 1));
                 }
 
                 firstNavigationPoint = PathingLine.AbsolutePointPosition(0);

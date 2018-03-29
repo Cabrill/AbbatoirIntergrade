@@ -81,8 +81,7 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static void RemoveNodesWithCollisions(ref TileNodeNetwork network, 
             PositionedObjectList<TileCollisionRectangle> rectangleCollision, 
-            PositionedObjectList<TileCollisionCircle> circleCollision, 
-            PositionedObjectList<StructurePlacement> structurePlacementList)
+            PositionedObjectList<TileCollisionCircle> circleCollision)
         {
             foreach (var tileCollisionRectangle in rectangleCollision)
             {
@@ -115,15 +114,24 @@ namespace AbbatoirIntergrade.StaticManagers
                         nodeRemoved = true;
                     }
                 }
-                if (!nodeRemoved)
+            }
+        }
+
+        public static void RemoveNodesForCollision(this NodeNetwork network, AxisAlignedRectangle collision)
+        {
+            var nodeCircle = new Circle { Radius = 20f };
+
+            for (var i = network.Nodes.Count - 1; i >= 0; i--)
+            {
+                var node = network.Nodes[i];
+                nodeCircle.Position = node.Position;
+
+                if (collision.CollideAgainst(nodeCircle))
                 {
-                    if (structurePlacementList.Any(placement => placement.Collision.CollideAgainst(nodeCircle)))
-                    {
-                        network.Remove(node);
-                        nodeRemoved = true;
-                    }
+                    network.Remove(node);
                 }
             }
+            network.UpdateShapes();
         }
     }
 }

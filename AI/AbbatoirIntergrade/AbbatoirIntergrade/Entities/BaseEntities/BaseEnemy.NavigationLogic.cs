@@ -96,7 +96,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         protected virtual void NavigateToTarget()
         {
-            if (!PathingLine.CollideAgainst(SelfCollisionCircle))
+            if (!PathingSegments.Any(s => s.DistanceTo(Position) < SelfCollisionCircle.Radius/2))
             {
                 var nextNodes = NodeNetwork.GetPathOrClosest(ref Position, ref _targetPointForNavigation);
                 var nextNode = nextNodes.Count > 1 ? nextNodes[1] : nextNodes[0];

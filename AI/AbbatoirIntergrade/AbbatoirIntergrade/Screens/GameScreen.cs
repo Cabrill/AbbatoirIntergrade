@@ -12,12 +12,9 @@ using AbbatoirIntergrade.Entities.Enemies;
 using AbbatoirIntergrade.Entities.GraphicalElements;
 using AbbatoirIntergrade.Entities.Projectiles;
 using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
-using AbbatoirIntergrade.GameClasses;
 using AbbatoirIntergrade.GameClasses.BaseClasses;
 using AbbatoirIntergrade.GameClasses.Levels;
 using AbbatoirIntergrade.GumRuntimes;
-using AbbatoirIntergrade.Performance;
 using AbbatoirIntergrade.StaticManagers;
 using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Instructions;
@@ -25,9 +22,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Input.Touch;
-using RenderingLibrary;
-using RenderingLibrary.Math.Geometry;
 using Camera = FlatRedBall.Camera;
 using ShapeManager = FlatRedBall.Math.Geometry.ShapeManager;
 
@@ -55,6 +49,7 @@ namespace AbbatoirIntergrade.Screens
         private FlatRedBall.TileGraphics.LayeredTileMap currentMap;
         private TileNodeNetwork PathingNodeNetwork;
         private Polygon Pathing;
+        private Segment[] PathingSegments;
         private List<Polygon> WaterShapes;
         private DateTime currentLevelDateTime;
 
@@ -66,6 +61,8 @@ namespace AbbatoirIntergrade.Screens
 
         private SoundEffectInstance IncomingMessageSound;
         private SoundEffectInstance OutgoingMessageSound;
+
+
 
         #endregion
 
@@ -146,6 +143,8 @@ namespace AbbatoirIntergrade.Screens
             LocalLogManager.AddLine("Game Screen - Update gametime");
             UpdateGameTime();
 
+            StructurePlacementInstance.OnClick = OnStructurePlacementClick;
+
             GameScreenGumInstance.CurrentFadingState = GameScreenGumRuntime.Fading.Faded;
             LocalLogManager.AddLine("Game Screen - Display local time");
             LocationTimeInstance.Display(CurrentLevel.LocationName, currentLevelDateTime);
@@ -164,14 +163,7 @@ namespace AbbatoirIntergrade.Screens
         private void HandleWaveEnded(object sender, EventArgs e)
         {
             LocalLogManager.AddLine("Game Screen - Wave ended");
-            if (StructurePlacementList.Any(sp => sp.Visible))
-            {
-                ChangeGameModeToBuilding();
-            }
-            else
-            {
-                ChangeGameModeToNormal();
-            }
+            ChangeGameModeToBuilding();
             MachineLearningManager.NotifyOfWaveEnd();
         }
 
@@ -231,14 +223,14 @@ namespace AbbatoirIntergrade.Screens
                 overlay.RelativeZ = 3;
             }
 
-            LocalLogManager.AddLine("Game Screen - Set structure placements");
-            foreach (var place in StructurePlacementList)
-            {
-                place.OnClick += OnStructurePlacementClick;
-                place.SetToIgnorePausing();
-                place.AttachTo(currentMap, true);
-                place.RelativeZ = 3;
-            }
+            //LocalLogManager.AddLine("Game Screen - Set structure placements");
+            //foreach (var place in StructurePlacementList)
+            //{
+            //    place.OnClick += OnStructurePlacementClick;
+            //    place.SetToIgnorePausing();
+            //    place.AttachTo(currentMap, true);
+            //    place.RelativeZ = 3;
+            //}
             LocalLogManager.AddLine("Game Screen - Set circle collisions");
             foreach (var circle in TileCollisionCircleList)
             {
@@ -304,11 +296,6 @@ namespace AbbatoirIntergrade.Screens
                 overlay.ForceUpdateDependenciesDeep();
                 overlay.Detach();
             }
-            foreach (var place in StructurePlacementList)
-            {
-                place.ForceUpdateDependenciesDeep();
-                place.Detach();
-            }
 
             LocalLogManager.AddLine("Game Screen - Create pathing node network");
             PathingNodeNetwork = NodeNetworkGenerator.CreateFromTiledMap(currentMap);
@@ -316,9 +303,15 @@ namespace AbbatoirIntergrade.Screens
             shiftVector.Y += currentMap.HeightPerTile.Value/2;
             PathingNodeNetwork.Shift(shiftVector);
             LocalLogManager.AddLine("Game Screen - Remove collisions from node network");
-            NodeNetworkGenerator.RemoveNodesWithCollisions(ref PathingNodeNetwork, TileCollisionRectangleList, TileCollisionCircleList, StructurePlacementList);
+            NodeNetworkGenerator.RemoveNodesWithCollisions(ref PathingNodeNetwork, TileCollisionRectangleList, TileCollisionCircleList);
             
             MachineLearningManager.SetPathing(Pathing);
+
+            PathingSegments = new Segment[Pathing.Points.Count - 1];
+            for (var i = 0; i <= Pathing.Points.Count - 2; i++)
+            {
+                PathingSegments[i] = new Segment(Pathing.AbsolutePointPosition(i), Pathing.AbsolutePointPosition(i + 1));
+            }
 
 #if DEBUG
             if (DebugVariables.ShowDebugShapes)
@@ -361,6 +354,12 @@ namespace AbbatoirIntergrade.Screens
             HandleTouchActivity();
             SelectedItemActivity();
 
+            if (CurrentGameMode == GameMode.Building)
+            {
+                if (!BuildMenuInstance.Visible) GuiManager.Cursor.GetCursorPosition(StructurePlacementInstance, 1);
+                StructurePlacementInstance.CurrentCurrentlyActiveState = IsStructureBlocked() ? StructurePlacement.CurrentlyActive.Inactive : StructurePlacement.CurrentlyActive.Active;
+            }
+
             var gameplayOccuring = !IsPaused && GameHasStarted && CurrentGameMode != GameMode.Building;
             if (gameplayOccuring)
             {
@@ -390,6 +389,24 @@ namespace AbbatoirIntergrade.Screens
                     enemy.UpdateSpritesRelativeY();
                 }
             }
+        }
+
+        private bool IsStructureBlocked()
+        {
+            var isBlocked = StructurePlacementInstance.Y > 600f;
+
+            isBlocked = isBlocked || PathingSegments.Any(s => s.DistanceTo(StructurePlacementInstance.Position) <
+                                                     StructurePlacementInstance.CircleInstance.Radius);
+            isBlocked = isBlocked || TileCollisionRectangleList.Any(
+                    r => r.CollideAgainst(StructurePlacementInstance.CircleInstance));
+
+            isBlocked = isBlocked || AllStructuresList.Any(s => s.AxisAlignedRectangleInstance.CollideAgainst(StructurePlacementInstance.CircleInstance));
+
+            isBlocked = isBlocked || TileCollisionCircleList.Any(
+                            c => c.Altitude < 1 && c.CollideAgainst(StructurePlacementInstance.CircleInstance));
+
+            return isBlocked;
+
         }
 
         private void HandleKeyboardInput()
@@ -702,9 +719,12 @@ namespace AbbatoirIntergrade.Screens
 	                }
 	            }
 	        }
-	        else if (!GuiManager.Cursor.PrimaryDown)
+	        else if (GuiManager.Cursor.SecondaryClick || GuiManager.Cursor.SecondaryDown)
 	        {
-	            GuiManager.Cursor.ObjectGrabbed = null;
+	            selectedObject = null;
+	            BuildMenuInstance.Hide();
+                EnemyInfoInstance.Hide();
+                StructureInfoInstance.Hide();
 	        }
 	    }
 
@@ -1019,12 +1039,6 @@ namespace AbbatoirIntergrade.Screens
 		    for (var i = PlayerProjectileList.Count - 1; i >= 0; i--)
 		    {
 		        PlayerProjectileList[i].Destroy();
-		    }
-
-		    for (var i = StructurePlacementList.Count - 1; i >= 0; i--)
-		    {
-		        StructurePlacementList[i].OnClick = null;
-                StructurePlacementList[i].Destroy();
 		    }
 
 		    for (var i = AllEnemiesList.Count - 1; i >= 0; i--)

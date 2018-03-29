@@ -38,6 +38,7 @@ namespace AbbatoirIntergrade.Screens
                     GuiManager.Cursor.WindowPushed = null;
                     //CurrentGameMode = GameMode.Building;
                     BuildMenuInstance.Hide(didBuild: true);
+                    PathingNodeNetwork.RemoveNodesForCollision(newBuilding.AxisAlignedRectangleInstance);
                     ChangeGameModeToNormal();
                 }
             }
@@ -46,22 +47,16 @@ namespace AbbatoirIntergrade.Screens
         private void ChangeGameModeToBuilding()
         {
             CurrentGameMode = GameMode.Building;
-
-            foreach (var placement in StructurePlacementList)
-            {
-                placement.CurrentCurrentlyActiveState = StructurePlacement.CurrentlyActive.Active;
-            }
+            StructurePlacementInstance.Visible = true;
+            selectedObject = StructurePlacementInstance;
         }
 
         private void ChangeGameModeToNormal()
         {
             CurrentGameMode = GameMode.Normal;
             CurrentLevel.IsReadyForNextWave = true;
-
-            foreach (var placement in StructurePlacementList)
-            {
-                placement.CurrentCurrentlyActiveState = StructurePlacement.CurrentlyActive.Inactive;
-            }
+            StructurePlacementInstance.Visible = false;
+            selectedObject = null;
         }
 
         private void AssignGumButtonEvents()

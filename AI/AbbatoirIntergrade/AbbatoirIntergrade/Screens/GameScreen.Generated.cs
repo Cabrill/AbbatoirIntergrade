@@ -185,9 +185,9 @@ namespace AbbatoirIntergrade.Screens
         private FlatRedBall.Graphics.Layer HUDLayer;
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D BackgroundRenderTarget;
         private AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime EnemyInfoInstance;
+        private AbbatoirIntergrade.Entities.GraphicalElements.StructurePlacement StructurePlacementInstance;
         private AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime StructureInfoInstance;
         private AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime ChatBoxInstance;
-        private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.StructurePlacement> StructurePlacementList;
         private AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime BuildMenuInstance;
         private AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime LivesPointsDisplayInstance;
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TileCollisionRectangle> TileCollisionRectangleList;
@@ -239,10 +239,10 @@ namespace AbbatoirIntergrade.Screens
             HUDLayer.Name = "HUDLayer";
             BackgroundRenderTarget = new Microsoft.Xna.Framework.Graphics.RenderTarget2D(FlatRedBall.FlatRedBallServices.GraphicsDevice, FlatRedBall.Camera.Main.DestinationRectangle.Width, FlatRedBall.Camera.Main.DestinationRectangle.Height);
             EnemyInfoInstance = GameScreenGum.GetGraphicalUiElementByName("EnemyInfoInstance") as AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime;
+            StructurePlacementInstance = new AbbatoirIntergrade.Entities.GraphicalElements.StructurePlacement(ContentManagerName, false);
+            StructurePlacementInstance.Name = "StructurePlacementInstance";
             StructureInfoInstance = GameScreenGum.GetGraphicalUiElementByName("StructureInfoInstance") as AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime;
             ChatBoxInstance = GameScreenGum.GetGraphicalUiElementByName("ChatBoxInstance") as AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime;
-            StructurePlacementList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.StructurePlacement>();
-            StructurePlacementList.Name = "StructurePlacementList";
             BuildMenuInstance = GameScreenGum.GetGraphicalUiElementByName("BuildMenuInstance") as AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime;
             LivesPointsDisplayInstance = GameScreenGum.GetGraphicalUiElementByName("LivesPointsDisplayInstance") as AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime;
             TileCollisionRectangleList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TileCollisionRectangle>();
@@ -331,7 +331,6 @@ namespace AbbatoirIntergrade.Screens
             HUDLayerGum = RenderingLibrary.SystemManagers.Default.Renderer.AddLayer();
             HUDLayerGum.Name = "HUDLayerGum";
             GameScreenGum.AddGumLayerToFrbLayer(HUDLayerGum, HUDLayer);
-            Factories.StructurePlacementFactory.Initialize(ContentManagerName);
             Factories.TileCollisionRectangleFactory.Initialize(ContentManagerName);
             Factories.TileCollisionCircleFactory.Initialize(ContentManagerName);
             Factories.TiledOverlayFactory.Initialize(ContentManagerName);
@@ -362,7 +361,6 @@ namespace AbbatoirIntergrade.Screens
             Factories.FireProjectileFactory.AddList(PlayerProjectileList);
             Factories.FrostProjectileFactory.AddList(PlayerProjectileList);
             Factories.PiercingProjectileFactory.AddList(PlayerProjectileList);
-            Factories.StructurePlacementFactory.AddList(StructurePlacementList);
             Factories.TileCollisionRectangleFactory.AddList(TileCollisionRectangleList);
             Factories.TileCollisionCircleFactory.AddList(TileCollisionCircleList);
             Factories.TiledOverlayFactory.AddList(TiledOverlayList);
@@ -372,6 +370,7 @@ namespace AbbatoirIntergrade.Screens
             HorizonBoxInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(BackgroundLayer)));
             
             EnemyInfoInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            StructurePlacementInstance.AddToManagers(HUDLayer);
             StructureInfoInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             ChatBoxInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             BuildMenuInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
@@ -417,14 +416,7 @@ namespace AbbatoirIntergrade.Screens
                         PlayerProjectileList[i].Activity();
                     }
                 }
-                for (int i = StructurePlacementList.Count - 1; i > -1; i--)
-                {
-                    if (i < StructurePlacementList.Count)
-                    {
-                        // We do the extra if-check because activity could destroy any number of entities
-                        StructurePlacementList[i].Activity();
-                    }
-                }
+                StructurePlacementInstance.Activity();
             }
             else
             {
@@ -438,7 +430,6 @@ namespace AbbatoirIntergrade.Screens
         public override void Destroy () 
         {
             base.Destroy();
-            Factories.StructurePlacementFactory.Destroy();
             Factories.TileCollisionRectangleFactory.Destroy();
             Factories.TileCollisionCircleFactory.Destroy();
             Factories.TiledOverlayFactory.Destroy();
@@ -530,7 +521,6 @@ namespace AbbatoirIntergrade.Screens
             AllStructuresList.MakeOneWay();
             AllEnemiesList.MakeOneWay();
             PlayerProjectileList.MakeOneWay();
-            StructurePlacementList.MakeOneWay();
             TileCollisionRectangleList.MakeOneWay();
             TileCollisionCircleList.MakeOneWay();
             TiledOverlayList.MakeOneWay();
@@ -595,6 +585,11 @@ namespace AbbatoirIntergrade.Screens
             {
                 EnemyInfoInstance.RemoveFromManagers();
             }
+            if (StructurePlacementInstance != null)
+            {
+                StructurePlacementInstance.Destroy();
+                StructurePlacementInstance.Detach();
+            }
             if (StructureInfoInstance != null)
             {
                 StructureInfoInstance.RemoveFromManagers();
@@ -602,10 +597,6 @@ namespace AbbatoirIntergrade.Screens
             if (ChatBoxInstance != null)
             {
                 ChatBoxInstance.RemoveFromManagers();
-            }
-            for (int i = StructurePlacementList.Count - 1; i > -1; i--)
-            {
-                StructurePlacementList[i].Destroy();
             }
             if (BuildMenuInstance != null)
             {
@@ -662,7 +653,6 @@ namespace AbbatoirIntergrade.Screens
             AllStructuresList.MakeTwoWay();
             AllEnemiesList.MakeTwoWay();
             PlayerProjectileList.MakeTwoWay();
-            StructurePlacementList.MakeTwoWay();
             TileCollisionRectangleList.MakeTwoWay();
             TileCollisionCircleList.MakeTwoWay();
             TiledOverlayList.MakeTwoWay();
@@ -761,6 +751,7 @@ namespace AbbatoirIntergrade.Screens
             {
                 EnemyInfoInstance.RemoveFromManagers();
             }
+            StructurePlacementInstance.RemoveFromManagers();
             if (StructureInfoInstance != null)
             {
                 StructureInfoInstance.RemoveFromManagers();
@@ -768,10 +759,6 @@ namespace AbbatoirIntergrade.Screens
             if (ChatBoxInstance != null)
             {
                 ChatBoxInstance.RemoveFromManagers();
-            }
-            for (int i = StructurePlacementList.Count - 1; i > -1; i--)
-            {
-                StructurePlacementList[i].Destroy();
             }
             if (BuildMenuInstance != null)
             {
@@ -831,6 +818,7 @@ namespace AbbatoirIntergrade.Screens
             if (callOnContainedElements)
             {
                 ShaderRendererInstance.AssignCustomVariables(true);
+                StructurePlacementInstance.AssignCustomVariables(true);
             }
             BackgroundLayer.SortType = FlatRedBall.Graphics.SortType.ZSecondaryParentY;
             BackgroundLayer.Visible = true;
@@ -856,10 +844,7 @@ namespace AbbatoirIntergrade.Screens
             {
                 PlayerProjectileList[i].ConvertToManuallyUpdated();
             }
-            for (int i = 0; i < StructurePlacementList.Count; i++)
-            {
-                StructurePlacementList[i].ConvertToManuallyUpdated();
-            }
+            StructurePlacementInstance.ConvertToManuallyUpdated();
             for (int i = 0; i < TileCollisionRectangleList.Count; i++)
             {
                 TileCollisionRectangleList[i].ConvertToManuallyUpdated();
@@ -902,6 +887,7 @@ namespace AbbatoirIntergrade.Screens
             IncomingMessage = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/incomingmessage", contentManagerName);
             OutgoingMessage = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/outgoingmessage", contentManagerName);
             AbbatoirIntergrade.Entities.ShaderRenderer.LoadStaticContent(contentManagerName);
+            AbbatoirIntergrade.Entities.GraphicalElements.StructurePlacement.LoadStaticContent(contentManagerName);
             CustomLoadStaticContent(contentManagerName);
         }
         [System.Obsolete("Use GetFile instead")]

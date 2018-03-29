@@ -29,53 +29,6 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
         #if DEBUG
         static bool HasBeenLoadedWithGlobalContentManager = false;
         #endif
-        public enum RollOver
-        {
-            Uninitialized = 0, //This exists so that the first set call actually does something
-            Unknown = 1, //This exists so that if the entity is actually a child entity and has set a child state, you will get this
-            CursorOver = 2, 
-            CursorOff = 3
-        }
-        protected int mCurrentRollOverState = 0;
-        public Entities.GraphicalElements.StructurePlacement.RollOver CurrentRollOverState
-        {
-            get
-            {
-                if (mCurrentRollOverState >= 0 && mCurrentRollOverState <= 3)
-                {
-                    return (RollOver)mCurrentRollOverState;
-                }
-                else
-                {
-                    return RollOver.Unknown;
-                }
-            }
-            set
-            {
-                mCurrentRollOverState = (int)value;
-                switch(CurrentRollOverState)
-                {
-                    case  RollOver.Uninitialized:
-                        break;
-                    case  RollOver.Unknown:
-                        break;
-                    case  RollOver.CursorOver:
-                        SpriteInstanceRed = 0f;
-                        SpriteInstanceGreen = 1f;
-                        SpriteInstanceBlue = 0f;
-                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
-                        SpriteInstanceTextureScale = 1.5f;
-                        break;
-                    case  RollOver.CursorOff:
-                        SpriteInstanceRed = 0f;
-                        SpriteInstanceGreen = 0f;
-                        SpriteInstanceBlue = 0f;
-                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
-                        SpriteInstanceTextureScale = 1f;
-                        break;
-                }
-            }
-        }
         public enum CurrentlyActive
         {
             Uninitialized = 0, //This exists so that the first set call actually does something
@@ -107,11 +60,17 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
                     case  CurrentlyActive.Unknown:
                         break;
                     case  CurrentlyActive.Active:
+                        SpriteInstanceRed = 0.1f;
+                        SpriteInstanceGreen = 1f;
+                        SpriteInstanceBlue = 1f;
                         SpriteInstanceTextureScale = 1f;
                         SpriteInstanceAnimate = true;
                         SpriteInstanceAlpha = 255f;
                         break;
                     case  CurrentlyActive.Inactive:
+                        SpriteInstanceRed = 1f;
+                        SpriteInstanceGreen = 0f;
+                        SpriteInstanceBlue = 0f;
                         SpriteInstanceTextureScale = 0.5f;
                         SpriteInstanceAnimate = false;
                         SpriteInstanceAlpha = 100f;
@@ -382,7 +341,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
                 mCircleInstance.CopyAbsoluteToRelative();
                 mCircleInstance.AttachTo(this, false);
             }
-            CircleInstance.Radius = 60f;
+            CircleInstance.Radius = 75f;
             CircleInstance.Visible = false;
             if (mRangePreviewSprite.Parent == null)
             {
@@ -430,7 +389,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             SpriteInstance.TextureScale = 1f;
             SpriteInstance.AnimationChains = AnimationChainListFile;
             SpriteInstance.CurrentChainName = "Spin";
-            CircleInstance.Radius = 60f;
+            CircleInstance.Radius = 75f;
             CircleInstance.Visible = false;
             RangePreviewSprite.TextureScale = 1f;
             RangePreviewSprite.Visible = false;
@@ -528,44 +487,48 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
                 }
             }
         }
-        public FlatRedBall.Instructions.Instruction InterpolateToState (RollOver stateToInterpolateTo, double secondsToTake) 
+        public FlatRedBall.Instructions.Instruction InterpolateToState (CurrentlyActive stateToInterpolateTo, double secondsToTake) 
         {
             switch(stateToInterpolateTo)
             {
-                case  RollOver.CursorOver:
-                    SpriteInstance.RedRate = (0f - SpriteInstance.Red) / (float)secondsToTake;
+                case  CurrentlyActive.Active:
+                    SpriteInstance.RedRate = (0.1f - SpriteInstance.Red) / (float)secondsToTake;
                     SpriteInstance.GreenRate = (1f - SpriteInstance.Green) / (float)secondsToTake;
-                    SpriteInstance.BlueRate = (0f - SpriteInstance.Blue) / (float)secondsToTake;
+                    SpriteInstance.BlueRate = (1f - SpriteInstance.Blue) / (float)secondsToTake;
+                    SpriteInstance.AlphaRate = (255f - SpriteInstance.Alpha) / (float)secondsToTake;
                     break;
-                case  RollOver.CursorOff:
-                    SpriteInstance.RedRate = (0f - SpriteInstance.Red) / (float)secondsToTake;
+                case  CurrentlyActive.Inactive:
+                    SpriteInstance.RedRate = (1f - SpriteInstance.Red) / (float)secondsToTake;
                     SpriteInstance.GreenRate = (0f - SpriteInstance.Green) / (float)secondsToTake;
                     SpriteInstance.BlueRate = (0f - SpriteInstance.Blue) / (float)secondsToTake;
+                    SpriteInstance.AlphaRate = (100f - SpriteInstance.Alpha) / (float)secondsToTake;
                     break;
             }
-            var instruction = new FlatRedBall.Instructions.DelegateInstruction<RollOver>(StopStateInterpolation, stateToInterpolateTo);
+            var instruction = new FlatRedBall.Instructions.DelegateInstruction<CurrentlyActive>(StopStateInterpolation, stateToInterpolateTo);
             instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
             this.Instructions.Add(instruction);
             return instruction;
         }
-        public void StopStateInterpolation (RollOver stateToStop) 
+        public void StopStateInterpolation (CurrentlyActive stateToStop) 
         {
             switch(stateToStop)
             {
-                case  RollOver.CursorOver:
+                case  CurrentlyActive.Active:
                     SpriteInstance.RedRate =  0;
                     SpriteInstance.GreenRate =  0;
                     SpriteInstance.BlueRate =  0;
+                    SpriteInstance.AlphaRate =  0;
                     break;
-                case  RollOver.CursorOff:
+                case  CurrentlyActive.Inactive:
                     SpriteInstance.RedRate =  0;
                     SpriteInstance.GreenRate =  0;
                     SpriteInstance.BlueRate =  0;
+                    SpriteInstance.AlphaRate =  0;
                     break;
             }
-            CurrentRollOverState = stateToStop;
+            CurrentCurrentlyActiveState = stateToStop;
         }
-        public void InterpolateBetween (RollOver firstState, RollOver secondState, float interpolationValue) 
+        public void InterpolateBetween (CurrentlyActive firstState, CurrentlyActive secondState, float interpolationValue) 
         {
             #if DEBUG
             if (float.IsNaN(interpolationValue))
@@ -585,50 +548,57 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             bool setSpriteInstanceTextureScale = true;
             float SpriteInstanceTextureScaleFirstValue= 0;
             float SpriteInstanceTextureScaleSecondValue= 0;
+            bool setSpriteInstanceAlpha = true;
+            float SpriteInstanceAlphaFirstValue= 0;
+            float SpriteInstanceAlphaSecondValue= 0;
             switch(firstState)
             {
-                case  RollOver.CursorOver:
-                    SpriteInstanceRedFirstValue = 0f;
+                case  CurrentlyActive.Active:
+                    SpriteInstanceRedFirstValue = 0.1f;
                     SpriteInstanceGreenFirstValue = 1f;
-                    SpriteInstanceBlueFirstValue = 0f;
+                    SpriteInstanceBlueFirstValue = 1f;
+                    SpriteInstanceTextureScaleFirstValue = 1f;
                     if (interpolationValue < 1)
                     {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
+                        this.SpriteInstanceAnimate = true;
                     }
-                    SpriteInstanceTextureScaleFirstValue = 1.5f;
+                    SpriteInstanceAlphaFirstValue = 255f;
                     break;
-                case  RollOver.CursorOff:
-                    SpriteInstanceRedFirstValue = 0f;
+                case  CurrentlyActive.Inactive:
+                    SpriteInstanceRedFirstValue = 1f;
                     SpriteInstanceGreenFirstValue = 0f;
                     SpriteInstanceBlueFirstValue = 0f;
+                    SpriteInstanceTextureScaleFirstValue = 0.5f;
                     if (interpolationValue < 1)
                     {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
+                        this.SpriteInstanceAnimate = false;
                     }
-                    SpriteInstanceTextureScaleFirstValue = 1f;
+                    SpriteInstanceAlphaFirstValue = 100f;
                     break;
             }
             switch(secondState)
             {
-                case  RollOver.CursorOver:
-                    SpriteInstanceRedSecondValue = 0f;
+                case  CurrentlyActive.Active:
+                    SpriteInstanceRedSecondValue = 0.1f;
                     SpriteInstanceGreenSecondValue = 1f;
-                    SpriteInstanceBlueSecondValue = 0f;
+                    SpriteInstanceBlueSecondValue = 1f;
+                    SpriteInstanceTextureScaleSecondValue = 1f;
                     if (interpolationValue >= 1)
                     {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
+                        this.SpriteInstanceAnimate = true;
                     }
-                    SpriteInstanceTextureScaleSecondValue = 1.5f;
+                    SpriteInstanceAlphaSecondValue = 255f;
                     break;
-                case  RollOver.CursorOff:
-                    SpriteInstanceRedSecondValue = 0f;
+                case  CurrentlyActive.Inactive:
+                    SpriteInstanceRedSecondValue = 1f;
                     SpriteInstanceGreenSecondValue = 0f;
                     SpriteInstanceBlueSecondValue = 0f;
+                    SpriteInstanceTextureScaleSecondValue = 0.5f;
                     if (interpolationValue >= 1)
                     {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
+                        this.SpriteInstanceAnimate = false;
                     }
-                    SpriteInstanceTextureScaleSecondValue = 1f;
+                    SpriteInstanceAlphaSecondValue = 100f;
                     break;
             }
             if (setSpriteInstanceRed)
@@ -647,100 +617,6 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             {
                 SpriteInstanceTextureScale = SpriteInstanceTextureScaleFirstValue * (1 - interpolationValue) + SpriteInstanceTextureScaleSecondValue * interpolationValue;
             }
-            if (interpolationValue < 1)
-            {
-                mCurrentRollOverState = (int)firstState;
-            }
-            else
-            {
-                mCurrentRollOverState = (int)secondState;
-            }
-        }
-        public FlatRedBall.Instructions.Instruction InterpolateToState (CurrentlyActive stateToInterpolateTo, double secondsToTake) 
-        {
-            switch(stateToInterpolateTo)
-            {
-                case  CurrentlyActive.Active:
-                    SpriteInstance.AlphaRate = (255f - SpriteInstance.Alpha) / (float)secondsToTake;
-                    break;
-                case  CurrentlyActive.Inactive:
-                    SpriteInstance.AlphaRate = (100f - SpriteInstance.Alpha) / (float)secondsToTake;
-                    break;
-            }
-            var instruction = new FlatRedBall.Instructions.DelegateInstruction<CurrentlyActive>(StopStateInterpolation, stateToInterpolateTo);
-            instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
-            this.Instructions.Add(instruction);
-            return instruction;
-        }
-        public void StopStateInterpolation (CurrentlyActive stateToStop) 
-        {
-            switch(stateToStop)
-            {
-                case  CurrentlyActive.Active:
-                    SpriteInstance.AlphaRate =  0;
-                    break;
-                case  CurrentlyActive.Inactive:
-                    SpriteInstance.AlphaRate =  0;
-                    break;
-            }
-            CurrentCurrentlyActiveState = stateToStop;
-        }
-        public void InterpolateBetween (CurrentlyActive firstState, CurrentlyActive secondState, float interpolationValue) 
-        {
-            #if DEBUG
-            if (float.IsNaN(interpolationValue))
-            {
-                throw new System.Exception("interpolationValue cannot be NaN");
-            }
-            #endif
-            bool setSpriteInstanceTextureScale = true;
-            float SpriteInstanceTextureScaleFirstValue= 0;
-            float SpriteInstanceTextureScaleSecondValue= 0;
-            bool setSpriteInstanceAlpha = true;
-            float SpriteInstanceAlphaFirstValue= 0;
-            float SpriteInstanceAlphaSecondValue= 0;
-            switch(firstState)
-            {
-                case  CurrentlyActive.Active:
-                    SpriteInstanceTextureScaleFirstValue = 1f;
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceAnimate = true;
-                    }
-                    SpriteInstanceAlphaFirstValue = 255f;
-                    break;
-                case  CurrentlyActive.Inactive:
-                    SpriteInstanceTextureScaleFirstValue = 0.5f;
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceAnimate = false;
-                    }
-                    SpriteInstanceAlphaFirstValue = 100f;
-                    break;
-            }
-            switch(secondState)
-            {
-                case  CurrentlyActive.Active:
-                    SpriteInstanceTextureScaleSecondValue = 1f;
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceAnimate = true;
-                    }
-                    SpriteInstanceAlphaSecondValue = 255f;
-                    break;
-                case  CurrentlyActive.Inactive:
-                    SpriteInstanceTextureScaleSecondValue = 0.5f;
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceAnimate = false;
-                    }
-                    SpriteInstanceAlphaSecondValue = 100f;
-                    break;
-            }
-            if (setSpriteInstanceTextureScale)
-            {
-                SpriteInstanceTextureScale = SpriteInstanceTextureScaleFirstValue * (1 - interpolationValue) + SpriteInstanceTextureScaleSecondValue * interpolationValue;
-            }
             if (setSpriteInstanceAlpha)
             {
                 SpriteInstanceAlpha = SpriteInstanceAlphaFirstValue * (1 - interpolationValue) + SpriteInstanceAlphaSecondValue * interpolationValue;
@@ -752,17 +628,6 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             else
             {
                 mCurrentCurrentlyActiveState = (int)secondState;
-            }
-        }
-        public static void PreloadStateContent (RollOver state, string contentManagerName) 
-        {
-            ContentManagerName = contentManagerName;
-            switch(state)
-            {
-                case  RollOver.CursorOver:
-                    break;
-                case  RollOver.CursorOff:
-                    break;
             }
         }
         public static void PreloadStateContent (CurrentlyActive state, string contentManagerName) 

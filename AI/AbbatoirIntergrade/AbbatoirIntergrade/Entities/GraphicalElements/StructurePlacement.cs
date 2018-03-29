@@ -32,9 +32,6 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
 		{
 		    if (CurrentCurrentlyActiveState == CurrentlyActive.Active)
 		    {
-		        CurrentRollOverState =
-		            this.HasCursorOver(GuiManager.Cursor) ? RollOver.CursorOver : RollOver.CursorOff;
-
 		        if (WasClickedThisFrame(GuiManager.Cursor))
 		        {
 		            OnClick?.Invoke(this, null);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="CombinedAssets" tilewidth="128" tileheight="128" tilecount="1024" columns="32">
  <image source="../../../Tilesets/CombinedAssets.png" width="4096" height="4096"/>
- <tile id="124" type="StructurePlacement">
+ <tile id="124">
   <properties>
    <property name="PlacementOrder" type="int" value="0"/>
   </properties>
