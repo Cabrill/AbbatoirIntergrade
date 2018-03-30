@@ -58,6 +58,30 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>ConfirmationWindowInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>AppearingState</Type>
+      <Name>CurrentMusicDisplayInstance.AppearingState</Name>
+      <Value xsi:type="xsd:string">Hidden</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CurrentMusicDisplayInstance.X</Name>
+      <Value xsi:type="xsd:float">-10</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CurrentMusicDisplayInstance.Y</Name>
+      <Value xsi:type="xsd:float">230</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>int</Type>
       <Name>DimmingRectangle.Alpha</Name>
       <Value xsi:type="xsd:int">0</Value>
@@ -103,30 +127,6 @@
       <Type>DimensionUnitType</Type>
       <Name>DimmingRectangle.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>ConfirmationWindowInstance.Visible</Name>
-      <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>AppearingState</Type>
-      <Name>CurrentMusicDisplayInstance.AppearingState</Name>
-      <Value xsi:type="xsd:string">Hidden</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>CurrentMusicDisplayInstance.X</Name>
-      <Value xsi:type="xsd:float">-10</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>CurrentMusicDisplayInstance.Y</Name>
-      <Value xsi:type="xsd:float">230</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -270,6 +270,35 @@
       <Name>MenuWindowInstance.Visible</Name>
       <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ReadyButtonInstance.X</Name>
+      <Value xsi:type="xsd:float">1650</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>ReadyButtonInstance.X Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ReadyButtonInstance.Y</Name>
+      <Value xsi:type="xsd:float">125</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>ReadyButtonInstance.Y Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ReadyStateState</Type>
+      <Name>ReadyStateState</Name>
+      <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
       <Type>bool</Type>
@@ -800,5 +829,9 @@
   <Instance>
     <Name>HordeText</Name>
     <BaseType>Text</BaseType>
+  </Instance>
+  <Instance>
+    <Name>ReadyButtonInstance</Name>
+    <BaseType>specificbuttons/ReadyButton</BaseType>
   </Instance>
 </ScreenSave>

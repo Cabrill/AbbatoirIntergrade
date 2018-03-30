@@ -43,8 +43,6 @@ namespace AbbatoirIntergrade.Screens
                     CurrentSatoshis -= newBuilding.SatoshiCost;
                     LivesPointsDisplayInstance.SatoshiChange = $"-{newBuilding.SatoshiCost}";
                     LivesPointsDisplayInstance.SubtractPointsAnimation.Play();
-
-                    ChangeGameModeToNormal();
                 }
             }
         }
@@ -54,6 +52,9 @@ namespace AbbatoirIntergrade.Screens
             CurrentGameMode = GameMode.Building;
             StructurePlacementInstance.Visible = true;
             selectedObject = StructurePlacementInstance;
+            ReadyButtonInstance.Enabled = true;
+            ReadyButtonInstance.Visible = true;
+            ReadyButtonInstance.PulseAnimation.Play();
         }
 
         private void ChangeGameModeToNormal()
@@ -62,6 +63,9 @@ namespace AbbatoirIntergrade.Screens
             CurrentLevel.IsReadyForNextWave = true;
             StructurePlacementInstance.Visible = false;
             selectedObject = null;
+            ReadyButtonInstance.PulseAnimation.Stop();
+            ReadyButtonInstance.Visible = false;
+            ReadyButtonInstance.Enabled = false;
         }
 
         private void AssignGumButtonEvents()
@@ -81,6 +85,9 @@ namespace AbbatoirIntergrade.Screens
             {
                 var towerInstantiation = StructureFactories.GetNewObject(towerType) as BaseStructure;
                 MachineLearningManager.LearnMaxTowerValues(towerInstantiation);
+                _CheapestTowerCost = towerInstantiation.SatoshiCost < _CheapestTowerCost
+                    ? towerInstantiation.SatoshiCost
+                    : _CheapestTowerCost;
                 listOfAllInstantiatedTowers.Add(towerInstantiation);
 
                 if (listOfAvailableTowerTypes.Contains(towerType))

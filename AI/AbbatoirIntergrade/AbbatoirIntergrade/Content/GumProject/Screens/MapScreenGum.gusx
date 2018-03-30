@@ -132,13 +132,13 @@
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance1.X</Name>
-      <Value xsi:type="xsd:float">128</Value>
+      <Value xsi:type="xsd:float">132</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance1.Y</Name>
-      <Value xsi:type="xsd:float">1258</Value>
+      <Value xsi:type="xsd:float">1264</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -156,13 +156,13 @@
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance10.X</Name>
-      <Value xsi:type="xsd:float">2328</Value>
+      <Value xsi:type="xsd:float">2346</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance10.Y</Name>
-      <Value xsi:type="xsd:float">248</Value>
+      <Value xsi:type="xsd:float">234</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -180,7 +180,7 @@
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance2.X</Name>
-      <Value xsi:type="xsd:float">98</Value>
+      <Value xsi:type="xsd:float">110</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -204,13 +204,13 @@
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance3.X</Name>
-      <Value xsi:type="xsd:float">268</Value>
+      <Value xsi:type="xsd:float">252</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance3.Y</Name>
-      <Value xsi:type="xsd:float">626</Value>
+      <Value xsi:type="xsd:float">580</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -228,13 +228,13 @@
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance4.X</Name>
-      <Value xsi:type="xsd:float">540</Value>
+      <Value xsi:type="xsd:float">522</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance4.Y</Name>
-      <Value xsi:type="xsd:float">408</Value>
+      <Value xsi:type="xsd:float">412</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -252,13 +252,13 @@
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance5.X</Name>
-      <Value xsi:type="xsd:float">926</Value>
+      <Value xsi:type="xsd:float">952</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance5.Y</Name>
-      <Value xsi:type="xsd:float">370</Value>
+      <Value xsi:type="xsd:float">396</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -276,13 +276,13 @@
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance6.X</Name>
-      <Value xsi:type="xsd:float">1268</Value>
+      <Value xsi:type="xsd:float">1254</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance6.Y</Name>
-      <Value xsi:type="xsd:float">552</Value>
+      <Value xsi:type="xsd:float">538</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -300,13 +300,13 @@
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance7.X</Name>
-      <Value xsi:type="xsd:float">1614</Value>
+      <Value xsi:type="xsd:float">1618</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance7.Y</Name>
-      <Value xsi:type="xsd:float">716</Value>
+      <Value xsi:type="xsd:float">724</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -324,13 +324,13 @@
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance8.X</Name>
-      <Value xsi:type="xsd:float">1880</Value>
+      <Value xsi:type="xsd:float">1884</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance8.Y</Name>
-      <Value xsi:type="xsd:float">576</Value>
+      <Value xsi:type="xsd:float">602</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -348,13 +348,13 @@
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance9.X</Name>
-      <Value xsi:type="xsd:float">2082</Value>
+      <Value xsi:type="xsd:float">2120</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>LevelButtonInstance9.Y</Name>
-      <Value xsi:type="xsd:float">334</Value>
+      <Value xsi:type="xsd:float">350</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1058,16 +1058,16 @@
     <BaseType>ChatHistory</BaseType>
   </Instance>
   <Instance>
-    <Name>TowerSelectionBoxInstance</Name>
-    <BaseType>TowerSelectionBox</BaseType>
-  </Instance>
-  <Instance>
     <Name>ColoredRectangleInstance</Name>
     <BaseType>ColoredRectangle</BaseType>
   </Instance>
   <Instance>
     <Name>OkMessageInstance</Name>
     <BaseType>infodisplays/OkMessage</BaseType>
+  </Instance>
+  <Instance>
+    <Name>TowerSelectionBoxInstance</Name>
+    <BaseType>TowerSelectionBox</BaseType>
   </Instance>
   <Instance>
     <Name>ConfirmationWindowInstance</Name>

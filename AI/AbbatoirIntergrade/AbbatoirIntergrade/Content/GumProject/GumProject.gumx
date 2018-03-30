@@ -205,6 +205,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>specificbuttons/ReadyButton</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>specificbuttons/UpDownButton</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>

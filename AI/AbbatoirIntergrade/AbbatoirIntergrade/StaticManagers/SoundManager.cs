@@ -62,12 +62,13 @@ namespace AbbatoirIntergrade.StaticManagers
             return false;
         }
 
-        public static void PlaySoundEffect(SoundEffectInstance effect)
+        public static void PlaySoundEffect(SoundEffectInstance effect, bool shouldLoop = false)
         {
             if (SoundVolumeLevel == 0) return;
             try
             {
                 effect.Volume = effectiveSoundVolumeLevel;
+                effect.IsLooped = shouldLoop;
                 effect.Play();
             }
             catch (Exception e)

@@ -93,6 +93,10 @@
                             HordeText.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             HordeText.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             HordeText.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            ReadyButtonInstance.X = 1650f;
+                            ReadyButtonInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            ReadyButtonInstance.Y = 125f;
+                            ReadyButtonInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             break;
                     }
                 }
@@ -322,6 +326,14 @@
                 bool setLocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue = false;
                 LocationTimeAnnouncementRuntime.Displaying LocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue= LocationTimeAnnouncementRuntime.Displaying.Start;
                 LocationTimeAnnouncementRuntime.Displaying LocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue= LocationTimeAnnouncementRuntime.Displaying.Start;
+                bool setReadyButtonInstanceXFirstValue = false;
+                bool setReadyButtonInstanceXSecondValue = false;
+                float ReadyButtonInstanceXFirstValue= 0;
+                float ReadyButtonInstanceXSecondValue= 0;
+                bool setReadyButtonInstanceYFirstValue = false;
+                bool setReadyButtonInstanceYSecondValue = false;
+                float ReadyButtonInstanceYFirstValue= 0;
+                float ReadyButtonInstanceYSecondValue= 0;
                 switch(firstState)
                 {
                     case  VariableState.Default:
@@ -448,6 +460,18 @@
                         if (interpolationValue < 1)
                         {
                             this.MenuWindowInstance.Visible = false;
+                        }
+                        setReadyButtonInstanceXFirstValue = true;
+                        ReadyButtonInstanceXFirstValue = 1650f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ReadyButtonInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        setReadyButtonInstanceYFirstValue = true;
+                        ReadyButtonInstanceYFirstValue = 125f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ReadyButtonInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         if (interpolationValue < 1)
                         {
@@ -586,6 +610,18 @@
                         {
                             this.MenuWindowInstance.Visible = false;
                         }
+                        setReadyButtonInstanceXSecondValue = true;
+                        ReadyButtonInstanceXSecondValue = 1650f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ReadyButtonInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        setReadyButtonInstanceYSecondValue = true;
+                        ReadyButtonInstanceYSecondValue = 125f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ReadyButtonInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
                         if (interpolationValue >= 1)
                         {
                             this.ScreenShadeInstance.Visible = false;
@@ -683,6 +719,14 @@
                 if (setLocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue && setLocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue)
                 {
                     LocationTimeAnnouncementInstance.InterpolateBetween(LocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue, LocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue, interpolationValue);
+                }
+                if (setReadyButtonInstanceXFirstValue && setReadyButtonInstanceXSecondValue)
+                {
+                    ReadyButtonInstance.X = ReadyButtonInstanceXFirstValue * (1 - interpolationValue) + ReadyButtonInstanceXSecondValue * interpolationValue;
+                }
+                if (setReadyButtonInstanceYFirstValue && setReadyButtonInstanceYSecondValue)
+                {
+                    ReadyButtonInstance.Y = ReadyButtonInstanceYFirstValue * (1 - interpolationValue) + ReadyButtonInstanceYSecondValue * interpolationValue;
                 }
                 if (interpolationValue < 1)
                 {
@@ -2098,6 +2142,7 @@
                 LocationTimeAnnouncementInstance.StopAnimations();
                 ConfirmationWindowInstance.StopAnimations();
                 CurrentMusicDisplayInstance.StopAnimations();
+                ReadyButtonInstance.StopAnimations();
                 ShowChatHistoryAnimation.Stop();
                 HideChatHistoryAnimation.Stop();
                 FadeInAnimation.Stop();
@@ -2463,6 +2508,38 @@
                             Value = HordeText.YUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ReadyButtonInstance.X",
+                            Type = "float",
+                            Value = ReadyButtonInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ReadyButtonInstance.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = ReadyButtonInstance.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ReadyButtonInstance.Y",
+                            Type = "float",
+                            Value = ReadyButtonInstance.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ReadyButtonInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = ReadyButtonInstance.YOrigin
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -2823,6 +2900,38 @@
                             Name = "HordeText.Y Units",
                             Type = "PositionUnitType",
                             Value = HordeText.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ReadyButtonInstance.X",
+                            Type = "float",
+                            Value = ReadyButtonInstance.X + 1650f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ReadyButtonInstance.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = ReadyButtonInstance.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ReadyButtonInstance.Y",
+                            Type = "float",
+                            Value = ReadyButtonInstance.Y + 125f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ReadyButtonInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = ReadyButtonInstance.YOrigin
                         }
                         );
                         break;
@@ -3951,6 +4060,7 @@
             private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime HordeText { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime ReadyButtonInstance { get; set; }
             public GameScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -3991,6 +4101,7 @@
                 ConfirmationWindowInstance = this.GetGraphicalUiElementByName("ConfirmationWindowInstance") as AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime;
                 CurrentMusicDisplayInstance = this.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
                 HordeText = this.GetGraphicalUiElementByName("HordeText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+                ReadyButtonInstance = this.GetGraphicalUiElementByName("ReadyButtonInstance") as AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

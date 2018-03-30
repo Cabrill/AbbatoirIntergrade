@@ -44,18 +44,20 @@ namespace AbbatoirIntergrade.Screens
             Building,
             Ending
         };
+        private GameMode CurrentGameMode = GameMode.Normal;
 
         private double PauseAndBuildAjustedTime;
+        private bool GameHasStarted;
+
         private BaseLevel CurrentLevel;
         private FlatRedBall.TileGraphics.LayeredTileMap currentMap;
+        private DateTime currentLevelDateTime;
+
         private TileNodeNetwork PathingNodeNetwork;
         private Polygon Pathing;
         private Segment[] PathingSegments;
         private List<Polygon> WaterShapes;
-        private DateTime currentLevelDateTime;
 
-        private GameMode CurrentGameMode = GameMode.Normal;
-        private bool GameHasStarted;
         private PositionedObject selectedObject;
 
         private List<ResourceIncreaseNotificationRuntime> resourceIncreaseNotificationList;
@@ -63,6 +65,12 @@ namespace AbbatoirIntergrade.Screens
         private SoundEffectInstance IncomingMessageSound;
         private SoundEffectInstance OutgoingMessageSound;
         private SoundEffectInstance HordeAlertSound;
+        private SoundEffectInstance ScreamSoundLoop;
+
+        private List<SoundEffectInstance> ScreamSounds;
+        private int _LastScreamIndex;
+
+        private int _CheapestTowerCost = int.MaxValue;
 
         #endregion
 
@@ -86,6 +94,25 @@ namespace AbbatoirIntergrade.Screens
             IncomingMessageSound = IncomingMessage.CreateInstance();
             OutgoingMessageSound = OutgoingMessage.CreateInstance();
             HordeAlertSound = HordeAlert.CreateInstance();
+            ScreamSounds = new List<SoundEffectInstance>()
+            {
+                Scream1.CreateInstance(),
+                Scream2.CreateInstance(),
+                Scream3.CreateInstance(),
+                Scream4.CreateInstance(),
+                Scream5.CreateInstance(),
+                Scream6.CreateInstance(),
+                Scream7.CreateInstance(),
+                Scream8.CreateInstance(),
+                Scream9.CreateInstance(),
+                Scream10.CreateInstance(),
+                Scream11.CreateInstance(),
+                Scream12.CreateInstance(),
+                Scream13.CreateInstance(),
+                Scream14.CreateInstance(),
+                Scream15.CreateInstance(),
+            };
+            ScreamSounds.Shuffle();
 
             LocalLogManager.AddLine("Game Screen - Load Level");
             CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
@@ -94,6 +121,12 @@ namespace AbbatoirIntergrade.Screens
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
             CurrentSatoshis = CurrentLevel.StartingSatoshis;
+
+            if (CurrentLevel.MapName.Contains("10"))
+            {
+                ScreamSoundLoop = ScreamLoop.CreateInstance();
+                SoundManager.PlaySoundEffect(ScreamSoundLoop, shouldLoop:true);
+            }
 
             currentLevelDateTime = PlayerDataManager.CurrentGameDateTime == DateTime.MinValue ? CurrentLevel.StartTime : PlayerDataManager.CurrentGameDateTime;
 
@@ -166,7 +199,7 @@ namespace AbbatoirIntergrade.Screens
             }
             else
             {
-                ChangeGameModeToBuilding();    
+                ChangeGameModeToBuilding();
             }
         }
 
@@ -490,12 +523,12 @@ namespace AbbatoirIntergrade.Screens
             EndLevel();
             SoundManager.PlaySoundEffect(HordeAlertSound);
             GameScreenGumInstance.HordeIncomingAnimation.Play();
-            this.Call(ReturnToMapScreen).After(GameScreenGumInstance.HordeIncomingAnimation.Length);
+            this.Call(ReturnToMapScreen).After(GameScreenGumInstance.HordeIncomingAnimation.Length+3);
         }
 
         private void SendTheHorde()
         {
-            if (AllEnemiesList.Count < 100)
+            if (AllEnemiesList.Count < 50)
             {
                 EnemyFactories.CreateNew(FlatRedBallServices.Random.In(CurrentLevel.AvailableEnemyTypes), isHorde:true);
             }
@@ -605,6 +638,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void HandleEnemyReachingGoal()
         {
+            PlayAScreamSound();
             CurrentLevel.RemainingLives--;
             LivesPointsDisplayInstance.LivesReducedAnimation.Play();
             LivesPointsDisplayInstance.LivesRemaining = CurrentLevel.RemainingLives.ToString();
@@ -721,7 +755,7 @@ namespace AbbatoirIntergrade.Screens
 
             //User just clicked/touched somewhere, and nothing is currently selected
             else if ((GuiManager.Cursor.PrimaryClick || GuiManager.Cursor.PrimaryDown) &&
-	            GuiManager.Cursor.ObjectGrabbed == null && GuiManager.Cursor.WindowOver == null)
+	             GuiManager.Cursor.WindowOver == null)
 	        {
 	            //Remove the current selection if the user clicks off of it
 	            if (selectedObject != null && !(selectedObject as IClickable).HasCursorOver(GuiManager.Cursor))
@@ -762,7 +796,9 @@ namespace AbbatoirIntergrade.Screens
 	        else if (GuiManager.Cursor.SecondaryClick || GuiManager.Cursor.SecondaryDown)
 	        {
 	            selectedObject = null;
-	            BuildMenuInstance.Hide();
+	            GuiManager.Cursor.ObjectGrabbed = null;
+
+                BuildMenuInstance.Hide();
                 EnemyInfoInstance.Hide();
                 StructureInfoInstance.Hide();
 	        }
@@ -1040,6 +1076,17 @@ namespace AbbatoirIntergrade.Screens
 	        }
         }
 
+        private void PlayAScreamSound()
+        {
+            if (_LastScreamIndex > ScreamSounds.Count - 1)
+            {
+                ScreamSounds.Shuffle();
+                _LastScreamIndex = 0;
+            }
+
+            ScreamSounds[_LastScreamIndex].Pan = 1;
+            SoundManager.PlaySoundEffect(ScreamSounds[_LastScreamIndex++]);
+        }
 
         private void CreateNotificationPool()
         {
@@ -1076,7 +1123,14 @@ namespace AbbatoirIntergrade.Screens
 		    BaseStructure.Reset();
             if (IncomingMessageSound != null && !IncomingMessageSound.IsDisposed) IncomingMessageSound.Dispose();
 		    if (OutgoingMessageSound != null && !OutgoingMessageSound.IsDisposed) OutgoingMessageSound.Dispose();
-		    if (HordeAlertSound != null && !HordeAlertSound.IsDisposed) OutgoingMessageSound.Dispose();
+		    if (HordeAlertSound != null && !HordeAlertSound.IsDisposed) HordeAlertSound.Dispose();
+		    if (ScreamSoundLoop != null && !ScreamSoundLoop.IsDisposed) ScreamSoundLoop.Dispose();
+
+            for (var i = ScreamSounds.Count - 1; i >= 0; i--)
+		    {
+		        var screamSound = ScreamSounds[i];
+                if (screamSound != null && !screamSound.IsDisposed) screamSound.Dispose();
+		    }
 
             PathingNodeNetwork.LayerToDrawOn = null;
             PathingNodeNetwork.Visible = false;

@@ -129,6 +129,8 @@ namespace AbbatoirIntergrade.Screens
 
 	    private void HandleKeyboardInput()
 	    {
+	        if (TowerSelectionBoxInstance.Visible) return;
+
 	        if (InputManager.Keyboard.KeyPushed(Keys.Escape))
 	        {
 	            if (MenuWindowInstance.Visible)
@@ -219,7 +221,9 @@ namespace AbbatoirIntergrade.Screens
 
 	    private void ShowMenu(IWindow window)
 	    {
-	        MenuWindowInstance.RefreshOptions();
+	        if (TowerSelectionBoxInstance.Visible) return;
+
+            MenuWindowInstance.RefreshOptions();
 
             MapScreenGumInstance.ShowMenuAnimation.Play(this);
 	        //this.Call(() =>MenuWindowInstance.RefreshOptions()).After(MapScreenGumInstance.ShowMenuAnimation.Length + 0.001f);
@@ -229,6 +233,7 @@ namespace AbbatoirIntergrade.Screens
 	    {
             //Don't react to level button presses if menu is open
 	        if (MapScreenGumInstance.CurrentMenuDisplayState != MapScreenGumRuntime.MenuDisplay.MenuHidden) return;
+	        if (TowerSelectionBoxInstance.Visible) return;
 
             var windowAsLevelButton = window as LevelButtonRuntime;
 

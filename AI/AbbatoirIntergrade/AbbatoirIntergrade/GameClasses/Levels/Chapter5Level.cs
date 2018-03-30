@@ -17,6 +17,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
         public override DateTime StartTime => new DateTime(2017, 10, 25, 21, 0, 0);
         public override int StartingLives => 30;
         public override int WavesToSurvive => 15;
+        public override int StartingSatoshis => 30;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.Desert;
         public override List<string> SongNameList => new List<string>() { nameof(GlobalContent.anttisinstrumentals_quietlyintothenight), nameof(GlobalContent.anttisinstrumentals_fiveminutesofwhy), nameof(GlobalContent.anttisinstrumentals_brokentimesiqnatureinaminor) };
 

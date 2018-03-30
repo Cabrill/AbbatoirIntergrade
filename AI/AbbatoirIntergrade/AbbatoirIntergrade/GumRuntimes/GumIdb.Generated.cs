@@ -55,6 +55,7 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("specificbuttons/CloseChatButton", typeof(AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("specificbuttons/LevelButton", typeof(AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("specificbuttons/OptionsButton", typeof(AbbatoirIntergrade.GumRuntimes.OptionsButtonRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("specificbuttons/ReadyButton", typeof(AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("specificbuttons/UpDownButton", typeof(AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("TechnologyTree", typeof(AbbatoirIntergrade.GumRuntimes.TechnologyTreeRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Thumb", typeof(AbbatoirIntergrade.GumRuntimes.ThumbRuntime));

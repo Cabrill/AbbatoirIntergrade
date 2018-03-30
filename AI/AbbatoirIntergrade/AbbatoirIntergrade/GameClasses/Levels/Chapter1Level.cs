@@ -19,6 +19,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
         public override string LocationName => "Nixeuy Farm";
         public override DateTime StartTime => new DateTime(2238, 10, 21, 4, 11, 0);
         public override int StartingLives => 20;
+        public override int StartingSatoshis => 10;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.SparseTrees;
         public override List<string> SongNameList => new List<string>() {nameof(GlobalContent.Zach_Darshon_Sea_of_Dead_Thoughts), nameof(GlobalContent.anttisinstrumentals_badmorning), nameof(GlobalContent.anttisinstrumentals_woman), nameof(GlobalContent.anttisinstrumentals_sidish) };
         public override int WavesToSurvive => 1;

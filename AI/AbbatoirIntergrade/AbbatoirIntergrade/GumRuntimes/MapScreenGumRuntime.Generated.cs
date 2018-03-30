@@ -47,44 +47,44 @@
                             TechnologyTreeInstance.Visible = false;
                             LevelButtonInstance1.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance1.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level1;
-                            LevelButtonInstance1.X = 128f;
-                            LevelButtonInstance1.Y = 1258f;
+                            LevelButtonInstance1.X = 132f;
+                            LevelButtonInstance1.Y = 1264f;
                             LevelButtonInstance2.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance2.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level2;
-                            LevelButtonInstance2.X = 98f;
+                            LevelButtonInstance2.X = 110f;
                             LevelButtonInstance2.Y = 918f;
                             LevelButtonInstance3.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance3.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level3;
-                            LevelButtonInstance3.X = 268f;
-                            LevelButtonInstance3.Y = 626f;
+                            LevelButtonInstance3.X = 252f;
+                            LevelButtonInstance3.Y = 580f;
                             LevelButtonInstance4.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance4.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level4;
-                            LevelButtonInstance4.X = 540f;
-                            LevelButtonInstance4.Y = 408f;
+                            LevelButtonInstance4.X = 522f;
+                            LevelButtonInstance4.Y = 412f;
                             LevelButtonInstance5.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance5.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level5;
-                            LevelButtonInstance5.X = 926f;
-                            LevelButtonInstance5.Y = 370f;
+                            LevelButtonInstance5.X = 952f;
+                            LevelButtonInstance5.Y = 396f;
                             LevelButtonInstance6.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance6.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level6;
-                            LevelButtonInstance6.X = 1268f;
-                            LevelButtonInstance6.Y = 552f;
+                            LevelButtonInstance6.X = 1254f;
+                            LevelButtonInstance6.Y = 538f;
                             LevelButtonInstance7.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance7.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level7;
-                            LevelButtonInstance7.X = 1614f;
-                            LevelButtonInstance7.Y = 716f;
+                            LevelButtonInstance7.X = 1618f;
+                            LevelButtonInstance7.Y = 724f;
                             LevelButtonInstance8.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance8.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level8;
-                            LevelButtonInstance8.X = 1880f;
-                            LevelButtonInstance8.Y = 576f;
+                            LevelButtonInstance8.X = 1884f;
+                            LevelButtonInstance8.Y = 602f;
                             LevelButtonInstance9.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance9.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level9;
-                            LevelButtonInstance9.X = 2082f;
-                            LevelButtonInstance9.Y = 334f;
+                            LevelButtonInstance9.X = 2120f;
+                            LevelButtonInstance9.Y = 350f;
                             LevelButtonInstance10.CurrentButtonCategoryState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                             LevelButtonInstance10.CurrentLevelNumberState = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level10;
-                            LevelButtonInstance10.X = 2328f;
-                            LevelButtonInstance10.Y = 248f;
+                            LevelButtonInstance10.X = 2346f;
+                            LevelButtonInstance10.Y = 234f;
                             ScreenDimRectangle.Alpha = 120;
                             ScreenDimRectangle.Blue = 0;
                             ScreenDimRectangle.Green = 0;
@@ -121,7 +121,6 @@
                             ChatHistoryInstance.Width = 33f;
                             ChatHistoryInstance.X = 31.48438f;
                             ChatHistoryInstance.Y = 0f;
-                            TowerSelectionBoxInstance.Visible = false;
                             ColoredRectangleInstance.Alpha = 0;
                             ColoredRectangleInstance.Blue = 0;
                             ColoredRectangleInstance.Green = 0;
@@ -132,6 +131,7 @@
                             ColoredRectangleInstance.Width = 100f;
                             ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             OkMessageInstance.Visible = false;
+                            TowerSelectionBoxInstance.Visible = false;
                             ConfirmationWindowInstance.Visible = false;
                             CurrentMusicDisplayInstance.CurrentAppearingState = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
                             break;
@@ -568,23 +568,23 @@
                         setLevelButtonInstance1CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance1CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level1;
                         setLevelButtonInstance1XFirstValue = true;
-                        LevelButtonInstance1XFirstValue = 128f;
+                        LevelButtonInstance1XFirstValue = 132f;
                         setLevelButtonInstance1YFirstValue = true;
-                        LevelButtonInstance1YFirstValue = 1258f;
+                        LevelButtonInstance1YFirstValue = 1264f;
                         setLevelButtonInstance10CurrentButtonCategoryStateFirstValue = true;
                         LevelButtonInstance10CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance10CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance10CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level10;
                         setLevelButtonInstance10XFirstValue = true;
-                        LevelButtonInstance10XFirstValue = 2328f;
+                        LevelButtonInstance10XFirstValue = 2346f;
                         setLevelButtonInstance10YFirstValue = true;
-                        LevelButtonInstance10YFirstValue = 248f;
+                        LevelButtonInstance10YFirstValue = 234f;
                         setLevelButtonInstance2CurrentButtonCategoryStateFirstValue = true;
                         LevelButtonInstance2CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance2CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance2CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level2;
                         setLevelButtonInstance2XFirstValue = true;
-                        LevelButtonInstance2XFirstValue = 98f;
+                        LevelButtonInstance2XFirstValue = 110f;
                         setLevelButtonInstance2YFirstValue = true;
                         LevelButtonInstance2YFirstValue = 918f;
                         setLevelButtonInstance3CurrentButtonCategoryStateFirstValue = true;
@@ -592,57 +592,57 @@
                         setLevelButtonInstance3CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance3CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level3;
                         setLevelButtonInstance3XFirstValue = true;
-                        LevelButtonInstance3XFirstValue = 268f;
+                        LevelButtonInstance3XFirstValue = 252f;
                         setLevelButtonInstance3YFirstValue = true;
-                        LevelButtonInstance3YFirstValue = 626f;
+                        LevelButtonInstance3YFirstValue = 580f;
                         setLevelButtonInstance4CurrentButtonCategoryStateFirstValue = true;
                         LevelButtonInstance4CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance4CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance4CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level4;
                         setLevelButtonInstance4XFirstValue = true;
-                        LevelButtonInstance4XFirstValue = 540f;
+                        LevelButtonInstance4XFirstValue = 522f;
                         setLevelButtonInstance4YFirstValue = true;
-                        LevelButtonInstance4YFirstValue = 408f;
+                        LevelButtonInstance4YFirstValue = 412f;
                         setLevelButtonInstance5CurrentButtonCategoryStateFirstValue = true;
                         LevelButtonInstance5CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance5CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance5CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level5;
                         setLevelButtonInstance5XFirstValue = true;
-                        LevelButtonInstance5XFirstValue = 926f;
+                        LevelButtonInstance5XFirstValue = 952f;
                         setLevelButtonInstance5YFirstValue = true;
-                        LevelButtonInstance5YFirstValue = 370f;
+                        LevelButtonInstance5YFirstValue = 396f;
                         setLevelButtonInstance6CurrentButtonCategoryStateFirstValue = true;
                         LevelButtonInstance6CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance6CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance6CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level6;
                         setLevelButtonInstance6XFirstValue = true;
-                        LevelButtonInstance6XFirstValue = 1268f;
+                        LevelButtonInstance6XFirstValue = 1254f;
                         setLevelButtonInstance6YFirstValue = true;
-                        LevelButtonInstance6YFirstValue = 552f;
+                        LevelButtonInstance6YFirstValue = 538f;
                         setLevelButtonInstance7CurrentButtonCategoryStateFirstValue = true;
                         LevelButtonInstance7CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance7CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance7CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level7;
                         setLevelButtonInstance7XFirstValue = true;
-                        LevelButtonInstance7XFirstValue = 1614f;
+                        LevelButtonInstance7XFirstValue = 1618f;
                         setLevelButtonInstance7YFirstValue = true;
-                        LevelButtonInstance7YFirstValue = 716f;
+                        LevelButtonInstance7YFirstValue = 724f;
                         setLevelButtonInstance8CurrentButtonCategoryStateFirstValue = true;
                         LevelButtonInstance8CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance8CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance8CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level8;
                         setLevelButtonInstance8XFirstValue = true;
-                        LevelButtonInstance8XFirstValue = 1880f;
+                        LevelButtonInstance8XFirstValue = 1884f;
                         setLevelButtonInstance8YFirstValue = true;
-                        LevelButtonInstance8YFirstValue = 576f;
+                        LevelButtonInstance8YFirstValue = 602f;
                         setLevelButtonInstance9CurrentButtonCategoryStateFirstValue = true;
                         LevelButtonInstance9CurrentButtonCategoryStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance9CurrentLevelNumberStateFirstValue = true;
                         LevelButtonInstance9CurrentLevelNumberStateFirstValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level9;
                         setLevelButtonInstance9XFirstValue = true;
-                        LevelButtonInstance9XFirstValue = 2082f;
+                        LevelButtonInstance9XFirstValue = 2120f;
                         setLevelButtonInstance9YFirstValue = true;
-                        LevelButtonInstance9YFirstValue = 334f;
+                        LevelButtonInstance9YFirstValue = 350f;
                         if (interpolationValue < 1)
                         {
                             this.MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
@@ -815,23 +815,23 @@
                         setLevelButtonInstance1CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance1CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level1;
                         setLevelButtonInstance1XSecondValue = true;
-                        LevelButtonInstance1XSecondValue = 128f;
+                        LevelButtonInstance1XSecondValue = 132f;
                         setLevelButtonInstance1YSecondValue = true;
-                        LevelButtonInstance1YSecondValue = 1258f;
+                        LevelButtonInstance1YSecondValue = 1264f;
                         setLevelButtonInstance10CurrentButtonCategoryStateSecondValue = true;
                         LevelButtonInstance10CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance10CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance10CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level10;
                         setLevelButtonInstance10XSecondValue = true;
-                        LevelButtonInstance10XSecondValue = 2328f;
+                        LevelButtonInstance10XSecondValue = 2346f;
                         setLevelButtonInstance10YSecondValue = true;
-                        LevelButtonInstance10YSecondValue = 248f;
+                        LevelButtonInstance10YSecondValue = 234f;
                         setLevelButtonInstance2CurrentButtonCategoryStateSecondValue = true;
                         LevelButtonInstance2CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance2CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance2CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level2;
                         setLevelButtonInstance2XSecondValue = true;
-                        LevelButtonInstance2XSecondValue = 98f;
+                        LevelButtonInstance2XSecondValue = 110f;
                         setLevelButtonInstance2YSecondValue = true;
                         LevelButtonInstance2YSecondValue = 918f;
                         setLevelButtonInstance3CurrentButtonCategoryStateSecondValue = true;
@@ -839,57 +839,57 @@
                         setLevelButtonInstance3CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance3CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level3;
                         setLevelButtonInstance3XSecondValue = true;
-                        LevelButtonInstance3XSecondValue = 268f;
+                        LevelButtonInstance3XSecondValue = 252f;
                         setLevelButtonInstance3YSecondValue = true;
-                        LevelButtonInstance3YSecondValue = 626f;
+                        LevelButtonInstance3YSecondValue = 580f;
                         setLevelButtonInstance4CurrentButtonCategoryStateSecondValue = true;
                         LevelButtonInstance4CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance4CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance4CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level4;
                         setLevelButtonInstance4XSecondValue = true;
-                        LevelButtonInstance4XSecondValue = 540f;
+                        LevelButtonInstance4XSecondValue = 522f;
                         setLevelButtonInstance4YSecondValue = true;
-                        LevelButtonInstance4YSecondValue = 408f;
+                        LevelButtonInstance4YSecondValue = 412f;
                         setLevelButtonInstance5CurrentButtonCategoryStateSecondValue = true;
                         LevelButtonInstance5CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance5CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance5CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level5;
                         setLevelButtonInstance5XSecondValue = true;
-                        LevelButtonInstance5XSecondValue = 926f;
+                        LevelButtonInstance5XSecondValue = 952f;
                         setLevelButtonInstance5YSecondValue = true;
-                        LevelButtonInstance5YSecondValue = 370f;
+                        LevelButtonInstance5YSecondValue = 396f;
                         setLevelButtonInstance6CurrentButtonCategoryStateSecondValue = true;
                         LevelButtonInstance6CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance6CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance6CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level6;
                         setLevelButtonInstance6XSecondValue = true;
-                        LevelButtonInstance6XSecondValue = 1268f;
+                        LevelButtonInstance6XSecondValue = 1254f;
                         setLevelButtonInstance6YSecondValue = true;
-                        LevelButtonInstance6YSecondValue = 552f;
+                        LevelButtonInstance6YSecondValue = 538f;
                         setLevelButtonInstance7CurrentButtonCategoryStateSecondValue = true;
                         LevelButtonInstance7CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance7CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance7CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level7;
                         setLevelButtonInstance7XSecondValue = true;
-                        LevelButtonInstance7XSecondValue = 1614f;
+                        LevelButtonInstance7XSecondValue = 1618f;
                         setLevelButtonInstance7YSecondValue = true;
-                        LevelButtonInstance7YSecondValue = 716f;
+                        LevelButtonInstance7YSecondValue = 724f;
                         setLevelButtonInstance8CurrentButtonCategoryStateSecondValue = true;
                         LevelButtonInstance8CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance8CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance8CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level8;
                         setLevelButtonInstance8XSecondValue = true;
-                        LevelButtonInstance8XSecondValue = 1880f;
+                        LevelButtonInstance8XSecondValue = 1884f;
                         setLevelButtonInstance8YSecondValue = true;
-                        LevelButtonInstance8YSecondValue = 576f;
+                        LevelButtonInstance8YSecondValue = 602f;
                         setLevelButtonInstance9CurrentButtonCategoryStateSecondValue = true;
                         LevelButtonInstance9CurrentButtonCategoryStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory.Enabled;
                         setLevelButtonInstance9CurrentLevelNumberStateSecondValue = true;
                         LevelButtonInstance9CurrentLevelNumberStateSecondValue = AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber.Level9;
                         setLevelButtonInstance9XSecondValue = true;
-                        LevelButtonInstance9XSecondValue = 2082f;
+                        LevelButtonInstance9XSecondValue = 2120f;
                         setLevelButtonInstance9YSecondValue = true;
-                        LevelButtonInstance9YSecondValue = 334f;
+                        LevelButtonInstance9YSecondValue = 350f;
                         if (interpolationValue >= 1)
                         {
                             this.MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
@@ -2378,8 +2378,8 @@
                 StyleBarInstance.StopAnimations();
                 OptionsButtonInstance.StopAnimations();
                 ChatHistoryInstance.StopAnimations();
-                TowerSelectionBoxInstance.StopAnimations();
                 OkMessageInstance.StopAnimations();
+                TowerSelectionBoxInstance.StopAnimations();
                 ConfirmationWindowInstance.StopAnimations();
                 CurrentMusicDisplayInstance.StopAnimations();
                 ShowMenuAnimation.Stop();
@@ -3037,14 +3037,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TowerSelectionBoxInstance.Visible",
-                            Type = "bool",
-                            Value = TowerSelectionBoxInstance.Visible
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "ColoredRectangleInstance.Alpha",
                             Type = "int",
                             Value = ColoredRectangleInstance.Alpha
@@ -3120,6 +3112,14 @@
                             Name = "OkMessageInstance.Visible",
                             Type = "bool",
                             Value = OkMessageInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TowerSelectionBoxInstance.Visible",
+                            Type = "bool",
+                            Value = TowerSelectionBoxInstance.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3201,7 +3201,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance1.X",
                             Type = "float",
-                            Value = LevelButtonInstance1.X + 128f
+                            Value = LevelButtonInstance1.X + 132f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3209,7 +3209,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance1.Y",
                             Type = "float",
-                            Value = LevelButtonInstance1.Y + 1258f
+                            Value = LevelButtonInstance1.Y + 1264f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3233,7 +3233,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance2.X",
                             Type = "float",
-                            Value = LevelButtonInstance2.X + 98f
+                            Value = LevelButtonInstance2.X + 110f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3265,7 +3265,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance3.X",
                             Type = "float",
-                            Value = LevelButtonInstance3.X + 268f
+                            Value = LevelButtonInstance3.X + 252f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3273,7 +3273,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance3.Y",
                             Type = "float",
-                            Value = LevelButtonInstance3.Y + 626f
+                            Value = LevelButtonInstance3.Y + 580f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3297,7 +3297,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance4.X",
                             Type = "float",
-                            Value = LevelButtonInstance4.X + 540f
+                            Value = LevelButtonInstance4.X + 522f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3305,7 +3305,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance4.Y",
                             Type = "float",
-                            Value = LevelButtonInstance4.Y + 408f
+                            Value = LevelButtonInstance4.Y + 412f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3329,7 +3329,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance5.X",
                             Type = "float",
-                            Value = LevelButtonInstance5.X + 926f
+                            Value = LevelButtonInstance5.X + 952f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3337,7 +3337,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance5.Y",
                             Type = "float",
-                            Value = LevelButtonInstance5.Y + 370f
+                            Value = LevelButtonInstance5.Y + 396f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3361,7 +3361,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance6.X",
                             Type = "float",
-                            Value = LevelButtonInstance6.X + 1268f
+                            Value = LevelButtonInstance6.X + 1254f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3369,7 +3369,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance6.Y",
                             Type = "float",
-                            Value = LevelButtonInstance6.Y + 552f
+                            Value = LevelButtonInstance6.Y + 538f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3393,7 +3393,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance7.X",
                             Type = "float",
-                            Value = LevelButtonInstance7.X + 1614f
+                            Value = LevelButtonInstance7.X + 1618f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3401,7 +3401,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance7.Y",
                             Type = "float",
-                            Value = LevelButtonInstance7.Y + 716f
+                            Value = LevelButtonInstance7.Y + 724f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3425,7 +3425,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance8.X",
                             Type = "float",
-                            Value = LevelButtonInstance8.X + 1880f
+                            Value = LevelButtonInstance8.X + 1884f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3433,7 +3433,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance8.Y",
                             Type = "float",
-                            Value = LevelButtonInstance8.Y + 576f
+                            Value = LevelButtonInstance8.Y + 602f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3457,7 +3457,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance9.X",
                             Type = "float",
-                            Value = LevelButtonInstance9.X + 2082f
+                            Value = LevelButtonInstance9.X + 2120f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3465,7 +3465,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance9.Y",
                             Type = "float",
-                            Value = LevelButtonInstance9.Y + 334f
+                            Value = LevelButtonInstance9.Y + 350f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3489,7 +3489,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance10.X",
                             Type = "float",
-                            Value = LevelButtonInstance10.X + 2328f
+                            Value = LevelButtonInstance10.X + 2346f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3497,7 +3497,7 @@
                             SetsValue = true,
                             Name = "LevelButtonInstance10.Y",
                             Type = "float",
-                            Value = LevelButtonInstance10.Y + 248f
+                            Value = LevelButtonInstance10.Y + 234f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3791,14 +3791,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TowerSelectionBoxInstance.Visible",
-                            Type = "bool",
-                            Value = TowerSelectionBoxInstance.Visible
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "ColoredRectangleInstance.Alpha",
                             Type = "int",
                             Value = ColoredRectangleInstance.Alpha + 0
@@ -3874,6 +3866,14 @@
                             Name = "OkMessageInstance.Visible",
                             Type = "bool",
                             Value = OkMessageInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TowerSelectionBoxInstance.Visible",
+                            Type = "bool",
+                            Value = TowerSelectionBoxInstance.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4901,9 +4901,9 @@
             private AbbatoirIntergrade.GumRuntimes.StyleBarRuntime StyleBarInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime OptionsButtonInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime ChatHistoryInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TowerSelectionBoxRuntime TowerSelectionBoxInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.OkMessageRuntime OkMessageInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.TowerSelectionBoxRuntime TowerSelectionBoxInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
             public MapScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
@@ -4948,9 +4948,9 @@
                 StyleBarInstance = this.GetGraphicalUiElementByName("StyleBarInstance") as AbbatoirIntergrade.GumRuntimes.StyleBarRuntime;
                 OptionsButtonInstance = this.GetGraphicalUiElementByName("OptionsButtonInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
                 ChatHistoryInstance = this.GetGraphicalUiElementByName("ChatHistoryInstance") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
-                TowerSelectionBoxInstance = this.GetGraphicalUiElementByName("TowerSelectionBoxInstance") as AbbatoirIntergrade.GumRuntimes.TowerSelectionBoxRuntime;
                 ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 OkMessageInstance = this.GetGraphicalUiElementByName("OkMessageInstance") as AbbatoirIntergrade.GumRuntimes.OkMessageRuntime;
+                TowerSelectionBoxInstance = this.GetGraphicalUiElementByName("TowerSelectionBoxInstance") as AbbatoirIntergrade.GumRuntimes.TowerSelectionBoxRuntime;
                 ConfirmationWindowInstance = this.GetGraphicalUiElementByName("ConfirmationWindowInstance") as AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime;
                 CurrentMusicDisplayInstance = this.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
             }

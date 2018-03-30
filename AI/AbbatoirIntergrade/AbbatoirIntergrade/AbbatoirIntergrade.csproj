@@ -419,6 +419,7 @@
       <DependentUpon>LevelButtonRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\specificbuttons\OptionsButtonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\specificbuttons\ReadyButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\SettingsButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\StartGameButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\UpDownButtonRuntime.Generated.cs" />
@@ -1198,6 +1199,86 @@
       <Name>OutgoingMessage</Name>
       <Link>content\screens\gamescreen\sounds\outgoingmessage.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\screams\scream1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Scream1</Name>
+      <Link>content\screens\gamescreen\sounds\screams\scream1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\screams\scream10.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Scream10</Name>
+      <Link>content\screens\gamescreen\sounds\screams\scream10.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\screams\scream11.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Scream11</Name>
+      <Link>content\screens\gamescreen\sounds\screams\scream11.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\screams\scream12.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Scream12</Name>
+      <Link>content\screens\gamescreen\sounds\screams\scream12.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\screams\scream13.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Scream13</Name>
+      <Link>content\screens\gamescreen\sounds\screams\scream13.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\screams\scream14.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Scream14</Name>
+      <Link>content\screens\gamescreen\sounds\screams\scream14.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\screams\scream15.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Scream15</Name>
+      <Link>content\screens\gamescreen\sounds\screams\scream15.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\screams\scream2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Scream2</Name>
+      <Link>content\screens\gamescreen\sounds\screams\scream2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\screams\scream3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Scream3</Name>
+      <Link>content\screens\gamescreen\sounds\screams\scream3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\screams\scream4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Scream4</Name>
+      <Link>content\screens\gamescreen\sounds\screams\scream4.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\screams\scream5.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Scream5</Name>
+      <Link>content\screens\gamescreen\sounds\screams\scream5.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\screams\scream6.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Scream6</Name>
+      <Link>content\screens\gamescreen\sounds\screams\scream6.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\screams\scream7.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Scream7</Name>
+      <Link>content\screens\gamescreen\sounds\screams\scream7.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\screams\scream8.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Scream8</Name>
+      <Link>content\screens\gamescreen\sounds\screams\scream8.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\screams\scream9.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Scream9</Name>
+      <Link>content\screens\gamescreen\sounds\screams\scream9.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\screams\screamloop.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ScreamLoop</Name>
+      <Link>content\screens\gamescreen\sounds\screams\screamloop.xnb</Link>
+    </None>
     <None Include="content\entities\baseentities\baseenemy\particleanimationschainlist.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ParticleAnimationsChainList</Name>
@@ -1453,6 +1534,10 @@
     <None Include="content\gumproject\components\specificbuttons\optionsbutton.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>OptionsButton</Name>
+    </None>
+    <None Include="content\gumproject\components\specificbuttons\readybutton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>readybutton</Name>
     </None>
     <None Include="content\gumproject\components\specificbuttons\updownbutton.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

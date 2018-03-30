@@ -30,6 +30,7 @@
                             HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             Width = 51.48166f;
                             WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            WrapsChildren = false;
                             X = 23.4375f;
                             XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             Y = 24.14021f;
@@ -54,6 +55,7 @@
                             MiddleSprite.TextureWidth = 1320;
                             MiddleSprite.Width = 100f;
                             MiddleSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            MiddleSprite.Y = -1f;
                             BottomSprite.Height = 23f;
                             BottomSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             SetProperty("BottomSprite.SourceFile", "AllUIAssets.png");
@@ -64,6 +66,7 @@
                             BottomSprite.TextureWidth = 1320;
                             BottomSprite.Width = 100f;
                             BottomSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            BottomSprite.Y = -1f;
                             break;
                     }
                 }
@@ -102,6 +105,10 @@
                 bool setBottomSpriteWidthSecondValue = false;
                 float BottomSpriteWidthFirstValue= 0;
                 float BottomSpriteWidthSecondValue= 0;
+                bool setBottomSpriteYFirstValue = false;
+                bool setBottomSpriteYSecondValue = false;
+                float BottomSpriteYFirstValue= 0;
+                float BottomSpriteYSecondValue= 0;
                 bool setHeightFirstValue = false;
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
@@ -130,6 +137,10 @@
                 bool setMiddleSpriteWidthSecondValue = false;
                 float MiddleSpriteWidthFirstValue= 0;
                 float MiddleSpriteWidthSecondValue= 0;
+                bool setMiddleSpriteYFirstValue = false;
+                bool setMiddleSpriteYSecondValue = false;
+                float MiddleSpriteYFirstValue= 0;
+                float MiddleSpriteYSecondValue= 0;
                 bool setTopSpriteHeightFirstValue = false;
                 bool setTopSpriteHeightSecondValue = false;
                 float TopSpriteHeightFirstValue= 0;
@@ -197,6 +208,8 @@
                         {
                             this.BottomSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setBottomSpriteYFirstValue = true;
+                        BottomSpriteYFirstValue = -1f;
                         if (interpolationValue < 1)
                         {
                             this.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
@@ -235,6 +248,8 @@
                         {
                             this.MiddleSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setMiddleSpriteYFirstValue = true;
+                        MiddleSpriteYFirstValue = -1f;
                         setTopSpriteHeightFirstValue = true;
                         TopSpriteHeightFirstValue = 23f;
                         if (interpolationValue < 1)
@@ -268,6 +283,10 @@
                         if (interpolationValue < 1)
                         {
                             this.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.WrapsChildren = false;
                         }
                         setXFirstValue = true;
                         XFirstValue = 23.4375f;
@@ -314,6 +333,8 @@
                         {
                             this.BottomSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setBottomSpriteYSecondValue = true;
+                        BottomSpriteYSecondValue = -1f;
                         if (interpolationValue >= 1)
                         {
                             this.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
@@ -352,6 +373,8 @@
                         {
                             this.MiddleSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setMiddleSpriteYSecondValue = true;
+                        MiddleSpriteYSecondValue = -1f;
                         setTopSpriteHeightSecondValue = true;
                         TopSpriteHeightSecondValue = 23f;
                         if (interpolationValue >= 1)
@@ -385,6 +408,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.WrapsChildren = false;
                         }
                         setXSecondValue = true;
                         XSecondValue = 23.4375f;
@@ -424,6 +451,10 @@
                 {
                     BottomSprite.Width = BottomSpriteWidthFirstValue * (1 - interpolationValue) + BottomSpriteWidthSecondValue * interpolationValue;
                 }
+                if (setBottomSpriteYFirstValue && setBottomSpriteYSecondValue)
+                {
+                    BottomSprite.Y = BottomSpriteYFirstValue * (1 - interpolationValue) + BottomSpriteYSecondValue * interpolationValue;
+                }
                 if (setHeightFirstValue && setHeightSecondValue)
                 {
                     Height = HeightFirstValue * (1 - interpolationValue) + HeightSecondValue * interpolationValue;
@@ -451,6 +482,10 @@
                 if (setMiddleSpriteWidthFirstValue && setMiddleSpriteWidthSecondValue)
                 {
                     MiddleSprite.Width = MiddleSpriteWidthFirstValue * (1 - interpolationValue) + MiddleSpriteWidthSecondValue * interpolationValue;
+                }
+                if (setMiddleSpriteYFirstValue && setMiddleSpriteYSecondValue)
+                {
+                    MiddleSprite.Y = MiddleSpriteYFirstValue * (1 - interpolationValue) + MiddleSpriteYSecondValue * interpolationValue;
                 }
                 if (setTopSpriteHeightFirstValue && setTopSpriteHeightSecondValue)
                 {
@@ -605,6 +640,14 @@
                             Name = "Width Units",
                             Type = "DimensionUnitType",
                             Value = WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Wraps Children",
+                            Type = "bool",
+                            Value = WrapsChildren
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -802,6 +845,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "MiddleSprite.Y",
+                            Type = "float",
+                            Value = MiddleSprite.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "BottomSprite.Height",
                             Type = "float",
                             Value = BottomSprite.Height
@@ -879,6 +930,14 @@
                             Value = BottomSprite.WidthUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomSprite.Y",
+                            Type = "float",
+                            Value = BottomSprite.Y
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -927,6 +986,14 @@
                             Name = "Width Units",
                             Type = "DimensionUnitType",
                             Value = WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Wraps Children",
+                            Type = "bool",
+                            Value = WrapsChildren
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1124,6 +1191,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "MiddleSprite.Y",
+                            Type = "float",
+                            Value = MiddleSprite.Y + -1f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "BottomSprite.Height",
                             Type = "float",
                             Value = BottomSprite.Height + 23f
@@ -1199,6 +1274,14 @@
                             Name = "BottomSprite.Width Units",
                             Type = "DimensionUnitType",
                             Value = BottomSprite.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomSprite.Y",
+                            Type = "float",
+                            Value = BottomSprite.Y + -1f
                         }
                         );
                         break;

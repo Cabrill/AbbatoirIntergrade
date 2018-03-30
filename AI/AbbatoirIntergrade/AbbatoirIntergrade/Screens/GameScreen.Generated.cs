@@ -170,6 +170,35 @@ namespace AbbatoirIntergrade.Screens
         }
         protected static Microsoft.Xna.Framework.Audio.SoundEffect OutgoingMessage;
         protected static Microsoft.Xna.Framework.Audio.SoundEffect HordeAlert;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Scream1;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Scream2;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Scream3;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Scream4;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Scream5;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Scream6;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Scream7;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Scream8;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Scream9;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Scream10;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Scream11;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Scream12;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Scream13;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Scream14;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect Scream15;
+        static Microsoft.Xna.Framework.Audio.SoundEffect mScreamLoop;
+        static string mLastContentManagerForScreamLoop;
+        public static Microsoft.Xna.Framework.Audio.SoundEffect ScreamLoop
+        {
+            get
+            {
+                if (mScreamLoop == null || mLastContentManagerForScreamLoop != "GameScreen")
+                {
+                    mLastContentManagerForScreamLoop = "GameScreen";
+                    mScreamLoop = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/screamloop", "GameScreen");
+                }
+                return mScreamLoop;
+            }
+        }
         
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D WorldRenderTarget;
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D DarknessRenderTarget;
@@ -204,6 +233,7 @@ namespace AbbatoirIntergrade.Screens
         private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance;
         private AbbatoirIntergrade.GumRuntimes.TextRuntime HordeText;
         private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime DimmingRectangleInstance;
+        private AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime ReadyButtonInstance;
         public event System.EventHandler BeforeCurrentSatoshisSet;
         public event System.EventHandler AfterCurrentSatoshisSet;
         int mCurrentSatoshis;
@@ -286,6 +316,7 @@ namespace AbbatoirIntergrade.Screens
             CurrentMusicDisplayInstance = GameScreenGum.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
             HordeText = GameScreenGum.GetGraphicalUiElementByName("HordeText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
             DimmingRectangleInstance = GameScreenGum.GetGraphicalUiElementByName("DimmingRectangle") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
+            ReadyButtonInstance = GameScreenGum.GetGraphicalUiElementByName("ReadyButtonInstance") as AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime;
             
             
             PostInitialize();
@@ -412,6 +443,7 @@ namespace AbbatoirIntergrade.Screens
             CurrentMusicDisplayInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             HordeText.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             DimmingRectangleInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(InfoLayer)));
+            ReadyButtonInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             base.AddToManagers();
             AddToManagersBottomUp();
             CustomInitialize();
@@ -549,6 +581,25 @@ namespace AbbatoirIntergrade.Screens
             }
             OutgoingMessage = null;
             HordeAlert = null;
+            Scream1 = null;
+            Scream2 = null;
+            Scream3 = null;
+            Scream4 = null;
+            Scream5 = null;
+            Scream6 = null;
+            Scream7 = null;
+            Scream8 = null;
+            Scream9 = null;
+            Scream10 = null;
+            Scream11 = null;
+            Scream12 = null;
+            Scream13 = null;
+            Scream14 = null;
+            Scream15 = null;
+            if (mScreamLoop != null)
+            {
+                mScreamLoop = null;
+            }
             
             AllStructuresList.MakeOneWay();
             AllEnemiesList.MakeOneWay();
@@ -690,6 +741,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 DimmingRectangleInstance.RemoveFromManagers();
             }
+            if (ReadyButtonInstance != null)
+            {
+                ReadyButtonInstance.RemoveFromManagers();
+            }
             AllStructuresList.MakeTwoWay();
             AllEnemiesList.MakeTwoWay();
             PlayerProjectileList.MakeTwoWay();
@@ -733,6 +788,7 @@ namespace AbbatoirIntergrade.Screens
             CurrentMusicDisplayInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             HordeText.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             DimmingRectangleInstance.MoveToFrbLayer(InfoLayer, InfoLayerGum);
+            ReadyButtonInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             FlatRedBall.Gui.GuiManager.SortZAndLayerBased();
         }
         public virtual void RemoveFromManagers () 
@@ -863,6 +919,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 DimmingRectangleInstance.RemoveFromManagers();
             }
+            if (ReadyButtonInstance != null)
+            {
+                ReadyButtonInstance.RemoveFromManagers();
+            }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 
         {
@@ -938,6 +998,21 @@ namespace AbbatoirIntergrade.Screens
             IncomingMessage = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/incomingmessage", contentManagerName);
             OutgoingMessage = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/outgoingmessage", contentManagerName);
             HordeAlert = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/hordealert", contentManagerName);
+            Scream1 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream1", contentManagerName);
+            Scream2 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream2", contentManagerName);
+            Scream3 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream3", contentManagerName);
+            Scream4 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream4", contentManagerName);
+            Scream5 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream5", contentManagerName);
+            Scream6 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream6", contentManagerName);
+            Scream7 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream7", contentManagerName);
+            Scream8 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream8", contentManagerName);
+            Scream9 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream9", contentManagerName);
+            Scream10 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream10", contentManagerName);
+            Scream11 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream11", contentManagerName);
+            Scream12 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream12", contentManagerName);
+            Scream13 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream13", contentManagerName);
+            Scream14 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream14", contentManagerName);
+            Scream15 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream15", contentManagerName);
             AbbatoirIntergrade.Entities.ShaderRenderer.LoadStaticContent(contentManagerName);
             AbbatoirIntergrade.Entities.GraphicalElements.StructurePlacement.LoadStaticContent(contentManagerName);
             CustomLoadStaticContent(contentManagerName);
@@ -981,6 +1056,38 @@ namespace AbbatoirIntergrade.Screens
                     return OutgoingMessage;
                 case  "HordeAlert":
                     return HordeAlert;
+                case  "Scream1":
+                    return Scream1;
+                case  "Scream2":
+                    return Scream2;
+                case  "Scream3":
+                    return Scream3;
+                case  "Scream4":
+                    return Scream4;
+                case  "Scream5":
+                    return Scream5;
+                case  "Scream6":
+                    return Scream6;
+                case  "Scream7":
+                    return Scream7;
+                case  "Scream8":
+                    return Scream8;
+                case  "Scream9":
+                    return Scream9;
+                case  "Scream10":
+                    return Scream10;
+                case  "Scream11":
+                    return Scream11;
+                case  "Scream12":
+                    return Scream12;
+                case  "Scream13":
+                    return Scream13;
+                case  "Scream14":
+                    return Scream14;
+                case  "Scream15":
+                    return Scream15;
+                case  "ScreamLoop":
+                    return ScreamLoop;
             }
             return null;
         }
@@ -1022,6 +1129,38 @@ namespace AbbatoirIntergrade.Screens
                     return OutgoingMessage;
                 case  "HordeAlert":
                     return HordeAlert;
+                case  "Scream1":
+                    return Scream1;
+                case  "Scream2":
+                    return Scream2;
+                case  "Scream3":
+                    return Scream3;
+                case  "Scream4":
+                    return Scream4;
+                case  "Scream5":
+                    return Scream5;
+                case  "Scream6":
+                    return Scream6;
+                case  "Scream7":
+                    return Scream7;
+                case  "Scream8":
+                    return Scream8;
+                case  "Scream9":
+                    return Scream9;
+                case  "Scream10":
+                    return Scream10;
+                case  "Scream11":
+                    return Scream11;
+                case  "Scream12":
+                    return Scream12;
+                case  "Scream13":
+                    return Scream13;
+                case  "Scream14":
+                    return Scream14;
+                case  "Scream15":
+                    return Scream15;
+                case  "ScreamLoop":
+                    return ScreamLoop;
             }
             return null;
         }
@@ -1063,6 +1202,38 @@ namespace AbbatoirIntergrade.Screens
                     return OutgoingMessage;
                 case  "HordeAlert":
                     return HordeAlert;
+                case  "Scream1":
+                    return Scream1;
+                case  "Scream2":
+                    return Scream2;
+                case  "Scream3":
+                    return Scream3;
+                case  "Scream4":
+                    return Scream4;
+                case  "Scream5":
+                    return Scream5;
+                case  "Scream6":
+                    return Scream6;
+                case  "Scream7":
+                    return Scream7;
+                case  "Scream8":
+                    return Scream8;
+                case  "Scream9":
+                    return Scream9;
+                case  "Scream10":
+                    return Scream10;
+                case  "Scream11":
+                    return Scream11;
+                case  "Scream12":
+                    return Scream12;
+                case  "Scream13":
+                    return Scream13;
+                case  "Scream14":
+                    return Scream14;
+                case  "Scream15":
+                    return Scream15;
+                case  "ScreamLoop":
+                    return ScreamLoop;
             }
             return null;
         }
