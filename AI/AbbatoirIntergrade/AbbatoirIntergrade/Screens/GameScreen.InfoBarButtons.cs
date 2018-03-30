@@ -83,7 +83,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void UpdateInfoBar()
         {
-            TopStatusBarInstance.UpdateWave(CurrentLevel.CurrentWaveNumber);
+            TopStatusBarInstance.UpdateWave(CurrentLevel.CurrentWaveNumber, CurrentLevel.WavesToSurvive);
         }
     }
 }

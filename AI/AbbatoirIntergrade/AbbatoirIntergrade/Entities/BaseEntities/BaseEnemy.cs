@@ -55,6 +55,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         protected SoundEffectInstance DeathSound;
 	    protected SoundEffectInstance drowningSound;
 
+	    private bool isHorde;
+
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -183,7 +185,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	    private void CustomActivity()
 		{
-            UpdateStatusEffect();
+		    if (!isHorde) UpdateStatusEffect();
 
             if (!IsFlying || IsDead || IsStunned || IsHurt)
 		    {
@@ -201,7 +203,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 else AltitudeVelocity = 0;
             }
 
-		    if (AltitudeVelocity > 0 || (Altitude > 0 && AltitudeVelocity < 0))
+		    var isFallingOrAscending = AltitudeVelocity > 0 || (Altitude > 0 && AltitudeVelocity < 0);
+            if (isFallingOrAscending)
 		    {
                 //Remove drag in the air
 		        Drag = 0.1f;
@@ -209,7 +212,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		        if (IsHurt && IsOnFinalFrameOfAnimation) SpriteInstance.Animate = false;
 		    }
 
-            if (Math.Abs(Altitude) <= 0.001f && AltitudeVelocity < 0)
+		    var isOnGround = Math.Abs(Altitude) <= 0.001f && AltitudeVelocity < 0;
+            if (isOnGround)
             {
                 //Reset drag by setting state
                 CurrentActionState = CurrentActionState;
@@ -229,17 +233,17 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 		    if (!IsDead)
 		    {
-		        UpdateNavigationTargetProgress();
+		        if (!isHorde) UpdateNavigationTargetProgress();
 
 		        if (!IsHurt)
 		        {
-		            NavigationActivity();
+		            NavigateToTarget();
 		            SetDirection();
                 }
             }
 
 		    UpdateSpritesRelativeY();
-            UpdateHealthBar();
+		    if (!isHorde) UpdateHealthBar();
 		}
 
         internal static void Initialize(Polygon pathing, TileNodeNetwork pathingNodeNetwork)
@@ -283,7 +287,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	        ShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow;
         }
 
-	    protected void SetDirection()
+	    private void SetDirection()
 	    {
 	        CurrentDirectionState =
 	            (Velocity.X < 0 ? Direction.MovingLeft : Direction.MovingRight);
@@ -316,6 +320,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         public void GetHitBy(BasePlayerProjectile projectile, float dmgMultiplier = 1)
         {
+            if (isHorde) return;
+
             var effectiveMultiplier = GetEffectiveMultiplier(projectile.DamageType);
             var dmgInflicted = effectiveMultiplier * projectile.DamageInflicted * dmgMultiplier;
             TakeDamage(dmgInflicted);
@@ -490,7 +496,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	            if (child is PiercingProjectile projectile)
 	            {
-	                //projectile.Visible = false;
                     projectile.Instructions.Clear();
 	                TweenerManager.Self.StopAllTweenersOwnedBy(projectile);
                     projectile.Destroy();

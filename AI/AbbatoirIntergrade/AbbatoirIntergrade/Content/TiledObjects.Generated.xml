@@ -225,7 +225,7 @@
     <property name="DisplayName" type="string" default="Frost" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="StructureDescription" type="string" />
-    <property name="ProjectileSpeed" type="float" default="450" />
+    <property name="ProjectileSpeed" type="float" default="500" />
     <property name="RangedRadius" type="float" default="500" />
     <property name="AttackDamage" type="float" default="20" />
     <property name="SecondsBetweenFiring" type="float" default="2.5" />

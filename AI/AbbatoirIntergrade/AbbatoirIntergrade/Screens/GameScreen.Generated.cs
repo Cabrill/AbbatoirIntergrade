@@ -169,6 +169,7 @@ namespace AbbatoirIntergrade.Screens
             }
         }
         protected static Microsoft.Xna.Framework.Audio.SoundEffect OutgoingMessage;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect HordeAlert;
         
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D WorldRenderTarget;
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D DarknessRenderTarget;
@@ -201,6 +202,7 @@ namespace AbbatoirIntergrade.Screens
         private AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime LocationTimeInstance;
         private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance;
         private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance;
+        private AbbatoirIntergrade.GumRuntimes.TextRuntime HordeText;
         protected global::RenderingLibrary.Graphics.Layer BackgroundLayerGum;
         protected global::RenderingLibrary.Graphics.Layer WorldLayerGum;
         protected global::RenderingLibrary.Graphics.Layer LightLayerGum;
@@ -259,6 +261,7 @@ namespace AbbatoirIntergrade.Screens
             LocationTimeInstance = GameScreenGum.GetGraphicalUiElementByName("LocationTimeAnnouncementInstance") as AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime;
             ConfirmationWindowInstance = GameScreenGum.GetGraphicalUiElementByName("ConfirmationWindowInstance") as AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime;
             CurrentMusicDisplayInstance = GameScreenGum.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
+            HordeText = GameScreenGum.GetGraphicalUiElementByName("HordeText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
             
             
             PostInitialize();
@@ -371,6 +374,7 @@ namespace AbbatoirIntergrade.Screens
             
             EnemyInfoInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             StructurePlacementInstance.AddToManagers(HUDLayer);
+            StructurePlacementInstance.SetToIgnorePausing();
             StructureInfoInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             ChatBoxInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             BuildMenuInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
@@ -382,6 +386,7 @@ namespace AbbatoirIntergrade.Screens
             LocationTimeInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             ConfirmationWindowInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             CurrentMusicDisplayInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            HordeText.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             base.AddToManagers();
             AddToManagersBottomUp();
             CustomInitialize();
@@ -420,6 +425,7 @@ namespace AbbatoirIntergrade.Screens
             }
             else
             {
+                StructurePlacementInstance.Activity();
             }
             base.Activity(firstTimeCalled);
             if (!IsActivityFinished)
@@ -517,6 +523,7 @@ namespace AbbatoirIntergrade.Screens
                 mChapter10 = null;
             }
             OutgoingMessage = null;
+            HordeAlert = null;
             
             AllStructuresList.MakeOneWay();
             AllEnemiesList.MakeOneWay();
@@ -650,6 +657,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 CurrentMusicDisplayInstance.RemoveFromManagers();
             }
+            if (HordeText != null)
+            {
+                HordeText.RemoveFromManagers();
+            }
             AllStructuresList.MakeTwoWay();
             AllEnemiesList.MakeTwoWay();
             PlayerProjectileList.MakeTwoWay();
@@ -690,6 +701,7 @@ namespace AbbatoirIntergrade.Screens
             LocationTimeInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             ConfirmationWindowInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             CurrentMusicDisplayInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            HordeText.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             FlatRedBall.Gui.GuiManager.SortZAndLayerBased();
         }
         public virtual void RemoveFromManagers () 
@@ -812,6 +824,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 CurrentMusicDisplayInstance.RemoveFromManagers();
             }
+            if (HordeText != null)
+            {
+                HordeText.RemoveFromManagers();
+            }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 
         {
@@ -886,6 +902,7 @@ namespace AbbatoirIntergrade.Screens
             CollisionShapes = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/tilesets/collisionshapes.png", contentManagerName);
             IncomingMessage = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/incomingmessage", contentManagerName);
             OutgoingMessage = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/outgoingmessage", contentManagerName);
+            HordeAlert = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/hordealert", contentManagerName);
             AbbatoirIntergrade.Entities.ShaderRenderer.LoadStaticContent(contentManagerName);
             AbbatoirIntergrade.Entities.GraphicalElements.StructurePlacement.LoadStaticContent(contentManagerName);
             CustomLoadStaticContent(contentManagerName);
@@ -927,6 +944,8 @@ namespace AbbatoirIntergrade.Screens
                     return Chapter10;
                 case  "OutgoingMessage":
                     return OutgoingMessage;
+                case  "HordeAlert":
+                    return HordeAlert;
             }
             return null;
         }
@@ -966,6 +985,8 @@ namespace AbbatoirIntergrade.Screens
                     return Chapter10;
                 case  "OutgoingMessage":
                     return OutgoingMessage;
+                case  "HordeAlert":
+                    return HordeAlert;
             }
             return null;
         }
@@ -1005,6 +1026,8 @@ namespace AbbatoirIntergrade.Screens
                     return Chapter10;
                 case  "OutgoingMessage":
                     return OutgoingMessage;
+                case  "HordeAlert":
+                    return HordeAlert;
             }
             return null;
         }

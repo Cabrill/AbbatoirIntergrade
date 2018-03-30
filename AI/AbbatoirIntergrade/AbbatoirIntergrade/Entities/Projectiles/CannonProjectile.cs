@@ -101,7 +101,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 	            {
 	                enemy.ReactToExplosion(this, amplitude,
 	                    direction * 400 * amplitude * (1-enemy.Mass),
-	                    600 * amplitude * (1-enemy.Mass));
+	                    800 * amplitude * (1-enemy.Mass));
 	            }
             }
 	    }

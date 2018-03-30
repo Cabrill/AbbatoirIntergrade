@@ -247,7 +247,7 @@
     </Frame>
     <Frame>
       <TextureName>Stage3.png</TextureName>
-      <FrameLength>0.04</FrameLength>
+      <FrameLength>2</FrameLength>
       <LeftCoordinate>483</LeftCoordinate>
       <RightCoordinate>668</RightCoordinate>
       <TopCoordinate>4028</TopCoordinate>
@@ -370,7 +370,7 @@
     </Frame>
     <Frame>
       <TextureName>Stage3.png</TextureName>
-      <FrameLength>0.04</FrameLength>
+      <FrameLength>0.06</FrameLength>
       <LeftCoordinate>1272</LeftCoordinate>
       <RightCoordinate>1462</RightCoordinate>
       <TopCoordinate>4040</TopCoordinate>

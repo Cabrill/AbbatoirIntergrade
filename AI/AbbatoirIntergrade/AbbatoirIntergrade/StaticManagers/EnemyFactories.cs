@@ -17,7 +17,7 @@ namespace AbbatoirIntergrade.StaticManagers
 {
     public static class EnemyFactories
     {
-        public static BaseEnemy CreateNew(EnemyTypes enemyType, SerializableChromosome chromosome = null)
+        public static BaseEnemy CreateNew(EnemyTypes enemyType, SerializableChromosome chromosome = null, bool isHorde = false)
         {
             BaseEnemy newEnemy = null;
             switch (enemyType)
@@ -42,9 +42,17 @@ namespace AbbatoirIntergrade.StaticManagers
                 case EnemyTypes.Pig2: newEnemy = Pig2EnemyFactory.CreateNew(); break;
                 case EnemyTypes.Pig3: newEnemy = Pig3EnemyFactory.CreateNew(); break;
             }
-            newEnemy?.SetGenetics(chromosome ?? GeneticsManager.GenerateNewChromsome());
+            
 
-            newEnemy?.FollowLine();
+            if (isHorde)
+            {
+                newEnemy?.RushEndPoint();
+            }
+            else
+            {
+                newEnemy?.FollowLine();
+                newEnemy?.SetGenetics(chromosome ?? GeneticsManager.GenerateNewChromsome());
+            }
 
             return newEnemy;
         }

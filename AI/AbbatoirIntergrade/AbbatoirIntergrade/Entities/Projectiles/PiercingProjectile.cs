@@ -84,18 +84,39 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 	        var fromAbove = enemy.Y < Y;
 	        var fromLeft = enemy.X > X;
 
-            AttachTo(enemy.SpriteInstance, true);
 
-	        var impactOffsetX = FlatRedBallServices.Random.NextFloat(enemy.SpriteInstance.Width * 0.1f);
-	        var impactOffsetY = FlatRedBallServices.Random.NextFloat(enemy.SpriteInstance.Height * 0.1f);
+	        float impactOffsetX = 0f;
+	        float impactOffsetY = 0f;
 
-            var effectiveX = (impactOffsetX * (fromLeft ? -1 : 1)) - 
-	                         (CircleInstance.RelativeY - 20f) * direction.Y;
-	        var effectiveY = (impactOffsetY * (fromAbove ? -1 : 1)) +
-	                         (CircleInstance.RelativeY - 20f) * direction.X;
-	        
-	        RelativeX = effectiveX;
-	        RelativeY = effectiveY + enemy.Altitude;
+            if (enemy.IsFlying)
+	        {
+	            AttachTo(enemy.SpriteInstance, true);
+	            
+                impactOffsetX = FlatRedBallServices.Random.NextFloat(15f);
+	            impactOffsetY = FlatRedBallServices.Random.NextFloat(3f);
+
+	            var effectiveX = (impactOffsetX * (fromLeft ? -1 : 1)) -
+	                             (CircleInstance.RelativeY - 20f) * direction.Y;
+	            var effectiveY = (impactOffsetY * (fromAbove ? -1 : 1)) +
+	                             (CircleInstance.RelativeY - 20f) * direction.X;
+
+                RelativeX = effectiveX;
+	            RelativeY = effectiveY + (fromAbove ? -260 : -210);
+            }
+	        else
+	        {
+	            AttachTo(enemy.SpriteInstance, true);
+	            impactOffsetX = FlatRedBallServices.Random.NextFloat(enemy.SpriteInstance.Width * 0.1f);
+	            impactOffsetY = FlatRedBallServices.Random.NextFloat(enemy.SpriteInstance.Height * 0.1f);
+
+	            var effectiveX = (impactOffsetX * (fromLeft ? -1 : 1)) -
+	                             (CircleInstance.RelativeY - 20f) * direction.Y;
+	            var effectiveY = (impactOffsetY * (fromAbove ? -1 : 1)) +
+	                             (CircleInstance.RelativeY - 20f) * direction.X;
+
+	            RelativeX = effectiveX;
+	            RelativeY = effectiveY;
+            }
         }
 
 

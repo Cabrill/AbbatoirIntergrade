@@ -426,7 +426,7 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.LightAimSpriteInstance.Visible = true;
             DisplayName = "Frost";
             HasLightSource = true;
-            ProjectileSpeed = 450f;
+            ProjectileSpeed = 500f;
             RangedRadius = 500f;
             AttackDamage = 20f;
             SecondsBetweenFiring = 2.5;

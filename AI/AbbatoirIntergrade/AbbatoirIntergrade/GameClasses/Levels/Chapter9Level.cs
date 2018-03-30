@@ -16,6 +16,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
         public override string LocationName => "Tillarb Narrows";
         public override DateTime StartTime => new DateTime(2017, 10, 29, 19, 0, 0);
         public override int StartingLives => 30;
+        public override int WavesToSurvive => 15;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.DeadTrees;
         public override List<string> SongNameList => new List<string>() { nameof(GlobalContent.Brallit_Vow_of_Silence), nameof(GlobalContent.anttisinstrumentals_melancholysound), nameof(GlobalContent.anttisinstrumentals_marchoftheages) };
 

@@ -42,6 +42,7 @@ namespace AbbatoirIntergrade.Screens
         {
             Normal,
             Building,
+            Ending
         };
 
         private double PauseAndBuildAjustedTime;
@@ -61,6 +62,7 @@ namespace AbbatoirIntergrade.Screens
 
         private SoundEffectInstance IncomingMessageSound;
         private SoundEffectInstance OutgoingMessageSound;
+        private SoundEffectInstance HordeAlertSound;
 
 
 
@@ -85,9 +87,10 @@ namespace AbbatoirIntergrade.Screens
             LocalLogManager.AddLine("Game Screen - Load sounds");
             IncomingMessageSound = IncomingMessage.CreateInstance();
             OutgoingMessageSound = OutgoingMessage.CreateInstance();
+            HordeAlertSound = HordeAlert.CreateInstance();
 
             LocalLogManager.AddLine("Game Screen - Load Level");
-            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter9Level();
+            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
             CurrentLevel.Reset();
             CurrentLevel.OnNewWaveStart += HandleWaveStarted;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
@@ -163,8 +166,17 @@ namespace AbbatoirIntergrade.Screens
         private void HandleWaveEnded(object sender, EventArgs e)
         {
             LocalLogManager.AddLine("Game Screen - Wave ended");
-            ChangeGameModeToBuilding();
+
             MachineLearningManager.NotifyOfWaveEnd();
+
+            if (CurrentLevel.HasReachedVictory())
+            {
+                LevelVictory();
+            }
+            else
+            {
+                ChangeGameModeToBuilding();    
+            }
         }
 
         private void InitializeShaders()
@@ -208,8 +220,8 @@ namespace AbbatoirIntergrade.Screens
             BaseStructure.Initialize(AllEnemiesList);
             BaseEnemy.Initialize(Pathing, PathingNodeNetwork);
         }
-        
-        void LoadTiledMap()
+
+        private void LoadTiledMap()
         {
             currentMap = GetFile(CurrentLevel.MapName) as FlatRedBall.TileGraphics.LayeredTileMap;
             LocalLogManager.AddLine("Game Screen - Instantiate tiles");
@@ -223,14 +235,6 @@ namespace AbbatoirIntergrade.Screens
                 overlay.RelativeZ = 3;
             }
 
-            //LocalLogManager.AddLine("Game Screen - Set structure placements");
-            //foreach (var place in StructurePlacementList)
-            //{
-            //    place.OnClick += OnStructurePlacementClick;
-            //    place.SetToIgnorePausing();
-            //    place.AttachTo(currentMap, true);
-            //    place.RelativeZ = 3;
-            //}
             LocalLogManager.AddLine("Game Screen - Set circle collisions");
             foreach (var circle in TileCollisionCircleList)
             {
@@ -298,6 +302,7 @@ namespace AbbatoirIntergrade.Screens
             }
 
             LocalLogManager.AddLine("Game Screen - Create pathing node network");
+
             PathingNodeNetwork = NodeNetworkGenerator.CreateFromTiledMap(currentMap);
             shiftVector.X += currentMap.WidthPerTile.Value/2;
             shiftVector.Y += currentMap.HeightPerTile.Value/2;
@@ -360,6 +365,8 @@ namespace AbbatoirIntergrade.Screens
                 StructurePlacementInstance.CurrentCurrentlyActiveState = IsStructureBlocked() ? StructurePlacement.CurrentlyActive.Inactive : StructurePlacement.CurrentlyActive.Active;
             }
 
+            TopStatusBarInstance.UpdateTime(PauseAndBuildAjustedTime, IsPaused);
+
             var gameplayOccuring = !IsPaused && GameHasStarted && CurrentGameMode != GameMode.Building;
             if (gameplayOccuring)
             {
@@ -368,7 +375,7 @@ namespace AbbatoirIntergrade.Screens
                 UpdateGameTime();
 
                 CurrentLevel.Update();
-                TopStatusBarInstance.UpdateTime(PauseAndBuildAjustedTime);
+                
 
                 HorizonBoxInstance.Update(currentLevelDateTime);
 
@@ -377,7 +384,11 @@ namespace AbbatoirIntergrade.Screens
                 EnemyStatusActivity();
                 PlayerProjectileActivity();
 
-                if (CurrentLevel.HasReachedDefeat())
+                if (CurrentGameMode == GameMode.Ending && !GameScreenGumInstance.HordeIncomingAnimation.IsPlaying())
+                {
+                    SendTheHorde();
+                }
+                else if (CurrentGameMode != GameMode.Ending && CurrentLevel.HasReachedDefeat())
                 {
                     LevelFailed();
                 }
@@ -404,6 +415,12 @@ namespace AbbatoirIntergrade.Screens
 
             isBlocked = isBlocked || TileCollisionCircleList.Any(
                             c => c.Altitude < 1 && c.CollideAgainst(StructurePlacementInstance.CircleInstance));
+
+            if (WaterShapes != null)
+            {
+                isBlocked = isBlocked ||
+                            WaterShapes.Any(ws => ws.CollideAgainst(StructurePlacementInstance.CircleInstance));
+            }
 
             return isBlocked;
 
@@ -437,19 +454,20 @@ namespace AbbatoirIntergrade.Screens
         private void LevelFailed()
         {
             LocalLogManager.AddLine("Game Screen - Level End");
+
+            EndLevel();
+            ReturnToMapScreen();
+        }
+
+        private void EndLevel()
+        {
+            CurrentGameMode = GameMode.Ending;
+
             var chosenDialogue = PlayerDataManager.LastChosenDialogueId;
             if (!string.IsNullOrEmpty(chosenDialogue))
             {
                 PlayerDataManager.AddChosenDialogueId(chosenDialogue);
             }
-
-            AudioManager.StopSong();
-            try
-            {
-                //defeat_sound.Play();
-            }
-            catch (Exception){};
-            ShowGameEndDisplay(playerWon: false);
 
             var levelResults = CurrentLevel.GetFinalResults(currentLevelDateTime);
             levelResults.TimePlayed = PauseAndBuildAjustedTime;
@@ -460,26 +478,33 @@ namespace AbbatoirIntergrade.Screens
             AnalyticsManager.SendLevelCompleteEvent(levelResults);
 
             AnalyticsManager.SendDeferredEvents();
+        }
 
-            TimeManager.TimeFactor = 1;
+        private void ReturnToMapScreen()
+        {
+            GameScreenGumInstance.FadeOutAnimation.Play();
 
-            LoadingScreen.TransitionToScreen(typeof(MapScreen));
+            this.Call(() =>
+            {
+                TimeManager.TimeFactor = 1;
+                LoadingScreen.TransitionToScreen(typeof(MapScreen));
+            }).After(GameScreenGumInstance.FadeOutAnimation.Length);
         }
 
         private void LevelVictory()
         {
-            AudioManager.StopSong();
-            try
-            {
-                //victory_sound.Play();
-            }
-            catch (Exception) { };
-            ShowGameEndDisplay(playerWon: true);
+            EndLevel();
+            SoundManager.PlaySoundEffect(HordeAlertSound);
+            GameScreenGumInstance.HordeIncomingAnimation.Play();
+            this.Call(ReturnToMapScreen).After(GameScreenGumInstance.HordeIncomingAnimation.Length);
         }
 
-        private void ShowGameEndDisplay(bool playerWon)
+        private void SendTheHorde()
         {
-            GameHasStarted = false;
+            if (AllEnemiesList.Count < 100)
+            {
+                EnemyFactories.CreateNew(FlatRedBallServices.Random.In(CurrentLevel.AvailableEnemyTypes), isHorde:true);
+            }
         }
 
         private void RestartLevel(IWindow window)
@@ -497,18 +522,38 @@ namespace AbbatoirIntergrade.Screens
 	        {
 	            var enemy = AllEnemiesList[i-1];
 
+                //For horde mode we are only going to update drowning
+	            if (CurrentGameMode == GameMode.Ending)
+	            {
+	                //Collide enemies against water
+	                if (WaterShapes != null && enemy.Altitude <= 0)
+	                {
+	                    foreach (var shape in WaterShapes)
+	                    {
+	                        if (shape.IsPointInside(ref enemy.Position))
+	                        {
+	                            enemy.HandleDrowning();
+	                        }
+	                    }
+	                }
+	                continue;
+	            }
+
                 //Colide enemies against others
-                for (var j = i- 1; j > 0; j--)
+	            for (var j = i - 1; j > 0; j--)
 	            {
 	                var otherEnemy = AllEnemiesList[j - 1];
 
-	                if (enemy.IsFlying == otherEnemy.IsFlying || (enemy.IsJumper && otherEnemy.IsJumper && enemy.Altitude > 0 && otherEnemy.IsJumper && otherEnemy.Altitude > 0))
+	                if (enemy.IsFlying == otherEnemy.IsFlying ||
+	                    (enemy.IsJumper && otherEnemy.IsJumper && enemy.Altitude > 0 && otherEnemy.IsJumper &&
+	                        otherEnemy.Altitude > 0))
 	                {
-	                    enemy.SelfCollisionCircle.CollideAgainstMove(otherEnemy.SelfCollisionCircle, enemy.Mass, otherEnemy.Mass);
+	                    enemy.SelfCollisionCircle.CollideAgainstMove(otherEnemy.SelfCollisionCircle, enemy.Mass,
+	                        otherEnemy.Mass);
 	                }
 	            }
 
-                //Collide enemies against buildings
+	            //Collide enemies against buildings
 	            if (!enemy.IsFlying)
 	            {
 	                for (var j = AllStructuresList.Count(); j > 0; j--)
@@ -1031,8 +1076,9 @@ namespace AbbatoirIntergrade.Screens
 		    BaseStructure.Reset();
             if (IncomingMessageSound != null && !IncomingMessageSound.IsDisposed) IncomingMessageSound.Dispose();
 		    if (OutgoingMessageSound != null && !OutgoingMessageSound.IsDisposed) OutgoingMessageSound.Dispose();
+		    if (HordeAlertSound != null && !HordeAlertSound.IsDisposed) OutgoingMessageSound.Dispose();
 
-		    PathingNodeNetwork.LayerToDrawOn = null;
+            PathingNodeNetwork.LayerToDrawOn = null;
             PathingNodeNetwork.Visible = false;
             PathingNodeNetwork = null;
 

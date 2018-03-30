@@ -1183,6 +1183,11 @@
       <Name>darknessshader</Name>
       <Link>content\screens\gamescreen\effects\darknessshader.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\hordealert.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>HordeAlert</Name>
+      <Link>content\screens\gamescreen\sounds\hordealert.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\incomingmessage.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>IncomingMessage</Name>
@@ -1512,6 +1517,34 @@
     <None Include="content\gumproject\fontcache\font48bahnschrift_1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font48Bahnschrift_1</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font96informal_roman_o1.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>font96informal_roman_o1</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font96informal_roman_o1_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font96Informal_Roman_o1_0</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font96informal_roman_o1_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font96Informal_Roman_o1_1</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font96informal_roman_o1_2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font96Informal_Roman_o1_2</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font96informal_roman_o1_3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font96Informal_Roman_o1_3</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font96informal_roman_o1_4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font96Informal_Roman_o1_4</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font96informal_roman_o1_5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font96Informal_Roman_o1_5</Name>
     </None>
     <None Include="content\gumproject\gumproject.gumx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

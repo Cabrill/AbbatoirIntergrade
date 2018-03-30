@@ -35,11 +35,28 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             firstPoint = firstNavigationPoint;
             secondPoint = (IsFlying ? secondNavigationPointFlying : secondNavigationPoint);
 
-            X = (float)firstPoint.X + FlatRedBallServices.Random.Next(-1, 1) * FlatRedBallServices.Random.Next(5, 25);
-            Y = (float)firstPoint.Y + FlatRedBallServices.Random.Next(-1, 1) * FlatRedBallServices.Random.Next(5, 25);
+            X = (float)firstPoint.X + FlatRedBallServices.Random.Next(-1, 1) * FlatRedBallServices.Random.Next(5, 40);
+            Y = (float)firstPoint.Y + FlatRedBallServices.Random.Next(-1, 1) * FlatRedBallServices.Random.Next(5, 40);
 
             _targetPointForNavigation = secondPoint;
 
+            CurrentActionState = Action.Running;
+            CurrentDirectionState = Direction.MovingRight;
+
+            var randomStartingFrame =
+                FlatRedBallServices.Random.Next(0, spriteAnimationChainList[SpriteInstance.CurrentChainIndex].Count - 1);
+            SpriteInstance.CurrentFrameIndex = randomStartingFrame;
+        }
+
+        public void RushEndPoint()
+        {
+            isHorde = true;
+
+            X = (float)firstNavigationPoint.X + FlatRedBallServices.Random.Next(-1, 1) * FlatRedBallServices.Random.Next(5, 40);
+            Y = (float)firstNavigationPoint.Y + FlatRedBallServices.Random.Next(-1, 1) * FlatRedBallServices.Random.Next(5, 40);
+
+            PathingPointIndex = PathingLine.Points.Count - 1;
+            _targetPointForNavigation = secondNavigationPointFlying;
             CurrentActionState = Action.Running;
             CurrentDirectionState = Direction.MovingRight;
 
@@ -76,12 +93,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
         }
 
-        private void NavigationActivity()
-        {
-            UpdateNavigationTargetProgress();
-            NavigateToTarget();
-        }
-
         private void ChoosePointForNavigation()
         {
             if (PathingPointIndex < PathingLine.Points.Count-1)
@@ -96,7 +107,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         protected virtual void NavigateToTarget()
         {
-            if (!PathingSegments.Any(s => s.DistanceTo(Position) < SelfCollisionCircle.Radius/2))
+            if (!isHorde && !PathingSegments.Any(s => s.DistanceTo(Position) < SelfCollisionCircle.Radius/2))
             {
                 var nextNodes = NodeNetwork.GetPathOrClosest(ref Position, ref _targetPointForNavigation);
                 var nextNode = nextNodes.Count > 1 ? nextNodes[1] : nextNodes[0];

@@ -95,12 +95,12 @@ namespace AbbatoirIntergrade.GumRuntimes
             MenuButton.CallClick();
         }
 
-        public void UpdateWave(int currentLevelCurrentWaveNumber)
+        public void UpdateWave(int currentLevelCurrentWaveNumber, int totalWaves)
         {
-            WaveTextInstance.Text = $"Wave {currentLevelCurrentWaveNumber}";
+            WaveTextInstance.Text =  $"{currentLevelCurrentWaveNumber} / {totalWaves}";
         }
 
-        public void UpdateTime(double currentTime)
+        public void UpdateTime(double currentTime, bool isPaused)
         {
             var totalSeconds = (int)currentTime;
             var milliSeconds = (int)((currentTime - totalSeconds) * 100);
@@ -108,7 +108,14 @@ namespace AbbatoirIntergrade.GumRuntimes
             var minutes = totalSeconds / 60;
             var  time = minutes.ToString("00") + ":" + seconds.ToString("00") + "." + milliSeconds.ToString("00");
 
-            TimeTextInstance.Text = $"Time: {time}";
+            TimeTextInstance.Text = $"{time}";
+
+            if (isPaused && !PulseTimeAnimation.IsPlaying()) PulseTimeAnimation.Play();
+            if (!isPaused && PulseTimeAnimation.IsPlaying())
+            {
+                PulseTimeAnimation.Stop();
+                CurrentTimeDisplayState = TimeDisplay.DefaultTime;
+            }
         }
     }
 }

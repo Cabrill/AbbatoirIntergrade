@@ -15,6 +15,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
         public override string LocationName => "Jugahn Village";
         public override DateTime StartTime => new DateTime(2017, 10, 24, 15, 0, 0);
         public override int StartingLives => 15;
+        public override int WavesToSurvive => 10;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.Plains;
         public override List<string> SongNameList => new List<string>() { nameof(GlobalContent.Brallit_Ocular_Eclipse), nameof(GlobalContent.anttisinstrumentals_justafaceinthedarkinstrumental), nameof(GlobalContent.anttisinstrumentals_enoughexcitementforalifetime) };
 

@@ -243,6 +243,18 @@
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Screens/GameScreen/Sounds/HordeAlert.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
       </ReferencedFiles>
       <NamedObjects>
         <NamedObjectSave>
@@ -452,6 +464,7 @@
           <AttachToContainer>true</AttachToContainer>
           <RemoveFromManagersWhenInvisible>true</RemoveFromManagersWhenInvisible>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IgnoresPausing>true</IgnoresPausing>
           <IndependentOfCamera>true</IndependentOfCamera>
           <LayerOn>HUDLayer</LayerOn>
         </NamedObjectSave>
@@ -472,6 +485,7 @@
           <InstanceName>ChatBoxInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IgnoresPausing>true</IgnoresPausing>
           <IndependentOfCamera>true</IndependentOfCamera>
           <LayerOn>HUDLayer</LayerOn>
         </NamedObjectSave>
@@ -606,6 +620,16 @@
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
           <SourceName>CurrentMusicDisplayInstance (AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime)</SourceName>
           <InstanceName>CurrentMusicDisplayInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn>HUDLayer</LayerOn>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
+          <SourceName>HordeText (AbbatoirIntergrade.GumRuntimes.TextRuntime)</SourceName>
+          <InstanceName>HordeText</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -3412,7 +3436,7 @@
           </Properties>
           <Name>ShowDebugShapes</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -3496,7 +3520,7 @@
           </Properties>
           <Name>ShowNodeNetwork</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
       </CustomVariables>
@@ -16063,7 +16087,7 @@
           </Properties>
           <Name>ProjectileSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">450</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">500</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>

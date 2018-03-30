@@ -8,9 +8,16 @@
             {
                 Default
             }
+            public enum TimeDisplay
+            {
+                TimeStart,
+                TimeEnd,
+                DefaultTime
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
+            TimeDisplay mCurrentTimeDisplayState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -44,30 +51,72 @@
                             InfoContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                             InfoContainer.Height = 0f;
                             InfoContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
-                            InfoContainer.Width = 0f;
-                            InfoContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            InfoContainer.Width = 1245f;
+                            InfoContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             InfoContainer.X = 35f;
+                            WaveLabel.Blue = 255;
+                            SetProperty("WaveLabel.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            WaveLabel.Green = 191;
+                            WaveLabel.Height = 0f;
+                            WaveLabel.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                            WaveLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            WaveLabel.Red = 0;
+                            WaveLabel.Text = "Wave";
+                            WaveLabel.UseCustomFont = true;
+                            WaveLabel.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            WaveLabel.Width = 0f;
+                            WaveLabel.X = 100f;
+                            WaveLabel.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                            WaveLabel.Y = 0f;
                             SetProperty("WaveTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             WaveTextInstance.Height = 0f;
                             WaveTextInstance.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                             WaveTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
-                            WaveTextInstance.Text = "Wave 0";
+                            WaveTextInstance.Text = "0/15";
                             WaveTextInstance.UseCustomFont = true;
                             WaveTextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            WaveTextInstance.Width = 300f;
-                            WaveTextInstance.X = 200f;
+                            WaveTextInstance.Width = 0f;
+                            WaveTextInstance.X = 100f;
                             WaveTextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                             WaveTextInstance.Y = 0f;
+                            TimeLabel.Blue = 255;
+                            SetProperty("TimeLabel.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            TimeLabel.FontScale = 0.7f;
+                            TimeLabel.Green = 191;
+                            TimeLabel.Height = 0f;
+                            TimeLabel.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
+                            TimeLabel.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                            TimeLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            TimeLabel.Red = 0;
+                            TimeLabel.Text = "Time:";
+                            TimeLabel.UseCustomFont = true;
+                            TimeLabel.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            TimeLabel.Width = 0f;
+                            TimeLabel.X = -500f;
+                            TimeLabel.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                            TimeLabel.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                            TimeLabel.Y = 0f;
+                            TimeLabel.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            TimeLabel.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            TimeTextInstance.Blue = 255;
                             SetProperty("TimeTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             TimeTextInstance.FontScale = 0.7f;
+                            TimeTextInstance.Green = 255;
                             TimeTextInstance.Height = 0f;
+                            TimeTextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
+                            TimeTextInstance.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             TimeTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
-                            TimeTextInstance.Text = "Time: 00:00.00";
+                            TimeTextInstance.Red = 255;
+                            TimeTextInstance.Text = "00:00.00";
                             TimeTextInstance.UseCustomFont = true;
                             TimeTextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            TimeTextInstance.Width = 450f;
-                            TimeTextInstance.X = 80f;
+                            TimeTextInstance.Width = 200f;
+                            TimeTextInstance.X = -300f;
+                            TimeTextInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                            TimeTextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                             TimeTextInstance.Y = 0f;
+                            TimeTextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            TimeTextInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             PauseButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Pause;
                             PauseButton.Height = 64f;
                             PauseButton.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
@@ -100,8 +149,39 @@
                             TimeButtonContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
                             TimeButtonContainer.Width = 0f;
                             TimeButtonContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
-                            TimeButtonContainer.X = -75f;
+                            TimeButtonContainer.X = 0f;
+                            TimeButtonContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                            TimeButtonContainer.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                             TimeButtonContainer.Y = 0f;
+                            break;
+                    }
+                }
+            }
+            public TimeDisplay CurrentTimeDisplayState
+            {
+                get
+                {
+                    return mCurrentTimeDisplayState;
+                }
+                set
+                {
+                    mCurrentTimeDisplayState = value;
+                    switch(mCurrentTimeDisplayState)
+                    {
+                        case  TimeDisplay.TimeStart:
+                            TimeTextInstance.Blue = 169;
+                            TimeTextInstance.Green = 169;
+                            TimeTextInstance.Red = 169;
+                            break;
+                        case  TimeDisplay.TimeEnd:
+                            TimeTextInstance.Blue = 203;
+                            TimeTextInstance.Green = 192;
+                            TimeTextInstance.Red = 255;
+                            break;
+                        case  TimeDisplay.DefaultTime:
+                            TimeTextInstance.Blue = 255;
+                            TimeTextInstance.Green = 255;
+                            TimeTextInstance.Red = 255;
                             break;
                     }
                 }
@@ -244,14 +324,58 @@
                 bool setTimeButtonContainerYSecondValue = false;
                 float TimeButtonContainerYFirstValue= 0;
                 float TimeButtonContainerYSecondValue= 0;
+                bool setTimeLabelBlueFirstValue = false;
+                bool setTimeLabelBlueSecondValue = false;
+                int TimeLabelBlueFirstValue= 0;
+                int TimeLabelBlueSecondValue= 0;
+                bool setTimeLabelFontScaleFirstValue = false;
+                bool setTimeLabelFontScaleSecondValue = false;
+                float TimeLabelFontScaleFirstValue= 0;
+                float TimeLabelFontScaleSecondValue= 0;
+                bool setTimeLabelGreenFirstValue = false;
+                bool setTimeLabelGreenSecondValue = false;
+                int TimeLabelGreenFirstValue= 0;
+                int TimeLabelGreenSecondValue= 0;
+                bool setTimeLabelHeightFirstValue = false;
+                bool setTimeLabelHeightSecondValue = false;
+                float TimeLabelHeightFirstValue= 0;
+                float TimeLabelHeightSecondValue= 0;
+                bool setTimeLabelRedFirstValue = false;
+                bool setTimeLabelRedSecondValue = false;
+                int TimeLabelRedFirstValue= 0;
+                int TimeLabelRedSecondValue= 0;
+                bool setTimeLabelWidthFirstValue = false;
+                bool setTimeLabelWidthSecondValue = false;
+                float TimeLabelWidthFirstValue= 0;
+                float TimeLabelWidthSecondValue= 0;
+                bool setTimeLabelXFirstValue = false;
+                bool setTimeLabelXSecondValue = false;
+                float TimeLabelXFirstValue= 0;
+                float TimeLabelXSecondValue= 0;
+                bool setTimeLabelYFirstValue = false;
+                bool setTimeLabelYSecondValue = false;
+                float TimeLabelYFirstValue= 0;
+                float TimeLabelYSecondValue= 0;
+                bool setTimeTextInstanceBlueFirstValue = false;
+                bool setTimeTextInstanceBlueSecondValue = false;
+                int TimeTextInstanceBlueFirstValue= 0;
+                int TimeTextInstanceBlueSecondValue= 0;
                 bool setTimeTextInstanceFontScaleFirstValue = false;
                 bool setTimeTextInstanceFontScaleSecondValue = false;
                 float TimeTextInstanceFontScaleFirstValue= 0;
                 float TimeTextInstanceFontScaleSecondValue= 0;
+                bool setTimeTextInstanceGreenFirstValue = false;
+                bool setTimeTextInstanceGreenSecondValue = false;
+                int TimeTextInstanceGreenFirstValue= 0;
+                int TimeTextInstanceGreenSecondValue= 0;
                 bool setTimeTextInstanceHeightFirstValue = false;
                 bool setTimeTextInstanceHeightSecondValue = false;
                 float TimeTextInstanceHeightFirstValue= 0;
                 float TimeTextInstanceHeightSecondValue= 0;
+                bool setTimeTextInstanceRedFirstValue = false;
+                bool setTimeTextInstanceRedSecondValue = false;
+                int TimeTextInstanceRedFirstValue= 0;
+                int TimeTextInstanceRedSecondValue= 0;
                 bool setTimeTextInstanceWidthFirstValue = false;
                 bool setTimeTextInstanceWidthSecondValue = false;
                 float TimeTextInstanceWidthFirstValue= 0;
@@ -264,6 +388,34 @@
                 bool setTimeTextInstanceYSecondValue = false;
                 float TimeTextInstanceYFirstValue= 0;
                 float TimeTextInstanceYSecondValue= 0;
+                bool setWaveLabelBlueFirstValue = false;
+                bool setWaveLabelBlueSecondValue = false;
+                int WaveLabelBlueFirstValue= 0;
+                int WaveLabelBlueSecondValue= 0;
+                bool setWaveLabelGreenFirstValue = false;
+                bool setWaveLabelGreenSecondValue = false;
+                int WaveLabelGreenFirstValue= 0;
+                int WaveLabelGreenSecondValue= 0;
+                bool setWaveLabelHeightFirstValue = false;
+                bool setWaveLabelHeightSecondValue = false;
+                float WaveLabelHeightFirstValue= 0;
+                float WaveLabelHeightSecondValue= 0;
+                bool setWaveLabelRedFirstValue = false;
+                bool setWaveLabelRedSecondValue = false;
+                int WaveLabelRedFirstValue= 0;
+                int WaveLabelRedSecondValue= 0;
+                bool setWaveLabelWidthFirstValue = false;
+                bool setWaveLabelWidthSecondValue = false;
+                float WaveLabelWidthFirstValue= 0;
+                float WaveLabelWidthSecondValue= 0;
+                bool setWaveLabelXFirstValue = false;
+                bool setWaveLabelXSecondValue = false;
+                float WaveLabelXFirstValue= 0;
+                float WaveLabelXSecondValue= 0;
+                bool setWaveLabelYFirstValue = false;
+                bool setWaveLabelYSecondValue = false;
+                float WaveLabelYFirstValue= 0;
+                float WaveLabelYSecondValue= 0;
                 bool setWaveTextInstanceHeightFirstValue = false;
                 bool setWaveTextInstanceHeightSecondValue = false;
                 float WaveTextInstanceHeightFirstValue= 0;
@@ -326,10 +478,10 @@
                             this.InfoContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                         }
                         setInfoContainerWidthFirstValue = true;
-                        InfoContainerWidthFirstValue = 0f;
+                        InfoContainerWidthFirstValue = 1245f;
                         if (interpolationValue < 1)
                         {
-                            this.InfoContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            this.InfoContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                         }
                         setInfoContainerXFirstValue = true;
                         InfoContainerXFirstValue = 35f;
@@ -436,24 +588,106 @@
                             this.TimeButtonContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                         }
                         setTimeButtonContainerXFirstValue = true;
-                        TimeButtonContainerXFirstValue = -75f;
+                        TimeButtonContainerXFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeButtonContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeButtonContainer.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
                         setTimeButtonContainerYFirstValue = true;
                         TimeButtonContainerYFirstValue = 0f;
+                        setTimeLabelBlueFirstValue = true;
+                        TimeLabelBlueFirstValue = 255;
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("TimeLabel.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
+                        setTimeLabelFontScaleFirstValue = true;
+                        TimeLabelFontScaleFirstValue = 0.7f;
+                        setTimeLabelGreenFirstValue = true;
+                        TimeLabelGreenFirstValue = 191;
+                        setTimeLabelHeightFirstValue = true;
+                        TimeLabelHeightFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeLabel.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeLabel.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                        }
+                        setTimeLabelRedFirstValue = true;
+                        TimeLabelRedFirstValue = 0;
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeLabel.Text = "Time:";
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeLabel.UseCustomFont = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeLabel.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        setTimeLabelWidthFirstValue = true;
+                        TimeLabelWidthFirstValue = 0f;
+                        setTimeLabelXFirstValue = true;
+                        TimeLabelXFirstValue = -500f;
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeLabel.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeLabel.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
+                        setTimeLabelYFirstValue = true;
+                        TimeLabelYFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeLabel.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeLabel.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        setTimeTextInstanceBlueFirstValue = true;
+                        TimeTextInstanceBlueFirstValue = 255;
                         if (interpolationValue < 1)
                         {
                             SetProperty("TimeTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                         }
                         setTimeTextInstanceFontScaleFirstValue = true;
                         TimeTextInstanceFontScaleFirstValue = 0.7f;
+                        setTimeTextInstanceGreenFirstValue = true;
+                        TimeTextInstanceGreenFirstValue = 255;
                         setTimeTextInstanceHeightFirstValue = true;
                         TimeTextInstanceHeightFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
-                            this.TimeTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.TimeTextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.TimeTextInstance.Text = "Time: 00:00.00";
+                            this.TimeTextInstance.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                        }
+                        setTimeTextInstanceRedFirstValue = true;
+                        TimeTextInstanceRedFirstValue = 255;
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeTextInstance.Text = "00:00.00";
                         }
                         if (interpolationValue < 1)
                         {
@@ -464,11 +698,69 @@
                             this.TimeTextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         setTimeTextInstanceWidthFirstValue = true;
-                        TimeTextInstanceWidthFirstValue = 450f;
+                        TimeTextInstanceWidthFirstValue = 200f;
                         setTimeTextInstanceXFirstValue = true;
-                        TimeTextInstanceXFirstValue = 80f;
+                        TimeTextInstanceXFirstValue = -300f;
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeTextInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeTextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
                         setTimeTextInstanceYFirstValue = true;
                         TimeTextInstanceYFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeTextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TimeTextInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        setWaveLabelBlueFirstValue = true;
+                        WaveLabelBlueFirstValue = 255;
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("WaveLabel.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
+                        setWaveLabelGreenFirstValue = true;
+                        WaveLabelGreenFirstValue = 191;
+                        setWaveLabelHeightFirstValue = true;
+                        WaveLabelHeightFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.WaveLabel.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.WaveLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                        }
+                        setWaveLabelRedFirstValue = true;
+                        WaveLabelRedFirstValue = 0;
+                        if (interpolationValue < 1)
+                        {
+                            this.WaveLabel.Text = "Wave";
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.WaveLabel.UseCustomFont = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.WaveLabel.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        setWaveLabelWidthFirstValue = true;
+                        WaveLabelWidthFirstValue = 0f;
+                        setWaveLabelXFirstValue = true;
+                        WaveLabelXFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.WaveLabel.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                        }
+                        setWaveLabelYFirstValue = true;
+                        WaveLabelYFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
                             SetProperty("WaveTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
@@ -485,7 +777,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.WaveTextInstance.Text = "Wave 0";
+                            this.WaveTextInstance.Text = "0/15";
                         }
                         if (interpolationValue < 1)
                         {
@@ -496,9 +788,9 @@
                             this.WaveTextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         setWaveTextInstanceWidthFirstValue = true;
-                        WaveTextInstanceWidthFirstValue = 300f;
+                        WaveTextInstanceWidthFirstValue = 0f;
                         setWaveTextInstanceXFirstValue = true;
-                        WaveTextInstanceXFirstValue = 200f;
+                        WaveTextInstanceXFirstValue = 100f;
                         if (interpolationValue < 1)
                         {
                             this.WaveTextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
@@ -555,10 +847,10 @@
                             this.InfoContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                         }
                         setInfoContainerWidthSecondValue = true;
-                        InfoContainerWidthSecondValue = 0f;
+                        InfoContainerWidthSecondValue = 1245f;
                         if (interpolationValue >= 1)
                         {
-                            this.InfoContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            this.InfoContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                         }
                         setInfoContainerXSecondValue = true;
                         InfoContainerXSecondValue = 35f;
@@ -665,24 +957,106 @@
                             this.TimeButtonContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                         }
                         setTimeButtonContainerXSecondValue = true;
-                        TimeButtonContainerXSecondValue = -75f;
+                        TimeButtonContainerXSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeButtonContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeButtonContainer.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
                         setTimeButtonContainerYSecondValue = true;
                         TimeButtonContainerYSecondValue = 0f;
+                        setTimeLabelBlueSecondValue = true;
+                        TimeLabelBlueSecondValue = 255;
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("TimeLabel.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
+                        setTimeLabelFontScaleSecondValue = true;
+                        TimeLabelFontScaleSecondValue = 0.7f;
+                        setTimeLabelGreenSecondValue = true;
+                        TimeLabelGreenSecondValue = 191;
+                        setTimeLabelHeightSecondValue = true;
+                        TimeLabelHeightSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeLabel.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeLabel.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                        }
+                        setTimeLabelRedSecondValue = true;
+                        TimeLabelRedSecondValue = 0;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeLabel.Text = "Time:";
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeLabel.UseCustomFont = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeLabel.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        setTimeLabelWidthSecondValue = true;
+                        TimeLabelWidthSecondValue = 0f;
+                        setTimeLabelXSecondValue = true;
+                        TimeLabelXSecondValue = -500f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeLabel.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeLabel.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
+                        setTimeLabelYSecondValue = true;
+                        TimeLabelYSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeLabel.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeLabel.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        setTimeTextInstanceBlueSecondValue = true;
+                        TimeTextInstanceBlueSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
                             SetProperty("TimeTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                         }
                         setTimeTextInstanceFontScaleSecondValue = true;
                         TimeTextInstanceFontScaleSecondValue = 0.7f;
+                        setTimeTextInstanceGreenSecondValue = true;
+                        TimeTextInstanceGreenSecondValue = 255;
                         setTimeTextInstanceHeightSecondValue = true;
                         TimeTextInstanceHeightSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
-                            this.TimeTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.TimeTextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.TimeTextInstance.Text = "Time: 00:00.00";
+                            this.TimeTextInstance.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                        }
+                        setTimeTextInstanceRedSecondValue = true;
+                        TimeTextInstanceRedSecondValue = 255;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeTextInstance.Text = "00:00.00";
                         }
                         if (interpolationValue >= 1)
                         {
@@ -693,11 +1067,69 @@
                             this.TimeTextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         setTimeTextInstanceWidthSecondValue = true;
-                        TimeTextInstanceWidthSecondValue = 450f;
+                        TimeTextInstanceWidthSecondValue = 200f;
                         setTimeTextInstanceXSecondValue = true;
-                        TimeTextInstanceXSecondValue = 80f;
+                        TimeTextInstanceXSecondValue = -300f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeTextInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeTextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
                         setTimeTextInstanceYSecondValue = true;
                         TimeTextInstanceYSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeTextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimeTextInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        setWaveLabelBlueSecondValue = true;
+                        WaveLabelBlueSecondValue = 255;
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("WaveLabel.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
+                        setWaveLabelGreenSecondValue = true;
+                        WaveLabelGreenSecondValue = 191;
+                        setWaveLabelHeightSecondValue = true;
+                        WaveLabelHeightSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.WaveLabel.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.WaveLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                        }
+                        setWaveLabelRedSecondValue = true;
+                        WaveLabelRedSecondValue = 0;
+                        if (interpolationValue >= 1)
+                        {
+                            this.WaveLabel.Text = "Wave";
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.WaveLabel.UseCustomFont = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.WaveLabel.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        setWaveLabelWidthSecondValue = true;
+                        WaveLabelWidthSecondValue = 0f;
+                        setWaveLabelXSecondValue = true;
+                        WaveLabelXSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.WaveLabel.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                        }
+                        setWaveLabelYSecondValue = true;
+                        WaveLabelYSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
                             SetProperty("WaveTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
@@ -714,7 +1146,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.WaveTextInstance.Text = "Wave 0";
+                            this.WaveTextInstance.Text = "0/15";
                         }
                         if (interpolationValue >= 1)
                         {
@@ -725,9 +1157,9 @@
                             this.WaveTextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         setWaveTextInstanceWidthSecondValue = true;
-                        WaveTextInstanceWidthSecondValue = 300f;
+                        WaveTextInstanceWidthSecondValue = 0f;
                         setWaveTextInstanceXSecondValue = true;
-                        WaveTextInstanceXSecondValue = 200f;
+                        WaveTextInstanceXSecondValue = 100f;
                         if (interpolationValue >= 1)
                         {
                             this.WaveTextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
@@ -870,13 +1302,57 @@
                 {
                     TimeButtonContainer.Y = TimeButtonContainerYFirstValue * (1 - interpolationValue) + TimeButtonContainerYSecondValue * interpolationValue;
                 }
+                if (setTimeLabelBlueFirstValue && setTimeLabelBlueSecondValue)
+                {
+                    TimeLabel.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(TimeLabelBlueFirstValue* (1 - interpolationValue) + TimeLabelBlueSecondValue * interpolationValue);
+                }
+                if (setTimeLabelFontScaleFirstValue && setTimeLabelFontScaleSecondValue)
+                {
+                    TimeLabel.FontScale = TimeLabelFontScaleFirstValue * (1 - interpolationValue) + TimeLabelFontScaleSecondValue * interpolationValue;
+                }
+                if (setTimeLabelGreenFirstValue && setTimeLabelGreenSecondValue)
+                {
+                    TimeLabel.Green = FlatRedBall.Math.MathFunctions.RoundToInt(TimeLabelGreenFirstValue* (1 - interpolationValue) + TimeLabelGreenSecondValue * interpolationValue);
+                }
+                if (setTimeLabelHeightFirstValue && setTimeLabelHeightSecondValue)
+                {
+                    TimeLabel.Height = TimeLabelHeightFirstValue * (1 - interpolationValue) + TimeLabelHeightSecondValue * interpolationValue;
+                }
+                if (setTimeLabelRedFirstValue && setTimeLabelRedSecondValue)
+                {
+                    TimeLabel.Red = FlatRedBall.Math.MathFunctions.RoundToInt(TimeLabelRedFirstValue* (1 - interpolationValue) + TimeLabelRedSecondValue * interpolationValue);
+                }
+                if (setTimeLabelWidthFirstValue && setTimeLabelWidthSecondValue)
+                {
+                    TimeLabel.Width = TimeLabelWidthFirstValue * (1 - interpolationValue) + TimeLabelWidthSecondValue * interpolationValue;
+                }
+                if (setTimeLabelXFirstValue && setTimeLabelXSecondValue)
+                {
+                    TimeLabel.X = TimeLabelXFirstValue * (1 - interpolationValue) + TimeLabelXSecondValue * interpolationValue;
+                }
+                if (setTimeLabelYFirstValue && setTimeLabelYSecondValue)
+                {
+                    TimeLabel.Y = TimeLabelYFirstValue * (1 - interpolationValue) + TimeLabelYSecondValue * interpolationValue;
+                }
+                if (setTimeTextInstanceBlueFirstValue && setTimeTextInstanceBlueSecondValue)
+                {
+                    TimeTextInstance.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(TimeTextInstanceBlueFirstValue* (1 - interpolationValue) + TimeTextInstanceBlueSecondValue * interpolationValue);
+                }
                 if (setTimeTextInstanceFontScaleFirstValue && setTimeTextInstanceFontScaleSecondValue)
                 {
                     TimeTextInstance.FontScale = TimeTextInstanceFontScaleFirstValue * (1 - interpolationValue) + TimeTextInstanceFontScaleSecondValue * interpolationValue;
                 }
+                if (setTimeTextInstanceGreenFirstValue && setTimeTextInstanceGreenSecondValue)
+                {
+                    TimeTextInstance.Green = FlatRedBall.Math.MathFunctions.RoundToInt(TimeTextInstanceGreenFirstValue* (1 - interpolationValue) + TimeTextInstanceGreenSecondValue * interpolationValue);
+                }
                 if (setTimeTextInstanceHeightFirstValue && setTimeTextInstanceHeightSecondValue)
                 {
                     TimeTextInstance.Height = TimeTextInstanceHeightFirstValue * (1 - interpolationValue) + TimeTextInstanceHeightSecondValue * interpolationValue;
+                }
+                if (setTimeTextInstanceRedFirstValue && setTimeTextInstanceRedSecondValue)
+                {
+                    TimeTextInstance.Red = FlatRedBall.Math.MathFunctions.RoundToInt(TimeTextInstanceRedFirstValue* (1 - interpolationValue) + TimeTextInstanceRedSecondValue * interpolationValue);
                 }
                 if (setTimeTextInstanceWidthFirstValue && setTimeTextInstanceWidthSecondValue)
                 {
@@ -889,6 +1365,34 @@
                 if (setTimeTextInstanceYFirstValue && setTimeTextInstanceYSecondValue)
                 {
                     TimeTextInstance.Y = TimeTextInstanceYFirstValue * (1 - interpolationValue) + TimeTextInstanceYSecondValue * interpolationValue;
+                }
+                if (setWaveLabelBlueFirstValue && setWaveLabelBlueSecondValue)
+                {
+                    WaveLabel.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(WaveLabelBlueFirstValue* (1 - interpolationValue) + WaveLabelBlueSecondValue * interpolationValue);
+                }
+                if (setWaveLabelGreenFirstValue && setWaveLabelGreenSecondValue)
+                {
+                    WaveLabel.Green = FlatRedBall.Math.MathFunctions.RoundToInt(WaveLabelGreenFirstValue* (1 - interpolationValue) + WaveLabelGreenSecondValue * interpolationValue);
+                }
+                if (setWaveLabelHeightFirstValue && setWaveLabelHeightSecondValue)
+                {
+                    WaveLabel.Height = WaveLabelHeightFirstValue * (1 - interpolationValue) + WaveLabelHeightSecondValue * interpolationValue;
+                }
+                if (setWaveLabelRedFirstValue && setWaveLabelRedSecondValue)
+                {
+                    WaveLabel.Red = FlatRedBall.Math.MathFunctions.RoundToInt(WaveLabelRedFirstValue* (1 - interpolationValue) + WaveLabelRedSecondValue * interpolationValue);
+                }
+                if (setWaveLabelWidthFirstValue && setWaveLabelWidthSecondValue)
+                {
+                    WaveLabel.Width = WaveLabelWidthFirstValue * (1 - interpolationValue) + WaveLabelWidthSecondValue * interpolationValue;
+                }
+                if (setWaveLabelXFirstValue && setWaveLabelXSecondValue)
+                {
+                    WaveLabel.X = WaveLabelXFirstValue * (1 - interpolationValue) + WaveLabelXSecondValue * interpolationValue;
+                }
+                if (setWaveLabelYFirstValue && setWaveLabelYSecondValue)
+                {
+                    WaveLabel.Y = WaveLabelYFirstValue * (1 - interpolationValue) + WaveLabelYSecondValue * interpolationValue;
                 }
                 if (setWaveTextInstanceHeightFirstValue && setWaveTextInstanceHeightSecondValue)
                 {
@@ -917,6 +1421,101 @@
                 else
                 {
                     mCurrentVariableState = secondState;
+                }
+            }
+            public void InterpolateBetween (TimeDisplay firstState, TimeDisplay secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                bool setTimeTextInstanceBlueFirstValue = false;
+                bool setTimeTextInstanceBlueSecondValue = false;
+                int TimeTextInstanceBlueFirstValue= 0;
+                int TimeTextInstanceBlueSecondValue= 0;
+                bool setTimeTextInstanceGreenFirstValue = false;
+                bool setTimeTextInstanceGreenSecondValue = false;
+                int TimeTextInstanceGreenFirstValue= 0;
+                int TimeTextInstanceGreenSecondValue= 0;
+                bool setTimeTextInstanceRedFirstValue = false;
+                bool setTimeTextInstanceRedSecondValue = false;
+                int TimeTextInstanceRedFirstValue= 0;
+                int TimeTextInstanceRedSecondValue= 0;
+                switch(firstState)
+                {
+                    case  TimeDisplay.TimeStart:
+                        setTimeTextInstanceBlueFirstValue = true;
+                        TimeTextInstanceBlueFirstValue = 169;
+                        setTimeTextInstanceGreenFirstValue = true;
+                        TimeTextInstanceGreenFirstValue = 169;
+                        setTimeTextInstanceRedFirstValue = true;
+                        TimeTextInstanceRedFirstValue = 169;
+                        break;
+                    case  TimeDisplay.TimeEnd:
+                        setTimeTextInstanceBlueFirstValue = true;
+                        TimeTextInstanceBlueFirstValue = 203;
+                        setTimeTextInstanceGreenFirstValue = true;
+                        TimeTextInstanceGreenFirstValue = 192;
+                        setTimeTextInstanceRedFirstValue = true;
+                        TimeTextInstanceRedFirstValue = 255;
+                        break;
+                    case  TimeDisplay.DefaultTime:
+                        setTimeTextInstanceBlueFirstValue = true;
+                        TimeTextInstanceBlueFirstValue = 255;
+                        setTimeTextInstanceGreenFirstValue = true;
+                        TimeTextInstanceGreenFirstValue = 255;
+                        setTimeTextInstanceRedFirstValue = true;
+                        TimeTextInstanceRedFirstValue = 255;
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  TimeDisplay.TimeStart:
+                        setTimeTextInstanceBlueSecondValue = true;
+                        TimeTextInstanceBlueSecondValue = 169;
+                        setTimeTextInstanceGreenSecondValue = true;
+                        TimeTextInstanceGreenSecondValue = 169;
+                        setTimeTextInstanceRedSecondValue = true;
+                        TimeTextInstanceRedSecondValue = 169;
+                        break;
+                    case  TimeDisplay.TimeEnd:
+                        setTimeTextInstanceBlueSecondValue = true;
+                        TimeTextInstanceBlueSecondValue = 203;
+                        setTimeTextInstanceGreenSecondValue = true;
+                        TimeTextInstanceGreenSecondValue = 192;
+                        setTimeTextInstanceRedSecondValue = true;
+                        TimeTextInstanceRedSecondValue = 255;
+                        break;
+                    case  TimeDisplay.DefaultTime:
+                        setTimeTextInstanceBlueSecondValue = true;
+                        TimeTextInstanceBlueSecondValue = 255;
+                        setTimeTextInstanceGreenSecondValue = true;
+                        TimeTextInstanceGreenSecondValue = 255;
+                        setTimeTextInstanceRedSecondValue = true;
+                        TimeTextInstanceRedSecondValue = 255;
+                        break;
+                }
+                if (setTimeTextInstanceBlueFirstValue && setTimeTextInstanceBlueSecondValue)
+                {
+                    TimeTextInstance.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(TimeTextInstanceBlueFirstValue* (1 - interpolationValue) + TimeTextInstanceBlueSecondValue * interpolationValue);
+                }
+                if (setTimeTextInstanceGreenFirstValue && setTimeTextInstanceGreenSecondValue)
+                {
+                    TimeTextInstance.Green = FlatRedBall.Math.MathFunctions.RoundToInt(TimeTextInstanceGreenFirstValue* (1 - interpolationValue) + TimeTextInstanceGreenSecondValue * interpolationValue);
+                }
+                if (setTimeTextInstanceRedFirstValue && setTimeTextInstanceRedSecondValue)
+                {
+                    TimeTextInstance.Red = FlatRedBall.Math.MathFunctions.RoundToInt(TimeTextInstanceRedFirstValue* (1 - interpolationValue) + TimeTextInstanceRedSecondValue * interpolationValue);
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentTimeDisplayState = firstState;
+                }
+                else
+                {
+                    mCurrentTimeDisplayState = secondState;
                 }
             }
             #endregion
@@ -975,8 +1574,166 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime.TimeDisplay fromState,AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime.TimeDisplay toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (TimeDisplay toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "TimeDisplay").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentTimeDisplayState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (TimeDisplay toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentTimeDisplayState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
             #endregion
             #region State Animations
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> PulseTimeAnimationInstructions (object target) 
+            {
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction( ()=> this.CurrentTimeDisplayState = TimeDisplay.TimeStart);
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(TimeDisplay.TimeEnd, 1, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, PulseTimeAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(TimeDisplay.TimeStart, 1, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, PulseTimeAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => FlatRedBall.Instructions.InstructionManager.Instructions.AddRange(this.PulseTimeAnimationInstructions(target)));
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 2;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+            }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> PulseTimeAnimationRelativeInstructions (object target) 
+            {
+                {
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "TimeDisplay/TimeStart").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "TimeDisplay/TimeEnd").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(TimeDisplay.TimeEnd);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 1, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "TimeDisplay/TimeEnd").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "TimeDisplay/TimeStart").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(TimeDisplay.TimeStart);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 1, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => FlatRedBall.Instructions.InstructionManager.Instructions.AddRange(this.PulseTimeAnimationRelativeInstructions(target)));
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 2;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation pulseTimeAnimation;
+            public FlatRedBall.Gum.Animation.GumAnimation PulseTimeAnimation
+            {
+                get
+                {
+                    if (pulseTimeAnimation == null)
+                    {
+                        pulseTimeAnimation = new FlatRedBall.Gum.Animation.GumAnimation(2, PulseTimeAnimationInstructions);
+                    }
+                    return pulseTimeAnimation;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation pulseTimeAnimationRelative;
+            public FlatRedBall.Gum.Animation.GumAnimation PulseTimeAnimationRelative
+            {
+                get
+                {
+                    if (pulseTimeAnimationRelative == null)
+                    {
+                        pulseTimeAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(2, PulseTimeAnimationRelativeInstructions);
+                    }
+                    return pulseTimeAnimationRelative;
+                }
+            }
             #endregion
             public override void StopAnimations () 
             {
@@ -985,6 +1742,7 @@
                 PauseButton.StopAnimations();
                 PlayButton.StopAnimations();
                 FastForwardButton.StopAnimations();
+                PulseTimeAnimation.Stop();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -1172,6 +1930,118 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "WaveLabel.Blue",
+                            Type = "int",
+                            Value = WaveLabel.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.CustomFontFile",
+                            Type = "string",
+                            Value = WaveLabel.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.Green",
+                            Type = "int",
+                            Value = WaveLabel.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.Height",
+                            Type = "float",
+                            Value = WaveLabel.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.HorizontalAlignment",
+                            Type = "HorizontalAlignment",
+                            Value = WaveLabel.HorizontalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.Parent",
+                            Type = "string",
+                            Value = WaveLabel.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.Red",
+                            Type = "int",
+                            Value = WaveLabel.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.Text",
+                            Type = "string",
+                            Value = WaveLabel.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.UseCustomFont",
+                            Type = "bool",
+                            Value = WaveLabel.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.VerticalAlignment",
+                            Type = "VerticalAlignment",
+                            Value = WaveLabel.VerticalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.Width",
+                            Type = "float",
+                            Value = WaveLabel.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.X",
+                            Type = "float",
+                            Value = WaveLabel.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.X Units",
+                            Type = "PositionUnitType",
+                            Value = WaveLabel.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.Y",
+                            Type = "float",
+                            Value = WaveLabel.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "WaveTextInstance.CustomFontFile",
                             Type = "string",
                             Value = WaveTextInstance.CustomFontFile
@@ -1260,6 +2130,166 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TimeLabel.Blue",
+                            Type = "int",
+                            Value = TimeLabel.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.CustomFontFile",
+                            Type = "string",
+                            Value = TimeLabel.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Font Scale",
+                            Type = "float",
+                            Value = TimeLabel.FontScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Green",
+                            Type = "int",
+                            Value = TimeLabel.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Height",
+                            Type = "float",
+                            Value = TimeLabel.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = TimeLabel.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.HorizontalAlignment",
+                            Type = "HorizontalAlignment",
+                            Value = TimeLabel.HorizontalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Parent",
+                            Type = "string",
+                            Value = TimeLabel.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Red",
+                            Type = "int",
+                            Value = TimeLabel.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Text",
+                            Type = "string",
+                            Value = TimeLabel.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.UseCustomFont",
+                            Type = "bool",
+                            Value = TimeLabel.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.VerticalAlignment",
+                            Type = "VerticalAlignment",
+                            Value = TimeLabel.VerticalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Width",
+                            Type = "float",
+                            Value = TimeLabel.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.X",
+                            Type = "float",
+                            Value = TimeLabel.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = TimeLabel.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.X Units",
+                            Type = "PositionUnitType",
+                            Value = TimeLabel.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Y",
+                            Type = "float",
+                            Value = TimeLabel.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = TimeLabel.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Y Units",
+                            Type = "PositionUnitType",
+                            Value = TimeLabel.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Blue",
+                            Type = "int",
+                            Value = TimeTextInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TimeTextInstance.CustomFontFile",
                             Type = "string",
                             Value = TimeTextInstance.CustomFontFile
@@ -1276,6 +2306,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TimeTextInstance.Green",
+                            Type = "int",
+                            Value = TimeTextInstance.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TimeTextInstance.Height",
                             Type = "float",
                             Value = TimeTextInstance.Height
@@ -1284,9 +2322,33 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TimeTextInstance.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = TimeTextInstance.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.HorizontalAlignment",
+                            Type = "HorizontalAlignment",
+                            Value = TimeTextInstance.HorizontalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TimeTextInstance.Parent",
                             Type = "string",
                             Value = TimeTextInstance.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Red",
+                            Type = "int",
+                            Value = TimeTextInstance.Red
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1332,9 +2394,41 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TimeTextInstance.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = TimeTextInstance.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.X Units",
+                            Type = "PositionUnitType",
+                            Value = TimeTextInstance.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TimeTextInstance.Y",
                             Type = "float",
                             Value = TimeTextInstance.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = TimeTextInstance.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Y Units",
+                            Type = "PositionUnitType",
+                            Value = TimeTextInstance.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1604,6 +2698,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TimeButtonContainer.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = TimeButtonContainer.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeButtonContainer.X Units",
+                            Type = "PositionUnitType",
+                            Value = TimeButtonContainer.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TimeButtonContainer.Y",
                             Type = "float",
                             Value = TimeButtonContainer.Y
@@ -1776,7 +2886,7 @@
                             SetsValue = true,
                             Name = "InfoContainer.Width",
                             Type = "float",
-                            Value = InfoContainer.Width + 0f
+                            Value = InfoContainer.Width + 1245f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1793,6 +2903,118 @@
                             Name = "InfoContainer.X",
                             Type = "float",
                             Value = InfoContainer.X + 35f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.Blue",
+                            Type = "int",
+                            Value = WaveLabel.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.CustomFontFile",
+                            Type = "string",
+                            Value = WaveLabel.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.Green",
+                            Type = "int",
+                            Value = WaveLabel.Green + 191
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.Height",
+                            Type = "float",
+                            Value = WaveLabel.Height + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.HorizontalAlignment",
+                            Type = "HorizontalAlignment",
+                            Value = WaveLabel.HorizontalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.Parent",
+                            Type = "string",
+                            Value = WaveLabel.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.Red",
+                            Type = "int",
+                            Value = WaveLabel.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.Text",
+                            Type = "string",
+                            Value = WaveLabel.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.UseCustomFont",
+                            Type = "bool",
+                            Value = WaveLabel.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.VerticalAlignment",
+                            Type = "VerticalAlignment",
+                            Value = WaveLabel.VerticalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.Width",
+                            Type = "float",
+                            Value = WaveLabel.Width + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.X",
+                            Type = "float",
+                            Value = WaveLabel.X + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.X Units",
+                            Type = "PositionUnitType",
+                            Value = WaveLabel.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WaveLabel.Y",
+                            Type = "float",
+                            Value = WaveLabel.Y + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1856,7 +3078,7 @@
                             SetsValue = true,
                             Name = "WaveTextInstance.Width",
                             Type = "float",
-                            Value = WaveTextInstance.Width + 300f
+                            Value = WaveTextInstance.Width + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1864,7 +3086,7 @@
                             SetsValue = true,
                             Name = "WaveTextInstance.X",
                             Type = "float",
-                            Value = WaveTextInstance.X + 200f
+                            Value = WaveTextInstance.X + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1886,6 +3108,166 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TimeLabel.Blue",
+                            Type = "int",
+                            Value = TimeLabel.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.CustomFontFile",
+                            Type = "string",
+                            Value = TimeLabel.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Font Scale",
+                            Type = "float",
+                            Value = TimeLabel.FontScale + 0.7f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Green",
+                            Type = "int",
+                            Value = TimeLabel.Green + 191
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Height",
+                            Type = "float",
+                            Value = TimeLabel.Height + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = TimeLabel.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.HorizontalAlignment",
+                            Type = "HorizontalAlignment",
+                            Value = TimeLabel.HorizontalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Parent",
+                            Type = "string",
+                            Value = TimeLabel.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Red",
+                            Type = "int",
+                            Value = TimeLabel.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Text",
+                            Type = "string",
+                            Value = TimeLabel.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.UseCustomFont",
+                            Type = "bool",
+                            Value = TimeLabel.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.VerticalAlignment",
+                            Type = "VerticalAlignment",
+                            Value = TimeLabel.VerticalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Width",
+                            Type = "float",
+                            Value = TimeLabel.Width + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.X",
+                            Type = "float",
+                            Value = TimeLabel.X + -500f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = TimeLabel.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.X Units",
+                            Type = "PositionUnitType",
+                            Value = TimeLabel.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Y",
+                            Type = "float",
+                            Value = TimeLabel.Y + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = TimeLabel.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeLabel.Y Units",
+                            Type = "PositionUnitType",
+                            Value = TimeLabel.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Blue",
+                            Type = "int",
+                            Value = TimeTextInstance.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TimeTextInstance.CustomFontFile",
                             Type = "string",
                             Value = TimeTextInstance.CustomFontFile
@@ -1902,6 +3284,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TimeTextInstance.Green",
+                            Type = "int",
+                            Value = TimeTextInstance.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TimeTextInstance.Height",
                             Type = "float",
                             Value = TimeTextInstance.Height + 0f
@@ -1910,9 +3300,33 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TimeTextInstance.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = TimeTextInstance.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.HorizontalAlignment",
+                            Type = "HorizontalAlignment",
+                            Value = TimeTextInstance.HorizontalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TimeTextInstance.Parent",
                             Type = "string",
                             Value = TimeTextInstance.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Red",
+                            Type = "int",
+                            Value = TimeTextInstance.Red + 255
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1944,7 +3358,7 @@
                             SetsValue = true,
                             Name = "TimeTextInstance.Width",
                             Type = "float",
-                            Value = TimeTextInstance.Width + 450f
+                            Value = TimeTextInstance.Width + 200f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1952,7 +3366,23 @@
                             SetsValue = true,
                             Name = "TimeTextInstance.X",
                             Type = "float",
-                            Value = TimeTextInstance.X + 80f
+                            Value = TimeTextInstance.X + -300f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = TimeTextInstance.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.X Units",
+                            Type = "PositionUnitType",
+                            Value = TimeTextInstance.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1961,6 +3391,22 @@
                             Name = "TimeTextInstance.Y",
                             Type = "float",
                             Value = TimeTextInstance.Y + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = TimeTextInstance.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Y Units",
+                            Type = "PositionUnitType",
+                            Value = TimeTextInstance.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2224,7 +3670,23 @@
                             SetsValue = true,
                             Name = "TimeButtonContainer.X",
                             Type = "float",
-                            Value = TimeButtonContainer.X + -75f
+                            Value = TimeButtonContainer.X + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeButtonContainer.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = TimeButtonContainer.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeButtonContainer.X Units",
+                            Type = "PositionUnitType",
+                            Value = TimeButtonContainer.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2233,6 +3695,178 @@
                             Name = "TimeButtonContainer.Y",
                             Type = "float",
                             Value = TimeButtonContainer.Y + 0f
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (TimeDisplay state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  TimeDisplay.TimeStart:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Blue",
+                            Type = "int",
+                            Value = TimeTextInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Green",
+                            Type = "int",
+                            Value = TimeTextInstance.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Red",
+                            Type = "int",
+                            Value = TimeTextInstance.Red
+                        }
+                        );
+                        break;
+                    case  TimeDisplay.TimeEnd:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Blue",
+                            Type = "int",
+                            Value = TimeTextInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Green",
+                            Type = "int",
+                            Value = TimeTextInstance.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Red",
+                            Type = "int",
+                            Value = TimeTextInstance.Red
+                        }
+                        );
+                        break;
+                    case  TimeDisplay.DefaultTime:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Blue",
+                            Type = "int",
+                            Value = TimeTextInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Green",
+                            Type = "int",
+                            Value = TimeTextInstance.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Red",
+                            Type = "int",
+                            Value = TimeTextInstance.Red
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (TimeDisplay state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  TimeDisplay.TimeStart:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Blue",
+                            Type = "int",
+                            Value = TimeTextInstance.Blue + 169
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Green",
+                            Type = "int",
+                            Value = TimeTextInstance.Green + 169
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Red",
+                            Type = "int",
+                            Value = TimeTextInstance.Red + 169
+                        }
+                        );
+                        break;
+                    case  TimeDisplay.TimeEnd:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Blue",
+                            Type = "int",
+                            Value = TimeTextInstance.Blue + 203
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Green",
+                            Type = "int",
+                            Value = TimeTextInstance.Green + 192
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Red",
+                            Type = "int",
+                            Value = TimeTextInstance.Red + 255
+                        }
+                        );
+                        break;
+                    case  TimeDisplay.DefaultTime:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Blue",
+                            Type = "int",
+                            Value = TimeTextInstance.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Green",
+                            Type = "int",
+                            Value = TimeTextInstance.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimeTextInstance.Red",
+                            Type = "int",
+                            Value = TimeTextInstance.Red + 255
                         }
                         );
                         break;
@@ -2250,13 +3884,21 @@
                     {
                         if (state.Name == "Default") this.mCurrentVariableState = VariableState.Default;
                     }
+                    else if (category.Name == "TimeDisplay")
+                    {
+                        if(state.Name == "TimeStart") this.mCurrentTimeDisplayState = TimeDisplay.TimeStart;
+                        if(state.Name == "TimeEnd") this.mCurrentTimeDisplayState = TimeDisplay.TimeEnd;
+                        if(state.Name == "DefaultTime") this.mCurrentTimeDisplayState = TimeDisplay.DefaultTime;
+                    }
                 }
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime MenuButton { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime InfoContainer { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.TextRuntime WaveLabel { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime WaveTextInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.TextRuntime TimeLabel { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime TimeTextInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime PauseButton { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime PlayButton { get; set; }
@@ -2291,7 +3933,9 @@
                 MenuButton = this.GetGraphicalUiElementByName("MenuButton") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
                 SpriteInstance = this.GetGraphicalUiElementByName("SpriteInstance") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 InfoContainer = this.GetGraphicalUiElementByName("InfoContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
+                WaveLabel = this.GetGraphicalUiElementByName("WaveLabel") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 WaveTextInstance = this.GetGraphicalUiElementByName("WaveTextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+                TimeLabel = this.GetGraphicalUiElementByName("TimeLabel") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 TimeTextInstance = this.GetGraphicalUiElementByName("TimeTextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 PauseButton = this.GetGraphicalUiElementByName("PauseButton") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
                 PlayButton = this.GetGraphicalUiElementByName("PlayButton") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;

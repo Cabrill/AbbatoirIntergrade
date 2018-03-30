@@ -26,6 +26,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         public abstract List<string> SongNameList { get;  }
         private List<BaseWave> _waves;
         public BaseWave LastWave;
+        public abstract int WavesToSurvive { get; }
         public int CurrentWaveNumber { get; private set; } = 0;
         public LevelResult LevelResults;
 
@@ -33,7 +34,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 
         public abstract HorizonBoxRuntime.Scenery Scenery { get; }
 
-        protected double SecondsBetweenWaves = 0;
+        private double SecondsBetweenWaves = 0;
 
         public virtual string StartingDialogueDisplayName => MapName + "Start";
 
@@ -91,6 +92,11 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         public bool HasReachedDefeat()
         {
             return RemainingLives <= 0;
+        }
+
+        public bool HasReachedVictory()
+        {
+            return CurrentWaveNumber > WavesToSurvive || (_waveHasEnded && CurrentWaveNumber == WavesToSurvive);
         }
 
         public void Update()
@@ -177,6 +183,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
                 LevelName = MapName,
                 LevelNumber = levelNumber,
                 DateTimeStarted = DateTime.Now,
+                WasVictorious =  HasReachedVictory(),
             };
 
             return levelResult;

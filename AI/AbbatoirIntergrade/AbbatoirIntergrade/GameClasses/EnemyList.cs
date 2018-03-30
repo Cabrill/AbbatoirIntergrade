@@ -25,7 +25,7 @@ namespace AbbatoirIntergrade.GameClasses
 
         public int TotalEnemies => EnemyCountTuples.Sum(w => w.Item1);
 
-        public double LowestPointValue => EnemyCountTuples.Min(et => et.Item2.PointValue());
+        public double LowestPointValue => EnemyCountTuples == null || EnemyCountTuples.Count == 0 ? 0 : EnemyCountTuples.Min(et => et.Item2.PointValue());
 
         public readonly List<SerializableTuple<int, EnemyTypes>> EnemyCountTuples;
 

@@ -22,11 +22,19 @@
                 Faded,
                 NotFaded
             }
+            public enum HordeDisplay
+            {
+                HordeStart,
+                HordeMiddle,
+                HordeMiddleBig,
+                HordeEnd
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
             ChatHistoryShowing mCurrentChatHistoryShowingState;
             Fading mCurrentFadingState;
+            HordeDisplay mCurrentHordeDisplayState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -72,6 +80,20 @@
                             CurrentMusicDisplayInstance.CurrentAppearingState = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
                             CurrentMusicDisplayInstance.X = -10f;
                             CurrentMusicDisplayInstance.Y = 230f;
+                            HordeText.Blue = 50;
+                            HordeText.Font = "Informal Roman";
+                            HordeText.FontSize = 96;
+                            HordeText.Green = 50;
+                            HordeText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            HordeText.OutlineThickness = 1;
+                            HordeText.Text = "UNSTOPPABLE HORDE!";
+                            HordeText.Visible = false;
+                            HordeText.Width = 0f;
+                            HordeText.X = -1800f;
+                            HordeText.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            HordeText.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            HordeText.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            HordeText.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             break;
                     }
                 }
@@ -165,6 +187,40 @@
                     }
                 }
             }
+            public HordeDisplay CurrentHordeDisplayState
+            {
+                get
+                {
+                    return mCurrentHordeDisplayState;
+                }
+                set
+                {
+                    mCurrentHordeDisplayState = value;
+                    switch(mCurrentHordeDisplayState)
+                    {
+                        case  HordeDisplay.HordeStart:
+                            HordeText.FontScale = 1f;
+                            HordeText.Visible = true;
+                            HordeText.X = -1800f;
+                            break;
+                        case  HordeDisplay.HordeMiddle:
+                            HordeText.FontScale = 1f;
+                            HordeText.Visible = true;
+                            HordeText.X = 0f;
+                            break;
+                        case  HordeDisplay.HordeMiddleBig:
+                            HordeText.FontScale = 1.5f;
+                            HordeText.Visible = true;
+                            HordeText.X = 0f;
+                            break;
+                        case  HordeDisplay.HordeEnd:
+                            HordeText.FontScale = 0.5f;
+                            HordeText.Visible = true;
+                            HordeText.X = 1800f;
+                            break;
+                    }
+                }
+            }
             #endregion
             #region State Interpolation
             public void InterpolateBetween (VariableState firstState, VariableState secondState, float interpolationValue) 
@@ -231,6 +287,30 @@
                 bool setCurrentMusicDisplayInstanceYSecondValue = false;
                 float CurrentMusicDisplayInstanceYFirstValue= 0;
                 float CurrentMusicDisplayInstanceYSecondValue= 0;
+                bool setHordeTextBlueFirstValue = false;
+                bool setHordeTextBlueSecondValue = false;
+                int HordeTextBlueFirstValue= 0;
+                int HordeTextBlueSecondValue= 0;
+                bool setHordeTextFontSizeFirstValue = false;
+                bool setHordeTextFontSizeSecondValue = false;
+                int HordeTextFontSizeFirstValue= 0;
+                int HordeTextFontSizeSecondValue= 0;
+                bool setHordeTextGreenFirstValue = false;
+                bool setHordeTextGreenSecondValue = false;
+                int HordeTextGreenFirstValue= 0;
+                int HordeTextGreenSecondValue= 0;
+                bool setHordeTextOutlineThicknessFirstValue = false;
+                bool setHordeTextOutlineThicknessSecondValue = false;
+                int HordeTextOutlineThicknessFirstValue= 0;
+                int HordeTextOutlineThicknessSecondValue= 0;
+                bool setHordeTextWidthFirstValue = false;
+                bool setHordeTextWidthSecondValue = false;
+                float HordeTextWidthFirstValue= 0;
+                float HordeTextWidthSecondValue= 0;
+                bool setHordeTextXFirstValue = false;
+                bool setHordeTextXSecondValue = false;
+                float HordeTextXFirstValue= 0;
+                float HordeTextXSecondValue= 0;
                 bool setLivesPointsDisplayInstanceWidthFirstValue = false;
                 bool setLivesPointsDisplayInstanceWidthSecondValue = false;
                 float LivesPointsDisplayInstanceWidthFirstValue= 0;
@@ -301,6 +381,50 @@
                         if (interpolationValue < 1)
                         {
                             this.EnemyInfoInstance.Visible = false;
+                        }
+                        setHordeTextBlueFirstValue = true;
+                        HordeTextBlueFirstValue = 50;
+                        if (interpolationValue < 1)
+                        {
+                            this.HordeText.Font = "Informal Roman";
+                        }
+                        setHordeTextFontSizeFirstValue = true;
+                        HordeTextFontSizeFirstValue = 96;
+                        setHordeTextGreenFirstValue = true;
+                        HordeTextGreenFirstValue = 50;
+                        if (interpolationValue < 1)
+                        {
+                            this.HordeText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        setHordeTextOutlineThicknessFirstValue = true;
+                        HordeTextOutlineThicknessFirstValue = 1;
+                        if (interpolationValue < 1)
+                        {
+                            this.HordeText.Text = "UNSTOPPABLE HORDE!";
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.HordeText.Visible = false;
+                        }
+                        setHordeTextWidthFirstValue = true;
+                        HordeTextWidthFirstValue = 0f;
+                        setHordeTextXFirstValue = true;
+                        HordeTextXFirstValue = -1800f;
+                        if (interpolationValue < 1)
+                        {
+                            this.HordeText.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.HordeText.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.HordeText.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.HordeText.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         if (interpolationValue < 1)
                         {
@@ -397,6 +521,50 @@
                         {
                             this.EnemyInfoInstance.Visible = false;
                         }
+                        setHordeTextBlueSecondValue = true;
+                        HordeTextBlueSecondValue = 50;
+                        if (interpolationValue >= 1)
+                        {
+                            this.HordeText.Font = "Informal Roman";
+                        }
+                        setHordeTextFontSizeSecondValue = true;
+                        HordeTextFontSizeSecondValue = 96;
+                        setHordeTextGreenSecondValue = true;
+                        HordeTextGreenSecondValue = 50;
+                        if (interpolationValue >= 1)
+                        {
+                            this.HordeText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        setHordeTextOutlineThicknessSecondValue = true;
+                        HordeTextOutlineThicknessSecondValue = 1;
+                        if (interpolationValue >= 1)
+                        {
+                            this.HordeText.Text = "UNSTOPPABLE HORDE!";
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.HordeText.Visible = false;
+                        }
+                        setHordeTextWidthSecondValue = true;
+                        HordeTextWidthSecondValue = 0f;
+                        setHordeTextXSecondValue = true;
+                        HordeTextXSecondValue = -1800f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.HordeText.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.HordeText.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.HordeText.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.HordeText.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
                         if (interpolationValue >= 1)
                         {
                             this.HorizonBoxInstance.Visible = true;
@@ -488,6 +656,30 @@
                 if (setCurrentMusicDisplayInstanceYFirstValue && setCurrentMusicDisplayInstanceYSecondValue)
                 {
                     CurrentMusicDisplayInstance.Y = CurrentMusicDisplayInstanceYFirstValue * (1 - interpolationValue) + CurrentMusicDisplayInstanceYSecondValue * interpolationValue;
+                }
+                if (setHordeTextBlueFirstValue && setHordeTextBlueSecondValue)
+                {
+                    HordeText.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(HordeTextBlueFirstValue* (1 - interpolationValue) + HordeTextBlueSecondValue * interpolationValue);
+                }
+                if (setHordeTextFontSizeFirstValue && setHordeTextFontSizeSecondValue)
+                {
+                    HordeText.FontSize = FlatRedBall.Math.MathFunctions.RoundToInt(HordeTextFontSizeFirstValue* (1 - interpolationValue) + HordeTextFontSizeSecondValue * interpolationValue);
+                }
+                if (setHordeTextGreenFirstValue && setHordeTextGreenSecondValue)
+                {
+                    HordeText.Green = FlatRedBall.Math.MathFunctions.RoundToInt(HordeTextGreenFirstValue* (1 - interpolationValue) + HordeTextGreenSecondValue * interpolationValue);
+                }
+                if (setHordeTextOutlineThicknessFirstValue && setHordeTextOutlineThicknessSecondValue)
+                {
+                    HordeText.OutlineThickness = FlatRedBall.Math.MathFunctions.RoundToInt(HordeTextOutlineThicknessFirstValue* (1 - interpolationValue) + HordeTextOutlineThicknessSecondValue * interpolationValue);
+                }
+                if (setHordeTextWidthFirstValue && setHordeTextWidthSecondValue)
+                {
+                    HordeText.Width = HordeTextWidthFirstValue * (1 - interpolationValue) + HordeTextWidthSecondValue * interpolationValue;
+                }
+                if (setHordeTextXFirstValue && setHordeTextXSecondValue)
+                {
+                    HordeText.X = HordeTextXFirstValue * (1 - interpolationValue) + HordeTextXSecondValue * interpolationValue;
                 }
                 if (setLivesPointsDisplayInstanceWidthFirstValue && setLivesPointsDisplayInstanceWidthSecondValue)
                 {
@@ -884,6 +1076,125 @@
                     mCurrentFadingState = secondState;
                 }
             }
+            public void InterpolateBetween (HordeDisplay firstState, HordeDisplay secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                bool setHordeTextFontScaleFirstValue = false;
+                bool setHordeTextFontScaleSecondValue = false;
+                float HordeTextFontScaleFirstValue= 0;
+                float HordeTextFontScaleSecondValue= 0;
+                bool setHordeTextXFirstValue = false;
+                bool setHordeTextXSecondValue = false;
+                float HordeTextXFirstValue= 0;
+                float HordeTextXSecondValue= 0;
+                switch(firstState)
+                {
+                    case  HordeDisplay.HordeStart:
+                        setHordeTextFontScaleFirstValue = true;
+                        HordeTextFontScaleFirstValue = 1f;
+                        if (interpolationValue < 1)
+                        {
+                            this.HordeText.Visible = true;
+                        }
+                        setHordeTextXFirstValue = true;
+                        HordeTextXFirstValue = -1800f;
+                        break;
+                    case  HordeDisplay.HordeMiddle:
+                        setHordeTextFontScaleFirstValue = true;
+                        HordeTextFontScaleFirstValue = 1f;
+                        if (interpolationValue < 1)
+                        {
+                            this.HordeText.Visible = true;
+                        }
+                        setHordeTextXFirstValue = true;
+                        HordeTextXFirstValue = 0f;
+                        break;
+                    case  HordeDisplay.HordeMiddleBig:
+                        setHordeTextFontScaleFirstValue = true;
+                        HordeTextFontScaleFirstValue = 1.5f;
+                        if (interpolationValue < 1)
+                        {
+                            this.HordeText.Visible = true;
+                        }
+                        setHordeTextXFirstValue = true;
+                        HordeTextXFirstValue = 0f;
+                        break;
+                    case  HordeDisplay.HordeEnd:
+                        setHordeTextFontScaleFirstValue = true;
+                        HordeTextFontScaleFirstValue = 0.5f;
+                        if (interpolationValue < 1)
+                        {
+                            this.HordeText.Visible = true;
+                        }
+                        setHordeTextXFirstValue = true;
+                        HordeTextXFirstValue = 1800f;
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  HordeDisplay.HordeStart:
+                        setHordeTextFontScaleSecondValue = true;
+                        HordeTextFontScaleSecondValue = 1f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.HordeText.Visible = true;
+                        }
+                        setHordeTextXSecondValue = true;
+                        HordeTextXSecondValue = -1800f;
+                        break;
+                    case  HordeDisplay.HordeMiddle:
+                        setHordeTextFontScaleSecondValue = true;
+                        HordeTextFontScaleSecondValue = 1f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.HordeText.Visible = true;
+                        }
+                        setHordeTextXSecondValue = true;
+                        HordeTextXSecondValue = 0f;
+                        break;
+                    case  HordeDisplay.HordeMiddleBig:
+                        setHordeTextFontScaleSecondValue = true;
+                        HordeTextFontScaleSecondValue = 1.5f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.HordeText.Visible = true;
+                        }
+                        setHordeTextXSecondValue = true;
+                        HordeTextXSecondValue = 0f;
+                        break;
+                    case  HordeDisplay.HordeEnd:
+                        setHordeTextFontScaleSecondValue = true;
+                        HordeTextFontScaleSecondValue = 0.5f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.HordeText.Visible = true;
+                        }
+                        setHordeTextXSecondValue = true;
+                        HordeTextXSecondValue = 1800f;
+                        break;
+                }
+                if (setHordeTextFontScaleFirstValue && setHordeTextFontScaleSecondValue)
+                {
+                    HordeText.FontScale = HordeTextFontScaleFirstValue * (1 - interpolationValue) + HordeTextFontScaleSecondValue * interpolationValue;
+                }
+                if (setHordeTextXFirstValue && setHordeTextXSecondValue)
+                {
+                    HordeText.X = HordeTextXFirstValue * (1 - interpolationValue) + HordeTextXSecondValue * interpolationValue;
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentHordeDisplayState = firstState;
+                }
+                else
+                {
+                    mCurrentHordeDisplayState = secondState;
+                }
+            }
             #endregion
             #region State Interpolate To
             public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
@@ -1044,6 +1355,60 @@
                 }
                 tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
                 tweener.Ended += ()=> this.CurrentFadingState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime.HordeDisplay fromState,AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime.HordeDisplay toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (HordeDisplay toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "HordeDisplay").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentHordeDisplayState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (HordeDisplay toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentHordeDisplayState = toState;
                 tweener.Start();
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
@@ -1472,7 +1837,7 @@
                     yield return toReturn;
                 }
                 {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(Fading.Faded, 2, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, FadeOutAnimation));
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(Fading.Faded, 2.5f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, FadeOutAnimation));
                     toReturn.Target = target;
                     toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
                     yield return toReturn;
@@ -1492,7 +1857,7 @@
                         Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(Fading.Faded);
                         Gum.DataTypes.Variables.StateSave second = first.Clone();
                         Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
-                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 2, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 2.5f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
                         tweener.Owner = this;
                         tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
                         tweener.Start();
@@ -1511,7 +1876,7 @@
                 {
                     if (fadeOutAnimation == null)
                     {
-                        fadeOutAnimation = new FlatRedBall.Gum.Animation.GumAnimation(2, FadeOutAnimationInstructions);
+                        fadeOutAnimation = new FlatRedBall.Gum.Animation.GumAnimation(2.5f, FadeOutAnimationInstructions);
                     }
                     return fadeOutAnimation;
                 }
@@ -1523,9 +1888,236 @@
                 {
                     if (fadeOutAnimationRelative == null)
                     {
-                        fadeOutAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(2, FadeOutAnimationRelativeInstructions);
+                        fadeOutAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(2.5f, FadeOutAnimationRelativeInstructions);
                     }
                     return fadeOutAnimationRelative;
+                }
+            }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> HordeIncomingAnimationInstructions (object target) 
+            {
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction( ()=> this.CurrentHordeDisplayState = HordeDisplay.HordeStart);
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeMiddle, 0.25f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, HordeIncomingAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeMiddleBig, 0.25f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Elastic, FlatRedBall.Glue.StateInterpolation.Easing.Out, HordeIncomingAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.25f;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeMiddle, 0.5f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Circular, FlatRedBall.Glue.StateInterpolation.Easing.InOut, HordeIncomingAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.5f;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeMiddle, 0.25f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Elastic, FlatRedBall.Glue.StateInterpolation.Easing.Out, HordeIncomingAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeMiddleBig, 0.5f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, HordeIncomingAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1.25f;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeMiddle, 0.75f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Circular, FlatRedBall.Glue.StateInterpolation.Easing.InOut, HordeIncomingAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1.75f;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeEnd, 1, FlatRedBall.Glue.StateInterpolation.InterpolationType.Elastic, FlatRedBall.Glue.StateInterpolation.Easing.Out, HordeIncomingAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 2.5f;
+                    yield return toReturn;
+                }
+            }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> HordeIncomingAnimationRelativeInstructions (object target) 
+            {
+                {
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeStart").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddle").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(HordeDisplay.HordeMiddle);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.25f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddle").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddleBig").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(HordeDisplay.HordeMiddleBig);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.25f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Elastic, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.25f;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddleBig").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddle").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(HordeDisplay.HordeMiddle);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.5f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Circular, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.5f;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddle").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddle").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(HordeDisplay.HordeMiddle);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.25f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Elastic, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddle").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddleBig").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(HordeDisplay.HordeMiddleBig);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.5f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1.25f;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddleBig").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddle").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(HordeDisplay.HordeMiddle);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.75f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Circular, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1.75f;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddle").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeEnd").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(HordeDisplay.HordeEnd);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 1, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Elastic, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 2.5f;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation hordeIncomingAnimation;
+            public FlatRedBall.Gum.Animation.GumAnimation HordeIncomingAnimation
+            {
+                get
+                {
+                    if (hordeIncomingAnimation == null)
+                    {
+                        hordeIncomingAnimation = new FlatRedBall.Gum.Animation.GumAnimation(3.5f, HordeIncomingAnimationInstructions);
+                    }
+                    return hordeIncomingAnimation;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation hordeIncomingAnimationRelative;
+            public FlatRedBall.Gum.Animation.GumAnimation HordeIncomingAnimationRelative
+            {
+                get
+                {
+                    if (hordeIncomingAnimationRelative == null)
+                    {
+                        hordeIncomingAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(3.5f, HordeIncomingAnimationRelativeInstructions);
+                    }
+                    return hordeIncomingAnimationRelative;
                 }
             }
             #endregion
@@ -1549,6 +2141,7 @@
                 HideChatHistoryAnimation.Stop();
                 FadeInAnimation.Stop();
                 FadeOutAnimation.Stop();
+                HordeIncomingAnimation.Stop();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -1803,6 +2396,118 @@
                             Name = "CurrentMusicDisplayInstance.Y",
                             Type = "float",
                             Value = CurrentMusicDisplayInstance.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Blue",
+                            Type = "int",
+                            Value = HordeText.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Font",
+                            Type = "string",
+                            Value = HordeText.Font
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.FontSize",
+                            Type = "int",
+                            Value = HordeText.FontSize
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Green",
+                            Type = "int",
+                            Value = HordeText.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.HorizontalAlignment",
+                            Type = "HorizontalAlignment",
+                            Value = HordeText.HorizontalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.OutlineThickness",
+                            Type = "int",
+                            Value = HordeText.OutlineThickness
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Text",
+                            Type = "string",
+                            Value = HordeText.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Visible",
+                            Type = "bool",
+                            Value = HordeText.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Width",
+                            Type = "float",
+                            Value = HordeText.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.X",
+                            Type = "float",
+                            Value = HordeText.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = HordeText.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.X Units",
+                            Type = "PositionUnitType",
+                            Value = HordeText.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = HordeText.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Y Units",
+                            Type = "PositionUnitType",
+                            Value = HordeText.YUnits
                         }
                         );
                         break;
@@ -2061,6 +2766,118 @@
                             Name = "CurrentMusicDisplayInstance.Y",
                             Type = "float",
                             Value = CurrentMusicDisplayInstance.Y + 230f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Blue",
+                            Type = "int",
+                            Value = HordeText.Blue + 50
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Font",
+                            Type = "string",
+                            Value = HordeText.Font
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.FontSize",
+                            Type = "int",
+                            Value = HordeText.FontSize + 96
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Green",
+                            Type = "int",
+                            Value = HordeText.Green + 50
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.HorizontalAlignment",
+                            Type = "HorizontalAlignment",
+                            Value = HordeText.HorizontalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.OutlineThickness",
+                            Type = "int",
+                            Value = HordeText.OutlineThickness + 1
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Text",
+                            Type = "string",
+                            Value = HordeText.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Visible",
+                            Type = "bool",
+                            Value = HordeText.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Width",
+                            Type = "float",
+                            Value = HordeText.Width + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.X",
+                            Type = "float",
+                            Value = HordeText.X + -1800f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = HordeText.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.X Units",
+                            Type = "PositionUnitType",
+                            Value = HordeText.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = HordeText.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Y Units",
+                            Type = "PositionUnitType",
+                            Value = HordeText.YUnits
                         }
                         );
                         break;
@@ -2851,6 +3668,230 @@
                 }
                 return newState;
             }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (HordeDisplay state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  HordeDisplay.HordeStart:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Font Scale",
+                            Type = "float",
+                            Value = HordeText.FontScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Visible",
+                            Type = "bool",
+                            Value = HordeText.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.X",
+                            Type = "float",
+                            Value = HordeText.X
+                        }
+                        );
+                        break;
+                    case  HordeDisplay.HordeMiddle:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Font Scale",
+                            Type = "float",
+                            Value = HordeText.FontScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Visible",
+                            Type = "bool",
+                            Value = HordeText.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.X",
+                            Type = "float",
+                            Value = HordeText.X
+                        }
+                        );
+                        break;
+                    case  HordeDisplay.HordeMiddleBig:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Font Scale",
+                            Type = "float",
+                            Value = HordeText.FontScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Visible",
+                            Type = "bool",
+                            Value = HordeText.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.X",
+                            Type = "float",
+                            Value = HordeText.X
+                        }
+                        );
+                        break;
+                    case  HordeDisplay.HordeEnd:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Font Scale",
+                            Type = "float",
+                            Value = HordeText.FontScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Visible",
+                            Type = "bool",
+                            Value = HordeText.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.X",
+                            Type = "float",
+                            Value = HordeText.X
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (HordeDisplay state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  HordeDisplay.HordeStart:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Font Scale",
+                            Type = "float",
+                            Value = HordeText.FontScale + 1f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Visible",
+                            Type = "bool",
+                            Value = HordeText.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.X",
+                            Type = "float",
+                            Value = HordeText.X + -1800f
+                        }
+                        );
+                        break;
+                    case  HordeDisplay.HordeMiddle:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Font Scale",
+                            Type = "float",
+                            Value = HordeText.FontScale + 1f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Visible",
+                            Type = "bool",
+                            Value = HordeText.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.X",
+                            Type = "float",
+                            Value = HordeText.X + 0f
+                        }
+                        );
+                        break;
+                    case  HordeDisplay.HordeMiddleBig:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Font Scale",
+                            Type = "float",
+                            Value = HordeText.FontScale + 1.5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Visible",
+                            Type = "bool",
+                            Value = HordeText.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.X",
+                            Type = "float",
+                            Value = HordeText.X + 0f
+                        }
+                        );
+                        break;
+                    case  HordeDisplay.HordeEnd:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Font Scale",
+                            Type = "float",
+                            Value = HordeText.FontScale + 0.5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Visible",
+                            Type = "bool",
+                            Value = HordeText.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.X",
+                            Type = "float",
+                            Value = HordeText.X + 1800f
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
             #endregion
             public override void ApplyState (Gum.DataTypes.Variables.StateSave state) 
             {
@@ -2876,6 +3917,13 @@
                         if(state.Name == "Faded") this.mCurrentFadingState = Fading.Faded;
                         if(state.Name == "NotFaded") this.mCurrentFadingState = Fading.NotFaded;
                     }
+                    else if (category.Name == "HordeDisplay")
+                    {
+                        if(state.Name == "HordeStart") this.mCurrentHordeDisplayState = HordeDisplay.HordeStart;
+                        if(state.Name == "HordeMiddle") this.mCurrentHordeDisplayState = HordeDisplay.HordeMiddle;
+                        if(state.Name == "HordeMiddleBig") this.mCurrentHordeDisplayState = HordeDisplay.HordeMiddleBig;
+                        if(state.Name == "HordeEnd") this.mCurrentHordeDisplayState = HordeDisplay.HordeEnd;
+                    }
                 }
                 base.ApplyState(state);
             }
@@ -2893,6 +3941,7 @@
             private AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime LocationTimeAnnouncementInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.TextRuntime HordeText { get; set; }
             public GameScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -2932,6 +3981,7 @@
                 LocationTimeAnnouncementInstance = this.GetGraphicalUiElementByName("LocationTimeAnnouncementInstance") as AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime;
                 ConfirmationWindowInstance = this.GetGraphicalUiElementByName("ConfirmationWindowInstance") as AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime;
                 CurrentMusicDisplayInstance = this.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
+                HordeText = this.GetGraphicalUiElementByName("HordeText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

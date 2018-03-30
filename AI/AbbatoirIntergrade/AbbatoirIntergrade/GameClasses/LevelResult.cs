@@ -21,6 +21,8 @@ namespace AbbatoirIntergrade.GameClasses
 
         public int WavesCompleted;
 
+        public bool WasVictorious;
+
         public readonly EnemyList EnemiesDefeated= new EnemyList();
     }
 }

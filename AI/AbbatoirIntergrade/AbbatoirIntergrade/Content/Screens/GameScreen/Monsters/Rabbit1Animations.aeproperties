@@ -2,6 +2,7 @@
 <AESettingsSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <OffsetMultiplier>1</OffsetMultiplier>
   <AnimationChainSettings />
+  <ExpandedNode>Hurt</ExpandedNode>
   <ExpandedNode>PreparingJump</ExpandedNode>
   <ExpandedNode>InAir</ExpandedNode>
   <ExpandedNode>Landing</ExpandedNode>
