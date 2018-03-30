@@ -321,13 +321,49 @@
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FrameSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">2306</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FrameSprite.Texture Width</Name>
+        <Value xsi:type="xsd:int">250</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FrameSprite.Texture Height</Name>
+        <Value xsi:type="xsd:int">263</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
     </State>
     <State>
       <Name>Disabled</Name>
       <Variable>
         <Type>int</Type>
+        <Name>FrameSprite.Texture Height</Name>
+        <Value xsi:type="xsd:int">114</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
         <Name>FrameSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">256</Value>
+        <Value xsi:type="xsd:int">2505</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FrameSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">792</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FrameSprite.Texture Width</Name>
+        <Value xsi:type="xsd:int">114</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -433,6 +469,24 @@
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FrameSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">2306</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FrameSprite.Texture Width</Name>
+        <Value xsi:type="xsd:int">250</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FrameSprite.Texture Height</Name>
+        <Value xsi:type="xsd:int">263</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
     </State>
     <State>
       <Name>Pushed</Name>
@@ -482,6 +536,24 @@
         <Type>bool</Type>
         <Name>NumberSprite.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FrameSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">2306</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FrameSprite.Texture Width</Name>
+        <Value xsi:type="xsd:int">250</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FrameSprite.Texture Height</Name>
+        <Value xsi:type="xsd:int">263</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <VariableList xsi:type="VariableListSaveOfString">

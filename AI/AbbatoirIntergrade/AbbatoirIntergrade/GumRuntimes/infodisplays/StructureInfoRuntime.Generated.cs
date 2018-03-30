@@ -139,13 +139,13 @@
                             ColoredRectangleInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
                             ColoredRectangleInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                             AttackDamageType.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Piercing;
-                            AttackDamageType.Height = 25f;
+                            AttackDamageType.Height = 100f;
                             AttackDamageType.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            AttackDamageType.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            AttackDamageType.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
                             AttackDamageType.ResistanceText = "50";
                             AttackDamageType.TextFontScale = 1f;
                             AttackDamageType.TextHorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                            AttackDamageType.Width = 100f;
+                            AttackDamageType.Width = 55f;
                             AttackDamageType.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             AttackDamageType.X = 0f;
                             AttackDamageType.Y = 0f;
@@ -171,6 +171,12 @@
                             MaxRange.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             MaxRange.Y = 12.5f;
                             MaxRange.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            AttackCostContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                            AttackCostContainer.Height = 25f;
+                            AttackCostContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            AttackCostContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            AttackCostContainer.Width = 100f;
+                            AttackCostContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             RangeContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                             RangeContainer.Height = 25f;
                             RangeContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -217,6 +223,34 @@
                             OrTextInstance.Width = 0f;
                             OrTextInstance.X = 164f;
                             OrTextInstance.Y = 42f;
+                            PointsSprite.Height = 50f;
+                            PointsSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
+                            SetProperty("PointsSprite.SourceFile", "AllUIAssets.png");
+                            PointsSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                            PointsSprite.TextureHeight = 122;
+                            PointsSprite.TextureLeft = 2435;
+                            PointsSprite.TextureTop = 910;
+                            PointsSprite.TextureWidth = 128;
+                            PointsSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                            PointsSprite.X = 15f;
+                            PointsSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            PointsSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            CostText.Blue = 0;
+                            SetProperty("CostText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            CostText.Green = 252;
+                            CostText.Height = 0f;
+                            CostText.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
+                            CostText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            CostText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
+                            CostText.Red = 124;
+                            CostText.Text = "20";
+                            CostText.UseCustomFont = true;
+                            CostText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            CostText.Width = 0f;
+                            CostText.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                            CostText.X = 1f;
+                            CostText.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             break;
                     }
                 }
@@ -293,6 +327,14 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
+                bool setAttackCostContainerHeightFirstValue = false;
+                bool setAttackCostContainerHeightSecondValue = false;
+                float AttackCostContainerHeightFirstValue= 0;
+                float AttackCostContainerHeightSecondValue= 0;
+                bool setAttackCostContainerWidthFirstValue = false;
+                bool setAttackCostContainerWidthSecondValue = false;
+                float AttackCostContainerWidthFirstValue= 0;
+                float AttackCostContainerWidthSecondValue= 0;
                 bool setAttackDamageTypeHeightFirstValue = false;
                 bool setAttackDamageTypeHeightSecondValue = false;
                 float AttackDamageTypeHeightFirstValue= 0;
@@ -369,6 +411,30 @@
                 bool setColoredRectangleInstanceHeightSecondValue = false;
                 float ColoredRectangleInstanceHeightFirstValue= 0;
                 float ColoredRectangleInstanceHeightSecondValue= 0;
+                bool setCostTextBlueFirstValue = false;
+                bool setCostTextBlueSecondValue = false;
+                int CostTextBlueFirstValue= 0;
+                int CostTextBlueSecondValue= 0;
+                bool setCostTextGreenFirstValue = false;
+                bool setCostTextGreenSecondValue = false;
+                int CostTextGreenFirstValue= 0;
+                int CostTextGreenSecondValue= 0;
+                bool setCostTextHeightFirstValue = false;
+                bool setCostTextHeightSecondValue = false;
+                float CostTextHeightFirstValue= 0;
+                float CostTextHeightSecondValue= 0;
+                bool setCostTextRedFirstValue = false;
+                bool setCostTextRedSecondValue = false;
+                int CostTextRedFirstValue= 0;
+                int CostTextRedSecondValue= 0;
+                bool setCostTextWidthFirstValue = false;
+                bool setCostTextWidthSecondValue = false;
+                float CostTextWidthFirstValue= 0;
+                float CostTextWidthSecondValue= 0;
+                bool setCostTextXFirstValue = false;
+                bool setCostTextXSecondValue = false;
+                float CostTextXFirstValue= 0;
+                float CostTextXSecondValue= 0;
                 bool setGlowSpriteHeightFirstValue = false;
                 bool setGlowSpriteHeightSecondValue = false;
                 float GlowSpriteHeightFirstValue= 0;
@@ -521,6 +587,30 @@
                 bool setPointOrSplashWidthSecondValue = false;
                 float PointOrSplashWidthFirstValue= 0;
                 float PointOrSplashWidthSecondValue= 0;
+                bool setPointsSpriteHeightFirstValue = false;
+                bool setPointsSpriteHeightSecondValue = false;
+                float PointsSpriteHeightFirstValue= 0;
+                float PointsSpriteHeightSecondValue= 0;
+                bool setPointsSpriteTextureHeightFirstValue = false;
+                bool setPointsSpriteTextureHeightSecondValue = false;
+                int PointsSpriteTextureHeightFirstValue= 0;
+                int PointsSpriteTextureHeightSecondValue= 0;
+                bool setPointsSpriteTextureLeftFirstValue = false;
+                bool setPointsSpriteTextureLeftSecondValue = false;
+                int PointsSpriteTextureLeftFirstValue= 0;
+                int PointsSpriteTextureLeftSecondValue= 0;
+                bool setPointsSpriteTextureTopFirstValue = false;
+                bool setPointsSpriteTextureTopSecondValue = false;
+                int PointsSpriteTextureTopFirstValue= 0;
+                int PointsSpriteTextureTopSecondValue= 0;
+                bool setPointsSpriteTextureWidthFirstValue = false;
+                bool setPointsSpriteTextureWidthSecondValue = false;
+                int PointsSpriteTextureWidthFirstValue= 0;
+                int PointsSpriteTextureWidthSecondValue= 0;
+                bool setPointsSpriteXFirstValue = false;
+                bool setPointsSpriteXSecondValue = false;
+                float PointsSpriteXFirstValue= 0;
+                float PointsSpriteXSecondValue= 0;
                 bool setRangeContainerHeightFirstValue = false;
                 bool setRangeContainerHeightSecondValue = false;
                 float RangeContainerHeightFirstValue= 0;
@@ -590,17 +680,37 @@
                     case  VariableState.Default:
                         if (interpolationValue < 1)
                         {
+                            this.AttackCostContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                        }
+                        setAttackCostContainerHeightFirstValue = true;
+                        AttackCostContainerHeightFirstValue = 25f;
+                        if (interpolationValue < 1)
+                        {
+                            this.AttackCostContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.AttackCostContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                        }
+                        setAttackCostContainerWidthFirstValue = true;
+                        AttackCostContainerWidthFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.AttackCostContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.AttackDamageType.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Piercing;
                         }
                         setAttackDamageTypeHeightFirstValue = true;
-                        AttackDamageTypeHeightFirstValue = 25f;
+                        AttackDamageTypeHeightFirstValue = 100f;
                         if (interpolationValue < 1)
                         {
                             this.AttackDamageType.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.AttackDamageType.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.AttackDamageType.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
                         }
                         if (interpolationValue < 1)
                         {
@@ -613,7 +723,7 @@
                             this.AttackDamageType.TextHorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                         }
                         setAttackDamageTypeWidthFirstValue = true;
-                        AttackDamageTypeWidthFirstValue = 100f;
+                        AttackDamageTypeWidthFirstValue = 55f;
                         if (interpolationValue < 1)
                         {
                             this.AttackDamageType.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -745,6 +855,54 @@
                         if (interpolationValue < 1)
                         {
                             this.ColoredRectangleInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
+                        setCostTextBlueFirstValue = true;
+                        CostTextBlueFirstValue = 0;
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("CostText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
+                        setCostTextGreenFirstValue = true;
+                        CostTextGreenFirstValue = 252;
+                        setCostTextHeightFirstValue = true;
+                        CostTextHeightFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.CostText.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CostText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CostText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
+                        }
+                        setCostTextRedFirstValue = true;
+                        CostTextRedFirstValue = 124;
+                        if (interpolationValue < 1)
+                        {
+                            this.CostText.Text = "20";
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CostText.UseCustomFont = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.CostText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        setCostTextWidthFirstValue = true;
+                        CostTextWidthFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.CostText.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                        }
+                        setCostTextXFirstValue = true;
+                        CostTextXFirstValue = 1f;
+                        if (interpolationValue < 1)
+                        {
+                            this.CostText.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setGlowSpriteHeightFirstValue = true;
                         GlowSpriteHeightFirstValue = 120f;
@@ -1026,6 +1184,46 @@
                         {
                             this.PointOrSplash.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                         }
+                        setPointsSpriteHeightFirstValue = true;
+                        PointsSpriteHeightFirstValue = 50f;
+                        if (interpolationValue < 1)
+                        {
+                            this.PointsSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("PointsSprite.SourceFile", "AllUIAssets.png");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.PointsSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                        }
+                        setPointsSpriteTextureHeightFirstValue = true;
+                        PointsSpriteTextureHeightFirstValue = 122;
+                        setPointsSpriteTextureLeftFirstValue = true;
+                        PointsSpriteTextureLeftFirstValue = 2435;
+                        setPointsSpriteTextureTopFirstValue = true;
+                        PointsSpriteTextureTopFirstValue = 910;
+                        setPointsSpriteTextureWidthFirstValue = true;
+                        PointsSpriteTextureWidthFirstValue = 128;
+                        if (interpolationValue < 1)
+                        {
+                            this.PointsSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                        }
+                        setPointsSpriteXFirstValue = true;
+                        PointsSpriteXFirstValue = 15f;
+                        if (interpolationValue < 1)
+                        {
+                            this.PointsSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.PointsSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
                         if (interpolationValue < 1)
                         {
                             this.RangeContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
@@ -1169,17 +1367,37 @@
                     case  VariableState.Default:
                         if (interpolationValue >= 1)
                         {
+                            this.AttackCostContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                        }
+                        setAttackCostContainerHeightSecondValue = true;
+                        AttackCostContainerHeightSecondValue = 25f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.AttackCostContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.AttackCostContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                        }
+                        setAttackCostContainerWidthSecondValue = true;
+                        AttackCostContainerWidthSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.AttackCostContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
                             this.AttackDamageType.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Piercing;
                         }
                         setAttackDamageTypeHeightSecondValue = true;
-                        AttackDamageTypeHeightSecondValue = 25f;
+                        AttackDamageTypeHeightSecondValue = 100f;
                         if (interpolationValue >= 1)
                         {
                             this.AttackDamageType.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.AttackDamageType.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.AttackDamageType.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1192,7 +1410,7 @@
                             this.AttackDamageType.TextHorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                         }
                         setAttackDamageTypeWidthSecondValue = true;
-                        AttackDamageTypeWidthSecondValue = 100f;
+                        AttackDamageTypeWidthSecondValue = 55f;
                         if (interpolationValue >= 1)
                         {
                             this.AttackDamageType.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -1324,6 +1542,54 @@
                         if (interpolationValue >= 1)
                         {
                             this.ColoredRectangleInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
+                        setCostTextBlueSecondValue = true;
+                        CostTextBlueSecondValue = 0;
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("CostText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
+                        setCostTextGreenSecondValue = true;
+                        CostTextGreenSecondValue = 252;
+                        setCostTextHeightSecondValue = true;
+                        CostTextHeightSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.CostText.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CostText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CostText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
+                        }
+                        setCostTextRedSecondValue = true;
+                        CostTextRedSecondValue = 124;
+                        if (interpolationValue >= 1)
+                        {
+                            this.CostText.Text = "20";
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CostText.UseCustomFont = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.CostText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        setCostTextWidthSecondValue = true;
+                        CostTextWidthSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.CostText.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                        }
+                        setCostTextXSecondValue = true;
+                        CostTextXSecondValue = 1f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.CostText.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setGlowSpriteHeightSecondValue = true;
                         GlowSpriteHeightSecondValue = 120f;
@@ -1605,6 +1871,46 @@
                         {
                             this.PointOrSplash.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                         }
+                        setPointsSpriteHeightSecondValue = true;
+                        PointsSpriteHeightSecondValue = 50f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.PointsSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("PointsSprite.SourceFile", "AllUIAssets.png");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.PointsSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                        }
+                        setPointsSpriteTextureHeightSecondValue = true;
+                        PointsSpriteTextureHeightSecondValue = 122;
+                        setPointsSpriteTextureLeftSecondValue = true;
+                        PointsSpriteTextureLeftSecondValue = 2435;
+                        setPointsSpriteTextureTopSecondValue = true;
+                        PointsSpriteTextureTopSecondValue = 910;
+                        setPointsSpriteTextureWidthSecondValue = true;
+                        PointsSpriteTextureWidthSecondValue = 128;
+                        if (interpolationValue >= 1)
+                        {
+                            this.PointsSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                        }
+                        setPointsSpriteXSecondValue = true;
+                        PointsSpriteXSecondValue = 15f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.PointsSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.PointsSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
                         if (interpolationValue >= 1)
                         {
                             this.RangeContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
@@ -1743,6 +2049,14 @@
                         }
                         break;
                 }
+                if (setAttackCostContainerHeightFirstValue && setAttackCostContainerHeightSecondValue)
+                {
+                    AttackCostContainer.Height = AttackCostContainerHeightFirstValue * (1 - interpolationValue) + AttackCostContainerHeightSecondValue * interpolationValue;
+                }
+                if (setAttackCostContainerWidthFirstValue && setAttackCostContainerWidthSecondValue)
+                {
+                    AttackCostContainer.Width = AttackCostContainerWidthFirstValue * (1 - interpolationValue) + AttackCostContainerWidthSecondValue * interpolationValue;
+                }
                 if (setAttackDamageTypeHeightFirstValue && setAttackDamageTypeHeightSecondValue)
                 {
                     AttackDamageType.Height = AttackDamageTypeHeightFirstValue * (1 - interpolationValue) + AttackDamageTypeHeightSecondValue * interpolationValue;
@@ -1818,6 +2132,30 @@
                 if (setColoredRectangleInstanceHeightFirstValue && setColoredRectangleInstanceHeightSecondValue)
                 {
                     ColoredRectangleInstance.Height = ColoredRectangleInstanceHeightFirstValue * (1 - interpolationValue) + ColoredRectangleInstanceHeightSecondValue * interpolationValue;
+                }
+                if (setCostTextBlueFirstValue && setCostTextBlueSecondValue)
+                {
+                    CostText.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(CostTextBlueFirstValue* (1 - interpolationValue) + CostTextBlueSecondValue * interpolationValue);
+                }
+                if (setCostTextGreenFirstValue && setCostTextGreenSecondValue)
+                {
+                    CostText.Green = FlatRedBall.Math.MathFunctions.RoundToInt(CostTextGreenFirstValue* (1 - interpolationValue) + CostTextGreenSecondValue * interpolationValue);
+                }
+                if (setCostTextHeightFirstValue && setCostTextHeightSecondValue)
+                {
+                    CostText.Height = CostTextHeightFirstValue * (1 - interpolationValue) + CostTextHeightSecondValue * interpolationValue;
+                }
+                if (setCostTextRedFirstValue && setCostTextRedSecondValue)
+                {
+                    CostText.Red = FlatRedBall.Math.MathFunctions.RoundToInt(CostTextRedFirstValue* (1 - interpolationValue) + CostTextRedSecondValue * interpolationValue);
+                }
+                if (setCostTextWidthFirstValue && setCostTextWidthSecondValue)
+                {
+                    CostText.Width = CostTextWidthFirstValue * (1 - interpolationValue) + CostTextWidthSecondValue * interpolationValue;
+                }
+                if (setCostTextXFirstValue && setCostTextXSecondValue)
+                {
+                    CostText.X = CostTextXFirstValue * (1 - interpolationValue) + CostTextXSecondValue * interpolationValue;
                 }
                 if (setGlowSpriteHeightFirstValue && setGlowSpriteHeightSecondValue)
                 {
@@ -1970,6 +2308,30 @@
                 if (setPointOrSplashWidthFirstValue && setPointOrSplashWidthSecondValue)
                 {
                     PointOrSplash.Width = PointOrSplashWidthFirstValue * (1 - interpolationValue) + PointOrSplashWidthSecondValue * interpolationValue;
+                }
+                if (setPointsSpriteHeightFirstValue && setPointsSpriteHeightSecondValue)
+                {
+                    PointsSprite.Height = PointsSpriteHeightFirstValue * (1 - interpolationValue) + PointsSpriteHeightSecondValue * interpolationValue;
+                }
+                if (setPointsSpriteTextureHeightFirstValue && setPointsSpriteTextureHeightSecondValue)
+                {
+                    PointsSprite.TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(PointsSpriteTextureHeightFirstValue* (1 - interpolationValue) + PointsSpriteTextureHeightSecondValue * interpolationValue);
+                }
+                if (setPointsSpriteTextureLeftFirstValue && setPointsSpriteTextureLeftSecondValue)
+                {
+                    PointsSprite.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(PointsSpriteTextureLeftFirstValue* (1 - interpolationValue) + PointsSpriteTextureLeftSecondValue * interpolationValue);
+                }
+                if (setPointsSpriteTextureTopFirstValue && setPointsSpriteTextureTopSecondValue)
+                {
+                    PointsSprite.TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(PointsSpriteTextureTopFirstValue* (1 - interpolationValue) + PointsSpriteTextureTopSecondValue * interpolationValue);
+                }
+                if (setPointsSpriteTextureWidthFirstValue && setPointsSpriteTextureWidthSecondValue)
+                {
+                    PointsSprite.TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(PointsSpriteTextureWidthFirstValue* (1 - interpolationValue) + PointsSpriteTextureWidthSecondValue * interpolationValue);
+                }
+                if (setPointsSpriteXFirstValue && setPointsSpriteXSecondValue)
+                {
+                    PointsSprite.X = PointsSpriteXFirstValue * (1 - interpolationValue) + PointsSpriteXSecondValue * interpolationValue;
                 }
                 if (setRangeContainerHeightFirstValue && setRangeContainerHeightSecondValue)
                 {
@@ -3575,6 +3937,54 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "AttackCostContainer.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = AttackCostContainer.ChildrenLayout
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "AttackCostContainer.Height",
+                            Type = "float",
+                            Value = AttackCostContainer.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "AttackCostContainer.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = AttackCostContainer.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "AttackCostContainer.Parent",
+                            Type = "string",
+                            Value = AttackCostContainer.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "AttackCostContainer.Width",
+                            Type = "float",
+                            Value = AttackCostContainer.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "AttackCostContainer.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = AttackCostContainer.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "RangeContainer.Children Layout",
                             Type = "ChildrenLayout",
                             Value = RangeContainer.ChildrenLayout
@@ -3938,6 +4348,230 @@
                             Name = "OrTextInstance.Y",
                             Type = "float",
                             Value = OrTextInstance.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Height",
+                            Type = "float",
+                            Value = PointsSprite.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = PointsSprite.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Parent",
+                            Type = "string",
+                            Value = PointsSprite.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.SourceFile",
+                            Type = "string",
+                            Value = PointsSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Texture Address",
+                            Type = "TextureAddress",
+                            Value = PointsSprite.TextureAddress
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Texture Height",
+                            Type = "int",
+                            Value = PointsSprite.TextureHeight
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Texture Left",
+                            Type = "int",
+                            Value = PointsSprite.TextureLeft
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Texture Top",
+                            Type = "int",
+                            Value = PointsSprite.TextureTop
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Texture Width",
+                            Type = "int",
+                            Value = PointsSprite.TextureWidth
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = PointsSprite.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.X",
+                            Type = "float",
+                            Value = PointsSprite.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = PointsSprite.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Y Units",
+                            Type = "PositionUnitType",
+                            Value = PointsSprite.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Blue",
+                            Type = "int",
+                            Value = CostText.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.CustomFontFile",
+                            Type = "string",
+                            Value = CostText.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Green",
+                            Type = "int",
+                            Value = CostText.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Height",
+                            Type = "float",
+                            Value = CostText.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = CostText.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.HorizontalAlignment",
+                            Type = "HorizontalAlignment",
+                            Value = CostText.HorizontalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Parent",
+                            Type = "string",
+                            Value = CostText.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Red",
+                            Type = "int",
+                            Value = CostText.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Text",
+                            Type = "string",
+                            Value = CostText.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.UseCustomFont",
+                            Type = "bool",
+                            Value = CostText.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.VerticalAlignment",
+                            Type = "VerticalAlignment",
+                            Value = CostText.VerticalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Width",
+                            Type = "float",
+                            Value = CostText.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = CostText.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.X",
+                            Type = "float",
+                            Value = CostText.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.X Units",
+                            Type = "PositionUnitType",
+                            Value = CostText.XUnits
                         }
                         );
                         break;
@@ -4771,7 +5405,7 @@
                             SetsValue = true,
                             Name = "AttackDamageType.Height",
                             Type = "float",
-                            Value = AttackDamageType.Height + 25f
+                            Value = AttackDamageType.Height + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4819,7 +5453,7 @@
                             SetsValue = true,
                             Name = "AttackDamageType.Width",
                             Type = "float",
-                            Value = AttackDamageType.Width + 100f
+                            Value = AttackDamageType.Width + 55f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -5020,6 +5654,54 @@
                             Name = "MaxRange.Y Units",
                             Type = "PositionUnitType",
                             Value = MaxRange.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "AttackCostContainer.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = AttackCostContainer.ChildrenLayout
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "AttackCostContainer.Height",
+                            Type = "float",
+                            Value = AttackCostContainer.Height + 25f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "AttackCostContainer.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = AttackCostContainer.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "AttackCostContainer.Parent",
+                            Type = "string",
+                            Value = AttackCostContainer.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "AttackCostContainer.Width",
+                            Type = "float",
+                            Value = AttackCostContainer.Width + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "AttackCostContainer.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = AttackCostContainer.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -5388,6 +6070,230 @@
                             Name = "OrTextInstance.Y",
                             Type = "float",
                             Value = OrTextInstance.Y + 42f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Height",
+                            Type = "float",
+                            Value = PointsSprite.Height + 50f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = PointsSprite.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Parent",
+                            Type = "string",
+                            Value = PointsSprite.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.SourceFile",
+                            Type = "string",
+                            Value = PointsSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Texture Address",
+                            Type = "TextureAddress",
+                            Value = PointsSprite.TextureAddress
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Texture Height",
+                            Type = "int",
+                            Value = PointsSprite.TextureHeight + 122
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Texture Left",
+                            Type = "int",
+                            Value = PointsSprite.TextureLeft + 2435
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Texture Top",
+                            Type = "int",
+                            Value = PointsSprite.TextureTop + 910
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Texture Width",
+                            Type = "int",
+                            Value = PointsSprite.TextureWidth + 128
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = PointsSprite.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.X",
+                            Type = "float",
+                            Value = PointsSprite.X + 15f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = PointsSprite.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Y Units",
+                            Type = "PositionUnitType",
+                            Value = PointsSprite.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Blue",
+                            Type = "int",
+                            Value = CostText.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.CustomFontFile",
+                            Type = "string",
+                            Value = CostText.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Green",
+                            Type = "int",
+                            Value = CostText.Green + 252
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Height",
+                            Type = "float",
+                            Value = CostText.Height + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = CostText.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.HorizontalAlignment",
+                            Type = "HorizontalAlignment",
+                            Value = CostText.HorizontalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Parent",
+                            Type = "string",
+                            Value = CostText.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Red",
+                            Type = "int",
+                            Value = CostText.Red + 124
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Text",
+                            Type = "string",
+                            Value = CostText.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.UseCustomFont",
+                            Type = "bool",
+                            Value = CostText.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.VerticalAlignment",
+                            Type = "VerticalAlignment",
+                            Value = CostText.VerticalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Width",
+                            Type = "float",
+                            Value = CostText.Width + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = CostText.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.X",
+                            Type = "float",
+                            Value = CostText.X + 1f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.X Units",
+                            Type = "PositionUnitType",
+                            Value = CostText.XUnits
                         }
                         );
                         break;
@@ -5894,12 +6800,30 @@
             private AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime AttackDamageType { get; set; }
             private AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime MinRange { get; set; }
             private AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime MaxRange { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ContainerRuntime AttackCostContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime RangeContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime AttackSpeed { get; set; }
             private AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime PointOrSplash { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance1 { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime OrTextInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime PointsSprite { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.TextRuntime CostText { get; set; }
+            public string SatoshiCost
+            {
+                get
+                {
+                    return CostText.Text;
+                }
+                set
+                {
+                    if (CostText.Text != value)
+                    {
+                        CostText.Text = value;
+                        SatoshiCostChanged?.Invoke(this, null);
+                    }
+                }
+            }
             public string StructureName
             {
                 get
@@ -5919,9 +6843,11 @@
             public event FlatRedBall.Gui.WindowEvent StatsContainerClick;
             public event FlatRedBall.Gui.WindowEvent ButtonContainersClick;
             public event FlatRedBall.Gui.WindowEvent InfoContainerClick;
+            public event FlatRedBall.Gui.WindowEvent AttackCostContainerClick;
             public event FlatRedBall.Gui.WindowEvent RangeContainerClick;
             public event FlatRedBall.Gui.WindowEvent ButtonFrameInstanceClick;
             public event FlatRedBall.Gui.WindowEvent ButtonFrameInstance1Click;
+            public event System.EventHandler SatoshiCostChanged;
             public event System.EventHandler StructureNameChanged;
             public StructureInfoRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
@@ -5963,16 +6889,20 @@
                 AttackDamageType = this.GetGraphicalUiElementByName("AttackDamageType") as AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime;
                 MinRange = this.GetGraphicalUiElementByName("MinRange") as AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime;
                 MaxRange = this.GetGraphicalUiElementByName("MaxRange") as AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime;
+                AttackCostContainer = this.GetGraphicalUiElementByName("AttackCostContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 RangeContainer = this.GetGraphicalUiElementByName("RangeContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 AttackSpeed = this.GetGraphicalUiElementByName("AttackSpeed") as AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime;
                 PointOrSplash = this.GetGraphicalUiElementByName("PointOrSplash") as AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime;
                 ButtonFrameInstance = this.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
                 ButtonFrameInstance1 = this.GetGraphicalUiElementByName("ButtonFrameInstance1") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
                 OrTextInstance = this.GetGraphicalUiElementByName("OrTextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+                PointsSprite = this.GetGraphicalUiElementByName("PointsSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
+                CostText = this.GetGraphicalUiElementByName("CostText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 NameContainer.Click += (unused) => NameContainerClick?.Invoke(this);
                 StatsContainer.Click += (unused) => StatsContainerClick?.Invoke(this);
                 ButtonContainers.Click += (unused) => ButtonContainersClick?.Invoke(this);
                 InfoContainer.Click += (unused) => InfoContainerClick?.Invoke(this);
+                AttackCostContainer.Click += (unused) => AttackCostContainerClick?.Invoke(this);
                 RangeContainer.Click += (unused) => RangeContainerClick?.Invoke(this);
                 ButtonFrameInstance.Click += (unused) => ButtonFrameInstanceClick?.Invoke(this);
                 ButtonFrameInstance1.Click += (unused) => ButtonFrameInstance1Click?.Invoke(this);

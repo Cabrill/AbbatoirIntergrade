@@ -314,9 +314,81 @@
         <Value xsi:type="xsd:int">512</Value>
         <SetsValue>true</SetsValue>
       </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>BackgroundSprite.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>BackgroundSprite.Blue</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
     </State>
     <State>
       <Name>NotHighlighted</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>BackgroundSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>BackgroundSprite.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>BackgroundSprite.Blue</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>HighlightedCantAfford</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>BackgroundSprite.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>BackgroundSprite.Green</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>BackgroundSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">512</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>NotHighlightedCantAfford</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>BackgroundSprite.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>BackgroundSprite.Green</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
       <Variable>
         <Type>int</Type>
         <Name>BackgroundSprite.Texture Left</Name>

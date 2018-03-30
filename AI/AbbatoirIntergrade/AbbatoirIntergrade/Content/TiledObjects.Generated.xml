@@ -172,6 +172,7 @@
     <property name="MinimumRangeRadius" type="float" default="450" />
     <property name="StatusEffectSeconds" type="float" default="0" />
     <property name="StatusDamageMultiplier" type="float" default="0" />
+    <property name="SatoshiCost" type="int" default="20" />
   </objecttype>
   <objecttype name="ChemicalTower">
     <property name="DisplayName" type="string" default="Chemical" />
@@ -188,6 +189,7 @@
     <property name="MinimumRangeRadius" type="float" default="150" />
     <property name="StatusEffectSeconds" type="float" default="5" />
     <property name="StatusDamageMultiplier" type="float" default="3.5" />
+    <property name="SatoshiCost" type="int" default="12" />
   </objecttype>
   <objecttype name="ElectricTower">
     <property name="DisplayName" type="string" default="Electric" />
@@ -204,6 +206,7 @@
     <property name="MinimumRangeRadius" type="float" default="75" />
     <property name="StatusEffectSeconds" type="float" default="2" />
     <property name="StatusDamageMultiplier" type="float" default="0" />
+    <property name="SatoshiCost" type="int" default="15" />
   </objecttype>
   <objecttype name="FireTower">
     <property name="DisplayName" type="string" default="Fire" />
@@ -220,6 +223,7 @@
     <property name="MinimumRangeRadius" type="float" default="100" />
     <property name="StatusEffectSeconds" type="float" default="2" />
     <property name="StatusDamageMultiplier" type="float" default="0.15" />
+    <property name="SatoshiCost" type="int" default="12" />
   </objecttype>
   <objecttype name="FrostTower">
     <property name="DisplayName" type="string" default="Frost" />
@@ -236,6 +240,7 @@
     <property name="MinimumRangeRadius" type="float" default="100" />
     <property name="StatusEffectSeconds" type="float" default="5" />
     <property name="StatusDamageMultiplier" type="float" default="0.05" />
+    <property name="SatoshiCost" type="int" default="8" />
   </objecttype>
   <objecttype name="PiercingTower">
     <property name="DisplayName" type="string" default="Arrow" />
@@ -252,5 +257,6 @@
     <property name="MinimumRangeRadius" type="float" default="250" />
     <property name="StatusEffectSeconds" type="float" default="0" />
     <property name="StatusDamageMultiplier" type="float" default="0" />
+    <property name="SatoshiCost" type="int" default="10" />
   </objecttype>
 </objecttypes>

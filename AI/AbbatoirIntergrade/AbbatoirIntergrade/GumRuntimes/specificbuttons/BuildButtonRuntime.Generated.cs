@@ -11,7 +11,9 @@
             public enum Highlight
             {
                 Highlighted,
-                NotHighlighted
+                NotHighlighted,
+                HighlightedCantAfford,
+                NotHighlightedCantAfford
             }
             public enum Select
             {
@@ -98,9 +100,23 @@
                     switch(mCurrentHighlightState)
                     {
                         case  Highlight.Highlighted:
+                            BackgroundSprite.Blue = 255;
+                            BackgroundSprite.Green = 255;
                             BackgroundSprite.TextureLeft = 512;
                             break;
                         case  Highlight.NotHighlighted:
+                            BackgroundSprite.Blue = 255;
+                            BackgroundSprite.Green = 255;
+                            BackgroundSprite.TextureLeft = 0;
+                            break;
+                        case  Highlight.HighlightedCantAfford:
+                            BackgroundSprite.Blue = 0;
+                            BackgroundSprite.Green = 0;
+                            BackgroundSprite.TextureLeft = 512;
+                            break;
+                        case  Highlight.NotHighlightedCantAfford:
+                            BackgroundSprite.Blue = 0;
+                            BackgroundSprite.Green = 0;
                             BackgroundSprite.TextureLeft = 0;
                             break;
                     }
@@ -611,6 +627,14 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
+                bool setBackgroundSpriteBlueFirstValue = false;
+                bool setBackgroundSpriteBlueSecondValue = false;
+                int BackgroundSpriteBlueFirstValue= 0;
+                int BackgroundSpriteBlueSecondValue= 0;
+                bool setBackgroundSpriteGreenFirstValue = false;
+                bool setBackgroundSpriteGreenSecondValue = false;
+                int BackgroundSpriteGreenFirstValue= 0;
+                int BackgroundSpriteGreenSecondValue= 0;
                 bool setBackgroundSpriteTextureLeftFirstValue = false;
                 bool setBackgroundSpriteTextureLeftSecondValue = false;
                 int BackgroundSpriteTextureLeftFirstValue= 0;
@@ -618,10 +642,34 @@
                 switch(firstState)
                 {
                     case  Highlight.Highlighted:
+                        setBackgroundSpriteBlueFirstValue = true;
+                        BackgroundSpriteBlueFirstValue = 255;
+                        setBackgroundSpriteGreenFirstValue = true;
+                        BackgroundSpriteGreenFirstValue = 255;
                         setBackgroundSpriteTextureLeftFirstValue = true;
                         BackgroundSpriteTextureLeftFirstValue = 512;
                         break;
                     case  Highlight.NotHighlighted:
+                        setBackgroundSpriteBlueFirstValue = true;
+                        BackgroundSpriteBlueFirstValue = 255;
+                        setBackgroundSpriteGreenFirstValue = true;
+                        BackgroundSpriteGreenFirstValue = 255;
+                        setBackgroundSpriteTextureLeftFirstValue = true;
+                        BackgroundSpriteTextureLeftFirstValue = 0;
+                        break;
+                    case  Highlight.HighlightedCantAfford:
+                        setBackgroundSpriteBlueFirstValue = true;
+                        BackgroundSpriteBlueFirstValue = 0;
+                        setBackgroundSpriteGreenFirstValue = true;
+                        BackgroundSpriteGreenFirstValue = 0;
+                        setBackgroundSpriteTextureLeftFirstValue = true;
+                        BackgroundSpriteTextureLeftFirstValue = 512;
+                        break;
+                    case  Highlight.NotHighlightedCantAfford:
+                        setBackgroundSpriteBlueFirstValue = true;
+                        BackgroundSpriteBlueFirstValue = 0;
+                        setBackgroundSpriteGreenFirstValue = true;
+                        BackgroundSpriteGreenFirstValue = 0;
                         setBackgroundSpriteTextureLeftFirstValue = true;
                         BackgroundSpriteTextureLeftFirstValue = 0;
                         break;
@@ -629,13 +677,45 @@
                 switch(secondState)
                 {
                     case  Highlight.Highlighted:
+                        setBackgroundSpriteBlueSecondValue = true;
+                        BackgroundSpriteBlueSecondValue = 255;
+                        setBackgroundSpriteGreenSecondValue = true;
+                        BackgroundSpriteGreenSecondValue = 255;
                         setBackgroundSpriteTextureLeftSecondValue = true;
                         BackgroundSpriteTextureLeftSecondValue = 512;
                         break;
                     case  Highlight.NotHighlighted:
+                        setBackgroundSpriteBlueSecondValue = true;
+                        BackgroundSpriteBlueSecondValue = 255;
+                        setBackgroundSpriteGreenSecondValue = true;
+                        BackgroundSpriteGreenSecondValue = 255;
                         setBackgroundSpriteTextureLeftSecondValue = true;
                         BackgroundSpriteTextureLeftSecondValue = 0;
                         break;
+                    case  Highlight.HighlightedCantAfford:
+                        setBackgroundSpriteBlueSecondValue = true;
+                        BackgroundSpriteBlueSecondValue = 0;
+                        setBackgroundSpriteGreenSecondValue = true;
+                        BackgroundSpriteGreenSecondValue = 0;
+                        setBackgroundSpriteTextureLeftSecondValue = true;
+                        BackgroundSpriteTextureLeftSecondValue = 512;
+                        break;
+                    case  Highlight.NotHighlightedCantAfford:
+                        setBackgroundSpriteBlueSecondValue = true;
+                        BackgroundSpriteBlueSecondValue = 0;
+                        setBackgroundSpriteGreenSecondValue = true;
+                        BackgroundSpriteGreenSecondValue = 0;
+                        setBackgroundSpriteTextureLeftSecondValue = true;
+                        BackgroundSpriteTextureLeftSecondValue = 0;
+                        break;
+                }
+                if (setBackgroundSpriteBlueFirstValue && setBackgroundSpriteBlueSecondValue)
+                {
+                    BackgroundSprite.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(BackgroundSpriteBlueFirstValue* (1 - interpolationValue) + BackgroundSpriteBlueSecondValue * interpolationValue);
+                }
+                if (setBackgroundSpriteGreenFirstValue && setBackgroundSpriteGreenSecondValue)
+                {
+                    BackgroundSprite.Green = FlatRedBall.Math.MathFunctions.RoundToInt(BackgroundSpriteGreenFirstValue* (1 - interpolationValue) + BackgroundSpriteGreenSecondValue * interpolationValue);
                 }
                 if (setBackgroundSpriteTextureLeftFirstValue && setBackgroundSpriteTextureLeftSecondValue)
                 {
@@ -1618,6 +1698,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "BackgroundSprite.Blue",
+                            Type = "int",
+                            Value = BackgroundSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Green",
+                            Type = "int",
+                            Value = BackgroundSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "BackgroundSprite.Texture Left",
                             Type = "int",
                             Value = BackgroundSprite.TextureLeft
@@ -1625,6 +1721,74 @@
                         );
                         break;
                     case  Highlight.NotHighlighted:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Blue",
+                            Type = "int",
+                            Value = BackgroundSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Green",
+                            Type = "int",
+                            Value = BackgroundSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Texture Left",
+                            Type = "int",
+                            Value = BackgroundSprite.TextureLeft
+                        }
+                        );
+                        break;
+                    case  Highlight.HighlightedCantAfford:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Blue",
+                            Type = "int",
+                            Value = BackgroundSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Green",
+                            Type = "int",
+                            Value = BackgroundSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Texture Left",
+                            Type = "int",
+                            Value = BackgroundSprite.TextureLeft
+                        }
+                        );
+                        break;
+                    case  Highlight.NotHighlightedCantAfford:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Blue",
+                            Type = "int",
+                            Value = BackgroundSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Green",
+                            Type = "int",
+                            Value = BackgroundSprite.Green
+                        }
+                        );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -1646,6 +1810,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "BackgroundSprite.Blue",
+                            Type = "int",
+                            Value = BackgroundSprite.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Green",
+                            Type = "int",
+                            Value = BackgroundSprite.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "BackgroundSprite.Texture Left",
                             Type = "int",
                             Value = BackgroundSprite.TextureLeft + 512
@@ -1653,6 +1833,74 @@
                         );
                         break;
                     case  Highlight.NotHighlighted:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Blue",
+                            Type = "int",
+                            Value = BackgroundSprite.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Green",
+                            Type = "int",
+                            Value = BackgroundSprite.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Texture Left",
+                            Type = "int",
+                            Value = BackgroundSprite.TextureLeft + 0
+                        }
+                        );
+                        break;
+                    case  Highlight.HighlightedCantAfford:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Blue",
+                            Type = "int",
+                            Value = BackgroundSprite.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Green",
+                            Type = "int",
+                            Value = BackgroundSprite.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Texture Left",
+                            Type = "int",
+                            Value = BackgroundSprite.TextureLeft + 512
+                        }
+                        );
+                        break;
+                    case  Highlight.NotHighlightedCantAfford:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Blue",
+                            Type = "int",
+                            Value = BackgroundSprite.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Green",
+                            Type = "int",
+                            Value = BackgroundSprite.Green + 0
+                        }
+                        );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -1736,6 +1984,8 @@
                     {
                         if(state.Name == "Highlighted") this.mCurrentHighlightState = Highlight.Highlighted;
                         if(state.Name == "NotHighlighted") this.mCurrentHighlightState = Highlight.NotHighlighted;
+                        if(state.Name == "HighlightedCantAfford") this.mCurrentHighlightState = Highlight.HighlightedCantAfford;
+                        if(state.Name == "NotHighlightedCantAfford") this.mCurrentHighlightState = Highlight.NotHighlightedCantAfford;
                     }
                     else if (category.Name == "Select")
                     {

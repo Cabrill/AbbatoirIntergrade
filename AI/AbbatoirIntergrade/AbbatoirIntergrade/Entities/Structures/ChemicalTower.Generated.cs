@@ -464,6 +464,7 @@ namespace AbbatoirIntergrade.Entities.Structures
             MinimumRangeRadius = 150f;
             StatusEffectSeconds = 5;
             StatusDamageMultiplier = 3.5f;
+            SatoshiCost = 12;
         }
         public override void ConvertToManuallyUpdated () 
         {

@@ -57,7 +57,6 @@
                             ChatBoxInstance.X = 0f;
                             ChatBoxInstance.Y = 50f;
                             BuildMenuInstance.Visible = false;
-                            LivesPointsDisplayInstance.Width = 236f;
                             LivesPointsDisplayInstance.X = 100f;
                             LivesPointsDisplayInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
                             LivesPointsDisplayInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
@@ -67,14 +66,14 @@
                             ScreenShadeInstance.Visible = false;
                             MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
                             MenuWindowInstance.Visible = false;
-                            ColoredRectangleInstance.Alpha = 0;
-                            ColoredRectangleInstance.Blue = 0;
-                            ColoredRectangleInstance.Green = 0;
-                            ColoredRectangleInstance.Height = 100f;
-                            ColoredRectangleInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ColoredRectangleInstance.Red = 0;
-                            ColoredRectangleInstance.Width = 100f;
-                            ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            DimmingRectangle.Alpha = 0;
+                            DimmingRectangle.Blue = 0;
+                            DimmingRectangle.Green = 0;
+                            DimmingRectangle.Height = 100f;
+                            DimmingRectangle.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            DimmingRectangle.Red = 0;
+                            DimmingRectangle.Width = 100f;
+                            DimmingRectangle.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             LocationTimeAnnouncementInstance.CurrentDisplayingState = AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime.Displaying.Start;
                             ConfirmationWindowInstance.Visible = false;
                             CurrentMusicDisplayInstance.CurrentAppearingState = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
@@ -179,10 +178,10 @@
                     switch(mCurrentFadingState)
                     {
                         case  Fading.Faded:
-                            ColoredRectangleInstance.Alpha = 255;
+                            DimmingRectangle.Alpha = 255;
                             break;
                         case  Fading.NotFaded:
-                            ColoredRectangleInstance.Alpha = 0;
+                            DimmingRectangle.Alpha = 0;
                             break;
                     }
                 }
@@ -199,24 +198,28 @@
                     switch(mCurrentHordeDisplayState)
                     {
                         case  HordeDisplay.HordeStart:
+                            HordeText.Alpha = 0;
                             HordeText.FontScale = 1f;
                             HordeText.Visible = true;
-                            HordeText.X = -1800f;
+                            HordeText.X = 0f;
                             break;
                         case  HordeDisplay.HordeMiddle:
+                            HordeText.Alpha = 255;
                             HordeText.FontScale = 1f;
                             HordeText.Visible = true;
                             HordeText.X = 0f;
                             break;
                         case  HordeDisplay.HordeMiddleBig:
+                            HordeText.Alpha = 255;
                             HordeText.FontScale = 1.5f;
                             HordeText.Visible = true;
                             HordeText.X = 0f;
                             break;
                         case  HordeDisplay.HordeEnd:
+                            HordeText.Alpha = 0;
                             HordeText.FontScale = 0.5f;
                             HordeText.Visible = true;
-                            HordeText.X = 1800f;
+                            HordeText.X = 0f;
                             break;
                     }
                 }
@@ -251,30 +254,6 @@
                 bool setChatHistoryInstanceYSecondValue = false;
                 float ChatHistoryInstanceYFirstValue= 0;
                 float ChatHistoryInstanceYSecondValue= 0;
-                bool setColoredRectangleInstanceAlphaFirstValue = false;
-                bool setColoredRectangleInstanceAlphaSecondValue = false;
-                int ColoredRectangleInstanceAlphaFirstValue= 0;
-                int ColoredRectangleInstanceAlphaSecondValue= 0;
-                bool setColoredRectangleInstanceBlueFirstValue = false;
-                bool setColoredRectangleInstanceBlueSecondValue = false;
-                int ColoredRectangleInstanceBlueFirstValue= 0;
-                int ColoredRectangleInstanceBlueSecondValue= 0;
-                bool setColoredRectangleInstanceGreenFirstValue = false;
-                bool setColoredRectangleInstanceGreenSecondValue = false;
-                int ColoredRectangleInstanceGreenFirstValue= 0;
-                int ColoredRectangleInstanceGreenSecondValue= 0;
-                bool setColoredRectangleInstanceHeightFirstValue = false;
-                bool setColoredRectangleInstanceHeightSecondValue = false;
-                float ColoredRectangleInstanceHeightFirstValue= 0;
-                float ColoredRectangleInstanceHeightSecondValue= 0;
-                bool setColoredRectangleInstanceRedFirstValue = false;
-                bool setColoredRectangleInstanceRedSecondValue = false;
-                int ColoredRectangleInstanceRedFirstValue= 0;
-                int ColoredRectangleInstanceRedSecondValue= 0;
-                bool setColoredRectangleInstanceWidthFirstValue = false;
-                bool setColoredRectangleInstanceWidthSecondValue = false;
-                float ColoredRectangleInstanceWidthFirstValue= 0;
-                float ColoredRectangleInstanceWidthSecondValue= 0;
                 bool setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = false;
                 bool setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = false;
                 CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue= CurrentMusicDisplayRuntime.Appearing.Hidden;
@@ -287,6 +266,30 @@
                 bool setCurrentMusicDisplayInstanceYSecondValue = false;
                 float CurrentMusicDisplayInstanceYFirstValue= 0;
                 float CurrentMusicDisplayInstanceYSecondValue= 0;
+                bool setDimmingRectangleAlphaFirstValue = false;
+                bool setDimmingRectangleAlphaSecondValue = false;
+                int DimmingRectangleAlphaFirstValue= 0;
+                int DimmingRectangleAlphaSecondValue= 0;
+                bool setDimmingRectangleBlueFirstValue = false;
+                bool setDimmingRectangleBlueSecondValue = false;
+                int DimmingRectangleBlueFirstValue= 0;
+                int DimmingRectangleBlueSecondValue= 0;
+                bool setDimmingRectangleGreenFirstValue = false;
+                bool setDimmingRectangleGreenSecondValue = false;
+                int DimmingRectangleGreenFirstValue= 0;
+                int DimmingRectangleGreenSecondValue= 0;
+                bool setDimmingRectangleHeightFirstValue = false;
+                bool setDimmingRectangleHeightSecondValue = false;
+                float DimmingRectangleHeightFirstValue= 0;
+                float DimmingRectangleHeightSecondValue= 0;
+                bool setDimmingRectangleRedFirstValue = false;
+                bool setDimmingRectangleRedSecondValue = false;
+                int DimmingRectangleRedFirstValue= 0;
+                int DimmingRectangleRedSecondValue= 0;
+                bool setDimmingRectangleWidthFirstValue = false;
+                bool setDimmingRectangleWidthSecondValue = false;
+                float DimmingRectangleWidthFirstValue= 0;
+                float DimmingRectangleWidthSecondValue= 0;
                 bool setHordeTextBlueFirstValue = false;
                 bool setHordeTextBlueSecondValue = false;
                 int HordeTextBlueFirstValue= 0;
@@ -311,10 +314,6 @@
                 bool setHordeTextXSecondValue = false;
                 float HordeTextXFirstValue= 0;
                 float HordeTextXSecondValue= 0;
-                bool setLivesPointsDisplayInstanceWidthFirstValue = false;
-                bool setLivesPointsDisplayInstanceWidthSecondValue = false;
-                float LivesPointsDisplayInstanceWidthFirstValue= 0;
-                float LivesPointsDisplayInstanceWidthSecondValue= 0;
                 bool setLivesPointsDisplayInstanceXFirstValue = false;
                 bool setLivesPointsDisplayInstanceXSecondValue = false;
                 float LivesPointsDisplayInstanceXFirstValue= 0;
@@ -348,26 +347,6 @@
                         ChatHistoryInstanceXFirstValue = 10f;
                         setChatHistoryInstanceYFirstValue = true;
                         ChatHistoryInstanceYFirstValue = 0f;
-                        setColoredRectangleInstanceAlphaFirstValue = true;
-                        ColoredRectangleInstanceAlphaFirstValue = 0;
-                        setColoredRectangleInstanceBlueFirstValue = true;
-                        ColoredRectangleInstanceBlueFirstValue = 0;
-                        setColoredRectangleInstanceGreenFirstValue = true;
-                        ColoredRectangleInstanceGreenFirstValue = 0;
-                        setColoredRectangleInstanceHeightFirstValue = true;
-                        ColoredRectangleInstanceHeightFirstValue = 100f;
-                        if (interpolationValue < 1)
-                        {
-                            this.ColoredRectangleInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setColoredRectangleInstanceRedFirstValue = true;
-                        ColoredRectangleInstanceRedFirstValue = 0;
-                        setColoredRectangleInstanceWidthFirstValue = true;
-                        ColoredRectangleInstanceWidthFirstValue = 100f;
-                        if (interpolationValue < 1)
-                        {
-                            this.ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
                         if (interpolationValue < 1)
                         {
                             this.ConfirmationWindowInstance.Visible = false;
@@ -378,6 +357,26 @@
                         CurrentMusicDisplayInstanceXFirstValue = -10f;
                         setCurrentMusicDisplayInstanceYFirstValue = true;
                         CurrentMusicDisplayInstanceYFirstValue = 230f;
+                        setDimmingRectangleAlphaFirstValue = true;
+                        DimmingRectangleAlphaFirstValue = 0;
+                        setDimmingRectangleBlueFirstValue = true;
+                        DimmingRectangleBlueFirstValue = 0;
+                        setDimmingRectangleGreenFirstValue = true;
+                        DimmingRectangleGreenFirstValue = 0;
+                        setDimmingRectangleHeightFirstValue = true;
+                        DimmingRectangleHeightFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.DimmingRectangle.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setDimmingRectangleRedFirstValue = true;
+                        DimmingRectangleRedFirstValue = 0;
+                        setDimmingRectangleWidthFirstValue = true;
+                        DimmingRectangleWidthFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.DimmingRectangle.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         if (interpolationValue < 1)
                         {
                             this.EnemyInfoInstance.Visible = false;
@@ -430,8 +429,6 @@
                         {
                             this.HorizonBoxInstance.Visible = true;
                         }
-                        setLivesPointsDisplayInstanceWidthFirstValue = true;
-                        LivesPointsDisplayInstanceWidthFirstValue = 236f;
                         setLivesPointsDisplayInstanceXFirstValue = true;
                         LivesPointsDisplayInstanceXFirstValue = 100f;
                         if (interpolationValue < 1)
@@ -487,26 +484,6 @@
                         ChatHistoryInstanceXSecondValue = 10f;
                         setChatHistoryInstanceYSecondValue = true;
                         ChatHistoryInstanceYSecondValue = 0f;
-                        setColoredRectangleInstanceAlphaSecondValue = true;
-                        ColoredRectangleInstanceAlphaSecondValue = 0;
-                        setColoredRectangleInstanceBlueSecondValue = true;
-                        ColoredRectangleInstanceBlueSecondValue = 0;
-                        setColoredRectangleInstanceGreenSecondValue = true;
-                        ColoredRectangleInstanceGreenSecondValue = 0;
-                        setColoredRectangleInstanceHeightSecondValue = true;
-                        ColoredRectangleInstanceHeightSecondValue = 100f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.ColoredRectangleInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setColoredRectangleInstanceRedSecondValue = true;
-                        ColoredRectangleInstanceRedSecondValue = 0;
-                        setColoredRectangleInstanceWidthSecondValue = true;
-                        ColoredRectangleInstanceWidthSecondValue = 100f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
                         if (interpolationValue >= 1)
                         {
                             this.ConfirmationWindowInstance.Visible = false;
@@ -517,6 +494,26 @@
                         CurrentMusicDisplayInstanceXSecondValue = -10f;
                         setCurrentMusicDisplayInstanceYSecondValue = true;
                         CurrentMusicDisplayInstanceYSecondValue = 230f;
+                        setDimmingRectangleAlphaSecondValue = true;
+                        DimmingRectangleAlphaSecondValue = 0;
+                        setDimmingRectangleBlueSecondValue = true;
+                        DimmingRectangleBlueSecondValue = 0;
+                        setDimmingRectangleGreenSecondValue = true;
+                        DimmingRectangleGreenSecondValue = 0;
+                        setDimmingRectangleHeightSecondValue = true;
+                        DimmingRectangleHeightSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.DimmingRectangle.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setDimmingRectangleRedSecondValue = true;
+                        DimmingRectangleRedSecondValue = 0;
+                        setDimmingRectangleWidthSecondValue = true;
+                        DimmingRectangleWidthSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.DimmingRectangle.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         if (interpolationValue >= 1)
                         {
                             this.EnemyInfoInstance.Visible = false;
@@ -569,8 +566,6 @@
                         {
                             this.HorizonBoxInstance.Visible = true;
                         }
-                        setLivesPointsDisplayInstanceWidthSecondValue = true;
-                        LivesPointsDisplayInstanceWidthSecondValue = 236f;
                         setLivesPointsDisplayInstanceXSecondValue = true;
                         LivesPointsDisplayInstanceXSecondValue = 100f;
                         if (interpolationValue >= 1)
@@ -621,30 +616,6 @@
                 {
                     ChatHistoryInstance.Y = ChatHistoryInstanceYFirstValue * (1 - interpolationValue) + ChatHistoryInstanceYSecondValue * interpolationValue;
                 }
-                if (setColoredRectangleInstanceAlphaFirstValue && setColoredRectangleInstanceAlphaSecondValue)
-                {
-                    ColoredRectangleInstance.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceAlphaFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceAlphaSecondValue * interpolationValue);
-                }
-                if (setColoredRectangleInstanceBlueFirstValue && setColoredRectangleInstanceBlueSecondValue)
-                {
-                    ColoredRectangleInstance.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceBlueFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceBlueSecondValue * interpolationValue);
-                }
-                if (setColoredRectangleInstanceGreenFirstValue && setColoredRectangleInstanceGreenSecondValue)
-                {
-                    ColoredRectangleInstance.Green = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceGreenFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceGreenSecondValue * interpolationValue);
-                }
-                if (setColoredRectangleInstanceHeightFirstValue && setColoredRectangleInstanceHeightSecondValue)
-                {
-                    ColoredRectangleInstance.Height = ColoredRectangleInstanceHeightFirstValue * (1 - interpolationValue) + ColoredRectangleInstanceHeightSecondValue * interpolationValue;
-                }
-                if (setColoredRectangleInstanceRedFirstValue && setColoredRectangleInstanceRedSecondValue)
-                {
-                    ColoredRectangleInstance.Red = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceRedFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceRedSecondValue * interpolationValue);
-                }
-                if (setColoredRectangleInstanceWidthFirstValue && setColoredRectangleInstanceWidthSecondValue)
-                {
-                    ColoredRectangleInstance.Width = ColoredRectangleInstanceWidthFirstValue * (1 - interpolationValue) + ColoredRectangleInstanceWidthSecondValue * interpolationValue;
-                }
                 if (setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue && setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue)
                 {
                     CurrentMusicDisplayInstance.InterpolateBetween(CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue, CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue, interpolationValue);
@@ -656,6 +627,30 @@
                 if (setCurrentMusicDisplayInstanceYFirstValue && setCurrentMusicDisplayInstanceYSecondValue)
                 {
                     CurrentMusicDisplayInstance.Y = CurrentMusicDisplayInstanceYFirstValue * (1 - interpolationValue) + CurrentMusicDisplayInstanceYSecondValue * interpolationValue;
+                }
+                if (setDimmingRectangleAlphaFirstValue && setDimmingRectangleAlphaSecondValue)
+                {
+                    DimmingRectangle.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(DimmingRectangleAlphaFirstValue* (1 - interpolationValue) + DimmingRectangleAlphaSecondValue * interpolationValue);
+                }
+                if (setDimmingRectangleBlueFirstValue && setDimmingRectangleBlueSecondValue)
+                {
+                    DimmingRectangle.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(DimmingRectangleBlueFirstValue* (1 - interpolationValue) + DimmingRectangleBlueSecondValue * interpolationValue);
+                }
+                if (setDimmingRectangleGreenFirstValue && setDimmingRectangleGreenSecondValue)
+                {
+                    DimmingRectangle.Green = FlatRedBall.Math.MathFunctions.RoundToInt(DimmingRectangleGreenFirstValue* (1 - interpolationValue) + DimmingRectangleGreenSecondValue * interpolationValue);
+                }
+                if (setDimmingRectangleHeightFirstValue && setDimmingRectangleHeightSecondValue)
+                {
+                    DimmingRectangle.Height = DimmingRectangleHeightFirstValue * (1 - interpolationValue) + DimmingRectangleHeightSecondValue * interpolationValue;
+                }
+                if (setDimmingRectangleRedFirstValue && setDimmingRectangleRedSecondValue)
+                {
+                    DimmingRectangle.Red = FlatRedBall.Math.MathFunctions.RoundToInt(DimmingRectangleRedFirstValue* (1 - interpolationValue) + DimmingRectangleRedSecondValue * interpolationValue);
+                }
+                if (setDimmingRectangleWidthFirstValue && setDimmingRectangleWidthSecondValue)
+                {
+                    DimmingRectangle.Width = DimmingRectangleWidthFirstValue * (1 - interpolationValue) + DimmingRectangleWidthSecondValue * interpolationValue;
                 }
                 if (setHordeTextBlueFirstValue && setHordeTextBlueSecondValue)
                 {
@@ -680,10 +675,6 @@
                 if (setHordeTextXFirstValue && setHordeTextXSecondValue)
                 {
                     HordeText.X = HordeTextXFirstValue * (1 - interpolationValue) + HordeTextXSecondValue * interpolationValue;
-                }
-                if (setLivesPointsDisplayInstanceWidthFirstValue && setLivesPointsDisplayInstanceWidthSecondValue)
-                {
-                    LivesPointsDisplayInstance.Width = LivesPointsDisplayInstanceWidthFirstValue * (1 - interpolationValue) + LivesPointsDisplayInstanceWidthSecondValue * interpolationValue;
                 }
                 if (setLivesPointsDisplayInstanceXFirstValue && setLivesPointsDisplayInstanceXSecondValue)
                 {
@@ -1037,35 +1028,35 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
-                bool setColoredRectangleInstanceAlphaFirstValue = false;
-                bool setColoredRectangleInstanceAlphaSecondValue = false;
-                int ColoredRectangleInstanceAlphaFirstValue= 0;
-                int ColoredRectangleInstanceAlphaSecondValue= 0;
+                bool setDimmingRectangleAlphaFirstValue = false;
+                bool setDimmingRectangleAlphaSecondValue = false;
+                int DimmingRectangleAlphaFirstValue= 0;
+                int DimmingRectangleAlphaSecondValue= 0;
                 switch(firstState)
                 {
                     case  Fading.Faded:
-                        setColoredRectangleInstanceAlphaFirstValue = true;
-                        ColoredRectangleInstanceAlphaFirstValue = 255;
+                        setDimmingRectangleAlphaFirstValue = true;
+                        DimmingRectangleAlphaFirstValue = 255;
                         break;
                     case  Fading.NotFaded:
-                        setColoredRectangleInstanceAlphaFirstValue = true;
-                        ColoredRectangleInstanceAlphaFirstValue = 0;
+                        setDimmingRectangleAlphaFirstValue = true;
+                        DimmingRectangleAlphaFirstValue = 0;
                         break;
                 }
                 switch(secondState)
                 {
                     case  Fading.Faded:
-                        setColoredRectangleInstanceAlphaSecondValue = true;
-                        ColoredRectangleInstanceAlphaSecondValue = 255;
+                        setDimmingRectangleAlphaSecondValue = true;
+                        DimmingRectangleAlphaSecondValue = 255;
                         break;
                     case  Fading.NotFaded:
-                        setColoredRectangleInstanceAlphaSecondValue = true;
-                        ColoredRectangleInstanceAlphaSecondValue = 0;
+                        setDimmingRectangleAlphaSecondValue = true;
+                        DimmingRectangleAlphaSecondValue = 0;
                         break;
                 }
-                if (setColoredRectangleInstanceAlphaFirstValue && setColoredRectangleInstanceAlphaSecondValue)
+                if (setDimmingRectangleAlphaFirstValue && setDimmingRectangleAlphaSecondValue)
                 {
-                    ColoredRectangleInstance.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(ColoredRectangleInstanceAlphaFirstValue* (1 - interpolationValue) + ColoredRectangleInstanceAlphaSecondValue * interpolationValue);
+                    DimmingRectangle.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(DimmingRectangleAlphaFirstValue* (1 - interpolationValue) + DimmingRectangleAlphaSecondValue * interpolationValue);
                 }
                 if (interpolationValue < 1)
                 {
@@ -1084,6 +1075,10 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
+                bool setHordeTextAlphaFirstValue = false;
+                bool setHordeTextAlphaSecondValue = false;
+                int HordeTextAlphaFirstValue= 0;
+                int HordeTextAlphaSecondValue= 0;
                 bool setHordeTextFontScaleFirstValue = false;
                 bool setHordeTextFontScaleSecondValue = false;
                 float HordeTextFontScaleFirstValue= 0;
@@ -1095,6 +1090,8 @@
                 switch(firstState)
                 {
                     case  HordeDisplay.HordeStart:
+                        setHordeTextAlphaFirstValue = true;
+                        HordeTextAlphaFirstValue = 0;
                         setHordeTextFontScaleFirstValue = true;
                         HordeTextFontScaleFirstValue = 1f;
                         if (interpolationValue < 1)
@@ -1102,9 +1099,11 @@
                             this.HordeText.Visible = true;
                         }
                         setHordeTextXFirstValue = true;
-                        HordeTextXFirstValue = -1800f;
+                        HordeTextXFirstValue = 0f;
                         break;
                     case  HordeDisplay.HordeMiddle:
+                        setHordeTextAlphaFirstValue = true;
+                        HordeTextAlphaFirstValue = 255;
                         setHordeTextFontScaleFirstValue = true;
                         HordeTextFontScaleFirstValue = 1f;
                         if (interpolationValue < 1)
@@ -1115,6 +1114,8 @@
                         HordeTextXFirstValue = 0f;
                         break;
                     case  HordeDisplay.HordeMiddleBig:
+                        setHordeTextAlphaFirstValue = true;
+                        HordeTextAlphaFirstValue = 255;
                         setHordeTextFontScaleFirstValue = true;
                         HordeTextFontScaleFirstValue = 1.5f;
                         if (interpolationValue < 1)
@@ -1125,6 +1126,8 @@
                         HordeTextXFirstValue = 0f;
                         break;
                     case  HordeDisplay.HordeEnd:
+                        setHordeTextAlphaFirstValue = true;
+                        HordeTextAlphaFirstValue = 0;
                         setHordeTextFontScaleFirstValue = true;
                         HordeTextFontScaleFirstValue = 0.5f;
                         if (interpolationValue < 1)
@@ -1132,12 +1135,14 @@
                             this.HordeText.Visible = true;
                         }
                         setHordeTextXFirstValue = true;
-                        HordeTextXFirstValue = 1800f;
+                        HordeTextXFirstValue = 0f;
                         break;
                 }
                 switch(secondState)
                 {
                     case  HordeDisplay.HordeStart:
+                        setHordeTextAlphaSecondValue = true;
+                        HordeTextAlphaSecondValue = 0;
                         setHordeTextFontScaleSecondValue = true;
                         HordeTextFontScaleSecondValue = 1f;
                         if (interpolationValue >= 1)
@@ -1145,9 +1150,11 @@
                             this.HordeText.Visible = true;
                         }
                         setHordeTextXSecondValue = true;
-                        HordeTextXSecondValue = -1800f;
+                        HordeTextXSecondValue = 0f;
                         break;
                     case  HordeDisplay.HordeMiddle:
+                        setHordeTextAlphaSecondValue = true;
+                        HordeTextAlphaSecondValue = 255;
                         setHordeTextFontScaleSecondValue = true;
                         HordeTextFontScaleSecondValue = 1f;
                         if (interpolationValue >= 1)
@@ -1158,6 +1165,8 @@
                         HordeTextXSecondValue = 0f;
                         break;
                     case  HordeDisplay.HordeMiddleBig:
+                        setHordeTextAlphaSecondValue = true;
+                        HordeTextAlphaSecondValue = 255;
                         setHordeTextFontScaleSecondValue = true;
                         HordeTextFontScaleSecondValue = 1.5f;
                         if (interpolationValue >= 1)
@@ -1168,6 +1177,8 @@
                         HordeTextXSecondValue = 0f;
                         break;
                     case  HordeDisplay.HordeEnd:
+                        setHordeTextAlphaSecondValue = true;
+                        HordeTextAlphaSecondValue = 0;
                         setHordeTextFontScaleSecondValue = true;
                         HordeTextFontScaleSecondValue = 0.5f;
                         if (interpolationValue >= 1)
@@ -1175,8 +1186,12 @@
                             this.HordeText.Visible = true;
                         }
                         setHordeTextXSecondValue = true;
-                        HordeTextXSecondValue = 1800f;
+                        HordeTextXSecondValue = 0f;
                         break;
+                }
+                if (setHordeTextAlphaFirstValue && setHordeTextAlphaSecondValue)
+                {
+                    HordeText.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(HordeTextAlphaFirstValue* (1 - interpolationValue) + HordeTextAlphaSecondValue * interpolationValue);
                 }
                 if (setHordeTextFontScaleFirstValue && setHordeTextFontScaleSecondValue)
                 {
@@ -1908,39 +1923,27 @@
                     yield return toReturn;
                 }
                 {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeMiddleBig, 0.25f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Elastic, FlatRedBall.Glue.StateInterpolation.Easing.Out, HordeIncomingAnimation));
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeMiddleBig, 0.25f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Circular, FlatRedBall.Glue.StateInterpolation.Easing.InOut, HordeIncomingAnimation));
                     toReturn.Target = target;
                     toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.25f;
                     yield return toReturn;
                 }
                 {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeMiddle, 0.5f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Circular, FlatRedBall.Glue.StateInterpolation.Easing.InOut, HordeIncomingAnimation));
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeMiddle, 0.25f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Circular, FlatRedBall.Glue.StateInterpolation.Easing.InOut, HordeIncomingAnimation));
                     toReturn.Target = target;
                     toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.5f;
                     yield return toReturn;
                 }
                 {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeMiddle, 0.25f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Elastic, FlatRedBall.Glue.StateInterpolation.Easing.Out, HordeIncomingAnimation));
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeMiddleBig, 0.25f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Circular, FlatRedBall.Glue.StateInterpolation.Easing.InOut, HordeIncomingAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.75f;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeEnd, 3, FlatRedBall.Glue.StateInterpolation.InterpolationType.Circular, FlatRedBall.Glue.StateInterpolation.Easing.InOut, HordeIncomingAnimation));
                     toReturn.Target = target;
                     toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1;
-                    yield return toReturn;
-                }
-                {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeMiddleBig, 0.5f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, FlatRedBall.Glue.StateInterpolation.Easing.Out, HordeIncomingAnimation));
-                    toReturn.Target = target;
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1.25f;
-                    yield return toReturn;
-                }
-                {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeMiddle, 0.75f, FlatRedBall.Glue.StateInterpolation.InterpolationType.Circular, FlatRedBall.Glue.StateInterpolation.Easing.InOut, HordeIncomingAnimation));
-                    toReturn.Target = target;
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1.75f;
-                    yield return toReturn;
-                }
-                {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(HordeDisplay.HordeEnd, 1, FlatRedBall.Glue.StateInterpolation.InterpolationType.Elastic, FlatRedBall.Glue.StateInterpolation.Easing.Out, HordeIncomingAnimation));
-                    toReturn.Target = target;
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 2.5f;
                     yield return toReturn;
                 }
             }
@@ -1979,7 +1982,7 @@
                         Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(HordeDisplay.HordeMiddleBig);
                         Gum.DataTypes.Variables.StateSave second = first.Clone();
                         Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
-                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.25f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Elastic, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.25f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Circular, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
                         tweener.Owner = this;
                         tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
                         tweener.Start();
@@ -2000,7 +2003,7 @@
                         Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(HordeDisplay.HordeMiddle);
                         Gum.DataTypes.Variables.StateSave second = first.Clone();
                         Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
-                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.5f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Circular, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.25f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Circular, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
                         tweener.Owner = this;
                         tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
                         tweener.Start();
@@ -2015,41 +2018,20 @@
                     var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
                     {
                         var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddle").Clone();
-                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddle").Clone();
-                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
-                        var difference = relativeEnd;
-                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(HordeDisplay.HordeMiddle);
-                        Gum.DataTypes.Variables.StateSave second = first.Clone();
-                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
-                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.25f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Elastic, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
-                        tweener.Owner = this;
-                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
-                        tweener.Start();
-                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
-                    }
-                    );
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1;
-                    toReturn.Target = target;
-                    yield return toReturn;
-                }
-                {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
-                    {
-                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddle").Clone();
                         var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddleBig").Clone();
                         Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
                         var difference = relativeEnd;
                         Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(HordeDisplay.HordeMiddleBig);
                         Gum.DataTypes.Variables.StateSave second = first.Clone();
                         Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
-                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.5f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.25f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Circular, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
                         tweener.Owner = this;
                         tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
                         tweener.Start();
                         StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                     }
                     );
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1.25f;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.75f;
                     toReturn.Target = target;
                     yield return toReturn;
                 }
@@ -2057,41 +2039,20 @@
                     var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
                     {
                         var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddleBig").Clone();
-                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddle").Clone();
-                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
-                        var difference = relativeEnd;
-                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(HordeDisplay.HordeMiddle);
-                        Gum.DataTypes.Variables.StateSave second = first.Clone();
-                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
-                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 0.75f, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Circular, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
-                        tweener.Owner = this;
-                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
-                        tweener.Start();
-                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
-                    }
-                    );
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1.75f;
-                    toReturn.Target = target;
-                    yield return toReturn;
-                }
-                {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
-                    {
-                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeMiddle").Clone();
                         var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "HordeDisplay/HordeEnd").Clone();
                         Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
                         var difference = relativeEnd;
                         Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(HordeDisplay.HordeEnd);
                         Gum.DataTypes.Variables.StateSave second = first.Clone();
                         Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
-                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 1, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Elastic, easing: FlatRedBall.Glue.StateInterpolation.Easing.Out);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 3, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Circular, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
                         tweener.Owner = this;
                         tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
                         tweener.Start();
                         StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                     }
                     );
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 2.5f;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1;
                     toReturn.Target = target;
                     yield return toReturn;
                 }
@@ -2103,7 +2064,7 @@
                 {
                     if (hordeIncomingAnimation == null)
                     {
-                        hordeIncomingAnimation = new FlatRedBall.Gum.Animation.GumAnimation(3.5f, HordeIncomingAnimationInstructions);
+                        hordeIncomingAnimation = new FlatRedBall.Gum.Animation.GumAnimation(4, HordeIncomingAnimationInstructions);
                     }
                     return hordeIncomingAnimation;
                 }
@@ -2115,7 +2076,7 @@
                 {
                     if (hordeIncomingAnimationRelative == null)
                     {
-                        hordeIncomingAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(3.5f, HordeIncomingAnimationRelativeInstructions);
+                        hordeIncomingAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(4, HordeIncomingAnimationRelativeInstructions);
                     }
                     return hordeIncomingAnimationRelative;
                 }
@@ -2217,14 +2178,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LivesPointsDisplayInstance.Width",
-                            Type = "float",
-                            Value = LivesPointsDisplayInstance.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "LivesPointsDisplayInstance.X",
                             Type = "float",
                             Value = LivesPointsDisplayInstance.X
@@ -2297,65 +2250,65 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Alpha",
+                            Name = "DimmingRectangle.Alpha",
                             Type = "int",
-                            Value = ColoredRectangleInstance.Alpha
+                            Value = DimmingRectangle.Alpha
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Blue",
+                            Name = "DimmingRectangle.Blue",
                             Type = "int",
-                            Value = ColoredRectangleInstance.Blue
+                            Value = DimmingRectangle.Blue
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Green",
+                            Name = "DimmingRectangle.Green",
                             Type = "int",
-                            Value = ColoredRectangleInstance.Green
+                            Value = DimmingRectangle.Green
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Height",
+                            Name = "DimmingRectangle.Height",
                             Type = "float",
-                            Value = ColoredRectangleInstance.Height
+                            Value = DimmingRectangle.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Height Units",
+                            Name = "DimmingRectangle.Height Units",
                             Type = "DimensionUnitType",
-                            Value = ColoredRectangleInstance.HeightUnits
+                            Value = DimmingRectangle.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Red",
+                            Name = "DimmingRectangle.Red",
                             Type = "int",
-                            Value = ColoredRectangleInstance.Red
+                            Value = DimmingRectangle.Red
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Width",
+                            Name = "DimmingRectangle.Width",
                             Type = "float",
-                            Value = ColoredRectangleInstance.Width
+                            Value = DimmingRectangle.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Width Units",
+                            Name = "DimmingRectangle.Width Units",
                             Type = "DimensionUnitType",
-                            Value = ColoredRectangleInstance.WidthUnits
+                            Value = DimmingRectangle.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2587,14 +2540,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LivesPointsDisplayInstance.Width",
-                            Type = "float",
-                            Value = LivesPointsDisplayInstance.Width + 236f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "LivesPointsDisplayInstance.X",
                             Type = "float",
                             Value = LivesPointsDisplayInstance.X + 100f
@@ -2667,65 +2612,65 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Alpha",
+                            Name = "DimmingRectangle.Alpha",
                             Type = "int",
-                            Value = ColoredRectangleInstance.Alpha + 0
+                            Value = DimmingRectangle.Alpha + 0
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Blue",
+                            Name = "DimmingRectangle.Blue",
                             Type = "int",
-                            Value = ColoredRectangleInstance.Blue + 0
+                            Value = DimmingRectangle.Blue + 0
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Green",
+                            Name = "DimmingRectangle.Green",
                             Type = "int",
-                            Value = ColoredRectangleInstance.Green + 0
+                            Value = DimmingRectangle.Green + 0
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Height",
+                            Name = "DimmingRectangle.Height",
                             Type = "float",
-                            Value = ColoredRectangleInstance.Height + 100f
+                            Value = DimmingRectangle.Height + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Height Units",
+                            Name = "DimmingRectangle.Height Units",
                             Type = "DimensionUnitType",
-                            Value = ColoredRectangleInstance.HeightUnits
+                            Value = DimmingRectangle.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Red",
+                            Name = "DimmingRectangle.Red",
                             Type = "int",
-                            Value = ColoredRectangleInstance.Red + 0
+                            Value = DimmingRectangle.Red + 0
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Width",
+                            Name = "DimmingRectangle.Width",
                             Type = "float",
-                            Value = ColoredRectangleInstance.Width + 100f
+                            Value = DimmingRectangle.Width + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Width Units",
+                            Name = "DimmingRectangle.Width Units",
                             Type = "DimensionUnitType",
-                            Value = ColoredRectangleInstance.WidthUnits
+                            Value = DimmingRectangle.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3621,9 +3566,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Alpha",
+                            Name = "DimmingRectangle.Alpha",
                             Type = "int",
-                            Value = ColoredRectangleInstance.Alpha
+                            Value = DimmingRectangle.Alpha
                         }
                         );
                         break;
@@ -3631,9 +3576,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Alpha",
+                            Name = "DimmingRectangle.Alpha",
                             Type = "int",
-                            Value = ColoredRectangleInstance.Alpha
+                            Value = DimmingRectangle.Alpha
                         }
                         );
                         break;
@@ -3649,9 +3594,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Alpha",
+                            Name = "DimmingRectangle.Alpha",
                             Type = "int",
-                            Value = ColoredRectangleInstance.Alpha + 255
+                            Value = DimmingRectangle.Alpha + 255
                         }
                         );
                         break;
@@ -3659,9 +3604,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ColoredRectangleInstance.Alpha",
+                            Name = "DimmingRectangle.Alpha",
                             Type = "int",
-                            Value = ColoredRectangleInstance.Alpha + 0
+                            Value = DimmingRectangle.Alpha + 0
                         }
                         );
                         break;
@@ -3674,6 +3619,14 @@
                 switch(state)
                 {
                     case  HordeDisplay.HordeStart:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Alpha",
+                            Type = "int",
+                            Value = HordeText.Alpha
+                        }
+                        );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -3703,6 +3656,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "HordeText.Alpha",
+                            Type = "int",
+                            Value = HordeText.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "HordeText.Font Scale",
                             Type = "float",
                             Value = HordeText.FontScale
@@ -3729,6 +3690,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "HordeText.Alpha",
+                            Type = "int",
+                            Value = HordeText.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "HordeText.Font Scale",
                             Type = "float",
                             Value = HordeText.FontScale
@@ -3752,6 +3721,14 @@
                         );
                         break;
                     case  HordeDisplay.HordeEnd:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Alpha",
+                            Type = "int",
+                            Value = HordeText.Alpha
+                        }
+                        );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -3789,6 +3766,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "HordeText.Alpha",
+                            Type = "int",
+                            Value = HordeText.Alpha + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "HordeText.Font Scale",
                             Type = "float",
                             Value = HordeText.FontScale + 1f
@@ -3807,11 +3792,19 @@
                             SetsValue = true,
                             Name = "HordeText.X",
                             Type = "float",
-                            Value = HordeText.X + -1800f
+                            Value = HordeText.X + 0f
                         }
                         );
                         break;
                     case  HordeDisplay.HordeMiddle:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "HordeText.Alpha",
+                            Type = "int",
+                            Value = HordeText.Alpha + 255
+                        }
+                        );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -3841,6 +3834,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "HordeText.Alpha",
+                            Type = "int",
+                            Value = HordeText.Alpha + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "HordeText.Font Scale",
                             Type = "float",
                             Value = HordeText.FontScale + 1.5f
@@ -3867,6 +3868,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "HordeText.Alpha",
+                            Type = "int",
+                            Value = HordeText.Alpha + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "HordeText.Font Scale",
                             Type = "float",
                             Value = HordeText.FontScale + 0.5f
@@ -3885,7 +3894,7 @@
                             SetsValue = true,
                             Name = "HordeText.X",
                             Type = "float",
-                            Value = HordeText.X + 1800f
+                            Value = HordeText.X + 0f
                         }
                         );
                         break;
@@ -3937,7 +3946,7 @@
             private AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime TopStatusBarInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime ScreenShadeInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime DimmingRectangle { get; set; }
             private AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime LocationTimeAnnouncementInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
@@ -3977,7 +3986,7 @@
                 TopStatusBarInstance = this.GetGraphicalUiElementByName("TopStatusBarInstance") as AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime;
                 ScreenShadeInstance = this.GetGraphicalUiElementByName("ScreenShadeInstance") as AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime;
                 MenuWindowInstance = this.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
-                ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
+                DimmingRectangle = this.GetGraphicalUiElementByName("DimmingRectangle") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 LocationTimeAnnouncementInstance = this.GetGraphicalUiElementByName("LocationTimeAnnouncementInstance") as AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime;
                 ConfirmationWindowInstance = this.GetGraphicalUiElementByName("ConfirmationWindowInstance") as AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime;
                 CurrentMusicDisplayInstance = this.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;

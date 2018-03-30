@@ -59,49 +59,49 @@
     </Variable>
     <Variable>
       <Type>int</Type>
-      <Name>ColoredRectangleInstance.Alpha</Name>
+      <Name>DimmingRectangle.Alpha</Name>
       <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
-      <Name>ColoredRectangleInstance.Blue</Name>
+      <Name>DimmingRectangle.Blue</Name>
       <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
-      <Name>ColoredRectangleInstance.Green</Name>
+      <Name>DimmingRectangle.Green</Name>
       <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>ColoredRectangleInstance.Height</Name>
+      <Name>DimmingRectangle.Height</Name>
       <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
-      <Name>ColoredRectangleInstance.Height Units</Name>
+      <Name>DimmingRectangle.Height Units</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
-      <Name>ColoredRectangleInstance.Red</Name>
+      <Name>DimmingRectangle.Red</Name>
       <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>ColoredRectangleInstance.Width</Name>
+      <Name>DimmingRectangle.Width</Name>
       <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
-      <Name>ColoredRectangleInstance.Width Units</Name>
+      <Name>DimmingRectangle.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -233,12 +233,6 @@
       <Type>bool</Type>
       <Name>HorizonBoxInstance.Visible</Name>
       <Value xsi:type="xsd:boolean">true</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>LivesPointsDisplayInstance.Width</Name>
-      <Value xsi:type="xsd:float">236</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -615,7 +609,7 @@
       <Name>Faded</Name>
       <Variable>
         <Type>int</Type>
-        <Name>ColoredRectangleInstance.Alpha</Name>
+        <Name>DimmingRectangle.Alpha</Name>
         <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -624,7 +618,7 @@
       <Name>NotFaded</Name>
       <Variable>
         <Type>int</Type>
-        <Name>ColoredRectangleInstance.Alpha</Name>
+        <Name>DimmingRectangle.Alpha</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -664,6 +658,13 @@
     <State>
       <Name>HordeMiddle</Name>
       <Variable>
+        <Type>int</Type>
+        <Name>HordeText.Alpha</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>float</Type>
         <Name>HordeText.Font Scale</Name>
         <Value xsi:type="xsd:float">1</Value>
@@ -682,6 +683,9 @@
         <Value xsi:type="xsd:float">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
+    </State>
+    <State>
+      <Name>HordeMiddleBig</Name>
       <Variable>
         <Type>int</Type>
         <Name>HordeText.Alpha</Name>
@@ -689,9 +693,6 @@
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
-    </State>
-    <State>
-      <Name>HordeMiddleBig</Name>
       <Variable>
         <Type>float</Type>
         <Name>HordeText.Font Scale</Name>
@@ -708,13 +709,6 @@
         <Type>float</Type>
         <Name>HordeText.X</Name>
         <Value xsi:type="xsd:float">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>HordeText.Alpha</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -788,7 +782,7 @@
     <BaseType>MenuWindow</BaseType>
   </Instance>
   <Instance>
-    <Name>ColoredRectangleInstance</Name>
+    <Name>DimmingRectangle</Name>
     <BaseType>ColoredRectangle</BaseType>
   </Instance>
   <Instance>

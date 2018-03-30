@@ -63,7 +63,7 @@
     <Variable>
       <Type>int</Type>
       <Name>IncreaseAmount.Blue</Name>
-      <Value xsi:type="xsd:int">226</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -94,7 +94,7 @@
     <Variable>
       <Type>int</Type>
       <Name>IncreaseAmount.Green</Name>
-      <Value xsi:type="xsd:int">43</Value>
+      <Value xsi:type="xsd:int">252</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -122,9 +122,14 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>string</Type>
+      <Name>IncreaseAmount.Parent</Name>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>int</Type>
       <Name>IncreaseAmount.Red</Name>
-      <Value xsi:type="xsd:int">138</Value>
+      <Value xsi:type="xsd:int">124</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -161,7 +166,7 @@
     <Variable>
       <Type>float</Type>
       <Name>MineralsSprite.Height</Name>
-      <Value xsi:type="xsd:float">35</Value>
+      <Value xsi:type="xsd:float">40</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -173,14 +178,13 @@
     <Variable>
       <Type>string</Type>
       <Name>MineralsSprite.Parent</Name>
-      <Value xsi:type="xsd:string">ContainerInstance</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>MineralsSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">AllUIAssets.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -192,25 +196,25 @@
     <Variable>
       <Type>int</Type>
       <Name>MineralsSprite.Texture Height</Name>
-      <Value xsi:type="xsd:int">12</Value>
+      <Value xsi:type="xsd:int">122</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>MineralsSprite.Texture Left</Name>
-      <Value xsi:type="xsd:int">99</Value>
+      <Value xsi:type="xsd:int">2435</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>MineralsSprite.Texture Top</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">910</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>MineralsSprite.Texture Width</Name>
-      <Value xsi:type="xsd:int">7</Value>
+      <Value xsi:type="xsd:int">124</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -222,13 +226,13 @@
     <Variable>
       <Type>float</Type>
       <Name>MineralsSprite.Width</Name>
-      <Value xsi:type="xsd:float">10</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>MineralsSprite.Width Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -343,6 +347,13 @@
       <Category>Position</Category>
       <SetsValue>true</SetsValue>
     </Variable>
+    <VariableList xsi:type="VariableListSaveOfString">
+      <Type>string</Type>
+      <Name>AnimationFrames</Name>
+      <IsFile>false</IsFile>
+      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+      <Value />
+    </VariableList>
   </State>
   <Category>
     <Name>FloatAnimationStates</Name>

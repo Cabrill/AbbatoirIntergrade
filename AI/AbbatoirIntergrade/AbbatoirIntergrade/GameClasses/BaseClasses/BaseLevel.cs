@@ -31,6 +31,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         public LevelResult LevelResults;
 
         public virtual int StartingLives { get; } = 1;
+        public virtual int StartingSatoshis { get; } = 10;
 
         public abstract HorizonBoxRuntime.Scenery Scenery { get; }
 

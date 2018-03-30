@@ -203,6 +203,29 @@ namespace AbbatoirIntergrade.Screens
         private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance;
         private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance;
         private AbbatoirIntergrade.GumRuntimes.TextRuntime HordeText;
+        private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime DimmingRectangleInstance;
+        public event System.EventHandler BeforeCurrentSatoshisSet;
+        public event System.EventHandler AfterCurrentSatoshisSet;
+        int mCurrentSatoshis;
+        public int CurrentSatoshis
+        {
+            set
+            {
+                if (BeforeCurrentSatoshisSet != null)
+                {
+                    BeforeCurrentSatoshisSet(this, null);
+                }
+                mCurrentSatoshis = value;
+                if (AfterCurrentSatoshisSet != null)
+                {
+                    AfterCurrentSatoshisSet(this, null);
+                }
+            }
+            get
+            {
+                return mCurrentSatoshis;
+            }
+        }
         protected global::RenderingLibrary.Graphics.Layer BackgroundLayerGum;
         protected global::RenderingLibrary.Graphics.Layer WorldLayerGum;
         protected global::RenderingLibrary.Graphics.Layer LightLayerGum;
@@ -262,6 +285,7 @@ namespace AbbatoirIntergrade.Screens
             ConfirmationWindowInstance = GameScreenGum.GetGraphicalUiElementByName("ConfirmationWindowInstance") as AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime;
             CurrentMusicDisplayInstance = GameScreenGum.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
             HordeText = GameScreenGum.GetGraphicalUiElementByName("HordeText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+            DimmingRectangleInstance = GameScreenGum.GetGraphicalUiElementByName("DimmingRectangle") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
             
             
             PostInitialize();
@@ -387,6 +411,7 @@ namespace AbbatoirIntergrade.Screens
             ConfirmationWindowInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             CurrentMusicDisplayInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             HordeText.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            DimmingRectangleInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(InfoLayer)));
             base.AddToManagers();
             AddToManagersBottomUp();
             CustomInitialize();
@@ -661,6 +686,10 @@ namespace AbbatoirIntergrade.Screens
             {
                 HordeText.RemoveFromManagers();
             }
+            if (DimmingRectangleInstance != null)
+            {
+                DimmingRectangleInstance.RemoveFromManagers();
+            }
             AllStructuresList.MakeTwoWay();
             AllEnemiesList.MakeTwoWay();
             PlayerProjectileList.MakeTwoWay();
@@ -674,6 +703,7 @@ namespace AbbatoirIntergrade.Screens
         {
             bool oldShapeManagerSuppressAdd = FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue;
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = true;
+            this.AfterCurrentSatoshisSet += OnAfterCurrentSatoshisSet;
             BackgroundLayer.SortType = FlatRedBall.Graphics.SortType.ZSecondaryParentY;
             BackgroundLayer.Visible = true;
             WorldLayer.SortType = FlatRedBall.Graphics.SortType.ZSecondaryParentY;
@@ -702,6 +732,7 @@ namespace AbbatoirIntergrade.Screens
             ConfirmationWindowInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             CurrentMusicDisplayInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             HordeText.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            DimmingRectangleInstance.MoveToFrbLayer(InfoLayer, InfoLayerGum);
             FlatRedBall.Gui.GuiManager.SortZAndLayerBased();
         }
         public virtual void RemoveFromManagers () 
@@ -827,6 +858,10 @@ namespace AbbatoirIntergrade.Screens
             if (HordeText != null)
             {
                 HordeText.RemoveFromManagers();
+            }
+            if (DimmingRectangleInstance != null)
+            {
+                DimmingRectangleInstance.RemoveFromManagers();
             }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 

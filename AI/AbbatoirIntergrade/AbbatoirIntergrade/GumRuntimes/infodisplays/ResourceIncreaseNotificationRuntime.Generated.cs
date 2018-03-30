@@ -44,34 +44,33 @@
                             XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
                             YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddleInverted;
-                            IncreaseAmount.Blue = 226;
+                            IncreaseAmount.Blue = 0;
                             SetProperty("IncreaseAmount.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             IncreaseAmount.Font = "Moire ExtraBold";
                             IncreaseAmount.FontScale = 1f;
                             IncreaseAmount.FontSize = 50;
-                            IncreaseAmount.Green = 43;
+                            IncreaseAmount.Green = 252;
                             IncreaseAmount.Height = 100f;
                             IncreaseAmount.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             IncreaseAmount.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Right;
                             IncreaseAmount.OutlineThickness = 2;
-                            IncreaseAmount.Red = 138;
+                            IncreaseAmount.Red = 124;
                             IncreaseAmount.Text = "+1";
                             IncreaseAmount.UseCustomFont = true;
                             IncreaseAmount.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             IncreaseAmount.Width = 60f;
                             IncreaseAmount.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            MineralsSprite.Height = 35f;
+                            MineralsSprite.Height = 40f;
                             MineralsSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            MineralsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
-                            SetProperty("MineralsSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
+                            SetProperty("MineralsSprite.SourceFile", "AllUIAssets.png");
                             MineralsSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
-                            MineralsSprite.TextureHeight = 12;
-                            MineralsSprite.TextureLeft = 99;
-                            MineralsSprite.TextureTop = 0;
-                            MineralsSprite.TextureWidth = 7;
+                            MineralsSprite.TextureHeight = 122;
+                            MineralsSprite.TextureLeft = 2435;
+                            MineralsSprite.TextureTop = 910;
+                            MineralsSprite.TextureWidth = 124;
                             MineralsSprite.Visible = true;
-                            MineralsSprite.Width = 10f;
-                            MineralsSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            MineralsSprite.Width = 100f;
+                            MineralsSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                             MineralsSprite.X = 5f;
                             MineralsSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             MineralsSprite.Y = 50f;
@@ -208,7 +207,7 @@
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setIncreaseAmountBlueFirstValue = true;
-                        IncreaseAmountBlueFirstValue = 226;
+                        IncreaseAmountBlueFirstValue = 0;
                         if (interpolationValue < 1)
                         {
                             SetProperty("IncreaseAmount.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
@@ -222,7 +221,7 @@
                         setIncreaseAmountFontSizeFirstValue = true;
                         IncreaseAmountFontSizeFirstValue = 50;
                         setIncreaseAmountGreenFirstValue = true;
-                        IncreaseAmountGreenFirstValue = 43;
+                        IncreaseAmountGreenFirstValue = 252;
                         setIncreaseAmountHeightFirstValue = true;
                         IncreaseAmountHeightFirstValue = 100f;
                         if (interpolationValue < 1)
@@ -236,7 +235,7 @@
                         setIncreaseAmountOutlineThicknessFirstValue = true;
                         IncreaseAmountOutlineThicknessFirstValue = 2;
                         setIncreaseAmountRedFirstValue = true;
-                        IncreaseAmountRedFirstValue = 138;
+                        IncreaseAmountRedFirstValue = 124;
                         if (interpolationValue < 1)
                         {
                             this.IncreaseAmount.Text = "+1";
@@ -256,40 +255,36 @@
                             this.IncreaseAmount.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setMineralsSpriteHeightFirstValue = true;
-                        MineralsSpriteHeightFirstValue = 35f;
+                        MineralsSpriteHeightFirstValue = 40f;
                         if (interpolationValue < 1)
                         {
                             this.MineralsSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.MineralsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            SetProperty("MineralsSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
+                            SetProperty("MineralsSprite.SourceFile", "AllUIAssets.png");
                         }
                         if (interpolationValue < 1)
                         {
                             this.MineralsSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                         }
                         setMineralsSpriteTextureHeightFirstValue = true;
-                        MineralsSpriteTextureHeightFirstValue = 12;
+                        MineralsSpriteTextureHeightFirstValue = 122;
                         setMineralsSpriteTextureLeftFirstValue = true;
-                        MineralsSpriteTextureLeftFirstValue = 99;
+                        MineralsSpriteTextureLeftFirstValue = 2435;
                         setMineralsSpriteTextureTopFirstValue = true;
-                        MineralsSpriteTextureTopFirstValue = 0;
+                        MineralsSpriteTextureTopFirstValue = 910;
                         setMineralsSpriteTextureWidthFirstValue = true;
-                        MineralsSpriteTextureWidthFirstValue = 7;
+                        MineralsSpriteTextureWidthFirstValue = 124;
                         if (interpolationValue < 1)
                         {
                             this.MineralsSprite.Visible = true;
                         }
                         setMineralsSpriteWidthFirstValue = true;
-                        MineralsSpriteWidthFirstValue = 10f;
+                        MineralsSpriteWidthFirstValue = 100f;
                         if (interpolationValue < 1)
                         {
-                            this.MineralsSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.MineralsSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                         }
                         setMineralsSpriteXFirstValue = true;
                         MineralsSpriteXFirstValue = 5f;
@@ -359,7 +354,7 @@
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setIncreaseAmountBlueSecondValue = true;
-                        IncreaseAmountBlueSecondValue = 226;
+                        IncreaseAmountBlueSecondValue = 0;
                         if (interpolationValue >= 1)
                         {
                             SetProperty("IncreaseAmount.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
@@ -373,7 +368,7 @@
                         setIncreaseAmountFontSizeSecondValue = true;
                         IncreaseAmountFontSizeSecondValue = 50;
                         setIncreaseAmountGreenSecondValue = true;
-                        IncreaseAmountGreenSecondValue = 43;
+                        IncreaseAmountGreenSecondValue = 252;
                         setIncreaseAmountHeightSecondValue = true;
                         IncreaseAmountHeightSecondValue = 100f;
                         if (interpolationValue >= 1)
@@ -387,7 +382,7 @@
                         setIncreaseAmountOutlineThicknessSecondValue = true;
                         IncreaseAmountOutlineThicknessSecondValue = 2;
                         setIncreaseAmountRedSecondValue = true;
-                        IncreaseAmountRedSecondValue = 138;
+                        IncreaseAmountRedSecondValue = 124;
                         if (interpolationValue >= 1)
                         {
                             this.IncreaseAmount.Text = "+1";
@@ -407,40 +402,36 @@
                             this.IncreaseAmount.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setMineralsSpriteHeightSecondValue = true;
-                        MineralsSpriteHeightSecondValue = 35f;
+                        MineralsSpriteHeightSecondValue = 40f;
                         if (interpolationValue >= 1)
                         {
                             this.MineralsSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.MineralsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            SetProperty("MineralsSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
+                            SetProperty("MineralsSprite.SourceFile", "AllUIAssets.png");
                         }
                         if (interpolationValue >= 1)
                         {
                             this.MineralsSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                         }
                         setMineralsSpriteTextureHeightSecondValue = true;
-                        MineralsSpriteTextureHeightSecondValue = 12;
+                        MineralsSpriteTextureHeightSecondValue = 122;
                         setMineralsSpriteTextureLeftSecondValue = true;
-                        MineralsSpriteTextureLeftSecondValue = 99;
+                        MineralsSpriteTextureLeftSecondValue = 2435;
                         setMineralsSpriteTextureTopSecondValue = true;
-                        MineralsSpriteTextureTopSecondValue = 0;
+                        MineralsSpriteTextureTopSecondValue = 910;
                         setMineralsSpriteTextureWidthSecondValue = true;
-                        MineralsSpriteTextureWidthSecondValue = 7;
+                        MineralsSpriteTextureWidthSecondValue = 124;
                         if (interpolationValue >= 1)
                         {
                             this.MineralsSprite.Visible = true;
                         }
                         setMineralsSpriteWidthSecondValue = true;
-                        MineralsSpriteWidthSecondValue = 10f;
+                        MineralsSpriteWidthSecondValue = 100f;
                         if (interpolationValue >= 1)
                         {
-                            this.MineralsSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.MineralsSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                         }
                         setMineralsSpriteXSecondValue = true;
                         MineralsSpriteXSecondValue = 5f;
@@ -1027,14 +1018,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "MineralsSprite.Parent",
-                            Type = "string",
-                            Value = MineralsSprite.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "MineralsSprite.SourceFile",
                             Type = "string",
                             Value = MineralsSprite.SourceFile
@@ -1263,7 +1246,7 @@
                             SetsValue = true,
                             Name = "IncreaseAmount.Blue",
                             Type = "int",
-                            Value = IncreaseAmount.Blue + 226
+                            Value = IncreaseAmount.Blue + 0
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1303,7 +1286,7 @@
                             SetsValue = true,
                             Name = "IncreaseAmount.Green",
                             Type = "int",
-                            Value = IncreaseAmount.Green + 43
+                            Value = IncreaseAmount.Green + 252
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1343,7 +1326,7 @@
                             SetsValue = true,
                             Name = "IncreaseAmount.Red",
                             Type = "int",
-                            Value = IncreaseAmount.Red + 138
+                            Value = IncreaseAmount.Red + 124
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1391,7 +1374,7 @@
                             SetsValue = true,
                             Name = "MineralsSprite.Height",
                             Type = "float",
-                            Value = MineralsSprite.Height + 35f
+                            Value = MineralsSprite.Height + 40f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1400,14 +1383,6 @@
                             Name = "MineralsSprite.Height Units",
                             Type = "DimensionUnitType",
                             Value = MineralsSprite.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MineralsSprite.Parent",
-                            Type = "string",
-                            Value = MineralsSprite.Parent
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1431,7 +1406,7 @@
                             SetsValue = true,
                             Name = "MineralsSprite.Texture Height",
                             Type = "int",
-                            Value = MineralsSprite.TextureHeight + 12
+                            Value = MineralsSprite.TextureHeight + 122
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1439,7 +1414,7 @@
                             SetsValue = true,
                             Name = "MineralsSprite.Texture Left",
                             Type = "int",
-                            Value = MineralsSprite.TextureLeft + 99
+                            Value = MineralsSprite.TextureLeft + 2435
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1447,7 +1422,7 @@
                             SetsValue = true,
                             Name = "MineralsSprite.Texture Top",
                             Type = "int",
-                            Value = MineralsSprite.TextureTop + 0
+                            Value = MineralsSprite.TextureTop + 910
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1455,7 +1430,7 @@
                             SetsValue = true,
                             Name = "MineralsSprite.Texture Width",
                             Type = "int",
-                            Value = MineralsSprite.TextureWidth + 7
+                            Value = MineralsSprite.TextureWidth + 124
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1471,7 +1446,7 @@
                             SetsValue = true,
                             Name = "MineralsSprite.Width",
                             Type = "float",
-                            Value = MineralsSprite.Width + 10f
+                            Value = MineralsSprite.Width + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

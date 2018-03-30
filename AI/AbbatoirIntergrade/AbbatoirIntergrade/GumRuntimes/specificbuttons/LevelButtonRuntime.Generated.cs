@@ -101,7 +101,10 @@
                     switch(mCurrentButtonCategoryState)
                     {
                         case  ButtonCategory.Enabled:
+                            FrameSprite.TextureHeight = 263;
                             FrameSprite.TextureLeft = 0;
+                            FrameSprite.TextureTop = 2306;
+                            FrameSprite.TextureWidth = 250;
                             HighlightSprite.Blue = 255;
                             HighlightSprite.Red = 255;
                             HighlightSprite.Visible = false;
@@ -111,7 +114,10 @@
                             NumberSprite.Visible = true;
                             break;
                         case  ButtonCategory.Disabled:
-                            FrameSprite.TextureLeft = 256;
+                            FrameSprite.TextureHeight = 114;
+                            FrameSprite.TextureLeft = 2505;
+                            FrameSprite.TextureTop = 792;
+                            FrameSprite.TextureWidth = 114;
                             HighlightSprite.Blue = 255;
                             HighlightSprite.Red = 255;
                             HighlightSprite.Visible = false;
@@ -121,7 +127,10 @@
                             NumberSprite.Visible = false;
                             break;
                         case  ButtonCategory.Highlighted:
+                            FrameSprite.TextureHeight = 263;
                             FrameSprite.TextureLeft = 0;
+                            FrameSprite.TextureTop = 2306;
+                            FrameSprite.TextureWidth = 250;
                             HighlightSprite.Blue = 255;
                             HighlightSprite.Red = 255;
                             HighlightSprite.Visible = true;
@@ -131,7 +140,10 @@
                             NumberSprite.Visible = true;
                             break;
                         case  ButtonCategory.Pushed:
+                            FrameSprite.TextureHeight = 263;
                             FrameSprite.TextureLeft = 0;
+                            FrameSprite.TextureTop = 2306;
+                            FrameSprite.TextureWidth = 250;
                             HighlightSprite.Blue = 50;
                             HighlightSprite.Red = 50;
                             HighlightSprite.Visible = true;
@@ -650,10 +662,22 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
+                bool setFrameSpriteTextureHeightFirstValue = false;
+                bool setFrameSpriteTextureHeightSecondValue = false;
+                int FrameSpriteTextureHeightFirstValue= 0;
+                int FrameSpriteTextureHeightSecondValue= 0;
                 bool setFrameSpriteTextureLeftFirstValue = false;
                 bool setFrameSpriteTextureLeftSecondValue = false;
                 int FrameSpriteTextureLeftFirstValue= 0;
                 int FrameSpriteTextureLeftSecondValue= 0;
+                bool setFrameSpriteTextureTopFirstValue = false;
+                bool setFrameSpriteTextureTopSecondValue = false;
+                int FrameSpriteTextureTopFirstValue= 0;
+                int FrameSpriteTextureTopSecondValue= 0;
+                bool setFrameSpriteTextureWidthFirstValue = false;
+                bool setFrameSpriteTextureWidthSecondValue = false;
+                int FrameSpriteTextureWidthFirstValue= 0;
+                int FrameSpriteTextureWidthSecondValue= 0;
                 bool setHighlightSpriteBlueFirstValue = false;
                 bool setHighlightSpriteBlueSecondValue = false;
                 int HighlightSpriteBlueFirstValue= 0;
@@ -677,8 +701,14 @@
                 switch(firstState)
                 {
                     case  ButtonCategory.Enabled:
+                        setFrameSpriteTextureHeightFirstValue = true;
+                        FrameSpriteTextureHeightFirstValue = 263;
                         setFrameSpriteTextureLeftFirstValue = true;
                         FrameSpriteTextureLeftFirstValue = 0;
+                        setFrameSpriteTextureTopFirstValue = true;
+                        FrameSpriteTextureTopFirstValue = 2306;
+                        setFrameSpriteTextureWidthFirstValue = true;
+                        FrameSpriteTextureWidthFirstValue = 250;
                         setHighlightSpriteBlueFirstValue = true;
                         HighlightSpriteBlueFirstValue = 255;
                         setHighlightSpriteRedFirstValue = true;
@@ -699,8 +729,14 @@
                         }
                         break;
                     case  ButtonCategory.Disabled:
+                        setFrameSpriteTextureHeightFirstValue = true;
+                        FrameSpriteTextureHeightFirstValue = 114;
                         setFrameSpriteTextureLeftFirstValue = true;
-                        FrameSpriteTextureLeftFirstValue = 256;
+                        FrameSpriteTextureLeftFirstValue = 2505;
+                        setFrameSpriteTextureTopFirstValue = true;
+                        FrameSpriteTextureTopFirstValue = 792;
+                        setFrameSpriteTextureWidthFirstValue = true;
+                        FrameSpriteTextureWidthFirstValue = 114;
                         setHighlightSpriteBlueFirstValue = true;
                         HighlightSpriteBlueFirstValue = 255;
                         setHighlightSpriteRedFirstValue = true;
@@ -721,8 +757,14 @@
                         }
                         break;
                     case  ButtonCategory.Highlighted:
+                        setFrameSpriteTextureHeightFirstValue = true;
+                        FrameSpriteTextureHeightFirstValue = 263;
                         setFrameSpriteTextureLeftFirstValue = true;
                         FrameSpriteTextureLeftFirstValue = 0;
+                        setFrameSpriteTextureTopFirstValue = true;
+                        FrameSpriteTextureTopFirstValue = 2306;
+                        setFrameSpriteTextureWidthFirstValue = true;
+                        FrameSpriteTextureWidthFirstValue = 250;
                         setHighlightSpriteBlueFirstValue = true;
                         HighlightSpriteBlueFirstValue = 255;
                         setHighlightSpriteRedFirstValue = true;
@@ -743,8 +785,14 @@
                         }
                         break;
                     case  ButtonCategory.Pushed:
+                        setFrameSpriteTextureHeightFirstValue = true;
+                        FrameSpriteTextureHeightFirstValue = 263;
                         setFrameSpriteTextureLeftFirstValue = true;
                         FrameSpriteTextureLeftFirstValue = 0;
+                        setFrameSpriteTextureTopFirstValue = true;
+                        FrameSpriteTextureTopFirstValue = 2306;
+                        setFrameSpriteTextureWidthFirstValue = true;
+                        FrameSpriteTextureWidthFirstValue = 250;
                         setHighlightSpriteBlueFirstValue = true;
                         HighlightSpriteBlueFirstValue = 50;
                         setHighlightSpriteRedFirstValue = true;
@@ -768,8 +816,14 @@
                 switch(secondState)
                 {
                     case  ButtonCategory.Enabled:
+                        setFrameSpriteTextureHeightSecondValue = true;
+                        FrameSpriteTextureHeightSecondValue = 263;
                         setFrameSpriteTextureLeftSecondValue = true;
                         FrameSpriteTextureLeftSecondValue = 0;
+                        setFrameSpriteTextureTopSecondValue = true;
+                        FrameSpriteTextureTopSecondValue = 2306;
+                        setFrameSpriteTextureWidthSecondValue = true;
+                        FrameSpriteTextureWidthSecondValue = 250;
                         setHighlightSpriteBlueSecondValue = true;
                         HighlightSpriteBlueSecondValue = 255;
                         setHighlightSpriteRedSecondValue = true;
@@ -790,8 +844,14 @@
                         }
                         break;
                     case  ButtonCategory.Disabled:
+                        setFrameSpriteTextureHeightSecondValue = true;
+                        FrameSpriteTextureHeightSecondValue = 114;
                         setFrameSpriteTextureLeftSecondValue = true;
-                        FrameSpriteTextureLeftSecondValue = 256;
+                        FrameSpriteTextureLeftSecondValue = 2505;
+                        setFrameSpriteTextureTopSecondValue = true;
+                        FrameSpriteTextureTopSecondValue = 792;
+                        setFrameSpriteTextureWidthSecondValue = true;
+                        FrameSpriteTextureWidthSecondValue = 114;
                         setHighlightSpriteBlueSecondValue = true;
                         HighlightSpriteBlueSecondValue = 255;
                         setHighlightSpriteRedSecondValue = true;
@@ -812,8 +872,14 @@
                         }
                         break;
                     case  ButtonCategory.Highlighted:
+                        setFrameSpriteTextureHeightSecondValue = true;
+                        FrameSpriteTextureHeightSecondValue = 263;
                         setFrameSpriteTextureLeftSecondValue = true;
                         FrameSpriteTextureLeftSecondValue = 0;
+                        setFrameSpriteTextureTopSecondValue = true;
+                        FrameSpriteTextureTopSecondValue = 2306;
+                        setFrameSpriteTextureWidthSecondValue = true;
+                        FrameSpriteTextureWidthSecondValue = 250;
                         setHighlightSpriteBlueSecondValue = true;
                         HighlightSpriteBlueSecondValue = 255;
                         setHighlightSpriteRedSecondValue = true;
@@ -834,8 +900,14 @@
                         }
                         break;
                     case  ButtonCategory.Pushed:
+                        setFrameSpriteTextureHeightSecondValue = true;
+                        FrameSpriteTextureHeightSecondValue = 263;
                         setFrameSpriteTextureLeftSecondValue = true;
                         FrameSpriteTextureLeftSecondValue = 0;
+                        setFrameSpriteTextureTopSecondValue = true;
+                        FrameSpriteTextureTopSecondValue = 2306;
+                        setFrameSpriteTextureWidthSecondValue = true;
+                        FrameSpriteTextureWidthSecondValue = 250;
                         setHighlightSpriteBlueSecondValue = true;
                         HighlightSpriteBlueSecondValue = 50;
                         setHighlightSpriteRedSecondValue = true;
@@ -856,9 +928,21 @@
                         }
                         break;
                 }
+                if (setFrameSpriteTextureHeightFirstValue && setFrameSpriteTextureHeightSecondValue)
+                {
+                    FrameSprite.TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(FrameSpriteTextureHeightFirstValue* (1 - interpolationValue) + FrameSpriteTextureHeightSecondValue * interpolationValue);
+                }
                 if (setFrameSpriteTextureLeftFirstValue && setFrameSpriteTextureLeftSecondValue)
                 {
                     FrameSprite.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(FrameSpriteTextureLeftFirstValue* (1 - interpolationValue) + FrameSpriteTextureLeftSecondValue * interpolationValue);
+                }
+                if (setFrameSpriteTextureTopFirstValue && setFrameSpriteTextureTopSecondValue)
+                {
+                    FrameSprite.TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(FrameSpriteTextureTopFirstValue* (1 - interpolationValue) + FrameSpriteTextureTopSecondValue * interpolationValue);
+                }
+                if (setFrameSpriteTextureWidthFirstValue && setFrameSpriteTextureWidthSecondValue)
+                {
+                    FrameSprite.TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(FrameSpriteTextureWidthFirstValue* (1 - interpolationValue) + FrameSpriteTextureWidthSecondValue * interpolationValue);
                 }
                 if (setHighlightSpriteBlueFirstValue && setHighlightSpriteBlueSecondValue)
                 {
@@ -2081,9 +2165,33 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "FrameSprite.Texture Height",
+                            Type = "int",
+                            Value = FrameSprite.TextureHeight
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "FrameSprite.Texture Left",
                             Type = "int",
                             Value = FrameSprite.TextureLeft
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrameSprite.Texture Top",
+                            Type = "int",
+                            Value = FrameSprite.TextureTop
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrameSprite.Texture Width",
+                            Type = "int",
+                            Value = FrameSprite.TextureWidth
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2147,9 +2255,33 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "FrameSprite.Texture Height",
+                            Type = "int",
+                            Value = FrameSprite.TextureHeight
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "FrameSprite.Texture Left",
                             Type = "int",
                             Value = FrameSprite.TextureLeft
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrameSprite.Texture Top",
+                            Type = "int",
+                            Value = FrameSprite.TextureTop
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrameSprite.Texture Width",
+                            Type = "int",
+                            Value = FrameSprite.TextureWidth
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2213,9 +2345,33 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "FrameSprite.Texture Height",
+                            Type = "int",
+                            Value = FrameSprite.TextureHeight
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "FrameSprite.Texture Left",
                             Type = "int",
                             Value = FrameSprite.TextureLeft
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrameSprite.Texture Top",
+                            Type = "int",
+                            Value = FrameSprite.TextureTop
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrameSprite.Texture Width",
+                            Type = "int",
+                            Value = FrameSprite.TextureWidth
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2279,9 +2435,33 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "FrameSprite.Texture Height",
+                            Type = "int",
+                            Value = FrameSprite.TextureHeight
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "FrameSprite.Texture Left",
                             Type = "int",
                             Value = FrameSprite.TextureLeft
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrameSprite.Texture Top",
+                            Type = "int",
+                            Value = FrameSprite.TextureTop
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrameSprite.Texture Width",
+                            Type = "int",
+                            Value = FrameSprite.TextureWidth
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2353,9 +2533,33 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "FrameSprite.Texture Height",
+                            Type = "int",
+                            Value = FrameSprite.TextureHeight + 263
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "FrameSprite.Texture Left",
                             Type = "int",
                             Value = FrameSprite.TextureLeft + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrameSprite.Texture Top",
+                            Type = "int",
+                            Value = FrameSprite.TextureTop + 2306
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrameSprite.Texture Width",
+                            Type = "int",
+                            Value = FrameSprite.TextureWidth + 250
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2419,9 +2623,33 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "FrameSprite.Texture Height",
+                            Type = "int",
+                            Value = FrameSprite.TextureHeight + 114
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "FrameSprite.Texture Left",
                             Type = "int",
-                            Value = FrameSprite.TextureLeft + 256
+                            Value = FrameSprite.TextureLeft + 2505
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrameSprite.Texture Top",
+                            Type = "int",
+                            Value = FrameSprite.TextureTop + 792
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrameSprite.Texture Width",
+                            Type = "int",
+                            Value = FrameSprite.TextureWidth + 114
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2485,9 +2713,33 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "FrameSprite.Texture Height",
+                            Type = "int",
+                            Value = FrameSprite.TextureHeight + 263
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "FrameSprite.Texture Left",
                             Type = "int",
                             Value = FrameSprite.TextureLeft + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrameSprite.Texture Top",
+                            Type = "int",
+                            Value = FrameSprite.TextureTop + 2306
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrameSprite.Texture Width",
+                            Type = "int",
+                            Value = FrameSprite.TextureWidth + 250
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2551,9 +2803,33 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "FrameSprite.Texture Height",
+                            Type = "int",
+                            Value = FrameSprite.TextureHeight + 263
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "FrameSprite.Texture Left",
                             Type = "int",
                             Value = FrameSprite.TextureLeft + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrameSprite.Texture Top",
+                            Type = "int",
+                            Value = FrameSprite.TextureTop + 2306
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FrameSprite.Texture Width",
+                            Type = "int",
+                            Value = FrameSprite.TextureWidth + 250
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

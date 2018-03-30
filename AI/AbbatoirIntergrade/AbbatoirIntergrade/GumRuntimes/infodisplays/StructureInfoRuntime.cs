@@ -47,6 +47,7 @@ namespace AbbatoirIntergrade.GumRuntimes
             MaxRange.AttributeText = structureInfo.MaxRange;
             AttackSpeed.AttributeText = structureInfo.AttackSpeed;
             PointOrSplash.AttributeText = structureInfo.PointOrSplash;
+            SatoshiCost = structureInfo.SatoshiCostString;
             SetIcon(structureInfo.TowerType);
             structureSaveShown = structureInfo;
             Visible = true;
@@ -83,6 +84,7 @@ namespace AbbatoirIntergrade.GumRuntimes
 
             StructureName = structureShown.DisplayName;
             AttackDamageType.ResistanceText = structure.AttackDamage.ToString();
+            SatoshiCost = structure.SatoshiCost.ToString();
             MinRange.AttributeText = structure.MinimumRangeRadius.ToString();
             MaxRange.AttributeText = structure.RangedRadius.ToString();
             AttackSpeed.AttributeText = structure.SecondsBetweenFiring.ToString() + " sec";
@@ -133,6 +135,8 @@ namespace AbbatoirIntergrade.GumRuntimes
             public string MaxRange;
             public string AttackSpeed;
             public string PointOrSplash;
+            public string SatoshiCostString;
+            public int SatoshiCost;
             public Type TowerType;
 
             public StructureInfoSaveState(BaseStructure structure)
@@ -143,6 +147,8 @@ namespace AbbatoirIntergrade.GumRuntimes
                 this.MaxRange = structure.RangedRadius.ToString();
                 this.AttackSpeed = structure.SecondsBetweenFiring.ToString() + " sec";
                 this.PointOrSplash = structure.HasSplashDamage ? "Group" : "Single";
+                SatoshiCost = structure.SatoshiCost;
+                SatoshiCostString = structure.SatoshiCost.ToString();
                 this.TowerType = structure.GetType();
             }
         }

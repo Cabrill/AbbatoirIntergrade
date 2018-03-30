@@ -64,8 +64,6 @@ namespace AbbatoirIntergrade.Screens
         private SoundEffectInstance OutgoingMessageSound;
         private SoundEffectInstance HordeAlertSound;
 
-
-
         #endregion
 
         #region Initialization
@@ -95,16 +93,9 @@ namespace AbbatoirIntergrade.Screens
             CurrentLevel.OnNewWaveStart += HandleWaveStarted;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
-            HorizonBoxInstance.CurrentSceneryState = CurrentLevel.Scenery;
+            CurrentSatoshis = CurrentLevel.StartingSatoshis;
 
-            if (PlayerDataManager.CurrentGameDateTime == DateTime.MinValue)
-            {
-                currentLevelDateTime = CurrentLevel.StartTime;
-            }
-            else
-            {
-                currentLevelDateTime = PlayerDataManager.CurrentGameDateTime;
-            }
+            currentLevelDateTime = PlayerDataManager.CurrentGameDateTime == DateTime.MinValue ? CurrentLevel.StartTime : PlayerDataManager.CurrentGameDateTime;
 
             LocalLogManager.AddLine("Game Screen - Initialize factories");
             InitializeFactories();
@@ -219,6 +210,7 @@ namespace AbbatoirIntergrade.Screens
         {
             BaseStructure.Initialize(AllEnemiesList);
             BaseEnemy.Initialize(Pathing, PathingNodeNetwork);
+            EnemyFactories.OnCreateAction = CreateResourceNotification;
         }
 
         private void LoadTiledMap()
@@ -317,6 +309,8 @@ namespace AbbatoirIntergrade.Screens
             {
                 PathingSegments[i] = new Segment(Pathing.AbsolutePointPosition(i), Pathing.AbsolutePointPosition(i + 1));
             }
+
+            HorizonBoxInstance.CurrentSceneryState = CurrentLevel.Scenery;
 
 #if DEBUG
             if (DebugVariables.ShowDebugShapes)
@@ -612,6 +606,7 @@ namespace AbbatoirIntergrade.Screens
         private void HandleEnemyReachingGoal()
         {
             CurrentLevel.RemainingLives--;
+            LivesPointsDisplayInstance.LivesReducedAnimation.Play();
             LivesPointsDisplayInstance.LivesRemaining = CurrentLevel.RemainingLives.ToString();
         }
 
@@ -1027,15 +1022,20 @@ namespace AbbatoirIntergrade.Screens
 
         #region Other Methods
         private void CreateResourceNotification(BaseEnemy enemy)
-	    {
+        {
+            var pointValue = (int) enemy.GetEnemyType().PointValue();
+            CurrentSatoshis += pointValue;
 
-	        var notification = resourceIncreaseNotificationList.FirstOrDefault(n => n.Visible == false);
+            LivesPointsDisplayInstance.SatoshiChange = $"+{pointValue}";
+            if (!LivesPointsDisplayInstance.AddPointsAnimation.IsPlaying()) LivesPointsDisplayInstance.AddPointsAnimation.Play();
+
+            var notification = resourceIncreaseNotificationList.FirstOrDefault(n => n.Visible == false);
 
 	        if (notification != null)
 	        {
 	            notification.X = (enemy.X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
 	            notification.Y = (enemy.Y - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
-	            //notification.AmountOfIncrease = $"+{enemy.MineralsRewardedWhenKilled}";
+	            notification.AmountOfIncrease = $"+{pointValue}";
                 notification.Play();
 	        }
         }

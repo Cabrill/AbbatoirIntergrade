@@ -115,6 +115,26 @@
         <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
+      <Events>
+        <EventResponseSave>
+          <EventName>AfterCurrentSatoshisSet</EventName>
+          <SourceVariable>CurrentSatoshis</SourceVariable>
+          <BeforeOrAfter>After</BeforeOrAfter>
+        </EventResponseSave>
+      </Events>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CurrentSatoshis</Name>
+          <Type>int</Type>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+      </CustomVariables>
       <Name>Screens\GameScreen</Name>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -634,6 +654,16 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
           <LayerOn>HUDLayer</LayerOn>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
+          <SourceName>DimmingRectangle (AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime)</SourceName>
+          <InstanceName>DimmingRectangleInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn>InfoLayer</LayerOn>
         </NamedObjectSave>
       </NamedObjects>
     </ScreenSave>
@@ -3075,6 +3105,17 @@
           </Properties>
           <Name>StatusDamageMultiplier</Name>
           <Type>float</Type>
+          <SetByDerived>true</SetByDerived>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SatoshiCost</Name>
+          <Type>int</Type>
           <SetByDerived>true</SetByDerived>
         </CustomVariable>
       </CustomVariables>
@@ -14159,6 +14200,18 @@
           <DefaultValue xsi:type="xsd:float">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SatoshiCost</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">20</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -14676,6 +14729,18 @@
           <DefaultValue xsi:type="xsd:float">3.5</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SatoshiCost</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">12</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -15183,6 +15248,18 @@
           <DefaultValue xsi:type="xsd:float">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SatoshiCost</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">15</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -15684,6 +15761,18 @@
           <Name>StatusDamageMultiplier</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">0.15</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SatoshiCost</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">12</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -16208,6 +16297,18 @@
           <DefaultValue xsi:type="xsd:float">0.05</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SatoshiCost</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">8</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -16712,6 +16813,18 @@
           <Name>StatusDamageMultiplier</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SatoshiCost</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">10</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>

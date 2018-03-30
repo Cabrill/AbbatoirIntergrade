@@ -1,4 +1,6 @@
 
+using System;
+
 namespace AbbatoirIntergrade.Screens
 {
     public partial class GameScreen
@@ -9,6 +11,10 @@ namespace AbbatoirIntergrade.Screens
             GameHasStarted = true;
             //UpdateMusic();
         }
-
+        void OnAfterCurrentSatoshisSet (object sender, EventArgs e) 
+        {
+            BuildMenuInstance.UpdateAffordability(CurrentSatoshis);
+            LivesPointsDisplayInstance.SatoshiText = CurrentSatoshis.ToString();
+        }
     }
 }

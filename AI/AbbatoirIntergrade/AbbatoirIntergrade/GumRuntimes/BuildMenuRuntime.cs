@@ -18,6 +18,30 @@ namespace AbbatoirIntergrade.GumRuntimes
 
         private StructureInfoRuntime structureInfoDisplay;
 
+        private List<BuildButtonRuntime> allButtons;
+
+        partial void CustomInitialize()
+        {
+            allButtons = new List<BuildButtonRuntime>
+            {
+                BuildButtonInstance0,
+                BuildButtonInstance1,
+                BuildButtonInstance2,
+                BuildButtonInstance3,
+                BuildButtonInstance4,
+                BuildButtonInstance5,
+                BuildButtonInstance6
+            };
+        }
+
+        public void UpdateAffordability(int currentSatoshis)
+        {
+            foreach (var button in allButtons)
+            {
+                button.UpdateAffordability(currentSatoshis);
+            }
+        }
+
         public void DisplayForPlacement(StructurePlacement placement)
         {
             CurrentPlacement = placement;
@@ -43,11 +67,10 @@ namespace AbbatoirIntergrade.GumRuntimes
                     CurrentCapacityState = X < 0 ? Capacity.FourRight : Capacity.FourLeft;
                 }
             }
-
             Visible = true;
         }
 
-        public void AssociateTowers(List<BaseStructure> listOfTowers, List<IEntityFactory> listOfFactories, StructureInfoRuntime structureInfoRuntime)
+        public void AssociateTowers(List<BaseStructure> listOfTowers, List<IEntityFactory> listOfFactories, StructureInfoRuntime structureInfoRuntime, int currentSatoshis)
         {
             structureInfoDisplay = structureInfoRuntime;
             for (var i = 0; i < 7; i++)
@@ -60,7 +83,7 @@ namespace AbbatoirIntergrade.GumRuntimes
                     var tower = listOfTowers[i];
                     var factory = listOfFactories[i];
 
-                    button.UpdateFromStructure(tower, factory);
+                    button.UpdateFromStructure(tower, factory, currentSatoshis);
                     button.RangeDisplayAction = ShowRangePreview;
                     button.InfoDisplayAction = ShowStructureInfoPreview;
                     button.HideRangePreviewAction = HideRangePreview;

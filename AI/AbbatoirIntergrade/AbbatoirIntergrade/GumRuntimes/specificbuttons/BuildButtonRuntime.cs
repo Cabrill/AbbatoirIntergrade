@@ -32,6 +32,8 @@ namespace AbbatoirIntergrade.GumRuntimes
         private float RangeXOffset;
         private float RangeYOffset;
 
+        public bool CanAfford { get; private set; }
+
         partial void CustomInitialize()
         {
             RollOff += CircleButtonInstanceOnRollOff;
@@ -43,8 +45,10 @@ namespace AbbatoirIntergrade.GumRuntimes
             if (Enabled)
             {
                 CurrentHighlightState = HasCursorOver(GuiManager.Cursor) 
-                    ? Highlight.Highlighted
-                    : Highlight.NotHighlighted;
+                    ? (CanAfford ? Highlight.Highlighted : Highlight.HighlightedCantAfford)
+                    : (CanAfford ? Highlight.NotHighlighted : Highlight.NotHighlightedCantAfford);
+
+                StructureSprite.Alpha = (CanAfford ? 255 : 75);
                 RangeDisplayAction(RangeTuple, RangeXOffset, RangeYOffset);
                 InfoDisplayAction(structureInfo);
             }
@@ -54,13 +58,14 @@ namespace AbbatoirIntergrade.GumRuntimes
         {
             if (Enabled)
             {
-                CurrentHighlightState = Highlight.NotHighlighted;
+                CurrentHighlightState = (CanAfford ? Highlight.NotHighlighted : Highlight.NotHighlightedCantAfford);
+                StructureSprite.Alpha = (CanAfford ? 255 : 75);
                 HideRangePreviewAction?.Invoke();
                 HideStructurePreviewAction?.Invoke();
             }
         }
 
-        public void UpdateFromStructure(BaseStructure structure, IEntityFactory factory)
+        public void UpdateFromStructure(BaseStructure structure, IEntityFactory factory, int currentSatoshis)
         {
             BuildingFactory = factory;
             RangeTuple = new Tuple<int, int>((int)structure.RangedRadius, (int)structure.MinimumRangeRadius);
@@ -68,6 +73,7 @@ namespace AbbatoirIntergrade.GumRuntimes
             RangeYOffset = structure.SpriteInstance.RelativeY;
             BuildingType = structure.GetType();
             structureInfo = new StructureInfoRuntime.StructureInfoSaveState(structure);
+            UpdateAffordability(currentSatoshis);
 
             RenderTarget2D renderTarget = null;
             var renderName = BuildingType.FullName + ".png";
@@ -170,6 +176,24 @@ namespace AbbatoirIntergrade.GumRuntimes
                 StructureSprite.Height = 100;
                 StructureSprite.Width = baseWidth / baseHeight * 100;
             }
+        }
+
+        public void UpdateAffordability(int availableSatoshis)
+        {
+            if (structureInfo == null) return;
+
+            CanAfford = availableSatoshis >= structureInfo.SatoshiCost;
+            
+            if (CanAfford)
+            {
+                CurrentHighlightState = CurrentHighlightState == Highlight.HighlightedCantAfford ? Highlight.Highlighted : Highlight.NotHighlighted;
+            }
+            else
+            {
+                CurrentHighlightState = CurrentHighlightState == Highlight.Highlighted ? Highlight.HighlightedCantAfford : Highlight.NotHighlightedCantAfford;
+            }
+
+            StructureSprite.Alpha = (CanAfford ? 255 : 75);
         }
 
         public void Disable()

@@ -13,6 +13,7 @@ namespace AbbatoirIntergrade.GameClasses.Interfaces
         bool IsEnabled { get; }
         IEntityFactory BuildingFactory { get; }
         Type BuildingType { get; }
+        bool CanAfford { get; }
 
     }
 }

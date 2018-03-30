@@ -397,6 +397,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         }
         public virtual System.Double StatusEffectSeconds { get; set; }
         public virtual float StatusDamageMultiplier { get; set; }
+        public virtual int SatoshiCost { get; set; }
         public event System.EventHandler BeforeVisibleSet;
         public event System.EventHandler AfterVisibleSet;
         protected bool mVisible = true;

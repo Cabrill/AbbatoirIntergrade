@@ -22,7 +22,7 @@ namespace AbbatoirIntergrade.Screens
     {
         private void HandleBuildingButton()
         {
-            if (GuiManager.Cursor.WindowPushed is IBuildButton buildButton && buildButton.IsEnabled)
+            if (GuiManager.Cursor.WindowPushed is IBuildButton buildButton && buildButton.IsEnabled && buildButton.CanAfford)
             {
                 if (selectedObject is StructurePlacement placement)
                 {
@@ -39,6 +39,11 @@ namespace AbbatoirIntergrade.Screens
                     //CurrentGameMode = GameMode.Building;
                     BuildMenuInstance.Hide(didBuild: true);
                     PathingNodeNetwork.RemoveNodesForCollision(newBuilding.AxisAlignedRectangleInstance);
+
+                    CurrentSatoshis -= newBuilding.SatoshiCost;
+                    LivesPointsDisplayInstance.SatoshiChange = $"-{newBuilding.SatoshiCost}";
+                    LivesPointsDisplayInstance.SubtractPointsAnimation.Play();
+
                     ChangeGameModeToNormal();
                 }
             }
@@ -85,7 +90,7 @@ namespace AbbatoirIntergrade.Screens
                 }
             }
 
-            BuildMenuInstance.AssociateTowers(listOfAvailableTowers, listOfAvailableTowerFactories, StructureInfoInstance);
+            BuildMenuInstance.AssociateTowers(listOfAvailableTowers, listOfAvailableTowerFactories, StructureInfoInstance, CurrentSatoshis);
 
             for (var i = listOfAllInstantiatedTowers.Count - 1; i >= 0; i--)
             {
