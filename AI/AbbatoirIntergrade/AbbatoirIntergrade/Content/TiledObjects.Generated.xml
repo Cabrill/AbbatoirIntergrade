@@ -6,6 +6,7 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.15" />
   </objecttype>
   <objecttype name="Chicken2Enemy">
     <property name="DisplayName" type="string" default="Enraged Chicken" />
@@ -13,6 +14,7 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.175" />
   </objecttype>
   <objecttype name="Chicken3Enemy">
     <property name="DisplayName" type="string" default="Dragon" />
@@ -20,6 +22,7 @@
     <property name="HasLightSource" type="bool" default="true" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.25" />
   </objecttype>
   <objecttype name="Cow1Enemy">
     <property name="DisplayName" type="string" default="Cow" />
@@ -27,6 +30,7 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.4" />
   </objecttype>
   <objecttype name="Cow2Enemy">
     <property name="DisplayName" type="string" default="Unusual Cow" />
@@ -34,6 +38,7 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.45" />
   </objecttype>
   <objecttype name="Cow3Enemy">
     <property name="DisplayName" type="string" default="Hybrid Cowman" />
@@ -41,6 +46,7 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.6" />
   </objecttype>
   <objecttype name="Pig1Enemy">
     <property name="DisplayName" type="string" default="Pig" />
@@ -48,6 +54,7 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.4" />
   </objecttype>
   <objecttype name="Pig2Enemy">
     <property name="DisplayName" type="string" default="Mutant Pig" />
@@ -55,6 +62,7 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.5" />
   </objecttype>
   <objecttype name="Pig3Enemy">
     <property name="DisplayName" type="string" default="Juggernaut Pig" />
@@ -62,6 +70,7 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.65" />
   </objecttype>
   <objecttype name="Rabbit1Enemy">
     <property name="DisplayName" type="string" default="Rabbit" />
@@ -69,6 +78,7 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="true" />
+    <property name="Mass" type="float" default="0.1" />
   </objecttype>
   <objecttype name="Rabbit2Enemy">
     <property name="DisplayName" type="string" default="Abnormal Rabbit" />
@@ -76,6 +86,7 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.3" />
   </objecttype>
   <objecttype name="Rabbit3Enemy">
     <property name="DisplayName" type="string" default="Athletic Rabbit" />
@@ -83,6 +94,7 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.35" />
   </objecttype>
   <objecttype name="Sheep1Enemy">
     <property name="DisplayName" type="string" default="Sheep" />
@@ -90,6 +102,7 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.25" />
   </objecttype>
   <objecttype name="Sheep2Enemy">
     <property name="DisplayName" type="string" default="Deformed Sheep" />
@@ -97,6 +110,7 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.3" />
   </objecttype>
   <objecttype name="Sheep3Enemy">
     <property name="DisplayName" type="string" default="Sheep Demoness" />
@@ -104,6 +118,7 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
+    <property name="Mass" type="float" default="0.4" />
   </objecttype>
   <objecttype name="StructurePlacement">
     <property name="SpriteInstanceRed" type="float" default="0" />
@@ -122,6 +137,7 @@
   <objecttype name="TileCollisionRectangle">
     <property name="AxisAlignedRectangleInstanceWidth" type="float" default="128" />
     <property name="AxisAlignedRectangleInstanceHeight" type="float" default="128" />
+    <property name="IsBarrier" type="bool" />
   </objecttype>
   <objecttype name="TiledOverlay">
     <property name="ChainName" type="string" />

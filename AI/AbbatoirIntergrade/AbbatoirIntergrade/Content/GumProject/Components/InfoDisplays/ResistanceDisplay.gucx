@@ -17,6 +17,12 @@
       <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>DamageTypeIconInstance.ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>DamageTypeIconInstance.Height</Name>
       <Value xsi:type="xsd:float">0</Value>
@@ -119,13 +125,13 @@
     <Variable>
       <Type>float</Type>
       <Name>ResistanceTextInstance.Width</Name>
-      <Value xsi:type="xsd:float">80</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>ResistanceTextInstance.Width Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -139,6 +145,18 @@
       <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>UpgradeSprite.Blue</Name>
+      <Value xsi:type="xsd:int">140</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>UpgradeSprite.Green</Name>
+      <Value xsi:type="xsd:int">230</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>UpgradeSprite.Height</Name>
       <Value xsi:type="xsd:float">32</Value>
@@ -148,6 +166,12 @@
       <Type>DimensionUnitType</Type>
       <Name>UpgradeSprite.Height Units</Name>
       <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>UpgradeSprite.Red</Name>
+      <Value xsi:type="xsd:int">240</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -190,7 +214,7 @@
     <Variable>
       <Type>bool</Type>
       <Name>UpgradeSprite.Visible</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -218,6 +242,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>Visible</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>Width</Name>
       <Value xsi:type="xsd:float">100</Value>
@@ -229,38 +259,14 @@
       <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>UpgradeSprite.Red</Name>
-      <Value xsi:type="xsd:int">240</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>UpgradeSprite.Green</Name>
-      <Value xsi:type="xsd:int">230</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>UpgradeSprite.Blue</Name>
-      <Value xsi:type="xsd:int">140</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
   </State>
   <Category>
     <Name>Upgraded</Name>
     <State>
       <Name>IsUpgraded</Name>
       <Variable>
-        <Type>bool</Type>
-        <Name>UpgradeSprite.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>int</Type>
-        <Name>ResistanceTextInstance.Red</Name>
+        <Name>ResistanceTextInstance.Blue</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -272,22 +278,22 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>ResistanceTextInstance.Blue</Name>
+        <Name>ResistanceTextInstance.Red</Name>
         <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>UpgradeSprite.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>NotUpgraded</Name>
       <Variable>
-        <Type>bool</Type>
-        <Name>UpgradeSprite.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>int</Type>
-        <Name>ResistanceTextInstance.Red</Name>
+        <Name>ResistanceTextInstance.Blue</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
@@ -301,9 +307,15 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>ResistanceTextInstance.Blue</Name>
+        <Name>ResistanceTextInstance.Red</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>UpgradeSprite.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

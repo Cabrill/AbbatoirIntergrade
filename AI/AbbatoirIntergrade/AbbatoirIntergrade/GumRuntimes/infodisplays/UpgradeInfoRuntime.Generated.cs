@@ -25,12 +25,18 @@
                 UpgradeSpeed,
                 UpgradeDamage
             }
+            public enum Affordability
+            {
+                CanAfford,
+                CantAfford
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
             OptionsAvailability mCurrentOptionsAvailabilityState;
             OptionOneChoice mCurrentOptionOneChoiceState;
             OptionTwoChoice mCurrentOptionTwoChoiceState;
+            Affordability mCurrentAffordabilityState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -69,17 +75,6 @@
                             UpgradeText.Visible = true;
                             UpgradeText.Width = 0f;
                             UpgradeText.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
-                            Upgrade1Type.Height = 50f;
-                            Upgrade1Type.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            Upgrade1Type.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
-                            Upgrade1Type.Width = 100f;
-                            Upgrade1Type.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
-                            Upgrade1Type.X = 21.5f;
-                            Upgrade1Type.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            Upgrade1Type.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            Upgrade1Type.Y = 0f;
-                            Upgrade1Type.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
-                            Upgrade1Type.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                             Upgrade1Text.Blue = 255;
                             SetProperty("Upgrade1Text.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             Upgrade1Text.FontScale = 0.4f;
@@ -94,9 +89,20 @@
                             Upgrade1Text.X = 21.5f;
                             Upgrade1Text.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             Upgrade1Text.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            Upgrade1Text.Y = -19f;
-                            Upgrade1Text.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            Upgrade1Text.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            Upgrade1Text.Y = 0f;
+                            Upgrade1Text.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                            Upgrade1Text.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                            Upgrade1Type.Height = 75f;
+                            Upgrade1Type.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                            Upgrade1Type.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            Upgrade1Type.Width = 100f;
+                            Upgrade1Type.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                            Upgrade1Type.X = 21.5f;
+                            Upgrade1Type.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            Upgrade1Type.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            Upgrade1Type.Y = 25f;
+                            Upgrade1Type.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                            Upgrade1Type.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                             OrTextInstance.Blue = 220;
                             SetProperty("OrTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             OrTextInstance.FontScale = 0.6f;
@@ -113,17 +119,6 @@
                             OrTextInstance.Y = 0f;
                             OrTextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             OrTextInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                            Upgrade2Type.Height = 50f;
-                            Upgrade2Type.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            Upgrade2Type.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
-                            Upgrade2Type.Width = 100f;
-                            Upgrade2Type.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
-                            Upgrade2Type.X = 78.5f;
-                            Upgrade2Type.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            Upgrade2Type.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            Upgrade2Type.Y = 0f;
-                            Upgrade2Type.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
-                            Upgrade2Type.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                             Upgrade2Text.Blue = 255;
                             SetProperty("Upgrade2Text.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             Upgrade2Text.FontScale = 0.4f;
@@ -138,18 +133,29 @@
                             Upgrade2Text.X = 78.5f;
                             Upgrade2Text.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             Upgrade2Text.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            Upgrade2Text.Y = -19f;
-                            Upgrade2Text.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            Upgrade2Text.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            Upgrade2Text.Y = 0f;
+                            Upgrade2Text.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                            Upgrade2Text.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                            Upgrade2Type.Height = 75f;
+                            Upgrade2Type.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                            Upgrade2Type.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            Upgrade2Type.Width = 100f;
+                            Upgrade2Type.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                            Upgrade2Type.X = 78.5f;
+                            Upgrade2Type.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            Upgrade2Type.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            Upgrade2Type.Y = 25f;
+                            Upgrade2Type.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                            Upgrade2Type.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                             TitleContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
-                            TitleContainer.Height = 0f;
-                            TitleContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            TitleContainer.Height = 40f;
+                            TitleContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             TitleContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
                             TitleContainer.Width = 100f;
                             TitleContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             TitleContainer.WrapsChildren = false;
-                            UpgradeContainer.Height = 0f;
-                            UpgradeContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            UpgradeContainer.Height = -40f;
+                            UpgradeContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             UpgradeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
                             UpgradeContainer.Visible = true;
                             UpgradeContainer.Width = 100f;
@@ -217,18 +223,18 @@
                     switch(mCurrentOptionsAvailabilityState)
                     {
                         case  OptionsAvailability.OneOption:
-                            Upgrade1Type.X = 50f;
                             Upgrade1Text.X = 50f;
+                            Upgrade1Type.X = 50f;
                             OrTextInstance.Visible = false;
-                            Upgrade2Type.Visible = false;
                             Upgrade2Text.Visible = false;
+                            Upgrade2Type.Visible = false;
                             break;
                         case  OptionsAvailability.TwoOptions:
-                            Upgrade1Type.X = 21.5f;
                             Upgrade1Text.X = 21.5f;
+                            Upgrade1Type.X = 21.5f;
                             OrTextInstance.Visible = true;
-                            Upgrade2Type.Visible = true;
                             Upgrade2Text.Visible = true;
+                            Upgrade2Type.Visible = true;
                             break;
                     }
                 }
@@ -245,16 +251,16 @@
                     switch(mCurrentOptionOneChoiceState)
                     {
                         case  OptionOneChoice.UpgradeRange:
-                            Upgrade1Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
                             Upgrade1Text.Text = "Range";
+                            Upgrade1Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
                             break;
                         case  OptionOneChoice.UpgradeSpeed:
-                            Upgrade1Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
                             Upgrade1Text.Text = "Speed";
+                            Upgrade1Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
                             break;
                         case  OptionOneChoice.UpgradeDamage:
-                            Upgrade1Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
                             Upgrade1Text.Text = "Damage";
+                            Upgrade1Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
                             break;
                     }
                 }
@@ -271,16 +277,54 @@
                     switch(mCurrentOptionTwoChoiceState)
                     {
                         case  OptionTwoChoice.UpgradeRange:
-                            Upgrade2Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
                             Upgrade2Text.Text = "Range";
+                            Upgrade2Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
                             break;
                         case  OptionTwoChoice.UpgradeSpeed:
-                            Upgrade2Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
                             Upgrade2Text.Text = "Speed";
+                            Upgrade2Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
                             break;
                         case  OptionTwoChoice.UpgradeDamage:
-                            Upgrade2Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
                             Upgrade2Text.Text = "Damage";
+                            Upgrade2Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                            break;
+                    }
+                }
+            }
+            public Affordability CurrentAffordabilityState
+            {
+                get
+                {
+                    return mCurrentAffordabilityState;
+                }
+                set
+                {
+                    mCurrentAffordabilityState = value;
+                    switch(mCurrentAffordabilityState)
+                    {
+                        case  Affordability.CanAfford:
+                            WhiteFrameInstance.CurrentColorState = AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color.Green;
+                            UpgradeText.Alpha = 255;
+                            Upgrade1Text.Alpha = 255;
+                            OrTextInstance.Alpha = 255;
+                            Upgrade2Text.Alpha = 255;
+                            CostText.Blue = 255;
+                            CostText.Green = 255;
+                            CostText.Red = 0;
+                            PointsSprite.Alpha = 255;
+                            break;
+                        case  Affordability.CantAfford:
+                            WhiteFrameInstance.CurrentColorState = AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color.Red;
+                            UpgradeText.Alpha = 100;
+                            Upgrade1Text.Alpha = 100;
+                            Upgrade1Type.IconAlpha = 100;
+                            OrTextInstance.Alpha = 50;
+                            Upgrade2Text.Alpha = 100;
+                            Upgrade2Type.IconAlpha = 100;
+                            CostText.Blue = 0;
+                            CostText.Green = 0;
+                            CostText.Red = 255;
+                            PointsSprite.Alpha = 150;
                             break;
                     }
                 }
@@ -765,10 +809,10 @@
                             this.TitleContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                         }
                         setTitleContainerHeightFirstValue = true;
-                        TitleContainerHeightFirstValue = 0f;
+                        TitleContainerHeightFirstValue = 40f;
                         if (interpolationValue < 1)
                         {
-                            this.TitleContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            this.TitleContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                         }
                         if (interpolationValue < 1)
                         {
@@ -827,20 +871,20 @@
                             this.Upgrade1Text.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setUpgrade1TextYFirstValue = true;
-                        Upgrade1TextYFirstValue = -19f;
+                        Upgrade1TextYFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
-                            this.Upgrade1Text.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            this.Upgrade1Text.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.Upgrade1Text.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            this.Upgrade1Text.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setUpgrade1TypeHeightFirstValue = true;
-                        Upgrade1TypeHeightFirstValue = 50f;
+                        Upgrade1TypeHeightFirstValue = 75f;
                         if (interpolationValue < 1)
                         {
-                            this.Upgrade1Type.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.Upgrade1Type.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                         }
                         if (interpolationValue < 1)
                         {
@@ -863,14 +907,14 @@
                             this.Upgrade1Type.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setUpgrade1TypeYFirstValue = true;
-                        Upgrade1TypeYFirstValue = 0f;
+                        Upgrade1TypeYFirstValue = 25f;
                         if (interpolationValue < 1)
                         {
-                            this.Upgrade1Type.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                            this.Upgrade1Type.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.Upgrade1Type.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                            this.Upgrade1Type.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setUpgrade2TextBlueFirstValue = true;
                         Upgrade2TextBlueFirstValue = 255;
@@ -915,20 +959,20 @@
                             this.Upgrade2Text.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setUpgrade2TextYFirstValue = true;
-                        Upgrade2TextYFirstValue = -19f;
+                        Upgrade2TextYFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
-                            this.Upgrade2Text.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            this.Upgrade2Text.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.Upgrade2Text.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            this.Upgrade2Text.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setUpgrade2TypeHeightFirstValue = true;
-                        Upgrade2TypeHeightFirstValue = 50f;
+                        Upgrade2TypeHeightFirstValue = 75f;
                         if (interpolationValue < 1)
                         {
-                            this.Upgrade2Type.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.Upgrade2Type.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                         }
                         if (interpolationValue < 1)
                         {
@@ -951,20 +995,20 @@
                             this.Upgrade2Type.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setUpgrade2TypeYFirstValue = true;
-                        Upgrade2TypeYFirstValue = 0f;
+                        Upgrade2TypeYFirstValue = 25f;
                         if (interpolationValue < 1)
                         {
-                            this.Upgrade2Type.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                            this.Upgrade2Type.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.Upgrade2Type.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                            this.Upgrade2Type.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setUpgradeContainerHeightFirstValue = true;
-                        UpgradeContainerHeightFirstValue = 0f;
+                        UpgradeContainerHeightFirstValue = -40f;
                         if (interpolationValue < 1)
                         {
-                            this.UpgradeContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            this.UpgradeContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                         }
                         if (interpolationValue < 1)
                         {
@@ -1256,10 +1300,10 @@
                             this.TitleContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                         }
                         setTitleContainerHeightSecondValue = true;
-                        TitleContainerHeightSecondValue = 0f;
+                        TitleContainerHeightSecondValue = 40f;
                         if (interpolationValue >= 1)
                         {
-                            this.TitleContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            this.TitleContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1318,20 +1362,20 @@
                             this.Upgrade1Text.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setUpgrade1TextYSecondValue = true;
-                        Upgrade1TextYSecondValue = -19f;
+                        Upgrade1TextYSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
-                            this.Upgrade1Text.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            this.Upgrade1Text.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.Upgrade1Text.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            this.Upgrade1Text.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setUpgrade1TypeHeightSecondValue = true;
-                        Upgrade1TypeHeightSecondValue = 50f;
+                        Upgrade1TypeHeightSecondValue = 75f;
                         if (interpolationValue >= 1)
                         {
-                            this.Upgrade1Type.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.Upgrade1Type.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1354,14 +1398,14 @@
                             this.Upgrade1Type.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setUpgrade1TypeYSecondValue = true;
-                        Upgrade1TypeYSecondValue = 0f;
+                        Upgrade1TypeYSecondValue = 25f;
                         if (interpolationValue >= 1)
                         {
-                            this.Upgrade1Type.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                            this.Upgrade1Type.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.Upgrade1Type.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                            this.Upgrade1Type.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setUpgrade2TextBlueSecondValue = true;
                         Upgrade2TextBlueSecondValue = 255;
@@ -1406,20 +1450,20 @@
                             this.Upgrade2Text.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setUpgrade2TextYSecondValue = true;
-                        Upgrade2TextYSecondValue = -19f;
+                        Upgrade2TextYSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
-                            this.Upgrade2Text.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            this.Upgrade2Text.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.Upgrade2Text.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            this.Upgrade2Text.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setUpgrade2TypeHeightSecondValue = true;
-                        Upgrade2TypeHeightSecondValue = 50f;
+                        Upgrade2TypeHeightSecondValue = 75f;
                         if (interpolationValue >= 1)
                         {
-                            this.Upgrade2Type.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.Upgrade2Type.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1442,20 +1486,20 @@
                             this.Upgrade2Type.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setUpgrade2TypeYSecondValue = true;
-                        Upgrade2TypeYSecondValue = 0f;
+                        Upgrade2TypeYSecondValue = 25f;
                         if (interpolationValue >= 1)
                         {
-                            this.Upgrade2Type.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                            this.Upgrade2Type.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.Upgrade2Type.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                            this.Upgrade2Type.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setUpgradeContainerHeightSecondValue = true;
-                        UpgradeContainerHeightSecondValue = 0f;
+                        UpgradeContainerHeightSecondValue = -40f;
                         if (interpolationValue >= 1)
                         {
-                            this.UpgradeContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            this.UpgradeContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -2107,6 +2151,205 @@
                     mCurrentOptionTwoChoiceState = secondState;
                 }
             }
+            public void InterpolateBetween (Affordability firstState, Affordability secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                bool setCostTextBlueFirstValue = false;
+                bool setCostTextBlueSecondValue = false;
+                int CostTextBlueFirstValue= 0;
+                int CostTextBlueSecondValue= 0;
+                bool setCostTextGreenFirstValue = false;
+                bool setCostTextGreenSecondValue = false;
+                int CostTextGreenFirstValue= 0;
+                int CostTextGreenSecondValue= 0;
+                bool setCostTextRedFirstValue = false;
+                bool setCostTextRedSecondValue = false;
+                int CostTextRedFirstValue= 0;
+                int CostTextRedSecondValue= 0;
+                bool setOrTextInstanceAlphaFirstValue = false;
+                bool setOrTextInstanceAlphaSecondValue = false;
+                int OrTextInstanceAlphaFirstValue= 0;
+                int OrTextInstanceAlphaSecondValue= 0;
+                bool setPointsSpriteAlphaFirstValue = false;
+                bool setPointsSpriteAlphaSecondValue = false;
+                int PointsSpriteAlphaFirstValue= 0;
+                int PointsSpriteAlphaSecondValue= 0;
+                bool setUpgrade1TextAlphaFirstValue = false;
+                bool setUpgrade1TextAlphaSecondValue = false;
+                int Upgrade1TextAlphaFirstValue= 0;
+                int Upgrade1TextAlphaSecondValue= 0;
+                bool setUpgrade2TextAlphaFirstValue = false;
+                bool setUpgrade2TextAlphaSecondValue = false;
+                int Upgrade2TextAlphaFirstValue= 0;
+                int Upgrade2TextAlphaSecondValue= 0;
+                bool setUpgradeTextAlphaFirstValue = false;
+                bool setUpgradeTextAlphaSecondValue = false;
+                int UpgradeTextAlphaFirstValue= 0;
+                int UpgradeTextAlphaSecondValue= 0;
+                bool setWhiteFrameInstanceCurrentColorStateFirstValue = false;
+                bool setWhiteFrameInstanceCurrentColorStateSecondValue = false;
+                WhiteFrameRuntime.Color WhiteFrameInstanceCurrentColorStateFirstValue= WhiteFrameRuntime.Color.Red;
+                WhiteFrameRuntime.Color WhiteFrameInstanceCurrentColorStateSecondValue= WhiteFrameRuntime.Color.Red;
+                bool setUpgrade1TypeIconAlphaFirstValue = false;
+                bool setUpgrade1TypeIconAlphaSecondValue = false;
+                int Upgrade1TypeIconAlphaFirstValue= 0;
+                int Upgrade1TypeIconAlphaSecondValue= 0;
+                bool setUpgrade2TypeIconAlphaFirstValue = false;
+                bool setUpgrade2TypeIconAlphaSecondValue = false;
+                int Upgrade2TypeIconAlphaFirstValue= 0;
+                int Upgrade2TypeIconAlphaSecondValue= 0;
+                switch(firstState)
+                {
+                    case  Affordability.CanAfford:
+                        setCostTextBlueFirstValue = true;
+                        CostTextBlueFirstValue = 255;
+                        setCostTextGreenFirstValue = true;
+                        CostTextGreenFirstValue = 255;
+                        setCostTextRedFirstValue = true;
+                        CostTextRedFirstValue = 0;
+                        setOrTextInstanceAlphaFirstValue = true;
+                        OrTextInstanceAlphaFirstValue = 255;
+                        setPointsSpriteAlphaFirstValue = true;
+                        PointsSpriteAlphaFirstValue = 255;
+                        setUpgrade1TextAlphaFirstValue = true;
+                        Upgrade1TextAlphaFirstValue = 255;
+                        setUpgrade2TextAlphaFirstValue = true;
+                        Upgrade2TextAlphaFirstValue = 255;
+                        setUpgradeTextAlphaFirstValue = true;
+                        UpgradeTextAlphaFirstValue = 255;
+                        setWhiteFrameInstanceCurrentColorStateFirstValue = true;
+                        WhiteFrameInstanceCurrentColorStateFirstValue = AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color.Green;
+                        break;
+                    case  Affordability.CantAfford:
+                        setCostTextBlueFirstValue = true;
+                        CostTextBlueFirstValue = 0;
+                        setCostTextGreenFirstValue = true;
+                        CostTextGreenFirstValue = 0;
+                        setCostTextRedFirstValue = true;
+                        CostTextRedFirstValue = 255;
+                        setOrTextInstanceAlphaFirstValue = true;
+                        OrTextInstanceAlphaFirstValue = 50;
+                        setPointsSpriteAlphaFirstValue = true;
+                        PointsSpriteAlphaFirstValue = 150;
+                        setUpgrade1TextAlphaFirstValue = true;
+                        Upgrade1TextAlphaFirstValue = 100;
+                        setUpgrade1TypeIconAlphaFirstValue = true;
+                        Upgrade1TypeIconAlphaFirstValue = 100;
+                        setUpgrade2TextAlphaFirstValue = true;
+                        Upgrade2TextAlphaFirstValue = 100;
+                        setUpgrade2TypeIconAlphaFirstValue = true;
+                        Upgrade2TypeIconAlphaFirstValue = 100;
+                        setUpgradeTextAlphaFirstValue = true;
+                        UpgradeTextAlphaFirstValue = 100;
+                        setWhiteFrameInstanceCurrentColorStateFirstValue = true;
+                        WhiteFrameInstanceCurrentColorStateFirstValue = AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color.Red;
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  Affordability.CanAfford:
+                        setCostTextBlueSecondValue = true;
+                        CostTextBlueSecondValue = 255;
+                        setCostTextGreenSecondValue = true;
+                        CostTextGreenSecondValue = 255;
+                        setCostTextRedSecondValue = true;
+                        CostTextRedSecondValue = 0;
+                        setOrTextInstanceAlphaSecondValue = true;
+                        OrTextInstanceAlphaSecondValue = 255;
+                        setPointsSpriteAlphaSecondValue = true;
+                        PointsSpriteAlphaSecondValue = 255;
+                        setUpgrade1TextAlphaSecondValue = true;
+                        Upgrade1TextAlphaSecondValue = 255;
+                        setUpgrade2TextAlphaSecondValue = true;
+                        Upgrade2TextAlphaSecondValue = 255;
+                        setUpgradeTextAlphaSecondValue = true;
+                        UpgradeTextAlphaSecondValue = 255;
+                        setWhiteFrameInstanceCurrentColorStateSecondValue = true;
+                        WhiteFrameInstanceCurrentColorStateSecondValue = AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color.Green;
+                        break;
+                    case  Affordability.CantAfford:
+                        setCostTextBlueSecondValue = true;
+                        CostTextBlueSecondValue = 0;
+                        setCostTextGreenSecondValue = true;
+                        CostTextGreenSecondValue = 0;
+                        setCostTextRedSecondValue = true;
+                        CostTextRedSecondValue = 255;
+                        setOrTextInstanceAlphaSecondValue = true;
+                        OrTextInstanceAlphaSecondValue = 50;
+                        setPointsSpriteAlphaSecondValue = true;
+                        PointsSpriteAlphaSecondValue = 150;
+                        setUpgrade1TextAlphaSecondValue = true;
+                        Upgrade1TextAlphaSecondValue = 100;
+                        setUpgrade1TypeIconAlphaSecondValue = true;
+                        Upgrade1TypeIconAlphaSecondValue = 100;
+                        setUpgrade2TextAlphaSecondValue = true;
+                        Upgrade2TextAlphaSecondValue = 100;
+                        setUpgrade2TypeIconAlphaSecondValue = true;
+                        Upgrade2TypeIconAlphaSecondValue = 100;
+                        setUpgradeTextAlphaSecondValue = true;
+                        UpgradeTextAlphaSecondValue = 100;
+                        setWhiteFrameInstanceCurrentColorStateSecondValue = true;
+                        WhiteFrameInstanceCurrentColorStateSecondValue = AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color.Red;
+                        break;
+                }
+                if (setCostTextBlueFirstValue && setCostTextBlueSecondValue)
+                {
+                    CostText.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(CostTextBlueFirstValue* (1 - interpolationValue) + CostTextBlueSecondValue * interpolationValue);
+                }
+                if (setCostTextGreenFirstValue && setCostTextGreenSecondValue)
+                {
+                    CostText.Green = FlatRedBall.Math.MathFunctions.RoundToInt(CostTextGreenFirstValue* (1 - interpolationValue) + CostTextGreenSecondValue * interpolationValue);
+                }
+                if (setCostTextRedFirstValue && setCostTextRedSecondValue)
+                {
+                    CostText.Red = FlatRedBall.Math.MathFunctions.RoundToInt(CostTextRedFirstValue* (1 - interpolationValue) + CostTextRedSecondValue * interpolationValue);
+                }
+                if (setOrTextInstanceAlphaFirstValue && setOrTextInstanceAlphaSecondValue)
+                {
+                    OrTextInstance.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(OrTextInstanceAlphaFirstValue* (1 - interpolationValue) + OrTextInstanceAlphaSecondValue * interpolationValue);
+                }
+                if (setPointsSpriteAlphaFirstValue && setPointsSpriteAlphaSecondValue)
+                {
+                    PointsSprite.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(PointsSpriteAlphaFirstValue* (1 - interpolationValue) + PointsSpriteAlphaSecondValue * interpolationValue);
+                }
+                if (setUpgrade1TextAlphaFirstValue && setUpgrade1TextAlphaSecondValue)
+                {
+                    Upgrade1Text.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(Upgrade1TextAlphaFirstValue* (1 - interpolationValue) + Upgrade1TextAlphaSecondValue * interpolationValue);
+                }
+                if (setUpgrade2TextAlphaFirstValue && setUpgrade2TextAlphaSecondValue)
+                {
+                    Upgrade2Text.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(Upgrade2TextAlphaFirstValue* (1 - interpolationValue) + Upgrade2TextAlphaSecondValue * interpolationValue);
+                }
+                if (setUpgradeTextAlphaFirstValue && setUpgradeTextAlphaSecondValue)
+                {
+                    UpgradeText.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(UpgradeTextAlphaFirstValue* (1 - interpolationValue) + UpgradeTextAlphaSecondValue * interpolationValue);
+                }
+                if (setWhiteFrameInstanceCurrentColorStateFirstValue && setWhiteFrameInstanceCurrentColorStateSecondValue)
+                {
+                    WhiteFrameInstance.InterpolateBetween(WhiteFrameInstanceCurrentColorStateFirstValue, WhiteFrameInstanceCurrentColorStateSecondValue, interpolationValue);
+                }
+                if (setUpgrade1TypeIconAlphaFirstValue && setUpgrade1TypeIconAlphaSecondValue)
+                {
+                    Upgrade1Type.IconAlpha = FlatRedBall.Math.MathFunctions.RoundToInt(Upgrade1TypeIconAlphaFirstValue* (1 - interpolationValue) + Upgrade1TypeIconAlphaSecondValue * interpolationValue);
+                }
+                if (setUpgrade2TypeIconAlphaFirstValue && setUpgrade2TypeIconAlphaSecondValue)
+                {
+                    Upgrade2Type.IconAlpha = FlatRedBall.Math.MathFunctions.RoundToInt(Upgrade2TypeIconAlphaFirstValue* (1 - interpolationValue) + Upgrade2TypeIconAlphaSecondValue * interpolationValue);
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentAffordabilityState = firstState;
+                }
+                else
+                {
+                    mCurrentAffordabilityState = secondState;
+                }
+            }
             #endregion
             #region State Interpolate To
             public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
@@ -2325,6 +2568,60 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability fromState,AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (Affordability toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "Affordability").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentAffordabilityState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (Affordability toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentAffordabilityState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
             #endregion
             #region State Animations
             private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> PulseAnimationInstructions (object target) 
@@ -2334,12 +2631,6 @@
                     instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
                     yield return instruction;
                 }
-                {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => FlatRedBall.Instructions.InstructionManager.Instructions.AddRange(this.PulseAnimationInstructions(target)));
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.0f;
-                    toReturn.Target = target;
-                    yield return toReturn;
-                }
             }
             private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> PulseAnimationRelativeInstructions (object target) 
             {
@@ -2347,12 +2638,6 @@
                     var instruction = new FlatRedBall.Instructions.DelegateInstruction(()=>WhiteFrameInstance.PulseGreenLightBlueAnimationRelative.Play(PulseAnimation));
                     instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
                     yield return instruction;
-                }
-                {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => FlatRedBall.Instructions.InstructionManager.Instructions.AddRange(this.PulseAnimationRelativeInstructions(target)));
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0.0f;
-                    toReturn.Target = target;
-                    yield return toReturn;
                 }
             }
             private FlatRedBall.Gum.Animation.GumAnimation pulseAnimation;
@@ -2592,94 +2877,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Type.Height",
-                            Type = "float",
-                            Value = Upgrade1Type.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = Upgrade1Type.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.Parent",
-                            Type = "string",
-                            Value = Upgrade1Type.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.Width",
-                            Type = "float",
-                            Value = Upgrade1Type.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = Upgrade1Type.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.X",
-                            Type = "float",
-                            Value = Upgrade1Type.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.X Origin",
-                            Type = "HorizontalAlignment",
-                            Value = Upgrade1Type.XOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.X Units",
-                            Type = "PositionUnitType",
-                            Value = Upgrade1Type.XUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.Y",
-                            Type = "float",
-                            Value = Upgrade1Type.Y
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.Y Origin",
-                            Type = "VerticalAlignment",
-                            Value = Upgrade1Type.YOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.Y Units",
-                            Type = "PositionUnitType",
-                            Value = Upgrade1Type.YUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "Upgrade1Text.Blue",
                             Type = "int",
                             Value = Upgrade1Text.Blue
@@ -2816,6 +3013,94 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Upgrade1Type.Height",
+                            Type = "float",
+                            Value = Upgrade1Type.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = Upgrade1Type.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.Parent",
+                            Type = "string",
+                            Value = Upgrade1Type.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.Width",
+                            Type = "float",
+                            Value = Upgrade1Type.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = Upgrade1Type.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.X",
+                            Type = "float",
+                            Value = Upgrade1Type.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = Upgrade1Type.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.X Units",
+                            Type = "PositionUnitType",
+                            Value = Upgrade1Type.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.Y",
+                            Type = "float",
+                            Value = Upgrade1Type.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = Upgrade1Type.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.Y Units",
+                            Type = "PositionUnitType",
+                            Value = Upgrade1Type.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "OrTextInstance.Blue",
                             Type = "int",
                             Value = OrTextInstance.Blue
@@ -2939,94 +3224,6 @@
                             Name = "OrTextInstance.Y Units",
                             Type = "PositionUnitType",
                             Value = OrTextInstance.YUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.Height",
-                            Type = "float",
-                            Value = Upgrade2Type.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = Upgrade2Type.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.Parent",
-                            Type = "string",
-                            Value = Upgrade2Type.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.Width",
-                            Type = "float",
-                            Value = Upgrade2Type.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = Upgrade2Type.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.X",
-                            Type = "float",
-                            Value = Upgrade2Type.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.X Origin",
-                            Type = "HorizontalAlignment",
-                            Value = Upgrade2Type.XOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.X Units",
-                            Type = "PositionUnitType",
-                            Value = Upgrade2Type.XUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.Y",
-                            Type = "float",
-                            Value = Upgrade2Type.Y
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.Y Origin",
-                            Type = "VerticalAlignment",
-                            Value = Upgrade2Type.YOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.Y Units",
-                            Type = "PositionUnitType",
-                            Value = Upgrade2Type.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3163,6 +3360,94 @@
                             Name = "Upgrade2Text.Y Units",
                             Type = "PositionUnitType",
                             Value = Upgrade2Text.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.Height",
+                            Type = "float",
+                            Value = Upgrade2Type.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = Upgrade2Type.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.Parent",
+                            Type = "string",
+                            Value = Upgrade2Type.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.Width",
+                            Type = "float",
+                            Value = Upgrade2Type.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = Upgrade2Type.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.X",
+                            Type = "float",
+                            Value = Upgrade2Type.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = Upgrade2Type.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.X Units",
+                            Type = "PositionUnitType",
+                            Value = Upgrade2Type.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.Y",
+                            Type = "float",
+                            Value = Upgrade2Type.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = Upgrade2Type.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.Y Units",
+                            Type = "PositionUnitType",
+                            Value = Upgrade2Type.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3850,94 +4135,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Type.Height",
-                            Type = "float",
-                            Value = Upgrade1Type.Height + 50f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = Upgrade1Type.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.Parent",
-                            Type = "string",
-                            Value = Upgrade1Type.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.Width",
-                            Type = "float",
-                            Value = Upgrade1Type.Width + 100f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = Upgrade1Type.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.X",
-                            Type = "float",
-                            Value = Upgrade1Type.X + 21.5f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.X Origin",
-                            Type = "HorizontalAlignment",
-                            Value = Upgrade1Type.XOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.X Units",
-                            Type = "PositionUnitType",
-                            Value = Upgrade1Type.XUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.Y",
-                            Type = "float",
-                            Value = Upgrade1Type.Y + 0f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.Y Origin",
-                            Type = "VerticalAlignment",
-                            Value = Upgrade1Type.YOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade1Type.Y Units",
-                            Type = "PositionUnitType",
-                            Value = Upgrade1Type.YUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "Upgrade1Text.Blue",
                             Type = "int",
                             Value = Upgrade1Text.Blue + 255
@@ -4052,7 +4249,7 @@
                             SetsValue = true,
                             Name = "Upgrade1Text.Y",
                             Type = "float",
-                            Value = Upgrade1Text.Y + -19f
+                            Value = Upgrade1Text.Y + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4069,6 +4266,94 @@
                             Name = "Upgrade1Text.Y Units",
                             Type = "PositionUnitType",
                             Value = Upgrade1Text.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.Height",
+                            Type = "float",
+                            Value = Upgrade1Type.Height + 75f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = Upgrade1Type.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.Parent",
+                            Type = "string",
+                            Value = Upgrade1Type.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.Width",
+                            Type = "float",
+                            Value = Upgrade1Type.Width + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = Upgrade1Type.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.X",
+                            Type = "float",
+                            Value = Upgrade1Type.X + 21.5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = Upgrade1Type.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.X Units",
+                            Type = "PositionUnitType",
+                            Value = Upgrade1Type.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.Y",
+                            Type = "float",
+                            Value = Upgrade1Type.Y + 25f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = Upgrade1Type.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.Y Units",
+                            Type = "PositionUnitType",
+                            Value = Upgrade1Type.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4202,94 +4487,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Type.Height",
-                            Type = "float",
-                            Value = Upgrade2Type.Height + 50f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = Upgrade2Type.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.Parent",
-                            Type = "string",
-                            Value = Upgrade2Type.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.Width",
-                            Type = "float",
-                            Value = Upgrade2Type.Width + 100f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = Upgrade2Type.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.X",
-                            Type = "float",
-                            Value = Upgrade2Type.X + 78.5f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.X Origin",
-                            Type = "HorizontalAlignment",
-                            Value = Upgrade2Type.XOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.X Units",
-                            Type = "PositionUnitType",
-                            Value = Upgrade2Type.XUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.Y",
-                            Type = "float",
-                            Value = Upgrade2Type.Y + 0f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.Y Origin",
-                            Type = "VerticalAlignment",
-                            Value = Upgrade2Type.YOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Upgrade2Type.Y Units",
-                            Type = "PositionUnitType",
-                            Value = Upgrade2Type.YUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "Upgrade2Text.Blue",
                             Type = "int",
                             Value = Upgrade2Text.Blue + 255
@@ -4404,7 +4601,7 @@
                             SetsValue = true,
                             Name = "Upgrade2Text.Y",
                             Type = "float",
-                            Value = Upgrade2Text.Y + -19f
+                            Value = Upgrade2Text.Y + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4426,6 +4623,94 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Upgrade2Type.Height",
+                            Type = "float",
+                            Value = Upgrade2Type.Height + 75f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = Upgrade2Type.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.Parent",
+                            Type = "string",
+                            Value = Upgrade2Type.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.Width",
+                            Type = "float",
+                            Value = Upgrade2Type.Width + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = Upgrade2Type.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.X",
+                            Type = "float",
+                            Value = Upgrade2Type.X + 78.5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = Upgrade2Type.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.X Units",
+                            Type = "PositionUnitType",
+                            Value = Upgrade2Type.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.Y",
+                            Type = "float",
+                            Value = Upgrade2Type.Y + 25f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = Upgrade2Type.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.Y Units",
+                            Type = "PositionUnitType",
+                            Value = Upgrade2Type.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TitleContainer.Children Layout",
                             Type = "ChildrenLayout",
                             Value = TitleContainer.ChildrenLayout
@@ -4436,7 +4721,7 @@
                             SetsValue = true,
                             Name = "TitleContainer.Height",
                             Type = "float",
-                            Value = TitleContainer.Height + 0f
+                            Value = TitleContainer.Height + 40f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4484,7 +4769,7 @@
                             SetsValue = true,
                             Name = "UpgradeContainer.Height",
                             Type = "float",
-                            Value = UpgradeContainer.Height + 0f
+                            Value = UpgradeContainer.Height + -40f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4916,17 +5201,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Type.X",
+                            Name = "Upgrade1Text.X",
                             Type = "float",
-                            Value = Upgrade1Type.X
+                            Value = Upgrade1Text.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Text.X",
+                            Name = "Upgrade1Type.X",
                             Type = "float",
-                            Value = Upgrade1Text.X
+                            Value = Upgrade1Type.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4940,17 +5225,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Type.Visible",
+                            Name = "Upgrade2Text.Visible",
                             Type = "bool",
-                            Value = Upgrade2Type.Visible
+                            Value = Upgrade2Text.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Text.Visible",
+                            Name = "Upgrade2Type.Visible",
                             Type = "bool",
-                            Value = Upgrade2Text.Visible
+                            Value = Upgrade2Type.Visible
                         }
                         );
                         break;
@@ -4958,17 +5243,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Type.X",
+                            Name = "Upgrade1Text.X",
                             Type = "float",
-                            Value = Upgrade1Type.X
+                            Value = Upgrade1Text.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Text.X",
+                            Name = "Upgrade1Type.X",
                             Type = "float",
-                            Value = Upgrade1Text.X
+                            Value = Upgrade1Type.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4982,17 +5267,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Type.Visible",
+                            Name = "Upgrade2Text.Visible",
                             Type = "bool",
-                            Value = Upgrade2Type.Visible
+                            Value = Upgrade2Text.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Text.Visible",
+                            Name = "Upgrade2Type.Visible",
                             Type = "bool",
-                            Value = Upgrade2Text.Visible
+                            Value = Upgrade2Type.Visible
                         }
                         );
                         break;
@@ -5008,17 +5293,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Type.X",
+                            Name = "Upgrade1Text.X",
                             Type = "float",
-                            Value = Upgrade1Type.X + 50f
+                            Value = Upgrade1Text.X + 50f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Text.X",
+                            Name = "Upgrade1Type.X",
                             Type = "float",
-                            Value = Upgrade1Text.X + 50f
+                            Value = Upgrade1Type.X + 50f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -5032,29 +5317,21 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Type.Visible",
-                            Type = "bool",
-                            Value = Upgrade2Type.Visible
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "Upgrade2Text.Visible",
                             Type = "bool",
                             Value = Upgrade2Text.Visible
                         }
                         );
-                        break;
-                    case  OptionsAvailability.TwoOptions:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Type.X",
-                            Type = "float",
-                            Value = Upgrade1Type.X + 21.5f
+                            Name = "Upgrade2Type.Visible",
+                            Type = "bool",
+                            Value = Upgrade2Type.Visible
                         }
                         );
+                        break;
+                    case  OptionsAvailability.TwoOptions:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -5066,6 +5343,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Upgrade1Type.X",
+                            Type = "float",
+                            Value = Upgrade1Type.X + 21.5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "OrTextInstance.Visible",
                             Type = "bool",
                             Value = OrTextInstance.Visible
@@ -5074,17 +5359,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Type.Visible",
+                            Name = "Upgrade2Text.Visible",
                             Type = "bool",
-                            Value = Upgrade2Type.Visible
+                            Value = Upgrade2Text.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Text.Visible",
+                            Name = "Upgrade2Type.Visible",
                             Type = "bool",
-                            Value = Upgrade2Text.Visible
+                            Value = Upgrade2Type.Visible
                         }
                         );
                         break;
@@ -5100,17 +5385,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Type.AttributeTypeState",
-                            Type = "AttributeTypeState",
-                            Value = Upgrade1Type.CurrentAttributeTypeState
+                            Name = "Upgrade1Text.Text",
+                            Type = "string",
+                            Value = Upgrade1Text.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Text.Text",
-                            Type = "string",
-                            Value = Upgrade1Text.Text
+                            Name = "Upgrade1Type.AttributeTypeState",
+                            Type = "AttributeTypeState",
+                            Value = Upgrade1Type.CurrentAttributeTypeState
                         }
                         );
                         break;
@@ -5118,17 +5403,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Type.AttributeTypeState",
-                            Type = "AttributeTypeState",
-                            Value = Upgrade1Type.CurrentAttributeTypeState
+                            Name = "Upgrade1Text.Text",
+                            Type = "string",
+                            Value = Upgrade1Text.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Text.Text",
-                            Type = "string",
-                            Value = Upgrade1Text.Text
+                            Name = "Upgrade1Type.AttributeTypeState",
+                            Type = "AttributeTypeState",
+                            Value = Upgrade1Type.CurrentAttributeTypeState
                         }
                         );
                         break;
@@ -5136,17 +5421,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Type.AttributeTypeState",
-                            Type = "AttributeTypeState",
-                            Value = Upgrade1Type.CurrentAttributeTypeState
+                            Name = "Upgrade1Text.Text",
+                            Type = "string",
+                            Value = Upgrade1Text.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Text.Text",
-                            Type = "string",
-                            Value = Upgrade1Text.Text
+                            Name = "Upgrade1Type.AttributeTypeState",
+                            Type = "AttributeTypeState",
+                            Value = Upgrade1Type.CurrentAttributeTypeState
                         }
                         );
                         break;
@@ -5162,17 +5447,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Type.AttributeTypeState",
-                            Type = "AttributeTypeState",
-                            Value = Upgrade1Type.CurrentAttributeTypeState
+                            Name = "Upgrade1Text.Text",
+                            Type = "string",
+                            Value = Upgrade1Text.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Text.Text",
-                            Type = "string",
-                            Value = Upgrade1Text.Text
+                            Name = "Upgrade1Type.AttributeTypeState",
+                            Type = "AttributeTypeState",
+                            Value = Upgrade1Type.CurrentAttributeTypeState
                         }
                         );
                         break;
@@ -5180,17 +5465,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Type.AttributeTypeState",
-                            Type = "AttributeTypeState",
-                            Value = Upgrade1Type.CurrentAttributeTypeState
+                            Name = "Upgrade1Text.Text",
+                            Type = "string",
+                            Value = Upgrade1Text.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Text.Text",
-                            Type = "string",
-                            Value = Upgrade1Text.Text
+                            Name = "Upgrade1Type.AttributeTypeState",
+                            Type = "AttributeTypeState",
+                            Value = Upgrade1Type.CurrentAttributeTypeState
                         }
                         );
                         break;
@@ -5198,17 +5483,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Type.AttributeTypeState",
-                            Type = "AttributeTypeState",
-                            Value = Upgrade1Type.CurrentAttributeTypeState
+                            Name = "Upgrade1Text.Text",
+                            Type = "string",
+                            Value = Upgrade1Text.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade1Text.Text",
-                            Type = "string",
-                            Value = Upgrade1Text.Text
+                            Name = "Upgrade1Type.AttributeTypeState",
+                            Type = "AttributeTypeState",
+                            Value = Upgrade1Type.CurrentAttributeTypeState
                         }
                         );
                         break;
@@ -5224,17 +5509,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Type.AttributeTypeState",
-                            Type = "AttributeTypeState",
-                            Value = Upgrade2Type.CurrentAttributeTypeState
+                            Name = "Upgrade2Text.Text",
+                            Type = "string",
+                            Value = Upgrade2Text.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Text.Text",
-                            Type = "string",
-                            Value = Upgrade2Text.Text
+                            Name = "Upgrade2Type.AttributeTypeState",
+                            Type = "AttributeTypeState",
+                            Value = Upgrade2Type.CurrentAttributeTypeState
                         }
                         );
                         break;
@@ -5242,17 +5527,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Type.AttributeTypeState",
-                            Type = "AttributeTypeState",
-                            Value = Upgrade2Type.CurrentAttributeTypeState
+                            Name = "Upgrade2Text.Text",
+                            Type = "string",
+                            Value = Upgrade2Text.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Text.Text",
-                            Type = "string",
-                            Value = Upgrade2Text.Text
+                            Name = "Upgrade2Type.AttributeTypeState",
+                            Type = "AttributeTypeState",
+                            Value = Upgrade2Type.CurrentAttributeTypeState
                         }
                         );
                         break;
@@ -5260,17 +5545,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Type.AttributeTypeState",
-                            Type = "AttributeTypeState",
-                            Value = Upgrade2Type.CurrentAttributeTypeState
+                            Name = "Upgrade2Text.Text",
+                            Type = "string",
+                            Value = Upgrade2Text.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Text.Text",
-                            Type = "string",
-                            Value = Upgrade2Text.Text
+                            Name = "Upgrade2Type.AttributeTypeState",
+                            Type = "AttributeTypeState",
+                            Value = Upgrade2Type.CurrentAttributeTypeState
                         }
                         );
                         break;
@@ -5286,17 +5571,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Type.AttributeTypeState",
-                            Type = "AttributeTypeState",
-                            Value = Upgrade2Type.CurrentAttributeTypeState
+                            Name = "Upgrade2Text.Text",
+                            Type = "string",
+                            Value = Upgrade2Text.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Text.Text",
-                            Type = "string",
-                            Value = Upgrade2Text.Text
+                            Name = "Upgrade2Type.AttributeTypeState",
+                            Type = "AttributeTypeState",
+                            Value = Upgrade2Type.CurrentAttributeTypeState
                         }
                         );
                         break;
@@ -5304,17 +5589,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Type.AttributeTypeState",
-                            Type = "AttributeTypeState",
-                            Value = Upgrade2Type.CurrentAttributeTypeState
+                            Name = "Upgrade2Text.Text",
+                            Type = "string",
+                            Value = Upgrade2Text.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Text.Text",
-                            Type = "string",
-                            Value = Upgrade2Text.Text
+                            Name = "Upgrade2Type.AttributeTypeState",
+                            Type = "AttributeTypeState",
+                            Value = Upgrade2Type.CurrentAttributeTypeState
                         }
                         );
                         break;
@@ -5322,17 +5607,361 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Type.AttributeTypeState",
-                            Type = "AttributeTypeState",
-                            Value = Upgrade2Type.CurrentAttributeTypeState
+                            Name = "Upgrade2Text.Text",
+                            Type = "string",
+                            Value = Upgrade2Text.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Upgrade2Text.Text",
-                            Type = "string",
-                            Value = Upgrade2Text.Text
+                            Name = "Upgrade2Type.AttributeTypeState",
+                            Type = "AttributeTypeState",
+                            Value = Upgrade2Type.CurrentAttributeTypeState
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (Affordability state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Affordability.CanAfford:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WhiteFrameInstance.ColorState",
+                            Type = "ColorState",
+                            Value = WhiteFrameInstance.CurrentColorState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeText.Alpha",
+                            Type = "int",
+                            Value = UpgradeText.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Text.Alpha",
+                            Type = "int",
+                            Value = Upgrade1Text.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OrTextInstance.Alpha",
+                            Type = "int",
+                            Value = OrTextInstance.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Text.Alpha",
+                            Type = "int",
+                            Value = Upgrade2Text.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Blue",
+                            Type = "int",
+                            Value = CostText.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Green",
+                            Type = "int",
+                            Value = CostText.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Red",
+                            Type = "int",
+                            Value = CostText.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Alpha",
+                            Type = "int",
+                            Value = PointsSprite.Alpha
+                        }
+                        );
+                        break;
+                    case  Affordability.CantAfford:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WhiteFrameInstance.ColorState",
+                            Type = "ColorState",
+                            Value = WhiteFrameInstance.CurrentColorState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeText.Alpha",
+                            Type = "int",
+                            Value = UpgradeText.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Text.Alpha",
+                            Type = "int",
+                            Value = Upgrade1Text.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.IconAlpha",
+                            Type = "int",
+                            Value = Upgrade1Type.IconAlpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OrTextInstance.Alpha",
+                            Type = "int",
+                            Value = OrTextInstance.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Text.Alpha",
+                            Type = "int",
+                            Value = Upgrade2Text.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.IconAlpha",
+                            Type = "int",
+                            Value = Upgrade2Type.IconAlpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Blue",
+                            Type = "int",
+                            Value = CostText.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Green",
+                            Type = "int",
+                            Value = CostText.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Red",
+                            Type = "int",
+                            Value = CostText.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Alpha",
+                            Type = "int",
+                            Value = PointsSprite.Alpha
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (Affordability state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Affordability.CanAfford:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WhiteFrameInstance.ColorState",
+                            Type = "ColorState",
+                            Value = WhiteFrameInstance.CurrentColorState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeText.Alpha",
+                            Type = "int",
+                            Value = UpgradeText.Alpha + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Text.Alpha",
+                            Type = "int",
+                            Value = Upgrade1Text.Alpha + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OrTextInstance.Alpha",
+                            Type = "int",
+                            Value = OrTextInstance.Alpha + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Text.Alpha",
+                            Type = "int",
+                            Value = Upgrade2Text.Alpha + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Blue",
+                            Type = "int",
+                            Value = CostText.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Green",
+                            Type = "int",
+                            Value = CostText.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Red",
+                            Type = "int",
+                            Value = CostText.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Alpha",
+                            Type = "int",
+                            Value = PointsSprite.Alpha + 255
+                        }
+                        );
+                        break;
+                    case  Affordability.CantAfford:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "WhiteFrameInstance.ColorState",
+                            Type = "ColorState",
+                            Value = WhiteFrameInstance.CurrentColorState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeText.Alpha",
+                            Type = "int",
+                            Value = UpgradeText.Alpha + 100
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Text.Alpha",
+                            Type = "int",
+                            Value = Upgrade1Text.Alpha + 100
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade1Type.IconAlpha",
+                            Type = "int",
+                            Value = Upgrade1Type.IconAlpha + 100
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OrTextInstance.Alpha",
+                            Type = "int",
+                            Value = OrTextInstance.Alpha + 50
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Text.Alpha",
+                            Type = "int",
+                            Value = Upgrade2Text.Alpha + 100
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.IconAlpha",
+                            Type = "int",
+                            Value = Upgrade2Type.IconAlpha + 100
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Blue",
+                            Type = "int",
+                            Value = CostText.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Green",
+                            Type = "int",
+                            Value = CostText.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Red",
+                            Type = "int",
+                            Value = CostText.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Alpha",
+                            Type = "int",
+                            Value = PointsSprite.Alpha + 150
                         }
                         );
                         break;
@@ -5367,24 +5996,46 @@
                         if(state.Name == "UpgradeSpeed") this.mCurrentOptionTwoChoiceState = OptionTwoChoice.UpgradeSpeed;
                         if(state.Name == "UpgradeDamage") this.mCurrentOptionTwoChoiceState = OptionTwoChoice.UpgradeDamage;
                     }
+                    else if (category.Name == "Affordability")
+                    {
+                        if(state.Name == "CanAfford") this.mCurrentAffordabilityState = Affordability.CanAfford;
+                        if(state.Name == "CantAfford") this.mCurrentAffordabilityState = Affordability.CantAfford;
+                    }
                 }
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime WhiteFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime UpgradeText { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime Upgrade1Type { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime Upgrade1Text { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime Upgrade1Type { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime OrTextInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime Upgrade2Type { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime Upgrade2Text { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime Upgrade2Type { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime TitleContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime UpgradeContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime CostText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime PointsSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ContainerInstance { get; set; }
+            public string SatoshiCostText
+            {
+                get
+                {
+                    return CostText.Text;
+                }
+                set
+                {
+                    if (CostText.Text != value)
+                    {
+                        CostText.Text = value;
+                        SatoshiCostTextChanged?.Invoke(this, null);
+                    }
+                }
+            }
+            public event System.EventHandler SatoshiCostTextChanged;
             public UpgradeInfoRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
             {
+                this.HasEvents = false;
                 if (fullInstantiation)
                 {
                     Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "infodisplays/UpgradeInfo");
@@ -5410,11 +6061,11 @@
             {
                 WhiteFrameInstance = this.GetGraphicalUiElementByName("WhiteFrameInstance") as AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime;
                 UpgradeText = this.GetGraphicalUiElementByName("UpgradeText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                Upgrade1Type = this.GetGraphicalUiElementByName("Upgrade1Type") as AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime;
                 Upgrade1Text = this.GetGraphicalUiElementByName("Upgrade1Text") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+                Upgrade1Type = this.GetGraphicalUiElementByName("Upgrade1Type") as AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime;
                 OrTextInstance = this.GetGraphicalUiElementByName("OrTextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                Upgrade2Type = this.GetGraphicalUiElementByName("Upgrade2Type") as AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime;
                 Upgrade2Text = this.GetGraphicalUiElementByName("Upgrade2Text") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+                Upgrade2Type = this.GetGraphicalUiElementByName("Upgrade2Type") as AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime;
                 TitleContainer = this.GetGraphicalUiElementByName("TitleContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 UpgradeContainer = this.GetGraphicalUiElementByName("UpgradeContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 CostText = this.GetGraphicalUiElementByName("CostText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;

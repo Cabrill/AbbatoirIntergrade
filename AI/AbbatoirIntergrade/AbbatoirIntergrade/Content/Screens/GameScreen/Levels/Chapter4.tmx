@@ -17,38 +17,6 @@
    H4sIAAAAAAAACp3SuU5CQRTG8fHet3AhwdcQNbEUxAWt9AlQQAErbFwqFzBRHwDtVNSAFhAthA6wkKXQDi2Nldr7NznEcYRInOSXe8+cM1+4E5Rqv7y2UuOYsL/3Vi2l1rCODev3mVFm3fBgzP7ZC1KHsKjtJ8k4xJFkzdKbQx8c8GMeCwgYeXHqBHa1/Vty8ihIXozeCgYxhE1sYRs7Rt4Z9TkutP0GOU94Nr71mvoGx8ye4BQpI6/V6mLGgq3fqfZe5L2EMu46yHMy049u9KAXSTmXl+eLPF87yPtaI3L3A3BpWQXj/B7fv48DuZtJ+lPwYRozMt+8+2GkkWnzOzLkXOJK8paYCyOCKJaNc/fUFVSRRc7oV8mpod7if/rXeiDr0ch7I+cdH//Ia65P9krWWnADAAA=
   </data>
  </layer>
- <objectgroup name="EntityLayer">
-  <object id="47" gid="125" x="1510.36" y="765.394" width="128" height="128">
-   <properties>
-    <property name="PlacementOrder" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="52" gid="125" x="1980.36" y="715.697" width="128" height="128">
-   <properties>
-    <property name="PlacementOrder" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="53" gid="125" x="1177.09" y="399.515" width="128" height="128">
-   <properties>
-    <property name="PlacementOrder" type="int" value="7"/>
-   </properties>
-  </object>
-  <object id="55" gid="125" x="622" y="1156" width="128" height="128">
-   <properties>
-    <property name="PlacementOrder" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="56" gid="125" x="512.545" y="772.424" width="128" height="128">
-   <properties>
-    <property name="PlacementOrder" type="int" value="4"/>
-   </properties>
-  </object>
-  <object id="80" type="StructurePlacement" gid="125" x="1018" y="820" width="128" height="128">
-   <properties>
-    <property name="PlacementOrder" type="int" value="3"/>
-   </properties>
-  </object>
- </objectgroup>
  <objectgroup name="Pathing">
   <object id="81" x="-32" y="436">
    <polyline points="0,0 859.333,12 858.97,525.394 1374.06,511.272 1382.18,16.6667 2277.03,14.3636 2272.97,517.03 2652,516"/>
@@ -65,11 +33,13 @@
   <object id="24" type="TileCollisionRectangle" gid="1025" x="-136.303" y="259.212" width="2809.27" height="128">
    <properties>
     <property name="AxisAlignedRectangleInstanceWidth" type="float" value="2809.27"/>
+    <property name="IsBarrier" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="25" type="TileCollisionRectangle" gid="1025" x="-134" y="1514" width="2794" height="128">
+  <object id="25" type="TileCollisionRectangle" gid="1025" x="-134" y="1538.24" width="2794" height="128">
    <properties>
     <property name="AxisAlignedRectangleInstanceWidth" type="float" value="2794"/>
+    <property name="IsBarrier" type="bool" value="true"/>
    </properties>
   </object>
   <object id="28" type="TileCollisionRectangle" gid="1025" x="2350" y="888" width="212" height="620">

@@ -11,18 +11,25 @@
             public enum UpgradeAvailability
             {
                 Available,
-                NotAvailable
+                NotAvailable,
+                AvailableCantAfford
             }
             public enum Selection
             {
                 Selected,
                 NotSelected
             }
+            public enum CostInfo
+            {
+                Shown,
+                NotShown
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
             UpgradeAvailability mCurrentUpgradeAvailabilityState;
             Selection mCurrentSelectionState;
+            CostInfo mCurrentCostInfoState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -145,20 +152,20 @@
                             MaxRange.Y = 12.5f;
                             MaxRange.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             AttackCostContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
-                            AttackCostContainer.Height = 25f;
+                            AttackCostContainer.Height = 24.9f;
                             AttackCostContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             AttackCostContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
                             AttackCostContainer.Width = 100f;
                             AttackCostContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             RangeContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
-                            RangeContainer.Height = 25f;
+                            RangeContainer.Height = 24.9f;
                             RangeContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             RangeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
                             RangeContainer.Width = 0f;
                             RangeContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             AttackSpeed.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
                             AttackSpeed.AttributeText = "3 sec";
-                            AttackSpeed.Height = 25f;
+                            AttackSpeed.Height = 24.9f;
                             AttackSpeed.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             AttackSpeed.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
                             AttackSpeed.TextInstanceFontScale = 0.5f;
@@ -167,7 +174,7 @@
                             AttackSpeed.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             PointOrSplash.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.PointOrSplash;
                             PointOrSplash.AttributeText = "Single";
-                            PointOrSplash.Height = 25f;
+                            PointOrSplash.Height = 24.9f;
                             PointOrSplash.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             PointOrSplash.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
                             PointOrSplash.TextInstanceFontScale = 0.5f;
@@ -202,7 +209,8 @@
                             CostText.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             CostText.X = 1f;
                             CostText.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            UpgradeInfoInstance.Height = 150f;
+                            UpgradeInfoInstance.Height = 24f;
+                            UpgradeInfoInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             UpgradeInfoInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
                             UpgradeInfoInstance.Width = 354f;
                             UpgradeInfoInstance.X = 79f;
@@ -223,10 +231,16 @@
                     switch(mCurrentUpgradeAvailabilityState)
                     {
                         case  UpgradeAvailability.Available:
+                            UpgradeInfoInstance.CurrentAffordabilityState = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CanAfford;
                             UpgradeInfoInstance.Visible = true;
                             break;
                         case  UpgradeAvailability.NotAvailable:
+                            UpgradeInfoInstance.CurrentAffordabilityState = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CanAfford;
                             UpgradeInfoInstance.Visible = false;
+                            break;
+                        case  UpgradeAvailability.AvailableCantAfford:
+                            UpgradeInfoInstance.CurrentAffordabilityState = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CantAfford;
+                            UpgradeInfoInstance.Visible = true;
                             break;
                     }
                 }
@@ -267,6 +281,28 @@
                             ColoredRectangleInstance.Blue = 0;
                             ColoredRectangleInstance.Green = 165;
                             ColoredRectangleInstance.Red = 255;
+                            break;
+                    }
+                }
+            }
+            public CostInfo CurrentCostInfoState
+            {
+                get
+                {
+                    return mCurrentCostInfoState;
+                }
+                set
+                {
+                    mCurrentCostInfoState = value;
+                    switch(mCurrentCostInfoState)
+                    {
+                        case  CostInfo.Shown:
+                            PointsSprite.Visible = true;
+                            CostText.Visible = true;
+                            break;
+                        case  CostInfo.NotShown:
+                            PointsSprite.Visible = false;
+                            CostText.Visible = false;
                             break;
                     }
                 }
@@ -553,7 +589,7 @@
                             this.AttackCostContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                         }
                         setAttackCostContainerHeightFirstValue = true;
-                        AttackCostContainerHeightFirstValue = 25f;
+                        AttackCostContainerHeightFirstValue = 24.9f;
                         if (interpolationValue < 1)
                         {
                             this.AttackCostContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -611,7 +647,7 @@
                             this.AttackSpeed.AttributeText = "3 sec";
                         }
                         setAttackSpeedHeightFirstValue = true;
-                        AttackSpeedHeightFirstValue = 25f;
+                        AttackSpeedHeightFirstValue = 24.9f;
                         if (interpolationValue < 1)
                         {
                             this.AttackSpeed.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -941,7 +977,7 @@
                             this.PointOrSplash.AttributeText = "Single";
                         }
                         setPointOrSplashHeightFirstValue = true;
-                        PointOrSplashHeightFirstValue = 25f;
+                        PointOrSplashHeightFirstValue = 24.9f;
                         if (interpolationValue < 1)
                         {
                             this.PointOrSplash.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -1007,7 +1043,7 @@
                             this.RangeContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                         }
                         setRangeContainerHeightFirstValue = true;
-                        RangeContainerHeightFirstValue = 25f;
+                        RangeContainerHeightFirstValue = 24.9f;
                         if (interpolationValue < 1)
                         {
                             this.RangeContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -1055,7 +1091,11 @@
                         setTallInfoFrameInstanceWidthFirstValue = true;
                         TallInfoFrameInstanceWidthFirstValue = 100f;
                         setUpgradeInfoInstanceHeightFirstValue = true;
-                        UpgradeInfoInstanceHeightFirstValue = 150f;
+                        UpgradeInfoInstanceHeightFirstValue = 24f;
+                        if (interpolationValue < 1)
+                        {
+                            this.UpgradeInfoInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         if (interpolationValue < 1)
                         {
                             this.UpgradeInfoInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
@@ -1106,7 +1146,7 @@
                             this.AttackCostContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                         }
                         setAttackCostContainerHeightSecondValue = true;
-                        AttackCostContainerHeightSecondValue = 25f;
+                        AttackCostContainerHeightSecondValue = 24.9f;
                         if (interpolationValue >= 1)
                         {
                             this.AttackCostContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -1164,7 +1204,7 @@
                             this.AttackSpeed.AttributeText = "3 sec";
                         }
                         setAttackSpeedHeightSecondValue = true;
-                        AttackSpeedHeightSecondValue = 25f;
+                        AttackSpeedHeightSecondValue = 24.9f;
                         if (interpolationValue >= 1)
                         {
                             this.AttackSpeed.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -1494,7 +1534,7 @@
                             this.PointOrSplash.AttributeText = "Single";
                         }
                         setPointOrSplashHeightSecondValue = true;
-                        PointOrSplashHeightSecondValue = 25f;
+                        PointOrSplashHeightSecondValue = 24.9f;
                         if (interpolationValue >= 1)
                         {
                             this.PointOrSplash.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -1560,7 +1600,7 @@
                             this.RangeContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                         }
                         setRangeContainerHeightSecondValue = true;
-                        RangeContainerHeightSecondValue = 25f;
+                        RangeContainerHeightSecondValue = 24.9f;
                         if (interpolationValue >= 1)
                         {
                             this.RangeContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -1608,7 +1648,11 @@
                         setTallInfoFrameInstanceWidthSecondValue = true;
                         TallInfoFrameInstanceWidthSecondValue = 100f;
                         setUpgradeInfoInstanceHeightSecondValue = true;
-                        UpgradeInfoInstanceHeightSecondValue = 150f;
+                        UpgradeInfoInstanceHeightSecondValue = 24f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.UpgradeInfoInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         if (interpolationValue >= 1)
                         {
                             this.UpgradeInfoInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
@@ -1932,35 +1976,67 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
+                bool setUpgradeInfoInstanceCurrentAffordabilityStateFirstValue = false;
+                bool setUpgradeInfoInstanceCurrentAffordabilityStateSecondValue = false;
+                UpgradeInfoRuntime.Affordability UpgradeInfoInstanceCurrentAffordabilityStateFirstValue= UpgradeInfoRuntime.Affordability.CanAfford;
+                UpgradeInfoRuntime.Affordability UpgradeInfoInstanceCurrentAffordabilityStateSecondValue= UpgradeInfoRuntime.Affordability.CanAfford;
                 switch(firstState)
                 {
                     case  UpgradeAvailability.Available:
+                        setUpgradeInfoInstanceCurrentAffordabilityStateFirstValue = true;
+                        UpgradeInfoInstanceCurrentAffordabilityStateFirstValue = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CanAfford;
                         if (interpolationValue < 1)
                         {
                             this.UpgradeInfoInstance.Visible = true;
                         }
                         break;
                     case  UpgradeAvailability.NotAvailable:
+                        setUpgradeInfoInstanceCurrentAffordabilityStateFirstValue = true;
+                        UpgradeInfoInstanceCurrentAffordabilityStateFirstValue = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CanAfford;
                         if (interpolationValue < 1)
                         {
                             this.UpgradeInfoInstance.Visible = false;
+                        }
+                        break;
+                    case  UpgradeAvailability.AvailableCantAfford:
+                        setUpgradeInfoInstanceCurrentAffordabilityStateFirstValue = true;
+                        UpgradeInfoInstanceCurrentAffordabilityStateFirstValue = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CantAfford;
+                        if (interpolationValue < 1)
+                        {
+                            this.UpgradeInfoInstance.Visible = true;
                         }
                         break;
                 }
                 switch(secondState)
                 {
                     case  UpgradeAvailability.Available:
+                        setUpgradeInfoInstanceCurrentAffordabilityStateSecondValue = true;
+                        UpgradeInfoInstanceCurrentAffordabilityStateSecondValue = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CanAfford;
                         if (interpolationValue >= 1)
                         {
                             this.UpgradeInfoInstance.Visible = true;
                         }
                         break;
                     case  UpgradeAvailability.NotAvailable:
+                        setUpgradeInfoInstanceCurrentAffordabilityStateSecondValue = true;
+                        UpgradeInfoInstanceCurrentAffordabilityStateSecondValue = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CanAfford;
                         if (interpolationValue >= 1)
                         {
                             this.UpgradeInfoInstance.Visible = false;
                         }
                         break;
+                    case  UpgradeAvailability.AvailableCantAfford:
+                        setUpgradeInfoInstanceCurrentAffordabilityStateSecondValue = true;
+                        UpgradeInfoInstanceCurrentAffordabilityStateSecondValue = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CantAfford;
+                        if (interpolationValue >= 1)
+                        {
+                            this.UpgradeInfoInstance.Visible = true;
+                        }
+                        break;
+                }
+                if (setUpgradeInfoInstanceCurrentAffordabilityStateFirstValue && setUpgradeInfoInstanceCurrentAffordabilityStateSecondValue)
+                {
+                    UpgradeInfoInstance.InterpolateBetween(UpgradeInfoInstanceCurrentAffordabilityStateFirstValue, UpgradeInfoInstanceCurrentAffordabilityStateSecondValue, interpolationValue);
                 }
                 if (interpolationValue < 1)
                 {
@@ -2178,6 +2254,69 @@
                     mCurrentSelectionState = secondState;
                 }
             }
+            public void InterpolateBetween (CostInfo firstState, CostInfo secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                switch(firstState)
+                {
+                    case  CostInfo.Shown:
+                        if (interpolationValue < 1)
+                        {
+                            this.CostText.Visible = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.PointsSprite.Visible = true;
+                        }
+                        break;
+                    case  CostInfo.NotShown:
+                        if (interpolationValue < 1)
+                        {
+                            this.CostText.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.PointsSprite.Visible = false;
+                        }
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  CostInfo.Shown:
+                        if (interpolationValue >= 1)
+                        {
+                            this.CostText.Visible = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.PointsSprite.Visible = true;
+                        }
+                        break;
+                    case  CostInfo.NotShown:
+                        if (interpolationValue >= 1)
+                        {
+                            this.CostText.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.PointsSprite.Visible = false;
+                        }
+                        break;
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentCostInfoState = firstState;
+                }
+                else
+                {
+                    mCurrentCostInfoState = secondState;
+                }
+            }
             #endregion
             #region State Interpolate To
             public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
@@ -2338,6 +2477,60 @@
                 }
                 tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
                 tweener.Ended += ()=> this.CurrentSelectionState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.CostInfo fromState,AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.CostInfo toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (CostInfo toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "CostInfo").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentCostInfoState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (CostInfo toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentCostInfoState = toState;
                 tweener.Start();
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
@@ -3694,6 +3887,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "UpgradeInfoInstance.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = UpgradeInfoInstance.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "UpgradeInfoInstance.Parent",
                             Type = "string",
                             Value = UpgradeInfoInstance.Parent
@@ -4602,7 +4803,7 @@
                             SetsValue = true,
                             Name = "AttackCostContainer.Height",
                             Type = "float",
-                            Value = AttackCostContainer.Height + 25f
+                            Value = AttackCostContainer.Height + 24.9f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4650,7 +4851,7 @@
                             SetsValue = true,
                             Name = "RangeContainer.Height",
                             Type = "float",
-                            Value = RangeContainer.Height + 25f
+                            Value = RangeContainer.Height + 24.9f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4706,7 +4907,7 @@
                             SetsValue = true,
                             Name = "AttackSpeed.Height",
                             Type = "float",
-                            Value = AttackSpeed.Height + 25f
+                            Value = AttackSpeed.Height + 24.9f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4778,7 +4979,7 @@
                             SetsValue = true,
                             Name = "PointOrSplash.Height",
                             Type = "float",
-                            Value = PointOrSplash.Height + 25f
+                            Value = PointOrSplash.Height + 24.9f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -5058,7 +5259,15 @@
                             SetsValue = true,
                             Name = "UpgradeInfoInstance.Height",
                             Type = "float",
-                            Value = UpgradeInfoInstance.Height + 150f
+                            Value = UpgradeInfoInstance.Height + 24f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = UpgradeInfoInstance.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -5106,6 +5315,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "UpgradeInfoInstance.AffordabilityState",
+                            Type = "AffordabilityState",
+                            Value = UpgradeInfoInstance.CurrentAffordabilityState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "UpgradeInfoInstance.Visible",
                             Type = "bool",
                             Value = UpgradeInfoInstance.Visible
@@ -5113,6 +5330,32 @@
                         );
                         break;
                     case  UpgradeAvailability.NotAvailable:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.AffordabilityState",
+                            Type = "AffordabilityState",
+                            Value = UpgradeInfoInstance.CurrentAffordabilityState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.Visible",
+                            Type = "bool",
+                            Value = UpgradeInfoInstance.Visible
+                        }
+                        );
+                        break;
+                    case  UpgradeAvailability.AvailableCantAfford:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.AffordabilityState",
+                            Type = "AffordabilityState",
+                            Value = UpgradeInfoInstance.CurrentAffordabilityState
+                        }
+                        );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -5134,6 +5377,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "UpgradeInfoInstance.AffordabilityState",
+                            Type = "AffordabilityState",
+                            Value = UpgradeInfoInstance.CurrentAffordabilityState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "UpgradeInfoInstance.Visible",
                             Type = "bool",
                             Value = UpgradeInfoInstance.Visible
@@ -5141,6 +5392,32 @@
                         );
                         break;
                     case  UpgradeAvailability.NotAvailable:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.AffordabilityState",
+                            Type = "AffordabilityState",
+                            Value = UpgradeInfoInstance.CurrentAffordabilityState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.Visible",
+                            Type = "bool",
+                            Value = UpgradeInfoInstance.Visible
+                        }
+                        );
+                        break;
+                    case  UpgradeAvailability.AvailableCantAfford:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.AffordabilityState",
+                            Type = "AffordabilityState",
+                            Value = UpgradeInfoInstance.CurrentAffordabilityState
+                        }
+                        );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -5529,6 +5806,94 @@
                 }
                 return newState;
             }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (CostInfo state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  CostInfo.Shown:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Visible",
+                            Type = "bool",
+                            Value = PointsSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Visible",
+                            Type = "bool",
+                            Value = CostText.Visible
+                        }
+                        );
+                        break;
+                    case  CostInfo.NotShown:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Visible",
+                            Type = "bool",
+                            Value = PointsSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Visible",
+                            Type = "bool",
+                            Value = CostText.Visible
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (CostInfo state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  CostInfo.Shown:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Visible",
+                            Type = "bool",
+                            Value = PointsSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Visible",
+                            Type = "bool",
+                            Value = CostText.Visible
+                        }
+                        );
+                        break;
+                    case  CostInfo.NotShown:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointsSprite.Visible",
+                            Type = "bool",
+                            Value = PointsSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "CostText.Visible",
+                            Type = "bool",
+                            Value = CostText.Visible
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
             #endregion
             public override void ApplyState (Gum.DataTypes.Variables.StateSave state) 
             {
@@ -5544,11 +5909,17 @@
                     {
                         if(state.Name == "Available") this.mCurrentUpgradeAvailabilityState = UpgradeAvailability.Available;
                         if(state.Name == "NotAvailable") this.mCurrentUpgradeAvailabilityState = UpgradeAvailability.NotAvailable;
+                        if(state.Name == "AvailableCantAfford") this.mCurrentUpgradeAvailabilityState = UpgradeAvailability.AvailableCantAfford;
                     }
                     else if (category.Name == "Selection")
                     {
                         if(state.Name == "Selected") this.mCurrentSelectionState = Selection.Selected;
                         if(state.Name == "NotSelected") this.mCurrentSelectionState = Selection.NotSelected;
+                    }
+                    else if (category.Name == "CostInfo")
+                    {
+                        if(state.Name == "Shown") this.mCurrentCostInfoState = CostInfo.Shown;
+                        if(state.Name == "NotShown") this.mCurrentCostInfoState = CostInfo.NotShown;
                     }
                 }
                 base.ApplyState(state);
@@ -5605,7 +5976,6 @@
             public event FlatRedBall.Gui.WindowEvent InfoContainerClick;
             public event FlatRedBall.Gui.WindowEvent AttackCostContainerClick;
             public event FlatRedBall.Gui.WindowEvent RangeContainerClick;
-            public event FlatRedBall.Gui.WindowEvent UpgradeInfoInstanceClick;
             public event System.EventHandler SatoshiCostChanged;
             public event System.EventHandler StructureNameChanged;
             public StructureInfoRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
@@ -5658,7 +6028,6 @@
                 InfoContainer.Click += (unused) => InfoContainerClick?.Invoke(this);
                 AttackCostContainer.Click += (unused) => AttackCostContainerClick?.Invoke(this);
                 RangeContainer.Click += (unused) => RangeContainerClick?.Invoke(this);
-                UpgradeInfoInstance.Click += (unused) => UpgradeInfoInstanceClick?.Invoke(this);
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

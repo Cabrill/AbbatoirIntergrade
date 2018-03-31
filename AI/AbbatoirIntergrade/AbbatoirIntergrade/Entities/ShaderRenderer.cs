@@ -30,7 +30,7 @@ namespace AbbatoirIntergrade.Entities
         public Texture2D BackgroundTexture { get; set; }
 
         public float DarknessAlpha { get; set; }
-        private const float MinimumBrightness = 0.8f;
+        private const float MinimumBrightness = 0.6f;
 
 
         private Color _worldColor = Color.White;

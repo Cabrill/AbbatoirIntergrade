@@ -187,7 +187,7 @@ namespace AbbatoirIntergrade.GumRuntimes
 
         private void HideStructureInfoPreview()
         {
-            structureInfoDisplay.Hide(true);
+            structureInfoDisplay.Hide();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace AbbatoirIntergrade.Screens
         void OnAfterCurrentSatoshisSet (object sender, EventArgs e) 
         {
             BuildMenuInstance.UpdateAffordability(CurrentSatoshis);
+            StructureInfoInstance.UpdateAffordability(CurrentSatoshis);
             LivesPointsDisplayInstance.SatoshiText = CurrentSatoshis.ToString();
         }
     }

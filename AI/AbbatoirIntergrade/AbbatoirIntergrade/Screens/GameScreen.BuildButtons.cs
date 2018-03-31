@@ -37,9 +37,7 @@ namespace AbbatoirIntergrade.Screens
                     BuildMenuInstance.Hide(didBuild: true);
                     PathingNodeNetwork.RemoveNodesForCollision(newBuilding.AxisAlignedRectangleInstance);
 
-                    CurrentSatoshis -= newBuilding.SatoshiCost;
-                    LivesPointsDisplayInstance.SatoshiChange = $"-{newBuilding.SatoshiCost}";
-                    LivesPointsDisplayInstance.SubtractPointsAnimation.Play();
+                    SpendSatoshis(newBuilding.SatoshiCost);
                 }
             }
         }
@@ -114,6 +112,8 @@ namespace AbbatoirIntergrade.Screens
                     GameScreenGumInstance.HideChatHistoryAnimation.Play();
             };
             GameScreenGumInstance.HideChatHistoryAnimation.AddAction("SetupResponseAvailability", ChatBoxInstance.SetupResponseAvailability);
+
+            StructureInfoInstance.OnUpgradeAction = HandleUpgradeTower;
 
             ReadyButtonInstance.Click += OnStartButtonInstanceClick;
 

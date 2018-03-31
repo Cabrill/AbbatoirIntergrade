@@ -115,7 +115,7 @@ namespace AbbatoirIntergrade.Screens
             ScreamSounds.Shuffle();
 
             LocalLogManager.AddLine("Game Screen - Load Level");
-            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
+            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter9Level();
             CurrentLevel.Reset();
             CurrentLevel.OnNewWaveStart += HandleWaveStarted;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
@@ -547,7 +547,9 @@ namespace AbbatoirIntergrade.Screens
         }
     
         private void EnemyStatusActivity()
-	    {
+        {
+            var borderCollisions = TileCollisionRectangleList.Where(r => r.IsBarrier).ToList();
+
 	        for (var i = AllEnemiesList.Count; i > 0; i--)
 	        {
 	            var enemy = AllEnemiesList[i-1];
@@ -584,7 +586,17 @@ namespace AbbatoirIntergrade.Screens
 	            }
 
 	            //Collide enemies against buildings
-	            if (!enemy.IsFlying)
+	            if (enemy.IsFlying)
+	            {
+	                for (var j = borderCollisions.Count(); j > 0; j--)
+	                {
+	                    var rect = borderCollisions[j - 1];
+
+	                    enemy.SelfCollisionCircle.CollideAgainstBounce(rect.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
+	                        elasticity: 0.1f);
+	                }
+                }
+	            else
 	            {
 	                for (var j = AllStructuresList.Count(); j > 0; j--)
 	                {
@@ -716,7 +728,7 @@ namespace AbbatoirIntergrade.Screens
             if (selectedObject is BaseStructure objectAsStructure)
             {
                 EnemyInfoInstance.Hide();
-                StructureInfoInstance.Show(objectAsStructure);
+                StructureInfoInstance.Show(objectAsStructure, CurrentSatoshis);
             }
             else if (selectedObject is BaseEnemy objectAsEnemy)
             {
@@ -733,7 +745,7 @@ namespace AbbatoirIntergrade.Screens
             else
             {
                 EnemyInfoInstance.Hide();
-                StructureInfoInstance.Hide();
+                //StructureInfoInstance.Hide();
             }
         }
 
@@ -757,7 +769,7 @@ namespace AbbatoirIntergrade.Screens
 	        }
 
             //User just clicked/touched somewhere, and nothing is currently selected
-            else if ((GuiManager.Cursor.PrimaryClick || GuiManager.Cursor.PrimaryDown) &&
+            else if ((GuiManager.Cursor.PrimaryClick) &&
 	             GuiManager.Cursor.WindowOver == null)
 	        {
 	            //Remove the current selection if the user clicks off of it
@@ -773,7 +785,7 @@ namespace AbbatoirIntergrade.Screens
 	                {
 	                    GuiManager.Cursor.ObjectGrabbed = structure;
 	                    selectedObject = structure;
-	                    StructureInfoInstance.Show(structure);
+	                    StructureInfoInstance.Show(structure, CurrentSatoshis);
 	                    break;
 	                }
 	            }
@@ -796,7 +808,7 @@ namespace AbbatoirIntergrade.Screens
 	                }
 	            }
 	        }
-	        else if (GuiManager.Cursor.SecondaryClick || GuiManager.Cursor.SecondaryDown)
+	        else if (GuiManager.Cursor.SecondaryClick)
 	        {
 	            selectedObject = null;
 	            GuiManager.Cursor.ObjectGrabbed = null;
@@ -1056,10 +1068,27 @@ namespace AbbatoirIntergrade.Screens
                 SoundManager.PlaySoundEffect(OutgoingMessageSound);
             }
         }
-    #endregion
+        #endregion
 
 
         #region Other Methods
+        private void HandleUpgradeTower(BaseStructure baseStructure, UpgradeTypes upgradeType, int satoshiCost)
+        {
+            if (CurrentSatoshis >= satoshiCost)
+            {
+                baseStructure.ApplyUpgrade(upgradeType);
+                SpendSatoshis(satoshiCost);
+                StructureInfoInstance.Hide();
+            }
+        }
+
+        private void SpendSatoshis(int spendAmount)
+        {
+            CurrentSatoshis -= spendAmount;
+            LivesPointsDisplayInstance.SatoshiChange = $"-{spendAmount}";
+            LivesPointsDisplayInstance.SubtractPointsAnimation.Play();
+        }
+
         private void CreateResourceNotification(BaseEnemy enemy)
         {
             var pointValue = (int) enemy.GetEnemyType().PointValue();

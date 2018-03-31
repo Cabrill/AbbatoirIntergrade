@@ -8,9 +8,15 @@
             {
                 Default
             }
+            public enum Upgraded
+            {
+                IsUpgraded,
+                NotUpgraded
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
+            Upgraded mCurrentUpgradedState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -28,6 +34,7 @@
                             ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                             Height = 100f;
                             HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                            Visible = true;
                             Width = 100f;
                             WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             DamageTypeIconInstance.Height = 0f;
@@ -42,8 +49,50 @@
                             ResistanceTextInstance.Text = "100%";
                             ResistanceTextInstance.UseCustomFont = true;
                             ResistanceTextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            ResistanceTextInstance.Width = 80f;
-                            ResistanceTextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ResistanceTextInstance.Width = 0f;
+                            ResistanceTextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                            UpgradeSprite.Blue = 140;
+                            UpgradeSprite.Green = 230;
+                            UpgradeSprite.Height = 32f;
+                            UpgradeSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                            UpgradeSprite.Red = 240;
+                            SetProperty("UpgradeSprite.SourceFile", "AllUIAssets.png");
+                            UpgradeSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                            UpgradeSprite.TextureHeight = 128;
+                            UpgradeSprite.TextureLeft = 2565;
+                            UpgradeSprite.TextureTop = 910;
+                            UpgradeSprite.TextureWidth = 111;
+                            UpgradeSprite.Visible = false;
+                            UpgradeSprite.Width = 32f;
+                            UpgradeSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                            UpgradeSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            UpgradeSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            break;
+                    }
+                }
+            }
+            public Upgraded CurrentUpgradedState
+            {
+                get
+                {
+                    return mCurrentUpgradedState;
+                }
+                set
+                {
+                    mCurrentUpgradedState = value;
+                    switch(mCurrentUpgradedState)
+                    {
+                        case  Upgraded.IsUpgraded:
+                            ResistanceTextInstance.Blue = 0;
+                            ResistanceTextInstance.Green = 255;
+                            ResistanceTextInstance.Red = 0;
+                            UpgradeSprite.Visible = true;
+                            break;
+                        case  Upgraded.NotUpgraded:
+                            ResistanceTextInstance.Blue = 255;
+                            ResistanceTextInstance.Green = 255;
+                            ResistanceTextInstance.Red = 255;
+                            UpgradeSprite.Visible = false;
                             break;
                     }
                 }
@@ -82,6 +131,42 @@
                 bool setResistanceTextInstanceWidthSecondValue = false;
                 float ResistanceTextInstanceWidthFirstValue= 0;
                 float ResistanceTextInstanceWidthSecondValue= 0;
+                bool setUpgradeSpriteBlueFirstValue = false;
+                bool setUpgradeSpriteBlueSecondValue = false;
+                int UpgradeSpriteBlueFirstValue= 0;
+                int UpgradeSpriteBlueSecondValue= 0;
+                bool setUpgradeSpriteGreenFirstValue = false;
+                bool setUpgradeSpriteGreenSecondValue = false;
+                int UpgradeSpriteGreenFirstValue= 0;
+                int UpgradeSpriteGreenSecondValue= 0;
+                bool setUpgradeSpriteHeightFirstValue = false;
+                bool setUpgradeSpriteHeightSecondValue = false;
+                float UpgradeSpriteHeightFirstValue= 0;
+                float UpgradeSpriteHeightSecondValue= 0;
+                bool setUpgradeSpriteRedFirstValue = false;
+                bool setUpgradeSpriteRedSecondValue = false;
+                int UpgradeSpriteRedFirstValue= 0;
+                int UpgradeSpriteRedSecondValue= 0;
+                bool setUpgradeSpriteTextureHeightFirstValue = false;
+                bool setUpgradeSpriteTextureHeightSecondValue = false;
+                int UpgradeSpriteTextureHeightFirstValue= 0;
+                int UpgradeSpriteTextureHeightSecondValue= 0;
+                bool setUpgradeSpriteTextureLeftFirstValue = false;
+                bool setUpgradeSpriteTextureLeftSecondValue = false;
+                int UpgradeSpriteTextureLeftFirstValue= 0;
+                int UpgradeSpriteTextureLeftSecondValue= 0;
+                bool setUpgradeSpriteTextureTopFirstValue = false;
+                bool setUpgradeSpriteTextureTopSecondValue = false;
+                int UpgradeSpriteTextureTopFirstValue= 0;
+                int UpgradeSpriteTextureTopSecondValue= 0;
+                bool setUpgradeSpriteTextureWidthFirstValue = false;
+                bool setUpgradeSpriteTextureWidthSecondValue = false;
+                int UpgradeSpriteTextureWidthFirstValue= 0;
+                int UpgradeSpriteTextureWidthSecondValue= 0;
+                bool setUpgradeSpriteWidthFirstValue = false;
+                bool setUpgradeSpriteWidthSecondValue = false;
+                float UpgradeSpriteWidthFirstValue= 0;
+                float UpgradeSpriteWidthSecondValue= 0;
                 bool setWidthFirstValue = false;
                 bool setWidthSecondValue = false;
                 float WidthFirstValue= 0;
@@ -140,10 +225,60 @@
                             this.ResistanceTextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         setResistanceTextInstanceWidthFirstValue = true;
-                        ResistanceTextInstanceWidthFirstValue = 80f;
+                        ResistanceTextInstanceWidthFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
-                            this.ResistanceTextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.ResistanceTextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                        }
+                        setUpgradeSpriteBlueFirstValue = true;
+                        UpgradeSpriteBlueFirstValue = 140;
+                        setUpgradeSpriteGreenFirstValue = true;
+                        UpgradeSpriteGreenFirstValue = 230;
+                        setUpgradeSpriteHeightFirstValue = true;
+                        UpgradeSpriteHeightFirstValue = 32f;
+                        if (interpolationValue < 1)
+                        {
+                            this.UpgradeSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                        }
+                        setUpgradeSpriteRedFirstValue = true;
+                        UpgradeSpriteRedFirstValue = 240;
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("UpgradeSprite.SourceFile", "AllUIAssets.png");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.UpgradeSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                        }
+                        setUpgradeSpriteTextureHeightFirstValue = true;
+                        UpgradeSpriteTextureHeightFirstValue = 128;
+                        setUpgradeSpriteTextureLeftFirstValue = true;
+                        UpgradeSpriteTextureLeftFirstValue = 2565;
+                        setUpgradeSpriteTextureTopFirstValue = true;
+                        UpgradeSpriteTextureTopFirstValue = 910;
+                        setUpgradeSpriteTextureWidthFirstValue = true;
+                        UpgradeSpriteTextureWidthFirstValue = 111;
+                        if (interpolationValue < 1)
+                        {
+                            this.UpgradeSprite.Visible = false;
+                        }
+                        setUpgradeSpriteWidthFirstValue = true;
+                        UpgradeSpriteWidthFirstValue = 32f;
+                        if (interpolationValue < 1)
+                        {
+                            this.UpgradeSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.UpgradeSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.UpgradeSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.Visible = true;
                         }
                         setWidthFirstValue = true;
                         WidthFirstValue = 100f;
@@ -207,10 +342,60 @@
                             this.ResistanceTextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         setResistanceTextInstanceWidthSecondValue = true;
-                        ResistanceTextInstanceWidthSecondValue = 80f;
+                        ResistanceTextInstanceWidthSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
-                            this.ResistanceTextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.ResistanceTextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                        }
+                        setUpgradeSpriteBlueSecondValue = true;
+                        UpgradeSpriteBlueSecondValue = 140;
+                        setUpgradeSpriteGreenSecondValue = true;
+                        UpgradeSpriteGreenSecondValue = 230;
+                        setUpgradeSpriteHeightSecondValue = true;
+                        UpgradeSpriteHeightSecondValue = 32f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.UpgradeSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                        }
+                        setUpgradeSpriteRedSecondValue = true;
+                        UpgradeSpriteRedSecondValue = 240;
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("UpgradeSprite.SourceFile", "AllUIAssets.png");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.UpgradeSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                        }
+                        setUpgradeSpriteTextureHeightSecondValue = true;
+                        UpgradeSpriteTextureHeightSecondValue = 128;
+                        setUpgradeSpriteTextureLeftSecondValue = true;
+                        UpgradeSpriteTextureLeftSecondValue = 2565;
+                        setUpgradeSpriteTextureTopSecondValue = true;
+                        UpgradeSpriteTextureTopSecondValue = 910;
+                        setUpgradeSpriteTextureWidthSecondValue = true;
+                        UpgradeSpriteTextureWidthSecondValue = 111;
+                        if (interpolationValue >= 1)
+                        {
+                            this.UpgradeSprite.Visible = false;
+                        }
+                        setUpgradeSpriteWidthSecondValue = true;
+                        UpgradeSpriteWidthSecondValue = 32f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.UpgradeSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.UpgradeSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.UpgradeSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.Visible = true;
                         }
                         setWidthSecondValue = true;
                         WidthSecondValue = 100f;
@@ -244,6 +429,42 @@
                 {
                     ResistanceTextInstance.Width = ResistanceTextInstanceWidthFirstValue * (1 - interpolationValue) + ResistanceTextInstanceWidthSecondValue * interpolationValue;
                 }
+                if (setUpgradeSpriteBlueFirstValue && setUpgradeSpriteBlueSecondValue)
+                {
+                    UpgradeSprite.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(UpgradeSpriteBlueFirstValue* (1 - interpolationValue) + UpgradeSpriteBlueSecondValue * interpolationValue);
+                }
+                if (setUpgradeSpriteGreenFirstValue && setUpgradeSpriteGreenSecondValue)
+                {
+                    UpgradeSprite.Green = FlatRedBall.Math.MathFunctions.RoundToInt(UpgradeSpriteGreenFirstValue* (1 - interpolationValue) + UpgradeSpriteGreenSecondValue * interpolationValue);
+                }
+                if (setUpgradeSpriteHeightFirstValue && setUpgradeSpriteHeightSecondValue)
+                {
+                    UpgradeSprite.Height = UpgradeSpriteHeightFirstValue * (1 - interpolationValue) + UpgradeSpriteHeightSecondValue * interpolationValue;
+                }
+                if (setUpgradeSpriteRedFirstValue && setUpgradeSpriteRedSecondValue)
+                {
+                    UpgradeSprite.Red = FlatRedBall.Math.MathFunctions.RoundToInt(UpgradeSpriteRedFirstValue* (1 - interpolationValue) + UpgradeSpriteRedSecondValue * interpolationValue);
+                }
+                if (setUpgradeSpriteTextureHeightFirstValue && setUpgradeSpriteTextureHeightSecondValue)
+                {
+                    UpgradeSprite.TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(UpgradeSpriteTextureHeightFirstValue* (1 - interpolationValue) + UpgradeSpriteTextureHeightSecondValue * interpolationValue);
+                }
+                if (setUpgradeSpriteTextureLeftFirstValue && setUpgradeSpriteTextureLeftSecondValue)
+                {
+                    UpgradeSprite.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(UpgradeSpriteTextureLeftFirstValue* (1 - interpolationValue) + UpgradeSpriteTextureLeftSecondValue * interpolationValue);
+                }
+                if (setUpgradeSpriteTextureTopFirstValue && setUpgradeSpriteTextureTopSecondValue)
+                {
+                    UpgradeSprite.TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(UpgradeSpriteTextureTopFirstValue* (1 - interpolationValue) + UpgradeSpriteTextureTopSecondValue * interpolationValue);
+                }
+                if (setUpgradeSpriteTextureWidthFirstValue && setUpgradeSpriteTextureWidthSecondValue)
+                {
+                    UpgradeSprite.TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(UpgradeSpriteTextureWidthFirstValue* (1 - interpolationValue) + UpgradeSpriteTextureWidthSecondValue * interpolationValue);
+                }
+                if (setUpgradeSpriteWidthFirstValue && setUpgradeSpriteWidthSecondValue)
+                {
+                    UpgradeSprite.Width = UpgradeSpriteWidthFirstValue * (1 - interpolationValue) + UpgradeSpriteWidthSecondValue * interpolationValue;
+                }
                 if (setWidthFirstValue && setWidthSecondValue)
                 {
                     Width = WidthFirstValue * (1 - interpolationValue) + WidthSecondValue * interpolationValue;
@@ -255,6 +476,101 @@
                 else
                 {
                     mCurrentVariableState = secondState;
+                }
+            }
+            public void InterpolateBetween (Upgraded firstState, Upgraded secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                bool setResistanceTextInstanceBlueFirstValue = false;
+                bool setResistanceTextInstanceBlueSecondValue = false;
+                int ResistanceTextInstanceBlueFirstValue= 0;
+                int ResistanceTextInstanceBlueSecondValue= 0;
+                bool setResistanceTextInstanceGreenFirstValue = false;
+                bool setResistanceTextInstanceGreenSecondValue = false;
+                int ResistanceTextInstanceGreenFirstValue= 0;
+                int ResistanceTextInstanceGreenSecondValue= 0;
+                bool setResistanceTextInstanceRedFirstValue = false;
+                bool setResistanceTextInstanceRedSecondValue = false;
+                int ResistanceTextInstanceRedFirstValue= 0;
+                int ResistanceTextInstanceRedSecondValue= 0;
+                switch(firstState)
+                {
+                    case  Upgraded.IsUpgraded:
+                        setResistanceTextInstanceBlueFirstValue = true;
+                        ResistanceTextInstanceBlueFirstValue = 0;
+                        setResistanceTextInstanceGreenFirstValue = true;
+                        ResistanceTextInstanceGreenFirstValue = 255;
+                        setResistanceTextInstanceRedFirstValue = true;
+                        ResistanceTextInstanceRedFirstValue = 0;
+                        if (interpolationValue < 1)
+                        {
+                            this.UpgradeSprite.Visible = true;
+                        }
+                        break;
+                    case  Upgraded.NotUpgraded:
+                        setResistanceTextInstanceBlueFirstValue = true;
+                        ResistanceTextInstanceBlueFirstValue = 255;
+                        setResistanceTextInstanceGreenFirstValue = true;
+                        ResistanceTextInstanceGreenFirstValue = 255;
+                        setResistanceTextInstanceRedFirstValue = true;
+                        ResistanceTextInstanceRedFirstValue = 255;
+                        if (interpolationValue < 1)
+                        {
+                            this.UpgradeSprite.Visible = false;
+                        }
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  Upgraded.IsUpgraded:
+                        setResistanceTextInstanceBlueSecondValue = true;
+                        ResistanceTextInstanceBlueSecondValue = 0;
+                        setResistanceTextInstanceGreenSecondValue = true;
+                        ResistanceTextInstanceGreenSecondValue = 255;
+                        setResistanceTextInstanceRedSecondValue = true;
+                        ResistanceTextInstanceRedSecondValue = 0;
+                        if (interpolationValue >= 1)
+                        {
+                            this.UpgradeSprite.Visible = true;
+                        }
+                        break;
+                    case  Upgraded.NotUpgraded:
+                        setResistanceTextInstanceBlueSecondValue = true;
+                        ResistanceTextInstanceBlueSecondValue = 255;
+                        setResistanceTextInstanceGreenSecondValue = true;
+                        ResistanceTextInstanceGreenSecondValue = 255;
+                        setResistanceTextInstanceRedSecondValue = true;
+                        ResistanceTextInstanceRedSecondValue = 255;
+                        if (interpolationValue >= 1)
+                        {
+                            this.UpgradeSprite.Visible = false;
+                        }
+                        break;
+                }
+                if (setResistanceTextInstanceBlueFirstValue && setResistanceTextInstanceBlueSecondValue)
+                {
+                    ResistanceTextInstance.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(ResistanceTextInstanceBlueFirstValue* (1 - interpolationValue) + ResistanceTextInstanceBlueSecondValue * interpolationValue);
+                }
+                if (setResistanceTextInstanceGreenFirstValue && setResistanceTextInstanceGreenSecondValue)
+                {
+                    ResistanceTextInstance.Green = FlatRedBall.Math.MathFunctions.RoundToInt(ResistanceTextInstanceGreenFirstValue* (1 - interpolationValue) + ResistanceTextInstanceGreenSecondValue * interpolationValue);
+                }
+                if (setResistanceTextInstanceRedFirstValue && setResistanceTextInstanceRedSecondValue)
+                {
+                    ResistanceTextInstance.Red = FlatRedBall.Math.MathFunctions.RoundToInt(ResistanceTextInstanceRedFirstValue* (1 - interpolationValue) + ResistanceTextInstanceRedSecondValue * interpolationValue);
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentUpgradedState = firstState;
+                }
+                else
+                {
+                    mCurrentUpgradedState = secondState;
                 }
             }
             #endregion
@@ -313,6 +629,60 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime.Upgraded fromState,AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime.Upgraded toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (Upgraded toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "Upgraded").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentUpgradedState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (Upgraded toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentUpgradedState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
             #endregion
             #region State Animations
             #endregion
@@ -350,6 +720,14 @@
                             Name = "Height Units",
                             Type = "DimensionUnitType",
                             Value = HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Visible",
+                            Type = "bool",
+                            Value = Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -480,6 +858,134 @@
                             Value = ResistanceTextInstance.WidthUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Blue",
+                            Type = "int",
+                            Value = UpgradeSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Green",
+                            Type = "int",
+                            Value = UpgradeSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Height",
+                            Type = "float",
+                            Value = UpgradeSprite.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = UpgradeSprite.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Red",
+                            Type = "int",
+                            Value = UpgradeSprite.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.SourceFile",
+                            Type = "string",
+                            Value = UpgradeSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Texture Address",
+                            Type = "TextureAddress",
+                            Value = UpgradeSprite.TextureAddress
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Texture Height",
+                            Type = "int",
+                            Value = UpgradeSprite.TextureHeight
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Texture Left",
+                            Type = "int",
+                            Value = UpgradeSprite.TextureLeft
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Texture Top",
+                            Type = "int",
+                            Value = UpgradeSprite.TextureTop
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Texture Width",
+                            Type = "int",
+                            Value = UpgradeSprite.TextureWidth
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Visible",
+                            Type = "bool",
+                            Value = UpgradeSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Width",
+                            Type = "float",
+                            Value = UpgradeSprite.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = UpgradeSprite.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = UpgradeSprite.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Y Units",
+                            Type = "PositionUnitType",
+                            Value = UpgradeSprite.YUnits
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -512,6 +1018,14 @@
                             Name = "Height Units",
                             Type = "DimensionUnitType",
                             Value = HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Visible",
+                            Type = "bool",
+                            Value = Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -631,7 +1145,7 @@
                             SetsValue = true,
                             Name = "ResistanceTextInstance.Width",
                             Type = "float",
-                            Value = ResistanceTextInstance.Width + 80f
+                            Value = ResistanceTextInstance.Width + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -640,6 +1154,286 @@
                             Name = "ResistanceTextInstance.Width Units",
                             Type = "DimensionUnitType",
                             Value = ResistanceTextInstance.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Blue",
+                            Type = "int",
+                            Value = UpgradeSprite.Blue + 140
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Green",
+                            Type = "int",
+                            Value = UpgradeSprite.Green + 230
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Height",
+                            Type = "float",
+                            Value = UpgradeSprite.Height + 32f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = UpgradeSprite.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Red",
+                            Type = "int",
+                            Value = UpgradeSprite.Red + 240
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.SourceFile",
+                            Type = "string",
+                            Value = UpgradeSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Texture Address",
+                            Type = "TextureAddress",
+                            Value = UpgradeSprite.TextureAddress
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Texture Height",
+                            Type = "int",
+                            Value = UpgradeSprite.TextureHeight + 128
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Texture Left",
+                            Type = "int",
+                            Value = UpgradeSprite.TextureLeft + 2565
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Texture Top",
+                            Type = "int",
+                            Value = UpgradeSprite.TextureTop + 910
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Texture Width",
+                            Type = "int",
+                            Value = UpgradeSprite.TextureWidth + 111
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Visible",
+                            Type = "bool",
+                            Value = UpgradeSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Width",
+                            Type = "float",
+                            Value = UpgradeSprite.Width + 32f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = UpgradeSprite.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = UpgradeSprite.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Y Units",
+                            Type = "PositionUnitType",
+                            Value = UpgradeSprite.YUnits
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (Upgraded state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Upgraded.IsUpgraded:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceTextInstance.Blue",
+                            Type = "int",
+                            Value = ResistanceTextInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceTextInstance.Green",
+                            Type = "int",
+                            Value = ResistanceTextInstance.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceTextInstance.Red",
+                            Type = "int",
+                            Value = ResistanceTextInstance.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Visible",
+                            Type = "bool",
+                            Value = UpgradeSprite.Visible
+                        }
+                        );
+                        break;
+                    case  Upgraded.NotUpgraded:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceTextInstance.Blue",
+                            Type = "int",
+                            Value = ResistanceTextInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceTextInstance.Green",
+                            Type = "int",
+                            Value = ResistanceTextInstance.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceTextInstance.Red",
+                            Type = "int",
+                            Value = ResistanceTextInstance.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Visible",
+                            Type = "bool",
+                            Value = UpgradeSprite.Visible
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (Upgraded state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Upgraded.IsUpgraded:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceTextInstance.Blue",
+                            Type = "int",
+                            Value = ResistanceTextInstance.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceTextInstance.Green",
+                            Type = "int",
+                            Value = ResistanceTextInstance.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceTextInstance.Red",
+                            Type = "int",
+                            Value = ResistanceTextInstance.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Visible",
+                            Type = "bool",
+                            Value = UpgradeSprite.Visible
+                        }
+                        );
+                        break;
+                    case  Upgraded.NotUpgraded:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceTextInstance.Blue",
+                            Type = "int",
+                            Value = ResistanceTextInstance.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceTextInstance.Green",
+                            Type = "int",
+                            Value = ResistanceTextInstance.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResistanceTextInstance.Red",
+                            Type = "int",
+                            Value = ResistanceTextInstance.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeSprite.Visible",
+                            Type = "bool",
+                            Value = UpgradeSprite.Visible
                         }
                         );
                         break;
@@ -657,11 +1451,17 @@
                     {
                         if (state.Name == "Default") this.mCurrentVariableState = VariableState.Default;
                     }
+                    else if (category.Name == "Upgraded")
+                    {
+                        if(state.Name == "IsUpgraded") this.mCurrentUpgradedState = Upgraded.IsUpgraded;
+                        if(state.Name == "NotUpgraded") this.mCurrentUpgradedState = Upgraded.NotUpgraded;
+                    }
                 }
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime DamageTypeIconInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime ResistanceTextInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime UpgradeSprite { get; set; }
             public DamageTypeIconRuntime.DamageType DamageTypeIconState
             {
                 get
@@ -757,6 +1557,7 @@
             {
                 DamageTypeIconInstance = this.GetGraphicalUiElementByName("DamageTypeIconInstance") as AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime;
                 ResistanceTextInstance = this.GetGraphicalUiElementByName("ResistanceTextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+                UpgradeSprite = this.GetGraphicalUiElementByName("UpgradeSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 DamageTypeIconInstance.Click += (unused) => DamageTypeIconInstanceClick?.Invoke(this);
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 

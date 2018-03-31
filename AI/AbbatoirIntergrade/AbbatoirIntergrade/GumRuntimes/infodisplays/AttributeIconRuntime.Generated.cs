@@ -1153,9 +1153,26 @@
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
+            public int IconAlpha
+            {
+                get
+                {
+                    return SpriteInstance.Alpha;
+                }
+                set
+                {
+                    if (SpriteInstance.Alpha != value)
+                    {
+                        SpriteInstance.Alpha = value;
+                        IconAlphaChanged?.Invoke(this, null);
+                    }
+                }
+            }
+            public event System.EventHandler IconAlphaChanged;
             public AttributeIconRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
             {
+                this.ExposeChildrenEvents = false;
                 if (fullInstantiation)
                 {
                     Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "infodisplays/AttributeIcon");

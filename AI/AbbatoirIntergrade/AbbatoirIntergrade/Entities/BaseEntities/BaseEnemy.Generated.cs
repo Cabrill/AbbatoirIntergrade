@@ -367,7 +367,18 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
         }
         public bool HasReachedGoal;
-        public float Mass = 0.1f;
+        float mMass = 0.1f;
+        public virtual float Mass
+        {
+            set
+            {
+                mMass = value;
+            }
+            get
+            {
+                return mMass;
+            }
+        }
         public bool SpriteInstanceAnimate
         {
             get

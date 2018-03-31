@@ -3374,12 +3374,6 @@
                     toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1;
                     yield return toReturn;
                 }
-                {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => FlatRedBall.Instructions.InstructionManager.Instructions.AddRange(this.PulseGreenLightBlueAnimationInstructions(target)));
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 2;
-                    toReturn.Target = target;
-                    yield return toReturn;
-                }
             }
             private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> PulseGreenLightBlueAnimationRelativeInstructions (object target) 
             {
@@ -3424,12 +3418,6 @@
                     }
                     );
                     toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1;
-                    toReturn.Target = target;
-                    yield return toReturn;
-                }
-                {
-                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => FlatRedBall.Instructions.InstructionManager.Instructions.AddRange(this.PulseGreenLightBlueAnimationRelativeInstructions(target)));
-                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 2;
                     toReturn.Target = target;
                     yield return toReturn;
                 }

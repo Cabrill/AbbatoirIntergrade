@@ -209,7 +209,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 //Remove drag in the air
 		        Drag = 0.1f;
 		        Altitude = Math.Max(0, Altitude + AltitudeVelocity * TimeManager.SecondDifference);
-		        if (IsHurt && IsOnFinalFrameOfAnimation) SpriteInstance.Animate = false;
+		        if (IsHurt && IsOnFinalFrameOfAnimation && !IsFlying) SpriteInstance.Animate = false;
 		    }
 
 		    var isOnGround = Math.Abs(Altitude) <= 0.001f && AltitudeVelocity < 0;

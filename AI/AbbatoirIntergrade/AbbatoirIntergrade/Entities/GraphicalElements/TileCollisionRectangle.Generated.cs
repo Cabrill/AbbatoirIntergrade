@@ -66,6 +66,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
                 AxisAlignedRectangleInstance.Height = value;
             }
         }
+        public bool IsBarrier;
         public int Index { get; set; }
         public bool Used { get; set; }
         protected global::RenderingLibrary.Graphics.Layer AboveEverythingLayerGum;

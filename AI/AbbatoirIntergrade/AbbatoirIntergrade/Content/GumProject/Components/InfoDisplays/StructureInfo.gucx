@@ -13,7 +13,7 @@
     <Variable>
       <Type>float</Type>
       <Name>AttackCostContainer.Height</Name>
-      <Value xsi:type="xsd:float">25</Value>
+      <Value xsi:type="xsd:float">24.9</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -133,7 +133,7 @@
     <Variable>
       <Type>float</Type>
       <Name>AttackSpeed.Height</Name>
-      <Value xsi:type="xsd:float">25</Value>
+      <Value xsi:type="xsd:float">24.9</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -840,7 +840,7 @@
     <Variable>
       <Type>float</Type>
       <Name>PointOrSplash.Height</Name>
-      <Value xsi:type="xsd:float">25</Value>
+      <Value xsi:type="xsd:float">24.9</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -967,7 +967,7 @@
     <Variable>
       <Type>float</Type>
       <Name>RangeContainer.Height</Name>
-      <Value xsi:type="xsd:float">25</Value>
+      <Value xsi:type="xsd:float">24.9</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1100,7 +1100,13 @@
     <Variable>
       <Type>float</Type>
       <Name>UpgradeInfoInstance.Height</Name>
-      <Value xsi:type="xsd:float">150</Value>
+      <Value xsi:type="xsd:float">24</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>UpgradeInfoInstance.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1206,6 +1212,12 @@
     <State>
       <Name>Available</Name>
       <Variable>
+        <Type>AffordabilityState</Type>
+        <Name>UpgradeInfoInstance.AffordabilityState</Name>
+        <Value xsi:type="xsd:string">CanAfford</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>bool</Type>
         <Name>UpgradeInfoInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
@@ -1215,9 +1227,30 @@
     <State>
       <Name>NotAvailable</Name>
       <Variable>
+        <Type>AffordabilityState</Type>
+        <Name>UpgradeInfoInstance.AffordabilityState</Name>
+        <Value xsi:type="xsd:string">CanAfford</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>bool</Type>
         <Name>UpgradeInfoInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>AvailableCantAfford</Name>
+      <Variable>
+        <Type>AffordabilityState</Type>
+        <Name>UpgradeInfoInstance.AffordabilityState</Name>
+        <Value xsi:type="xsd:string">CantAfford</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>UpgradeInfoInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -1383,13 +1416,13 @@
       <Name>Shown</Name>
       <Variable>
         <Type>bool</Type>
-        <Name>PointsSprite.Visible</Name>
+        <Name>CostText.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>bool</Type>
-        <Name>CostText.Visible</Name>
+        <Name>PointsSprite.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>

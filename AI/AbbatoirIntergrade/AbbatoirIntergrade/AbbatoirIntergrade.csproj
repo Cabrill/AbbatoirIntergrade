@@ -381,7 +381,10 @@
     <Compile Include="GumRuntimes\InfoDisplays\TopStatusBarRuntime.Generated.cs">
       <DependentUpon>TopStatusBarRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\infodisplays\UpgradeInfoRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\UpgradeInfoRuntime.cs" />
+    <Compile Include="GumRuntimes\infodisplays\UpgradeInfoRuntime.Generated.cs">
+      <DependentUpon>UpgradeInfoRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\LivesPointsDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\LoadingScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.cs" />

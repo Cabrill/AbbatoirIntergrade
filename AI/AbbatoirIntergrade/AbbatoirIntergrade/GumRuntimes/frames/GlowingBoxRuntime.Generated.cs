@@ -72,6 +72,7 @@
                             Middle.TextureLeft = 36;
                             Middle.TextureTop = 36;
                             Middle.TextureWidth = 1;
+                            Middle.Visible = true;
                             Middle.Width = -64f;
                             Middle.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             Middle.X = 0f;
@@ -224,6 +225,7 @@
                             Left.TextureLeft = 0;
                             Left.TextureTop = 64;
                             Left.TextureWidth = 64;
+                            Left.Visible = true;
                             Left.Width = 64f;
                             Left.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             Left.X = 0f;
@@ -1175,6 +1177,10 @@
                         LeftTextureTopFirstValue = 64;
                         setLeftTextureWidthFirstValue = true;
                         LeftTextureWidthFirstValue = 64;
+                        if (interpolationValue < 1)
+                        {
+                            this.Left.Visible = true;
+                        }
                         setLeftWidthFirstValue = true;
                         LeftWidthFirstValue = 64f;
                         if (interpolationValue < 1)
@@ -1231,6 +1237,10 @@
                         MiddleTextureTopFirstValue = 36;
                         setMiddleTextureWidthFirstValue = true;
                         MiddleTextureWidthFirstValue = 1;
+                        if (interpolationValue < 1)
+                        {
+                            this.Middle.Visible = true;
+                        }
                         setMiddleWidthFirstValue = true;
                         MiddleWidthFirstValue = -64f;
                         if (interpolationValue < 1)
@@ -1716,6 +1726,10 @@
                         LeftTextureTopSecondValue = 64;
                         setLeftTextureWidthSecondValue = true;
                         LeftTextureWidthSecondValue = 64;
+                        if (interpolationValue >= 1)
+                        {
+                            this.Left.Visible = true;
+                        }
                         setLeftWidthSecondValue = true;
                         LeftWidthSecondValue = 64f;
                         if (interpolationValue >= 1)
@@ -1772,6 +1786,10 @@
                         MiddleTextureTopSecondValue = 36;
                         setMiddleTextureWidthSecondValue = true;
                         MiddleTextureWidthSecondValue = 1;
+                        if (interpolationValue >= 1)
+                        {
+                            this.Middle.Visible = true;
+                        }
                         setMiddleWidthSecondValue = true;
                         MiddleWidthSecondValue = -64f;
                         if (interpolationValue >= 1)
@@ -4770,6 +4788,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Middle.Visible",
+                            Type = "bool",
+                            Value = Middle.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "Middle.Width",
                             Type = "float",
                             Value = Middle.Width
@@ -5986,6 +6012,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Left.Visible",
+                            Type = "bool",
+                            Value = Left.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "Left.Width",
                             Type = "float",
                             Value = Left.Width
@@ -6263,6 +6297,14 @@
                             Name = "Middle.Texture Width",
                             Type = "int",
                             Value = Middle.TextureWidth + 1
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Middle.Visible",
+                            Type = "bool",
+                            Value = Middle.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -7479,6 +7521,14 @@
                             Name = "Left.Texture Width",
                             Type = "int",
                             Value = Left.TextureWidth + 64
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Visible",
+                            Type = "bool",
+                            Value = Left.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

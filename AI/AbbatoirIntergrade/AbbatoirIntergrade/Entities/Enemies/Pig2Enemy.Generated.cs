@@ -804,6 +804,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             IsFlying = false;
             HasLightSource = false;
             IsJumper = false;
+            Mass = 0.5f;
         }
         public override void ConvertToManuallyUpdated () 
         {

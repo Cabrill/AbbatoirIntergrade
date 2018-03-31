@@ -34,6 +34,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
     {
         private static readonly Dictionary<Tuple<int, int>, Texture2D> RangeTextures = new Dictionary<Tuple<int, int>, Texture2D>();
 
+        private List<UpgradeTypes> _upgradesApplied = new List<UpgradeTypes>();
+
         private float? SoundPanning;
         protected DamageTypes DamageType;
         private float _startingRectangleScaleX;
@@ -115,8 +117,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             RangePreviewSprite.RelativeX = PivotPoint.RelativeX;
             RangePreviewSprite.RelativeY = SpriteInstance.RelativeY;
-            RangePreviewSprite.Texture =
-                GetRangeTexture(new Tuple<int, int>((int) RangedRadius, (int) MinimumRangeRadius));
+            RefreshRangePreviewTexture();
 
             RangeCircleInstance.Visible = true;
             LastFiredTime = TimeManager.CurrentTime;
@@ -154,6 +155,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     PerformFiringActivity();
                 }
             }
+        }
+
+        private void RefreshRangePreviewTexture()
+        {
+            RangePreviewSprite.Texture =
+                GetRangeTexture(new Tuple<int, int>((int)RangedRadius, (int)MinimumRangeRadius));
         }
         
 
@@ -528,6 +535,34 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         protected virtual BasePlayerProjectile CreateNewProjectile()
         {
             return new BasePlayerProjectile();
+        }
+
+        public List<UpgradeTypes> GetCurrentlyAppliedUpgrades()
+        {
+            return _upgradesApplied;
+        }
+
+        public void ApplyUpgrade(UpgradeTypes upgradeType)
+        {
+            switch (upgradeType)
+            {
+                case UpgradeTypes.Range:
+                    RangedRadius *= 1.25f;
+                    MinimumRangeRadius *= 0.75f;
+                    RefreshRangePreviewTexture();
+                    break;
+                case UpgradeTypes.Speed:
+                    ProjectileSpeed *= 1.5f;
+                    SecondsBetweenFiring *= 0.5f;
+                    break;
+                case UpgradeTypes.Damage:
+                    AttackDamage *= 1.5f;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(upgradeType), upgradeType, null);
+            }
+
+            _upgradesApplied.Add(upgradeType);
         }
     }
 }
