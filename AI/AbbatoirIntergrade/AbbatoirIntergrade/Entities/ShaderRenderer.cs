@@ -21,26 +21,26 @@ namespace AbbatoirIntergrade.Entities
     {
         #region Fields/Properties
 
-        SpriteBatch spriteBatch;
+        SpriteBatch _spriteBatch;
 
-        public Effect Effect { get; set; }
+        public PositionedObject Viewer { get; set; }
 
         public Texture2D WorldTexture { get; set; }
         public Texture2D DarknessTexture { get; set; }
         public Texture2D BackgroundTexture { get; set; }
-        public Texture2D BlowoutTexture { get; set; }
 
         public float DarknessAlpha { get; set; }
+        private const float MinimumBrightness = 0.8f;
 
-        public PositionedObject Viewer { get; set; }
 
-        private Color WorldColor = Color.White;
+        private Color _worldColor = Color.White;
+        private Color _dayColor = Color.White;
+        private Color _nightColor = Color.Plum;
+
+        private Vector3 _dayColorAsVector;
+        private Vector3 _nightColorAsVector;
+
         private Tweener _lastColorTween;
-        private Color DayColor = Color.White;
-        private Color NightColor = Color.Plum;
-        private Vector3 DayColorAsVector;
-        private Vector3 NightColorAsVector;
-
 
         #endregion
 
@@ -52,9 +52,9 @@ namespace AbbatoirIntergrade.Entities
         /// </summary>
         private void CustomInitialize()
         {
-            spriteBatch = new SpriteBatch(FlatRedBallServices.GraphicsDevice);
-            DayColorAsVector = DayColor.ToVector3();
-            NightColorAsVector = NightColor.ToVector3();
+            _spriteBatch = new SpriteBatch(FlatRedBallServices.GraphicsDevice);
+            _dayColorAsVector = _dayColor.ToVector3();
+            _nightColorAsVector = _nightColor.ToVector3();
         }
 
         #endregion
@@ -98,7 +98,7 @@ namespace AbbatoirIntergrade.Entities
             const float secondsToTransitionColor = 5f;
             if (_lastColorTween != null && _lastColorTween.Running) return;
 
-            if (WorldColor == DayColor && !SunlightManager.SunIsUp && SunlightManager.MoonIsUp)
+            if (_worldColor == _dayColor && !SunlightManager.SunIsUp && SunlightManager.MoonIsUp)
             {
                 _lastColorTween =
                     new Tweener(1, 0, secondsToTransitionColor, InterpolationType.Linear, Easing.InOut)
@@ -108,7 +108,7 @@ namespace AbbatoirIntergrade.Entities
 
                 _lastColorTween.Ended += () =>
                 {
-                    WorldColor = NightColor;
+                    _worldColor = _nightColor;
                     _lastColorTween.Stop();
                 };
 
@@ -117,7 +117,7 @@ namespace AbbatoirIntergrade.Entities
                 TweenerManager.Self.Add(_lastColorTween);
                 _lastColorTween.Start();
             }
-            else if (WorldColor == NightColor && SunlightManager.SunIsUp)
+            else if (_worldColor == _nightColor && SunlightManager.SunIsUp)
             {
                 _lastColorTween =
                     new Tweener(0, 1, secondsToTransitionColor, InterpolationType.Linear, Easing.InOut)
@@ -127,7 +127,7 @@ namespace AbbatoirIntergrade.Entities
 
                 _lastColorTween.Ended += () =>
                 {
-                    WorldColor = DayColor;
+                    _worldColor = _dayColor;
                     _lastColorTween.Stop();
                 };
 
@@ -140,7 +140,7 @@ namespace AbbatoirIntergrade.Entities
 
         private void HandleColorPositionChanged(float newposition)
         {
-            WorldColor = new Color(DayColorAsVector * newposition + NightColorAsVector * (1 - newposition));
+            _worldColor = new Color(_dayColorAsVector * newposition + _nightColorAsVector * (1 - newposition));
         }
 
         private void DrawToScreen(Camera camera)
@@ -151,19 +151,18 @@ namespace AbbatoirIntergrade.Entities
 
             UpdateWorldColor();
 
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone);
-            spriteBatch.Draw(BackgroundTexture, destinationRectangle, Color.White);
-            spriteBatch.Draw(WorldTexture, destinationRectangle, WorldColor);
-            spriteBatch.Draw(RenderTargetInstance, destinationRectangle, Color.White);
-            spriteBatch.End();
+            _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone);
+            _spriteBatch.Draw(BackgroundTexture, destinationRectangle, Color.White);
+            _spriteBatch.Draw(WorldTexture, destinationRectangle, _worldColor);
+            _spriteBatch.Draw(RenderTargetInstance, destinationRectangle, Color.White);
+            _spriteBatch.End();
 
             FlatRedBallServices.GraphicsDevice.SetRenderTarget(null);
         }
         
         private void DrawDarknessToRenderTarget(Camera camera)
         {
-            const float minimumBrightness = 0.7f;
-            DarknessAlpha = minimumBrightness * (1 - SunlightManager.SunlightEffectiveness);
+            DarknessAlpha = MinimumBrightness * (1 - SunlightManager.SunlightEffectiveness);
 
             var destinationRectangle = camera.DestinationRectangle;
 
@@ -173,9 +172,9 @@ namespace AbbatoirIntergrade.Entities
             var darknessColor = new Color(0, 0, 0, DarknessAlpha);
 
             //First draw the objects as blackness
-            spriteBatch.Begin(SpriteSortMode.Immediate);
-            spriteBatch.Draw(WorldTexture, destinationRectangle, darknessColor);
-            spriteBatch.End();
+            _spriteBatch.Begin(SpriteSortMode.Immediate);
+            _spriteBatch.Draw(WorldTexture, destinationRectangle, darknessColor);
+            _spriteBatch.End();
 
             //using (Stream stream = System.IO.File.Create("worldtexture.png"))
             //{
@@ -195,9 +194,9 @@ namespace AbbatoirIntergrade.Entities
             //}
 
             //Then subtract darkness where light sources are at
-            spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
-            spriteBatch.Draw(DarknessTexture, destinationRectangle, new Color(1, 1, 1, DarknessAlpha*2));
-            spriteBatch.End();
+            _spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
+            _spriteBatch.Draw(DarknessTexture, destinationRectangle, new Color(1, 1, 1, DarknessAlpha*2));
+            _spriteBatch.End();
 
             //using (Stream stream = System.IO.File.Create("result.png"))
             //{

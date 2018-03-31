@@ -191,7 +191,10 @@ namespace AbbatoirIntergrade.Screens
         {
             LocalLogManager.AddLine("Game Screen - Wave ended");
 
-            MachineLearningManager.NotifyOfWaveEnd();
+            var shouldLearnFromWave = AllStructuresList.Count <= MachineLearningManager.MaxTowers &&
+                                      CurrentLevel.LastWave.EnemyCounts.TotalEnemies <= MachineLearningManager.MaxEnemies;
+
+            MachineLearningManager.NotifyOfWaveEnd(shouldLearnFromWave);
 
             if (CurrentLevel.HasReachedVictory())
             {

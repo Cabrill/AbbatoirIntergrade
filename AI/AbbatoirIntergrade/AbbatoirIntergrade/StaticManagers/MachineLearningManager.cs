@@ -58,8 +58,8 @@ namespace AbbatoirIntergrade.StaticManagers
         //Max parameters for model input
         private const int MaxPathingPoints = 10;
         private const int MaxWaterPoints = 25;
-        private const int MaxTowers = 15;
-        private const int MaxEnemies = 40;
+        public const int MaxTowers = 15;
+        public const int MaxEnemies = 40;
 
         //Calculation of data points per object
         private const int CountPerPathing = 2;
@@ -258,14 +258,17 @@ namespace AbbatoirIntergrade.StaticManagers
             }
         }
 
-        public static void NotifyOfWaveEnd()
+        public static void NotifyOfWaveEnd(bool shouldLearnFromWave)
         {
-            _waveData.WaveInputs.Add(_currentWaveInput);
-            _waveData.WaveScores.Add(_waveScore);
-
             _waveScore = 0;
 
-            if (IsLearningTaskRunning) return;
+            if (shouldLearnFromWave)
+            {
+                _waveData.WaveInputs.Add(_currentWaveInput);
+                _waveData.WaveScores.Add(_waveScore);
+            }
+
+            if (IsLearningTaskRunning || !shouldLearnFromWave) return;
 
             void LearnAndRefreshTask()
             {
