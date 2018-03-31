@@ -377,6 +377,7 @@
     <Compile Include="GumRuntimes\infodisplays\StructureInfoRuntime.Generated.cs">
       <DependentUpon>StructureInfoRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\infodisplays\StructureUpgradeStatusRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\TopStatusBarRuntime.cs" />
     <Compile Include="GumRuntimes\InfoDisplays\TopStatusBarRuntime.Generated.cs">
       <DependentUpon>TopStatusBarRuntime.cs</DependentUpon>
@@ -1489,6 +1490,10 @@
     <None Include="content\gumproject\components\infodisplays\structureinfo.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>StructureInfo</Name>
+    </None>
+    <None Include="content\gumproject\components\infodisplays\structureupgradestatus.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>structureupgradestatus</Name>
     </None>
     <None Include="content\gumproject\components\infodisplays\topstatusbar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

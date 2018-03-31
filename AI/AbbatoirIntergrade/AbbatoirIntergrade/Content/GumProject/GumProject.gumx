@@ -157,6 +157,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>infodisplays/StructureUpgradeStatus</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>InfoDisplays/TopStatusBar</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>

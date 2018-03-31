@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ComponentSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>infodisplays/StructureUpgradeStatus</Name>
+  <BaseType>Container</BaseType>
+  <State>
+    <Name>Default</Name>
+    <Variable>
+      <Type>bool</Type>
+      <Name>AttributeIconInstance.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>AttributeIconInstance.Height</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>AttributeIconInstance.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>AttributeIconInstance.Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>AttributeIconInstance.Width Units</Name>
+      <Value xsi:type="xsd:int">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>AttributeIconInstance1.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>AttributeIconInstance1.Height</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>AttributeIconInstance1.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>AttributeIconInstance1.Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>AttributeIconInstance1.Width Units</Name>
+      <Value xsi:type="xsd:int">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>AttributeIconInstance2.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>AttributeIconInstance2.Height</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>AttributeIconInstance2.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>AttributeIconInstance2.Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>AttributeIconInstance2.Width Units</Name>
+      <Value xsi:type="xsd:int">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ChildrenLayout</Type>
+      <Name>Children Layout</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Height</Name>
+      <Value xsi:type="xsd:float">32</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>State</Type>
+      <Name>State</Name>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>UpgradesState</Type>
+      <Name>UpgradesState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>X Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>X Units</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>Y Units</Name>
+      <Value xsi:type="xsd:int">8</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+  </State>
+  <Category>
+    <Name>Upgrades</Name>
+    <State>
+      <Name>None</Name>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">Health</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance1.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">Health</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance1.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance2.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">Health</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance2.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Range</Name>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">MaxRange</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance1.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">Health</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance1.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance2.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">Health</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance2.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Speed</Name>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">AttackSpeed</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance1.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">Health</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance1.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance2.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">Health</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance2.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>RangeSpeed</Name>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">MaxRange</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance1.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">AttackSpeed</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance1.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance2.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">Health</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance2.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>RangeDamage</Name>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">MaxRange</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance1.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">Health</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance1.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance2.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">Health</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance2.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>SpeedDamage</Name>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">AttackSpeed</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance1.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">Health</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance1.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance2.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">Health</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance2.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>DamageRangeSpeed</Name>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">Health</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance1.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">MaxRange</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance1.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>AttributeTypeState</Type>
+        <Name>AttributeIconInstance2.AttributeTypeState</Name>
+        <Value xsi:type="xsd:string">AttackSpeed</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>AttributeIconInstance2.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
+  <Instance>
+    <Name>AttributeIconInstance</Name>
+    <BaseType>infodisplays/AttributeIcon</BaseType>
+  </Instance>
+  <Instance>
+    <Name>AttributeIconInstance1</Name>
+    <BaseType>infodisplays/AttributeIcon</BaseType>
+  </Instance>
+  <Instance>
+    <Name>AttributeIconInstance2</Name>
+    <BaseType>infodisplays/AttributeIcon</BaseType>
+  </Instance>
+  <Behaviors />
+</ComponentSave>

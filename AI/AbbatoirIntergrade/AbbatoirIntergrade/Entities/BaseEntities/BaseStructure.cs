@@ -16,6 +16,7 @@ using FlatRedBall.Math.Geometry;
 using AbbatoirIntergrade.Entities.GraphicalElements;
 using AbbatoirIntergrade.Entities.Projectiles;
 using AbbatoirIntergrade.Entities.Structures;
+using AbbatoirIntergrade.GumRuntimes;
 using AbbatoirIntergrade.StaticManagers;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
@@ -33,7 +34,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
     public partial class BaseStructure
     {
         private static readonly Dictionary<Tuple<int, int>, Texture2D> RangeTextures = new Dictionary<Tuple<int, int>, Texture2D>();
-
         private List<UpgradeTypes> _upgradesApplied = new List<UpgradeTypes>();
 
         private float? SoundPanning;
@@ -124,7 +124,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             AfterIsBeingPlacedSet += (not, used) => { RangeCircleInstance.Visible = false; };
             _startingRangeRadius = RangedRadius;
- 
+
+            SetUpgradeStatus();
         }
 
         private void CustomActivity()
@@ -268,6 +269,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             LayerProvidedByContainer.Remove(LightAimSpriteInstance);
             SpriteManager.AddToLayer(LightAimSpriteInstance, darknessLayer);
 
+            var gumLayer = RenderingLibrary.SystemManagers.Default.Renderer.Layers.FirstOrDefault(l => l.Name == "InfoLayerGum");
+            StructureUpgradeStatusInstance.MoveToFrbLayer(hudLayer, gumLayer);
 
             LayerProvidedByContainer.Remove(RangeCircleInstance);
             ShapeManager.AddToLayer(RangeCircleInstance, hudLayer);
@@ -563,6 +566,52 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
 
             _upgradesApplied.Add(upgradeType);
+            SetUpgradeStatus();
+        }
+
+        private void SetUpgradeStatus()
+        {
+            if (_upgradesApplied.Count == 0)
+            {
+                StructureUpgradeStatusInstance.CurrentUpgradesState = StructureUpgradeStatusRuntime.Upgrades.None;
+                StructureUpgradeStatusInstance.Visible = false;
+                return;
+            }
+
+            StructureUpgradeStatusInstance.Visible = true;
+
+            StructureUpgradeStatusInstance.X = X;
+            StructureUpgradeStatusInstance.Y = Y;
+
+            if (_upgradesApplied.Count == 3)
+            {
+                StructureUpgradeStatusInstance.CurrentUpgradesState = StructureUpgradeStatusRuntime.Upgrades.DamageRangeSpeed;
+                return;
+            }
+
+            var hasSpeed = _upgradesApplied.Contains(UpgradeTypes.Speed);
+            var hasRange = _upgradesApplied.Contains(UpgradeTypes.Range);
+            var hasDamage = _upgradesApplied.Contains(UpgradeTypes.Damage);
+
+            if (_upgradesApplied.Count == 1)
+            {
+                if (hasSpeed) StructureUpgradeStatusInstance.CurrentUpgradesState = StructureUpgradeStatusRuntime.Upgrades.Speed;
+                if (hasRange) StructureUpgradeStatusInstance.CurrentUpgradesState = StructureUpgradeStatusRuntime.Upgrades.Range;
+                return;
+            }
+
+            if (hasRange && hasSpeed)
+            {
+                StructureUpgradeStatusInstance.CurrentUpgradesState = StructureUpgradeStatusRuntime.Upgrades.RangeSpeed;
+            }
+            else if (hasSpeed && hasDamage)
+            {
+                StructureUpgradeStatusInstance.CurrentUpgradesState = StructureUpgradeStatusRuntime.Upgrades.SpeedDamage;
+            }
+            else if (hasRange && hasDamage)
+            {
+                StructureUpgradeStatusInstance.CurrentUpgradesState = StructureUpgradeStatusRuntime.Upgrades.RangeDamage;
+            }
         }
     }
 }
