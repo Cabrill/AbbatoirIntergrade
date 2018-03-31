@@ -322,7 +322,7 @@ namespace AbbatoirIntergrade.StaticManagers
 
         private static void RankFitness(EnemyTypes enemyType, List<SerializableChromosome> chromosomes)
         {
-            var partialInputList = MachineLearningManager.GetPathingAndTowersPartialInput();
+            var partialInputList = MachineLearningManager.GetCurrentPartialInputList();
 
             ChromosomeFitnessFunction.PartialInputList = partialInputList;
             ChromosomeFitnessFunction.EnemyType = enemyType;

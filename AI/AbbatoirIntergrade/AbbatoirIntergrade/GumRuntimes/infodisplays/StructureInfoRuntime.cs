@@ -43,7 +43,7 @@ namespace AbbatoirIntergrade.GumRuntimes
 
             StructureName = structureInfo.StructureName;
             AttackDamageType.ResistanceText = structureInfo.AttackDamageType;
-            SatoshiCost = structureShown.SatoshiCost.ToString();
+            SatoshiCost = structureInfo.SatoshiCostString;
             MinRange.AttributeText = structureInfo.MinRange;
             MaxRange.AttributeText = structureInfo.MaxRange;
             AttackSpeed.AttributeText = structureInfo.AttackSpeed;

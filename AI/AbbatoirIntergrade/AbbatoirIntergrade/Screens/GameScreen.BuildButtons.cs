@@ -24,19 +24,16 @@ namespace AbbatoirIntergrade.Screens
         {
             if (GuiManager.Cursor.WindowPushed is IBuildButton buildButton && buildButton.IsEnabled && buildButton.CanAfford)
             {
-                if (selectedObject is StructurePlacement placement)
+                if (selectedObject is StructurePlacement)
                 {
-                    selectedObject = null;
-
                     var newBuilding = buildButton.BuildingFactory.CreateNew(WorldLayer) as BaseStructure;
 
                     newBuilding.Position = BuildMenuInstance.CurrentPlacement.Position;
                     newBuilding.Z = 1;
                     newBuilding.IsBeingPlaced = false;
-                    newBuilding.PlacementOrder = placement.PlacementOrder;
 
                     GuiManager.Cursor.WindowPushed = null;
-                    //CurrentGameMode = GameMode.Building;
+
                     BuildMenuInstance.Hide(didBuild: true);
                     PathingNodeNetwork.RemoveNodesForCollision(newBuilding.AxisAlignedRectangleInstance);
 
@@ -62,6 +59,7 @@ namespace AbbatoirIntergrade.Screens
             CurrentGameMode = GameMode.Normal;
             CurrentLevel.IsReadyForNextWave = true;
             StructurePlacementInstance.Visible = false;
+            BuildMenuInstance.Hide();
             selectedObject = null;
             ReadyButtonInstance.PulseAnimation.Stop();
             ReadyButtonInstance.Visible = false;
@@ -116,6 +114,8 @@ namespace AbbatoirIntergrade.Screens
                     GameScreenGumInstance.HideChatHistoryAnimation.Play();
             };
             GameScreenGumInstance.HideChatHistoryAnimation.AddAction("SetupResponseAvailability", ChatBoxInstance.SetupResponseAvailability);
+
+            ReadyButtonInstance.Click += OnStartButtonInstanceClick;
 
         }
     }

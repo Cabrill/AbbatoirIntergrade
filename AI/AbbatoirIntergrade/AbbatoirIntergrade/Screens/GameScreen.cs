@@ -335,7 +335,7 @@ namespace AbbatoirIntergrade.Screens
             LocalLogManager.AddLine("Game Screen - Remove collisions from node network");
             NodeNetworkGenerator.RemoveNodesWithCollisions(ref PathingNodeNetwork, TileCollisionRectangleList, TileCollisionCircleList);
             
-            MachineLearningManager.SetPathing(Pathing);
+            MachineLearningManager.SetPathingAndWater(Pathing, WaterShapes);
 
             PathingSegments = new Segment[Pathing.Points.Count - 1];
             for (var i = 0; i <= Pathing.Points.Count - 2; i++)

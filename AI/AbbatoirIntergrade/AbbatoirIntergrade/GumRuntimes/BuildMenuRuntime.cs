@@ -116,11 +116,6 @@ namespace AbbatoirIntergrade.GumRuntimes
         public void Hide(bool didBuild = false)
         {
             HideRangePreview();
-            if (didBuild)
-            {
-                CurrentPlacement.Visible = false;
-            }
-
             CurrentPlacement = null;
             Visible = false;            
         }

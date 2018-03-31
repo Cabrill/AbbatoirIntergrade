@@ -20,6 +20,7 @@ using FlatRedBall.IO;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
 using Point = FlatRedBall.Math.Geometry.Point;
+using Vector3 = Microsoft.Xna.Framework.Vector3;
 
 namespace AbbatoirIntergrade.StaticManagers
 {
@@ -31,13 +32,17 @@ namespace AbbatoirIntergrade.StaticManagers
         
         private static double _waveScore = 0;
         private static WaveData _waveData;
+        private static List<double> _levelPartialInput;
         private static double[] _currentWaveInput;
 
-        private static IModel _machineLearningModel;
+        private static DeepBeliefNetworkModel _machineLearningModel;
         private static bool IsLearningTaskRunning = false;
 
         private static FlatRedBall.Math.PositionedObjectList<BaseStructure> _allTowers;
         private static Polygon _groundPathing;
+        private static List<Polygon> _waterShapes;
+        private static Vector3 _firstPathingPoint;
+        private static Vector3 _lastPathingPoint;
         private static double _totalPathLength;
         private static double[] _segmentLengths;
         private static int _waveEnemyCount;
@@ -51,9 +56,19 @@ namespace AbbatoirIntergrade.StaticManagers
         
 
         //Max parameters for model input
-        private const int MaxPathingPoints = 20;
-        private const int MaxTowers = 10;
-        private const int MaxEnemies = 30;
+        private const int MaxPathingPoints = 10;
+        private const int MaxWaterPoints = 25;
+        private const int MaxTowers = 15;
+        private const int MaxEnemies = 40;
+
+        //Calculation of data points per object
+        private const int CountPerPathing = 2;
+        private const int CountPerWater = 2;
+        private const int CountPerEnemy = 9;
+        private const int CountPerTower = 15;
+
+        private static int InputCount;
+
 
         private static string _modelFileName;
         private static string _waveDataFileName;
@@ -64,13 +79,17 @@ namespace AbbatoirIntergrade.StaticManagers
 
             _modelFileName = modelFileName;
             _waveDataFileName = waveDataFileName;
+            InputCount = (MaxPathingPoints * CountPerPathing) + 
+                            (MaxWaterPoints * CountPerWater) +
+                            (MaxTowers * CountPerTower) + 
+                            (MaxEnemies * CountPerEnemy);
 
             _machineLearningModel = new DeepBeliefNetworkModel();
             var canLoadExistingModel =  _machineLearningModel.Load(_modelFileName);
 
             if (!canLoadExistingModel)
             {
-                _machineLearningModel.Initialize();
+                _machineLearningModel.Initialize(InputCount);
             }
 
             var waveDataExists = FileManager.FileExists(_waveDataFileName);
@@ -90,10 +109,7 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static BaseWave GenerateWave(List<EnemyTypes> availableEnemyTypes, double pointsAvailable)
         {
-            var inputList = new List<double>();
-
-            CurrentPathingToInput(ref inputList);
-            CurrentTowersToInput(ref inputList);
+            var inputList = GetCurrentPartialInputList();
 
             //RecursionCount = 0;
             //RecordedFitness = new Dictionary<EnemyList, double>();
@@ -212,11 +228,19 @@ namespace AbbatoirIntergrade.StaticManagers
         }
 
 
-        public static void SetPathing(Polygon gp)
+        public static void SetPathingAndWater(Polygon groundPathing, List<Polygon> waterShapes)
         {
-            _groundPathing = gp;
-
+            _groundPathing = groundPathing;
+            _waterShapes = waterShapes;
             UpdatePathingValues();
+            CreatePartialInput();
+        }
+
+        private static void CreatePartialInput()
+        {
+            _levelPartialInput = new List<double>();
+            CurrentPathingToInput(ref _levelPartialInput);
+            CurrentWaterToInput(ref _levelPartialInput);
         }
 
         public static void SetTowerList(FlatRedBall.Math.PositionedObjectList<BaseStructure> allTowers)
@@ -247,12 +271,8 @@ namespace AbbatoirIntergrade.StaticManagers
             {
                 _machineLearningModel.LearnAll(_waveData);
                 GeneticsManager.EvaluateAndGenerate();
-                Action UpdateAction = () =>
-                {
-                    SaveData();
-                    IsLearningTaskRunning = false;
-                };
-                InstructionManager.AddSafe(UpdateAction);
+                SaveData();
+                IsLearningTaskRunning = false;
             }
 
             Task.Run((Action)LearnAndRefreshTask);
@@ -280,6 +300,8 @@ namespace AbbatoirIntergrade.StaticManagers
         {
             _totalPathLength = 0;
             _segmentLengths = new double[_groundPathing.Points.Count - 1];
+            _firstPathingPoint = _groundPathing.AbsolutePointPosition(0);
+            _lastPathingPoint = _groundPathing.AbsolutePointPosition(_groundPathing.Points.Count - 1);
 
             for (var i = 0; i < _groundPathing.Points.Count - 2; i++)
             {
@@ -294,9 +316,8 @@ namespace AbbatoirIntergrade.StaticManagers
 
         private static double[] CurrentWaveToInput(List<BaseEnemy> newWaveEnemies)
         {
-            var inputList = new List<double>();
+            var inputList = _levelPartialInput.ToList();
 
-            CurrentPathingToInput(ref inputList);
             CurrentTowersToInput(ref inputList);
             CurrentEnemiesToInput(ref inputList, newWaveEnemies);
             
@@ -310,7 +331,39 @@ namespace AbbatoirIntergrade.StaticManagers
                 if (i < _groundPathing.Points.Count - 1)
                 {
                     var pathingPoint = _groundPathing.Points[i];
-                    inputList.AddRange(PathingPointToInput(pathingPoint));
+                    inputList.AddRange(LocationVectorToInput(pathingPoint));
+                }
+                else
+                {
+                    inputList.Add(0.0);
+                    inputList.Add(0.0);
+                }
+            }
+        }
+
+        private static void CurrentWaterToInput(ref List<double> inputList)
+        {
+            var waterPointCount = 0;
+
+            if (_waterShapes != null)
+            {
+                waterPointCount += _waterShapes.Sum(shape => shape.Points.Count);
+            }
+
+            var currentWaterShapeIndex = 0;
+            var currentShapePointIndex = 0;
+            for (var i = 0; i < MaxWaterPoints; i++)
+            {
+                if (i < waterPointCount - 1)
+                {
+                    if (currentShapePointIndex >= _waterShapes[currentWaterShapeIndex].Points.Count)
+                    {
+                        currentWaterShapeIndex += 1;
+                        currentShapePointIndex = 0;
+                    }
+
+                    var waterPoint = _waterShapes[currentWaterShapeIndex].Points[currentShapePointIndex++];
+                    inputList.AddRange(LocationVectorToInput(waterPoint));
                 }
                 else
                 {
@@ -324,8 +377,12 @@ namespace AbbatoirIntergrade.StaticManagers
         {
             for (var i = 0; i < MaxTowers; i++)
             {
-                var potentialTower = _allTowers.FirstOrDefault(t => t.PlacementOrder == i + 1);
-                inputList.AddRange(TowerToInput(potentialTower));
+                BaseStructure tower = null;
+                if (i < _allTowers.Count - 1)
+                {
+                    tower = _allTowers[i];
+                }
+                inputList.AddRange(TowerToInput(tower));
             }
         }
 
@@ -342,9 +399,9 @@ namespace AbbatoirIntergrade.StaticManagers
             }
         }
 
-        private static IEnumerable<double> PathingPointToInput(Point point)
+        private static IEnumerable<double> LocationVectorToInput(Point point)
         {
-            var pathingPointList = new List<double> {point.X, point.Y};
+            var pathingPointList = new List<double> { AbsoluteXCoordinateToRelative((float)point.X), AbsoluteXCoordinateToRelative((float)point.Y)};
             return pathingPointList;
         }
 
@@ -452,22 +509,13 @@ namespace AbbatoirIntergrade.StaticManagers
             if (enemy.HasReachedGoal) return 1.0;
 
             var score = 0.0;
+            Vector3 firstPoint, secondPoint;
+
 
             if (enemy.IsFlying)
             {
-                var firstPoint = _groundPathing.AbsolutePointPosition(0);
-                var secondPoint = _groundPathing.AbsolutePointPosition(_groundPathing.Points.Count-1);
-
-                var distanceBetweenPoints = (firstPoint - secondPoint).Length();
-
-                var enemyDistanceToSecondPoint = (enemy.Position - secondPoint).Length();
-
-                if (enemyDistanceToSecondPoint < distanceBetweenPoints)
-                {
-                    var pointProgress = distanceBetweenPoints - enemyDistanceToSecondPoint;
-
-                    score += pointProgress / distanceBetweenPoints;
-                }
+                firstPoint = _firstPathingPoint;
+                secondPoint = _lastPathingPoint;
             }
             else
             {
@@ -478,19 +526,18 @@ namespace AbbatoirIntergrade.StaticManagers
                     score += _segmentLengths[i] / _totalPathLength;
                 }
 
-                var firstPoint = _groundPathing.AbsolutePointPosition(pathingPointIndex - 1);
-                var secondPoint = _groundPathing.AbsolutePointPosition(pathingPointIndex);
+                firstPoint = _groundPathing.AbsolutePointPosition(pathingPointIndex - 1);
+                secondPoint = _groundPathing.AbsolutePointPosition(pathingPointIndex);
+            }
 
-                var distanceBetweenPoints = (firstPoint - secondPoint).Length();
+            var distanceBetweenPoints = (firstPoint - secondPoint).Length();
+            var enemyDistanceToSecondPoint = (enemy.Position - secondPoint).Length();
 
-                var enemyDistanceToSecondPoint = (enemy.Position - secondPoint).Length();
+            if (enemyDistanceToSecondPoint < distanceBetweenPoints)
+            {
+                var pointProgress = distanceBetweenPoints - enemyDistanceToSecondPoint;
 
-                if (enemyDistanceToSecondPoint < distanceBetweenPoints)
-                {
-                    var pointProgress = distanceBetweenPoints - enemyDistanceToSecondPoint;
-
-                    score += pointProgress / _totalPathLength;
-                }
+                score += pointProgress / _totalPathLength;
             }
 
             score *= 0.01f;
@@ -508,21 +555,18 @@ namespace AbbatoirIntergrade.StaticManagers
             return MathHelper.Clamp((ycoord + Camera.Main.OrthogonalHeight / 2) / Camera.Main.OrthogonalHeight,0,1);
         }
 
-        public static List<double> GetPathingAndTowersPartialInput()
+        public static List<double> GetCurrentPartialInputList()
         {
-            var inputList = new List<double>();
+            var partialInput = _levelPartialInput.ToList();
+            CurrentTowersToInput(ref partialInput);
 
-            CurrentPathingToInput(ref inputList);
-            CurrentTowersToInput(ref inputList);
-
-            return inputList;
+            return partialInput;
         }
 
         public static double Evaluate(List<double> inputList, EnemyTypes enemyType, SerializableChromosome chromosome)
         {
             var enemyAttributes = enemyType.Attributes();
             var effectiveAttributes = BaseEnemy.GetGeneticAttributes(enemyAttributes, chromosome);
-
             var attributesAsInput = Enumerable.ToArray(EnemyAttributesToInput(effectiveAttributes));
 
             for (var i = 0; i < MaxEnemies; i++)

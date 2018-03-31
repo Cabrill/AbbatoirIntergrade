@@ -7,9 +7,7 @@ namespace AbbatoirIntergrade.Screens
     {
         void OnStartButtonInstanceClick (FlatRedBall.Gui.IWindow window)
         {
-            //StartButtonInstance.Visible = false;
-            GameHasStarted = true;
-            //UpdateMusic();
+            ChangeGameModeToNormal();
         }
         void OnAfterCurrentSatoshisSet (object sender, EventArgs e) 
         {

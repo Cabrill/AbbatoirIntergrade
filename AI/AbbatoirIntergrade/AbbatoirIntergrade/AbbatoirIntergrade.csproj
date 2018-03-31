@@ -434,7 +434,6 @@
     <Compile Include="GumRuntimes\unique\DimmingRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\unique\MainMenuEyeRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\VerticalScrollBarRuntime.Generated.cs" />
-    <Compile Include="MachineLearning\IModel.cs" />
     <Compile Include="MachineLearning\Models\DeepBeliefNetworkModel.cs" />
     <Compile Include="MachineLearning\WaveData.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />

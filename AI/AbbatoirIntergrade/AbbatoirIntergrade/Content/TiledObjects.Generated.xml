@@ -113,7 +113,6 @@
     <property name="SpriteInstanceTextureScale" type="float" default="1" />
     <property name="SpriteInstanceAnimate" type="bool" default="true" />
     <property name="SpriteInstanceAlpha" type="float" default="1" />
-    <property name="PlacementOrder" type="int" />
   </objecttype>
   <objecttype name="TileCollisionCircle">
     <property name="Altitude" type="float" />

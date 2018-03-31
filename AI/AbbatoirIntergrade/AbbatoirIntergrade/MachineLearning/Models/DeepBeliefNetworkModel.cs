@@ -17,7 +17,7 @@ using FlatRedBall.IO;
 
 namespace AbbatoirIntergrade.MachineLearning.Models
 {
-    public class DeepBeliefNetworkModel : IModel
+    public class DeepBeliefNetworkModel 
     {
         public long LastLearnTime { get; private set; }
         public long LastPredictTime { get; private set; }
@@ -37,9 +37,8 @@ namespace AbbatoirIntergrade.MachineLearning.Models
         public int LastSampleSize { get; private set; }
         public bool IsReady { get; private set; }
 
-        public void Initialize()
+        public void Initialize(int inputCount)
         {
-            const int inputCount = 460;
             IsReady = false;
 
             network = new DeepBeliefNetwork((int)inputCount, HiddenLayerNodes, 1);

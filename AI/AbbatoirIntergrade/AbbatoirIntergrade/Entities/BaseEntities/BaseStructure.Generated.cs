@@ -374,7 +374,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 return mProjectileAltitude;
             }
         }
-        public int PlacementOrder;
         public virtual bool HasSplashDamage { get; set; }
         public virtual bool SlowsEnemies { get; set; }
         public virtual bool StunsEnemies { get; set; }
