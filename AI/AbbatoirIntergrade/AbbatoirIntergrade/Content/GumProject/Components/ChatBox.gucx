@@ -1638,6 +1638,12 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
+        <Type>float</Type>
+        <Name>MessageBox.Width</Name>
+        <Value xsi:type="xsd:float">10</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>int</Type>
         <Name>TextInstance.Blue</Name>
         <Value xsi:type="xsd:int">0</Value>
@@ -1659,12 +1665,6 @@
         <Type>bool</Type>
         <Name>TextInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>MessageBox.Width</Name>
-        <Value xsi:type="xsd:float">10</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -1677,6 +1677,12 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
+        <Type>float</Type>
+        <Name>MessageBox.Width</Name>
+        <Value xsi:type="xsd:float">10</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>int</Type>
         <Name>TextInstance.Blue</Name>
         <Value xsi:type="xsd:int">255</Value>
@@ -1701,12 +1707,6 @@
         <Type>bool</Type>
         <Name>TextInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>MessageBox.Width</Name>
-        <Value xsi:type="xsd:float">10</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -1719,6 +1719,12 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
+        <Type>float</Type>
+        <Name>MessageBox.Width</Name>
+        <Value xsi:type="xsd:float">10</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>int</Type>
         <Name>TextInstance.Blue</Name>
         <Value xsi:type="xsd:int">255</Value>
@@ -1745,12 +1751,6 @@
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>MessageBox.Width</Name>
-        <Value xsi:type="xsd:float">10</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
     </State>
     <State>
       <Name>NewMessageHighlighted</Name>
@@ -1758,6 +1758,12 @@
         <Type>ColorStateState</Type>
         <Name>MessageBox.ColorStateState</Name>
         <Value xsi:type="xsd:string">Green</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>MessageBox.Width</Name>
+        <Value xsi:type="xsd:float">10</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -1785,12 +1791,6 @@
         <Type>bool</Type>
         <Name>TextInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>MessageBox.Width</Name>
-        <Value xsi:type="xsd:float">10</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

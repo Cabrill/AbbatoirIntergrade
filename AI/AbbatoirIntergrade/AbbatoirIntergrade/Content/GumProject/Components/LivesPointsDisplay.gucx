@@ -787,13 +787,13 @@
       </Variable>
       <Variable>
         <Type>float</Type>
-        <Name>LivesXSprite.Width</Name>
+        <Name>LivesXSprite.Height</Name>
         <Value xsi:type="xsd:float">64</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>float</Type>
-        <Name>LivesXSprite.Height</Name>
+        <Name>LivesXSprite.Width</Name>
         <Value xsi:type="xsd:float">64</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -841,15 +841,15 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>PointsText.Red</Name>
-        <Value xsi:type="xsd:int">100</Value>
+        <Name>PointsText.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>PointsText.Green</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <Category>Rendering</Category>
+        <Name>PointsText.Red</Name>
+        <Value xsi:type="xsd:int">100</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -890,13 +890,6 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>PointsText.Red</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <Category>Rendering</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
         <Name>PointsText.Blue</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
@@ -905,6 +898,13 @@
       <Variable>
         <Type>int</Type>
         <Name>PointsText.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PointsText.Red</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
@@ -1003,13 +1003,6 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>PointsText.Red</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <Category>Rendering</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
         <Name>PointsText.Blue</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
@@ -1018,6 +1011,13 @@
       <Variable>
         <Type>int</Type>
         <Name>PointsText.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PointsText.Red</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>

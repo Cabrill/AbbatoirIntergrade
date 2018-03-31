@@ -381,6 +381,7 @@
     <Compile Include="GumRuntimes\InfoDisplays\TopStatusBarRuntime.Generated.cs">
       <DependentUpon>TopStatusBarRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\infodisplays\UpgradeInfoRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\LivesPointsDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\LoadingScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.cs" />
@@ -1489,6 +1490,10 @@
     <None Include="content\gumproject\components\infodisplays\topstatusbar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>TopStatusBar</Name>
+    </None>
+    <None Include="content\gumproject\components\infodisplays\upgradeinfo.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>upgradeinfo</Name>
     </None>
     <None Include="content\gumproject\components\livespointsdisplay.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

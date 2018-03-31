@@ -13,10 +13,19 @@
                 RightConnect,
                 LeftConnect
             }
+            public enum Color
+            {
+                Red,
+                Green,
+                Blue,
+                White,
+                LightBlue
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
             Connections mCurrentConnectionsState;
+            Color mCurrentColorState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -248,6 +257,150 @@
                             Left.TextureLeft = 89;
                             Left.TextureWidth = 8;
                             Left.Width = 8f;
+                            break;
+                    }
+                }
+            }
+            public Color CurrentColorState
+            {
+                get
+                {
+                    return mCurrentColorState;
+                }
+                set
+                {
+                    mCurrentColorState = value;
+                    switch(mCurrentColorState)
+                    {
+                        case  Color.Red:
+                            TopLeft.Blue = 0;
+                            TopLeft.Green = 0;
+                            TopLeft.Red = 255;
+                            Top.Blue = 0;
+                            Top.Green = 0;
+                            Top.Red = 255;
+                            TopRight.Blue = 0;
+                            TopRight.Green = 0;
+                            TopRight.Red = 255;
+                            Right.Blue = 0;
+                            Right.Green = 0;
+                            Right.Red = 255;
+                            BottomRight.Blue = 0;
+                            BottomRight.Green = 0;
+                            BottomRight.Red = 255;
+                            Bottom.Blue = 0;
+                            Bottom.Green = 0;
+                            Bottom.Red = 255;
+                            BottomLeft.Blue = 0;
+                            BottomLeft.Green = 0;
+                            BottomLeft.Red = 255;
+                            Left.Blue = 0;
+                            Left.Green = 0;
+                            Left.Red = 255;
+                            break;
+                        case  Color.Green:
+                            TopLeft.Blue = 0;
+                            TopLeft.Green = 255;
+                            TopLeft.Red = 0;
+                            Top.Blue = 0;
+                            Top.Green = 255;
+                            Top.Red = 0;
+                            TopRight.Blue = 0;
+                            TopRight.Green = 255;
+                            TopRight.Red = 0;
+                            Right.Blue = 0;
+                            Right.Green = 255;
+                            Right.Red = 0;
+                            BottomRight.Blue = 0;
+                            BottomRight.Green = 255;
+                            BottomRight.Red = 0;
+                            Bottom.Blue = 0;
+                            Bottom.Green = 255;
+                            Bottom.Red = 0;
+                            BottomLeft.Blue = 0;
+                            BottomLeft.Green = 255;
+                            BottomLeft.Red = 0;
+                            Left.Blue = 0;
+                            Left.Green = 255;
+                            Left.Red = 0;
+                            break;
+                        case  Color.Blue:
+                            TopLeft.Blue = 255;
+                            TopLeft.Green = 0;
+                            TopLeft.Red = 0;
+                            Top.Blue = 255;
+                            Top.Green = 0;
+                            Top.Red = 0;
+                            TopRight.Blue = 255;
+                            TopRight.Green = 0;
+                            TopRight.Red = 0;
+                            Right.Blue = 255;
+                            Right.Green = 0;
+                            Right.Red = 0;
+                            BottomRight.Blue = 255;
+                            BottomRight.Green = 0;
+                            BottomRight.Red = 0;
+                            Bottom.Blue = 255;
+                            Bottom.Green = 0;
+                            Bottom.Red = 0;
+                            BottomLeft.Blue = 255;
+                            BottomLeft.Green = 0;
+                            BottomLeft.Red = 0;
+                            Left.Blue = 255;
+                            Left.Green = 0;
+                            Left.Red = 0;
+                            break;
+                        case  Color.White:
+                            TopLeft.Blue = 255;
+                            TopLeft.Green = 255;
+                            TopLeft.Red = 255;
+                            Top.Blue = 255;
+                            Top.Green = 255;
+                            Top.Red = 255;
+                            TopRight.Blue = 255;
+                            TopRight.Green = 255;
+                            TopRight.Red = 255;
+                            Right.Blue = 255;
+                            Right.Green = 255;
+                            Right.Red = 255;
+                            BottomRight.Blue = 255;
+                            BottomRight.Green = 255;
+                            BottomRight.Red = 255;
+                            Bottom.Blue = 255;
+                            Bottom.Green = 255;
+                            Bottom.Red = 255;
+                            BottomLeft.Blue = 255;
+                            BottomLeft.Green = 255;
+                            BottomLeft.Red = 255;
+                            Left.Blue = 255;
+                            Left.Green = 255;
+                            Left.Red = 255;
+                            break;
+                        case  Color.LightBlue:
+                            TopLeft.Blue = 255;
+                            TopLeft.Green = 255;
+                            TopLeft.Red = 0;
+                            Top.Blue = 255;
+                            Top.Green = 255;
+                            Top.Red = 0;
+                            TopRight.Blue = 255;
+                            TopRight.Green = 255;
+                            TopRight.Red = 0;
+                            Right.Blue = 255;
+                            Right.Green = 255;
+                            Right.Red = 0;
+                            BottomRight.Blue = 255;
+                            BottomRight.Green = 255;
+                            BottomRight.Red = 0;
+                            Bottom.Blue = 255;
+                            Bottom.Green = 255;
+                            Bottom.Red = 0;
+                            BottomLeft.Blue = 255;
+                            BottomLeft.Green = 255;
+                            BottomLeft.Red = 0;
+                            Left.Blue = 255;
+                            Left.Green = 255;
+                            Left.Red = 0;
                             break;
                     }
                 }
@@ -2320,6 +2473,721 @@
                     mCurrentConnectionsState = secondState;
                 }
             }
+            public void InterpolateBetween (Color firstState, Color secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                bool setBottomBlueFirstValue = false;
+                bool setBottomBlueSecondValue = false;
+                int BottomBlueFirstValue= 0;
+                int BottomBlueSecondValue= 0;
+                bool setBottomGreenFirstValue = false;
+                bool setBottomGreenSecondValue = false;
+                int BottomGreenFirstValue= 0;
+                int BottomGreenSecondValue= 0;
+                bool setBottomRedFirstValue = false;
+                bool setBottomRedSecondValue = false;
+                int BottomRedFirstValue= 0;
+                int BottomRedSecondValue= 0;
+                bool setBottomLeftBlueFirstValue = false;
+                bool setBottomLeftBlueSecondValue = false;
+                int BottomLeftBlueFirstValue= 0;
+                int BottomLeftBlueSecondValue= 0;
+                bool setBottomLeftGreenFirstValue = false;
+                bool setBottomLeftGreenSecondValue = false;
+                int BottomLeftGreenFirstValue= 0;
+                int BottomLeftGreenSecondValue= 0;
+                bool setBottomLeftRedFirstValue = false;
+                bool setBottomLeftRedSecondValue = false;
+                int BottomLeftRedFirstValue= 0;
+                int BottomLeftRedSecondValue= 0;
+                bool setBottomRightBlueFirstValue = false;
+                bool setBottomRightBlueSecondValue = false;
+                int BottomRightBlueFirstValue= 0;
+                int BottomRightBlueSecondValue= 0;
+                bool setBottomRightGreenFirstValue = false;
+                bool setBottomRightGreenSecondValue = false;
+                int BottomRightGreenFirstValue= 0;
+                int BottomRightGreenSecondValue= 0;
+                bool setBottomRightRedFirstValue = false;
+                bool setBottomRightRedSecondValue = false;
+                int BottomRightRedFirstValue= 0;
+                int BottomRightRedSecondValue= 0;
+                bool setLeftBlueFirstValue = false;
+                bool setLeftBlueSecondValue = false;
+                int LeftBlueFirstValue= 0;
+                int LeftBlueSecondValue= 0;
+                bool setLeftGreenFirstValue = false;
+                bool setLeftGreenSecondValue = false;
+                int LeftGreenFirstValue= 0;
+                int LeftGreenSecondValue= 0;
+                bool setLeftRedFirstValue = false;
+                bool setLeftRedSecondValue = false;
+                int LeftRedFirstValue= 0;
+                int LeftRedSecondValue= 0;
+                bool setRightBlueFirstValue = false;
+                bool setRightBlueSecondValue = false;
+                int RightBlueFirstValue= 0;
+                int RightBlueSecondValue= 0;
+                bool setRightGreenFirstValue = false;
+                bool setRightGreenSecondValue = false;
+                int RightGreenFirstValue= 0;
+                int RightGreenSecondValue= 0;
+                bool setRightRedFirstValue = false;
+                bool setRightRedSecondValue = false;
+                int RightRedFirstValue= 0;
+                int RightRedSecondValue= 0;
+                bool setTopBlueFirstValue = false;
+                bool setTopBlueSecondValue = false;
+                int TopBlueFirstValue= 0;
+                int TopBlueSecondValue= 0;
+                bool setTopGreenFirstValue = false;
+                bool setTopGreenSecondValue = false;
+                int TopGreenFirstValue= 0;
+                int TopGreenSecondValue= 0;
+                bool setTopRedFirstValue = false;
+                bool setTopRedSecondValue = false;
+                int TopRedFirstValue= 0;
+                int TopRedSecondValue= 0;
+                bool setTopLeftBlueFirstValue = false;
+                bool setTopLeftBlueSecondValue = false;
+                int TopLeftBlueFirstValue= 0;
+                int TopLeftBlueSecondValue= 0;
+                bool setTopLeftGreenFirstValue = false;
+                bool setTopLeftGreenSecondValue = false;
+                int TopLeftGreenFirstValue= 0;
+                int TopLeftGreenSecondValue= 0;
+                bool setTopLeftRedFirstValue = false;
+                bool setTopLeftRedSecondValue = false;
+                int TopLeftRedFirstValue= 0;
+                int TopLeftRedSecondValue= 0;
+                bool setTopRightBlueFirstValue = false;
+                bool setTopRightBlueSecondValue = false;
+                int TopRightBlueFirstValue= 0;
+                int TopRightBlueSecondValue= 0;
+                bool setTopRightGreenFirstValue = false;
+                bool setTopRightGreenSecondValue = false;
+                int TopRightGreenFirstValue= 0;
+                int TopRightGreenSecondValue= 0;
+                bool setTopRightRedFirstValue = false;
+                bool setTopRightRedSecondValue = false;
+                int TopRightRedFirstValue= 0;
+                int TopRightRedSecondValue= 0;
+                switch(firstState)
+                {
+                    case  Color.Red:
+                        setBottomBlueFirstValue = true;
+                        BottomBlueFirstValue = 0;
+                        setBottomGreenFirstValue = true;
+                        BottomGreenFirstValue = 0;
+                        setBottomRedFirstValue = true;
+                        BottomRedFirstValue = 255;
+                        setBottomLeftBlueFirstValue = true;
+                        BottomLeftBlueFirstValue = 0;
+                        setBottomLeftGreenFirstValue = true;
+                        BottomLeftGreenFirstValue = 0;
+                        setBottomLeftRedFirstValue = true;
+                        BottomLeftRedFirstValue = 255;
+                        setBottomRightBlueFirstValue = true;
+                        BottomRightBlueFirstValue = 0;
+                        setBottomRightGreenFirstValue = true;
+                        BottomRightGreenFirstValue = 0;
+                        setBottomRightRedFirstValue = true;
+                        BottomRightRedFirstValue = 255;
+                        setLeftBlueFirstValue = true;
+                        LeftBlueFirstValue = 0;
+                        setLeftGreenFirstValue = true;
+                        LeftGreenFirstValue = 0;
+                        setLeftRedFirstValue = true;
+                        LeftRedFirstValue = 255;
+                        setRightBlueFirstValue = true;
+                        RightBlueFirstValue = 0;
+                        setRightGreenFirstValue = true;
+                        RightGreenFirstValue = 0;
+                        setRightRedFirstValue = true;
+                        RightRedFirstValue = 255;
+                        setTopBlueFirstValue = true;
+                        TopBlueFirstValue = 0;
+                        setTopGreenFirstValue = true;
+                        TopGreenFirstValue = 0;
+                        setTopRedFirstValue = true;
+                        TopRedFirstValue = 255;
+                        setTopLeftBlueFirstValue = true;
+                        TopLeftBlueFirstValue = 0;
+                        setTopLeftGreenFirstValue = true;
+                        TopLeftGreenFirstValue = 0;
+                        setTopLeftRedFirstValue = true;
+                        TopLeftRedFirstValue = 255;
+                        setTopRightBlueFirstValue = true;
+                        TopRightBlueFirstValue = 0;
+                        setTopRightGreenFirstValue = true;
+                        TopRightGreenFirstValue = 0;
+                        setTopRightRedFirstValue = true;
+                        TopRightRedFirstValue = 255;
+                        break;
+                    case  Color.Green:
+                        setBottomBlueFirstValue = true;
+                        BottomBlueFirstValue = 0;
+                        setBottomGreenFirstValue = true;
+                        BottomGreenFirstValue = 255;
+                        setBottomRedFirstValue = true;
+                        BottomRedFirstValue = 0;
+                        setBottomLeftBlueFirstValue = true;
+                        BottomLeftBlueFirstValue = 0;
+                        setBottomLeftGreenFirstValue = true;
+                        BottomLeftGreenFirstValue = 255;
+                        setBottomLeftRedFirstValue = true;
+                        BottomLeftRedFirstValue = 0;
+                        setBottomRightBlueFirstValue = true;
+                        BottomRightBlueFirstValue = 0;
+                        setBottomRightGreenFirstValue = true;
+                        BottomRightGreenFirstValue = 255;
+                        setBottomRightRedFirstValue = true;
+                        BottomRightRedFirstValue = 0;
+                        setLeftBlueFirstValue = true;
+                        LeftBlueFirstValue = 0;
+                        setLeftGreenFirstValue = true;
+                        LeftGreenFirstValue = 255;
+                        setLeftRedFirstValue = true;
+                        LeftRedFirstValue = 0;
+                        setRightBlueFirstValue = true;
+                        RightBlueFirstValue = 0;
+                        setRightGreenFirstValue = true;
+                        RightGreenFirstValue = 255;
+                        setRightRedFirstValue = true;
+                        RightRedFirstValue = 0;
+                        setTopBlueFirstValue = true;
+                        TopBlueFirstValue = 0;
+                        setTopGreenFirstValue = true;
+                        TopGreenFirstValue = 255;
+                        setTopRedFirstValue = true;
+                        TopRedFirstValue = 0;
+                        setTopLeftBlueFirstValue = true;
+                        TopLeftBlueFirstValue = 0;
+                        setTopLeftGreenFirstValue = true;
+                        TopLeftGreenFirstValue = 255;
+                        setTopLeftRedFirstValue = true;
+                        TopLeftRedFirstValue = 0;
+                        setTopRightBlueFirstValue = true;
+                        TopRightBlueFirstValue = 0;
+                        setTopRightGreenFirstValue = true;
+                        TopRightGreenFirstValue = 255;
+                        setTopRightRedFirstValue = true;
+                        TopRightRedFirstValue = 0;
+                        break;
+                    case  Color.Blue:
+                        setBottomBlueFirstValue = true;
+                        BottomBlueFirstValue = 255;
+                        setBottomGreenFirstValue = true;
+                        BottomGreenFirstValue = 0;
+                        setBottomRedFirstValue = true;
+                        BottomRedFirstValue = 0;
+                        setBottomLeftBlueFirstValue = true;
+                        BottomLeftBlueFirstValue = 255;
+                        setBottomLeftGreenFirstValue = true;
+                        BottomLeftGreenFirstValue = 0;
+                        setBottomLeftRedFirstValue = true;
+                        BottomLeftRedFirstValue = 0;
+                        setBottomRightBlueFirstValue = true;
+                        BottomRightBlueFirstValue = 255;
+                        setBottomRightGreenFirstValue = true;
+                        BottomRightGreenFirstValue = 0;
+                        setBottomRightRedFirstValue = true;
+                        BottomRightRedFirstValue = 0;
+                        setLeftBlueFirstValue = true;
+                        LeftBlueFirstValue = 255;
+                        setLeftGreenFirstValue = true;
+                        LeftGreenFirstValue = 0;
+                        setLeftRedFirstValue = true;
+                        LeftRedFirstValue = 0;
+                        setRightBlueFirstValue = true;
+                        RightBlueFirstValue = 255;
+                        setRightGreenFirstValue = true;
+                        RightGreenFirstValue = 0;
+                        setRightRedFirstValue = true;
+                        RightRedFirstValue = 0;
+                        setTopBlueFirstValue = true;
+                        TopBlueFirstValue = 255;
+                        setTopGreenFirstValue = true;
+                        TopGreenFirstValue = 0;
+                        setTopRedFirstValue = true;
+                        TopRedFirstValue = 0;
+                        setTopLeftBlueFirstValue = true;
+                        TopLeftBlueFirstValue = 255;
+                        setTopLeftGreenFirstValue = true;
+                        TopLeftGreenFirstValue = 0;
+                        setTopLeftRedFirstValue = true;
+                        TopLeftRedFirstValue = 0;
+                        setTopRightBlueFirstValue = true;
+                        TopRightBlueFirstValue = 255;
+                        setTopRightGreenFirstValue = true;
+                        TopRightGreenFirstValue = 0;
+                        setTopRightRedFirstValue = true;
+                        TopRightRedFirstValue = 0;
+                        break;
+                    case  Color.White:
+                        setBottomBlueFirstValue = true;
+                        BottomBlueFirstValue = 255;
+                        setBottomGreenFirstValue = true;
+                        BottomGreenFirstValue = 255;
+                        setBottomRedFirstValue = true;
+                        BottomRedFirstValue = 255;
+                        setBottomLeftBlueFirstValue = true;
+                        BottomLeftBlueFirstValue = 255;
+                        setBottomLeftGreenFirstValue = true;
+                        BottomLeftGreenFirstValue = 255;
+                        setBottomLeftRedFirstValue = true;
+                        BottomLeftRedFirstValue = 255;
+                        setBottomRightBlueFirstValue = true;
+                        BottomRightBlueFirstValue = 255;
+                        setBottomRightGreenFirstValue = true;
+                        BottomRightGreenFirstValue = 255;
+                        setBottomRightRedFirstValue = true;
+                        BottomRightRedFirstValue = 255;
+                        setLeftBlueFirstValue = true;
+                        LeftBlueFirstValue = 255;
+                        setLeftGreenFirstValue = true;
+                        LeftGreenFirstValue = 255;
+                        setLeftRedFirstValue = true;
+                        LeftRedFirstValue = 255;
+                        setRightBlueFirstValue = true;
+                        RightBlueFirstValue = 255;
+                        setRightGreenFirstValue = true;
+                        RightGreenFirstValue = 255;
+                        setRightRedFirstValue = true;
+                        RightRedFirstValue = 255;
+                        setTopBlueFirstValue = true;
+                        TopBlueFirstValue = 255;
+                        setTopGreenFirstValue = true;
+                        TopGreenFirstValue = 255;
+                        setTopRedFirstValue = true;
+                        TopRedFirstValue = 255;
+                        setTopLeftBlueFirstValue = true;
+                        TopLeftBlueFirstValue = 255;
+                        setTopLeftGreenFirstValue = true;
+                        TopLeftGreenFirstValue = 255;
+                        setTopLeftRedFirstValue = true;
+                        TopLeftRedFirstValue = 255;
+                        setTopRightBlueFirstValue = true;
+                        TopRightBlueFirstValue = 255;
+                        setTopRightGreenFirstValue = true;
+                        TopRightGreenFirstValue = 255;
+                        setTopRightRedFirstValue = true;
+                        TopRightRedFirstValue = 255;
+                        break;
+                    case  Color.LightBlue:
+                        setBottomBlueFirstValue = true;
+                        BottomBlueFirstValue = 255;
+                        setBottomGreenFirstValue = true;
+                        BottomGreenFirstValue = 255;
+                        setBottomRedFirstValue = true;
+                        BottomRedFirstValue = 0;
+                        setBottomLeftBlueFirstValue = true;
+                        BottomLeftBlueFirstValue = 255;
+                        setBottomLeftGreenFirstValue = true;
+                        BottomLeftGreenFirstValue = 255;
+                        setBottomLeftRedFirstValue = true;
+                        BottomLeftRedFirstValue = 0;
+                        setBottomRightBlueFirstValue = true;
+                        BottomRightBlueFirstValue = 255;
+                        setBottomRightGreenFirstValue = true;
+                        BottomRightGreenFirstValue = 255;
+                        setBottomRightRedFirstValue = true;
+                        BottomRightRedFirstValue = 0;
+                        setLeftBlueFirstValue = true;
+                        LeftBlueFirstValue = 255;
+                        setLeftGreenFirstValue = true;
+                        LeftGreenFirstValue = 255;
+                        setLeftRedFirstValue = true;
+                        LeftRedFirstValue = 0;
+                        setRightBlueFirstValue = true;
+                        RightBlueFirstValue = 255;
+                        setRightGreenFirstValue = true;
+                        RightGreenFirstValue = 255;
+                        setRightRedFirstValue = true;
+                        RightRedFirstValue = 0;
+                        setTopBlueFirstValue = true;
+                        TopBlueFirstValue = 255;
+                        setTopGreenFirstValue = true;
+                        TopGreenFirstValue = 255;
+                        setTopRedFirstValue = true;
+                        TopRedFirstValue = 0;
+                        setTopLeftBlueFirstValue = true;
+                        TopLeftBlueFirstValue = 255;
+                        setTopLeftGreenFirstValue = true;
+                        TopLeftGreenFirstValue = 255;
+                        setTopLeftRedFirstValue = true;
+                        TopLeftRedFirstValue = 0;
+                        setTopRightBlueFirstValue = true;
+                        TopRightBlueFirstValue = 255;
+                        setTopRightGreenFirstValue = true;
+                        TopRightGreenFirstValue = 255;
+                        setTopRightRedFirstValue = true;
+                        TopRightRedFirstValue = 0;
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  Color.Red:
+                        setBottomBlueSecondValue = true;
+                        BottomBlueSecondValue = 0;
+                        setBottomGreenSecondValue = true;
+                        BottomGreenSecondValue = 0;
+                        setBottomRedSecondValue = true;
+                        BottomRedSecondValue = 255;
+                        setBottomLeftBlueSecondValue = true;
+                        BottomLeftBlueSecondValue = 0;
+                        setBottomLeftGreenSecondValue = true;
+                        BottomLeftGreenSecondValue = 0;
+                        setBottomLeftRedSecondValue = true;
+                        BottomLeftRedSecondValue = 255;
+                        setBottomRightBlueSecondValue = true;
+                        BottomRightBlueSecondValue = 0;
+                        setBottomRightGreenSecondValue = true;
+                        BottomRightGreenSecondValue = 0;
+                        setBottomRightRedSecondValue = true;
+                        BottomRightRedSecondValue = 255;
+                        setLeftBlueSecondValue = true;
+                        LeftBlueSecondValue = 0;
+                        setLeftGreenSecondValue = true;
+                        LeftGreenSecondValue = 0;
+                        setLeftRedSecondValue = true;
+                        LeftRedSecondValue = 255;
+                        setRightBlueSecondValue = true;
+                        RightBlueSecondValue = 0;
+                        setRightGreenSecondValue = true;
+                        RightGreenSecondValue = 0;
+                        setRightRedSecondValue = true;
+                        RightRedSecondValue = 255;
+                        setTopBlueSecondValue = true;
+                        TopBlueSecondValue = 0;
+                        setTopGreenSecondValue = true;
+                        TopGreenSecondValue = 0;
+                        setTopRedSecondValue = true;
+                        TopRedSecondValue = 255;
+                        setTopLeftBlueSecondValue = true;
+                        TopLeftBlueSecondValue = 0;
+                        setTopLeftGreenSecondValue = true;
+                        TopLeftGreenSecondValue = 0;
+                        setTopLeftRedSecondValue = true;
+                        TopLeftRedSecondValue = 255;
+                        setTopRightBlueSecondValue = true;
+                        TopRightBlueSecondValue = 0;
+                        setTopRightGreenSecondValue = true;
+                        TopRightGreenSecondValue = 0;
+                        setTopRightRedSecondValue = true;
+                        TopRightRedSecondValue = 255;
+                        break;
+                    case  Color.Green:
+                        setBottomBlueSecondValue = true;
+                        BottomBlueSecondValue = 0;
+                        setBottomGreenSecondValue = true;
+                        BottomGreenSecondValue = 255;
+                        setBottomRedSecondValue = true;
+                        BottomRedSecondValue = 0;
+                        setBottomLeftBlueSecondValue = true;
+                        BottomLeftBlueSecondValue = 0;
+                        setBottomLeftGreenSecondValue = true;
+                        BottomLeftGreenSecondValue = 255;
+                        setBottomLeftRedSecondValue = true;
+                        BottomLeftRedSecondValue = 0;
+                        setBottomRightBlueSecondValue = true;
+                        BottomRightBlueSecondValue = 0;
+                        setBottomRightGreenSecondValue = true;
+                        BottomRightGreenSecondValue = 255;
+                        setBottomRightRedSecondValue = true;
+                        BottomRightRedSecondValue = 0;
+                        setLeftBlueSecondValue = true;
+                        LeftBlueSecondValue = 0;
+                        setLeftGreenSecondValue = true;
+                        LeftGreenSecondValue = 255;
+                        setLeftRedSecondValue = true;
+                        LeftRedSecondValue = 0;
+                        setRightBlueSecondValue = true;
+                        RightBlueSecondValue = 0;
+                        setRightGreenSecondValue = true;
+                        RightGreenSecondValue = 255;
+                        setRightRedSecondValue = true;
+                        RightRedSecondValue = 0;
+                        setTopBlueSecondValue = true;
+                        TopBlueSecondValue = 0;
+                        setTopGreenSecondValue = true;
+                        TopGreenSecondValue = 255;
+                        setTopRedSecondValue = true;
+                        TopRedSecondValue = 0;
+                        setTopLeftBlueSecondValue = true;
+                        TopLeftBlueSecondValue = 0;
+                        setTopLeftGreenSecondValue = true;
+                        TopLeftGreenSecondValue = 255;
+                        setTopLeftRedSecondValue = true;
+                        TopLeftRedSecondValue = 0;
+                        setTopRightBlueSecondValue = true;
+                        TopRightBlueSecondValue = 0;
+                        setTopRightGreenSecondValue = true;
+                        TopRightGreenSecondValue = 255;
+                        setTopRightRedSecondValue = true;
+                        TopRightRedSecondValue = 0;
+                        break;
+                    case  Color.Blue:
+                        setBottomBlueSecondValue = true;
+                        BottomBlueSecondValue = 255;
+                        setBottomGreenSecondValue = true;
+                        BottomGreenSecondValue = 0;
+                        setBottomRedSecondValue = true;
+                        BottomRedSecondValue = 0;
+                        setBottomLeftBlueSecondValue = true;
+                        BottomLeftBlueSecondValue = 255;
+                        setBottomLeftGreenSecondValue = true;
+                        BottomLeftGreenSecondValue = 0;
+                        setBottomLeftRedSecondValue = true;
+                        BottomLeftRedSecondValue = 0;
+                        setBottomRightBlueSecondValue = true;
+                        BottomRightBlueSecondValue = 255;
+                        setBottomRightGreenSecondValue = true;
+                        BottomRightGreenSecondValue = 0;
+                        setBottomRightRedSecondValue = true;
+                        BottomRightRedSecondValue = 0;
+                        setLeftBlueSecondValue = true;
+                        LeftBlueSecondValue = 255;
+                        setLeftGreenSecondValue = true;
+                        LeftGreenSecondValue = 0;
+                        setLeftRedSecondValue = true;
+                        LeftRedSecondValue = 0;
+                        setRightBlueSecondValue = true;
+                        RightBlueSecondValue = 255;
+                        setRightGreenSecondValue = true;
+                        RightGreenSecondValue = 0;
+                        setRightRedSecondValue = true;
+                        RightRedSecondValue = 0;
+                        setTopBlueSecondValue = true;
+                        TopBlueSecondValue = 255;
+                        setTopGreenSecondValue = true;
+                        TopGreenSecondValue = 0;
+                        setTopRedSecondValue = true;
+                        TopRedSecondValue = 0;
+                        setTopLeftBlueSecondValue = true;
+                        TopLeftBlueSecondValue = 255;
+                        setTopLeftGreenSecondValue = true;
+                        TopLeftGreenSecondValue = 0;
+                        setTopLeftRedSecondValue = true;
+                        TopLeftRedSecondValue = 0;
+                        setTopRightBlueSecondValue = true;
+                        TopRightBlueSecondValue = 255;
+                        setTopRightGreenSecondValue = true;
+                        TopRightGreenSecondValue = 0;
+                        setTopRightRedSecondValue = true;
+                        TopRightRedSecondValue = 0;
+                        break;
+                    case  Color.White:
+                        setBottomBlueSecondValue = true;
+                        BottomBlueSecondValue = 255;
+                        setBottomGreenSecondValue = true;
+                        BottomGreenSecondValue = 255;
+                        setBottomRedSecondValue = true;
+                        BottomRedSecondValue = 255;
+                        setBottomLeftBlueSecondValue = true;
+                        BottomLeftBlueSecondValue = 255;
+                        setBottomLeftGreenSecondValue = true;
+                        BottomLeftGreenSecondValue = 255;
+                        setBottomLeftRedSecondValue = true;
+                        BottomLeftRedSecondValue = 255;
+                        setBottomRightBlueSecondValue = true;
+                        BottomRightBlueSecondValue = 255;
+                        setBottomRightGreenSecondValue = true;
+                        BottomRightGreenSecondValue = 255;
+                        setBottomRightRedSecondValue = true;
+                        BottomRightRedSecondValue = 255;
+                        setLeftBlueSecondValue = true;
+                        LeftBlueSecondValue = 255;
+                        setLeftGreenSecondValue = true;
+                        LeftGreenSecondValue = 255;
+                        setLeftRedSecondValue = true;
+                        LeftRedSecondValue = 255;
+                        setRightBlueSecondValue = true;
+                        RightBlueSecondValue = 255;
+                        setRightGreenSecondValue = true;
+                        RightGreenSecondValue = 255;
+                        setRightRedSecondValue = true;
+                        RightRedSecondValue = 255;
+                        setTopBlueSecondValue = true;
+                        TopBlueSecondValue = 255;
+                        setTopGreenSecondValue = true;
+                        TopGreenSecondValue = 255;
+                        setTopRedSecondValue = true;
+                        TopRedSecondValue = 255;
+                        setTopLeftBlueSecondValue = true;
+                        TopLeftBlueSecondValue = 255;
+                        setTopLeftGreenSecondValue = true;
+                        TopLeftGreenSecondValue = 255;
+                        setTopLeftRedSecondValue = true;
+                        TopLeftRedSecondValue = 255;
+                        setTopRightBlueSecondValue = true;
+                        TopRightBlueSecondValue = 255;
+                        setTopRightGreenSecondValue = true;
+                        TopRightGreenSecondValue = 255;
+                        setTopRightRedSecondValue = true;
+                        TopRightRedSecondValue = 255;
+                        break;
+                    case  Color.LightBlue:
+                        setBottomBlueSecondValue = true;
+                        BottomBlueSecondValue = 255;
+                        setBottomGreenSecondValue = true;
+                        BottomGreenSecondValue = 255;
+                        setBottomRedSecondValue = true;
+                        BottomRedSecondValue = 0;
+                        setBottomLeftBlueSecondValue = true;
+                        BottomLeftBlueSecondValue = 255;
+                        setBottomLeftGreenSecondValue = true;
+                        BottomLeftGreenSecondValue = 255;
+                        setBottomLeftRedSecondValue = true;
+                        BottomLeftRedSecondValue = 0;
+                        setBottomRightBlueSecondValue = true;
+                        BottomRightBlueSecondValue = 255;
+                        setBottomRightGreenSecondValue = true;
+                        BottomRightGreenSecondValue = 255;
+                        setBottomRightRedSecondValue = true;
+                        BottomRightRedSecondValue = 0;
+                        setLeftBlueSecondValue = true;
+                        LeftBlueSecondValue = 255;
+                        setLeftGreenSecondValue = true;
+                        LeftGreenSecondValue = 255;
+                        setLeftRedSecondValue = true;
+                        LeftRedSecondValue = 0;
+                        setRightBlueSecondValue = true;
+                        RightBlueSecondValue = 255;
+                        setRightGreenSecondValue = true;
+                        RightGreenSecondValue = 255;
+                        setRightRedSecondValue = true;
+                        RightRedSecondValue = 0;
+                        setTopBlueSecondValue = true;
+                        TopBlueSecondValue = 255;
+                        setTopGreenSecondValue = true;
+                        TopGreenSecondValue = 255;
+                        setTopRedSecondValue = true;
+                        TopRedSecondValue = 0;
+                        setTopLeftBlueSecondValue = true;
+                        TopLeftBlueSecondValue = 255;
+                        setTopLeftGreenSecondValue = true;
+                        TopLeftGreenSecondValue = 255;
+                        setTopLeftRedSecondValue = true;
+                        TopLeftRedSecondValue = 0;
+                        setTopRightBlueSecondValue = true;
+                        TopRightBlueSecondValue = 255;
+                        setTopRightGreenSecondValue = true;
+                        TopRightGreenSecondValue = 255;
+                        setTopRightRedSecondValue = true;
+                        TopRightRedSecondValue = 0;
+                        break;
+                }
+                if (setBottomBlueFirstValue && setBottomBlueSecondValue)
+                {
+                    Bottom.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(BottomBlueFirstValue* (1 - interpolationValue) + BottomBlueSecondValue * interpolationValue);
+                }
+                if (setBottomGreenFirstValue && setBottomGreenSecondValue)
+                {
+                    Bottom.Green = FlatRedBall.Math.MathFunctions.RoundToInt(BottomGreenFirstValue* (1 - interpolationValue) + BottomGreenSecondValue * interpolationValue);
+                }
+                if (setBottomRedFirstValue && setBottomRedSecondValue)
+                {
+                    Bottom.Red = FlatRedBall.Math.MathFunctions.RoundToInt(BottomRedFirstValue* (1 - interpolationValue) + BottomRedSecondValue * interpolationValue);
+                }
+                if (setBottomLeftBlueFirstValue && setBottomLeftBlueSecondValue)
+                {
+                    BottomLeft.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(BottomLeftBlueFirstValue* (1 - interpolationValue) + BottomLeftBlueSecondValue * interpolationValue);
+                }
+                if (setBottomLeftGreenFirstValue && setBottomLeftGreenSecondValue)
+                {
+                    BottomLeft.Green = FlatRedBall.Math.MathFunctions.RoundToInt(BottomLeftGreenFirstValue* (1 - interpolationValue) + BottomLeftGreenSecondValue * interpolationValue);
+                }
+                if (setBottomLeftRedFirstValue && setBottomLeftRedSecondValue)
+                {
+                    BottomLeft.Red = FlatRedBall.Math.MathFunctions.RoundToInt(BottomLeftRedFirstValue* (1 - interpolationValue) + BottomLeftRedSecondValue * interpolationValue);
+                }
+                if (setBottomRightBlueFirstValue && setBottomRightBlueSecondValue)
+                {
+                    BottomRight.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(BottomRightBlueFirstValue* (1 - interpolationValue) + BottomRightBlueSecondValue * interpolationValue);
+                }
+                if (setBottomRightGreenFirstValue && setBottomRightGreenSecondValue)
+                {
+                    BottomRight.Green = FlatRedBall.Math.MathFunctions.RoundToInt(BottomRightGreenFirstValue* (1 - interpolationValue) + BottomRightGreenSecondValue * interpolationValue);
+                }
+                if (setBottomRightRedFirstValue && setBottomRightRedSecondValue)
+                {
+                    BottomRight.Red = FlatRedBall.Math.MathFunctions.RoundToInt(BottomRightRedFirstValue* (1 - interpolationValue) + BottomRightRedSecondValue * interpolationValue);
+                }
+                if (setLeftBlueFirstValue && setLeftBlueSecondValue)
+                {
+                    Left.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(LeftBlueFirstValue* (1 - interpolationValue) + LeftBlueSecondValue * interpolationValue);
+                }
+                if (setLeftGreenFirstValue && setLeftGreenSecondValue)
+                {
+                    Left.Green = FlatRedBall.Math.MathFunctions.RoundToInt(LeftGreenFirstValue* (1 - interpolationValue) + LeftGreenSecondValue * interpolationValue);
+                }
+                if (setLeftRedFirstValue && setLeftRedSecondValue)
+                {
+                    Left.Red = FlatRedBall.Math.MathFunctions.RoundToInt(LeftRedFirstValue* (1 - interpolationValue) + LeftRedSecondValue * interpolationValue);
+                }
+                if (setRightBlueFirstValue && setRightBlueSecondValue)
+                {
+                    Right.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(RightBlueFirstValue* (1 - interpolationValue) + RightBlueSecondValue * interpolationValue);
+                }
+                if (setRightGreenFirstValue && setRightGreenSecondValue)
+                {
+                    Right.Green = FlatRedBall.Math.MathFunctions.RoundToInt(RightGreenFirstValue* (1 - interpolationValue) + RightGreenSecondValue * interpolationValue);
+                }
+                if (setRightRedFirstValue && setRightRedSecondValue)
+                {
+                    Right.Red = FlatRedBall.Math.MathFunctions.RoundToInt(RightRedFirstValue* (1 - interpolationValue) + RightRedSecondValue * interpolationValue);
+                }
+                if (setTopBlueFirstValue && setTopBlueSecondValue)
+                {
+                    Top.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(TopBlueFirstValue* (1 - interpolationValue) + TopBlueSecondValue * interpolationValue);
+                }
+                if (setTopGreenFirstValue && setTopGreenSecondValue)
+                {
+                    Top.Green = FlatRedBall.Math.MathFunctions.RoundToInt(TopGreenFirstValue* (1 - interpolationValue) + TopGreenSecondValue * interpolationValue);
+                }
+                if (setTopRedFirstValue && setTopRedSecondValue)
+                {
+                    Top.Red = FlatRedBall.Math.MathFunctions.RoundToInt(TopRedFirstValue* (1 - interpolationValue) + TopRedSecondValue * interpolationValue);
+                }
+                if (setTopLeftBlueFirstValue && setTopLeftBlueSecondValue)
+                {
+                    TopLeft.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(TopLeftBlueFirstValue* (1 - interpolationValue) + TopLeftBlueSecondValue * interpolationValue);
+                }
+                if (setTopLeftGreenFirstValue && setTopLeftGreenSecondValue)
+                {
+                    TopLeft.Green = FlatRedBall.Math.MathFunctions.RoundToInt(TopLeftGreenFirstValue* (1 - interpolationValue) + TopLeftGreenSecondValue * interpolationValue);
+                }
+                if (setTopLeftRedFirstValue && setTopLeftRedSecondValue)
+                {
+                    TopLeft.Red = FlatRedBall.Math.MathFunctions.RoundToInt(TopLeftRedFirstValue* (1 - interpolationValue) + TopLeftRedSecondValue * interpolationValue);
+                }
+                if (setTopRightBlueFirstValue && setTopRightBlueSecondValue)
+                {
+                    TopRight.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(TopRightBlueFirstValue* (1 - interpolationValue) + TopRightBlueSecondValue * interpolationValue);
+                }
+                if (setTopRightGreenFirstValue && setTopRightGreenSecondValue)
+                {
+                    TopRight.Green = FlatRedBall.Math.MathFunctions.RoundToInt(TopRightGreenFirstValue* (1 - interpolationValue) + TopRightGreenSecondValue * interpolationValue);
+                }
+                if (setTopRightRedFirstValue && setTopRightRedSecondValue)
+                {
+                    TopRight.Red = FlatRedBall.Math.MathFunctions.RoundToInt(TopRightRedFirstValue* (1 - interpolationValue) + TopRightRedSecondValue * interpolationValue);
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentColorState = firstState;
+                }
+                else
+                {
+                    mCurrentColorState = secondState;
+                }
+            }
             #endregion
             #region State Interpolate To
             public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
@@ -2430,12 +3298,171 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color fromState,AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (Color toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "Color").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentColorState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (Color toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentColorState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
             #endregion
             #region State Animations
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> PulseGreenLightBlueAnimationInstructions (object target) 
+            {
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction( ()=> this.CurrentColorState = Color.Green);
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(Color.LightBlue, 1, FlatRedBall.Glue.StateInterpolation.InterpolationType.Sinusoidal, FlatRedBall.Glue.StateInterpolation.Easing.InOut, PulseGreenLightBlueAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => this.InterpolateTo(Color.Green, 1, FlatRedBall.Glue.StateInterpolation.InterpolationType.Sinusoidal, FlatRedBall.Glue.StateInterpolation.Easing.InOut, PulseGreenLightBlueAnimation));
+                    toReturn.Target = target;
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => FlatRedBall.Instructions.InstructionManager.Instructions.AddRange(this.PulseGreenLightBlueAnimationInstructions(target)));
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 2;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+            }
+            private System.Collections.Generic.IEnumerable<FlatRedBall.Instructions.Instruction> PulseGreenLightBlueAnimationRelativeInstructions (object target) 
+            {
+                {
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "Color/Green").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "Color/LightBlue").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(Color.LightBlue);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 1, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Sinusoidal, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 0;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(() =>
+                    {
+                        var relativeStart = ElementSave.AllStates.FirstOrDefault(item => item.Name == "Color/LightBlue").Clone();
+                        var relativeEnd = ElementSave.AllStates.FirstOrDefault(item => item.Name == "Color/Green").Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.SubtractFromThis(relativeEnd, relativeStart);
+                        var difference = relativeEnd;
+                        Gum.DataTypes.Variables.StateSave first = GetCurrentValuesOnState(Color.Green);
+                        Gum.DataTypes.Variables.StateSave second = first.Clone();
+                        Gum.DataTypes.Variables.StateSaveExtensionMethods.AddIntoThis(second, difference);
+                        FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: 1, type: FlatRedBall.Glue.StateInterpolation.InterpolationType.Sinusoidal, easing: FlatRedBall.Glue.StateInterpolation.Easing.InOut);
+                        tweener.Owner = this;
+                        tweener.PositionChanged = newPosition => this.InterpolateBetween(first, second, newPosition);
+                        tweener.Start();
+                        StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                    }
+                    );
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 1;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+                {
+                    var toReturn = new FlatRedBall.Instructions.DelegateInstruction(  () => FlatRedBall.Instructions.InstructionManager.Instructions.AddRange(this.PulseGreenLightBlueAnimationRelativeInstructions(target)));
+                    toReturn.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + 2;
+                    toReturn.Target = target;
+                    yield return toReturn;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation pulseGreenLightBlueAnimation;
+            public FlatRedBall.Gum.Animation.GumAnimation PulseGreenLightBlueAnimation
+            {
+                get
+                {
+                    if (pulseGreenLightBlueAnimation == null)
+                    {
+                        pulseGreenLightBlueAnimation = new FlatRedBall.Gum.Animation.GumAnimation(2, PulseGreenLightBlueAnimationInstructions);
+                    }
+                    return pulseGreenLightBlueAnimation;
+                }
+            }
+            private FlatRedBall.Gum.Animation.GumAnimation pulseGreenLightBlueAnimationRelative;
+            public FlatRedBall.Gum.Animation.GumAnimation PulseGreenLightBlueAnimationRelative
+            {
+                get
+                {
+                    if (pulseGreenLightBlueAnimationRelative == null)
+                    {
+                        pulseGreenLightBlueAnimationRelative = new FlatRedBall.Gum.Animation.GumAnimation(2, PulseGreenLightBlueAnimationRelativeInstructions);
+                    }
+                    return pulseGreenLightBlueAnimationRelative;
+                }
+            }
             #endregion
             public override void StopAnimations () 
             {
                 base.StopAnimations();
+                PulseGreenLightBlueAnimation.Stop();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -5666,6 +6693,1962 @@
                 }
                 return newState;
             }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (Color state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Color.Red:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Blue",
+                            Type = "int",
+                            Value = TopLeft.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Green",
+                            Type = "int",
+                            Value = TopLeft.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Red",
+                            Type = "int",
+                            Value = TopLeft.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Blue",
+                            Type = "int",
+                            Value = Top.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Green",
+                            Type = "int",
+                            Value = Top.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Red",
+                            Type = "int",
+                            Value = Top.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Blue",
+                            Type = "int",
+                            Value = TopRight.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Green",
+                            Type = "int",
+                            Value = TopRight.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Red",
+                            Type = "int",
+                            Value = TopRight.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Blue",
+                            Type = "int",
+                            Value = Right.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Green",
+                            Type = "int",
+                            Value = Right.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Red",
+                            Type = "int",
+                            Value = Right.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Blue",
+                            Type = "int",
+                            Value = BottomRight.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Green",
+                            Type = "int",
+                            Value = BottomRight.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Red",
+                            Type = "int",
+                            Value = BottomRight.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Blue",
+                            Type = "int",
+                            Value = Bottom.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Green",
+                            Type = "int",
+                            Value = Bottom.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Red",
+                            Type = "int",
+                            Value = Bottom.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Blue",
+                            Type = "int",
+                            Value = BottomLeft.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Green",
+                            Type = "int",
+                            Value = BottomLeft.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Red",
+                            Type = "int",
+                            Value = BottomLeft.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Blue",
+                            Type = "int",
+                            Value = Left.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Green",
+                            Type = "int",
+                            Value = Left.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Red",
+                            Type = "int",
+                            Value = Left.Red
+                        }
+                        );
+                        break;
+                    case  Color.Green:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Blue",
+                            Type = "int",
+                            Value = TopLeft.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Green",
+                            Type = "int",
+                            Value = TopLeft.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Red",
+                            Type = "int",
+                            Value = TopLeft.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Blue",
+                            Type = "int",
+                            Value = Top.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Green",
+                            Type = "int",
+                            Value = Top.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Red",
+                            Type = "int",
+                            Value = Top.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Blue",
+                            Type = "int",
+                            Value = TopRight.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Green",
+                            Type = "int",
+                            Value = TopRight.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Red",
+                            Type = "int",
+                            Value = TopRight.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Blue",
+                            Type = "int",
+                            Value = Right.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Green",
+                            Type = "int",
+                            Value = Right.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Red",
+                            Type = "int",
+                            Value = Right.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Blue",
+                            Type = "int",
+                            Value = BottomRight.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Green",
+                            Type = "int",
+                            Value = BottomRight.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Red",
+                            Type = "int",
+                            Value = BottomRight.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Blue",
+                            Type = "int",
+                            Value = Bottom.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Green",
+                            Type = "int",
+                            Value = Bottom.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Red",
+                            Type = "int",
+                            Value = Bottom.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Blue",
+                            Type = "int",
+                            Value = BottomLeft.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Green",
+                            Type = "int",
+                            Value = BottomLeft.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Red",
+                            Type = "int",
+                            Value = BottomLeft.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Blue",
+                            Type = "int",
+                            Value = Left.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Green",
+                            Type = "int",
+                            Value = Left.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Red",
+                            Type = "int",
+                            Value = Left.Red
+                        }
+                        );
+                        break;
+                    case  Color.Blue:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Blue",
+                            Type = "int",
+                            Value = TopLeft.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Green",
+                            Type = "int",
+                            Value = TopLeft.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Red",
+                            Type = "int",
+                            Value = TopLeft.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Blue",
+                            Type = "int",
+                            Value = Top.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Green",
+                            Type = "int",
+                            Value = Top.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Red",
+                            Type = "int",
+                            Value = Top.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Blue",
+                            Type = "int",
+                            Value = TopRight.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Green",
+                            Type = "int",
+                            Value = TopRight.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Red",
+                            Type = "int",
+                            Value = TopRight.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Blue",
+                            Type = "int",
+                            Value = Right.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Green",
+                            Type = "int",
+                            Value = Right.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Red",
+                            Type = "int",
+                            Value = Right.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Blue",
+                            Type = "int",
+                            Value = BottomRight.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Green",
+                            Type = "int",
+                            Value = BottomRight.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Red",
+                            Type = "int",
+                            Value = BottomRight.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Blue",
+                            Type = "int",
+                            Value = Bottom.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Green",
+                            Type = "int",
+                            Value = Bottom.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Red",
+                            Type = "int",
+                            Value = Bottom.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Blue",
+                            Type = "int",
+                            Value = BottomLeft.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Green",
+                            Type = "int",
+                            Value = BottomLeft.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Red",
+                            Type = "int",
+                            Value = BottomLeft.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Blue",
+                            Type = "int",
+                            Value = Left.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Green",
+                            Type = "int",
+                            Value = Left.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Red",
+                            Type = "int",
+                            Value = Left.Red
+                        }
+                        );
+                        break;
+                    case  Color.White:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Blue",
+                            Type = "int",
+                            Value = TopLeft.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Green",
+                            Type = "int",
+                            Value = TopLeft.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Red",
+                            Type = "int",
+                            Value = TopLeft.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Blue",
+                            Type = "int",
+                            Value = Top.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Green",
+                            Type = "int",
+                            Value = Top.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Red",
+                            Type = "int",
+                            Value = Top.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Blue",
+                            Type = "int",
+                            Value = TopRight.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Green",
+                            Type = "int",
+                            Value = TopRight.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Red",
+                            Type = "int",
+                            Value = TopRight.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Blue",
+                            Type = "int",
+                            Value = Right.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Green",
+                            Type = "int",
+                            Value = Right.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Red",
+                            Type = "int",
+                            Value = Right.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Blue",
+                            Type = "int",
+                            Value = BottomRight.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Green",
+                            Type = "int",
+                            Value = BottomRight.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Red",
+                            Type = "int",
+                            Value = BottomRight.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Blue",
+                            Type = "int",
+                            Value = Bottom.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Green",
+                            Type = "int",
+                            Value = Bottom.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Red",
+                            Type = "int",
+                            Value = Bottom.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Blue",
+                            Type = "int",
+                            Value = BottomLeft.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Green",
+                            Type = "int",
+                            Value = BottomLeft.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Red",
+                            Type = "int",
+                            Value = BottomLeft.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Blue",
+                            Type = "int",
+                            Value = Left.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Green",
+                            Type = "int",
+                            Value = Left.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Red",
+                            Type = "int",
+                            Value = Left.Red
+                        }
+                        );
+                        break;
+                    case  Color.LightBlue:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Blue",
+                            Type = "int",
+                            Value = TopLeft.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Green",
+                            Type = "int",
+                            Value = TopLeft.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Red",
+                            Type = "int",
+                            Value = TopLeft.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Blue",
+                            Type = "int",
+                            Value = Top.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Green",
+                            Type = "int",
+                            Value = Top.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Red",
+                            Type = "int",
+                            Value = Top.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Blue",
+                            Type = "int",
+                            Value = TopRight.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Green",
+                            Type = "int",
+                            Value = TopRight.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Red",
+                            Type = "int",
+                            Value = TopRight.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Blue",
+                            Type = "int",
+                            Value = Right.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Green",
+                            Type = "int",
+                            Value = Right.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Red",
+                            Type = "int",
+                            Value = Right.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Blue",
+                            Type = "int",
+                            Value = BottomRight.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Green",
+                            Type = "int",
+                            Value = BottomRight.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Red",
+                            Type = "int",
+                            Value = BottomRight.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Blue",
+                            Type = "int",
+                            Value = Bottom.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Green",
+                            Type = "int",
+                            Value = Bottom.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Red",
+                            Type = "int",
+                            Value = Bottom.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Blue",
+                            Type = "int",
+                            Value = BottomLeft.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Green",
+                            Type = "int",
+                            Value = BottomLeft.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Red",
+                            Type = "int",
+                            Value = BottomLeft.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Blue",
+                            Type = "int",
+                            Value = Left.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Green",
+                            Type = "int",
+                            Value = Left.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Red",
+                            Type = "int",
+                            Value = Left.Red
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (Color state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Color.Red:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Blue",
+                            Type = "int",
+                            Value = TopLeft.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Green",
+                            Type = "int",
+                            Value = TopLeft.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Red",
+                            Type = "int",
+                            Value = TopLeft.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Blue",
+                            Type = "int",
+                            Value = Top.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Green",
+                            Type = "int",
+                            Value = Top.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Red",
+                            Type = "int",
+                            Value = Top.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Blue",
+                            Type = "int",
+                            Value = TopRight.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Green",
+                            Type = "int",
+                            Value = TopRight.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Red",
+                            Type = "int",
+                            Value = TopRight.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Blue",
+                            Type = "int",
+                            Value = Right.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Green",
+                            Type = "int",
+                            Value = Right.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Red",
+                            Type = "int",
+                            Value = Right.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Blue",
+                            Type = "int",
+                            Value = BottomRight.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Green",
+                            Type = "int",
+                            Value = BottomRight.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Red",
+                            Type = "int",
+                            Value = BottomRight.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Blue",
+                            Type = "int",
+                            Value = Bottom.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Green",
+                            Type = "int",
+                            Value = Bottom.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Red",
+                            Type = "int",
+                            Value = Bottom.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Blue",
+                            Type = "int",
+                            Value = BottomLeft.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Green",
+                            Type = "int",
+                            Value = BottomLeft.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Red",
+                            Type = "int",
+                            Value = BottomLeft.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Blue",
+                            Type = "int",
+                            Value = Left.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Green",
+                            Type = "int",
+                            Value = Left.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Red",
+                            Type = "int",
+                            Value = Left.Red + 255
+                        }
+                        );
+                        break;
+                    case  Color.Green:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Blue",
+                            Type = "int",
+                            Value = TopLeft.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Green",
+                            Type = "int",
+                            Value = TopLeft.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Red",
+                            Type = "int",
+                            Value = TopLeft.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Blue",
+                            Type = "int",
+                            Value = Top.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Green",
+                            Type = "int",
+                            Value = Top.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Red",
+                            Type = "int",
+                            Value = Top.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Blue",
+                            Type = "int",
+                            Value = TopRight.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Green",
+                            Type = "int",
+                            Value = TopRight.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Red",
+                            Type = "int",
+                            Value = TopRight.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Blue",
+                            Type = "int",
+                            Value = Right.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Green",
+                            Type = "int",
+                            Value = Right.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Red",
+                            Type = "int",
+                            Value = Right.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Blue",
+                            Type = "int",
+                            Value = BottomRight.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Green",
+                            Type = "int",
+                            Value = BottomRight.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Red",
+                            Type = "int",
+                            Value = BottomRight.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Blue",
+                            Type = "int",
+                            Value = Bottom.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Green",
+                            Type = "int",
+                            Value = Bottom.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Red",
+                            Type = "int",
+                            Value = Bottom.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Blue",
+                            Type = "int",
+                            Value = BottomLeft.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Green",
+                            Type = "int",
+                            Value = BottomLeft.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Red",
+                            Type = "int",
+                            Value = BottomLeft.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Blue",
+                            Type = "int",
+                            Value = Left.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Green",
+                            Type = "int",
+                            Value = Left.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Red",
+                            Type = "int",
+                            Value = Left.Red + 0
+                        }
+                        );
+                        break;
+                    case  Color.Blue:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Blue",
+                            Type = "int",
+                            Value = TopLeft.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Green",
+                            Type = "int",
+                            Value = TopLeft.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Red",
+                            Type = "int",
+                            Value = TopLeft.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Blue",
+                            Type = "int",
+                            Value = Top.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Green",
+                            Type = "int",
+                            Value = Top.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Red",
+                            Type = "int",
+                            Value = Top.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Blue",
+                            Type = "int",
+                            Value = TopRight.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Green",
+                            Type = "int",
+                            Value = TopRight.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Red",
+                            Type = "int",
+                            Value = TopRight.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Blue",
+                            Type = "int",
+                            Value = Right.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Green",
+                            Type = "int",
+                            Value = Right.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Red",
+                            Type = "int",
+                            Value = Right.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Blue",
+                            Type = "int",
+                            Value = BottomRight.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Green",
+                            Type = "int",
+                            Value = BottomRight.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Red",
+                            Type = "int",
+                            Value = BottomRight.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Blue",
+                            Type = "int",
+                            Value = Bottom.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Green",
+                            Type = "int",
+                            Value = Bottom.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Red",
+                            Type = "int",
+                            Value = Bottom.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Blue",
+                            Type = "int",
+                            Value = BottomLeft.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Green",
+                            Type = "int",
+                            Value = BottomLeft.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Red",
+                            Type = "int",
+                            Value = BottomLeft.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Blue",
+                            Type = "int",
+                            Value = Left.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Green",
+                            Type = "int",
+                            Value = Left.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Red",
+                            Type = "int",
+                            Value = Left.Red + 0
+                        }
+                        );
+                        break;
+                    case  Color.White:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Blue",
+                            Type = "int",
+                            Value = TopLeft.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Green",
+                            Type = "int",
+                            Value = TopLeft.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Red",
+                            Type = "int",
+                            Value = TopLeft.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Blue",
+                            Type = "int",
+                            Value = Top.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Green",
+                            Type = "int",
+                            Value = Top.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Red",
+                            Type = "int",
+                            Value = Top.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Blue",
+                            Type = "int",
+                            Value = TopRight.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Green",
+                            Type = "int",
+                            Value = TopRight.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Red",
+                            Type = "int",
+                            Value = TopRight.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Blue",
+                            Type = "int",
+                            Value = Right.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Green",
+                            Type = "int",
+                            Value = Right.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Red",
+                            Type = "int",
+                            Value = Right.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Blue",
+                            Type = "int",
+                            Value = BottomRight.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Green",
+                            Type = "int",
+                            Value = BottomRight.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Red",
+                            Type = "int",
+                            Value = BottomRight.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Blue",
+                            Type = "int",
+                            Value = Bottom.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Green",
+                            Type = "int",
+                            Value = Bottom.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Red",
+                            Type = "int",
+                            Value = Bottom.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Blue",
+                            Type = "int",
+                            Value = BottomLeft.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Green",
+                            Type = "int",
+                            Value = BottomLeft.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Red",
+                            Type = "int",
+                            Value = BottomLeft.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Blue",
+                            Type = "int",
+                            Value = Left.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Green",
+                            Type = "int",
+                            Value = Left.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Red",
+                            Type = "int",
+                            Value = Left.Red + 255
+                        }
+                        );
+                        break;
+                    case  Color.LightBlue:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Blue",
+                            Type = "int",
+                            Value = TopLeft.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Green",
+                            Type = "int",
+                            Value = TopLeft.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopLeft.Red",
+                            Type = "int",
+                            Value = TopLeft.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Blue",
+                            Type = "int",
+                            Value = Top.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Green",
+                            Type = "int",
+                            Value = Top.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Top.Red",
+                            Type = "int",
+                            Value = Top.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Blue",
+                            Type = "int",
+                            Value = TopRight.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Green",
+                            Type = "int",
+                            Value = TopRight.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TopRight.Red",
+                            Type = "int",
+                            Value = TopRight.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Blue",
+                            Type = "int",
+                            Value = Right.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Green",
+                            Type = "int",
+                            Value = Right.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Right.Red",
+                            Type = "int",
+                            Value = Right.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Blue",
+                            Type = "int",
+                            Value = BottomRight.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Green",
+                            Type = "int",
+                            Value = BottomRight.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomRight.Red",
+                            Type = "int",
+                            Value = BottomRight.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Blue",
+                            Type = "int",
+                            Value = Bottom.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Green",
+                            Type = "int",
+                            Value = Bottom.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Bottom.Red",
+                            Type = "int",
+                            Value = Bottom.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Blue",
+                            Type = "int",
+                            Value = BottomLeft.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Green",
+                            Type = "int",
+                            Value = BottomLeft.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BottomLeft.Red",
+                            Type = "int",
+                            Value = BottomLeft.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Blue",
+                            Type = "int",
+                            Value = Left.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Green",
+                            Type = "int",
+                            Value = Left.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Left.Red",
+                            Type = "int",
+                            Value = Left.Red + 0
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
             #endregion
             public override void ApplyState (Gum.DataTypes.Variables.StateSave state) 
             {
@@ -5681,6 +8664,14 @@
                     {
                         if(state.Name == "RightConnect") this.mCurrentConnectionsState = Connections.RightConnect;
                         if(state.Name == "LeftConnect") this.mCurrentConnectionsState = Connections.LeftConnect;
+                    }
+                    else if (category.Name == "Color")
+                    {
+                        if(state.Name == "Red") this.mCurrentColorState = Color.Red;
+                        if(state.Name == "Green") this.mCurrentColorState = Color.Green;
+                        if(state.Name == "Blue") this.mCurrentColorState = Color.Blue;
+                        if(state.Name == "White") this.mCurrentColorState = Color.White;
+                        if(state.Name == "LightBlue") this.mCurrentColorState = Color.LightBlue;
                     }
                 }
                 base.ApplyState(state);

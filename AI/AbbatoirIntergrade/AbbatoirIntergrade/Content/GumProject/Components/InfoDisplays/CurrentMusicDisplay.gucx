@@ -302,7 +302,7 @@
       <Name>Displayed</Name>
       <Variable>
         <Type>int</Type>
-        <Name>TrackName.Alpha</Name>
+        <Name>ArtistName.Alpha</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
@@ -316,7 +316,7 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>ArtistName.Alpha</Name>
+        <Name>TrackName.Alpha</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>

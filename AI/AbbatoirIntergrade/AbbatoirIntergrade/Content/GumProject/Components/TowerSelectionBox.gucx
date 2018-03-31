@@ -402,18 +402,6 @@ OR
       <Name>Double</Name>
       <Variable>
         <Type>bool</Type>
-        <Name>StructureChoice2.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>TextInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
         <Name>ConfirmButton.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
@@ -431,6 +419,12 @@ OR
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
+        <Type>HorizontalAlignment</Type>
+        <Name>InstructionsText.HorizontalAlignment</Name>
+        <Value xsi:type="xsd:int">1</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>string</Type>
         <Name>InstructionsText.Text</Name>
         <Value xsi:type="xsd:string">We have time to develop one new defense!  
@@ -439,16 +433,16 @@ Choose one:</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>HorizontalAlignment</Type>
-        <Name>InstructionsText.HorizontalAlignment</Name>
-        <Value xsi:type="xsd:int">1</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>VerticalAlignment</Type>
         <Name>InstructionsText.VerticalAlignment</Name>
         <Value xsi:type="xsd:int">0</Value>
         <Category>Text</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>SelectionState</Type>
+        <Name>StructureChoice1.SelectionState</Name>
+        <Value xsi:type="xsd:string">Selected</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -464,9 +458,15 @@ Choose one:</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>SelectionState</Type>
-        <Name>StructureChoice1.SelectionState</Name>
-        <Value xsi:type="xsd:string">Selected</Value>
+        <Type>bool</Type>
+        <Name>StructureChoice2.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>TextInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

@@ -136,11 +136,6 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>State</Type>
-      <Name>State</Name>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>MessageText.CustomFontFile</Name>
@@ -198,6 +193,11 @@
       <Type>float</Type>
       <Name>MessageText.Y</Name>
       <Value xsi:type="xsd:float">425</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>State</Type>
+      <Name>State</Name>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

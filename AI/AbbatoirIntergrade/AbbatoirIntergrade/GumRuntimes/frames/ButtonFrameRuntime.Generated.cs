@@ -30,12 +30,19 @@
                 Restart,
                 History
             }
+            public enum Colors
+            {
+                Normal,
+                Red,
+                Green
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
             Highlight mCurrentHighlightState;
             Select mCurrentSelectState;
             ButtonType mCurrentButtonTypeState;
+            Colors mCurrentColorsState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -218,6 +225,53 @@
                             SpriteInstance.TextureTop = 945;
                             SpriteInstance.TextureWidth = 250;
                             SpriteInstance.Visible = true;
+                            break;
+                    }
+                }
+            }
+            public Colors CurrentColorsState
+            {
+                get
+                {
+                    return mCurrentColorsState;
+                }
+                set
+                {
+                    mCurrentColorsState = value;
+                    switch(mCurrentColorsState)
+                    {
+                        case  Colors.Normal:
+                            BackgroundSprite.Blue = 255;
+                            BackgroundSprite.Green = 255;
+                            BackgroundSprite.Red = 255;
+                            SelectSprite.Blue = 255;
+                            SelectSprite.Green = 255;
+                            SelectSprite.Red = 255;
+                            SpriteInstance.Blue = 255;
+                            SpriteInstance.Green = 255;
+                            SpriteInstance.Red = 255;
+                            break;
+                        case  Colors.Red:
+                            BackgroundSprite.Blue = 0;
+                            BackgroundSprite.Green = 0;
+                            BackgroundSprite.Red = 255;
+                            SelectSprite.Blue = 0;
+                            SelectSprite.Green = 0;
+                            SelectSprite.Red = 255;
+                            SpriteInstance.Blue = 0;
+                            SpriteInstance.Green = 0;
+                            SpriteInstance.Red = 255;
+                            break;
+                        case  Colors.Green:
+                            BackgroundSprite.Blue = 0;
+                            BackgroundSprite.Green = 255;
+                            BackgroundSprite.Red = 0;
+                            SelectSprite.Blue = 0;
+                            SelectSprite.Green = 255;
+                            SelectSprite.Red = 0;
+                            SpriteInstance.Blue = 0;
+                            SpriteInstance.Green = 255;
+                            SpriteInstance.Red = 0;
                             break;
                     }
                 }
@@ -1112,6 +1166,221 @@
                     mCurrentButtonTypeState = secondState;
                 }
             }
+            public void InterpolateBetween (Colors firstState, Colors secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                bool setBackgroundSpriteBlueFirstValue = false;
+                bool setBackgroundSpriteBlueSecondValue = false;
+                int BackgroundSpriteBlueFirstValue= 0;
+                int BackgroundSpriteBlueSecondValue= 0;
+                bool setBackgroundSpriteGreenFirstValue = false;
+                bool setBackgroundSpriteGreenSecondValue = false;
+                int BackgroundSpriteGreenFirstValue= 0;
+                int BackgroundSpriteGreenSecondValue= 0;
+                bool setBackgroundSpriteRedFirstValue = false;
+                bool setBackgroundSpriteRedSecondValue = false;
+                int BackgroundSpriteRedFirstValue= 0;
+                int BackgroundSpriteRedSecondValue= 0;
+                bool setSelectSpriteBlueFirstValue = false;
+                bool setSelectSpriteBlueSecondValue = false;
+                int SelectSpriteBlueFirstValue= 0;
+                int SelectSpriteBlueSecondValue= 0;
+                bool setSelectSpriteGreenFirstValue = false;
+                bool setSelectSpriteGreenSecondValue = false;
+                int SelectSpriteGreenFirstValue= 0;
+                int SelectSpriteGreenSecondValue= 0;
+                bool setSelectSpriteRedFirstValue = false;
+                bool setSelectSpriteRedSecondValue = false;
+                int SelectSpriteRedFirstValue= 0;
+                int SelectSpriteRedSecondValue= 0;
+                bool setSpriteInstanceBlueFirstValue = false;
+                bool setSpriteInstanceBlueSecondValue = false;
+                int SpriteInstanceBlueFirstValue= 0;
+                int SpriteInstanceBlueSecondValue= 0;
+                bool setSpriteInstanceGreenFirstValue = false;
+                bool setSpriteInstanceGreenSecondValue = false;
+                int SpriteInstanceGreenFirstValue= 0;
+                int SpriteInstanceGreenSecondValue= 0;
+                bool setSpriteInstanceRedFirstValue = false;
+                bool setSpriteInstanceRedSecondValue = false;
+                int SpriteInstanceRedFirstValue= 0;
+                int SpriteInstanceRedSecondValue= 0;
+                switch(firstState)
+                {
+                    case  Colors.Normal:
+                        setBackgroundSpriteBlueFirstValue = true;
+                        BackgroundSpriteBlueFirstValue = 255;
+                        setBackgroundSpriteGreenFirstValue = true;
+                        BackgroundSpriteGreenFirstValue = 255;
+                        setBackgroundSpriteRedFirstValue = true;
+                        BackgroundSpriteRedFirstValue = 255;
+                        setSelectSpriteBlueFirstValue = true;
+                        SelectSpriteBlueFirstValue = 255;
+                        setSelectSpriteGreenFirstValue = true;
+                        SelectSpriteGreenFirstValue = 255;
+                        setSelectSpriteRedFirstValue = true;
+                        SelectSpriteRedFirstValue = 255;
+                        setSpriteInstanceBlueFirstValue = true;
+                        SpriteInstanceBlueFirstValue = 255;
+                        setSpriteInstanceGreenFirstValue = true;
+                        SpriteInstanceGreenFirstValue = 255;
+                        setSpriteInstanceRedFirstValue = true;
+                        SpriteInstanceRedFirstValue = 255;
+                        break;
+                    case  Colors.Red:
+                        setBackgroundSpriteBlueFirstValue = true;
+                        BackgroundSpriteBlueFirstValue = 0;
+                        setBackgroundSpriteGreenFirstValue = true;
+                        BackgroundSpriteGreenFirstValue = 0;
+                        setBackgroundSpriteRedFirstValue = true;
+                        BackgroundSpriteRedFirstValue = 255;
+                        setSelectSpriteBlueFirstValue = true;
+                        SelectSpriteBlueFirstValue = 0;
+                        setSelectSpriteGreenFirstValue = true;
+                        SelectSpriteGreenFirstValue = 0;
+                        setSelectSpriteRedFirstValue = true;
+                        SelectSpriteRedFirstValue = 255;
+                        setSpriteInstanceBlueFirstValue = true;
+                        SpriteInstanceBlueFirstValue = 0;
+                        setSpriteInstanceGreenFirstValue = true;
+                        SpriteInstanceGreenFirstValue = 0;
+                        setSpriteInstanceRedFirstValue = true;
+                        SpriteInstanceRedFirstValue = 255;
+                        break;
+                    case  Colors.Green:
+                        setBackgroundSpriteBlueFirstValue = true;
+                        BackgroundSpriteBlueFirstValue = 0;
+                        setBackgroundSpriteGreenFirstValue = true;
+                        BackgroundSpriteGreenFirstValue = 255;
+                        setBackgroundSpriteRedFirstValue = true;
+                        BackgroundSpriteRedFirstValue = 0;
+                        setSelectSpriteBlueFirstValue = true;
+                        SelectSpriteBlueFirstValue = 0;
+                        setSelectSpriteGreenFirstValue = true;
+                        SelectSpriteGreenFirstValue = 255;
+                        setSelectSpriteRedFirstValue = true;
+                        SelectSpriteRedFirstValue = 0;
+                        setSpriteInstanceBlueFirstValue = true;
+                        SpriteInstanceBlueFirstValue = 0;
+                        setSpriteInstanceGreenFirstValue = true;
+                        SpriteInstanceGreenFirstValue = 255;
+                        setSpriteInstanceRedFirstValue = true;
+                        SpriteInstanceRedFirstValue = 0;
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  Colors.Normal:
+                        setBackgroundSpriteBlueSecondValue = true;
+                        BackgroundSpriteBlueSecondValue = 255;
+                        setBackgroundSpriteGreenSecondValue = true;
+                        BackgroundSpriteGreenSecondValue = 255;
+                        setBackgroundSpriteRedSecondValue = true;
+                        BackgroundSpriteRedSecondValue = 255;
+                        setSelectSpriteBlueSecondValue = true;
+                        SelectSpriteBlueSecondValue = 255;
+                        setSelectSpriteGreenSecondValue = true;
+                        SelectSpriteGreenSecondValue = 255;
+                        setSelectSpriteRedSecondValue = true;
+                        SelectSpriteRedSecondValue = 255;
+                        setSpriteInstanceBlueSecondValue = true;
+                        SpriteInstanceBlueSecondValue = 255;
+                        setSpriteInstanceGreenSecondValue = true;
+                        SpriteInstanceGreenSecondValue = 255;
+                        setSpriteInstanceRedSecondValue = true;
+                        SpriteInstanceRedSecondValue = 255;
+                        break;
+                    case  Colors.Red:
+                        setBackgroundSpriteBlueSecondValue = true;
+                        BackgroundSpriteBlueSecondValue = 0;
+                        setBackgroundSpriteGreenSecondValue = true;
+                        BackgroundSpriteGreenSecondValue = 0;
+                        setBackgroundSpriteRedSecondValue = true;
+                        BackgroundSpriteRedSecondValue = 255;
+                        setSelectSpriteBlueSecondValue = true;
+                        SelectSpriteBlueSecondValue = 0;
+                        setSelectSpriteGreenSecondValue = true;
+                        SelectSpriteGreenSecondValue = 0;
+                        setSelectSpriteRedSecondValue = true;
+                        SelectSpriteRedSecondValue = 255;
+                        setSpriteInstanceBlueSecondValue = true;
+                        SpriteInstanceBlueSecondValue = 0;
+                        setSpriteInstanceGreenSecondValue = true;
+                        SpriteInstanceGreenSecondValue = 0;
+                        setSpriteInstanceRedSecondValue = true;
+                        SpriteInstanceRedSecondValue = 255;
+                        break;
+                    case  Colors.Green:
+                        setBackgroundSpriteBlueSecondValue = true;
+                        BackgroundSpriteBlueSecondValue = 0;
+                        setBackgroundSpriteGreenSecondValue = true;
+                        BackgroundSpriteGreenSecondValue = 255;
+                        setBackgroundSpriteRedSecondValue = true;
+                        BackgroundSpriteRedSecondValue = 0;
+                        setSelectSpriteBlueSecondValue = true;
+                        SelectSpriteBlueSecondValue = 0;
+                        setSelectSpriteGreenSecondValue = true;
+                        SelectSpriteGreenSecondValue = 255;
+                        setSelectSpriteRedSecondValue = true;
+                        SelectSpriteRedSecondValue = 0;
+                        setSpriteInstanceBlueSecondValue = true;
+                        SpriteInstanceBlueSecondValue = 0;
+                        setSpriteInstanceGreenSecondValue = true;
+                        SpriteInstanceGreenSecondValue = 255;
+                        setSpriteInstanceRedSecondValue = true;
+                        SpriteInstanceRedSecondValue = 0;
+                        break;
+                }
+                if (setBackgroundSpriteBlueFirstValue && setBackgroundSpriteBlueSecondValue)
+                {
+                    BackgroundSprite.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(BackgroundSpriteBlueFirstValue* (1 - interpolationValue) + BackgroundSpriteBlueSecondValue * interpolationValue);
+                }
+                if (setBackgroundSpriteGreenFirstValue && setBackgroundSpriteGreenSecondValue)
+                {
+                    BackgroundSprite.Green = FlatRedBall.Math.MathFunctions.RoundToInt(BackgroundSpriteGreenFirstValue* (1 - interpolationValue) + BackgroundSpriteGreenSecondValue * interpolationValue);
+                }
+                if (setBackgroundSpriteRedFirstValue && setBackgroundSpriteRedSecondValue)
+                {
+                    BackgroundSprite.Red = FlatRedBall.Math.MathFunctions.RoundToInt(BackgroundSpriteRedFirstValue* (1 - interpolationValue) + BackgroundSpriteRedSecondValue * interpolationValue);
+                }
+                if (setSelectSpriteBlueFirstValue && setSelectSpriteBlueSecondValue)
+                {
+                    SelectSprite.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(SelectSpriteBlueFirstValue* (1 - interpolationValue) + SelectSpriteBlueSecondValue * interpolationValue);
+                }
+                if (setSelectSpriteGreenFirstValue && setSelectSpriteGreenSecondValue)
+                {
+                    SelectSprite.Green = FlatRedBall.Math.MathFunctions.RoundToInt(SelectSpriteGreenFirstValue* (1 - interpolationValue) + SelectSpriteGreenSecondValue * interpolationValue);
+                }
+                if (setSelectSpriteRedFirstValue && setSelectSpriteRedSecondValue)
+                {
+                    SelectSprite.Red = FlatRedBall.Math.MathFunctions.RoundToInt(SelectSpriteRedFirstValue* (1 - interpolationValue) + SelectSpriteRedSecondValue * interpolationValue);
+                }
+                if (setSpriteInstanceBlueFirstValue && setSpriteInstanceBlueSecondValue)
+                {
+                    SpriteInstance.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(SpriteInstanceBlueFirstValue* (1 - interpolationValue) + SpriteInstanceBlueSecondValue * interpolationValue);
+                }
+                if (setSpriteInstanceGreenFirstValue && setSpriteInstanceGreenSecondValue)
+                {
+                    SpriteInstance.Green = FlatRedBall.Math.MathFunctions.RoundToInt(SpriteInstanceGreenFirstValue* (1 - interpolationValue) + SpriteInstanceGreenSecondValue * interpolationValue);
+                }
+                if (setSpriteInstanceRedFirstValue && setSpriteInstanceRedSecondValue)
+                {
+                    SpriteInstance.Red = FlatRedBall.Math.MathFunctions.RoundToInt(SpriteInstanceRedFirstValue* (1 - interpolationValue) + SpriteInstanceRedSecondValue * interpolationValue);
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentColorsState = firstState;
+                }
+                else
+                {
+                    mCurrentColorsState = secondState;
+                }
+            }
             #endregion
             #region State Interpolate To
             public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
@@ -1326,6 +1595,60 @@
                 }
                 tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
                 tweener.Ended += ()=> this.CurrentButtonTypeState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Colors fromState,AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Colors toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (Colors toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "Colors").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentColorsState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (Colors toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentColorsState = toState;
                 tweener.Start();
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
@@ -3058,6 +3381,466 @@
                 }
                 return newState;
             }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (Colors state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Colors.Normal:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Blue",
+                            Type = "int",
+                            Value = BackgroundSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Green",
+                            Type = "int",
+                            Value = BackgroundSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Red",
+                            Type = "int",
+                            Value = BackgroundSprite.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Blue",
+                            Type = "int",
+                            Value = SelectSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Green",
+                            Type = "int",
+                            Value = SelectSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Red",
+                            Type = "int",
+                            Value = SelectSprite.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Blue",
+                            Type = "int",
+                            Value = SpriteInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Green",
+                            Type = "int",
+                            Value = SpriteInstance.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Red",
+                            Type = "int",
+                            Value = SpriteInstance.Red
+                        }
+                        );
+                        break;
+                    case  Colors.Red:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Blue",
+                            Type = "int",
+                            Value = BackgroundSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Green",
+                            Type = "int",
+                            Value = BackgroundSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Red",
+                            Type = "int",
+                            Value = BackgroundSprite.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Blue",
+                            Type = "int",
+                            Value = SelectSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Green",
+                            Type = "int",
+                            Value = SelectSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Red",
+                            Type = "int",
+                            Value = SelectSprite.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Blue",
+                            Type = "int",
+                            Value = SpriteInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Green",
+                            Type = "int",
+                            Value = SpriteInstance.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Red",
+                            Type = "int",
+                            Value = SpriteInstance.Red
+                        }
+                        );
+                        break;
+                    case  Colors.Green:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Blue",
+                            Type = "int",
+                            Value = BackgroundSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Green",
+                            Type = "int",
+                            Value = BackgroundSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Red",
+                            Type = "int",
+                            Value = BackgroundSprite.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Blue",
+                            Type = "int",
+                            Value = SelectSprite.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Green",
+                            Type = "int",
+                            Value = SelectSprite.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Red",
+                            Type = "int",
+                            Value = SelectSprite.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Blue",
+                            Type = "int",
+                            Value = SpriteInstance.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Green",
+                            Type = "int",
+                            Value = SpriteInstance.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Red",
+                            Type = "int",
+                            Value = SpriteInstance.Red
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (Colors state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Colors.Normal:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Blue",
+                            Type = "int",
+                            Value = BackgroundSprite.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Green",
+                            Type = "int",
+                            Value = BackgroundSprite.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Red",
+                            Type = "int",
+                            Value = BackgroundSprite.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Blue",
+                            Type = "int",
+                            Value = SelectSprite.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Green",
+                            Type = "int",
+                            Value = SelectSprite.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Red",
+                            Type = "int",
+                            Value = SelectSprite.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Blue",
+                            Type = "int",
+                            Value = SpriteInstance.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Green",
+                            Type = "int",
+                            Value = SpriteInstance.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Red",
+                            Type = "int",
+                            Value = SpriteInstance.Red + 255
+                        }
+                        );
+                        break;
+                    case  Colors.Red:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Blue",
+                            Type = "int",
+                            Value = BackgroundSprite.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Green",
+                            Type = "int",
+                            Value = BackgroundSprite.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Red",
+                            Type = "int",
+                            Value = BackgroundSprite.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Blue",
+                            Type = "int",
+                            Value = SelectSprite.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Green",
+                            Type = "int",
+                            Value = SelectSprite.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Red",
+                            Type = "int",
+                            Value = SelectSprite.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Blue",
+                            Type = "int",
+                            Value = SpriteInstance.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Green",
+                            Type = "int",
+                            Value = SpriteInstance.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Red",
+                            Type = "int",
+                            Value = SpriteInstance.Red + 255
+                        }
+                        );
+                        break;
+                    case  Colors.Green:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Blue",
+                            Type = "int",
+                            Value = BackgroundSprite.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Green",
+                            Type = "int",
+                            Value = BackgroundSprite.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Red",
+                            Type = "int",
+                            Value = BackgroundSprite.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Blue",
+                            Type = "int",
+                            Value = SelectSprite.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Green",
+                            Type = "int",
+                            Value = SelectSprite.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SelectSprite.Red",
+                            Type = "int",
+                            Value = SelectSprite.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Blue",
+                            Type = "int",
+                            Value = SpriteInstance.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Green",
+                            Type = "int",
+                            Value = SpriteInstance.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SpriteInstance.Red",
+                            Type = "int",
+                            Value = SpriteInstance.Red + 0
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
             #endregion
             public override void ApplyState (Gum.DataTypes.Variables.StateSave state) 
             {
@@ -3090,6 +3873,12 @@
                         if(state.Name == "FastForward") this.mCurrentButtonTypeState = ButtonType.FastForward;
                         if(state.Name == "Restart") this.mCurrentButtonTypeState = ButtonType.Restart;
                         if(state.Name == "History") this.mCurrentButtonTypeState = ButtonType.History;
+                    }
+                    else if (category.Name == "Colors")
+                    {
+                        if(state.Name == "Normal") this.mCurrentColorsState = Colors.Normal;
+                        if(state.Name == "Red") this.mCurrentColorsState = Colors.Red;
+                        if(state.Name == "Green") this.mCurrentColorsState = Colors.Green;
                     }
                 }
                 base.ApplyState(state);

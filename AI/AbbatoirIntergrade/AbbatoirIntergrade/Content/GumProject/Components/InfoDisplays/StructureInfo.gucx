@@ -179,126 +179,6 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>float</Type>
-      <Name>ButtonContainers.Height</Name>
-      <Value xsi:type="xsd:float">18</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>ButtonContainers.Height Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>ButtonContainers.Parent</Name>
-      <Value xsi:type="xsd:string">InfoContainer</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>ButtonContainers.Visible</Name>
-      <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ButtonContainers.Width</Name>
-      <Value xsi:type="xsd:float">72.8125</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>ButtonContainers.Width Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ButtonContainers.X</Name>
-      <Value xsi:type="xsd:float">70</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ButtonContainers.Y</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>ButtonContainers.Y Origin</Name>
-      <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>ButtonContainers.Y Units</Name>
-      <Value xsi:type="xsd:int">5</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ButtonFrameInstance.Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>ButtonFrameInstance.Parent</Name>
-      <Value xsi:type="xsd:string">ButtonContainers</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ButtonFrameInstance.Width</Name>
-      <Value xsi:type="xsd:float">34.0332642</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ButtonFrameInstance.X</Name>
-      <Value xsi:type="xsd:float">25</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ButtonFrameInstance1.Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>ButtonFrameInstance1.Parent</Name>
-      <Value xsi:type="xsd:string">ButtonContainers</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ButtonFrameInstance1.Width</Name>
-      <Value xsi:type="xsd:float">34.0332642</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ButtonFrameInstance1.X</Name>
-      <Value xsi:type="xsd:float">-25</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>ButtonFrameInstance1.X Origin</Name>
-      <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>ButtonFrameInstance1.X Units</Name>
-      <Value xsi:type="xsd:int">4</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>ChildrenLayout</Type>
       <Name>Children Layout</Name>
       <Value xsi:type="xsd:int">0</Value>
@@ -351,6 +231,11 @@
       <Name>ColoredRectangleInstance.Y Units</Name>
       <Value xsi:type="xsd:int">5</Value>
       <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>CostInfoState</Type>
+      <Name>CostInfoState</Name>
+      <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
@@ -930,79 +815,6 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>int</Type>
-      <Name>OrTextInstance.Blue</Name>
-      <Value xsi:type="xsd:int">140</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <IsFile>true</IsFile>
-      <Type>string</Type>
-      <Name>OrTextInstance.CustomFontFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>OrTextInstance.Font Scale</Name>
-      <Value xsi:type="xsd:float">0.6</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>OrTextInstance.Green</Name>
-      <Value xsi:type="xsd:int">230</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>OrTextInstance.Height</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>OrTextInstance.Parent</Name>
-      <Value xsi:type="xsd:string">ButtonContainers</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>OrTextInstance.Red</Name>
-      <Value xsi:type="xsd:int">240</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>OrTextInstance.Text</Name>
-      <Value xsi:type="xsd:string">Or</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>OrTextInstance.UseCustomFont</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>OrTextInstance.Width</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>OrTextInstance.X</Name>
-      <Value xsi:type="xsd:float">164</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>OrTextInstance.Y</Name>
-      <Value xsi:type="xsd:float">42</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>string</Type>
       <Name>Parent</Name>
       <SetsValue>true</SetsValue>
@@ -1286,106 +1098,33 @@
       <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
-      <Type>int</Type>
-      <Name>UpgradeText.Blue</Name>
-      <Value xsi:type="xsd:int">140</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <IsFile>true</IsFile>
-      <Type>string</Type>
-      <Name>UpgradeText.CustomFontFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>UpgradeText.Font</Name>
-      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>float</Type>
-      <Name>UpgradeText.Font Scale</Name>
-      <Value xsi:type="xsd:float">0.8</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>UpgradeText.FontSize</Name>
-      <Value xsi:type="xsd:int">50</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>UpgradeText.Green</Name>
-      <Value xsi:type="xsd:int">230</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>UpgradeText.Height</Name>
-      <Value xsi:type="xsd:float">10</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>UpgradeText.Height Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>UpgradeText.HorizontalAlignment</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>UpgradeText.OutlineThickness</Name>
-      <Value xsi:type="xsd:int">2</Value>
+      <Name>UpgradeInfoInstance.Height</Name>
+      <Value xsi:type="xsd:float">150</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>string</Type>
-      <Name>UpgradeText.Parent</Name>
+      <Name>UpgradeInfoInstance.Parent</Name>
       <Value xsi:type="xsd:string">InfoContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>int</Type>
-      <Name>UpgradeText.Red</Name>
-      <Value xsi:type="xsd:int">240</Value>
+      <Type>float</Type>
+      <Name>UpgradeInfoInstance.Width</Name>
+      <Value xsi:type="xsd:float">354</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>string</Type>
-      <Name>UpgradeText.Text</Name>
-      <Value xsi:type="xsd:string">Upgrade:</Value>
+      <Type>float</Type>
+      <Name>UpgradeInfoInstance.X</Name>
+      <Value xsi:type="xsd:float">79</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>bool</Type>
-      <Name>UpgradeText.UseCustomFont</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>UpgradeText.VerticalAlignment</Name>
-      <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>UpgradeText.Visible</Name>
-      <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>UpgradeText.Width Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Type>float</Type>
+      <Name>UpgradeInfoInstance.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1468,13 +1207,7 @@
       <Name>Available</Name>
       <Variable>
         <Type>bool</Type>
-        <Name>ButtonContainers.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>UpgradeText.Visible</Name>
+        <Name>UpgradeInfoInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -1483,13 +1216,7 @@
       <Name>NotAvailable</Name>
       <Variable>
         <Type>bool</Type>
-        <Name>ButtonContainers.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>UpgradeText.Visible</Name>
+        <Name>UpgradeInfoInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -1650,6 +1377,39 @@
       </Variable>
     </State>
   </Category>
+  <Category>
+    <Name>CostInfo</Name>
+    <State>
+      <Name>Shown</Name>
+      <Variable>
+        <Type>bool</Type>
+        <Name>PointsSprite.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>CostText.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>NotShown</Name>
+      <Variable>
+        <Type>bool</Type>
+        <Name>CostText.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>PointsSprite.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
   <Instance>
     <Name>GlowSprite</Name>
     <BaseType>Sprite</BaseType>
@@ -1668,14 +1428,6 @@
   </Instance>
   <Instance>
     <Name>StatsContainer</Name>
-    <BaseType>Container</BaseType>
-  </Instance>
-  <Instance>
-    <Name>UpgradeText</Name>
-    <BaseType>Text</BaseType>
-  </Instance>
-  <Instance>
-    <Name>ButtonContainers</Name>
     <BaseType>Container</BaseType>
   </Instance>
   <Instance>
@@ -1715,24 +1467,16 @@
     <BaseType>infodisplays/AttributeDisplay</BaseType>
   </Instance>
   <Instance>
-    <Name>ButtonFrameInstance</Name>
-    <BaseType>frames/ButtonFrame</BaseType>
-  </Instance>
-  <Instance>
-    <Name>ButtonFrameInstance1</Name>
-    <BaseType>frames/ButtonFrame</BaseType>
-  </Instance>
-  <Instance>
-    <Name>OrTextInstance</Name>
-    <BaseType>Text</BaseType>
-  </Instance>
-  <Instance>
     <Name>PointsSprite</Name>
     <BaseType>Sprite</BaseType>
   </Instance>
   <Instance>
     <Name>CostText</Name>
     <BaseType>Text</BaseType>
+  </Instance>
+  <Instance>
+    <Name>UpgradeInfoInstance</Name>
+    <BaseType>infodisplays/UpgradeInfo</BaseType>
   </Instance>
   <Behaviors />
 </ComponentSave>

@@ -98,33 +98,6 @@
                             StatsContainer.WrapsChildren = true;
                             StatsContainer.X = 79f;
                             StatsContainer.Y = 0f;
-                            UpgradeText.Blue = 140;
-                            SetProperty("UpgradeText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
-                            UpgradeText.Font = "Moire ExtraBold";
-                            UpgradeText.FontScale = 0.8f;
-                            UpgradeText.FontSize = 50;
-                            UpgradeText.Green = 230;
-                            UpgradeText.Height = 10f;
-                            UpgradeText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            UpgradeText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            UpgradeText.OutlineThickness = 2;
-                            UpgradeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
-                            UpgradeText.Red = 240;
-                            UpgradeText.Text = "Upgrade:";
-                            UpgradeText.UseCustomFont = true;
-                            UpgradeText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Top;
-                            UpgradeText.Visible = false;
-                            UpgradeText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ButtonContainers.Height = 18f;
-                            ButtonContainers.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ButtonContainers.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
-                            ButtonContainers.Visible = false;
-                            ButtonContainers.Width = 72.8125f;
-                            ButtonContainers.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ButtonContainers.X = 70f;
-                            ButtonContainers.Y = 0f;
-                            ButtonContainers.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
-                            ButtonContainers.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                             InfoContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                             InfoContainer.Height = 96.66668f;
                             InfoContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -201,28 +174,6 @@
                             PointOrSplash.TextInstanceHorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                             PointOrSplash.Width = 0f;
                             PointOrSplash.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
-                            ButtonFrameInstance.Height = 100f;
-                            ButtonFrameInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ButtonContainers");
-                            ButtonFrameInstance.Width = 34.03326f;
-                            ButtonFrameInstance.X = 25f;
-                            ButtonFrameInstance1.Height = 100f;
-                            ButtonFrameInstance1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ButtonContainers");
-                            ButtonFrameInstance1.Width = 34.03326f;
-                            ButtonFrameInstance1.X = -25f;
-                            ButtonFrameInstance1.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
-                            ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
-                            OrTextInstance.Blue = 140;
-                            SetProperty("OrTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
-                            OrTextInstance.FontScale = 0.6f;
-                            OrTextInstance.Green = 230;
-                            OrTextInstance.Height = 0f;
-                            OrTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ButtonContainers");
-                            OrTextInstance.Red = 240;
-                            OrTextInstance.Text = "Or";
-                            OrTextInstance.UseCustomFont = true;
-                            OrTextInstance.Width = 0f;
-                            OrTextInstance.X = 164f;
-                            OrTextInstance.Y = 42f;
                             PointsSprite.Height = 50f;
                             PointsSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
@@ -251,6 +202,11 @@
                             CostText.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             CostText.X = 1f;
                             CostText.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            UpgradeInfoInstance.Height = 150f;
+                            UpgradeInfoInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            UpgradeInfoInstance.Width = 354f;
+                            UpgradeInfoInstance.X = 79f;
+                            UpgradeInfoInstance.Y = 0f;
                             break;
                     }
                 }
@@ -267,12 +223,10 @@
                     switch(mCurrentUpgradeAvailabilityState)
                     {
                         case  UpgradeAvailability.Available:
-                            UpgradeText.Visible = true;
-                            ButtonContainers.Visible = true;
+                            UpgradeInfoInstance.Visible = true;
                             break;
                         case  UpgradeAvailability.NotAvailable:
-                            UpgradeText.Visible = false;
-                            ButtonContainers.Visible = false;
+                            UpgradeInfoInstance.Visible = false;
                             break;
                     }
                 }
@@ -367,46 +321,6 @@
                 bool setAttackSpeedWidthSecondValue = false;
                 float AttackSpeedWidthFirstValue= 0;
                 float AttackSpeedWidthSecondValue= 0;
-                bool setButtonContainersHeightFirstValue = false;
-                bool setButtonContainersHeightSecondValue = false;
-                float ButtonContainersHeightFirstValue= 0;
-                float ButtonContainersHeightSecondValue= 0;
-                bool setButtonContainersWidthFirstValue = false;
-                bool setButtonContainersWidthSecondValue = false;
-                float ButtonContainersWidthFirstValue= 0;
-                float ButtonContainersWidthSecondValue= 0;
-                bool setButtonContainersXFirstValue = false;
-                bool setButtonContainersXSecondValue = false;
-                float ButtonContainersXFirstValue= 0;
-                float ButtonContainersXSecondValue= 0;
-                bool setButtonContainersYFirstValue = false;
-                bool setButtonContainersYSecondValue = false;
-                float ButtonContainersYFirstValue= 0;
-                float ButtonContainersYSecondValue= 0;
-                bool setButtonFrameInstanceHeightFirstValue = false;
-                bool setButtonFrameInstanceHeightSecondValue = false;
-                float ButtonFrameInstanceHeightFirstValue= 0;
-                float ButtonFrameInstanceHeightSecondValue= 0;
-                bool setButtonFrameInstanceWidthFirstValue = false;
-                bool setButtonFrameInstanceWidthSecondValue = false;
-                float ButtonFrameInstanceWidthFirstValue= 0;
-                float ButtonFrameInstanceWidthSecondValue= 0;
-                bool setButtonFrameInstanceXFirstValue = false;
-                bool setButtonFrameInstanceXSecondValue = false;
-                float ButtonFrameInstanceXFirstValue= 0;
-                float ButtonFrameInstanceXSecondValue= 0;
-                bool setButtonFrameInstance1HeightFirstValue = false;
-                bool setButtonFrameInstance1HeightSecondValue = false;
-                float ButtonFrameInstance1HeightFirstValue= 0;
-                float ButtonFrameInstance1HeightSecondValue= 0;
-                bool setButtonFrameInstance1WidthFirstValue = false;
-                bool setButtonFrameInstance1WidthSecondValue = false;
-                float ButtonFrameInstance1WidthFirstValue= 0;
-                float ButtonFrameInstance1WidthSecondValue= 0;
-                bool setButtonFrameInstance1XFirstValue = false;
-                bool setButtonFrameInstance1XSecondValue = false;
-                float ButtonFrameInstance1XFirstValue= 0;
-                float ButtonFrameInstance1XSecondValue= 0;
                 bool setColoredRectangleInstanceHeightFirstValue = false;
                 bool setColoredRectangleInstanceHeightSecondValue = false;
                 float ColoredRectangleInstanceHeightFirstValue= 0;
@@ -543,38 +457,6 @@
                 bool setNameTextRedSecondValue = false;
                 int NameTextRedFirstValue= 0;
                 int NameTextRedSecondValue= 0;
-                bool setOrTextInstanceBlueFirstValue = false;
-                bool setOrTextInstanceBlueSecondValue = false;
-                int OrTextInstanceBlueFirstValue= 0;
-                int OrTextInstanceBlueSecondValue= 0;
-                bool setOrTextInstanceFontScaleFirstValue = false;
-                bool setOrTextInstanceFontScaleSecondValue = false;
-                float OrTextInstanceFontScaleFirstValue= 0;
-                float OrTextInstanceFontScaleSecondValue= 0;
-                bool setOrTextInstanceGreenFirstValue = false;
-                bool setOrTextInstanceGreenSecondValue = false;
-                int OrTextInstanceGreenFirstValue= 0;
-                int OrTextInstanceGreenSecondValue= 0;
-                bool setOrTextInstanceHeightFirstValue = false;
-                bool setOrTextInstanceHeightSecondValue = false;
-                float OrTextInstanceHeightFirstValue= 0;
-                float OrTextInstanceHeightSecondValue= 0;
-                bool setOrTextInstanceRedFirstValue = false;
-                bool setOrTextInstanceRedSecondValue = false;
-                int OrTextInstanceRedFirstValue= 0;
-                int OrTextInstanceRedSecondValue= 0;
-                bool setOrTextInstanceWidthFirstValue = false;
-                bool setOrTextInstanceWidthSecondValue = false;
-                float OrTextInstanceWidthFirstValue= 0;
-                float OrTextInstanceWidthSecondValue= 0;
-                bool setOrTextInstanceXFirstValue = false;
-                bool setOrTextInstanceXSecondValue = false;
-                float OrTextInstanceXFirstValue= 0;
-                float OrTextInstanceXSecondValue= 0;
-                bool setOrTextInstanceYFirstValue = false;
-                bool setOrTextInstanceYSecondValue = false;
-                float OrTextInstanceYFirstValue= 0;
-                float OrTextInstanceYSecondValue= 0;
                 bool setPointOrSplashHeightFirstValue = false;
                 bool setPointOrSplashHeightSecondValue = false;
                 float PointOrSplashHeightFirstValue= 0;
@@ -643,34 +525,22 @@
                 bool setTallInfoFrameInstanceWidthSecondValue = false;
                 float TallInfoFrameInstanceWidthFirstValue= 0;
                 float TallInfoFrameInstanceWidthSecondValue= 0;
-                bool setUpgradeTextBlueFirstValue = false;
-                bool setUpgradeTextBlueSecondValue = false;
-                int UpgradeTextBlueFirstValue= 0;
-                int UpgradeTextBlueSecondValue= 0;
-                bool setUpgradeTextFontScaleFirstValue = false;
-                bool setUpgradeTextFontScaleSecondValue = false;
-                float UpgradeTextFontScaleFirstValue= 0;
-                float UpgradeTextFontScaleSecondValue= 0;
-                bool setUpgradeTextFontSizeFirstValue = false;
-                bool setUpgradeTextFontSizeSecondValue = false;
-                int UpgradeTextFontSizeFirstValue= 0;
-                int UpgradeTextFontSizeSecondValue= 0;
-                bool setUpgradeTextGreenFirstValue = false;
-                bool setUpgradeTextGreenSecondValue = false;
-                int UpgradeTextGreenFirstValue= 0;
-                int UpgradeTextGreenSecondValue= 0;
-                bool setUpgradeTextHeightFirstValue = false;
-                bool setUpgradeTextHeightSecondValue = false;
-                float UpgradeTextHeightFirstValue= 0;
-                float UpgradeTextHeightSecondValue= 0;
-                bool setUpgradeTextOutlineThicknessFirstValue = false;
-                bool setUpgradeTextOutlineThicknessSecondValue = false;
-                int UpgradeTextOutlineThicknessFirstValue= 0;
-                int UpgradeTextOutlineThicknessSecondValue= 0;
-                bool setUpgradeTextRedFirstValue = false;
-                bool setUpgradeTextRedSecondValue = false;
-                int UpgradeTextRedFirstValue= 0;
-                int UpgradeTextRedSecondValue= 0;
+                bool setUpgradeInfoInstanceHeightFirstValue = false;
+                bool setUpgradeInfoInstanceHeightSecondValue = false;
+                float UpgradeInfoInstanceHeightFirstValue= 0;
+                float UpgradeInfoInstanceHeightSecondValue= 0;
+                bool setUpgradeInfoInstanceWidthFirstValue = false;
+                bool setUpgradeInfoInstanceWidthSecondValue = false;
+                float UpgradeInfoInstanceWidthFirstValue= 0;
+                float UpgradeInfoInstanceWidthSecondValue= 0;
+                bool setUpgradeInfoInstanceXFirstValue = false;
+                bool setUpgradeInfoInstanceXSecondValue = false;
+                float UpgradeInfoInstanceXFirstValue= 0;
+                float UpgradeInfoInstanceXSecondValue= 0;
+                bool setUpgradeInfoInstanceYFirstValue = false;
+                bool setUpgradeInfoInstanceYSecondValue = false;
+                float UpgradeInfoInstanceYFirstValue= 0;
+                float UpgradeInfoInstanceYSecondValue= 0;
                 bool setWidthFirstValue = false;
                 bool setWidthSecondValue = false;
                 float WidthFirstValue= 0;
@@ -761,66 +631,6 @@
                         if (interpolationValue < 1)
                         {
                             this.AttackSpeed.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
-                        }
-                        setButtonContainersHeightFirstValue = true;
-                        ButtonContainersHeightFirstValue = 18f;
-                        if (interpolationValue < 1)
-                        {
-                            this.ButtonContainers.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.ButtonContainers.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.ButtonContainers.Visible = false;
-                        }
-                        setButtonContainersWidthFirstValue = true;
-                        ButtonContainersWidthFirstValue = 72.8125f;
-                        if (interpolationValue < 1)
-                        {
-                            this.ButtonContainers.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setButtonContainersXFirstValue = true;
-                        ButtonContainersXFirstValue = 70f;
-                        setButtonContainersYFirstValue = true;
-                        ButtonContainersYFirstValue = 0f;
-                        if (interpolationValue < 1)
-                        {
-                            this.ButtonContainers.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.ButtonContainers.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
-                        }
-                        setButtonFrameInstanceHeightFirstValue = true;
-                        ButtonFrameInstanceHeightFirstValue = 100f;
-                        if (interpolationValue < 1)
-                        {
-                            this.ButtonFrameInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ButtonContainers");
-                        }
-                        setButtonFrameInstanceWidthFirstValue = true;
-                        ButtonFrameInstanceWidthFirstValue = 34.03326f;
-                        setButtonFrameInstanceXFirstValue = true;
-                        ButtonFrameInstanceXFirstValue = 25f;
-                        setButtonFrameInstance1HeightFirstValue = true;
-                        ButtonFrameInstance1HeightFirstValue = 100f;
-                        if (interpolationValue < 1)
-                        {
-                            this.ButtonFrameInstance1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ButtonContainers");
-                        }
-                        setButtonFrameInstance1WidthFirstValue = true;
-                        ButtonFrameInstance1WidthFirstValue = 34.03326f;
-                        setButtonFrameInstance1XFirstValue = true;
-                        ButtonFrameInstance1XFirstValue = -25f;
-                        if (interpolationValue < 1)
-                        {
-                            this.ButtonFrameInstance1.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                         }
                         if (interpolationValue < 1)
                         {
@@ -1122,38 +932,6 @@
                         {
                             this.NameText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
-                        setOrTextInstanceBlueFirstValue = true;
-                        OrTextInstanceBlueFirstValue = 140;
-                        if (interpolationValue < 1)
-                        {
-                            SetProperty("OrTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
-                        }
-                        setOrTextInstanceFontScaleFirstValue = true;
-                        OrTextInstanceFontScaleFirstValue = 0.6f;
-                        setOrTextInstanceGreenFirstValue = true;
-                        OrTextInstanceGreenFirstValue = 230;
-                        setOrTextInstanceHeightFirstValue = true;
-                        OrTextInstanceHeightFirstValue = 0f;
-                        if (interpolationValue < 1)
-                        {
-                            this.OrTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ButtonContainers");
-                        }
-                        setOrTextInstanceRedFirstValue = true;
-                        OrTextInstanceRedFirstValue = 240;
-                        if (interpolationValue < 1)
-                        {
-                            this.OrTextInstance.Text = "Or";
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.OrTextInstance.UseCustomFont = true;
-                        }
-                        setOrTextInstanceWidthFirstValue = true;
-                        OrTextInstanceWidthFirstValue = 0f;
-                        setOrTextInstanceXFirstValue = true;
-                        OrTextInstanceXFirstValue = 164f;
-                        setOrTextInstanceYFirstValue = true;
-                        OrTextInstanceYFirstValue = 42f;
                         if (interpolationValue < 1)
                         {
                             this.PointOrSplash.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.PointOrSplash;
@@ -1276,60 +1054,18 @@
                         TallInfoFrameInstanceHeightFirstValue = 100f;
                         setTallInfoFrameInstanceWidthFirstValue = true;
                         TallInfoFrameInstanceWidthFirstValue = 100f;
-                        setUpgradeTextBlueFirstValue = true;
-                        UpgradeTextBlueFirstValue = 140;
+                        setUpgradeInfoInstanceHeightFirstValue = true;
+                        UpgradeInfoInstanceHeightFirstValue = 150f;
                         if (interpolationValue < 1)
                         {
-                            SetProperty("UpgradeText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            this.UpgradeInfoInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
                         }
-                        if (interpolationValue < 1)
-                        {
-                            this.UpgradeText.Font = "Moire ExtraBold";
-                        }
-                        setUpgradeTextFontScaleFirstValue = true;
-                        UpgradeTextFontScaleFirstValue = 0.8f;
-                        setUpgradeTextFontSizeFirstValue = true;
-                        UpgradeTextFontSizeFirstValue = 50;
-                        setUpgradeTextGreenFirstValue = true;
-                        UpgradeTextGreenFirstValue = 230;
-                        setUpgradeTextHeightFirstValue = true;
-                        UpgradeTextHeightFirstValue = 10f;
-                        if (interpolationValue < 1)
-                        {
-                            this.UpgradeText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.UpgradeText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                        }
-                        setUpgradeTextOutlineThicknessFirstValue = true;
-                        UpgradeTextOutlineThicknessFirstValue = 2;
-                        if (interpolationValue < 1)
-                        {
-                            this.UpgradeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
-                        }
-                        setUpgradeTextRedFirstValue = true;
-                        UpgradeTextRedFirstValue = 240;
-                        if (interpolationValue < 1)
-                        {
-                            this.UpgradeText.Text = "Upgrade:";
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.UpgradeText.UseCustomFont = true;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.UpgradeText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Top;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.UpgradeText.Visible = false;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.UpgradeText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
+                        setUpgradeInfoInstanceWidthFirstValue = true;
+                        UpgradeInfoInstanceWidthFirstValue = 354f;
+                        setUpgradeInfoInstanceXFirstValue = true;
+                        UpgradeInfoInstanceXFirstValue = 79f;
+                        setUpgradeInfoInstanceYFirstValue = true;
+                        UpgradeInfoInstanceYFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
                             this.Visible = true;
@@ -1448,66 +1184,6 @@
                         if (interpolationValue >= 1)
                         {
                             this.AttackSpeed.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
-                        }
-                        setButtonContainersHeightSecondValue = true;
-                        ButtonContainersHeightSecondValue = 18f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.ButtonContainers.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.ButtonContainers.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.ButtonContainers.Visible = false;
-                        }
-                        setButtonContainersWidthSecondValue = true;
-                        ButtonContainersWidthSecondValue = 72.8125f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.ButtonContainers.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        setButtonContainersXSecondValue = true;
-                        ButtonContainersXSecondValue = 70f;
-                        setButtonContainersYSecondValue = true;
-                        ButtonContainersYSecondValue = 0f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.ButtonContainers.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.ButtonContainers.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
-                        }
-                        setButtonFrameInstanceHeightSecondValue = true;
-                        ButtonFrameInstanceHeightSecondValue = 100f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.ButtonFrameInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ButtonContainers");
-                        }
-                        setButtonFrameInstanceWidthSecondValue = true;
-                        ButtonFrameInstanceWidthSecondValue = 34.03326f;
-                        setButtonFrameInstanceXSecondValue = true;
-                        ButtonFrameInstanceXSecondValue = 25f;
-                        setButtonFrameInstance1HeightSecondValue = true;
-                        ButtonFrameInstance1HeightSecondValue = 100f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.ButtonFrameInstance1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ButtonContainers");
-                        }
-                        setButtonFrameInstance1WidthSecondValue = true;
-                        ButtonFrameInstance1WidthSecondValue = 34.03326f;
-                        setButtonFrameInstance1XSecondValue = true;
-                        ButtonFrameInstance1XSecondValue = -25f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.ButtonFrameInstance1.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1809,38 +1485,6 @@
                         {
                             this.NameText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
-                        setOrTextInstanceBlueSecondValue = true;
-                        OrTextInstanceBlueSecondValue = 140;
-                        if (interpolationValue >= 1)
-                        {
-                            SetProperty("OrTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
-                        }
-                        setOrTextInstanceFontScaleSecondValue = true;
-                        OrTextInstanceFontScaleSecondValue = 0.6f;
-                        setOrTextInstanceGreenSecondValue = true;
-                        OrTextInstanceGreenSecondValue = 230;
-                        setOrTextInstanceHeightSecondValue = true;
-                        OrTextInstanceHeightSecondValue = 0f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.OrTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ButtonContainers");
-                        }
-                        setOrTextInstanceRedSecondValue = true;
-                        OrTextInstanceRedSecondValue = 240;
-                        if (interpolationValue >= 1)
-                        {
-                            this.OrTextInstance.Text = "Or";
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.OrTextInstance.UseCustomFont = true;
-                        }
-                        setOrTextInstanceWidthSecondValue = true;
-                        OrTextInstanceWidthSecondValue = 0f;
-                        setOrTextInstanceXSecondValue = true;
-                        OrTextInstanceXSecondValue = 164f;
-                        setOrTextInstanceYSecondValue = true;
-                        OrTextInstanceYSecondValue = 42f;
                         if (interpolationValue >= 1)
                         {
                             this.PointOrSplash.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.PointOrSplash;
@@ -1963,60 +1607,18 @@
                         TallInfoFrameInstanceHeightSecondValue = 100f;
                         setTallInfoFrameInstanceWidthSecondValue = true;
                         TallInfoFrameInstanceWidthSecondValue = 100f;
-                        setUpgradeTextBlueSecondValue = true;
-                        UpgradeTextBlueSecondValue = 140;
+                        setUpgradeInfoInstanceHeightSecondValue = true;
+                        UpgradeInfoInstanceHeightSecondValue = 150f;
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("UpgradeText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            this.UpgradeInfoInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
                         }
-                        if (interpolationValue >= 1)
-                        {
-                            this.UpgradeText.Font = "Moire ExtraBold";
-                        }
-                        setUpgradeTextFontScaleSecondValue = true;
-                        UpgradeTextFontScaleSecondValue = 0.8f;
-                        setUpgradeTextFontSizeSecondValue = true;
-                        UpgradeTextFontSizeSecondValue = 50;
-                        setUpgradeTextGreenSecondValue = true;
-                        UpgradeTextGreenSecondValue = 230;
-                        setUpgradeTextHeightSecondValue = true;
-                        UpgradeTextHeightSecondValue = 10f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.UpgradeText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.UpgradeText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                        }
-                        setUpgradeTextOutlineThicknessSecondValue = true;
-                        UpgradeTextOutlineThicknessSecondValue = 2;
-                        if (interpolationValue >= 1)
-                        {
-                            this.UpgradeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
-                        }
-                        setUpgradeTextRedSecondValue = true;
-                        UpgradeTextRedSecondValue = 240;
-                        if (interpolationValue >= 1)
-                        {
-                            this.UpgradeText.Text = "Upgrade:";
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.UpgradeText.UseCustomFont = true;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.UpgradeText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Top;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.UpgradeText.Visible = false;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.UpgradeText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
+                        setUpgradeInfoInstanceWidthSecondValue = true;
+                        UpgradeInfoInstanceWidthSecondValue = 354f;
+                        setUpgradeInfoInstanceXSecondValue = true;
+                        UpgradeInfoInstanceXSecondValue = 79f;
+                        setUpgradeInfoInstanceYSecondValue = true;
+                        UpgradeInfoInstanceYSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
                             this.Visible = true;
@@ -2088,46 +1690,6 @@
                 if (setAttackSpeedWidthFirstValue && setAttackSpeedWidthSecondValue)
                 {
                     AttackSpeed.Width = AttackSpeedWidthFirstValue * (1 - interpolationValue) + AttackSpeedWidthSecondValue * interpolationValue;
-                }
-                if (setButtonContainersHeightFirstValue && setButtonContainersHeightSecondValue)
-                {
-                    ButtonContainers.Height = ButtonContainersHeightFirstValue * (1 - interpolationValue) + ButtonContainersHeightSecondValue * interpolationValue;
-                }
-                if (setButtonContainersWidthFirstValue && setButtonContainersWidthSecondValue)
-                {
-                    ButtonContainers.Width = ButtonContainersWidthFirstValue * (1 - interpolationValue) + ButtonContainersWidthSecondValue * interpolationValue;
-                }
-                if (setButtonContainersXFirstValue && setButtonContainersXSecondValue)
-                {
-                    ButtonContainers.X = ButtonContainersXFirstValue * (1 - interpolationValue) + ButtonContainersXSecondValue * interpolationValue;
-                }
-                if (setButtonContainersYFirstValue && setButtonContainersYSecondValue)
-                {
-                    ButtonContainers.Y = ButtonContainersYFirstValue * (1 - interpolationValue) + ButtonContainersYSecondValue * interpolationValue;
-                }
-                if (setButtonFrameInstanceHeightFirstValue && setButtonFrameInstanceHeightSecondValue)
-                {
-                    ButtonFrameInstance.Height = ButtonFrameInstanceHeightFirstValue * (1 - interpolationValue) + ButtonFrameInstanceHeightSecondValue * interpolationValue;
-                }
-                if (setButtonFrameInstanceWidthFirstValue && setButtonFrameInstanceWidthSecondValue)
-                {
-                    ButtonFrameInstance.Width = ButtonFrameInstanceWidthFirstValue * (1 - interpolationValue) + ButtonFrameInstanceWidthSecondValue * interpolationValue;
-                }
-                if (setButtonFrameInstanceXFirstValue && setButtonFrameInstanceXSecondValue)
-                {
-                    ButtonFrameInstance.X = ButtonFrameInstanceXFirstValue * (1 - interpolationValue) + ButtonFrameInstanceXSecondValue * interpolationValue;
-                }
-                if (setButtonFrameInstance1HeightFirstValue && setButtonFrameInstance1HeightSecondValue)
-                {
-                    ButtonFrameInstance1.Height = ButtonFrameInstance1HeightFirstValue * (1 - interpolationValue) + ButtonFrameInstance1HeightSecondValue * interpolationValue;
-                }
-                if (setButtonFrameInstance1WidthFirstValue && setButtonFrameInstance1WidthSecondValue)
-                {
-                    ButtonFrameInstance1.Width = ButtonFrameInstance1WidthFirstValue * (1 - interpolationValue) + ButtonFrameInstance1WidthSecondValue * interpolationValue;
-                }
-                if (setButtonFrameInstance1XFirstValue && setButtonFrameInstance1XSecondValue)
-                {
-                    ButtonFrameInstance1.X = ButtonFrameInstance1XFirstValue * (1 - interpolationValue) + ButtonFrameInstance1XSecondValue * interpolationValue;
                 }
                 if (setColoredRectangleInstanceHeightFirstValue && setColoredRectangleInstanceHeightSecondValue)
                 {
@@ -2265,38 +1827,6 @@
                 {
                     NameText.Red = FlatRedBall.Math.MathFunctions.RoundToInt(NameTextRedFirstValue* (1 - interpolationValue) + NameTextRedSecondValue * interpolationValue);
                 }
-                if (setOrTextInstanceBlueFirstValue && setOrTextInstanceBlueSecondValue)
-                {
-                    OrTextInstance.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(OrTextInstanceBlueFirstValue* (1 - interpolationValue) + OrTextInstanceBlueSecondValue * interpolationValue);
-                }
-                if (setOrTextInstanceFontScaleFirstValue && setOrTextInstanceFontScaleSecondValue)
-                {
-                    OrTextInstance.FontScale = OrTextInstanceFontScaleFirstValue * (1 - interpolationValue) + OrTextInstanceFontScaleSecondValue * interpolationValue;
-                }
-                if (setOrTextInstanceGreenFirstValue && setOrTextInstanceGreenSecondValue)
-                {
-                    OrTextInstance.Green = FlatRedBall.Math.MathFunctions.RoundToInt(OrTextInstanceGreenFirstValue* (1 - interpolationValue) + OrTextInstanceGreenSecondValue * interpolationValue);
-                }
-                if (setOrTextInstanceHeightFirstValue && setOrTextInstanceHeightSecondValue)
-                {
-                    OrTextInstance.Height = OrTextInstanceHeightFirstValue * (1 - interpolationValue) + OrTextInstanceHeightSecondValue * interpolationValue;
-                }
-                if (setOrTextInstanceRedFirstValue && setOrTextInstanceRedSecondValue)
-                {
-                    OrTextInstance.Red = FlatRedBall.Math.MathFunctions.RoundToInt(OrTextInstanceRedFirstValue* (1 - interpolationValue) + OrTextInstanceRedSecondValue * interpolationValue);
-                }
-                if (setOrTextInstanceWidthFirstValue && setOrTextInstanceWidthSecondValue)
-                {
-                    OrTextInstance.Width = OrTextInstanceWidthFirstValue * (1 - interpolationValue) + OrTextInstanceWidthSecondValue * interpolationValue;
-                }
-                if (setOrTextInstanceXFirstValue && setOrTextInstanceXSecondValue)
-                {
-                    OrTextInstance.X = OrTextInstanceXFirstValue * (1 - interpolationValue) + OrTextInstanceXSecondValue * interpolationValue;
-                }
-                if (setOrTextInstanceYFirstValue && setOrTextInstanceYSecondValue)
-                {
-                    OrTextInstance.Y = OrTextInstanceYFirstValue * (1 - interpolationValue) + OrTextInstanceYSecondValue * interpolationValue;
-                }
                 if (setPointOrSplashHeightFirstValue && setPointOrSplashHeightSecondValue)
                 {
                     PointOrSplash.Height = PointOrSplashHeightFirstValue * (1 - interpolationValue) + PointOrSplashHeightSecondValue * interpolationValue;
@@ -2365,33 +1895,21 @@
                 {
                     TallInfoFrameInstance.Width = TallInfoFrameInstanceWidthFirstValue * (1 - interpolationValue) + TallInfoFrameInstanceWidthSecondValue * interpolationValue;
                 }
-                if (setUpgradeTextBlueFirstValue && setUpgradeTextBlueSecondValue)
+                if (setUpgradeInfoInstanceHeightFirstValue && setUpgradeInfoInstanceHeightSecondValue)
                 {
-                    UpgradeText.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(UpgradeTextBlueFirstValue* (1 - interpolationValue) + UpgradeTextBlueSecondValue * interpolationValue);
+                    UpgradeInfoInstance.Height = UpgradeInfoInstanceHeightFirstValue * (1 - interpolationValue) + UpgradeInfoInstanceHeightSecondValue * interpolationValue;
                 }
-                if (setUpgradeTextFontScaleFirstValue && setUpgradeTextFontScaleSecondValue)
+                if (setUpgradeInfoInstanceWidthFirstValue && setUpgradeInfoInstanceWidthSecondValue)
                 {
-                    UpgradeText.FontScale = UpgradeTextFontScaleFirstValue * (1 - interpolationValue) + UpgradeTextFontScaleSecondValue * interpolationValue;
+                    UpgradeInfoInstance.Width = UpgradeInfoInstanceWidthFirstValue * (1 - interpolationValue) + UpgradeInfoInstanceWidthSecondValue * interpolationValue;
                 }
-                if (setUpgradeTextFontSizeFirstValue && setUpgradeTextFontSizeSecondValue)
+                if (setUpgradeInfoInstanceXFirstValue && setUpgradeInfoInstanceXSecondValue)
                 {
-                    UpgradeText.FontSize = FlatRedBall.Math.MathFunctions.RoundToInt(UpgradeTextFontSizeFirstValue* (1 - interpolationValue) + UpgradeTextFontSizeSecondValue * interpolationValue);
+                    UpgradeInfoInstance.X = UpgradeInfoInstanceXFirstValue * (1 - interpolationValue) + UpgradeInfoInstanceXSecondValue * interpolationValue;
                 }
-                if (setUpgradeTextGreenFirstValue && setUpgradeTextGreenSecondValue)
+                if (setUpgradeInfoInstanceYFirstValue && setUpgradeInfoInstanceYSecondValue)
                 {
-                    UpgradeText.Green = FlatRedBall.Math.MathFunctions.RoundToInt(UpgradeTextGreenFirstValue* (1 - interpolationValue) + UpgradeTextGreenSecondValue * interpolationValue);
-                }
-                if (setUpgradeTextHeightFirstValue && setUpgradeTextHeightSecondValue)
-                {
-                    UpgradeText.Height = UpgradeTextHeightFirstValue * (1 - interpolationValue) + UpgradeTextHeightSecondValue * interpolationValue;
-                }
-                if (setUpgradeTextOutlineThicknessFirstValue && setUpgradeTextOutlineThicknessSecondValue)
-                {
-                    UpgradeText.OutlineThickness = FlatRedBall.Math.MathFunctions.RoundToInt(UpgradeTextOutlineThicknessFirstValue* (1 - interpolationValue) + UpgradeTextOutlineThicknessSecondValue * interpolationValue);
-                }
-                if (setUpgradeTextRedFirstValue && setUpgradeTextRedSecondValue)
-                {
-                    UpgradeText.Red = FlatRedBall.Math.MathFunctions.RoundToInt(UpgradeTextRedFirstValue* (1 - interpolationValue) + UpgradeTextRedSecondValue * interpolationValue);
+                    UpgradeInfoInstance.Y = UpgradeInfoInstanceYFirstValue * (1 - interpolationValue) + UpgradeInfoInstanceYSecondValue * interpolationValue;
                 }
                 if (setWidthFirstValue && setWidthSecondValue)
                 {
@@ -2419,21 +1937,13 @@
                     case  UpgradeAvailability.Available:
                         if (interpolationValue < 1)
                         {
-                            this.ButtonContainers.Visible = true;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.UpgradeText.Visible = true;
+                            this.UpgradeInfoInstance.Visible = true;
                         }
                         break;
                     case  UpgradeAvailability.NotAvailable:
                         if (interpolationValue < 1)
                         {
-                            this.ButtonContainers.Visible = false;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.UpgradeText.Visible = false;
+                            this.UpgradeInfoInstance.Visible = false;
                         }
                         break;
                 }
@@ -2442,21 +1952,13 @@
                     case  UpgradeAvailability.Available:
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonContainers.Visible = true;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.UpgradeText.Visible = true;
+                            this.UpgradeInfoInstance.Visible = true;
                         }
                         break;
                     case  UpgradeAvailability.NotAvailable:
                         if (interpolationValue >= 1)
                         {
-                            this.ButtonContainers.Visible = false;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.UpgradeText.Visible = false;
+                            this.UpgradeInfoInstance.Visible = false;
                         }
                         break;
                 }
@@ -2852,8 +2354,7 @@
                 MaxRange.StopAnimations();
                 AttackSpeed.StopAnimations();
                 PointOrSplash.StopAnimations();
-                ButtonFrameInstance.StopAnimations();
-                ButtonFrameInstance1.StopAnimations();
+                UpgradeInfoInstance.StopAnimations();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -3348,222 +2849,6 @@
                             Name = "StatsContainer.Y",
                             Type = "float",
                             Value = StatsContainer.Y
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Blue",
-                            Type = "int",
-                            Value = UpgradeText.Blue
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.CustomFontFile",
-                            Type = "string",
-                            Value = UpgradeText.CustomFontFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Font",
-                            Type = "string",
-                            Value = UpgradeText.Font
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Font Scale",
-                            Type = "float",
-                            Value = UpgradeText.FontScale
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.FontSize",
-                            Type = "int",
-                            Value = UpgradeText.FontSize
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Green",
-                            Type = "int",
-                            Value = UpgradeText.Green
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Height",
-                            Type = "float",
-                            Value = UpgradeText.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = UpgradeText.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.HorizontalAlignment",
-                            Type = "HorizontalAlignment",
-                            Value = UpgradeText.HorizontalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.OutlineThickness",
-                            Type = "int",
-                            Value = UpgradeText.OutlineThickness
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Parent",
-                            Type = "string",
-                            Value = UpgradeText.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Red",
-                            Type = "int",
-                            Value = UpgradeText.Red
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Text",
-                            Type = "string",
-                            Value = UpgradeText.Text
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.UseCustomFont",
-                            Type = "bool",
-                            Value = UpgradeText.UseCustomFont
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.VerticalAlignment",
-                            Type = "VerticalAlignment",
-                            Value = UpgradeText.VerticalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Visible",
-                            Type = "bool",
-                            Value = UpgradeText.Visible
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = UpgradeText.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Height",
-                            Type = "float",
-                            Value = ButtonContainers.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = ButtonContainers.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Parent",
-                            Type = "string",
-                            Value = ButtonContainers.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Visible",
-                            Type = "bool",
-                            Value = ButtonContainers.Visible
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Width",
-                            Type = "float",
-                            Value = ButtonContainers.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = ButtonContainers.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.X",
-                            Type = "float",
-                            Value = ButtonContainers.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Y",
-                            Type = "float",
-                            Value = ButtonContainers.Y
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Y Origin",
-                            Type = "VerticalAlignment",
-                            Value = ButtonContainers.YOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Y Units",
-                            Type = "PositionUnitType",
-                            Value = ButtonContainers.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4177,182 +3462,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance.Height",
-                            Type = "float",
-                            Value = ButtonFrameInstance.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance.Parent",
-                            Type = "string",
-                            Value = ButtonFrameInstance.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance.Width",
-                            Type = "float",
-                            Value = ButtonFrameInstance.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance.X",
-                            Type = "float",
-                            Value = ButtonFrameInstance.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance1.Height",
-                            Type = "float",
-                            Value = ButtonFrameInstance1.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance1.Parent",
-                            Type = "string",
-                            Value = ButtonFrameInstance1.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance1.Width",
-                            Type = "float",
-                            Value = ButtonFrameInstance1.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance1.X",
-                            Type = "float",
-                            Value = ButtonFrameInstance1.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Origin",
-                            Type = "HorizontalAlignment",
-                            Value = ButtonFrameInstance1.XOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Units",
-                            Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.XUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Blue",
-                            Type = "int",
-                            Value = OrTextInstance.Blue
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.CustomFontFile",
-                            Type = "string",
-                            Value = OrTextInstance.CustomFontFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Font Scale",
-                            Type = "float",
-                            Value = OrTextInstance.FontScale
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Green",
-                            Type = "int",
-                            Value = OrTextInstance.Green
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Height",
-                            Type = "float",
-                            Value = OrTextInstance.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Parent",
-                            Type = "string",
-                            Value = OrTextInstance.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Red",
-                            Type = "int",
-                            Value = OrTextInstance.Red
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Text",
-                            Type = "string",
-                            Value = OrTextInstance.Text
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.UseCustomFont",
-                            Type = "bool",
-                            Value = OrTextInstance.UseCustomFont
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Width",
-                            Type = "float",
-                            Value = OrTextInstance.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.X",
-                            Type = "float",
-                            Value = OrTextInstance.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Y",
-                            Type = "float",
-                            Value = OrTextInstance.Y
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "PointsSprite.Height",
                             Type = "float",
                             Value = PointsSprite.Height
@@ -4572,6 +3681,46 @@
                             Name = "CostText.X Units",
                             Type = "PositionUnitType",
                             Value = CostText.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.Height",
+                            Type = "float",
+                            Value = UpgradeInfoInstance.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.Parent",
+                            Type = "string",
+                            Value = UpgradeInfoInstance.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.Width",
+                            Type = "float",
+                            Value = UpgradeInfoInstance.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.X",
+                            Type = "float",
+                            Value = UpgradeInfoInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.Y",
+                            Type = "float",
+                            Value = UpgradeInfoInstance.Y
                         }
                         );
                         break;
@@ -5070,222 +4219,6 @@
                             Name = "StatsContainer.Y",
                             Type = "float",
                             Value = StatsContainer.Y + 0f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Blue",
-                            Type = "int",
-                            Value = UpgradeText.Blue + 140
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.CustomFontFile",
-                            Type = "string",
-                            Value = UpgradeText.CustomFontFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Font",
-                            Type = "string",
-                            Value = UpgradeText.Font
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Font Scale",
-                            Type = "float",
-                            Value = UpgradeText.FontScale + 0.8f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.FontSize",
-                            Type = "int",
-                            Value = UpgradeText.FontSize + 50
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Green",
-                            Type = "int",
-                            Value = UpgradeText.Green + 230
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Height",
-                            Type = "float",
-                            Value = UpgradeText.Height + 10f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = UpgradeText.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.HorizontalAlignment",
-                            Type = "HorizontalAlignment",
-                            Value = UpgradeText.HorizontalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.OutlineThickness",
-                            Type = "int",
-                            Value = UpgradeText.OutlineThickness + 2
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Parent",
-                            Type = "string",
-                            Value = UpgradeText.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Red",
-                            Type = "int",
-                            Value = UpgradeText.Red + 240
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Text",
-                            Type = "string",
-                            Value = UpgradeText.Text
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.UseCustomFont",
-                            Type = "bool",
-                            Value = UpgradeText.UseCustomFont
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.VerticalAlignment",
-                            Type = "VerticalAlignment",
-                            Value = UpgradeText.VerticalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Visible",
-                            Type = "bool",
-                            Value = UpgradeText.Visible
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "UpgradeText.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = UpgradeText.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Height",
-                            Type = "float",
-                            Value = ButtonContainers.Height + 18f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Height Units",
-                            Type = "DimensionUnitType",
-                            Value = ButtonContainers.HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Parent",
-                            Type = "string",
-                            Value = ButtonContainers.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Visible",
-                            Type = "bool",
-                            Value = ButtonContainers.Visible
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Width",
-                            Type = "float",
-                            Value = ButtonContainers.Width + 72.8125f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = ButtonContainers.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.X",
-                            Type = "float",
-                            Value = ButtonContainers.X + 70f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Y",
-                            Type = "float",
-                            Value = ButtonContainers.Y + 0f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Y Origin",
-                            Type = "VerticalAlignment",
-                            Value = ButtonContainers.YOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Y Units",
-                            Type = "PositionUnitType",
-                            Value = ButtonContainers.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -5899,182 +4832,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ButtonFrameInstance.Height",
-                            Type = "float",
-                            Value = ButtonFrameInstance.Height + 100f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance.Parent",
-                            Type = "string",
-                            Value = ButtonFrameInstance.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance.Width",
-                            Type = "float",
-                            Value = ButtonFrameInstance.Width + 34.03326f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance.X",
-                            Type = "float",
-                            Value = ButtonFrameInstance.X + 25f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance1.Height",
-                            Type = "float",
-                            Value = ButtonFrameInstance1.Height + 100f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance1.Parent",
-                            Type = "string",
-                            Value = ButtonFrameInstance1.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance1.Width",
-                            Type = "float",
-                            Value = ButtonFrameInstance1.Width + 34.03326f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance1.X",
-                            Type = "float",
-                            Value = ButtonFrameInstance1.X + -25f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Origin",
-                            Type = "HorizontalAlignment",
-                            Value = ButtonFrameInstance1.XOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonFrameInstance1.X Units",
-                            Type = "PositionUnitType",
-                            Value = ButtonFrameInstance1.XUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Blue",
-                            Type = "int",
-                            Value = OrTextInstance.Blue + 140
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.CustomFontFile",
-                            Type = "string",
-                            Value = OrTextInstance.CustomFontFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Font Scale",
-                            Type = "float",
-                            Value = OrTextInstance.FontScale + 0.6f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Green",
-                            Type = "int",
-                            Value = OrTextInstance.Green + 230
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Height",
-                            Type = "float",
-                            Value = OrTextInstance.Height + 0f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Parent",
-                            Type = "string",
-                            Value = OrTextInstance.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Red",
-                            Type = "int",
-                            Value = OrTextInstance.Red + 240
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Text",
-                            Type = "string",
-                            Value = OrTextInstance.Text
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.UseCustomFont",
-                            Type = "bool",
-                            Value = OrTextInstance.UseCustomFont
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Width",
-                            Type = "float",
-                            Value = OrTextInstance.Width + 0f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.X",
-                            Type = "float",
-                            Value = OrTextInstance.X + 164f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "OrTextInstance.Y",
-                            Type = "float",
-                            Value = OrTextInstance.Y + 42f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "PointsSprite.Height",
                             Type = "float",
                             Value = PointsSprite.Height + 50f
@@ -6296,6 +5053,46 @@
                             Value = CostText.XUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.Height",
+                            Type = "float",
+                            Value = UpgradeInfoInstance.Height + 150f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.Parent",
+                            Type = "string",
+                            Value = UpgradeInfoInstance.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.Width",
+                            Type = "float",
+                            Value = UpgradeInfoInstance.Width + 354f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.X",
+                            Type = "float",
+                            Value = UpgradeInfoInstance.X + 79f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpgradeInfoInstance.Y",
+                            Type = "float",
+                            Value = UpgradeInfoInstance.Y + 0f
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -6309,17 +5106,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "UpgradeText.Visible",
+                            Name = "UpgradeInfoInstance.Visible",
                             Type = "bool",
-                            Value = UpgradeText.Visible
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Visible",
-                            Type = "bool",
-                            Value = ButtonContainers.Visible
+                            Value = UpgradeInfoInstance.Visible
                         }
                         );
                         break;
@@ -6327,17 +5116,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "UpgradeText.Visible",
+                            Name = "UpgradeInfoInstance.Visible",
                             Type = "bool",
-                            Value = UpgradeText.Visible
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Visible",
-                            Type = "bool",
-                            Value = ButtonContainers.Visible
+                            Value = UpgradeInfoInstance.Visible
                         }
                         );
                         break;
@@ -6353,17 +5134,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "UpgradeText.Visible",
+                            Name = "UpgradeInfoInstance.Visible",
                             Type = "bool",
-                            Value = UpgradeText.Visible
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Visible",
-                            Type = "bool",
-                            Value = ButtonContainers.Visible
+                            Value = UpgradeInfoInstance.Visible
                         }
                         );
                         break;
@@ -6371,17 +5144,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "UpgradeText.Visible",
+                            Name = "UpgradeInfoInstance.Visible",
                             Type = "bool",
-                            Value = UpgradeText.Visible
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonContainers.Visible",
-                            Type = "bool",
-                            Value = ButtonContainers.Visible
+                            Value = UpgradeInfoInstance.Visible
                         }
                         );
                         break;
@@ -6793,8 +5558,6 @@
             private AbbatoirIntergrade.GumRuntimes.TextRuntime NameText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TallInfoFrameRuntime TallInfoFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime StatsContainer { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TextRuntime UpgradeText { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ButtonContainers { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime InfoContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime AttackDamageType { get; set; }
@@ -6804,11 +5567,9 @@
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime RangeContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime AttackSpeed { get; set; }
             private AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime PointOrSplash { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance1 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TextRuntime OrTextInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime PointsSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime CostText { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime UpgradeInfoInstance { get; set; }
             public string SatoshiCost
             {
                 get
@@ -6841,12 +5602,10 @@
             }
             public event FlatRedBall.Gui.WindowEvent NameContainerClick;
             public event FlatRedBall.Gui.WindowEvent StatsContainerClick;
-            public event FlatRedBall.Gui.WindowEvent ButtonContainersClick;
             public event FlatRedBall.Gui.WindowEvent InfoContainerClick;
             public event FlatRedBall.Gui.WindowEvent AttackCostContainerClick;
             public event FlatRedBall.Gui.WindowEvent RangeContainerClick;
-            public event FlatRedBall.Gui.WindowEvent ButtonFrameInstanceClick;
-            public event FlatRedBall.Gui.WindowEvent ButtonFrameInstance1Click;
+            public event FlatRedBall.Gui.WindowEvent UpgradeInfoInstanceClick;
             public event System.EventHandler SatoshiCostChanged;
             public event System.EventHandler StructureNameChanged;
             public StructureInfoRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
@@ -6882,8 +5641,6 @@
                 NameText = this.GetGraphicalUiElementByName("NameText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 TallInfoFrameInstance = this.GetGraphicalUiElementByName("TallInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.TallInfoFrameRuntime;
                 StatsContainer = this.GetGraphicalUiElementByName("StatsContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
-                UpgradeText = this.GetGraphicalUiElementByName("UpgradeText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                ButtonContainers = this.GetGraphicalUiElementByName("ButtonContainers") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 InfoContainer = this.GetGraphicalUiElementByName("InfoContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 AttackDamageType = this.GetGraphicalUiElementByName("AttackDamageType") as AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime;
@@ -6893,19 +5650,15 @@
                 RangeContainer = this.GetGraphicalUiElementByName("RangeContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 AttackSpeed = this.GetGraphicalUiElementByName("AttackSpeed") as AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime;
                 PointOrSplash = this.GetGraphicalUiElementByName("PointOrSplash") as AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime;
-                ButtonFrameInstance = this.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                ButtonFrameInstance1 = this.GetGraphicalUiElementByName("ButtonFrameInstance1") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                OrTextInstance = this.GetGraphicalUiElementByName("OrTextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 PointsSprite = this.GetGraphicalUiElementByName("PointsSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 CostText = this.GetGraphicalUiElementByName("CostText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+                UpgradeInfoInstance = this.GetGraphicalUiElementByName("UpgradeInfoInstance") as AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime;
                 NameContainer.Click += (unused) => NameContainerClick?.Invoke(this);
                 StatsContainer.Click += (unused) => StatsContainerClick?.Invoke(this);
-                ButtonContainers.Click += (unused) => ButtonContainersClick?.Invoke(this);
                 InfoContainer.Click += (unused) => InfoContainerClick?.Invoke(this);
                 AttackCostContainer.Click += (unused) => AttackCostContainerClick?.Invoke(this);
                 RangeContainer.Click += (unused) => RangeContainerClick?.Invoke(this);
-                ButtonFrameInstance.Click += (unused) => ButtonFrameInstanceClick?.Invoke(this);
-                ButtonFrameInstance1.Click += (unused) => ButtonFrameInstance1Click?.Invoke(this);
+                UpgradeInfoInstance.Click += (unused) => UpgradeInfoInstanceClick?.Invoke(this);
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

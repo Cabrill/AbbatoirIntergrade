@@ -44,6 +44,7 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/ResourceIncreaseNotification", typeof(AbbatoirIntergrade.GumRuntimes.ResourceIncreaseNotificationRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/StructureInfo", typeof(AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("InfoDisplays/TopStatusBar", typeof(AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/UpgradeInfo", typeof(AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("LivesPointsDisplay", typeof(AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MenuWindow", typeof(AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MessageBox", typeof(AbbatoirIntergrade.GumRuntimes.MessageBoxRuntime));

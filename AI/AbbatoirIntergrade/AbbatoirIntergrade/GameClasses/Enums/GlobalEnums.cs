@@ -38,6 +38,13 @@ namespace AbbatoirIntergrade
         Pig3
     };
 
+    public enum UpgradeTypes
+    {
+        Range,
+        Speed,
+        Damage
+    }
+
     public static class EnumExtensions
     {
         private static readonly Dictionary<EnemyTypes, double> PointValues = new Dictionary<EnemyTypes, double>();
