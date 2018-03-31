@@ -180,6 +180,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.SpriteInstance.TopTexturePixel = 1948f;
             base.SpriteInstance.BottomTexturePixel = 2031f;
             base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.AnimationChains = BaseStructureAnimationChainListFile;
+            base.SpriteInstance.CurrentChainName = "PiercingTower";
             if (mAxisAlignedRectangleInstance.Parent == null)
             {
                 mAxisAlignedRectangleInstance.CopyAbsoluteToRelative();
@@ -377,6 +379,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.SpriteInstance.TopTexturePixel = 1948f;
             base.SpriteInstance.BottomTexturePixel = 2031f;
             base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.AnimationChains = BaseStructureAnimationChainListFile;
+            base.SpriteInstance.CurrentChainName = "PiercingTower";
             base.AxisAlignedRectangleInstance.Width = 64f;
             base.AxisAlignedRectangleInstance.Height = 64f;
             if (LightSpriteInstance.Parent == null)

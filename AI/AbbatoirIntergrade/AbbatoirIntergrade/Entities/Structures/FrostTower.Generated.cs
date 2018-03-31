@@ -187,6 +187,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.SpriteInstance.TopTexturePixel = 1570f;
             base.SpriteInstance.BottomTexturePixel = 1716f;
             base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.AnimationChains = BaseStructureAnimationChainListFile;
+            base.SpriteInstance.CurrentChainName = "FrostTower";
             if (mAxisAlignedRectangleInstance.Parent == null)
             {
                 mAxisAlignedRectangleInstance.CopyAbsoluteToRelative();
@@ -347,6 +349,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.SpriteInstance.TopTexturePixel = 1570f;
             base.SpriteInstance.BottomTexturePixel = 1716f;
             base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.AnimationChains = BaseStructureAnimationChainListFile;
+            base.SpriteInstance.CurrentChainName = "FrostTower";
             base.AxisAlignedRectangleInstance.Width = 64f;
             base.AxisAlignedRectangleInstance.Height = 64f;
             if (LightSpriteInstance.Parent == null)

@@ -1188,6 +1188,11 @@
       <Name>darknessshader</Name>
       <Link>content\screens\gamescreen\effects\darknessshader.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\buildstructure.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BuildStructure</Name>
+      <Link>content\screens\gamescreen\sounds\buildstructure.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\hordealert.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>HordeAlert</Name>
@@ -1282,6 +1287,16 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ScreamLoop</Name>
       <Link>content\screens\gamescreen\sounds\screams\screamloop.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sounds\upgradestructure.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>UpgradeStructure</Name>
+      <Link>content\screens\gamescreen\sounds\upgradestructure.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\mapscreen\structureselection.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>StructureSelection</Name>
+      <Link>content\screens\mapscreen\structureselection.xnb</Link>
     </None>
     <None Include="content\entities\baseentities\baseenemy\particleanimationschainlist.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

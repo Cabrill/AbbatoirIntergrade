@@ -19,6 +19,7 @@ using FlatRedBall.Gui;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
 using Gum.Converters;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input;
 using RenderingLibrary.Graphics;
 
@@ -27,6 +28,7 @@ namespace AbbatoirIntergrade.Screens
 {
 	public partial class MapScreen
 	{
+	    private SoundEffectInstance StructureChoiceSound;
 
 		void CustomInitialize()
 		{
@@ -38,6 +40,8 @@ namespace AbbatoirIntergrade.Screens
 #if WINDOWS || DESKTOP_GL
             FlatRedBallServices.IsWindowsCursorVisible = true;
 #endif
+
+		    StructureChoiceSound = StructureSelection.CreateInstance();
 
             AssignClickEventsAndStatusToButtons();
             MapScreenGumInstance.CurrentFadingState = MapScreenGumRuntime.Fading.Faded;
@@ -114,6 +118,8 @@ namespace AbbatoirIntergrade.Screens
 	            }
 
 	            towerSelectionBox.Visible = false;
+
+                SoundManager.PlaySoundEffect(StructureChoiceSound);
 	        }
 	    }
 
@@ -158,6 +164,8 @@ namespace AbbatoirIntergrade.Screens
 		            optionsButton.Click -= ShowMenu;
 		        }
 		    }
+
+		    if (StructureChoiceSound != null && !StructureChoiceSound.IsDisposed) StructureChoiceSound.Dispose();
         }
 
         static void CustomLoadStaticContent(string contentManagerName)

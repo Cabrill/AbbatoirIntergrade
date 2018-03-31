@@ -38,6 +38,11 @@ namespace AbbatoirIntergrade.Screens
                     PathingNodeNetwork.RemoveNodesForCollision(newBuilding.AxisAlignedRectangleInstance);
 
                     SpendSatoshis(newBuilding.SatoshiCost);
+
+
+                    StructureBuildSound.Pan = newBuilding.X / (Camera.Main.OrthogonalWidth / 2);
+
+                    SoundManager.PlaySoundEffect(StructureBuildSound);
                 }
             }
         }

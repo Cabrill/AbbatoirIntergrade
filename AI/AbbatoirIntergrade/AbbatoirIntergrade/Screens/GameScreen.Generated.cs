@@ -199,6 +199,8 @@ namespace AbbatoirIntergrade.Screens
                 return mScreamLoop;
             }
         }
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect UpgradeStructure;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect BuildStructure;
         
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D WorldRenderTarget;
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D DarknessRenderTarget;
@@ -600,6 +602,8 @@ namespace AbbatoirIntergrade.Screens
             {
                 mScreamLoop = null;
             }
+            UpgradeStructure = null;
+            BuildStructure = null;
             
             AllStructuresList.MakeOneWay();
             AllEnemiesList.MakeOneWay();
@@ -1013,6 +1017,8 @@ namespace AbbatoirIntergrade.Screens
             Scream13 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream13", contentManagerName);
             Scream14 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream14", contentManagerName);
             Scream15 = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/screams/scream15", contentManagerName);
+            UpgradeStructure = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/upgradestructure", contentManagerName);
+            BuildStructure = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/gamescreen/sounds/buildstructure", contentManagerName);
             AbbatoirIntergrade.Entities.ShaderRenderer.LoadStaticContent(contentManagerName);
             AbbatoirIntergrade.Entities.GraphicalElements.StructurePlacement.LoadStaticContent(contentManagerName);
             CustomLoadStaticContent(contentManagerName);
@@ -1088,6 +1094,10 @@ namespace AbbatoirIntergrade.Screens
                     return Scream15;
                 case  "ScreamLoop":
                     return ScreamLoop;
+                case  "UpgradeStructure":
+                    return UpgradeStructure;
+                case  "BuildStructure":
+                    return BuildStructure;
             }
             return null;
         }
@@ -1161,6 +1171,10 @@ namespace AbbatoirIntergrade.Screens
                     return Scream15;
                 case  "ScreamLoop":
                     return ScreamLoop;
+                case  "UpgradeStructure":
+                    return UpgradeStructure;
+                case  "BuildStructure":
+                    return BuildStructure;
             }
             return null;
         }
@@ -1234,6 +1248,10 @@ namespace AbbatoirIntergrade.Screens
                     return Scream15;
                 case  "ScreamLoop":
                     return ScreamLoop;
+                case  "UpgradeStructure":
+                    return UpgradeStructure;
+                case  "BuildStructure":
+                    return BuildStructure;
             }
             return null;
         }

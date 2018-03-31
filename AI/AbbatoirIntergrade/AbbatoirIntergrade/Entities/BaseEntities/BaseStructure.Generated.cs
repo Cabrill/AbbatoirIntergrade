@@ -553,6 +553,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 }
                 SpriteInstance.Texture = AllParticles;
                 SpriteInstance.TextureScale = 1f;
+                SpriteInstance.UseAnimationRelativePosition = false;
                 SpriteInstance.AnimationChains = BaseStructureAnimationChainListFile;
             }
             if (AxisAlignedRectangleInstance!= null)
@@ -645,6 +646,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 LightAimSpriteInstance.CopyAbsoluteToRelative();
                 LightAimSpriteInstance.AttachTo(this, false);
             }
+            if (LightAimSpriteInstance.Parent == null)
+            {
+                LightAimSpriteInstance.X = 165.2288f;
+            }
+            else
+            {
+                LightAimSpriteInstance.RelativeX = 165.2288f;
+            }
+            if (LightAimSpriteInstance.Parent == null)
+            {
+                LightAimSpriteInstance.Y = -20.91503f;
+            }
+            else
+            {
+                LightAimSpriteInstance.RelativeY = -20.91503f;
+            }
             LightAimSpriteInstance.Texture = AllParticles;
             LightAimSpriteInstance.TextureScale = 1f;
             LightAimSpriteInstance.AnimationChains = StructureGlowAnimationChainList;
@@ -694,6 +711,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             RangePreviewSprite.TextureScale = 1f;
             RangePreviewSprite.Visible = false;
             RangePreviewSprite.Alpha = 0.8f;
+            if (LightAimSpriteInstance.Parent == null)
+            {
+                LightAimSpriteInstance.X = 165.2288f;
+            }
+            else
+            {
+                LightAimSpriteInstance.RelativeX = 165.2288f;
+            }
+            if (LightAimSpriteInstance.Parent == null)
+            {
+                LightAimSpriteInstance.Y = -20.91503f;
+            }
+            else
+            {
+                LightAimSpriteInstance.RelativeY = -20.91503f;
+            }
             LightAimSpriteInstance.Texture = AllParticles;
             LightAimSpriteInstance.TextureScale = 1f;
             LightAimSpriteInstance.AnimationChains = StructureGlowAnimationChainList;

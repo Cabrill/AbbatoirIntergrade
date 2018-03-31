@@ -188,6 +188,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
         }
 
+        public void StartWarpIn()
+        {
+            
+        }
+
         private void BuildStructure()
         {
             //var shouldBuild = EnergyManager.CanAfford(EnergyBuildCost) && MineralsManager.CanAfford(MineralsBuildCost);

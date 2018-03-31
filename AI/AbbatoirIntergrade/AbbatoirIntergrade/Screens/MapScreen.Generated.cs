@@ -28,6 +28,7 @@ namespace AbbatoirIntergrade.Screens
         protected static Microsoft.Xna.Framework.Graphics.Texture2D worldmap;
         protected static FlatRedBall.Gum.GumIdb MapScreenGum;
         protected static System.Collections.Generic.Dictionary<string, AbbatoirIntergrade.DataTypes.Messages> Messages;
+        protected static Microsoft.Xna.Framework.Audio.SoundEffect StructureSelection;
         
         private AbbatoirIntergrade.GumRuntimes.MapScreenGumRuntime MapScreenGumInstance;
         private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance;
@@ -166,6 +167,7 @@ namespace AbbatoirIntergrade.Screens
             FlatRedBall.SpriteManager.RemoveDrawableBatch(MapScreenGum); FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged -= MapScreenGum.HandleResolutionChanged;
             MapScreenGum = null;
             Messages = null;
+            StructureSelection = null;
             
             StructureList.MakeOneWay();
             ProjectileList.MakeOneWay();
@@ -334,6 +336,7 @@ namespace AbbatoirIntergrade.Screens
                     Messages = temporaryCsvObject;
                 }
             }
+            StructureSelection = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/mapscreen/structureselection", contentManagerName);
             CustomLoadStaticContent(contentManagerName);
         }
         [System.Obsolete("Use GetFile instead")]
@@ -347,6 +350,8 @@ namespace AbbatoirIntergrade.Screens
                     return MapScreenGum;
                 case  "Messages":
                     return Messages;
+                case  "StructureSelection":
+                    return StructureSelection;
             }
             return null;
         }
@@ -360,6 +365,8 @@ namespace AbbatoirIntergrade.Screens
                     return MapScreenGum;
                 case  "Messages":
                     return Messages;
+                case  "StructureSelection":
+                    return StructureSelection;
             }
             return null;
         }
@@ -371,6 +378,8 @@ namespace AbbatoirIntergrade.Screens
                     return worldmap;
                 case  "MapScreenGum":
                     return MapScreenGum;
+                case  "StructureSelection":
+                    return StructureSelection;
             }
             return null;
         }

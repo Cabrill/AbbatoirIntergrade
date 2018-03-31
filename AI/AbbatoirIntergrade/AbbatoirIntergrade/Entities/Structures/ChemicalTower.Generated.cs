@@ -187,6 +187,9 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.SpriteInstance.TopTexturePixel = 1914f;
             base.SpriteInstance.BottomTexturePixel = 2030f;
             base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.UseAnimationRelativePosition = false;
+            base.SpriteInstance.AnimationChains = BaseStructureAnimationChainListFile;
+            base.SpriteInstance.CurrentChainName = "ChemicalTower";
             if (mAxisAlignedRectangleInstance.Parent == null)
             {
                 mAxisAlignedRectangleInstance.CopyAbsoluteToRelative();
@@ -361,6 +364,9 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.SpriteInstance.TopTexturePixel = 1914f;
             base.SpriteInstance.BottomTexturePixel = 2030f;
             base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.UseAnimationRelativePosition = false;
+            base.SpriteInstance.AnimationChains = BaseStructureAnimationChainListFile;
+            base.SpriteInstance.CurrentChainName = "ChemicalTower";
             base.AxisAlignedRectangleInstance.Width = 64f;
             base.AxisAlignedRectangleInstance.Height = 64f;
             if (LightSpriteInstance.Parent == null)

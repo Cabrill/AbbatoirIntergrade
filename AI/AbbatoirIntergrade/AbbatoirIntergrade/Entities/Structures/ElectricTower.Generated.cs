@@ -171,6 +171,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.SpriteInstance.TopTexturePixel = 1568f;
             base.SpriteInstance.BottomTexturePixel = 1789f;
             base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.AnimationChains = BaseStructureAnimationChainListFile;
+            base.SpriteInstance.CurrentChainName = "ElectricTower";
             if (mAxisAlignedRectangleInstance.Parent == null)
             {
                 mAxisAlignedRectangleInstance.CopyAbsoluteToRelative();
@@ -323,6 +325,8 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.SpriteInstance.TopTexturePixel = 1568f;
             base.SpriteInstance.BottomTexturePixel = 1789f;
             base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.AnimationChains = BaseStructureAnimationChainListFile;
+            base.SpriteInstance.CurrentChainName = "ElectricTower";
             base.AxisAlignedRectangleInstance.Width = 64f;
             base.AxisAlignedRectangleInstance.Height = 64f;
             if (LightSpriteInstance.Parent == null)

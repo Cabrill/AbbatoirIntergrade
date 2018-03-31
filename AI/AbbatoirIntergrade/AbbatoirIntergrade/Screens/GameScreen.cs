@@ -66,6 +66,8 @@ namespace AbbatoirIntergrade.Screens
         private SoundEffectInstance OutgoingMessageSound;
         private SoundEffectInstance HordeAlertSound;
         private SoundEffectInstance ScreamSoundLoop;
+        private SoundEffectInstance StructureBuildSound;
+        private SoundEffectInstance StructureUpgradeSound;
 
         private List<SoundEffectInstance> ScreamSounds;
         private int _LastScreamIndex;
@@ -94,6 +96,8 @@ namespace AbbatoirIntergrade.Screens
             IncomingMessageSound = IncomingMessage.CreateInstance();
             OutgoingMessageSound = OutgoingMessage.CreateInstance();
             HordeAlertSound = HordeAlert.CreateInstance();
+            StructureBuildSound = BuildStructure.CreateInstance();
+            StructureUpgradeSound = UpgradeStructure.CreateInstance();
             ScreamSounds = new List<SoundEffectInstance>()
             {
                 Scream1.CreateInstance(),
@@ -1079,6 +1083,10 @@ namespace AbbatoirIntergrade.Screens
                 baseStructure.ApplyUpgrade(upgradeType);
                 SpendSatoshis(satoshiCost);
                 StructureInfoInstance.Hide();
+
+                StructureUpgradeSound.Pan = baseStructure.X / (Camera.Main.OrthogonalWidth / 2);
+
+                SoundManager.PlaySoundEffect(StructureUpgradeSound);
             }
         }
 
@@ -1157,6 +1165,8 @@ namespace AbbatoirIntergrade.Screens
 		    if (OutgoingMessageSound != null && !OutgoingMessageSound.IsDisposed) OutgoingMessageSound.Dispose();
 		    if (HordeAlertSound != null && !HordeAlertSound.IsDisposed) HordeAlertSound.Dispose();
 		    if (ScreamSoundLoop != null && !ScreamSoundLoop.IsDisposed) ScreamSoundLoop.Dispose();
+		    if (StructureBuildSound != null && !StructureBuildSound.IsDisposed) StructureBuildSound.Dispose();
+		    if (StructureUpgradeSound != null && !StructureUpgradeSound.IsDisposed) StructureUpgradeSound.Dispose();
 
             for (var i = ScreamSounds.Count - 1; i >= 0; i--)
 		    {
