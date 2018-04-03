@@ -38,13 +38,13 @@ namespace AbbatoirIntergrade.Screens
 
             if (CurrentLevel.MapName != "Chapter1")
             {
-                MenuWindowInstance.ButtonType3State = ButtonFrameRuntime.ButtonType.History;
-                MenuWindowInstance.AssignEventToButton3(window =>
-                {
-                    ChatHistoryInstance.PopulateWithAllChatHistory();
-                    ChatHistoryInstance.Visible = true;
-                    ChatHistoryInstance.CloseButtonClick = (sender, args) => ChatHistoryInstance.Visible = false;
-                });
+                //MenuWindowInstance.ButtonType3State = ButtonFrameRuntime.ButtonType.History;
+                //MenuWindowInstance.AssignEventToButton3(window =>
+                //{
+                //    ChatHistoryInstance.PopulateWithAllChatHistory();
+                //    ChatHistoryInstance.Visible = true;
+                //    ChatHistoryInstance.CloseButtonClick = (sender, args) => ChatHistoryInstance.Visible = false;
+                //});
             }
         }
 

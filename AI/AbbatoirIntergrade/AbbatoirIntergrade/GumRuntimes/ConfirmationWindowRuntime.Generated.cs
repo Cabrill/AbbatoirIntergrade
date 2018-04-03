@@ -45,12 +45,12 @@
                             MessageText.X = 676f;
                             MessageText.Y = 425f;
                             ConfirmButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
-                            ConfirmButton.Height = 10f;
+                            ConfirmButton.Height = 100f;
                             ConfirmButton.Width = 6f;
                             ConfirmButton.X = 662f;
                             ConfirmButton.Y = 878f;
                             CancelButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
-                            CancelButton.Height = 10f;
+                            CancelButton.Height = 100f;
                             CancelButton.Width = 6f;
                             CancelButton.X = 1746f;
                             CancelButton.Y = 878f;
@@ -150,7 +150,7 @@
                         setCancelButtonCurrentButtonTypeStateFirstValue = true;
                         CancelButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
                         setCancelButtonHeightFirstValue = true;
-                        CancelButtonHeightFirstValue = 10f;
+                        CancelButtonHeightFirstValue = 100f;
                         setCancelButtonWidthFirstValue = true;
                         CancelButtonWidthFirstValue = 6f;
                         setCancelButtonXFirstValue = true;
@@ -160,7 +160,7 @@
                         setConfirmButtonCurrentButtonTypeStateFirstValue = true;
                         ConfirmButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
                         setConfirmButtonHeightFirstValue = true;
-                        ConfirmButtonHeightFirstValue = 10f;
+                        ConfirmButtonHeightFirstValue = 100f;
                         setConfirmButtonWidthFirstValue = true;
                         ConfirmButtonWidthFirstValue = 6f;
                         setConfirmButtonXFirstValue = true;
@@ -233,7 +233,7 @@
                         setCancelButtonCurrentButtonTypeStateSecondValue = true;
                         CancelButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
                         setCancelButtonHeightSecondValue = true;
-                        CancelButtonHeightSecondValue = 10f;
+                        CancelButtonHeightSecondValue = 100f;
                         setCancelButtonWidthSecondValue = true;
                         CancelButtonWidthSecondValue = 6f;
                         setCancelButtonXSecondValue = true;
@@ -243,7 +243,7 @@
                         setConfirmButtonCurrentButtonTypeStateSecondValue = true;
                         ConfirmButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
                         setConfirmButtonHeightSecondValue = true;
-                        ConfirmButtonHeightSecondValue = 10f;
+                        ConfirmButtonHeightSecondValue = 100f;
                         setConfirmButtonWidthSecondValue = true;
                         ConfirmButtonWidthSecondValue = 6f;
                         setConfirmButtonXSecondValue = true;
@@ -876,7 +876,7 @@
                             SetsValue = true,
                             Name = "ConfirmButton.Height",
                             Type = "float",
-                            Value = ConfirmButton.Height + 10f
+                            Value = ConfirmButton.Height + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -916,7 +916,7 @@
                             SetsValue = true,
                             Name = "CancelButton.Height",
                             Type = "float",
-                            Value = CancelButton.Height + 10f
+                            Value = CancelButton.Height + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

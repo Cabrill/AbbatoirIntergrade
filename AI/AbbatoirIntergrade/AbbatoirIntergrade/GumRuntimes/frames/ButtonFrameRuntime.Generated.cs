@@ -57,8 +57,8 @@
                     switch(mCurrentVariableState)
                     {
                         case  VariableState.Default:
-                            Height = 24.47f;
-                            HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            Height = 100f;
+                            HeightUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                             Width = 13.647f;
                             WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             BackgroundSprite.Height = 100f;
@@ -83,7 +83,7 @@
                             SelectSprite.Width = 100f;
                             SelectSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             SpriteInstance.Height = 90f;
-                            SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                             SetProperty("SpriteInstance.SourceFile", "AllUIAssets.png");
                             SpriteInstance.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             SpriteInstance.TextureHeight = 200;
@@ -156,10 +156,10 @@
                     {
                         case  ButtonType.Check:
                             BackgroundSprite.Alpha = 255;
-                            SpriteInstance.TextureHeight = 200;
-                            SpriteInstance.TextureLeft = 3804;
-                            SpriteInstance.TextureTop = 1692;
-                            SpriteInstance.TextureWidth = 200;
+                            SpriteInstance.TextureHeight = 256;
+                            SpriteInstance.TextureLeft = 3780;
+                            SpriteInstance.TextureTop = 1675;
+                            SpriteInstance.TextureWidth = 256;
                             SpriteInstance.Visible = true;
                             break;
                         case  ButtonType.X:
@@ -398,10 +398,10 @@
                             this.BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setHeightFirstValue = true;
-                        HeightFirstValue = 24.47f;
+                        HeightFirstValue = 100f;
                         if (interpolationValue < 1)
                         {
-                            this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.HeightUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                         }
                         setSelectSpriteHeightFirstValue = true;
                         SelectSpriteHeightFirstValue = 100f;
@@ -439,7 +439,7 @@
                         SpriteInstanceHeightFirstValue = 90f;
                         if (interpolationValue < 1)
                         {
-                            this.SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                         }
                         if (interpolationValue < 1)
                         {
@@ -523,10 +523,10 @@
                             this.BackgroundSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setHeightSecondValue = true;
-                        HeightSecondValue = 24.47f;
+                        HeightSecondValue = 100f;
                         if (interpolationValue >= 1)
                         {
-                            this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.HeightUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                         }
                         setSelectSpriteHeightSecondValue = true;
                         SelectSpriteHeightSecondValue = 100f;
@@ -564,7 +564,7 @@
                         SpriteInstanceHeightSecondValue = 90f;
                         if (interpolationValue >= 1)
                         {
-                            this.SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -849,13 +849,13 @@
                         setBackgroundSpriteAlphaFirstValue = true;
                         BackgroundSpriteAlphaFirstValue = 255;
                         setSpriteInstanceTextureHeightFirstValue = true;
-                        SpriteInstanceTextureHeightFirstValue = 200;
+                        SpriteInstanceTextureHeightFirstValue = 256;
                         setSpriteInstanceTextureLeftFirstValue = true;
-                        SpriteInstanceTextureLeftFirstValue = 3804;
+                        SpriteInstanceTextureLeftFirstValue = 3780;
                         setSpriteInstanceTextureTopFirstValue = true;
-                        SpriteInstanceTextureTopFirstValue = 1692;
+                        SpriteInstanceTextureTopFirstValue = 1675;
                         setSpriteInstanceTextureWidthFirstValue = true;
-                        SpriteInstanceTextureWidthFirstValue = 200;
+                        SpriteInstanceTextureWidthFirstValue = 256;
                         if (interpolationValue < 1)
                         {
                             this.SpriteInstance.Visible = true;
@@ -996,13 +996,13 @@
                         setBackgroundSpriteAlphaSecondValue = true;
                         BackgroundSpriteAlphaSecondValue = 255;
                         setSpriteInstanceTextureHeightSecondValue = true;
-                        SpriteInstanceTextureHeightSecondValue = 200;
+                        SpriteInstanceTextureHeightSecondValue = 256;
                         setSpriteInstanceTextureLeftSecondValue = true;
-                        SpriteInstanceTextureLeftSecondValue = 3804;
+                        SpriteInstanceTextureLeftSecondValue = 3780;
                         setSpriteInstanceTextureTopSecondValue = true;
-                        SpriteInstanceTextureTopSecondValue = 1692;
+                        SpriteInstanceTextureTopSecondValue = 1675;
                         setSpriteInstanceTextureWidthSecondValue = true;
-                        SpriteInstanceTextureWidthSecondValue = 200;
+                        SpriteInstanceTextureWidthSecondValue = 256;
                         if (interpolationValue >= 1)
                         {
                             this.SpriteInstance.Visible = true;
@@ -2002,7 +2002,7 @@
                             SetsValue = true,
                             Name = "Height",
                             Type = "float",
-                            Value = Height + 24.47f
+                            Value = Height + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2942,7 +2942,7 @@
                             SetsValue = true,
                             Name = "SpriteInstance.Texture Height",
                             Type = "int",
-                            Value = SpriteInstance.TextureHeight + 200
+                            Value = SpriteInstance.TextureHeight + 256
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2950,7 +2950,7 @@
                             SetsValue = true,
                             Name = "SpriteInstance.Texture Left",
                             Type = "int",
-                            Value = SpriteInstance.TextureLeft + 3804
+                            Value = SpriteInstance.TextureLeft + 3780
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2958,7 +2958,7 @@
                             SetsValue = true,
                             Name = "SpriteInstance.Texture Top",
                             Type = "int",
-                            Value = SpriteInstance.TextureTop + 1692
+                            Value = SpriteInstance.TextureTop + 1675
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2966,7 +2966,7 @@
                             SetsValue = true,
                             Name = "SpriteInstance.Texture Width",
                             Type = "int",
-                            Value = SpriteInstance.TextureWidth + 200
+                            Value = SpriteInstance.TextureWidth + 256
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

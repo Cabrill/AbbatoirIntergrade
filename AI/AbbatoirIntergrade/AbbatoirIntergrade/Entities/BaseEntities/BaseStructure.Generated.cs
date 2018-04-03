@@ -235,7 +235,18 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 mRangePreviewSprite = value;
             }
         }
-        protected FlatRedBall.Sprite LightAimSpriteInstance;
+        protected FlatRedBall.Sprite mLightAimSpriteInstance;
+        public FlatRedBall.Sprite LightAimSpriteInstance
+        {
+            get
+            {
+                return mLightAimSpriteInstance;
+            }
+            private set
+            {
+                mLightAimSpriteInstance = value;
+            }
+        }
         private AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime StructureUpgradeStatusInstance;
         public float SpriteInstanceRed
         {
@@ -474,8 +485,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             mMinimumRangeCircleInstance.Name = "mMinimumRangeCircleInstance";
             mRangePreviewSprite = new FlatRedBall.Sprite();
             mRangePreviewSprite.Name = "mRangePreviewSprite";
-            LightAimSpriteInstance = new FlatRedBall.Sprite();
-            LightAimSpriteInstance.Name = "LightAimSpriteInstance";
+            mLightAimSpriteInstance = new FlatRedBall.Sprite();
+            mLightAimSpriteInstance.Name = "mLightAimSpriteInstance";
             {var oldLayoutSuspended = global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended; global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true; StructureUpgradeStatusInstance = new AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime();global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = oldLayoutSuspended; StructureUpgradeStatusInstance.UpdateLayout();}
             
             PostInitialize();
@@ -491,7 +502,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mRangeCircleInstance, LayerProvidedByContainer);
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mMinimumRangeCircleInstance, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(mRangePreviewSprite, LayerProvidedByContainer);
-            FlatRedBall.SpriteManager.AddToLayer(LightAimSpriteInstance, LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddToLayer(mLightAimSpriteInstance, LayerProvidedByContainer);
             StructureUpgradeStatusInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(LayerProvidedByContainer)));
         }
         public virtual void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -501,7 +512,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mRangeCircleInstance, LayerProvidedByContainer);
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mMinimumRangeCircleInstance, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(mRangePreviewSprite, LayerProvidedByContainer);
-            FlatRedBall.SpriteManager.AddToLayer(LightAimSpriteInstance, LayerProvidedByContainer);
+            FlatRedBall.SpriteManager.AddToLayer(mLightAimSpriteInstance, LayerProvidedByContainer);
             StructureUpgradeStatusInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(LayerProvidedByContainer)));
             AddToManagersBottomUp(layerToAddTo);
             CustomInitialize();
@@ -641,10 +652,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             RangePreviewSprite.TextureScale = 1f;
             RangePreviewSprite.Visible = false;
             RangePreviewSprite.Alpha = 0.8f;
-            if (LightAimSpriteInstance.Parent == null)
+            if (mLightAimSpriteInstance.Parent == null)
             {
-                LightAimSpriteInstance.CopyAbsoluteToRelative();
-                LightAimSpriteInstance.AttachTo(this, false);
+                mLightAimSpriteInstance.CopyAbsoluteToRelative();
+                mLightAimSpriteInstance.AttachTo(this, false);
             }
             if (LightAimSpriteInstance.Parent == null)
             {

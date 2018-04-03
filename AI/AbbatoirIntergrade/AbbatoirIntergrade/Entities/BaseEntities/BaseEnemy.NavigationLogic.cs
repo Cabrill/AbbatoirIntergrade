@@ -77,7 +77,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 ChoosePointForNavigation();
                 _currentDistanceToNavigationTarget = Vector3.Distance(Position, _targetPointForNavigation);
             }
-            else if (PathingPointIndex < PathingLine.Points.Count - 1)
+            else if (!IsFlying && PathingPointIndex < PathingLine.Points.Count - 1)
             {
                 var currentSegment = PathingSegments[PathingPointIndex - 1];
                 var nextSegment = PathingSegments[PathingPointIndex];
@@ -107,7 +107,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         protected virtual void NavigateToTarget()
         {
-            if (!isHorde && !PathingSegments.Any(s => s.DistanceTo(Position) < SelfCollisionCircle.Radius/2))
+            if (!isHorde && !IsFlying && !PathingSegments.Any(s => s.DistanceTo(Position) < SelfCollisionCircle.Radius/2))
             {
                 var nextNodes = NodeNetwork.GetPathOrClosest(ref Position, ref _targetPointForNavigation);
                 var nextNode = nextNodes.Count > 1 ? nextNodes[1] : nextNodes[0];

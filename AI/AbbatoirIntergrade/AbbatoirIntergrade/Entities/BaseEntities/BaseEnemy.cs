@@ -7,6 +7,7 @@ using Accord.Genetic;
 using FlatRedBall;
 using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
+using FlatRedBall.Instructions;
 using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
@@ -58,6 +59,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	    private bool isHorde;
 
 	    private int flyingFinalDeathAnimationFrameIndex = 15;
+
+	    private bool deathAnimationFinished;
 
 
         /// <summary>
@@ -112,17 +115,20 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 		        //                      SpriteInstance.AnimationChains[0][0].LeftCoordinate) * SpriteInstance.AnimationChains[0][0].Texture.Width;
 
 
-                HealthBar.SetWidth(150f);
 		        maxFrameHeight = GetMaxFrameHeight();
             }
+
+            HealthBar.SetWidth(150f);
 
 		    if (drowningSound == null || drowningSound.IsDisposed)
 		    {
 		        drowningSound = DrowningSound.CreateInstance();
 		    }
 
-		    //HealthBar.AttachTo(SpriteInstance, true);
-		    HealthBar.RelativeY = HealthBar.Height + maxFrameHeight + Altitude;
+		    deathAnimationFinished = false;
+
+            //HealthBar.AttachTo(SpriteInstance, true);
+            HealthBar.RelativeY = HealthBar.Height + maxFrameHeight + Altitude;
 
             SpriteInstance.AnimationChains = spriteAnimationChainList;
 
@@ -465,6 +471,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	    private void PerformDeath()
 	    {
+	        if (deathAnimationFinished) return;
+
             if (!IsDrowning && CurrentActionState != Action.Dying)
 	        {
 	            OnDeath?.Invoke(this);
@@ -480,8 +488,12 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             if (Altitude <=0f && IsOnFinalFrameOfAnimation)
             {
-                RemoveArrows();
-                Destroy();
+                deathAnimationFinished = true;
+                this.Call(() =>
+                {
+                    RemoveArrows();
+                    Destroy();
+                }).After(2f);
             }
 	    }
 

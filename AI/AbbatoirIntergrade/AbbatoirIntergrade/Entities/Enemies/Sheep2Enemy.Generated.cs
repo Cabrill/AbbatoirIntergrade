@@ -451,12 +451,14 @@ namespace AbbatoirIntergrade.Entities.Enemies
         {
             base.ReAddToManagers(layerToAddTo);
             FlatRedBall.SpriteManager.AddToLayer(mSpriteInstance, LayerProvidedByContainer);
+            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mCircleInstance, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(LightSprite, LayerProvidedByContainer);
         }
         public override void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
             LayerProvidedByContainer = layerToAddTo;
             FlatRedBall.SpriteManager.AddToLayer(mSpriteInstance, LayerProvidedByContainer);
+            FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mCircleInstance, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(LightSprite, LayerProvidedByContainer);
             base.AddToManagers(layerToAddTo);
             CustomInitialize();
@@ -478,6 +480,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
             if (SpriteInstance != null)
             {
                 FlatRedBall.SpriteManager.RemoveSpriteOneWay(SpriteInstance);
+            }
+            if (CircleInstance != null)
+            {
+                FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(CircleInstance);
             }
             if (LightSprite != null)
             {
@@ -592,6 +598,10 @@ namespace AbbatoirIntergrade.Entities.Enemies
             if (SpriteInstance != null)
             {
                 FlatRedBall.SpriteManager.RemoveSpriteOneWay(SpriteInstance);
+            }
+            if (CircleInstance != null)
+            {
+                FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(CircleInstance);
             }
             if (LightSprite != null)
             {

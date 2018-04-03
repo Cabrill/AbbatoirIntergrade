@@ -316,6 +316,7 @@
     </Compile>
     <Compile Include="GumRuntimes\CreditDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\EndingScreenGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\FlatRedBallSplashGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\frames\ButtonFrameRuntime.cs" />
     <Compile Include="GumRuntimes\frames\ButtonFrameRuntime.Generated.cs">
       <DependentUpon>ButtonFrameRuntime.cs</DependentUpon>
@@ -448,6 +449,10 @@
     <Compile Include="Screens\EndingScreen.cs" />
     <Compile Include="Screens\EndingScreen.Generated.cs">
       <DependentUpon>EndingScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\FlatRedBallSplashScreen.cs" />
+    <Compile Include="Screens\FlatRedBallSplashScreen.Generated.cs">
+      <DependentUpon>FlatRedBallSplashScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\GameScreen.Event.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
@@ -1658,6 +1663,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font96Informal_Roman_o1_5</Name>
     </None>
+    <None Include="content\gumproject\frblogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>frblogo</Name>
+    </None>
     <None Include="content\gumproject\gumproject.gumx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>GumProject</Name>
@@ -1665,6 +1674,10 @@
     <None Include="content\gumproject\screens\endingscreengum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>EndingScreenGum</Name>
+    </None>
+    <None Include="content\gumproject\screens\flatredballsplashgum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>flatredballsplashgum</Name>
     </None>
     <None Include="content\gumproject\screens\gamescreengum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

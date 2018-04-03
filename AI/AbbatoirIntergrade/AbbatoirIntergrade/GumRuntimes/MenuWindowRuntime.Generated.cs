@@ -35,25 +35,25 @@
                             HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             Width = 100f;
                             WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ButtonFrameInstance.Height = 12.38666f;
+                            ButtonFrameInstance.Height = 100f;
                             ButtonFrameInstance.Width = 7.0845f;
                             ButtonFrameInstance.X = 34.09375f;
                             ButtonFrameInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             ButtonFrameInstance.Y = 64.5f;
                             ButtonFrameInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance1.Height = 12.38666f;
+                            ButtonFrameInstance1.Height = 100f;
                             ButtonFrameInstance1.Width = 7.0845f;
                             ButtonFrameInstance1.X = 43.0625f;
                             ButtonFrameInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             ButtonFrameInstance1.Y = 64.5f;
                             ButtonFrameInstance1.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance2.Height = 12.38666f;
+                            ButtonFrameInstance2.Height = 100f;
                             ButtonFrameInstance2.Width = 7.0845f;
                             ButtonFrameInstance2.X = 51.6875f;
                             ButtonFrameInstance2.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             ButtonFrameInstance2.Y = 64.49998f;
                             ButtonFrameInstance2.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            ButtonFrameInstance3.Height = 12.38666f;
+                            ButtonFrameInstance3.Height = 100f;
                             ButtonFrameInstance3.Width = 7.0845f;
                             ButtonFrameInstance3.X = 60.65625f;
                             ButtonFrameInstance3.XUnits = Gum.Converters.GeneralUnitType.Percentage;
@@ -409,7 +409,7 @@
                 {
                     case  VariableState.Default:
                         setButtonFrameInstanceHeightFirstValue = true;
-                        ButtonFrameInstanceHeightFirstValue = 12.38666f;
+                        ButtonFrameInstanceHeightFirstValue = 100f;
                         setButtonFrameInstanceWidthFirstValue = true;
                         ButtonFrameInstanceWidthFirstValue = 7.0845f;
                         setButtonFrameInstanceXFirstValue = true;
@@ -425,7 +425,7 @@
                             this.ButtonFrameInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setButtonFrameInstance1HeightFirstValue = true;
-                        ButtonFrameInstance1HeightFirstValue = 12.38666f;
+                        ButtonFrameInstance1HeightFirstValue = 100f;
                         setButtonFrameInstance1WidthFirstValue = true;
                         ButtonFrameInstance1WidthFirstValue = 7.0845f;
                         setButtonFrameInstance1XFirstValue = true;
@@ -441,7 +441,7 @@
                             this.ButtonFrameInstance1.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setButtonFrameInstance2HeightFirstValue = true;
-                        ButtonFrameInstance2HeightFirstValue = 12.38666f;
+                        ButtonFrameInstance2HeightFirstValue = 100f;
                         setButtonFrameInstance2WidthFirstValue = true;
                         ButtonFrameInstance2WidthFirstValue = 7.0845f;
                         setButtonFrameInstance2XFirstValue = true;
@@ -457,7 +457,7 @@
                             this.ButtonFrameInstance2.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setButtonFrameInstance3HeightFirstValue = true;
-                        ButtonFrameInstance3HeightFirstValue = 12.38666f;
+                        ButtonFrameInstance3HeightFirstValue = 100f;
                         setButtonFrameInstance3WidthFirstValue = true;
                         ButtonFrameInstance3WidthFirstValue = 7.0845f;
                         setButtonFrameInstance3XFirstValue = true;
@@ -730,7 +730,7 @@
                 {
                     case  VariableState.Default:
                         setButtonFrameInstanceHeightSecondValue = true;
-                        ButtonFrameInstanceHeightSecondValue = 12.38666f;
+                        ButtonFrameInstanceHeightSecondValue = 100f;
                         setButtonFrameInstanceWidthSecondValue = true;
                         ButtonFrameInstanceWidthSecondValue = 7.0845f;
                         setButtonFrameInstanceXSecondValue = true;
@@ -746,7 +746,7 @@
                             this.ButtonFrameInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setButtonFrameInstance1HeightSecondValue = true;
-                        ButtonFrameInstance1HeightSecondValue = 12.38666f;
+                        ButtonFrameInstance1HeightSecondValue = 100f;
                         setButtonFrameInstance1WidthSecondValue = true;
                         ButtonFrameInstance1WidthSecondValue = 7.0845f;
                         setButtonFrameInstance1XSecondValue = true;
@@ -762,7 +762,7 @@
                             this.ButtonFrameInstance1.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setButtonFrameInstance2HeightSecondValue = true;
-                        ButtonFrameInstance2HeightSecondValue = 12.38666f;
+                        ButtonFrameInstance2HeightSecondValue = 100f;
                         setButtonFrameInstance2WidthSecondValue = true;
                         ButtonFrameInstance2WidthSecondValue = 7.0845f;
                         setButtonFrameInstance2XSecondValue = true;
@@ -778,7 +778,7 @@
                             this.ButtonFrameInstance2.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setButtonFrameInstance3HeightSecondValue = true;
-                        ButtonFrameInstance3HeightSecondValue = 12.38666f;
+                        ButtonFrameInstance3HeightSecondValue = 100f;
                         setButtonFrameInstance3WidthSecondValue = true;
                         ButtonFrameInstance3WidthSecondValue = 7.0845f;
                         setButtonFrameInstance3XSecondValue = true;
@@ -2377,7 +2377,7 @@
                             SetsValue = true,
                             Name = "ButtonFrameInstance.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance.Height + 12.38666f
+                            Value = ButtonFrameInstance.Height + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2425,7 +2425,7 @@
                             SetsValue = true,
                             Name = "ButtonFrameInstance1.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance1.Height + 12.38666f
+                            Value = ButtonFrameInstance1.Height + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2473,7 +2473,7 @@
                             SetsValue = true,
                             Name = "ButtonFrameInstance2.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance2.Height + 12.38666f
+                            Value = ButtonFrameInstance2.Height + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2521,7 +2521,7 @@
                             SetsValue = true,
                             Name = "ButtonFrameInstance3.Height",
                             Type = "float",
-                            Value = ButtonFrameInstance3.Height + 12.38666f
+                            Value = ButtonFrameInstance3.Height + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

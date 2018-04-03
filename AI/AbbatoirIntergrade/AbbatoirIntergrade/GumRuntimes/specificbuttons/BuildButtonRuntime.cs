@@ -93,6 +93,8 @@ namespace AbbatoirIntergrade.GumRuntimes
 
             if (renderTarget == null)
             {
+                structure.LightSpriteInstance.Visible = false;
+                structure.LightAimSpriteInstance.Visible = false;
                 structure.AimSpriteInstance.RelativeRotationZ = MathHelper.ToRadians(0);
                 structure.Collision.Visible = false;
                 structure.LightSpriteInstance.Visible = false;

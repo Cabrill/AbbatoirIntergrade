@@ -36,17 +36,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         private static readonly Dictionary<Tuple<int, int>, Texture2D> RangeTextures = new Dictionary<Tuple<int, int>, Texture2D>();
         private List<UpgradeTypes> _upgradesApplied = new List<UpgradeTypes>();
 
-        private float? SoundPanning;
         protected DamageTypes DamageType;
-        private float _startingRectangleScaleX;
-        private float _startingRectangleScaleY;
+
+        private float? SoundPanning;
 
         private static PositionedObjectList<BaseEnemy> _potentialTargetList;
         protected BaseEnemy targetEnemy;
         protected float _aimRotation;
         protected float _timeToTravel;
-        protected float _shotAltitude = 1f;
-        private float? _startingRangeRadius;
         private double LastFiredTime;
 
         public Action OnBuild;
@@ -60,8 +57,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         private Layer _hudLayer;
         private Layer _lightLayer;
 
-        protected SoundEffectInstance PlacementSound;
-        protected SoundEffectInstance DestroyedSound;
         protected SoundEffectInstance FiringSound;
 
         protected float _spriteRelativeY;
@@ -89,12 +84,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
 
             CurrentOnOffState = OnOff.On;
-
-            _startingRectangleScaleX = AxisAlignedRectangleInstance.ScaleX;
-            _startingRectangleScaleY = AxisAlignedRectangleInstance.ScaleY;
-
-            //PlacementSound = Structure_Placed.CreateInstance();
-            //DestroyedSound = Building_Destroyed.CreateInstance();
 
             _spriteRelativeY = SpriteInstance.Height / 3;
 
@@ -124,7 +113,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             LastFiredTime = TimeManager.CurrentTime;
 
             AfterIsBeingPlacedSet += (not, used) => { RangeCircleInstance.Visible = false; };
-            _startingRangeRadius = RangedRadius;
 
             SetUpgradeStatus();
         }
@@ -218,6 +206,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             _lightLayer.Remove(SpriteInstance);
             SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
             SpriteInstance.CurrentChainName = currentChainName;
+            SpriteInstance.RelativeY = _spriteRelativeY;
+            SpriteInstance.RelativeX = 0;
+            SpriteInstance.RelativeZ = 0;
+            AimSpriteInstance.RelativeZ = 1;
+
             AimSpriteInstance.Visible = true;
 
             HasLightSource = hasLightSource;
@@ -235,17 +228,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
         private void CustomDestroy()
         {
-            if (PlacementSound != null && !PlacementSound.IsDisposed)
-            {
-                PlacementSound.Stop(true);
-                PlacementSound.Dispose();
-            }
-            if (DestroyedSound != null && !DestroyedSound.IsDisposed)
-            {
-                DestroyedSound.Stop(true);
-                DestroyedSound.Dispose();
-            }
-
             if (FiringSound != null && !FiringSound.IsDisposed)
             {
                 FiringSound.Stop(true);

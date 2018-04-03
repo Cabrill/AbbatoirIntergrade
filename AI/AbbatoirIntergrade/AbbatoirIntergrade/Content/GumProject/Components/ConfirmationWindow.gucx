@@ -13,7 +13,7 @@
     <Variable>
       <Type>float</Type>
       <Name>CancelButton.Height</Name>
-      <Value xsi:type="xsd:float">10</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -43,7 +43,7 @@
     <Variable>
       <Type>float</Type>
       <Name>ConfirmButton.Height</Name>
-      <Value xsi:type="xsd:float">10</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

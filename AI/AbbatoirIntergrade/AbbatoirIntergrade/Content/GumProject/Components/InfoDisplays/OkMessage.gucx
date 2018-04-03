@@ -37,7 +37,7 @@
     <Variable>
       <Type>float</Type>
       <Name>OKButton.Height</Name>
-      <Value xsi:type="xsd:float">14.9902687</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -49,13 +49,13 @@
     <Variable>
       <Type>float</Type>
       <Name>OKButton.Width</Name>
-      <Value xsi:type="xsd:float">8.56267452</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>OKButton.X</Name>
-      <Value xsi:type="xsd:float">80.93587</Value>
+      <Value xsi:type="xsd:float">86.74876</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -67,7 +67,7 @@
     <Variable>
       <Type>float</Type>
       <Name>OKButton.Y</Name>
-      <Value xsi:type="xsd:float">78.63023</Value>
+      <Value xsi:type="xsd:float">75.2008743</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

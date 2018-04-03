@@ -32,11 +32,11 @@ namespace AbbatoirIntergrade.Entities
         
         public static bool ShowDebugShapes = false;
         public static bool EnableDebugHotkeys = true;
-        public static bool IgnoreStructureBuildCost = true;
+        public static bool IgnoreStructureBuildCost = false;
         public static bool ShowPerformanceStats = false;
         public static bool TurretsAimAtMouse = false;
         public static bool SlowTimeForShots = false;
-        public static bool UnlockAllTurrets = true;
+        public static bool UnlockAllTurrets = false;
         public static bool ShowNodeNetwork = false;
         public static bool ShouldTestDialogue = false;
         public static bool ShouldExportDialogue = false;

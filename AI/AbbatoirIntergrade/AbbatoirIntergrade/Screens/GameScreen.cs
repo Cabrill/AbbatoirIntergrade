@@ -732,7 +732,8 @@ namespace AbbatoirIntergrade.Screens
             if (selectedObject is BaseStructure objectAsStructure)
             {
                 EnemyInfoInstance.Hide();
-                StructureInfoInstance.Show(objectAsStructure, CurrentSatoshis);
+                var canBeUpgraded = CurrentGameMode == GameMode.Building;
+                StructureInfoInstance.Show(objectAsStructure, CurrentSatoshis, canBeUpgraded);
             }
             else if (selectedObject is BaseEnemy objectAsEnemy)
             {
@@ -789,7 +790,8 @@ namespace AbbatoirIntergrade.Screens
 	                {
 	                    GuiManager.Cursor.ObjectGrabbed = structure;
 	                    selectedObject = structure;
-	                    StructureInfoInstance.Show(structure, CurrentSatoshis);
+	                    var canBeUpgraded = CurrentGameMode == GameMode.Building;
+                        StructureInfoInstance.Show(structure, CurrentSatoshis, canBeUpgraded);
 	                    break;
 	                }
 	            }
@@ -1092,6 +1094,9 @@ namespace AbbatoirIntergrade.Screens
 
         private void SpendSatoshis(int spendAmount)
         {
+#if DEBUG
+            if (DebugVariables.IgnoreStructureBuildCost) return;
+#endif
             CurrentSatoshis -= spendAmount;
             LivesPointsDisplayInstance.SatoshiChange = $"-{spendAmount}";
             LivesPointsDisplayInstance.SubtractPointsAnimation.Play();

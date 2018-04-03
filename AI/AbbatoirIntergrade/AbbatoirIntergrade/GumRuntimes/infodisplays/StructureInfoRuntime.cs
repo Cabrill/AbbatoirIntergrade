@@ -27,7 +27,7 @@ namespace AbbatoirIntergrade.GumRuntimes
 
         }
         
-        public void Show(BaseStructure structure, int currentSatoshis)
+        public void Show(BaseStructure structure, int currentSatoshis, bool allowUpgrade)
         {
             if (structure == structureShown)
             {
@@ -37,7 +37,7 @@ namespace AbbatoirIntergrade.GumRuntimes
             else
             {
                 Hide();
-                SetDisplayFor(structure, currentSatoshis);
+                SetDisplayFor(structure, currentSatoshis, allowUpgrade);
             }
         }
 
@@ -85,7 +85,7 @@ namespace AbbatoirIntergrade.GumRuntimes
             CurrentCostInfoState = CostInfo.Shown;
         }
 
-        private void SetDisplayFor(BaseStructure structure, int currentSatoshis)
+        private void SetDisplayFor(BaseStructure structure, int currentSatoshis, bool allowUpgrades)
         {
             Visible = true;
             structureShown = structure;
@@ -135,7 +135,7 @@ namespace AbbatoirIntergrade.GumRuntimes
                     ? SecondUpgradeCost
                     : FinalUpgradeCost;
 
-            if (upgradeCount == 3)
+            if (upgradeCount == 3 || !allowUpgrades)
             {
                     if (UpgradeInfoInstance.PulseAnimation.IsPlaying()) UpgradeInfoInstance.PulseAnimation.Stop();
                     CurrentUpgradeAvailabilityState = UpgradeAvailability.NotAvailable;
@@ -313,14 +313,14 @@ namespace AbbatoirIntergrade.GumRuntimes
             }
         }
 
-        public void UpdateAffordability(int currentSatoshis)
+        public void UpdateAffordability(int currentSatoshis, bool allowUpgrade)
         {
             if (structureShown == null) return;
 
             var upgradeCount = structureShown.GetCurrentlyAppliedUpgrades().Count;
             var upgradesAvailable = upgradeCount < Enum.GetNames(typeof(UpgradeTypes)).Length;
 
-            if (upgradesAvailable)
+            if (allowUpgrade && upgradesAvailable)
             {
                 var upgradeCost = upgradeCount == 0
                     ? FirstUpgradeCost

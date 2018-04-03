@@ -30,6 +30,8 @@ namespace AbbatoirIntergrade.Screens
 	{
 	    private SoundEffectInstance StructureChoiceSound;
 
+	    private bool hasPopulatedChat;
+
 		void CustomInitialize()
 		{
 		    LocalLogManager.AddLine("Main Menu - Load GameState Data");
@@ -72,6 +74,8 @@ namespace AbbatoirIntergrade.Screens
             if (numberOfChoices > 0)
 	        {
 	            var structure1 = StructureFactories.GetFactory(potentialTowers[0].Name).CreateNew(StructureLayer) as BaseStructure;
+	            structure1.LightSpriteInstance.Visible = false;
+	            structure1.LightAimSpriteInstance.Visible = false;
 
                 if (numberOfChoices == 1)
 	            {
@@ -80,8 +84,10 @@ namespace AbbatoirIntergrade.Screens
 	            else
 	            {
                     var structure2 = StructureFactories.GetFactory(potentialTowers[1].Name).CreateNew(StructureLayer) as BaseStructure;
+	                structure2.LightSpriteInstance.Visible = false;
+	                structure2.LightAimSpriteInstance.Visible = false;
 
-	                TowerSelectionBoxInstance.SetChoices(structure1, structure2);
+                    TowerSelectionBoxInstance.SetChoices(structure1, structure2);
                 }
 
 	            TowerSelectionBoxInstance.Visible = true;
@@ -217,10 +223,15 @@ namespace AbbatoirIntergrade.Screens
                             FlatRedBallServices.Game.Exit();
                         });
                     });
-                    menuWindow.AssignEventToButton3(window => {
-                        LocalLogManager.AddLine("Main Menu - Show chat history");
-                        ChatHistoryInstance.PopulateWithAllChatHistory();
-                        ChatHistoryInstance.Visible = true; });
+                    menuWindow.ButtonType3State = ButtonFrameRuntime.ButtonType.Disabled;
+                    //menuWindow.AssignEventToButton3(window => {
+                    //    LocalLogManager.AddLine("Main Menu - Show chat history");
+                    //    if (!hasPopulatedChat)
+                    //    {
+                    //        ChatHistoryInstance.PopulateWithAllChatHistory();
+                    //        hasPopulatedChat = true;
+                    //    }
+                    //    ChatHistoryInstance.Visible = true; });
                     menuWindow.AssignEventToButton4(window => OkMessageInstance.ShowMessage(Messages["Intro"].MessageText));
 	            }
 	        }

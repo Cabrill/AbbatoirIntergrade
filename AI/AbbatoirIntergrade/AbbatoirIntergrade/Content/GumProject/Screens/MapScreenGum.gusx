@@ -432,7 +432,7 @@
     <Variable>
       <Type>float</Type>
       <Name>OptionsButtonInstance.Height</Name>
-      <Value xsi:type="xsd:float">10.6944447</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

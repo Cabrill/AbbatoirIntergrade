@@ -51,33 +51,60 @@ namespace AbbatoirIntergrade.GumRuntimes
 
         public void PopulateWithAllChatHistory()
         {
-            InnerPanelInstance.Children.Clear();
-
             var chatHistory = PlayerDataManager.DialogueHistory;
             var allDialogue = GameStateManager.GameDialogue;
 
+            var chatCount = 0;
+
             foreach (var chat in chatHistory)
             {
-                var aiMessage = new ChatOptionRuntime(true)
-                {
-                    ChatText = allDialogue.GetDialogueText(chat.Key),
-                    XOrigin = HorizontalAlignment.Left,
-                    XUnits = GeneralUnitType.PixelsFromSmall,
-                    Parent = FormsControl.InnerPanel,
-                    HasEvents = false,
-                    ChatColorState = ChatOptionFrameRuntime.ColorState.Green
-                };
+                ChatOptionRuntime aiMessage;
+                ChatOptionRuntime playerResponse;
 
-
-                var response = new ChatOptionRuntime(true)
+                if (FormsControl.InnerPanel.Children.Count < chatCount)
                 {
-                    ChatText = allDialogue.GetDialogueText(chat.Value),
-                    XOrigin = HorizontalAlignment.Right,
-                    XUnits = GeneralUnitType.PixelsFromLarge,
-                    Parent = FormsControl.InnerPanel,
-                    HasEvents = false,
-                    ChatColorState = ChatOptionFrameRuntime.ColorState.Black
-                };
+                    aiMessage = FormsControl.InnerPanel.Children[chatCount++] as ChatOptionRuntime;
+                    aiMessage.ChatText = allDialogue.GetDialogueText(chat.Key);
+                    aiMessage.XOrigin = HorizontalAlignment.Left;
+                    aiMessage.XUnits = GeneralUnitType.PixelsFromSmall;
+                    aiMessage.Parent = FormsControl.InnerPanel;
+                    aiMessage.HasEvents = false;
+                    aiMessage.ChatColorState = ChatOptionFrameRuntime.ColorState.Green;
+                }
+                else
+                {
+                    aiMessage = new ChatOptionRuntime(true)
+                    {
+                        ChatText = allDialogue.GetDialogueText(chat.Key),
+                        XOrigin = HorizontalAlignment.Left,
+                        XUnits = GeneralUnitType.PixelsFromSmall,
+                        Parent = FormsControl.InnerPanel,
+                        HasEvents = false,
+                        ChatColorState = ChatOptionFrameRuntime.ColorState.Green
+                    };
+                }
+                if (FormsControl.InnerPanel.Children.Count < chatCount)
+                {
+                    playerResponse = FormsControl.InnerPanel.Children[chatCount++] as ChatOptionRuntime;
+                    playerResponse.ChatText = allDialogue.GetDialogueText(chat.Value);
+                    playerResponse.XOrigin = HorizontalAlignment.Right;
+                    playerResponse.XUnits = GeneralUnitType.PixelsFromLarge;
+                    playerResponse.Parent = FormsControl.InnerPanel;
+                    playerResponse.HasEvents = false;
+                    playerResponse.ChatColorState = ChatOptionFrameRuntime.ColorState.Black;
+                }
+                else
+                {
+                    playerResponse = new ChatOptionRuntime(true)
+                    {
+                        ChatText = allDialogue.GetDialogueText(chat.Value),
+                        XOrigin = HorizontalAlignment.Right,
+                        XUnits = GeneralUnitType.PixelsFromLarge,
+                        Parent = FormsControl.InnerPanel,
+                        HasEvents = false,
+                        ChatColorState = ChatOptionFrameRuntime.ColorState.Black
+                    };
+                }
             }
         }
     }

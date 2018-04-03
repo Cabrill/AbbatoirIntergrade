@@ -90,13 +90,13 @@
     <Variable>
       <Type>float</Type>
       <Name>Height</Name>
-      <Value xsi:type="xsd:float">24.47</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>Height Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -185,7 +185,7 @@
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>SpriteInstance.Height Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -361,25 +361,25 @@
       <Variable>
         <Type>int</Type>
         <Name>SpriteInstance.Texture Height</Name>
-        <Value xsi:type="xsd:int">200</Value>
+        <Value xsi:type="xsd:int">256</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>SpriteInstance.Texture Left</Name>
-        <Value xsi:type="xsd:int">3804</Value>
+        <Value xsi:type="xsd:int">3780</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>SpriteInstance.Texture Top</Name>
-        <Value xsi:type="xsd:int">1692</Value>
+        <Value xsi:type="xsd:int">1675</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>SpriteInstance.Texture Width</Name>
-        <Value xsi:type="xsd:int">200</Value>
+        <Value xsi:type="xsd:int">256</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -715,13 +715,6 @@
       <Name>Normal</Name>
       <Variable>
         <Type>int</Type>
-        <Name>BackgroundSprite.Green</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <Category>Rendering</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
         <Name>BackgroundSprite.Blue</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
@@ -729,14 +722,14 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>BackgroundSprite.Red</Name>
+        <Name>BackgroundSprite.Green</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>SelectSprite.Red</Name>
+        <Name>BackgroundSprite.Red</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
@@ -757,7 +750,7 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>SpriteInstance.Green</Name>
+        <Name>SelectSprite.Red</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
@@ -765,6 +758,13 @@
       <Variable>
         <Type>int</Type>
         <Name>SpriteInstance.Blue</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>SpriteInstance.Green</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>

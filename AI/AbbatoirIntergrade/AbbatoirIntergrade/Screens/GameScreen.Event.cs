@@ -9,10 +9,12 @@ namespace AbbatoirIntergrade.Screens
         {
             ChangeGameModeToNormal();
         }
-        void OnAfterCurrentSatoshisSet (object sender, EventArgs e) 
+        void OnAfterCurrentSatoshisSet (object sender, EventArgs e)
         {
+            var allowUpgrade = CurrentGameMode == GameMode.Building;
+
             BuildMenuInstance.UpdateAffordability(CurrentSatoshis);
-            StructureInfoInstance.UpdateAffordability(CurrentSatoshis);
+            StructureInfoInstance.UpdateAffordability(CurrentSatoshis, allowUpgrade);
             LivesPointsDisplayInstance.SatoshiText = CurrentSatoshis.ToString();
         }
     }

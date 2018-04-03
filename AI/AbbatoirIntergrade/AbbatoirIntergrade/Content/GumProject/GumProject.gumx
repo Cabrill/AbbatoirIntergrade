@@ -13,6 +13,10 @@
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ScreenReference>
+    <Name>FlatRedBallSplashGum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
     <Name>GameScreenGum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>

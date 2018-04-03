@@ -109,7 +109,7 @@
                             StyleBarInstance.Y = 50f;
                             StyleBarInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             OptionsButtonInstance.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Menu;
-                            OptionsButtonInstance.Height = 10.69444f;
+                            OptionsButtonInstance.Height = 100f;
                             OptionsButtonInstance.Width = 6.078125f;
                             OptionsButtonInstance.X = 3.039063f;
                             OptionsButtonInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
@@ -682,7 +682,7 @@
                         setOptionsButtonInstanceCurrentButtonTypeStateFirstValue = true;
                         OptionsButtonInstanceCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Menu;
                         setOptionsButtonInstanceHeightFirstValue = true;
-                        OptionsButtonInstanceHeightFirstValue = 10.69444f;
+                        OptionsButtonInstanceHeightFirstValue = 100f;
                         setOptionsButtonInstanceWidthFirstValue = true;
                         OptionsButtonInstanceWidthFirstValue = 6.078125f;
                         setOptionsButtonInstanceXFirstValue = true;
@@ -929,7 +929,7 @@
                         setOptionsButtonInstanceCurrentButtonTypeStateSecondValue = true;
                         OptionsButtonInstanceCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Menu;
                         setOptionsButtonInstanceHeightSecondValue = true;
-                        OptionsButtonInstanceHeightSecondValue = 10.69444f;
+                        OptionsButtonInstanceHeightSecondValue = 100f;
                         setOptionsButtonInstanceWidthSecondValue = true;
                         OptionsButtonInstanceWidthSecondValue = 6.078125f;
                         setOptionsButtonInstanceXSecondValue = true;
@@ -3697,7 +3697,7 @@
                             SetsValue = true,
                             Name = "OptionsButtonInstance.Height",
                             Type = "float",
-                            Value = OptionsButtonInstance.Height + 10.69444f
+                            Value = OptionsButtonInstance.Height + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

@@ -13,7 +13,7 @@
     <Variable>
       <Type>float</Type>
       <Name>ButtonFrameInstance.Height</Name>
-      <Value xsi:type="xsd:float">12.3866634</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -55,7 +55,7 @@
     <Variable>
       <Type>float</Type>
       <Name>ButtonFrameInstance1.Height</Name>
-      <Value xsi:type="xsd:float">12.3866634</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -97,7 +97,7 @@
     <Variable>
       <Type>float</Type>
       <Name>ButtonFrameInstance2.Height</Name>
-      <Value xsi:type="xsd:float">12.3866634</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -139,7 +139,7 @@
     <Variable>
       <Type>float</Type>
       <Name>ButtonFrameInstance3.Height</Name>
-      <Value xsi:type="xsd:float">12.3866634</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

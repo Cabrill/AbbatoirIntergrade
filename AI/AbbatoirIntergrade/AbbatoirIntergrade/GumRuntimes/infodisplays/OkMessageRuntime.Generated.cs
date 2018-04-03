@@ -46,12 +46,12 @@
                             TextInstance.Y = 7.34862f;
                             TextInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             OKButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
-                            OKButton.Height = 14.99027f;
+                            OKButton.Height = 100f;
                             OKButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LargeInfoFrameInstance");
-                            OKButton.Width = 8.562675f;
-                            OKButton.X = 80.93587f;
+                            OKButton.Width = 10f;
+                            OKButton.X = 86.74876f;
                             OKButton.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            OKButton.Y = 78.63023f;
+                            OKButton.Y = 75.20087f;
                             OKButton.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             break;
                     }
@@ -139,21 +139,21 @@
                         setOKButtonCurrentButtonTypeStateFirstValue = true;
                         OKButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
                         setOKButtonHeightFirstValue = true;
-                        OKButtonHeightFirstValue = 14.99027f;
+                        OKButtonHeightFirstValue = 100f;
                         if (interpolationValue < 1)
                         {
                             this.OKButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LargeInfoFrameInstance");
                         }
                         setOKButtonWidthFirstValue = true;
-                        OKButtonWidthFirstValue = 8.562675f;
+                        OKButtonWidthFirstValue = 10f;
                         setOKButtonXFirstValue = true;
-                        OKButtonXFirstValue = 80.93587f;
+                        OKButtonXFirstValue = 86.74876f;
                         if (interpolationValue < 1)
                         {
                             this.OKButton.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setOKButtonYFirstValue = true;
-                        OKButtonYFirstValue = 78.63023f;
+                        OKButtonYFirstValue = 75.20087f;
                         if (interpolationValue < 1)
                         {
                             this.OKButton.YUnits = Gum.Converters.GeneralUnitType.Percentage;
@@ -228,21 +228,21 @@
                         setOKButtonCurrentButtonTypeStateSecondValue = true;
                         OKButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
                         setOKButtonHeightSecondValue = true;
-                        OKButtonHeightSecondValue = 14.99027f;
+                        OKButtonHeightSecondValue = 100f;
                         if (interpolationValue >= 1)
                         {
                             this.OKButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LargeInfoFrameInstance");
                         }
                         setOKButtonWidthSecondValue = true;
-                        OKButtonWidthSecondValue = 8.562675f;
+                        OKButtonWidthSecondValue = 10f;
                         setOKButtonXSecondValue = true;
-                        OKButtonXSecondValue = 80.93587f;
+                        OKButtonXSecondValue = 86.74876f;
                         if (interpolationValue >= 1)
                         {
                             this.OKButton.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setOKButtonYSecondValue = true;
-                        OKButtonYSecondValue = 78.63023f;
+                        OKButtonYSecondValue = 75.20087f;
                         if (interpolationValue >= 1)
                         {
                             this.OKButton.YUnits = Gum.Converters.GeneralUnitType.Percentage;
@@ -846,7 +846,7 @@
                             SetsValue = true,
                             Name = "OKButton.Height",
                             Type = "float",
-                            Value = OKButton.Height + 14.99027f
+                            Value = OKButton.Height + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -862,7 +862,7 @@
                             SetsValue = true,
                             Name = "OKButton.Width",
                             Type = "float",
-                            Value = OKButton.Width + 8.562675f
+                            Value = OKButton.Width + 10f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -870,7 +870,7 @@
                             SetsValue = true,
                             Name = "OKButton.X",
                             Type = "float",
-                            Value = OKButton.X + 80.93587f
+                            Value = OKButton.X + 86.74876f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -886,7 +886,7 @@
                             SetsValue = true,
                             Name = "OKButton.Y",
                             Type = "float",
-                            Value = OKButton.Y + 78.63023f
+                            Value = OKButton.Y + 75.20087f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

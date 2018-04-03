@@ -113,6 +113,23 @@
     <ScreenSave>
       <Tags>
         <string>GLUE</string>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <NextScreen>Screens\MainMenu</NextScreen>
+      <Name>Screens\FlatRedBallSplashScreen</Name>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>GumProject/Screens/FlatRedBallSplashGum.gusx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Gum.GumIdb</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+    </ScreenSave>
+    <ScreenSave>
+      <Tags>
+        <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
       <Events>
@@ -3599,6 +3616,7 @@
           <SourceName />
           <SourceClassType>Sprite</SourceClassType>
           <InstanceName>LightAimSpriteInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -3754,7 +3772,7 @@
           </Properties>
           <Name>IgnoreStructureBuildCost</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -3802,7 +3820,7 @@
           </Properties>
           <Name>UnlockAllTurrets</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -4229,7 +4247,6 @@
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
           <AttachToContainer>false</AttachToContainer>
           <Instantiate>false</Instantiate>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIVisible>false</IncludeInIVisible>
           <IncludeInICollidable>false</IncludeInICollidable>
@@ -4706,7 +4723,6 @@
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
           <AttachToContainer>false</AttachToContainer>
           <Instantiate>false</Instantiate>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIVisible>false</IncludeInIVisible>
           <IncludeInICollidable>false</IncludeInICollidable>
@@ -4989,7 +5005,6 @@
           <InstanceName>CircleInstance</InstanceName>
           <AttachToContainer>false</AttachToContainer>
           <Instantiate>false</Instantiate>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIVisible>false</IncludeInIVisible>
           <IncludeInICollidable>false</IncludeInICollidable>
@@ -5494,7 +5509,6 @@
           <InstanceName>CircleInstance</InstanceName>
           <AttachToContainer>false</AttachToContainer>
           <Instantiate>false</Instantiate>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIVisible>false</IncludeInIVisible>
           <IncludeInICollidable>false</IncludeInICollidable>
@@ -5962,7 +5976,6 @@
           <InstanceName>CircleInstance</InstanceName>
           <AttachToContainer>false</AttachToContainer>
           <Instantiate>false</Instantiate>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIVisible>false</IncludeInIVisible>
           <IncludeInICollidable>false</IncludeInICollidable>
@@ -6435,7 +6448,6 @@
           <InstanceName>CircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
@@ -6605,7 +6617,6 @@
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
           <AttachToContainer>false</AttachToContainer>
           <Instantiate>false</Instantiate>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIVisible>false</IncludeInIVisible>
           <IncludeInICollidable>false</IncludeInICollidable>
@@ -6904,7 +6915,6 @@
           <InstanceName>CircleInstance</InstanceName>
           <AttachToContainer>false</AttachToContainer>
           <Instantiate>false</Instantiate>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIVisible>false</IncludeInIVisible>
           <IncludeInICollidable>false</IncludeInICollidable>
@@ -7377,7 +7387,6 @@
           <InstanceName>CircleInstance</InstanceName>
           <AttachToContainer>false</AttachToContainer>
           <Instantiate>false</Instantiate>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIVisible>false</IncludeInIVisible>
           <IncludeInICollidable>false</IncludeInICollidable>
@@ -7860,7 +7869,6 @@
           <InstanceName>CircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
@@ -8030,7 +8038,6 @@
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
           <AttachToContainer>false</AttachToContainer>
           <Instantiate>false</Instantiate>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIVisible>false</IncludeInIVisible>
           <IncludeInICollidable>false</IncludeInICollidable>
@@ -8537,7 +8544,6 @@
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
           <AttachToContainer>false</AttachToContainer>
           <Instantiate>false</Instantiate>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIVisible>false</IncludeInIVisible>
           <IncludeInICollidable>false</IncludeInICollidable>
@@ -8860,7 +8866,6 @@
           <InstanceName>CircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
@@ -9030,7 +9035,6 @@
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
           <AttachToContainer>false</AttachToContainer>
           <Instantiate>false</Instantiate>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIVisible>false</IncludeInIVisible>
           <IncludeInICollidable>false</IncludeInICollidable>
@@ -9329,7 +9333,6 @@
           <InstanceName>CircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
@@ -9494,7 +9497,6 @@
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
           <AttachToContainer>false</AttachToContainer>
           <Instantiate>false</Instantiate>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIVisible>false</IncludeInIVisible>
           <IncludeInICollidable>false</IncludeInICollidable>
@@ -9793,7 +9795,6 @@
           <InstanceName>CircleInstance</InstanceName>
           <AttachToContainer>false</AttachToContainer>
           <Instantiate>false</Instantiate>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIVisible>false</IncludeInIVisible>
           <IncludeInICollidable>false</IncludeInICollidable>
@@ -10278,7 +10279,6 @@
           <InstanceName>CircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
@@ -10448,7 +10448,6 @@
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
           <AttachToContainer>false</AttachToContainer>
           <Instantiate>false</Instantiate>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInICollidable>false</IncludeInICollidable>
           <IncludeInIClickable>false</IncludeInIClickable>
@@ -10920,7 +10919,6 @@
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
           <AttachToContainer>false</AttachToContainer>
           <Instantiate>false</Instantiate>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIVisible>false</IncludeInIVisible>
           <IncludeInICollidable>false</IncludeInICollidable>
@@ -15988,20 +15986,6 @@
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>string</Type>
-            <Member>CurrentChainName</Member>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>Visible</Member>
-            <ValueAsBool>false</ValueAsBool>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
             <Member>LeftTexturePixel</Member>
             <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
@@ -16021,8 +16005,14 @@
             <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>UseAnimationRelativePosition</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -16031,7 +16021,7 @@
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
-            <Member>UseAnimationRelativePosition</Member>
+            <Member>Visible</Member>
             <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
@@ -18102,7 +18092,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\GameScreen</StartUpScreen>
+  <StartUpScreen>Screens\FlatRedBallSplashScreen</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>
