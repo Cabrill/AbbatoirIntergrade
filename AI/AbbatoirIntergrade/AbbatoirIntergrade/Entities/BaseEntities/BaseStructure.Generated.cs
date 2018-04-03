@@ -248,6 +248,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
         }
         private AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime StructureUpgradeStatusInstance;
+        private FlatRedBall.Sprite WarpSpriteInstance;
         public float SpriteInstanceRed
         {
             get
@@ -488,6 +489,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             mLightAimSpriteInstance = new FlatRedBall.Sprite();
             mLightAimSpriteInstance.Name = "mLightAimSpriteInstance";
             {var oldLayoutSuspended = global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended; global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true; StructureUpgradeStatusInstance = new AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime();global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = oldLayoutSuspended; StructureUpgradeStatusInstance.UpdateLayout();}
+            WarpSpriteInstance = new FlatRedBall.Sprite();
+            WarpSpriteInstance.Name = "WarpSpriteInstance";
             
             PostInitialize();
             if (addToManagers)
@@ -504,6 +507,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.SpriteManager.AddToLayer(mRangePreviewSprite, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(mLightAimSpriteInstance, LayerProvidedByContainer);
             StructureUpgradeStatusInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(LayerProvidedByContainer)));
+            FlatRedBall.SpriteManager.AddToLayer(WarpSpriteInstance, LayerProvidedByContainer);
         }
         public virtual void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
         {
@@ -546,6 +550,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (StructureUpgradeStatusInstance != null)
             {
                 StructureUpgradeStatusInstance.RemoveFromManagers();
+            }
+            if (WarpSpriteInstance != null)
+            {
+                FlatRedBall.SpriteManager.RemoveSprite(WarpSpriteInstance);
             }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();
@@ -677,6 +685,15 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             LightAimSpriteInstance.TextureScale = 1f;
             LightAimSpriteInstance.AnimationChains = StructureGlowAnimationChainList;
             LightAimSpriteInstance.Visible = false;
+            if (WarpSpriteInstance.Parent == null)
+            {
+                WarpSpriteInstance.CopyAbsoluteToRelative();
+                WarpSpriteInstance.AttachTo(this, false);
+            }
+            WarpSpriteInstance.TextureScale = 1f;
+            WarpSpriteInstance.AnimationChains = BaseStructureAnimationChainListFile;
+            WarpSpriteInstance.CurrentChainName = "BuildAnimation";
+            WarpSpriteInstance.Visible = false;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.AxisAlignedRectangles.AddOneWay(mAxisAlignedRectangleInstance);
             mGeneratedCollision.Circles.AddOneWay(mRangeCircleInstance);
@@ -710,6 +727,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 StructureUpgradeStatusInstance.RemoveFromManagers();
             }
+            if (WarpSpriteInstance != null)
+            {
+                FlatRedBall.SpriteManager.RemoveSpriteOneWay(WarpSpriteInstance);
+            }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 
@@ -742,6 +763,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             LightAimSpriteInstance.TextureScale = 1f;
             LightAimSpriteInstance.AnimationChains = StructureGlowAnimationChainList;
             LightAimSpriteInstance.Visible = false;
+            WarpSpriteInstance.TextureScale = 1f;
+            WarpSpriteInstance.AnimationChains = BaseStructureAnimationChainListFile;
+            WarpSpriteInstance.CurrentChainName = "BuildAnimation";
+            WarpSpriteInstance.Visible = false;
             if (Parent == null)
             {
                 Z = 1f;
@@ -792,6 +817,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
             FlatRedBall.SpriteManager.ConvertToManuallyUpdated(RangePreviewSprite);
             FlatRedBall.SpriteManager.ConvertToManuallyUpdated(LightAimSpriteInstance);
+            FlatRedBall.SpriteManager.ConvertToManuallyUpdated(WarpSpriteInstance);
         }
         public static void LoadStaticContent (string contentManagerName) 
         {
@@ -1295,6 +1321,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 return true;
             }
+            if (WarpSpriteInstance.Alpha != 0 && WarpSpriteInstance.AbsoluteVisible && cursor.IsOn3D(WarpSpriteInstance, LayerProvidedByContainer))
+            {
+                return true;
+            }
             return false;
         }
         public virtual bool WasClickedThisFrame (FlatRedBall.Gui.Cursor cursor) 
@@ -1333,6 +1363,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(MinimumRangeCircleInstance);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(RangePreviewSprite);
             FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(LightAimSpriteInstance);
+            FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(WarpSpriteInstance);
         }
         public virtual void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo) 
         {
@@ -1377,6 +1408,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 layerToRemoveFrom.Remove(LightAimSpriteInstance);
             }
             FlatRedBall.SpriteManager.AddToLayer(LightAimSpriteInstance, layerToMoveTo);
+            if (layerToRemoveFrom != null)
+            {
+                layerToRemoveFrom.Remove(WarpSpriteInstance);
+            }
+            FlatRedBall.SpriteManager.AddToLayer(WarpSpriteInstance, layerToMoveTo);
             LayerProvidedByContainer = layerToMoveTo;
         }
     }

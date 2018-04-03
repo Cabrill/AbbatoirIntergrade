@@ -240,11 +240,11 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (AimSpriteInstance.Parent == null)
             {
-                base.AimSpriteInstance.X = -1.908039f;
+                base.AimSpriteInstance.X = 2f;
             }
             else
             {
-                base.AimSpriteInstance.RelativeX = -1.908039f;
+                base.AimSpriteInstance.RelativeX = 2f;
             }
             if (AimSpriteInstance.Parent == null)
             {
@@ -256,11 +256,11 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (AimSpriteInstance.Parent == null)
             {
-                base.AimSpriteInstance.Z = 1f;
+                base.AimSpriteInstance.Z = 0.1f;
             }
             else
             {
-                base.AimSpriteInstance.RelativeZ = 1f;
+                base.AimSpriteInstance.RelativeZ = 0.1f;
             }
             base.AimSpriteInstance.Texture = AllParticles;
             base.AimSpriteInstance.LeftTexturePixel = 1598f;
@@ -275,11 +275,11 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (ArrowSpriteInstance.Parent == null)
             {
-                ArrowSpriteInstance.X = -2.226046f;
+                ArrowSpriteInstance.X = 1f;
             }
             else
             {
-                ArrowSpriteInstance.RelativeX = -2.226046f;
+                ArrowSpriteInstance.RelativeX = 1f;
             }
             if (ArrowSpriteInstance.Parent == null)
             {
@@ -291,11 +291,11 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (ArrowSpriteInstance.Parent == null)
             {
-                ArrowSpriteInstance.Z = 2f;
+                ArrowSpriteInstance.Z = 0.2f;
             }
             else
             {
-                ArrowSpriteInstance.RelativeZ = 2f;
+                ArrowSpriteInstance.RelativeZ = 0.2f;
             }
             ArrowSpriteInstance.Texture = AllParticles;
             ArrowSpriteInstance.LeftTexturePixel = 2019f;
@@ -424,11 +424,11 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.LightSpriteInstance.Alpha = 0.25f;
             if (AimSpriteInstance.Parent == null)
             {
-                base.AimSpriteInstance.X = -1.908039f;
+                base.AimSpriteInstance.X = 2f;
             }
             else
             {
-                base.AimSpriteInstance.RelativeX = -1.908039f;
+                base.AimSpriteInstance.RelativeX = 2f;
             }
             if (AimSpriteInstance.Parent == null)
             {
@@ -440,11 +440,11 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (AimSpriteInstance.Parent == null)
             {
-                base.AimSpriteInstance.Z = 1f;
+                base.AimSpriteInstance.Z = 0.1f;
             }
             else
             {
-                base.AimSpriteInstance.RelativeZ = 1f;
+                base.AimSpriteInstance.RelativeZ = 0.1f;
             }
             base.AimSpriteInstance.Texture = AllParticles;
             base.AimSpriteInstance.LeftTexturePixel = 1598f;
@@ -454,11 +454,11 @@ namespace AbbatoirIntergrade.Entities.Structures
             base.AimSpriteInstance.TextureScale = 1f;
             if (ArrowSpriteInstance.Parent == null)
             {
-                ArrowSpriteInstance.X = -2.226046f;
+                ArrowSpriteInstance.X = 1f;
             }
             else
             {
-                ArrowSpriteInstance.RelativeX = -2.226046f;
+                ArrowSpriteInstance.RelativeX = 1f;
             }
             if (ArrowSpriteInstance.Parent == null)
             {
@@ -470,11 +470,11 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (ArrowSpriteInstance.Parent == null)
             {
-                ArrowSpriteInstance.Z = 2f;
+                ArrowSpriteInstance.Z = 0.2f;
             }
             else
             {
-                ArrowSpriteInstance.RelativeZ = 2f;
+                ArrowSpriteInstance.RelativeZ = 0.2f;
             }
             ArrowSpriteInstance.Texture = AllParticles;
             ArrowSpriteInstance.LeftTexturePixel = 2019f;

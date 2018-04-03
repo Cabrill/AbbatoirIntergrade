@@ -55,6 +55,11 @@ namespace AbbatoirIntergrade.Screens
             ReadyButtonInstance.Enabled = true;
             ReadyButtonInstance.Visible = true;
             ReadyButtonInstance.PulseAnimation.Play();
+
+            if (StructureInfoInstance.Visible)
+            {
+                StructureInfoInstance.UpdateAffordability(CurrentSatoshis, true);
+            }
         }
 
         private void ChangeGameModeToNormal()
@@ -67,6 +72,11 @@ namespace AbbatoirIntergrade.Screens
             ReadyButtonInstance.PulseAnimation.Stop();
             ReadyButtonInstance.Visible = false;
             ReadyButtonInstance.Enabled = false;
+
+            if (StructureInfoInstance.Visible)
+            {
+                StructureInfoInstance.UpdateAffordability(CurrentSatoshis, false);
+            }
         }
 
         private void AssignGumButtonEvents()

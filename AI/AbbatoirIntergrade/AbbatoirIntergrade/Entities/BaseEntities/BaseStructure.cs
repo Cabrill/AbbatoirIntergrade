@@ -177,41 +177,34 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
         }
 
-        private string currentChainName;
         private bool hasLightSource;
         public void StartWarpIn()
         {
             IsBeingPlaced = false;
             hasLightSource = HasLightSource;
-            LayerProvidedByContainer.Remove(SpriteInstance);
-            SpriteManager.AddToLayer(SpriteInstance, _lightLayer);
 
+            SpriteInstance.Visible = false;
             AimSpriteInstance.Visible = false;
             LightAimSpriteInstance.Visible = false;
             LightSpriteInstance.Visible = false;
-            currentChainName = SpriteInstance.CurrentChainName;
-            SpriteInstance.CurrentChainName = "BuildAnimation";
-            SpriteInstance.Animate = true;
+
+            WarpSpriteInstance.Visible = true;
+
             this.Call(MidWarpIn).After(0.5f);
         }
 
         private void MidWarpIn()
         {
-            SpriteInstance.CurrentChainName = "BuildFinished";
+            WarpSpriteInstance.CurrentChainName = "BuildFinished";
             this.Call(FinishWarpIn).After(0.5f);
         }
 
         private void FinishWarpIn()
         {
-            _lightLayer.Remove(SpriteInstance);
-            SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
-            SpriteInstance.CurrentChainName = currentChainName;
-            SpriteInstance.RelativeY = _spriteRelativeY;
-            SpriteInstance.RelativeX = 0;
-            SpriteInstance.RelativeZ = 0;
-            AimSpriteInstance.RelativeZ = 1;
-
+            WarpSpriteInstance.Animate = false;
+            WarpSpriteInstance.Visible = false;
             AimSpriteInstance.Visible = true;
+            SpriteInstance.Visible = true;
 
             HasLightSource = hasLightSource;
 
@@ -257,11 +250,16 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             }
 #endif
+
+
             LayerProvidedByContainer.Remove(RangePreviewSprite);
             SpriteManager.AddToLayer(RangePreviewSprite, hudLayer);
             
             LayerProvidedByContainer.Remove(LightSpriteInstance);
             SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
+
+            LayerProvidedByContainer.Remove(WarpSpriteInstance);
+            SpriteManager.AddToLayer(WarpSpriteInstance, darknessLayer);
 
             LayerProvidedByContainer.Remove(LightAimSpriteInstance);
             SpriteManager.AddToLayer(LightAimSpriteInstance, darknessLayer);
