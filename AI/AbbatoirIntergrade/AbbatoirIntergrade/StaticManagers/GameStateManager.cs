@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AbbatoirIntergrade.Entities;
 using AbbatoirIntergrade.Entities.Structures;
 using AbbatoirIntergrade.GameClasses;
 using AbbatoirIntergrade.GameClasses.BaseClasses;
@@ -45,7 +46,36 @@ namespace AbbatoirIntergrade.StaticManagers
             LoadDialogue();
             HasLoadedData = true;
 #if DEBUG
-            ExportDialogue();
+            if (DebugVariables.ShouldTestDialogue) TestDialogue();
+            if (DebugVariables.ShouldExportDialogue) ExportDialogue();
+        }
+
+        private static void TestDialogue()
+        {
+            var dialogue = GameDialogue.DialogueList;
+
+            for (var i = 0; i < dialogue.Count; i++)
+            {
+                var current = dialogue[i];
+
+                var ouputs = current.OutputIds;
+                var currentOutputCount = current.OutputIds.Count;
+
+                for (var j = 0; j < ouputs.Count; j++)
+                {
+                    var nextConnection = GameDialogue.ConnectionList.FirstOrDefault(c => c.Source.PinRef == ouputs[j]);
+                    if (nextConnection == null) continue;
+
+                    var nextDialogue = dialogue.FirstOrDefault(d => d.Id == nextConnection.Target.IdRef);
+                    var nextOutputCount = nextDialogue.OutputIds.Count;
+
+                    if (nextOutputCount == currentOutputCount)
+                    {
+                        var problemDialogue = current.DisplayText;
+                        var problemRetort = nextDialogue.DisplayText;
+                    }
+                }
+            }
         }
 
         private static void ExportDialogue()

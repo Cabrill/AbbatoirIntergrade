@@ -57,6 +57,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	    private bool isHorde;
 
+	    private int flyingFinalDeathAnimationFrameIndex = 15;
+
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -209,6 +211,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 //Remove drag in the air
 		        Drag = 0.1f;
 		        Altitude = Math.Max(0, Altitude + AltitudeVelocity * TimeManager.SecondDifference);
+		        if (IsFlying && IsDead && SpriteInstance.CurrentFrameIndex == flyingFinalDeathAnimationFrameIndex)
+		            SpriteInstance.Animate = false;
 		        if (IsHurt && IsOnFinalFrameOfAnimation && !IsFlying) SpriteInstance.Animate = false;
 		    }
 

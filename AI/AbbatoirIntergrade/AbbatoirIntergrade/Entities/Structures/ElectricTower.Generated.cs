@@ -279,9 +279,13 @@ namespace AbbatoirIntergrade.Entities.Structures
                 LightAimSpriteInstance.AttachTo(this, false);
             }
             base.LightAimSpriteInstance.Texture = AllParticles;
+            base.LightAimSpriteInstance.LeftTexturePixel = 0f;
+            base.LightAimSpriteInstance.RightTexturePixel = 1f;
+            base.LightAimSpriteInstance.TopTexturePixel = 0f;
+            base.LightAimSpriteInstance.BottomTexturePixel = 1f;
             base.LightAimSpriteInstance.TextureScale = 1f;
-            base.LightAimSpriteInstance.AnimationChains = StructureGlowAnimationChainList;
-            base.LightAimSpriteInstance.CurrentChainName = "ElectricGlow";
+            base.LightAimSpriteInstance.UseAnimationRelativePosition = false;
+            base.LightAimSpriteInstance.Animate = false;
             base.LightAimSpriteInstance.Visible = false;
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
@@ -408,9 +412,13 @@ namespace AbbatoirIntergrade.Entities.Structures
                 base.PivotPoint.RelativeY = 95f;
             }
             base.LightAimSpriteInstance.Texture = AllParticles;
+            base.LightAimSpriteInstance.LeftTexturePixel = 0f;
+            base.LightAimSpriteInstance.RightTexturePixel = 1f;
+            base.LightAimSpriteInstance.TopTexturePixel = 0f;
+            base.LightAimSpriteInstance.BottomTexturePixel = 1f;
             base.LightAimSpriteInstance.TextureScale = 1f;
-            base.LightAimSpriteInstance.AnimationChains = StructureGlowAnimationChainList;
-            base.LightAimSpriteInstance.CurrentChainName = "ElectricGlow";
+            base.LightAimSpriteInstance.UseAnimationRelativePosition = false;
+            base.LightAimSpriteInstance.Animate = false;
             base.LightAimSpriteInstance.Visible = false;
             DisplayName = "Electric";
             HasLightSource = true;

@@ -456,9 +456,9 @@
       <TextureName>../../Projectiles/AllParticles.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>1596</LeftCoordinate>
-      <RightCoordinate>1784</RightCoordinate>
-      <TopCoordinate>1825</TopCoordinate>
-      <BottomCoordinate>1947</BottomCoordinate>
+      <RightCoordinate>1706</RightCoordinate>
+      <TopCoordinate>1946</TopCoordinate>
+      <BottomCoordinate>2045</BottomCoordinate>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>

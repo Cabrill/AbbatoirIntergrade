@@ -30,7 +30,7 @@ namespace AbbatoirIntergrade.Screens
 
                     newBuilding.Position = BuildMenuInstance.CurrentPlacement.Position;
                     newBuilding.Z = 1;
-                    newBuilding.IsBeingPlaced = false;
+                    newBuilding.StartWarpIn();
 
                     GuiManager.Cursor.WindowPushed = null;
 

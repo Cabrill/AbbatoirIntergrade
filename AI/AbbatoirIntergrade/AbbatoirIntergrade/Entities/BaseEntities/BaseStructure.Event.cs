@@ -16,26 +16,26 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 	{
         void OnAfterIsBeingPlacedSet (object sender, EventArgs e)
         {
-            if (_hudLayer != null)
-            { 
-                _hudLayer.Remove(SpriteInstance);
-                 SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
+            //if (_hudLayer != null)
+            //{ 
+            //    _hudLayer.Remove(SpriteInstance);
+            //     SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
 
-                _hudLayer.Remove(AimSpriteInstance);
-                SpriteManager.AddToLayer(AimSpriteInstance, LayerProvidedByContainer);
-            }
+            //    _hudLayer.Remove(AimSpriteInstance);
+            //    SpriteManager.AddToLayer(AimSpriteInstance, LayerProvidedByContainer);
+            //}
         }
 
         void OnAfterIsValidLocationSet (object sender, EventArgs e)
         {
-            if (CurrentState != VariableState.CantAfford)
-            {
-                CurrentState = VariableState.ValidLocation;
-            }
-            else
-            {
-                CurrentState = VariableState.InvalidLocation;
-            }
+            //if (CurrentState != VariableState.CantAfford)
+            //{
+            //    CurrentState = VariableState.ValidLocation;
+            //}
+            //else
+            //{
+            //    CurrentState = VariableState.InvalidLocation;
+            //}
         }
 	}
 }

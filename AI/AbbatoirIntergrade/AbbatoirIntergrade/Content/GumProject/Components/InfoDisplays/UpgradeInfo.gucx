@@ -1214,6 +1214,7 @@
       <Variable>
         <Type>int</Type>
         <Name>Upgrade1Type.IconAlpha</Name>
+        <Value xsi:type="xsd:int">255</Value>
         <ExposedAsName>IconAlpha</ExposedAsName>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -1227,6 +1228,7 @@
       <Variable>
         <Type>int</Type>
         <Name>Upgrade2Type.IconAlpha</Name>
+        <Value xsi:type="xsd:int">255</Value>
         <ExposedAsName>IconAlpha</ExposedAsName>
         <SetsValue>true</SetsValue>
       </Variable>

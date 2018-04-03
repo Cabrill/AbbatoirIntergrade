@@ -767,7 +767,7 @@ namespace AbbatoirIntergrade.Screens
         private void HandleTouchActivity()
 	    {
 	        //User clicked a building button
-	        if (GuiManager.Cursor.PrimaryDown && GuiManager.Cursor.WindowPushed != null)
+	        if (GuiManager.Cursor.PrimaryClick && GuiManager.Cursor.WindowPushed != null)
 	        {
 	            HandleBuildingButton();
 	        }

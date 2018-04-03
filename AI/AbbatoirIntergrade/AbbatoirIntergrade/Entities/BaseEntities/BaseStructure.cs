@@ -58,6 +58,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         public float HealthRemaining { get; private set; }
 
         private Layer _hudLayer;
+        private Layer _lightLayer;
 
         protected SoundEffectInstance PlacementSound;
         protected SoundEffectInstance DestroyedSound;
@@ -188,32 +189,41 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
         }
 
+        private string currentChainName;
+        private bool hasLightSource;
         public void StartWarpIn()
         {
-            
+            IsBeingPlaced = false;
+            hasLightSource = HasLightSource;
+            LayerProvidedByContainer.Remove(SpriteInstance);
+            SpriteManager.AddToLayer(SpriteInstance, _lightLayer);
+
+            AimSpriteInstance.Visible = false;
+            LightAimSpriteInstance.Visible = false;
+            LightSpriteInstance.Visible = false;
+            currentChainName = SpriteInstance.CurrentChainName;
+            SpriteInstance.CurrentChainName = "BuildAnimation";
+            SpriteInstance.Animate = true;
+            this.Call(MidWarpIn).After(0.5f);
         }
 
-        private void BuildStructure()
+        private void MidWarpIn()
         {
-            //var shouldBuild = EnergyManager.CanAfford(EnergyBuildCost) && MineralsManager.CanAfford(MineralsBuildCost);
-
-            //if (shouldBuild)
-            //{
-            //    EnergyManager.DebitEnergyForBuildRequest(EnergyBuildCost);
-            //    MineralsManager.DebitMinerals(MineralsBuildCost);
-
-            //    IsBeingPlaced = false;
-            //    CurrentState = VariableState.Built;
-            //    PlayPlacementSound();
-            //    OnBuild?.Invoke();
-            //}
+            SpriteInstance.CurrentChainName = "BuildFinished";
+            this.Call(FinishWarpIn).After(0.5f);
         }
 
-        private void PlayPlacementSound()
+        private void FinishWarpIn()
         {
-            var pan = X / Camera.Main.OrthogonalWidth;
-            PlacementSound.Pan = pan;
-            SoundManager.PlaySoundEffect(PlacementSound);
+            _lightLayer.Remove(SpriteInstance);
+            SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
+            SpriteInstance.CurrentChainName = currentChainName;
+            AimSpriteInstance.Visible = true;
+
+            HasLightSource = hasLightSource;
+
+            LightAimSpriteInstance.Visible = HasLightSource;
+            LightSpriteInstance.Visible = HasLightSource;
         }
 
         private void PerformDestruction()
@@ -255,19 +265,19 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         protected void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
         {
             _hudLayer = hudLayer;
+            _lightLayer = darknessLayer;
 
-            LayerProvidedByContainer.Remove(AxisAlignedRectangleInstance);
-            ShapeManager.AddToLayer(AxisAlignedRectangleInstance, hudLayer);
+#if DEBUG
+            if (DebugVariables.ShowDebugShapes)
+            {
+                LayerProvidedByContainer.Remove(AxisAlignedRectangleInstance);
+                ShapeManager.AddToLayer(AxisAlignedRectangleInstance, hudLayer);
 
-            LayerProvidedByContainer.Remove(SpriteInstance);
-            SpriteManager.AddToLayer(SpriteInstance, hudLayer);
-
+            }
+#endif
             LayerProvidedByContainer.Remove(RangePreviewSprite);
             SpriteManager.AddToLayer(RangePreviewSprite, hudLayer);
-
-            LayerProvidedByContainer.Remove(AimSpriteInstance);
-            SpriteManager.AddToLayer(AimSpriteInstance, hudLayer);
-
+            
             LayerProvidedByContainer.Remove(LightSpriteInstance);
             SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
 

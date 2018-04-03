@@ -306,8 +306,10 @@
                             WhiteFrameInstance.CurrentColorState = AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color.Green;
                             UpgradeText.Alpha = 255;
                             Upgrade1Text.Alpha = 255;
+                            Upgrade1Type.IconAlpha = 255;
                             OrTextInstance.Alpha = 255;
                             Upgrade2Text.Alpha = 255;
+                            Upgrade2Type.IconAlpha = 255;
                             CostText.Blue = 255;
                             CostText.Green = 255;
                             CostText.Red = 0;
@@ -2183,10 +2185,18 @@
                 bool setUpgrade1TextAlphaSecondValue = false;
                 int Upgrade1TextAlphaFirstValue= 0;
                 int Upgrade1TextAlphaSecondValue= 0;
+                bool setUpgrade1TypeIconAlphaFirstValue = false;
+                bool setUpgrade1TypeIconAlphaSecondValue = false;
+                int Upgrade1TypeIconAlphaFirstValue= 0;
+                int Upgrade1TypeIconAlphaSecondValue= 0;
                 bool setUpgrade2TextAlphaFirstValue = false;
                 bool setUpgrade2TextAlphaSecondValue = false;
                 int Upgrade2TextAlphaFirstValue= 0;
                 int Upgrade2TextAlphaSecondValue= 0;
+                bool setUpgrade2TypeIconAlphaFirstValue = false;
+                bool setUpgrade2TypeIconAlphaSecondValue = false;
+                int Upgrade2TypeIconAlphaFirstValue= 0;
+                int Upgrade2TypeIconAlphaSecondValue= 0;
                 bool setUpgradeTextAlphaFirstValue = false;
                 bool setUpgradeTextAlphaSecondValue = false;
                 int UpgradeTextAlphaFirstValue= 0;
@@ -2195,14 +2205,6 @@
                 bool setWhiteFrameInstanceCurrentColorStateSecondValue = false;
                 WhiteFrameRuntime.Color WhiteFrameInstanceCurrentColorStateFirstValue= WhiteFrameRuntime.Color.Red;
                 WhiteFrameRuntime.Color WhiteFrameInstanceCurrentColorStateSecondValue= WhiteFrameRuntime.Color.Red;
-                bool setUpgrade1TypeIconAlphaFirstValue = false;
-                bool setUpgrade1TypeIconAlphaSecondValue = false;
-                int Upgrade1TypeIconAlphaFirstValue= 0;
-                int Upgrade1TypeIconAlphaSecondValue= 0;
-                bool setUpgrade2TypeIconAlphaFirstValue = false;
-                bool setUpgrade2TypeIconAlphaSecondValue = false;
-                int Upgrade2TypeIconAlphaFirstValue= 0;
-                int Upgrade2TypeIconAlphaSecondValue= 0;
                 switch(firstState)
                 {
                     case  Affordability.CanAfford:
@@ -2218,8 +2220,12 @@
                         PointsSpriteAlphaFirstValue = 255;
                         setUpgrade1TextAlphaFirstValue = true;
                         Upgrade1TextAlphaFirstValue = 255;
+                        setUpgrade1TypeIconAlphaFirstValue = true;
+                        Upgrade1TypeIconAlphaFirstValue = 255;
                         setUpgrade2TextAlphaFirstValue = true;
                         Upgrade2TextAlphaFirstValue = 255;
+                        setUpgrade2TypeIconAlphaFirstValue = true;
+                        Upgrade2TypeIconAlphaFirstValue = 255;
                         setUpgradeTextAlphaFirstValue = true;
                         UpgradeTextAlphaFirstValue = 255;
                         setWhiteFrameInstanceCurrentColorStateFirstValue = true;
@@ -2265,8 +2271,12 @@
                         PointsSpriteAlphaSecondValue = 255;
                         setUpgrade1TextAlphaSecondValue = true;
                         Upgrade1TextAlphaSecondValue = 255;
+                        setUpgrade1TypeIconAlphaSecondValue = true;
+                        Upgrade1TypeIconAlphaSecondValue = 255;
                         setUpgrade2TextAlphaSecondValue = true;
                         Upgrade2TextAlphaSecondValue = 255;
+                        setUpgrade2TypeIconAlphaSecondValue = true;
+                        Upgrade2TypeIconAlphaSecondValue = 255;
                         setUpgradeTextAlphaSecondValue = true;
                         UpgradeTextAlphaSecondValue = 255;
                         setWhiteFrameInstanceCurrentColorStateSecondValue = true;
@@ -2321,9 +2331,17 @@
                 {
                     Upgrade1Text.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(Upgrade1TextAlphaFirstValue* (1 - interpolationValue) + Upgrade1TextAlphaSecondValue * interpolationValue);
                 }
+                if (setUpgrade1TypeIconAlphaFirstValue && setUpgrade1TypeIconAlphaSecondValue)
+                {
+                    Upgrade1Type.IconAlpha = FlatRedBall.Math.MathFunctions.RoundToInt(Upgrade1TypeIconAlphaFirstValue* (1 - interpolationValue) + Upgrade1TypeIconAlphaSecondValue * interpolationValue);
+                }
                 if (setUpgrade2TextAlphaFirstValue && setUpgrade2TextAlphaSecondValue)
                 {
                     Upgrade2Text.Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(Upgrade2TextAlphaFirstValue* (1 - interpolationValue) + Upgrade2TextAlphaSecondValue * interpolationValue);
+                }
+                if (setUpgrade2TypeIconAlphaFirstValue && setUpgrade2TypeIconAlphaSecondValue)
+                {
+                    Upgrade2Type.IconAlpha = FlatRedBall.Math.MathFunctions.RoundToInt(Upgrade2TypeIconAlphaFirstValue* (1 - interpolationValue) + Upgrade2TypeIconAlphaSecondValue * interpolationValue);
                 }
                 if (setUpgradeTextAlphaFirstValue && setUpgradeTextAlphaSecondValue)
                 {
@@ -2332,14 +2350,6 @@
                 if (setWhiteFrameInstanceCurrentColorStateFirstValue && setWhiteFrameInstanceCurrentColorStateSecondValue)
                 {
                     WhiteFrameInstance.InterpolateBetween(WhiteFrameInstanceCurrentColorStateFirstValue, WhiteFrameInstanceCurrentColorStateSecondValue, interpolationValue);
-                }
-                if (setUpgrade1TypeIconAlphaFirstValue && setUpgrade1TypeIconAlphaSecondValue)
-                {
-                    Upgrade1Type.IconAlpha = FlatRedBall.Math.MathFunctions.RoundToInt(Upgrade1TypeIconAlphaFirstValue* (1 - interpolationValue) + Upgrade1TypeIconAlphaSecondValue * interpolationValue);
-                }
-                if (setUpgrade2TypeIconAlphaFirstValue && setUpgrade2TypeIconAlphaSecondValue)
-                {
-                    Upgrade2Type.IconAlpha = FlatRedBall.Math.MathFunctions.RoundToInt(Upgrade2TypeIconAlphaFirstValue* (1 - interpolationValue) + Upgrade2TypeIconAlphaSecondValue * interpolationValue);
                 }
                 if (interpolationValue < 1)
                 {
@@ -5657,6 +5667,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Upgrade1Type.IconAlpha",
+                            Type = "int",
+                            Value = Upgrade1Type.IconAlpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "OrTextInstance.Alpha",
                             Type = "int",
                             Value = OrTextInstance.Alpha
@@ -5668,6 +5686,14 @@
                             Name = "Upgrade2Text.Alpha",
                             Type = "int",
                             Value = Upgrade2Text.Alpha
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.IconAlpha",
+                            Type = "int",
+                            Value = Upgrade2Type.IconAlpha
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -5829,6 +5855,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Upgrade1Type.IconAlpha",
+                            Type = "int",
+                            Value = Upgrade1Type.IconAlpha + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "OrTextInstance.Alpha",
                             Type = "int",
                             Value = OrTextInstance.Alpha + 255
@@ -5840,6 +5874,14 @@
                             Name = "Upgrade2Text.Alpha",
                             Type = "int",
                             Value = Upgrade2Text.Alpha + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Upgrade2Type.IconAlpha",
+                            Type = "int",
+                            Value = Upgrade2Type.IconAlpha + 255
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

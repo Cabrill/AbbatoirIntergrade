@@ -149,8 +149,6 @@ namespace AbbatoirIntergrade.GumRuntimes
                 var hasRangeUpgrade = structureUpgrades.Contains(UpgradeTypes.Range);
                 var hasDamageUpgrade = structureUpgrades.Contains(UpgradeTypes.Damage);
 
-                CurrentUpgradeAvailabilityState = canAffordUpgrade ? UpgradeAvailability.Available : UpgradeAvailability.AvailableCantAfford;
-
                 UpgradeInfoInstance.SatoshiCostText = upgradeCost.ToString();
                 UpgradeInfoInstance.CurrentOptionsAvailabilityState = upgradeCount == 2
                     ? UpgradeInfoRuntime.OptionsAvailability.OneOption
@@ -179,11 +177,15 @@ namespace AbbatoirIntergrade.GumRuntimes
 
                 if (canAffordUpgrade)
                 {
+                    CurrentUpgradeAvailabilityState = UpgradeAvailability.Available;
+
                     UpgradeInfoInstance.CurrentAffordabilityState = UpgradeInfoRuntime.Affordability.CanAfford;
                     UpgradeInfoInstance.PulseAnimation.Play();
                 }
                 else
                 {
+                    CurrentUpgradeAvailabilityState = UpgradeAvailability.AvailableCantAfford;
+
                     if (UpgradeInfoInstance.PulseAnimation.IsPlaying()) UpgradeInfoInstance.PulseAnimation.Stop();
                     UpgradeInfoInstance.CurrentAffordabilityState = UpgradeInfoRuntime.Affordability.CantAfford;
                     UpgradeInfoInstance.OnUpgradeButton1Click = null;

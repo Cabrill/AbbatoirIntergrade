@@ -38,6 +38,8 @@ namespace AbbatoirIntergrade.Entities
         public static bool SlowTimeForShots = false;
         public static bool UnlockAllTurrets = true;
         public static bool ShowNodeNetwork = false;
+        public static bool ShouldTestDialogue = false;
+        public static bool ShouldExportDialogue = false;
         protected FlatRedBall.Graphics.Layer LayerProvidedByContainer = null;
         public DebugVariables () 
         	: this(FlatRedBall.Screens.ScreenManager.CurrentScreen.ContentManagerName, true)
