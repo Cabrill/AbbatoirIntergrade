@@ -291,11 +291,11 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (ArrowSpriteInstance.Parent == null)
             {
-                ArrowSpriteInstance.Z = 0.2f;
+                ArrowSpriteInstance.Z = 0f;
             }
             else
             {
-                ArrowSpriteInstance.RelativeZ = 0.2f;
+                ArrowSpriteInstance.RelativeZ = 0f;
             }
             ArrowSpriteInstance.Texture = AllParticles;
             ArrowSpriteInstance.LeftTexturePixel = 2019f;
@@ -470,11 +470,11 @@ namespace AbbatoirIntergrade.Entities.Structures
             }
             if (ArrowSpriteInstance.Parent == null)
             {
-                ArrowSpriteInstance.Z = 0.2f;
+                ArrowSpriteInstance.Z = 0f;
             }
             else
             {
-                ArrowSpriteInstance.RelativeZ = 0.2f;
+                ArrowSpriteInstance.RelativeZ = 0f;
             }
             ArrowSpriteInstance.Texture = AllParticles;
             ArrowSpriteInstance.LeftTexturePixel = 2019f;

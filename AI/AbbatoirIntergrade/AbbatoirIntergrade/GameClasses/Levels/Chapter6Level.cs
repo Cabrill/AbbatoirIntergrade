@@ -17,7 +17,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
         public override DateTime StartTime => new DateTime(2017, 10, 26, 21, 0, 0);
         public override int StartingLives => 30;
         public override int WavesToSurvive => 15;
-        public override int StartingSatoshis => 20;
+        public override int StartingSatoshis => 22;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.RedMountains;
         public override List<string> SongNameList => new List<string>() { nameof(GlobalContent.anttisinstrumentals_alittlebell), nameof(GlobalContent.anttisinstrumentals_brokentimesiqnatureinaminor), nameof(GlobalContent.anttisinstrumentals_irememberyou) };
 
@@ -39,15 +39,15 @@ namespace AbbatoirIntergrade.GameClasses.Levels
             new BaseWave(new EnemyList(EnemyTypes.Rabbit2, 2)),
             new BaseWave(new EnemyList(EnemyTypes.Pig2, 3)),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
-                SerializableTuple<int, EnemyTypes>.Create(3, EnemyTypes.Cow2),
-                SerializableTuple<int, EnemyTypes>.Create(2, EnemyTypes.Chicken2)
+                SerializableTuple<int, EnemyTypes>.Create(2, EnemyTypes.Cow2),
+                SerializableTuple<int, EnemyTypes>.Create(3, EnemyTypes.Chicken2)
             }),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
-                SerializableTuple<int, EnemyTypes>.Create(6, EnemyTypes.Rabbit2),
+                SerializableTuple<int, EnemyTypes>.Create(4, EnemyTypes.Rabbit2),
                 SerializableTuple<int, EnemyTypes>.Create(3, EnemyTypes.Pig2)
             }),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
-                SerializableTuple<int, EnemyTypes>.Create(6, EnemyTypes.Chicken2),
+                SerializableTuple<int, EnemyTypes>.Create(4, EnemyTypes.Chicken2),
                 SerializableTuple<int, EnemyTypes>.Create(2, EnemyTypes.Rabbit2),
                 SerializableTuple<int, EnemyTypes>.Create(2, EnemyTypes.Sheep2),
                 SerializableTuple<int, EnemyTypes>.Create(2, EnemyTypes.Pig2),

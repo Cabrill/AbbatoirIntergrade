@@ -34,30 +34,30 @@ namespace AbbatoirIntergrade.GameClasses.Levels
         }
 
         public override List<BaseWave> Waves => new List<BaseWave>() {
-            new BaseWave(new EnemyList(EnemyTypes.Pig2)
+            new BaseWave(new EnemyList(EnemyTypes.Pig2, 3)
             ),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
-                SerializableTuple<int, EnemyTypes>.Create(2, EnemyTypes.Pig2),
-                SerializableTuple<int, EnemyTypes>.Create(1, EnemyTypes.Chicken2)
+                SerializableTuple<int, EnemyTypes>.Create(3, EnemyTypes.Pig2),
+                SerializableTuple<int, EnemyTypes>.Create(2, EnemyTypes.Chicken2)
             }),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
                 SerializableTuple<int, EnemyTypes>.Create(3, EnemyTypes.Chicken2),
-                SerializableTuple<int, EnemyTypes>.Create(2, EnemyTypes.Rabbit2)
+                SerializableTuple<int, EnemyTypes>.Create(4, EnemyTypes.Rabbit2)
             }),
-            new BaseWave(new EnemyList(EnemyTypes.Rabbit2, 4)),
+            new BaseWave(new EnemyList(EnemyTypes.Rabbit2, 6)),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
                 SerializableTuple<int, EnemyTypes>.Create(4, EnemyTypes.Rabbit2),
-                SerializableTuple<int, EnemyTypes>.Create(2, EnemyTypes.Chicken2)
+                SerializableTuple<int, EnemyTypes>.Create(5, EnemyTypes.Chicken2)
             }),
-            new BaseWave(new EnemyList(EnemyTypes.Sheep2, 5)),
+            new BaseWave(new EnemyList(EnemyTypes.Sheep2, 8)),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
-                SerializableTuple<int, EnemyTypes>.Create(3, EnemyTypes.Rabbit2),
+                SerializableTuple<int, EnemyTypes>.Create(5, EnemyTypes.Rabbit2),
                 SerializableTuple<int, EnemyTypes>.Create(5, EnemyTypes.Sheep2)
             }),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
                 SerializableTuple<int, EnemyTypes>.Create(3, EnemyTypes.Rabbit2),
-                SerializableTuple<int, EnemyTypes>.Create(3, EnemyTypes.Sheep2),
-                SerializableTuple<int, EnemyTypes>.Create(3, EnemyTypes.Pig2)
+                SerializableTuple<int, EnemyTypes>.Create(5, EnemyTypes.Sheep2),
+                SerializableTuple<int, EnemyTypes>.Create(5, EnemyTypes.Pig2)
             }),
         };
     }

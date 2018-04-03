@@ -135,7 +135,7 @@ namespace AbbatoirIntergrade.GumRuntimes
                     ? SecondUpgradeCost
                     : FinalUpgradeCost;
 
-            if (upgradeCount == 3 || !allowUpgrades)
+            if (upgradeCount == 3)
             {
                     if (UpgradeInfoInstance.PulseAnimation.IsPlaying()) UpgradeInfoInstance.PulseAnimation.Stop();
                     CurrentUpgradeAvailabilityState = UpgradeAvailability.NotAvailable;
@@ -143,7 +143,6 @@ namespace AbbatoirIntergrade.GumRuntimes
             else
             {
                 var canAffordUpgrade = currentSatoshis >= upgradeCost;
-                
                 
                 var hasSpeedUpgrade = structureUpgrades.Contains(UpgradeTypes.Speed);
                 var hasRangeUpgrade = structureUpgrades.Contains(UpgradeTypes.Range);
@@ -191,7 +190,12 @@ namespace AbbatoirIntergrade.GumRuntimes
                     UpgradeInfoInstance.OnUpgradeButton1Click = null;
                     UpgradeInfoInstance.OnUpgradeButton2Click = null;
                 }
+            }
 
+            if (!allowUpgrades)
+            {
+                if (UpgradeInfoInstance.PulseAnimation.IsPlaying()) UpgradeInfoInstance.PulseAnimation.Stop();
+                CurrentUpgradeAvailabilityState = UpgradeAvailability.NotAvailable;
             }
 
             CurrentCostInfoState = CostInfo.NotShown;

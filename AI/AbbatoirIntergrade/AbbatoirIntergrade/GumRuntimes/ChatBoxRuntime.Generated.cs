@@ -338,7 +338,6 @@
                     {
                         case  MessageIndicator.NewMessage:
                             MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Blue;
-                            MessageBox.Width = 10f;
                             TextInstance.Blue = 0;
                             TextInstance.Green = 0;
                             TextInstance.Red = 0;
@@ -346,7 +345,6 @@
                             break;
                         case  MessageIndicator.NoMessage:
                             MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Black;
-                            MessageBox.Width = 10f;
                             TextInstance.Blue = 255;
                             TextInstance.Green = 255;
                             TextInstance.Red = 255;
@@ -354,7 +352,6 @@
                             break;
                         case  MessageIndicator.NoMessageHighlighted:
                             MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
-                            MessageBox.Width = 10f;
                             TextInstance.Blue = 255;
                             TextInstance.Green = 255;
                             TextInstance.Red = 255;
@@ -362,7 +359,6 @@
                             break;
                         case  MessageIndicator.NewMessageHighlighted:
                             MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
-                            MessageBox.Width = 10f;
                             TextInstance.Blue = 255;
                             TextInstance.Green = 255;
                             TextInstance.Red = 255;
@@ -370,10 +366,9 @@
                             break;
                         case  MessageIndicator.NewMessageBig:
                             MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Blue;
-                            MessageBox.Width = 15f;
                             TextInstance.Blue = 0;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 0;
+                            TextInstance.Green = 0;
+                            TextInstance.Red = 255;
                             TextInstance.Visible = false;
                             break;
                     }
@@ -2605,10 +2600,6 @@
                 bool setMessageBoxCurrentColorStateStateSecondValue = false;
                 GlowingBoxRuntime.ColorState MessageBoxCurrentColorStateStateFirstValue= GlowingBoxRuntime.ColorState.Red;
                 GlowingBoxRuntime.ColorState MessageBoxCurrentColorStateStateSecondValue= GlowingBoxRuntime.ColorState.Red;
-                bool setMessageBoxWidthFirstValue = false;
-                bool setMessageBoxWidthSecondValue = false;
-                float MessageBoxWidthFirstValue= 0;
-                float MessageBoxWidthSecondValue= 0;
                 bool setTextInstanceBlueFirstValue = false;
                 bool setTextInstanceBlueSecondValue = false;
                 int TextInstanceBlueFirstValue= 0;
@@ -2626,8 +2617,6 @@
                     case  MessageIndicator.NewMessage:
                         setMessageBoxCurrentColorStateStateFirstValue = true;
                         MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Blue;
-                        setMessageBoxWidthFirstValue = true;
-                        MessageBoxWidthFirstValue = 10f;
                         setTextInstanceBlueFirstValue = true;
                         TextInstanceBlueFirstValue = 0;
                         setTextInstanceGreenFirstValue = true;
@@ -2642,8 +2631,6 @@
                     case  MessageIndicator.NoMessage:
                         setMessageBoxCurrentColorStateStateFirstValue = true;
                         MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Black;
-                        setMessageBoxWidthFirstValue = true;
-                        MessageBoxWidthFirstValue = 10f;
                         setTextInstanceBlueFirstValue = true;
                         TextInstanceBlueFirstValue = 255;
                         setTextInstanceGreenFirstValue = true;
@@ -2658,8 +2645,6 @@
                     case  MessageIndicator.NoMessageHighlighted:
                         setMessageBoxCurrentColorStateStateFirstValue = true;
                         MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
-                        setMessageBoxWidthFirstValue = true;
-                        MessageBoxWidthFirstValue = 10f;
                         setTextInstanceBlueFirstValue = true;
                         TextInstanceBlueFirstValue = 255;
                         setTextInstanceGreenFirstValue = true;
@@ -2674,8 +2659,6 @@
                     case  MessageIndicator.NewMessageHighlighted:
                         setMessageBoxCurrentColorStateStateFirstValue = true;
                         MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
-                        setMessageBoxWidthFirstValue = true;
-                        MessageBoxWidthFirstValue = 10f;
                         setTextInstanceBlueFirstValue = true;
                         TextInstanceBlueFirstValue = 255;
                         setTextInstanceGreenFirstValue = true;
@@ -2690,14 +2673,12 @@
                     case  MessageIndicator.NewMessageBig:
                         setMessageBoxCurrentColorStateStateFirstValue = true;
                         MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Blue;
-                        setMessageBoxWidthFirstValue = true;
-                        MessageBoxWidthFirstValue = 15f;
                         setTextInstanceBlueFirstValue = true;
                         TextInstanceBlueFirstValue = 0;
                         setTextInstanceGreenFirstValue = true;
-                        TextInstanceGreenFirstValue = 255;
+                        TextInstanceGreenFirstValue = 0;
                         setTextInstanceRedFirstValue = true;
-                        TextInstanceRedFirstValue = 0;
+                        TextInstanceRedFirstValue = 255;
                         if (interpolationValue < 1)
                         {
                             this.TextInstance.Visible = false;
@@ -2709,8 +2690,6 @@
                     case  MessageIndicator.NewMessage:
                         setMessageBoxCurrentColorStateStateSecondValue = true;
                         MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Blue;
-                        setMessageBoxWidthSecondValue = true;
-                        MessageBoxWidthSecondValue = 10f;
                         setTextInstanceBlueSecondValue = true;
                         TextInstanceBlueSecondValue = 0;
                         setTextInstanceGreenSecondValue = true;
@@ -2725,8 +2704,6 @@
                     case  MessageIndicator.NoMessage:
                         setMessageBoxCurrentColorStateStateSecondValue = true;
                         MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Black;
-                        setMessageBoxWidthSecondValue = true;
-                        MessageBoxWidthSecondValue = 10f;
                         setTextInstanceBlueSecondValue = true;
                         TextInstanceBlueSecondValue = 255;
                         setTextInstanceGreenSecondValue = true;
@@ -2741,8 +2718,6 @@
                     case  MessageIndicator.NoMessageHighlighted:
                         setMessageBoxCurrentColorStateStateSecondValue = true;
                         MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
-                        setMessageBoxWidthSecondValue = true;
-                        MessageBoxWidthSecondValue = 10f;
                         setTextInstanceBlueSecondValue = true;
                         TextInstanceBlueSecondValue = 255;
                         setTextInstanceGreenSecondValue = true;
@@ -2757,8 +2732,6 @@
                     case  MessageIndicator.NewMessageHighlighted:
                         setMessageBoxCurrentColorStateStateSecondValue = true;
                         MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
-                        setMessageBoxWidthSecondValue = true;
-                        MessageBoxWidthSecondValue = 10f;
                         setTextInstanceBlueSecondValue = true;
                         TextInstanceBlueSecondValue = 255;
                         setTextInstanceGreenSecondValue = true;
@@ -2773,14 +2746,12 @@
                     case  MessageIndicator.NewMessageBig:
                         setMessageBoxCurrentColorStateStateSecondValue = true;
                         MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Blue;
-                        setMessageBoxWidthSecondValue = true;
-                        MessageBoxWidthSecondValue = 15f;
                         setTextInstanceBlueSecondValue = true;
                         TextInstanceBlueSecondValue = 0;
                         setTextInstanceGreenSecondValue = true;
-                        TextInstanceGreenSecondValue = 255;
+                        TextInstanceGreenSecondValue = 0;
                         setTextInstanceRedSecondValue = true;
-                        TextInstanceRedSecondValue = 0;
+                        TextInstanceRedSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
                             this.TextInstance.Visible = false;
@@ -2790,10 +2761,6 @@
                 if (setMessageBoxCurrentColorStateStateFirstValue && setMessageBoxCurrentColorStateStateSecondValue)
                 {
                     MessageBox.InterpolateBetween(MessageBoxCurrentColorStateStateFirstValue, MessageBoxCurrentColorStateStateSecondValue, interpolationValue);
-                }
-                if (setMessageBoxWidthFirstValue && setMessageBoxWidthSecondValue)
-                {
-                    MessageBox.Width = MessageBoxWidthFirstValue * (1 - interpolationValue) + MessageBoxWidthSecondValue * interpolationValue;
                 }
                 if (setTextInstanceBlueFirstValue && setTextInstanceBlueSecondValue)
                 {
@@ -7557,14 +7524,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "MessageBox.Width",
-                            Type = "float",
-                            Value = MessageBox.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "TextInstance.Blue",
                             Type = "int",
                             Value = TextInstance.Blue
@@ -7602,14 +7561,6 @@
                             Name = "MessageBox.ColorStateState",
                             Type = "ColorStateState",
                             Value = MessageBox.CurrentColorStateState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MessageBox.Width",
-                            Type = "float",
-                            Value = MessageBox.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -7657,14 +7608,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "MessageBox.Width",
-                            Type = "float",
-                            Value = MessageBox.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "TextInstance.Blue",
                             Type = "int",
                             Value = TextInstance.Blue
@@ -7707,14 +7650,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "MessageBox.Width",
-                            Type = "float",
-                            Value = MessageBox.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "TextInstance.Blue",
                             Type = "int",
                             Value = TextInstance.Blue
@@ -7752,14 +7687,6 @@
                             Name = "MessageBox.ColorStateState",
                             Type = "ColorStateState",
                             Value = MessageBox.CurrentColorStateState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MessageBox.Width",
-                            Type = "float",
-                            Value = MessageBox.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -7815,14 +7742,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "MessageBox.Width",
-                            Type = "float",
-                            Value = MessageBox.Width + 10f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "TextInstance.Blue",
                             Type = "int",
                             Value = TextInstance.Blue + 0
@@ -7860,14 +7779,6 @@
                             Name = "MessageBox.ColorStateState",
                             Type = "ColorStateState",
                             Value = MessageBox.CurrentColorStateState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MessageBox.Width",
-                            Type = "float",
-                            Value = MessageBox.Width + 10f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -7915,14 +7826,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "MessageBox.Width",
-                            Type = "float",
-                            Value = MessageBox.Width + 10f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "TextInstance.Blue",
                             Type = "int",
                             Value = TextInstance.Blue + 255
@@ -7960,14 +7863,6 @@
                             Name = "MessageBox.ColorStateState",
                             Type = "ColorStateState",
                             Value = MessageBox.CurrentColorStateState
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "MessageBox.Width",
-                            Type = "float",
-                            Value = MessageBox.Width + 10f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -8015,14 +7910,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "MessageBox.Width",
-                            Type = "float",
-                            Value = MessageBox.Width + 15f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "TextInstance.Blue",
                             Type = "int",
                             Value = TextInstance.Blue + 0
@@ -8033,7 +7920,7 @@
                             SetsValue = true,
                             Name = "TextInstance.Green",
                             Type = "int",
-                            Value = TextInstance.Green + 255
+                            Value = TextInstance.Green + 0
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -8041,7 +7928,7 @@
                             SetsValue = true,
                             Name = "TextInstance.Red",
                             Type = "int",
-                            Value = TextInstance.Red + 0
+                            Value = TextInstance.Red + 255
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

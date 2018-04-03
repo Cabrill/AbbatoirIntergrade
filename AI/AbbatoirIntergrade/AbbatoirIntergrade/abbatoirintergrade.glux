@@ -113,7 +113,6 @@
     <ScreenSave>
       <Tags>
         <string>GLUE</string>
-        <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
       <NextScreen>Screens\MainMenu</NextScreen>
@@ -3852,7 +3851,7 @@
           </Properties>
           <Name>UnlockAllTurrets</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -17618,7 +17617,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Z</Member>
-            <ValueAsFloat>0.2</ValueAsFloat>
+            <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>Texture2D</Type>
@@ -18124,7 +18123,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\GameScreen</StartUpScreen>
+  <StartUpScreen>Screens\FlatRedBallSplashScreen</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>
@@ -18183,9 +18182,9 @@
     <AspectRatioHeight>9</AspectRatioHeight>
     <SupportLandscape>true</SupportLandscape>
     <SupportPortrait>false</SupportPortrait>
-    <RunInFullScreen>true</RunInFullScreen>
-    <AllowWindowResizing>false</AllowWindowResizing>
-    <Scale>100</Scale>
+    <RunInFullScreen>false</RunInFullScreen>
+    <AllowWindowResizing>true</AllowWindowResizing>
+    <Scale>75</Scale>
     <ResizeBehavior>StretchVisibleArea</ResizeBehavior>
   </DisplaySettings>
 </GlueProjectSave>

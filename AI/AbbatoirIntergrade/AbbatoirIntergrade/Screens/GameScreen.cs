@@ -119,7 +119,7 @@ namespace AbbatoirIntergrade.Screens
             ScreamSounds.Shuffle();
 
             LocalLogManager.AddLine("Game Screen - Load Level");
-            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter9Level();
+            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter8Level();
             CurrentLevel.Reset();
             CurrentLevel.OnNewWaveStart += HandleWaveStarted;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
@@ -530,7 +530,7 @@ namespace AbbatoirIntergrade.Screens
             EndLevel();
             SoundManager.PlaySoundEffect(HordeAlertSound);
             GameScreenGumInstance.HordeIncomingAnimation.Play();
-            this.Call(ReturnToMapScreen).After(GameScreenGumInstance.HordeIncomingAnimation.Length+3);
+            this.Call(ReturnToMapScreen).After(GameScreenGumInstance.HordeIncomingAnimation.Length+1f);
         }
 
         private void SendTheHorde()

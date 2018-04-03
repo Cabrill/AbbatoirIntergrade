@@ -17,7 +17,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
         public override DateTime StartTime => new DateTime(2017, 10, 28, 15, 0, 0);
         public override int StartingLives => 30;
         public override int WavesToSurvive => 15;
-        public override int StartingSatoshis => 30;
+        public override int StartingSatoshis => 36;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.SparseTrees;
         public override List<string> SongNameList => new List<string>() { nameof(GlobalContent.anttisinstrumentals_digitalconcertoremake), nameof(GlobalContent.anttisinstrumentals_inmymindiamabigstar), nameof(GlobalContent.anttisinstrumentals_melancholysound) };
 
@@ -34,7 +34,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
         }
 
         public override List<BaseWave> Waves => new List<BaseWave>() {
-            new BaseWave(new EnemyList(EnemyTypes.Pig3)
+            new BaseWave(new EnemyList(EnemyTypes.Pig3, 1)
             ),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
                 SerializableTuple<int, EnemyTypes>.Create(2, EnemyTypes.Rabbit3),
@@ -42,11 +42,11 @@ namespace AbbatoirIntergrade.GameClasses.Levels
             }),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
                 SerializableTuple<int, EnemyTypes>.Create(2, EnemyTypes.Chicken2),
-                SerializableTuple<int, EnemyTypes>.Create(3, EnemyTypes.Sheep3)
+                SerializableTuple<int, EnemyTypes>.Create(2, EnemyTypes.Sheep3)
             }),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){
                 SerializableTuple<int, EnemyTypes>.Create(3, EnemyTypes.Chicken2),
-                SerializableTuple<int, EnemyTypes>.Create(4, EnemyTypes.Cow3)
+                SerializableTuple<int, EnemyTypes>.Create(3, EnemyTypes.Cow3)
             }),
             new BaseWave(new EnemyList(EnemyTypes.Rabbit3,4)),
             new BaseWave(new List<SerializableTuple<int, EnemyTypes>>(){

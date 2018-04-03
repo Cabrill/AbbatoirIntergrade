@@ -1638,12 +1638,6 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>MessageBox.Width</Name>
-        <Value xsi:type="xsd:float">10</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>int</Type>
         <Name>TextInstance.Blue</Name>
         <Value xsi:type="xsd:int">0</Value>
@@ -1674,12 +1668,6 @@
         <Type>ColorStateState</Type>
         <Name>MessageBox.ColorStateState</Name>
         <Value xsi:type="xsd:string">Black</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>MessageBox.Width</Name>
-        <Value xsi:type="xsd:float">10</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -1719,12 +1707,6 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>MessageBox.Width</Name>
-        <Value xsi:type="xsd:float">10</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>int</Type>
         <Name>TextInstance.Blue</Name>
         <Value xsi:type="xsd:int">255</Value>
@@ -1758,12 +1740,6 @@
         <Type>ColorStateState</Type>
         <Name>MessageBox.ColorStateState</Name>
         <Value xsi:type="xsd:string">Green</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>MessageBox.Width</Name>
-        <Value xsi:type="xsd:float">10</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -1803,12 +1779,6 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>MessageBox.Width</Name>
-        <Value xsi:type="xsd:float">15</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>int</Type>
         <Name>TextInstance.Blue</Name>
         <Value xsi:type="xsd:int">0</Value>
@@ -1818,14 +1788,14 @@
       <Variable>
         <Type>int</Type>
         <Name>TextInstance.Green</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">0</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>TextInstance.Red</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
