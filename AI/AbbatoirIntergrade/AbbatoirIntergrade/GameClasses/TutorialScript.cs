@@ -10,276 +10,395 @@ using FlatRedBall;
 using FlatRedBall.Math;
 using Gum.Wireframe;
 using RenderingLibrary;
+using RenderingLibrary.Graphics;
 
 namespace AbbatoirIntergrade.GameClasses
 {
     interface IGameScriptIf : FlatRedBall.Scripting.IIfScriptEngine
     {
-        void True();
-        void StructureExists();
-        void BuildMenuShown();
-        void PiercingTowerHighlighted();
-        void WaveHasStarted();
-        void ChatBoxVisible();
-        void ChatBoxClosed();
-        void MessageOpened();
-        void WaveEnded();
-        void StructureSelected();
-        void StructureUpgraded();
-        void EnemySelected();
-        void EnemyInfoHidden();
+        void True(string ifName = null);
+        void StructureExists(string ifName = null);
+        void BuildMenuShown(string ifName = null);
+        void PiercingTowerHighlighted(string ifName = null);
+        void WaveHasStarted(string ifName = null);
+        void ChatBoxVisible(string ifName = null);
+        void ChatBoxClosed(string ifName = null);
+        void MessageOpened(string ifName = null);
+        void WaveEnded(string ifName = null);
+        void StructureSelected(string ifName = null);
+        void StructureUpgraded(string ifName = null);
+        void EnemySelected(string ifName = null);
+        void EnemyInfoHidden(string ifName = null);
+        void OneEnemyRemaining(string ifName = null);
     }
 
     interface IGameScriptDo : FlatRedBall.Scripting.IDoScriptEngine
     {
-        void PointAtGumObject(IPositionedSizedObject objectToPointAt, PointingArrowRuntime.PointDirection direction = PointingArrowRuntime.PointDirection.Right);
-        void ShowText(string text, bool allowDismiss = false);
-        void HideText();
-        void PauseGame();
-        void UnPauseGame();
-        void HideReadyButton();
-        void ShowReadyButton();
-        void HidePointer();
+        void PointAtGumObject(GraphicalUiElement objectToPointAt, PointingArrowRuntime.PointDirection direction = PointingArrowRuntime.PointDirection.Right, string doName = null);
+        void PointAtUpgradeStatus(PointingArrowRuntime.PointDirection direction, string doName = null);
+        void ShowText(string text, bool requiresConfirmation = false, string doName = null);
+        void HideText(string doName = null);
+        void PauseGame(string doName = null);
+        void UnPauseGame(string doName = null);
+        void HideReadyButton(string doName = null);
+        void ShowReadyButton(string doName = null);
+        void HidePointer(string doName = null);
+        void FinishTutorial(string doName = null);
     }
 
     class TutorialScript : FlatRedBall.Scripting.ScriptEngine, IGameScriptIf, IGameScriptDo
     {
-        public bool IsFinished { get; private set; } = false;
+        public bool IsFinished { get; private set; }
+
+        private IGameScriptIf If => this;
+        private IGameScriptDo Do => this;
 
         private readonly Screens.GameScreen _gameScreen;
-        private readonly PositionedObjectList<BaseStructure> _allStructures;
 
-        public TutorialScript(Screens.GameScreen screen, PositionedObjectList<BaseStructure> structures)
+        public TutorialScript(Screens.GameScreen screen)
         {
             _gameScreen = screen;
-            _allStructures = structures;
         }
 
         public void Initialize()
         {
-            If.True();
+            If.True("StartTutorial");
             Do.HideReadyButton();
-            AfterThat();
+            Do.PointAtGumObject(_gameScreen.LivesPointsDisplayInstance.GetGraphicalUiElementByName("LivesContainer"), 
+                PointingArrowRuntime.PointDirection.Up,"PointAtLives");
+            Do.ShowText("This is how many lives are at stake in this outpost.  " +
+                        "When an animal gets past your defense it will kill a person, and when no people are left the level ends.", 
+                requiresConfirmation:true, doName: "ConfirmLives");
 
-            Do.PointAtGumObject(_gameScreen.LivesPointsDisplayInstance.GetChildByName("LivesContainer"), PointingArrowRuntime.PointDirection.Up);
-            Do.ShowText("This is how many lives are at stake in this outpost.  When an animal gets past your defense it will kill a person, and when no people are left the level ends.", true);
             AfterThat();
+            Do.PointAtGumObject(_gameScreen.TopStatusBarInstance.GetGraphicalUiElementByName("WaveTextInstance"), 
+                PointingArrowRuntime.PointDirection.Up, "PointAtWaves");
+            Do.ShowText("This is how many waves of animals you have survived, " +
+                        "and how many you must hold off to successfully evacuate your people.", 
+                requiresConfirmation:true, doName: "ConfirmWaves");
 
-            Do.PointAtGumObject(_gameScreen.TopStatusBarInstance.GetChildByName("WaveTextInstance"), PointingArrowRuntime.PointDirection.Up);
-            Do.ShowText("This is how many waves of animals you have survived, and how many you must hold off to successfully evacuate your people.", true);
             AfterThat();
-
             Do.HidePointer();
-            Do.ShowText("The animals will be here soon, so you need to create a defensive structure.  Left click on the ground to show the build menu.");
+            Do.ShowText("The animals will be here soon, so you need to create a defensive structure.  Move your mouse over the ground, " +
+                        "find a spot on the ground where the cursor isn't red, and then left click to open the build menu.", doName: "CreateTowerInfo");
+
             If.BuildMenuShown();
-            AfterThat();
+            Do.PointAtGumObject(_gameScreen.BuildMenuInstance.GetGraphicalUiElementByName("BuildButtonInstance0"), doName: "PointAtBuildButton");
+            Do.ShowText("This is your menu of available towers.  Right now you can only build an arrow tower, but later you will unlock more." +
+                        "\n\nHover over the arrow tower now.", doName: "HoverButton");
 
-            Do.PointAtGumObject(_gameScreen.BuildMenuInstance.GetChildByName("BuildButtonInstance0"));
-            Do.ShowText("This is your menu of available towers.  Right now you can only build an arrow tower.  Hover over it.");
             If.PiercingTowerHighlighted();
-            AfterThat();
+            Do.ShowText("You can now see the damage type (30 piercing), build cost (10 satoshis), min/max range, seconds between attacks, and target type (single/group).  \n\nThe large green circle originating where you " +
+                        "clicked represents the firing range, from this spot and the red circle is minimum range.  \n\nEnemies in the red circle will be too close to hit.  " +
+                        "\n\nTry building this structure now.", 
+                doName: "ConfirmRange");
 
-            Do.ShowText("You can now see the specifications of this tower.  The green circle represents firing range, and the red circle is minimum range.  Enemies in the red circle will be too close to hit.", true);
-            AfterThat();
-            Do.ShowText("Try building a structure now.");
             If.StructureExists();
-            AfterThat();
+            Do.PointAtGumObject(_gameScreen.LivesPointsDisplayInstance.GetGraphicalUiElementByName("PointsContainer"), 
+                PointingArrowRuntime.PointDirection.Up, doName: "PointMoney");
+            Do.ShowText("Building a tower spends your satoshis.  You earn more by stopping attacking animals.", 
+                requiresConfirmation:true, doName: "ExplainMoney");
 
-            Do.PointAtGumObject(_gameScreen.LivesPointsDisplayInstance.GetChildByName("PointsContainer"), PointingArrowRuntime.PointDirection.Up);
-            Do.ShowText("Building a tower spends your satoshis.  You earn more by stopping attacking animals.", true);
             AfterThat();
-            Do.HidePointer();
-
             Do.ShowReadyButton();
-            Do.PointAtGumObject(_gameScreen.ReadyButtonInstance);
-            Do.ShowText("Click the Start button to begin.  You cannot build or upgrade towers while enemies are attacking.");
+            Do.PointAtGumObject(_gameScreen.ReadyButtonInstance, PointingArrowRuntime.PointDirection.Up, doName: "PointAtReadyButton");
+            Do.ShowText("Click the Ready button to begin.  You cannot build or upgrade towers while enemies are attacking.", doName: "InstructToStart");
 
             If.WaveHasStarted();
-            Do.PointAtGumObject(_gameScreen.ChatBoxInstance, PointingArrowRuntime.PointDirection.Left);
-            Do.PauseGame();
-            Do.ShowText("You have an incoming message.  Click here to read it.");
-            If.MessageOpened();
-            AfterThat();
-
-            Do.HidePointer();
-            Do.ShowText("Read the message, and choose one of the three responses to send a reply.");
-            If.ChatBoxClosed();
             Do.HideText();
-            AfterThat();
+            Do.HidePointer();
 
-            Do.ShowText("Click on one of the enemies to inspect it.");
+            If.ChatBoxVisible();
+            Do.PauseGame();
+            Do.PointAtGumObject(_gameScreen.ChatBoxInstance.GetGraphicalUiElementByName("MessageBox"), 
+                PointingArrowRuntime.PointDirection.Left, doName: "PointAtChatBox");
+            Do.ShowText("You have an incoming message.  Click here to read it.");
+
+            If.MessageOpened();
+            Do.HidePointer();
+            Do.ShowText("Read the message, and choose one of the three responses to send a reply.", doName: "InstructToRead");
+
+            If.ChatBoxClosed();
+            Do.ShowText("Click on one of the enemies to inspect it.", doName: "InstructToInspectEnemy");
+
             If.EnemySelected();
-            Do.PointAtGumObject(_gameScreen.EnemyInfoInstance, PointingArrowRuntime.PointDirection.Up);
-            Do.ShowText("Here you can see what an animal is resistant to and weak to.  High resistance (green) mean it won't be affected as much by that type of damage.  Right-click anywhere to hide this information.");
-            If.EnemyInfoHidden();
-            AfterThat();
+            Do.PointAtGumObject(_gameScreen.EnemyInfoInstance, 
+                PointingArrowRuntime.PointDirection.Left, doName: "PointAtEnemyInfo");
+            Do.ShowText("Here you can see the animals health, run speed, and damage resistances.  High resistance (green) means it won't " +
+                        "be affected as much by that type of damage, while red means it is very susceptible to that damage type." +
+                        "\n\nRight-click anywhere to hide this information.", doName: "ExplainResistances");
 
+            If.EnemyInfoHidden();
+            Do.HidePointer();
+            Do.HideText();
             Do.UnPauseGame();
-            AfterThat();
 
             If.WaveEnded();
-            Do.ShowText("Now that the wave has ended you can build more structures, or upgrade existing structures.  Let's upgrade your arrow tower. Left click it to select it.");
-            If.StructureSelected();
-            AfterThat();
+            Do.HideReadyButton();
+            Do.ShowText("Now that the wave has ended you can build more structures, or upgrade existing structures.  " +
+                        "Let's upgrade your arrow tower. Left click it to select it.", doName: "InstructToClickTower");
 
-            Do.PointAtGumObject(_gameScreen.StructureInfoInstance.GetChildByName("UpgradeInfoInstance"), PointingArrowRuntime.PointDirection.Down);
-            Do.ShowText("Click the icon on the left or right to upgrade the attack speed or range of this tower.");
-            AfterThat();
+            If.StructureSelected();
+            Do.PointAtGumObject(_gameScreen.StructureInfoInstance.GetGraphicalUiElementByName("UpgradeInfoInstance"), 
+                PointingArrowRuntime.PointDirection.Down, doName: "PointAtUpgradeButtons");
+            Do.ShowText("Click the icon on the left to upgrade its range or the one on the right to upgrade the attack speed.", doName: "InstructToClickUpgrade");
 
             If.StructureUpgraded();
-            Do.PointAtGumObject(_allStructures.Last?.StructureUpgradeStatusInstance, PointingArrowRuntime.PointDirection.Up);
-            Do.ShowText("You can now see the tower has been upgraded.  That's all you need to know to defend your people.  Click the check mark in this window to close it and continue playing.  Good luck!", true);
+            Do.PointAtUpgradeStatus(PointingArrowRuntime.PointDirection.Up, doName: "PointAtUpgradedStatus");
+            Do.ShowText("You can now see the tower has been upgraded.  That's all you need to know to defend your people.  " +
+                        "\n\ngGood luck!", 
+                requiresConfirmation:true, doName: "EndTutorialMessage");
+
             AfterThat();
-
-            IsFinished = true;
+            Do.HidePointer();
+            Do.ShowReadyButton();
+            Do.FinishTutorial();
         }
 
-
-        public IGameScriptIf If
+        public void StructureExists(string cmdName = null)
         {
-            get
-            {
-                return this;
-            }
+            CreateGeneralDecision(() => _gameScreen.AllStructuresList.Count > 0, cmdName);
         }
 
-        public IGameScriptDo Do
+        public void BuildMenuShown(string cmdName = null)
         {
-            get
-            {
-                return this;
-            }
+            CreateGeneralDecision(() => _gameScreen.BuildMenuInstance.Visible, cmdName);
         }
 
-        public void StructureExists()
+        public void PiercingTowerHighlighted(string cmdName = null)
         {
-            CreateGeneralDecision(() => _allStructures.Count > 0);
+            CreateGeneralDecision(() => (_gameScreen.BuildMenuInstance.GetGraphicalUiElementByName("BuildButtonInstance0") as BuildButtonRuntime).CurrentHighlightState == BuildButtonRuntime.Highlight.Highlighted, cmdName);
         }
 
-        public void BuildMenuShown()
+        public void WaveHasStarted(string cmdName = null)
         {
-            CreateGeneralDecision(() => _gameScreen.BuildMenuInstance.Visible);
+            CreateGeneralDecision(() => _gameScreen.CurrentGameMode == GameScreen.GameMode.Normal, cmdName);
         }
 
-        public void PiercingTowerHighlighted()
+        public void ChatBoxVisible(string cmdName = null)
         {
-            CreateGeneralDecision(() => (_gameScreen.BuildMenuInstance.GetChildByName("BuildButtonInstance0") as BuildButtonRuntime).CurrentHighlightState == BuildButtonRuntime.Highlight.Highlighted);
+            CreateGeneralDecision(() => _gameScreen.ChatBoxInstance.Visible, cmdName);
         }
 
-        public void WaveHasStarted()
+        public void ChatBoxClosed(string cmdName = null)
         {
-            CreateGeneralDecision(() => _gameScreen.CurrentGameMode == GameScreen.GameMode.Normal);
+            CreateGeneralDecision(() => _gameScreen.ChatBoxInstance.CurrentAppearanceState == ChatBoxRuntime.Appearance.ChatClosed, cmdName);
         }
 
-        public void ChatBoxVisible()
+        public void MessageOpened(string cmdName = null)
         {
-            CreateGeneralDecision(() => _gameScreen.ChatBoxInstance.Visible);
+            CreateGeneralDecision(() => _gameScreen.ChatBoxInstance.CurrentAppearanceState == ChatBoxRuntime.Appearance.ChatOpen, cmdName);
         }
 
-        public void ChatBoxClosed()
+        public void WaveEnded(string cmdName = null)
         {
-            CreateGeneralDecision(() => _gameScreen.ChatBoxInstance.CurrentAppearanceState == ChatBoxRuntime.Appearance.ChatClosed);
+            CreateGeneralDecision(() => _gameScreen.CurrentGameMode == GameScreen.GameMode.Building, cmdName);
         }
 
-        public void MessageOpened()
-        {
-            CreateGeneralDecision(() => _gameScreen.ChatBoxInstance.CurrentAppearanceState == ChatBoxRuntime.Appearance.ChatOpen);
-        }
-
-        public void WaveEnded()
-        {
-            CreateGeneralDecision(() => _gameScreen.CurrentGameMode == GameScreen.GameMode.Building);
-        }
-
-        public void HideText()
+        public void HideText(string cmdName = null)
         {
             Action action = () => _gameScreen.TutorialTextInstance.Visible = false;
-            var generalAction = CreateGeneralAction(action);
+            var generalAction = CreateGeneralAction(action, cmdName);
             generalAction.IsCompleteFunction = () => !_gameScreen.TutorialTextInstance.Visible;
         }
 
-        public void PauseGame()
+        public void PauseGame(string cmdName = null)
         {
             Action action = () => _gameScreen.SetPause(true);
-            var generalAction = CreateGeneralAction(action);
+            var generalAction = CreateGeneralAction(action, cmdName);
             generalAction.IsCompleteFunction = () => _gameScreen.IsCurrentlyPaused;
         }
 
-        public void UnPauseGame()
+        public void UnPauseGame(string cmdName = null)
         {
             Action action = () => _gameScreen.SetPause(false);
-            var generalAction = CreateGeneralAction(action);
+            var generalAction = CreateGeneralAction(action, cmdName);
             generalAction.IsCompleteFunction = () => !_gameScreen.IsCurrentlyPaused;
         }
 
-        public void HideReadyButton()
+        public void HideReadyButton(string cmdName = null)
         {
             Action action = () => _gameScreen.ReadyButtonInstance.Visible = false;
-            var generalAction = CreateGeneralAction(action);
+            var generalAction = CreateGeneralAction(action, cmdName);
             generalAction.IsCompleteFunction = () => !_gameScreen.ReadyButtonInstance.Visible;
         }
 
-        public void ShowReadyButton()
+        public void ShowReadyButton(string cmdName = null)
         {
             Action action = () => _gameScreen.ReadyButtonInstance.Visible = true;
-            var generalAction = CreateGeneralAction(action);
+            var generalAction = CreateGeneralAction(action, cmdName);
             generalAction.IsCompleteFunction = () => _gameScreen.ReadyButtonInstance.Visible;
         }
 
-        public void HidePointer()
+        public void HidePointer(string cmdName = null)
         {
-            Action action = () => _gameScreen.PointingArrowInstance.Visible = false;
-            var generalAction = CreateGeneralAction(action);
+            Action action = () =>
+            {
+                _gameScreen.PointingArrowInstance.StopAnimations();
+                _gameScreen.PointingArrowInstance.Visible = false;
+            };
+            var generalAction = CreateGeneralAction(action, cmdName);
             generalAction.IsCompleteFunction = () => !_gameScreen.PointingArrowInstance.Visible;
         }
 
-        public void StructureSelected()
+        public void FinishTutorial(string cmdName = null)
         {
-            CreateGeneralDecision(() => _gameScreen.StructureInfoInstance.Visible);
+            Action action = () => IsFinished = true;
+            CreateGeneralAction(action, cmdName);
         }
 
-        public void StructureUpgraded()
+        public void StructureSelected(string cmdName = null)
         {
-            CreateGeneralAction(() => _allStructures.Any(s => s.GetCurrentlyAppliedUpgrades().Count > 0));
+            CreateGeneralDecision(() => _gameScreen.StructureInfoInstance.Visible, cmdName);
         }
 
-        public void EnemySelected()
+        public void StructureUpgraded(string cmdName = null)
         {
-            CreateGeneralDecision(() => _gameScreen.EnemyInfoInstance.Visible);
+            CreateGeneralDecision(() => _gameScreen.AllStructuresList.Any(s => s.GetCurrentlyAppliedUpgrades().Count > 0), cmdName);
         }
 
-        public void EnemyInfoHidden()
+        public void EnemySelected(string cmdName = null)
         {
-            CreateGeneralDecision(() => !_gameScreen.EnemyInfoInstance.Visible);
+            CreateGeneralDecision(() => _gameScreen.EnemyInfoInstance.Visible, cmdName);
         }
 
-        public void True()
+        public void EnemyInfoHidden(string cmdName = null)
         {
-            CreateGeneralDecision(() => true);
+            CreateGeneralDecision(() => !_gameScreen.EnemyInfoInstance.Visible, cmdName);
         }
 
-        public void PointAtGumObject(IPositionedSizedObject objectToPointAt, PointingArrowRuntime.PointDirection direction = PointingArrowRuntime.PointDirection.Right)
+        public void OneEnemyRemaining(string cmdName = null)
         {
-            if (objectToPointAt == null)
-            {
-                return;
-            }
-            Action action = () =>
-            {
-                _gameScreen.PointingArrowInstance.CurrentPointDirectionState = direction;
-                _gameScreen.PointingArrowInstance.X = objectToPointAt.X;
-                _gameScreen.PointingArrowInstance.Y = objectToPointAt.Y;
-                _gameScreen.PointingArrowInstance.Visible = true;
-            };
-            var generalAction = CreateGeneralAction(action);
+            CreateGeneralDecision(() => _gameScreen.AllEnemiesList.Count == 1, cmdName);
+        }
+
+        public void True(string cmdName = null)
+        {
+            CreateGeneralDecision(() => true, cmdName);
+        }
+
+        public void PointAtGumObject(GraphicalUiElement objectToPointAt, PointingArrowRuntime.PointDirection direction = PointingArrowRuntime.PointDirection.Right, string cmdName = null)
+        {
+            var action = GetPointingAction(objectToPointAt, direction);
+            var generalAction = CreateGeneralAction(action, cmdName);
             generalAction.IsCompleteFunction = () => _gameScreen.PointingArrowInstance.Visible;
         }
 
-        public void ShowText(string text, bool allowDismiss = false)
+        public void PointAtUpgradeStatus(PointingArrowRuntime.PointDirection direction, string cmdName = null)
         {
-            Action action = () => _gameScreen.TutorialTextInstance.ShowText(text, allowDismiss);
-            var generalAction = CreateGeneralAction(action);
-            generalAction.IsCompleteFunction = () => !allowDismiss || _gameScreen.TutorialTextInstance.HasBeenConfirmed;
+            Action action = () =>
+            {
+                GetPointingAction(_gameScreen.AllStructuresList.Last.StructureUpgradeStatusInstance, direction).Invoke();
+            };
+            var generalAction = CreateGeneralAction(action, cmdName);
+            generalAction.IsCompleteFunction = () => _gameScreen.PointingArrowInstance.Visible;
+        }
+
+        public void ShowText(string text, bool requiresConfirmation = false, string cmdName = null)
+        {
+            Action action = () => _gameScreen.TutorialTextInstance.ShowText(text, requiresConfirmation);
+            var generalAction = CreateGeneralAction(action, cmdName);
+            generalAction.IsCompleteFunction = () => !requiresConfirmation || _gameScreen.TutorialTextInstance.HasBeenConfirmed;
+        }
+
+        private Action GetPointingAction(GraphicalUiElement objectToPointAt,
+            PointingArrowRuntime.PointDirection direction)
+        {
+            return () =>
+            {
+                var xMod = 0f;
+                var yMod = 0f;
+                var arrow = _gameScreen.PointingArrowInstance;
+
+                if (objectToPointAt.YOrigin == VerticalAlignment.Top)
+                {
+                    switch (direction)
+                    {
+                        case PointingArrowRuntime.PointDirection.Left:
+                        case PointingArrowRuntime.PointDirection.Right:
+                            yMod = objectToPointAt.GetAbsoluteHeight() / 2;
+                            break;
+                        case PointingArrowRuntime.PointDirection.Up:
+                            yMod = objectToPointAt.GetAbsoluteHeight();
+                            break;
+                    }
+                }
+                else if (objectToPointAt.YOrigin == VerticalAlignment.Center)
+                {
+                    switch (direction)
+                    {
+                        case PointingArrowRuntime.PointDirection.Up:
+                            yMod += objectToPointAt.GetAbsoluteHeight() / 2;
+                            break;
+                        case PointingArrowRuntime.PointDirection.Down:
+                            yMod -= objectToPointAt.GetAbsoluteHeight() / 2;
+                            break;
+                    }
+                }
+                else if (objectToPointAt.YOrigin == VerticalAlignment.Bottom)
+                {
+                    switch (direction)
+                    {
+                        case PointingArrowRuntime.PointDirection.Left:
+                        case PointingArrowRuntime.PointDirection.Right:
+                            yMod -= objectToPointAt.GetAbsoluteHeight() / 2;
+                            break;
+                        case PointingArrowRuntime.PointDirection.Down:
+                            yMod -= objectToPointAt.GetAbsoluteHeight();
+                            break;
+                    }
+                }
+
+                if (objectToPointAt.XOrigin == HorizontalAlignment.Left)
+                {
+                    switch (direction)
+                    {
+                        case PointingArrowRuntime.PointDirection.Left:
+                            xMod = objectToPointAt.GetAbsoluteWidth();
+                            break;
+                        case PointingArrowRuntime.PointDirection.Up:
+                            xMod = objectToPointAt.GetAbsoluteWidth() / 2;
+                            break;
+                        case PointingArrowRuntime.PointDirection.Down:
+                            xMod = objectToPointAt.GetAbsoluteWidth() / 2;
+                            break;
+                    }
+                }
+                else if (objectToPointAt.XOrigin == HorizontalAlignment.Center)
+                {
+                    switch (direction)
+                    {
+                        case PointingArrowRuntime.PointDirection.Left:
+                            xMod = objectToPointAt.GetAbsoluteWidth() / 2;
+                            break;
+                        case PointingArrowRuntime.PointDirection.Right:
+                            xMod = objectToPointAt.GetAbsoluteWidth() / 2;
+                            break;
+                    }
+
+                }
+                else if (objectToPointAt.XOrigin == HorizontalAlignment.Right)
+                {
+                    switch (direction)
+                    {
+                        case PointingArrowRuntime.PointDirection.Right:
+                            xMod = objectToPointAt.GetAbsoluteWidth();
+                            break;
+                        case PointingArrowRuntime.PointDirection.Up:
+                            xMod = -objectToPointAt.GetAbsoluteWidth() / 2;
+                            break;
+                        case PointingArrowRuntime.PointDirection.Down:
+                            xMod = -objectToPointAt.GetAbsoluteWidth() / 2;
+                            break;
+                    }
+                }
+                
+                arrow.CurrentPointDirectionState = direction;
+                arrow.X = objectToPointAt.AbsoluteX + xMod;
+                arrow.Y = objectToPointAt.AbsoluteY + yMod;
+                arrow.Visible = true;
+                arrow.FlashAnimation.Play();
+            };
         }
     }
     

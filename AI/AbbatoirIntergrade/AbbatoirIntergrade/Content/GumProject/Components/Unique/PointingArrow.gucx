@@ -11,6 +11,11 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>FlashingState</Type>
+      <Name>FlashingState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
       <Type>bool</Type>
       <Name>HasEvents</Name>
       <Value xsi:type="xsd:boolean">false</Value>
@@ -253,6 +258,67 @@
         <Name>SpriteInstance.Y Origin</Name>
         <Value xsi:type="xsd:int">2</Value>
         <Category>Position</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
+  <Category>
+    <Name>Flashing</Name>
+    <State>
+      <Name>StartFlash</Name>
+      <Variable>
+        <Type>float</Type>
+        <Name>SpriteInstance.Height</Name>
+        <Value xsi:type="xsd:float">90</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>SpriteInstance.Width</Name>
+        <Value xsi:type="xsd:float">90</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>SpriteInstance.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>SpriteInstance.Blue</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>EndFlash</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>SpriteInstance.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>SpriteInstance.Green</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>SpriteInstance.Height</Name>
+        <Value xsi:type="xsd:float">100</Value>
+        <Category>Dimensions</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>SpriteInstance.Width</Name>
+        <Value xsi:type="xsd:float">100</Value>
+        <Category>Dimensions</Category>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

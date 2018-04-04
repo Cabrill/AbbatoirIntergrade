@@ -35,7 +35,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
     {
         private static readonly Dictionary<Tuple<int, int>, Texture2D> RangeTextures = new Dictionary<Tuple<int, int>, Texture2D>();
         private List<UpgradeTypes> _upgradesApplied = new List<UpgradeTypes>();
-
         protected DamageTypes DamageType;
 
         private float? SoundPanning;

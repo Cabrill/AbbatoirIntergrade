@@ -25,6 +25,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Camera = FlatRedBall.Camera;
 using ShapeManager = FlatRedBall.Math.Geometry.ShapeManager;
+using FlatRedBall.Scripting;
 
 namespace AbbatoirIntergrade.Screens
 {
@@ -33,11 +34,12 @@ namespace AbbatoirIntergrade.Screens
         //OPEN A URL
         //private void OpenUrl(string url)
         //{
-            //System.Diagnostics.Process.Start(url);
+        //System.Diagnostics.Process.Start(url);
         //}
 
+        ScriptDebuggingForm mScriptDebuggingForm;
 
-    #region Properties and Fields
+        #region Properties and Fields
 
         public enum GameMode
         {
@@ -187,7 +189,7 @@ namespace AbbatoirIntergrade.Screens
 
             if (CurrentLevel.LevelNumber == 1)
             {
-                _tutorialScript = new TutorialScript(this, AllStructuresList);
+                _tutorialScript = new TutorialScript(this);
             }
 
             this.Call(() =>CurrentMusicDisplayInstance.TimedDisplay(true)).After(5f);
@@ -394,8 +396,15 @@ namespace AbbatoirIntergrade.Screens
             if (firstTimeCalled) GameScreenGumInstance.FadeInAnimation.Play();
             if (_tutorialScript != null && !_tutorialScript.IsFinished)
             {
-                if (firstTimeCalled) _tutorialScript.Initialize();
+                if (firstTimeCalled)
+                {
+                    _tutorialScript.Initialize();
+                    _tutorialScript.ExecutionMode = ScriptEngine.ExecutionModes.Linear;
+                    mScriptDebuggingForm = new ScriptDebuggingForm();
+                    mScriptDebuggingForm.ShowWithScripts(_tutorialScript);
+                }
                 _tutorialScript.Activity();
+                mScriptDebuggingForm.Activity();
             }
 #if DEBUG
             FlatRedBall.Debugging.Debugger.Write(GuiManager.Cursor.WindowOver);
@@ -978,7 +987,7 @@ namespace AbbatoirIntergrade.Screens
 
             if (firstDialogue != null)
             {
-                var randomDelay = FlatRedBallServices.Random.Between(1.5f, 3f);
+                var randomDelay = FlatRedBallServices.Random.Between(2.5f, 4f);
                 this.Call(() =>
                 {
                     PlayerDataManager.AddShownDialogueId(firstDialogue.Id);

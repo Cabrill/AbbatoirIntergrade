@@ -10,12 +10,18 @@ namespace AbbatoirIntergrade.GumRuntimes
     {
         public bool HasBeenConfirmed;
 
-        public void ShowText(string text, bool allowConfirmation)
+        public void ShowText(string text, bool requireConfirmation)
         {
             HasBeenConfirmed = false;
             TextInstance.Text = text;
-            CurrentConfirmationState = allowConfirmation ? Confirmation.Allow : Confirmation.Denied;
-            ConfirmationButton.Click += window => HasBeenConfirmed = true;
+            CurrentConfirmationState = requireConfirmation ? Confirmation.Allow : Confirmation.Denied;
+            Visible = true;
+
+            ConfirmationButton.Click += window =>
+            {
+                HasBeenConfirmed = true;
+                Visible = false;
+            };
         }
     }
 }

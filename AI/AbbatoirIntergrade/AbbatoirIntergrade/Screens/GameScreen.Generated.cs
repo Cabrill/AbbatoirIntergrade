@@ -208,8 +208,30 @@ namespace AbbatoirIntergrade.Screens
         private FlatRedBall.Graphics.Layer BackgroundLayer;
         private AbbatoirIntergrade.GumRuntimes.HorizonBoxRuntime HorizonBoxInstance;
         private FlatRedBall.Graphics.Layer WorldLayer;
-        private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BaseStructure> AllStructuresList;
-        private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BaseEnemy> AllEnemiesList;
+        private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BaseStructure> mAllStructuresList;
+        public FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BaseStructure> AllStructuresList
+        {
+            get
+            {
+                return mAllStructuresList;
+            }
+            private set
+            {
+                mAllStructuresList = value;
+            }
+        }
+        private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BaseEnemy> mAllEnemiesList;
+        public FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BaseEnemy> AllEnemiesList
+        {
+            get
+            {
+                return mAllEnemiesList;
+            }
+            private set
+            {
+                mAllEnemiesList = value;
+            }
+        }
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BasePlayerProjectile> PlayerProjectileList;
         private FlatRedBall.Graphics.Layer LightLayer;
         private FlatRedBall.Graphics.Layer ShaderOutputLayer;
@@ -381,10 +403,10 @@ namespace AbbatoirIntergrade.Screens
             HorizonBoxInstance = GameScreenGum.GetGraphicalUiElementByName("HorizonBoxInstance") as AbbatoirIntergrade.GumRuntimes.HorizonBoxRuntime;
             WorldLayer = new FlatRedBall.Graphics.Layer();
             WorldLayer.Name = "WorldLayer";
-            AllStructuresList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BaseStructure>();
-            AllStructuresList.Name = "AllStructuresList";
-            AllEnemiesList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BaseEnemy>();
-            AllEnemiesList.Name = "AllEnemiesList";
+            mAllStructuresList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BaseStructure>();
+            mAllStructuresList.Name = "mAllStructuresList";
+            mAllEnemiesList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BaseEnemy>();
+            mAllEnemiesList.Name = "mAllEnemiesList";
             PlayerProjectileList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BasePlayerProjectile>();
             PlayerProjectileList.Name = "PlayerProjectileList";
             LightLayer = new FlatRedBall.Graphics.Layer();
@@ -497,27 +519,27 @@ namespace AbbatoirIntergrade.Screens
             Factories.TileCollisionRectangleFactory.Initialize(ContentManagerName);
             Factories.TileCollisionCircleFactory.Initialize(ContentManagerName);
             Factories.TiledOverlayFactory.Initialize(ContentManagerName);
-            Factories.BombardingTowerFactory.AddList(AllStructuresList);
-            Factories.ChemicalTowerFactory.AddList(AllStructuresList);
-            Factories.ElectricTowerFactory.AddList(AllStructuresList);
-            Factories.FireTowerFactory.AddList(AllStructuresList);
-            Factories.FrostTowerFactory.AddList(AllStructuresList);
-            Factories.PiercingTowerFactory.AddList(AllStructuresList);
-            Factories.Chicken1EnemyFactory.AddList(AllEnemiesList);
-            Factories.Chicken2EnemyFactory.AddList(AllEnemiesList);
-            Factories.Chicken3EnemyFactory.AddList(AllEnemiesList);
-            Factories.Cow1EnemyFactory.AddList(AllEnemiesList);
-            Factories.Cow2EnemyFactory.AddList(AllEnemiesList);
-            Factories.Cow3EnemyFactory.AddList(AllEnemiesList);
-            Factories.Pig1EnemyFactory.AddList(AllEnemiesList);
-            Factories.Pig2EnemyFactory.AddList(AllEnemiesList);
-            Factories.Pig3EnemyFactory.AddList(AllEnemiesList);
-            Factories.Rabbit1EnemyFactory.AddList(AllEnemiesList);
-            Factories.Rabbit2EnemyFactory.AddList(AllEnemiesList);
-            Factories.Rabbit3EnemyFactory.AddList(AllEnemiesList);
-            Factories.Sheep1EnemyFactory.AddList(AllEnemiesList);
-            Factories.Sheep2EnemyFactory.AddList(AllEnemiesList);
-            Factories.Sheep3EnemyFactory.AddList(AllEnemiesList);
+            Factories.BombardingTowerFactory.AddList(mAllStructuresList);
+            Factories.ChemicalTowerFactory.AddList(mAllStructuresList);
+            Factories.ElectricTowerFactory.AddList(mAllStructuresList);
+            Factories.FireTowerFactory.AddList(mAllStructuresList);
+            Factories.FrostTowerFactory.AddList(mAllStructuresList);
+            Factories.PiercingTowerFactory.AddList(mAllStructuresList);
+            Factories.Chicken1EnemyFactory.AddList(mAllEnemiesList);
+            Factories.Chicken2EnemyFactory.AddList(mAllEnemiesList);
+            Factories.Chicken3EnemyFactory.AddList(mAllEnemiesList);
+            Factories.Cow1EnemyFactory.AddList(mAllEnemiesList);
+            Factories.Cow2EnemyFactory.AddList(mAllEnemiesList);
+            Factories.Cow3EnemyFactory.AddList(mAllEnemiesList);
+            Factories.Pig1EnemyFactory.AddList(mAllEnemiesList);
+            Factories.Pig2EnemyFactory.AddList(mAllEnemiesList);
+            Factories.Pig3EnemyFactory.AddList(mAllEnemiesList);
+            Factories.Rabbit1EnemyFactory.AddList(mAllEnemiesList);
+            Factories.Rabbit2EnemyFactory.AddList(mAllEnemiesList);
+            Factories.Rabbit3EnemyFactory.AddList(mAllEnemiesList);
+            Factories.Sheep1EnemyFactory.AddList(mAllEnemiesList);
+            Factories.Sheep2EnemyFactory.AddList(mAllEnemiesList);
+            Factories.Sheep3EnemyFactory.AddList(mAllEnemiesList);
             Factories.CannonProjectileFactory.AddList(PlayerProjectileList);
             Factories.ChemicalProjectileFactory.AddList(PlayerProjectileList);
             Factories.ElectricProjectileFactory.AddList(PlayerProjectileList);
