@@ -28,6 +28,73 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>ContinueText.Blue</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>ContinueText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ContinueText.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>ContinueText.Green</Name>
+      <Value xsi:type="xsd:int">255</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ContinueText.Height</Name>
+      <Value xsi:type="xsd:float">97</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>ContinueText.Red</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>ContinueText.Text</Name>
+      <Value xsi:type="xsd:string">Click to Continue</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>ContinueText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ContinueText.Width</Name>
+      <Value xsi:type="xsd:float">123</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ContinueText.X</Name>
+      <Value xsi:type="xsd:float">607</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ContinueText.Y</Name>
+      <Value xsi:type="xsd:float">476</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>bool</Type>
       <Name>HasEvents</Name>
       <Value xsi:type="xsd:boolean">false</Value>
@@ -61,6 +128,96 @@
       <Type>float</Type>
       <Name>LargeInfoFrameInstance.Width</Name>
       <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonTypeState</Type>
+      <Name>SkipTutorialButton.ButtonTypeState</Name>
+      <Value xsi:type="xsd:string">X</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ColorsState</Type>
+      <Name>SkipTutorialButton.ColorsState</Name>
+      <Value xsi:type="xsd:string">Red</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>SkipTutorialButton.X</Name>
+      <Value xsi:type="xsd:float">69</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>SkipTutorialButton.Y</Name>
+      <Value xsi:type="xsd:float">436</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>SkipTutorialState</Type>
+      <Name>SkipTutorialState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>SkipTutorialText.Blue</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>SkipTutorialText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>SkipTutorialText.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>SkipTutorialText.Green</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>SkipTutorialText.Height</Name>
+      <Value xsi:type="xsd:float">97</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>SkipTutorialText.Text</Name>
+      <Value xsi:type="xsd:string">Click to skip tutorial</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>SkipTutorialText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>SkipTutorialText.Width</Name>
+      <Value xsi:type="xsd:float">123</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>SkipTutorialText.X</Name>
+      <Value xsi:type="xsd:float">191</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>SkipTutorialText.Y</Name>
+      <Value xsi:type="xsd:float">453</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -134,12 +291,57 @@
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>ContinueText.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
     </State>
     <State>
       <Name>Denied</Name>
       <Variable>
         <Type>bool</Type>
         <Name>ConfirmationButton.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>ContinueText.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
+  <Category>
+    <Name>SkipTutorial</Name>
+    <State>
+      <Name>ShowSkip</Name>
+      <Variable>
+        <Type>bool</Type>
+        <Name>SkipTutorialText.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>SkipTutorialButton.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>DontShow</Name>
+      <Variable>
+        <Type>bool</Type>
+        <Name>SkipTutorialButton.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>SkipTutorialText.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -156,6 +358,18 @@
   <Instance>
     <Name>ConfirmationButton</Name>
     <BaseType>frames/ButtonFrame</BaseType>
+  </Instance>
+  <Instance>
+    <Name>SkipTutorialButton</Name>
+    <BaseType>frames/ButtonFrame</BaseType>
+  </Instance>
+  <Instance>
+    <Name>SkipTutorialText</Name>
+    <BaseType>Text</BaseType>
+  </Instance>
+  <Instance>
+    <Name>ContinueText</Name>
+    <BaseType>Text</BaseType>
   </Instance>
   <Behaviors />
 </ComponentSave>

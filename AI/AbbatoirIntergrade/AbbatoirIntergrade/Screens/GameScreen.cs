@@ -37,8 +37,6 @@ namespace AbbatoirIntergrade.Screens
         //System.Diagnostics.Process.Start(url);
         //}
 
-        ScriptDebuggingForm mScriptDebuggingForm;
-
         #region Properties and Fields
 
         public enum GameMode
@@ -190,6 +188,8 @@ namespace AbbatoirIntergrade.Screens
             if (CurrentLevel.LevelNumber == 1)
             {
                 _tutorialScript = new TutorialScript(this);
+                _tutorialScript.Initialize();
+                TutorialTextInstance.OnSkipTutorialClicked = () => _tutorialScript.Skip();
             }
 
             this.Call(() =>CurrentMusicDisplayInstance.TimedDisplay(true)).After(5f);
@@ -394,18 +394,7 @@ namespace AbbatoirIntergrade.Screens
         void CustomActivity(bool firstTimeCalled)
         {
             if (firstTimeCalled) GameScreenGumInstance.FadeInAnimation.Play();
-            if (_tutorialScript != null && !_tutorialScript.IsFinished)
-            {
-                if (firstTimeCalled)
-                {
-                    _tutorialScript.Initialize();
-                    _tutorialScript.ExecutionMode = ScriptEngine.ExecutionModes.Linear;
-                    mScriptDebuggingForm = new ScriptDebuggingForm();
-                    mScriptDebuggingForm.ShowWithScripts(_tutorialScript);
-                }
-                _tutorialScript.Activity();
-                mScriptDebuggingForm.Activity();
-            }
+            if (_tutorialScript != null && !_tutorialScript.IsFinished) _tutorialScript.Activity();
 #if DEBUG
             FlatRedBall.Debugging.Debugger.Write(GuiManager.Cursor.WindowOver);
             HandleDebugInput();

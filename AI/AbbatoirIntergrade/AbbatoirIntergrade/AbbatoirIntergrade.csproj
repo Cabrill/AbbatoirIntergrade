@@ -294,12 +294,6 @@
     <Compile Include="GameScriptingCore\IScriptDecision.cs" />
     <Compile Include="GameScriptingCore\Script.cs" />
     <Compile Include="GameScriptingCore\ScriptEngine.cs" />
-    <Compile Include="GameScriptingDebugging\ScriptDebuggingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GameScriptingDebugging\ScriptDebuggingForm.Designer.cs">
-      <DependentUpon>ScriptDebuggingForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="GumRuntimes\Behaviors\IButtonBehavior.Generated.cs" />
     <Compile Include="GumRuntimes\Behaviors\ICheckBoxBehavior.Generated.cs" />
@@ -601,14 +595,11 @@
       <HintPath>Libraries\DesktopGl\Debug\OpenTK.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>

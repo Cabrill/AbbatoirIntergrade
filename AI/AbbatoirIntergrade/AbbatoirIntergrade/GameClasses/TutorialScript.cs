@@ -36,7 +36,7 @@ namespace AbbatoirIntergrade.GameClasses
     {
         void PointAtGumObject(GraphicalUiElement objectToPointAt, PointingArrowRuntime.PointDirection direction = PointingArrowRuntime.PointDirection.Right, string doName = null);
         void PointAtUpgradeStatus(PointingArrowRuntime.PointDirection direction, string doName = null);
-        void ShowText(string text, bool requiresConfirmation = false, string doName = null);
+        void ShowText(string text, bool requiresConfirmation = false, bool allowSkip = false, string doName = null);
         void HideText(string doName = null);
         void PauseGame(string doName = null);
         void UnPauseGame(string doName = null);
@@ -58,6 +58,7 @@ namespace AbbatoirIntergrade.GameClasses
         public TutorialScript(Screens.GameScreen screen)
         {
             _gameScreen = screen;
+            ExecutionMode = ExecutionModes.Linear;
         }
 
         public void Initialize()
@@ -68,7 +69,7 @@ namespace AbbatoirIntergrade.GameClasses
                 PointingArrowRuntime.PointDirection.Up,"PointAtLives");
             Do.ShowText("This is how many lives are at stake in this outpost.  " +
                         "When an animal gets past your defense it will kill a person, and when no people are left the level ends.", 
-                requiresConfirmation:true, doName: "ConfirmLives");
+                requiresConfirmation:true, allowSkip: true,doName: "ConfirmLives");
 
             AfterThat();
             Do.PointAtGumObject(_gameScreen.TopStatusBarInstance.GetGraphicalUiElementByName("WaveTextInstance"), 
@@ -89,8 +90,8 @@ namespace AbbatoirIntergrade.GameClasses
 
             If.PiercingTowerHighlighted();
             Do.ShowText("You can now see the damage type (30 piercing), build cost (10 satoshis), min/max range, seconds between attacks, and target type (single/group).  \n\nThe large green circle originating where you " +
-                        "clicked represents the firing range, from this spot and the red circle is minimum range.  \n\nEnemies in the red circle will be too close to hit.  " +
-                        "\n\nTry building this structure now.", 
+                        "clicked represents the firing range, and the red circle is minimum range.  \n\nEnemies in the red circle will be too close for the tower to hit.  " +
+                        "\n\nTry building this tower now.", 
                 doName: "ConfirmRange");
 
             If.StructureExists();
@@ -294,9 +295,9 @@ namespace AbbatoirIntergrade.GameClasses
             generalAction.IsCompleteFunction = () => _gameScreen.PointingArrowInstance.Visible;
         }
 
-        public void ShowText(string text, bool requiresConfirmation = false, string cmdName = null)
+        public void ShowText(string text, bool requiresConfirmation = false, bool allowSkip = false, string cmdName = null)
         {
-            Action action = () => _gameScreen.TutorialTextInstance.ShowText(text, requiresConfirmation);
+            Action action = () => _gameScreen.TutorialTextInstance.ShowText(text, requiresConfirmation, allowSkip);
             var generalAction = CreateGeneralAction(action, cmdName);
             generalAction.IsCompleteFunction = () => !requiresConfirmation || _gameScreen.TutorialTextInstance.HasBeenConfirmed;
         }
@@ -399,6 +400,13 @@ namespace AbbatoirIntergrade.GameClasses
                 arrow.Visible = true;
                 arrow.FlashAnimation.Play();
             };
+        }
+
+        public void Skip()
+        {
+            _gameScreen.PointingArrowInstance.StopAnimations();
+            _gameScreen.PointingArrowInstance.Visible = false;
+            IsFinished = true;
         }
     }
     
