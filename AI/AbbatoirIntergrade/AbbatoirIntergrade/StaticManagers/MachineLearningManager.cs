@@ -29,7 +29,7 @@ namespace AbbatoirIntergrade.StaticManagers
         public static bool IsReadyToEvaluate => _machineLearningModel.IsReady;
         public static double CurrentMeanSquaredError => _machineLearningModel.LastMSE;
         public static int SampleSize => _machineLearningModel.LastSampleSize;
-        
+       
         private static double _waveScore = 0;
         private static WaveData _waveData;
         private static List<double> _levelPartialInput;
@@ -278,7 +278,8 @@ namespace AbbatoirIntergrade.StaticManagers
                 IsLearningTaskRunning = false;
             }
 
-            Task.Run((Action)LearnAndRefreshTask);
+            var lowPriorityThread = new Thread(LearnAndRefreshTask) {Priority = ThreadPriority.BelowNormal};
+            lowPriorityThread.Start();
         }
 
         public static void UpdateWaveScore(BaseEnemy enemy)

@@ -45,6 +45,7 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/StructureInfo", typeof(AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/StructureUpgradeStatus", typeof(AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("InfoDisplays/TopStatusBar", typeof(AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/TutorialText", typeof(AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/UpgradeInfo", typeof(AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("LivesPointsDisplay", typeof(AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MenuWindow", typeof(AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime));
@@ -64,6 +65,7 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("TowerSelectionBox", typeof(AbbatoirIntergrade.GumRuntimes.TowerSelectionBoxRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("unique/Dimming", typeof(AbbatoirIntergrade.GumRuntimes.DimmingRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("unique/MainMenuEye", typeof(AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("unique/PointingArrow", typeof(AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("VerticalScrollBar", typeof(AbbatoirIntergrade.GumRuntimes.VerticalScrollBarRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("EndingScreenGum", typeof(AbbatoirIntergrade.GumRuntimes.EndingScreenGumRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("FlatRedBallSplashGum", typeof(AbbatoirIntergrade.GumRuntimes.FlatRedBallSplashGumRuntime));

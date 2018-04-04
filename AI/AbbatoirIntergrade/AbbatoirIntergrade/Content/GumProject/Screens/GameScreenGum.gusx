@@ -272,6 +272,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>PointingArrowInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>ReadyButtonInstance.X</Name>
       <Value xsi:type="xsd:float">1650</Value>
@@ -315,6 +321,24 @@
       <Type>bool</Type>
       <Name>StructureInfoInstance.Visible</Name>
       <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>TutorialTextInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TutorialTextInstance.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TutorialTextInstance.Y</Name>
+      <Value xsi:type="xsd:float">60</Value>
       <SetsValue>true</SetsValue>
     </Variable>
   </State>
@@ -833,5 +857,13 @@
   <Instance>
     <Name>ReadyButtonInstance</Name>
     <BaseType>specificbuttons/ReadyButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>PointingArrowInstance</Name>
+    <BaseType>unique/PointingArrow</BaseType>
+  </Instance>
+  <Instance>
+    <Name>TutorialTextInstance</Name>
+    <BaseType>infodisplays/TutorialText</BaseType>
   </Instance>
 </ScreenSave>

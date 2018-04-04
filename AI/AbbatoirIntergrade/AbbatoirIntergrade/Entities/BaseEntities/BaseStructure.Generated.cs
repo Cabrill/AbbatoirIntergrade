@@ -247,7 +247,18 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 mLightAimSpriteInstance = value;
             }
         }
-        private AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime StructureUpgradeStatusInstance;
+        private AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime mStructureUpgradeStatusInstance;
+        public AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime StructureUpgradeStatusInstance
+        {
+            get
+            {
+                return mStructureUpgradeStatusInstance;
+            }
+            private set
+            {
+                mStructureUpgradeStatusInstance = value;
+            }
+        }
         private FlatRedBall.Sprite WarpSpriteInstance;
         public float SpriteInstanceRed
         {
@@ -488,7 +499,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             mRangePreviewSprite.Name = "mRangePreviewSprite";
             mLightAimSpriteInstance = new FlatRedBall.Sprite();
             mLightAimSpriteInstance.Name = "mLightAimSpriteInstance";
-            {var oldLayoutSuspended = global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended; global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true; StructureUpgradeStatusInstance = new AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime();global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = oldLayoutSuspended; StructureUpgradeStatusInstance.UpdateLayout();}
+            {var oldLayoutSuspended = global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended; global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true; mStructureUpgradeStatusInstance = new AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime();global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = oldLayoutSuspended; mStructureUpgradeStatusInstance.UpdateLayout();}
             WarpSpriteInstance = new FlatRedBall.Sprite();
             WarpSpriteInstance.Name = "WarpSpriteInstance";
             
@@ -506,7 +517,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mMinimumRangeCircleInstance, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(mRangePreviewSprite, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(mLightAimSpriteInstance, LayerProvidedByContainer);
-            StructureUpgradeStatusInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(LayerProvidedByContainer)));
+            mStructureUpgradeStatusInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(LayerProvidedByContainer)));
             FlatRedBall.SpriteManager.AddToLayer(WarpSpriteInstance, LayerProvidedByContainer);
         }
         public virtual void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -517,7 +528,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mMinimumRangeCircleInstance, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(mRangePreviewSprite, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(mLightAimSpriteInstance, LayerProvidedByContainer);
-            StructureUpgradeStatusInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(LayerProvidedByContainer)));
+            mStructureUpgradeStatusInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(LayerProvidedByContainer)));
             AddToManagersBottomUp(layerToAddTo);
             CustomInitialize();
         }

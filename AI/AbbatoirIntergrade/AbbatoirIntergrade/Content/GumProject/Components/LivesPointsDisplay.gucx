@@ -52,104 +52,104 @@
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>LiveSprite.Height</Name>
+      <Name>LivesSprite.Height</Name>
       <Value xsi:type="xsd:float">80</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
-      <Name>LiveSprite.Height Units</Name>
+      <Name>LivesSprite.Height Units</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>string</Type>
-      <Name>LiveSprite.Parent</Name>
+      <Name>LivesSprite.Parent</Name>
       <Value xsi:type="xsd:string">LivesContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <IsFile>true</IsFile>
       <Type>string</Type>
-      <Name>LiveSprite.SourceFile</Name>
+      <Name>LivesSprite.SourceFile</Name>
       <Value xsi:type="xsd:string">AllUIAssets.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>TextureAddress</Type>
-      <Name>LiveSprite.Texture Address</Name>
+      <Name>LivesSprite.Texture Address</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
-      <Name>LiveSprite.Texture Height</Name>
+      <Name>LivesSprite.Texture Height</Name>
       <Value xsi:type="xsd:int">128</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
-      <Name>LiveSprite.Texture Left</Name>
+      <Name>LivesSprite.Texture Left</Name>
       <Value xsi:type="xsd:int">2443</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
-      <Name>LiveSprite.Texture Top</Name>
+      <Name>LivesSprite.Texture Top</Name>
       <Value xsi:type="xsd:int">779</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
-      <Name>LiveSprite.Texture Width</Name>
+      <Name>LivesSprite.Texture Width</Name>
       <Value xsi:type="xsd:int">54</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>LiveSprite.Width</Name>
+      <Name>LivesSprite.Width</Name>
       <Value xsi:type="xsd:float">42.5196</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
-      <Name>LiveSprite.Width Units</Name>
+      <Name>LivesSprite.Width Units</Name>
       <Value xsi:type="xsd:int">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>LiveSprite.X</Name>
+      <Name>LivesSprite.X</Name>
       <Value xsi:type="xsd:float">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>HorizontalAlignment</Type>
-      <Name>LiveSprite.X Origin</Name>
+      <Name>LivesSprite.X Origin</Name>
       <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
-      <Name>LiveSprite.X Units</Name>
+      <Name>LivesSprite.X Units</Name>
       <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>LiveSprite.Y</Name>
+      <Name>LivesSprite.Y</Name>
       <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>VerticalAlignment</Type>
-      <Name>LiveSprite.Y Origin</Name>
+      <Name>LivesSprite.Y Origin</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
-      <Name>LiveSprite.Y Units</Name>
+      <Name>LivesSprite.Y Units</Name>
       <Value xsi:type="xsd:int">7</Value>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -622,13 +622,13 @@
       <Name>StartReduce</Name>
       <Variable>
         <Type>int</Type>
-        <Name>LiveSprite.Blue</Name>
+        <Name>LivesSprite.Blue</Name>
         <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>LiveSprite.Green</Name>
+        <Name>LivesSprite.Green</Name>
         <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -655,14 +655,14 @@
       <Name>Mid1Reduce</Name>
       <Variable>
         <Type>int</Type>
-        <Name>LiveSprite.Blue</Name>
+        <Name>LivesSprite.Blue</Name>
         <Value xsi:type="xsd:int">100</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>LiveSprite.Green</Name>
+        <Name>LivesSprite.Green</Name>
         <Value xsi:type="xsd:int">100</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
@@ -690,14 +690,14 @@
       <Name>Mid2Reduce</Name>
       <Variable>
         <Type>int</Type>
-        <Name>LiveSprite.Blue</Name>
+        <Name>LivesSprite.Blue</Name>
         <Value xsi:type="xsd:int">0</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>LiveSprite.Green</Name>
+        <Name>LivesSprite.Green</Name>
         <Value xsi:type="xsd:int">0</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
@@ -732,14 +732,14 @@
       <Name>Mid3Reduce</Name>
       <Variable>
         <Type>int</Type>
-        <Name>LiveSprite.Blue</Name>
+        <Name>LivesSprite.Blue</Name>
         <Value xsi:type="xsd:int">150</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>LiveSprite.Green</Name>
+        <Name>LivesSprite.Green</Name>
         <Value xsi:type="xsd:int">150</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
@@ -767,14 +767,14 @@
       <Name>EndReduce</Name>
       <Variable>
         <Type>int</Type>
-        <Name>LiveSprite.Blue</Name>
+        <Name>LivesSprite.Blue</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>LiveSprite.Green</Name>
+        <Name>LivesSprite.Green</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
@@ -1029,7 +1029,7 @@
     <BaseType>frames/MessageFrame</BaseType>
   </Instance>
   <Instance>
-    <Name>LiveSprite</Name>
+    <Name>LivesSprite</Name>
     <BaseType>Sprite</BaseType>
   </Instance>
   <Instance>

@@ -216,17 +216,83 @@ namespace AbbatoirIntergrade.Screens
         private FlatRedBall.Graphics.Layer InfoLayer;
         private FlatRedBall.Graphics.Layer HUDLayer;
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D BackgroundRenderTarget;
-        private AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime EnemyInfoInstance;
+        private AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime mEnemyInfoInstance;
+        public AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime EnemyInfoInstance
+        {
+            get
+            {
+                return mEnemyInfoInstance;
+            }
+            private set
+            {
+                mEnemyInfoInstance = value;
+            }
+        }
         private AbbatoirIntergrade.Entities.GraphicalElements.StructurePlacement StructurePlacementInstance;
-        private AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime StructureInfoInstance;
-        private AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime ChatBoxInstance;
-        private AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime BuildMenuInstance;
-        private AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime LivesPointsDisplayInstance;
+        private AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime mStructureInfoInstance;
+        public AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime StructureInfoInstance
+        {
+            get
+            {
+                return mStructureInfoInstance;
+            }
+            private set
+            {
+                mStructureInfoInstance = value;
+            }
+        }
+        private AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime mChatBoxInstance;
+        public AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime ChatBoxInstance
+        {
+            get
+            {
+                return mChatBoxInstance;
+            }
+            private set
+            {
+                mChatBoxInstance = value;
+            }
+        }
+        private AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime mBuildMenuInstance;
+        public AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime BuildMenuInstance
+        {
+            get
+            {
+                return mBuildMenuInstance;
+            }
+            private set
+            {
+                mBuildMenuInstance = value;
+            }
+        }
+        private AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime mLivesPointsDisplayInstance;
+        public AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime LivesPointsDisplayInstance
+        {
+            get
+            {
+                return mLivesPointsDisplayInstance;
+            }
+            private set
+            {
+                mLivesPointsDisplayInstance = value;
+            }
+        }
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TileCollisionRectangle> TileCollisionRectangleList;
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TileCollisionCircle> TileCollisionCircleList;
         private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime ChatHistoryInstance;
         private AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime GameScreenGumInstance;
-        private AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime TopStatusBarInstance;
+        private AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime mTopStatusBarInstance;
+        public AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime TopStatusBarInstance
+        {
+            get
+            {
+                return mTopStatusBarInstance;
+            }
+            private set
+            {
+                mTopStatusBarInstance = value;
+            }
+        }
         private AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime ScreenShadeInstance;
         private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance;
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TiledOverlay> TiledOverlayList;
@@ -235,7 +301,42 @@ namespace AbbatoirIntergrade.Screens
         private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance;
         private AbbatoirIntergrade.GumRuntimes.TextRuntime HordeText;
         private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime DimmingRectangleInstance;
-        private AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime ReadyButtonInstance;
+        private AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime mReadyButtonInstance;
+        public AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime ReadyButtonInstance
+        {
+            get
+            {
+                return mReadyButtonInstance;
+            }
+            private set
+            {
+                mReadyButtonInstance = value;
+            }
+        }
+        private AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime mPointingArrowInstance;
+        public AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime PointingArrowInstance
+        {
+            get
+            {
+                return mPointingArrowInstance;
+            }
+            private set
+            {
+                mPointingArrowInstance = value;
+            }
+        }
+        private AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime mTutorialTextInstance;
+        public AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime TutorialTextInstance
+        {
+            get
+            {
+                return mTutorialTextInstance;
+            }
+            private set
+            {
+                mTutorialTextInstance = value;
+            }
+        }
         public event System.EventHandler BeforeCurrentSatoshisSet;
         public event System.EventHandler AfterCurrentSatoshisSet;
         int mCurrentSatoshis;
@@ -295,20 +396,20 @@ namespace AbbatoirIntergrade.Screens
             HUDLayer = new FlatRedBall.Graphics.Layer();
             HUDLayer.Name = "HUDLayer";
             BackgroundRenderTarget = new Microsoft.Xna.Framework.Graphics.RenderTarget2D(FlatRedBall.FlatRedBallServices.GraphicsDevice, FlatRedBall.Camera.Main.DestinationRectangle.Width, FlatRedBall.Camera.Main.DestinationRectangle.Height);
-            EnemyInfoInstance = GameScreenGum.GetGraphicalUiElementByName("EnemyInfoInstance") as AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime;
+            mEnemyInfoInstance = GameScreenGum.GetGraphicalUiElementByName("EnemyInfoInstance") as AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime;
             StructurePlacementInstance = new AbbatoirIntergrade.Entities.GraphicalElements.StructurePlacement(ContentManagerName, false);
             StructurePlacementInstance.Name = "StructurePlacementInstance";
-            StructureInfoInstance = GameScreenGum.GetGraphicalUiElementByName("StructureInfoInstance") as AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime;
-            ChatBoxInstance = GameScreenGum.GetGraphicalUiElementByName("ChatBoxInstance") as AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime;
-            BuildMenuInstance = GameScreenGum.GetGraphicalUiElementByName("BuildMenuInstance") as AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime;
-            LivesPointsDisplayInstance = GameScreenGum.GetGraphicalUiElementByName("LivesPointsDisplayInstance") as AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime;
+            mStructureInfoInstance = GameScreenGum.GetGraphicalUiElementByName("StructureInfoInstance") as AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime;
+            mChatBoxInstance = GameScreenGum.GetGraphicalUiElementByName("ChatBoxInstance") as AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime;
+            mBuildMenuInstance = GameScreenGum.GetGraphicalUiElementByName("BuildMenuInstance") as AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime;
+            mLivesPointsDisplayInstance = GameScreenGum.GetGraphicalUiElementByName("LivesPointsDisplayInstance") as AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime;
             TileCollisionRectangleList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TileCollisionRectangle>();
             TileCollisionRectangleList.Name = "TileCollisionRectangleList";
             TileCollisionCircleList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TileCollisionCircle>();
             TileCollisionCircleList.Name = "TileCollisionCircleList";
             ChatHistoryInstance = GameScreenGum.GetGraphicalUiElementByName("ChatHistoryInstance") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
             GameScreenGumInstance = GameScreenGum.GetGraphicalUiElementByName("this") as AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime;
-            TopStatusBarInstance = GameScreenGum.GetGraphicalUiElementByName("TopStatusBarInstance") as AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime;
+            mTopStatusBarInstance = GameScreenGum.GetGraphicalUiElementByName("TopStatusBarInstance") as AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime;
             ScreenShadeInstance = GameScreenGum.GetGraphicalUiElementByName("ScreenShadeInstance") as AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime;
             MenuWindowInstance = GameScreenGum.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
             TiledOverlayList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TiledOverlay>();
@@ -318,7 +419,9 @@ namespace AbbatoirIntergrade.Screens
             CurrentMusicDisplayInstance = GameScreenGum.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
             HordeText = GameScreenGum.GetGraphicalUiElementByName("HordeText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
             DimmingRectangleInstance = GameScreenGum.GetGraphicalUiElementByName("DimmingRectangle") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
-            ReadyButtonInstance = GameScreenGum.GetGraphicalUiElementByName("ReadyButtonInstance") as AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime;
+            mReadyButtonInstance = GameScreenGum.GetGraphicalUiElementByName("ReadyButtonInstance") as AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime;
+            mPointingArrowInstance = GameScreenGum.GetGraphicalUiElementByName("PointingArrowInstance") as AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime;
+            mTutorialTextInstance = GameScreenGum.GetGraphicalUiElementByName("TutorialTextInstance") as AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime;
             
             
             PostInitialize();
@@ -429,15 +532,15 @@ namespace AbbatoirIntergrade.Screens
             ShaderRendererInstance.AddToManagers(ShaderOutputLayer);
             HorizonBoxInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(BackgroundLayer)));
             
-            EnemyInfoInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            mEnemyInfoInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             StructurePlacementInstance.AddToManagers(HUDLayer);
             StructurePlacementInstance.SetToIgnorePausing();
-            StructureInfoInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
-            ChatBoxInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
-            BuildMenuInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
-            LivesPointsDisplayInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            mStructureInfoInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            mChatBoxInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            mBuildMenuInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            mLivesPointsDisplayInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             ChatHistoryInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
-            TopStatusBarInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            mTopStatusBarInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             ScreenShadeInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             MenuWindowInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             LocationTimeInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
@@ -445,7 +548,9 @@ namespace AbbatoirIntergrade.Screens
             CurrentMusicDisplayInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             HordeText.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             DimmingRectangleInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(InfoLayer)));
-            ReadyButtonInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            mReadyButtonInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            mPointingArrowInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
+            mTutorialTextInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(HUDLayer)));
             base.AddToManagers();
             AddToManagersBottomUp();
             CustomInitialize();
@@ -749,6 +854,14 @@ namespace AbbatoirIntergrade.Screens
             {
                 ReadyButtonInstance.RemoveFromManagers();
             }
+            if (PointingArrowInstance != null)
+            {
+                PointingArrowInstance.RemoveFromManagers();
+            }
+            if (TutorialTextInstance != null)
+            {
+                TutorialTextInstance.RemoveFromManagers();
+            }
             AllStructuresList.MakeTwoWay();
             AllEnemiesList.MakeTwoWay();
             PlayerProjectileList.MakeTwoWay();
@@ -778,13 +891,13 @@ namespace AbbatoirIntergrade.Screens
             CameraSetup.ResetCamera(SpriteManager.Camera);
             AssignCustomVariables(false);
             HorizonBoxInstance.MoveToFrbLayer(BackgroundLayer, BackgroundLayerGum);
-            EnemyInfoInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
-            StructureInfoInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
-            ChatBoxInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
-            BuildMenuInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
-            LivesPointsDisplayInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            mEnemyInfoInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            mStructureInfoInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            mChatBoxInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            mBuildMenuInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            mLivesPointsDisplayInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             ChatHistoryInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
-            TopStatusBarInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            mTopStatusBarInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             ScreenShadeInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             MenuWindowInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             LocationTimeInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
@@ -792,7 +905,9 @@ namespace AbbatoirIntergrade.Screens
             CurrentMusicDisplayInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             HordeText.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             DimmingRectangleInstance.MoveToFrbLayer(InfoLayer, InfoLayerGum);
-            ReadyButtonInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            mReadyButtonInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            mPointingArrowInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
+            mTutorialTextInstance.MoveToFrbLayer(HUDLayer, HUDLayerGum);
             FlatRedBall.Gui.GuiManager.SortZAndLayerBased();
         }
         public virtual void RemoveFromManagers () 
@@ -926,6 +1041,14 @@ namespace AbbatoirIntergrade.Screens
             if (ReadyButtonInstance != null)
             {
                 ReadyButtonInstance.RemoveFromManagers();
+            }
+            if (PointingArrowInstance != null)
+            {
+                PointingArrowInstance.RemoveFromManagers();
+            }
+            if (TutorialTextInstance != null)
+            {
+                TutorialTextInstance.RemoveFromManagers();
             }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 

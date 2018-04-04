@@ -12,6 +12,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
 {
     class Chapter6Level : BaseLevel
     {
+        public override int LevelNumber => 6;
         public override string MapName => "Chapter6";
         public override string LocationName => "Danshing Pass";
         public override DateTime StartTime => new DateTime(2017, 10, 26, 21, 0, 0);

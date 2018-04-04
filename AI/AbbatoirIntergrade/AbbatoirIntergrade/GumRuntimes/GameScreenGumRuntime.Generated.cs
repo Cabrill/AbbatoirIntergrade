@@ -97,6 +97,10 @@
                             ReadyButtonInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             ReadyButtonInstance.Y = 125f;
                             ReadyButtonInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            PointingArrowInstance.Visible = false;
+                            TutorialTextInstance.Visible = false;
+                            TutorialTextInstance.X = 0f;
+                            TutorialTextInstance.Y = 60f;
                             break;
                     }
                 }
@@ -334,6 +338,14 @@
                 bool setReadyButtonInstanceYSecondValue = false;
                 float ReadyButtonInstanceYFirstValue= 0;
                 float ReadyButtonInstanceYSecondValue= 0;
+                bool setTutorialTextInstanceXFirstValue = false;
+                bool setTutorialTextInstanceXSecondValue = false;
+                float TutorialTextInstanceXFirstValue= 0;
+                float TutorialTextInstanceXSecondValue= 0;
+                bool setTutorialTextInstanceYFirstValue = false;
+                bool setTutorialTextInstanceYSecondValue = false;
+                float TutorialTextInstanceYFirstValue= 0;
+                float TutorialTextInstanceYSecondValue= 0;
                 switch(firstState)
                 {
                     case  VariableState.Default:
@@ -461,6 +473,10 @@
                         {
                             this.MenuWindowInstance.Visible = false;
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.PointingArrowInstance.Visible = false;
+                        }
                         setReadyButtonInstanceXFirstValue = true;
                         ReadyButtonInstanceXFirstValue = 1650f;
                         if (interpolationValue < 1)
@@ -481,6 +497,14 @@
                         {
                             this.StructureInfoInstance.Visible = false;
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.TutorialTextInstance.Visible = false;
+                        }
+                        setTutorialTextInstanceXFirstValue = true;
+                        TutorialTextInstanceXFirstValue = 0f;
+                        setTutorialTextInstanceYFirstValue = true;
+                        TutorialTextInstanceYFirstValue = 60f;
                         break;
                 }
                 switch(secondState)
@@ -610,6 +634,10 @@
                         {
                             this.MenuWindowInstance.Visible = false;
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            this.PointingArrowInstance.Visible = false;
+                        }
                         setReadyButtonInstanceXSecondValue = true;
                         ReadyButtonInstanceXSecondValue = 1650f;
                         if (interpolationValue >= 1)
@@ -630,6 +658,14 @@
                         {
                             this.StructureInfoInstance.Visible = false;
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TutorialTextInstance.Visible = false;
+                        }
+                        setTutorialTextInstanceXSecondValue = true;
+                        TutorialTextInstanceXSecondValue = 0f;
+                        setTutorialTextInstanceYSecondValue = true;
+                        TutorialTextInstanceYSecondValue = 60f;
                         break;
                 }
                 if (setChatBoxInstanceCurrentAppearanceStateFirstValue && setChatBoxInstanceCurrentAppearanceStateSecondValue)
@@ -727,6 +763,14 @@
                 if (setReadyButtonInstanceYFirstValue && setReadyButtonInstanceYSecondValue)
                 {
                     ReadyButtonInstance.Y = ReadyButtonInstanceYFirstValue * (1 - interpolationValue) + ReadyButtonInstanceYSecondValue * interpolationValue;
+                }
+                if (setTutorialTextInstanceXFirstValue && setTutorialTextInstanceXSecondValue)
+                {
+                    TutorialTextInstance.X = TutorialTextInstanceXFirstValue * (1 - interpolationValue) + TutorialTextInstanceXSecondValue * interpolationValue;
+                }
+                if (setTutorialTextInstanceYFirstValue && setTutorialTextInstanceYSecondValue)
+                {
+                    TutorialTextInstance.Y = TutorialTextInstanceYFirstValue * (1 - interpolationValue) + TutorialTextInstanceYSecondValue * interpolationValue;
                 }
                 if (interpolationValue < 1)
                 {
@@ -2143,6 +2187,8 @@
                 ConfirmationWindowInstance.StopAnimations();
                 CurrentMusicDisplayInstance.StopAnimations();
                 ReadyButtonInstance.StopAnimations();
+                PointingArrowInstance.StopAnimations();
+                TutorialTextInstance.StopAnimations();
                 ShowChatHistoryAnimation.Stop();
                 HideChatHistoryAnimation.Stop();
                 FadeInAnimation.Stop();
@@ -2540,6 +2586,38 @@
                             Value = ReadyButtonInstance.YOrigin
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointingArrowInstance.Visible",
+                            Type = "bool",
+                            Value = PointingArrowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TutorialTextInstance.Visible",
+                            Type = "bool",
+                            Value = TutorialTextInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TutorialTextInstance.X",
+                            Type = "float",
+                            Value = TutorialTextInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TutorialTextInstance.Y",
+                            Type = "float",
+                            Value = TutorialTextInstance.Y
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -2932,6 +3010,38 @@
                             Name = "ReadyButtonInstance.Y Origin",
                             Type = "VerticalAlignment",
                             Value = ReadyButtonInstance.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "PointingArrowInstance.Visible",
+                            Type = "bool",
+                            Value = PointingArrowInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TutorialTextInstance.Visible",
+                            Type = "bool",
+                            Value = TutorialTextInstance.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TutorialTextInstance.X",
+                            Type = "float",
+                            Value = TutorialTextInstance.X + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TutorialTextInstance.Y",
+                            Type = "float",
+                            Value = TutorialTextInstance.Y + 60f
                         }
                         );
                         break;
@@ -4061,6 +4171,8 @@
             private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime HordeText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime ReadyButtonInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime PointingArrowInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime TutorialTextInstance { get; set; }
             public GameScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -4102,6 +4214,8 @@
                 CurrentMusicDisplayInstance = this.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
                 HordeText = this.GetGraphicalUiElementByName("HordeText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 ReadyButtonInstance = this.GetGraphicalUiElementByName("ReadyButtonInstance") as AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime;
+                PointingArrowInstance = this.GetGraphicalUiElementByName("PointingArrowInstance") as AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime;
+                TutorialTextInstance = this.GetGraphicalUiElementByName("TutorialTextInstance") as AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

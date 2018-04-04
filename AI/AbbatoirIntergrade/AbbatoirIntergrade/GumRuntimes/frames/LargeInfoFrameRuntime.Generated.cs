@@ -700,6 +700,8 @@
             public LargeInfoFrameRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
             {
+                this.HasEvents = false;
+                this.ExposeChildrenEvents = false;
                 if (fullInstantiation)
                 {
                     Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "frames/LargeInfoFrame");

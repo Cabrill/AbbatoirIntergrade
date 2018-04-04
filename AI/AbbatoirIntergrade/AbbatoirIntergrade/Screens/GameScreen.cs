@@ -12,6 +12,7 @@ using AbbatoirIntergrade.Entities.Enemies;
 using AbbatoirIntergrade.Entities.GraphicalElements;
 using AbbatoirIntergrade.Entities.Projectiles;
 using AbbatoirIntergrade.Entities.Structures;
+using AbbatoirIntergrade.GameClasses;
 using AbbatoirIntergrade.GameClasses.BaseClasses;
 using AbbatoirIntergrade.GameClasses.Levels;
 using AbbatoirIntergrade.GumRuntimes;
@@ -38,13 +39,17 @@ namespace AbbatoirIntergrade.Screens
 
     #region Properties and Fields
 
-    private enum GameMode
+        public enum GameMode
         {
             Normal,
             Building,
             Ending
         };
-        private GameMode CurrentGameMode = GameMode.Normal;
+        public GameMode CurrentGameMode = GameMode.Normal;
+
+        private TutorialScript _tutorialScript;
+
+        public bool IsCurrentlyPaused => IsPaused;
 
         private double PauseAndBuildAjustedTime;
         private bool GameHasStarted;
@@ -119,14 +124,14 @@ namespace AbbatoirIntergrade.Screens
             ScreamSounds.Shuffle();
 
             LocalLogManager.AddLine("Game Screen - Load Level");
-            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter8Level();
+            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter1Level();
             CurrentLevel.Reset();
             CurrentLevel.OnNewWaveStart += HandleWaveStarted;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;
             CurrentLevel.SetEnemiesAndLayer(AllEnemiesList);
             CurrentSatoshis = CurrentLevel.StartingSatoshis;
 
-            if (CurrentLevel.MapName.Contains("10"))
+            if (CurrentLevel.LevelNumber == 10)
             {
                 ScreamSoundLoop = ScreamLoop.CreateInstance();
                 SoundManager.PlaySoundEffect(ScreamSoundLoop, shouldLoop:true);
@@ -179,6 +184,11 @@ namespace AbbatoirIntergrade.Screens
             GameScreenGumInstance.CurrentFadingState = GameScreenGumRuntime.Fading.Faded;
             LocalLogManager.AddLine("Game Screen - Display local time");
             LocationTimeInstance.Display(CurrentLevel.LocationName, currentLevelDateTime);
+
+            if (CurrentLevel.LevelNumber == 1)
+            {
+                _tutorialScript = new TutorialScript(this, AllStructuresList);
+            }
 
             this.Call(() =>CurrentMusicDisplayInstance.TimedDisplay(true)).After(5f);
         }
@@ -382,7 +392,11 @@ namespace AbbatoirIntergrade.Screens
         void CustomActivity(bool firstTimeCalled)
         {
             if (firstTimeCalled) GameScreenGumInstance.FadeInAnimation.Play();
-
+            if (_tutorialScript != null && !_tutorialScript.IsFinished)
+            {
+                if (firstTimeCalled) _tutorialScript.Initialize();
+                _tutorialScript.Activity();
+            }
 #if DEBUG
             FlatRedBall.Debugging.Debugger.Write(GuiManager.Cursor.WindowOver);
             HandleDebugInput();
@@ -720,6 +734,12 @@ namespace AbbatoirIntergrade.Screens
 	        }
 	    }
 
+        public void SetPause(bool shouldPause)
+        {
+            if ( shouldPause && !IsPaused) PauseThisScreen();
+            else if (!shouldPause && IsPaused) UnpauseThisScreen();
+        }
+
         private void SelectedItemActivity()
         {
             if (selectedObject == null)
@@ -999,7 +1019,7 @@ namespace AbbatoirIntergrade.Screens
                     }
                 }
 
-                if (CurrentLevel.MapName == "Chapter10" &&
+                if (CurrentLevel.LevelNumber == 10 &&
                     ChatBoxInstance.CurrentIncomingMessage.DisplayName.Contains("Ending"))
                 {
                     HandleGameEnd();

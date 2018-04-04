@@ -12,6 +12,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
 {
     class Chapter7Level : BaseLevel
     {
+        public override int LevelNumber => 7;
         public override string MapName => "Chapter7";
         public override string LocationName => "Harrows Field";
         public override DateTime StartTime => new DateTime(2017, 10, 26, 3, 0, 0);

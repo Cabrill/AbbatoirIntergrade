@@ -703,6 +703,7 @@
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
           <SourceName>EnemyInfoInstance (AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime)</SourceName>
           <InstanceName>EnemyInfoInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -726,6 +727,7 @@
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
           <SourceName>StructureInfoInstance (AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime)</SourceName>
           <InstanceName>StructureInfoInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -736,6 +738,7 @@
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
           <SourceName>ChatBoxInstance (AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime)</SourceName>
           <InstanceName>ChatBoxInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IgnoresPausing>true</IgnoresPausing>
@@ -747,6 +750,7 @@
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
           <SourceName>BuildMenuInstance (AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime)</SourceName>
           <InstanceName>BuildMenuInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -757,6 +761,7 @@
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
           <SourceName>LivesPointsDisplayInstance (AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime)</SourceName>
           <InstanceName>LivesPointsDisplayInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -810,6 +815,7 @@
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
           <SourceName>TopStatusBarInstance (AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime)</SourceName>
           <InstanceName>TopStatusBarInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -903,8 +909,33 @@
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
           <SourceName>ReadyButtonInstance (AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime)</SourceName>
           <InstanceName>ReadyButtonInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn>HUDLayer</LayerOn>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
+          <SourceName>PointingArrowInstance (AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime)</SourceName>
+          <InstanceName>PointingArrowInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IgnoresPausing>true</IgnoresPausing>
+          <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn>HUDLayer</LayerOn>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
+          <SourceName>TutorialTextInstance (AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime)</SourceName>
+          <InstanceName>TutorialTextInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IgnoresPausing>true</IgnoresPausing>
           <IndependentOfCamera>true</IndependentOfCamera>
           <LayerOn>HUDLayer</LayerOn>
         </NamedObjectSave>
@@ -3627,6 +3658,7 @@
           <SourceName />
           <SourceClassType>StructureUpgradeStatusRuntime</SourceClassType>
           <InstanceName>StructureUpgradeStatusInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <RemoveFromManagersWhenInvisible>true</RemoveFromManagersWhenInvisible>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -18123,7 +18155,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\FlatRedBallSplashScreen</StartUpScreen>
+  <StartUpScreen>Screens\GameScreen</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>

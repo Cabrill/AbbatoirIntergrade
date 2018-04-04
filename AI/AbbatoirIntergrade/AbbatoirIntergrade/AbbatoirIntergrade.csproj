@@ -265,6 +265,7 @@
     <Compile Include="GameClasses\EnemyList.cs" />
     <Compile Include="GameClasses\Enums\GlobalEnums.cs" />
     <Compile Include="GameClasses\GameDialogue.cs" />
+    <Compile Include="GameClasses\TutorialScript.cs" />
     <Compile Include="GameClasses\Interfaces\IBuildButton.cs" />
     <Compile Include="GameClasses\LevelResult.cs" />
     <Compile Include="GameClasses\Levels\Chapter10Level.cs" />
@@ -280,6 +281,19 @@
     <Compile Include="GameClasses\PlayerData.cs" />
     <Compile Include="GameClasses\SunTimes.cs" />
     <Compile Include="GameClasses\BaseClasses\BaseLevel.cs" />
+    <Compile Include="GameScriptingCore\AfterThatDecision.cs" />
+    <Compile Include="GameScriptingCore\DecisionAndList.cs" />
+    <Compile Include="GameScriptingCore\DecisionOrList.cs" />
+    <Compile Include="GameScriptingCore\DelegateDecision.cs" />
+    <Compile Include="GameScriptingCore\GeneralAction.cs" />
+    <Compile Include="GameScriptingCore\GeneralDecision.cs" />
+    <Compile Include="GameScriptingCore\IDecisionList.cs" />
+    <Compile Include="GameScriptingCore\IDoScriptEngine.cs" />
+    <Compile Include="GameScriptingCore\IIfScriptEngine.cs" />
+    <Compile Include="GameScriptingCore\IScriptAction.cs" />
+    <Compile Include="GameScriptingCore\IScriptDecision.cs" />
+    <Compile Include="GameScriptingCore\Script.cs" />
+    <Compile Include="GameScriptingCore\ScriptEngine.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="GumRuntimes\Behaviors\IButtonBehavior.Generated.cs" />
     <Compile Include="GumRuntimes\Behaviors\ICheckBoxBehavior.Generated.cs" />
@@ -383,6 +397,10 @@
     <Compile Include="GumRuntimes\InfoDisplays\TopStatusBarRuntime.Generated.cs">
       <DependentUpon>TopStatusBarRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\infodisplays\TutorialTextRuntime.cs" />
+    <Compile Include="GumRuntimes\infodisplays\TutorialTextRuntime.Generated.cs">
+      <DependentUpon>TutorialTextRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\infodisplays\UpgradeInfoRuntime.cs" />
     <Compile Include="GumRuntimes\infodisplays\UpgradeInfoRuntime.Generated.cs">
       <DependentUpon>UpgradeInfoRuntime.cs</DependentUpon>
@@ -439,6 +457,7 @@
     </Compile>
     <Compile Include="GumRuntimes\unique\DimmingRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\unique\MainMenuEyeRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\unique\PointingArrowRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\VerticalScrollBarRuntime.Generated.cs" />
     <Compile Include="MachineLearning\Models\DeepBeliefNetworkModel.cs" />
     <Compile Include="MachineLearning\WaveData.cs" />
@@ -1519,6 +1538,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>TopStatusBar</Name>
     </None>
+    <None Include="content\gumproject\components\infodisplays\tutorialtext.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>tutorialtext</Name>
+    </None>
     <None Include="content\gumproject\components\infodisplays\upgradeinfo.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>upgradeinfo</Name>
@@ -1594,6 +1617,10 @@
     <None Include="content\gumproject\components\unique\mainmenueye.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>MainMenuEye</Name>
+    </None>
+    <None Include="content\gumproject\components\unique\pointingarrow.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>pointingarrow</Name>
     </None>
     <None Include="content\gumproject\components\verticalscrollbar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

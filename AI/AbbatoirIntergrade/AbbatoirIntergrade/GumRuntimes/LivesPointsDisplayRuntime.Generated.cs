@@ -48,23 +48,23 @@
                             MessageFrameInstance.Width = 100f;
                             MessageFrameInstance.X = 0f;
                             MessageFrameInstance.Y = 0f;
-                            LiveSprite.Height = 80f;
-                            LiveSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            LiveSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer");
-                            SetProperty("LiveSprite.SourceFile", "AllUIAssets.png");
-                            LiveSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
-                            LiveSprite.TextureHeight = 128;
-                            LiveSprite.TextureLeft = 2443;
-                            LiveSprite.TextureTop = 779;
-                            LiveSprite.TextureWidth = 54;
-                            LiveSprite.Width = 42.5196f;
-                            LiveSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
-                            LiveSprite.X = 5f;
-                            LiveSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                            LiveSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            LiveSprite.Y = 0f;
-                            LiveSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            LiveSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            LivesSprite.Height = 80f;
+                            LivesSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            LivesSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer");
+                            SetProperty("LivesSprite.SourceFile", "AllUIAssets.png");
+                            LivesSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                            LivesSprite.TextureHeight = 128;
+                            LivesSprite.TextureLeft = 2443;
+                            LivesSprite.TextureTop = 779;
+                            LivesSprite.TextureWidth = 54;
+                            LivesSprite.Width = 42.5196f;
+                            LivesSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                            LivesSprite.X = 5f;
+                            LivesSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                            LivesSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            LivesSprite.Y = 0f;
+                            LivesSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            LivesSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             SetProperty("LivesRemainingText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             LivesRemainingText.Height = 112f;
                             LivesRemainingText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
@@ -153,36 +153,36 @@
                     switch(mCurrentLivesChangeState)
                     {
                         case  LivesChange.StartReduce:
-                            LiveSprite.Blue = 255;
-                            LiveSprite.Green = 255;
+                            LivesSprite.Blue = 255;
+                            LivesSprite.Green = 255;
                             LivesXSprite.Alpha = 0;
                             LivesXSprite.Height = 64f;
                             LivesXSprite.Width = 64f;
                             break;
                         case  LivesChange.Mid1Reduce:
-                            LiveSprite.Blue = 100;
-                            LiveSprite.Green = 100;
+                            LivesSprite.Blue = 100;
+                            LivesSprite.Green = 100;
                             LivesXSprite.Alpha = 100;
                             LivesXSprite.Height = 64f;
                             LivesXSprite.Width = 64f;
                             break;
                         case  LivesChange.Mid2Reduce:
-                            LiveSprite.Blue = 0;
-                            LiveSprite.Green = 0;
+                            LivesSprite.Blue = 0;
+                            LivesSprite.Green = 0;
                             LivesXSprite.Alpha = 255;
                             LivesXSprite.Height = 80f;
                             LivesXSprite.Width = 80f;
                             break;
                         case  LivesChange.Mid3Reduce:
-                            LiveSprite.Blue = 150;
-                            LiveSprite.Green = 150;
+                            LivesSprite.Blue = 150;
+                            LivesSprite.Green = 150;
                             LivesXSprite.Alpha = 100;
                             LivesXSprite.Height = 64f;
                             LivesXSprite.Width = 64f;
                             break;
                         case  LivesChange.EndReduce:
-                            LiveSprite.Blue = 255;
-                            LiveSprite.Green = 255;
+                            LivesSprite.Blue = 255;
+                            LivesSprite.Green = 255;
                             LivesXSprite.Alpha = 0;
                             LivesXSprite.Height = 64f;
                             LivesXSprite.Width = 64f;
@@ -270,38 +270,6 @@
                 bool setLivesContainerXSecondValue = false;
                 float LivesContainerXFirstValue= 0;
                 float LivesContainerXSecondValue= 0;
-                bool setLiveSpriteHeightFirstValue = false;
-                bool setLiveSpriteHeightSecondValue = false;
-                float LiveSpriteHeightFirstValue= 0;
-                float LiveSpriteHeightSecondValue= 0;
-                bool setLiveSpriteTextureHeightFirstValue = false;
-                bool setLiveSpriteTextureHeightSecondValue = false;
-                int LiveSpriteTextureHeightFirstValue= 0;
-                int LiveSpriteTextureHeightSecondValue= 0;
-                bool setLiveSpriteTextureLeftFirstValue = false;
-                bool setLiveSpriteTextureLeftSecondValue = false;
-                int LiveSpriteTextureLeftFirstValue= 0;
-                int LiveSpriteTextureLeftSecondValue= 0;
-                bool setLiveSpriteTextureTopFirstValue = false;
-                bool setLiveSpriteTextureTopSecondValue = false;
-                int LiveSpriteTextureTopFirstValue= 0;
-                int LiveSpriteTextureTopSecondValue= 0;
-                bool setLiveSpriteTextureWidthFirstValue = false;
-                bool setLiveSpriteTextureWidthSecondValue = false;
-                int LiveSpriteTextureWidthFirstValue= 0;
-                int LiveSpriteTextureWidthSecondValue= 0;
-                bool setLiveSpriteWidthFirstValue = false;
-                bool setLiveSpriteWidthSecondValue = false;
-                float LiveSpriteWidthFirstValue= 0;
-                float LiveSpriteWidthSecondValue= 0;
-                bool setLiveSpriteXFirstValue = false;
-                bool setLiveSpriteXSecondValue = false;
-                float LiveSpriteXFirstValue= 0;
-                float LiveSpriteXSecondValue= 0;
-                bool setLiveSpriteYFirstValue = false;
-                bool setLiveSpriteYSecondValue = false;
-                float LiveSpriteYFirstValue= 0;
-                float LiveSpriteYSecondValue= 0;
                 bool setLivesRemainingTextHeightFirstValue = false;
                 bool setLivesRemainingTextHeightSecondValue = false;
                 float LivesRemainingTextHeightFirstValue= 0;
@@ -318,6 +286,38 @@
                 bool setLivesRemainingTextYSecondValue = false;
                 float LivesRemainingTextYFirstValue= 0;
                 float LivesRemainingTextYSecondValue= 0;
+                bool setLivesSpriteHeightFirstValue = false;
+                bool setLivesSpriteHeightSecondValue = false;
+                float LivesSpriteHeightFirstValue= 0;
+                float LivesSpriteHeightSecondValue= 0;
+                bool setLivesSpriteTextureHeightFirstValue = false;
+                bool setLivesSpriteTextureHeightSecondValue = false;
+                int LivesSpriteTextureHeightFirstValue= 0;
+                int LivesSpriteTextureHeightSecondValue= 0;
+                bool setLivesSpriteTextureLeftFirstValue = false;
+                bool setLivesSpriteTextureLeftSecondValue = false;
+                int LivesSpriteTextureLeftFirstValue= 0;
+                int LivesSpriteTextureLeftSecondValue= 0;
+                bool setLivesSpriteTextureTopFirstValue = false;
+                bool setLivesSpriteTextureTopSecondValue = false;
+                int LivesSpriteTextureTopFirstValue= 0;
+                int LivesSpriteTextureTopSecondValue= 0;
+                bool setLivesSpriteTextureWidthFirstValue = false;
+                bool setLivesSpriteTextureWidthSecondValue = false;
+                int LivesSpriteTextureWidthFirstValue= 0;
+                int LivesSpriteTextureWidthSecondValue= 0;
+                bool setLivesSpriteWidthFirstValue = false;
+                bool setLivesSpriteWidthSecondValue = false;
+                float LivesSpriteWidthFirstValue= 0;
+                float LivesSpriteWidthSecondValue= 0;
+                bool setLivesSpriteXFirstValue = false;
+                bool setLivesSpriteXSecondValue = false;
+                float LivesSpriteXFirstValue= 0;
+                float LivesSpriteXSecondValue= 0;
+                bool setLivesSpriteYFirstValue = false;
+                bool setLivesSpriteYSecondValue = false;
+                float LivesSpriteYFirstValue= 0;
+                float LivesSpriteYSecondValue= 0;
                 bool setLivesXSpriteAlphaFirstValue = false;
                 bool setLivesXSpriteAlphaSecondValue = false;
                 int LivesXSpriteAlphaFirstValue= 0;
@@ -469,58 +469,6 @@
                         }
                         setLivesContainerXFirstValue = true;
                         LivesContainerXFirstValue = 15f;
-                        setLiveSpriteHeightFirstValue = true;
-                        LiveSpriteHeightFirstValue = 80f;
-                        if (interpolationValue < 1)
-                        {
-                            this.LiveSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.LiveSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            SetProperty("LiveSprite.SourceFile", "AllUIAssets.png");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.LiveSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
-                        }
-                        setLiveSpriteTextureHeightFirstValue = true;
-                        LiveSpriteTextureHeightFirstValue = 128;
-                        setLiveSpriteTextureLeftFirstValue = true;
-                        LiveSpriteTextureLeftFirstValue = 2443;
-                        setLiveSpriteTextureTopFirstValue = true;
-                        LiveSpriteTextureTopFirstValue = 779;
-                        setLiveSpriteTextureWidthFirstValue = true;
-                        LiveSpriteTextureWidthFirstValue = 54;
-                        setLiveSpriteWidthFirstValue = true;
-                        LiveSpriteWidthFirstValue = 42.5196f;
-                        if (interpolationValue < 1)
-                        {
-                            this.LiveSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
-                        }
-                        setLiveSpriteXFirstValue = true;
-                        LiveSpriteXFirstValue = 5f;
-                        if (interpolationValue < 1)
-                        {
-                            this.LiveSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.LiveSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                        }
-                        setLiveSpriteYFirstValue = true;
-                        LiveSpriteYFirstValue = 0f;
-                        if (interpolationValue < 1)
-                        {
-                            this.LiveSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.LiveSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                        }
                         if (interpolationValue < 1)
                         {
                             SetProperty("LivesRemainingText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
@@ -553,6 +501,58 @@
                         LivesRemainingTextXFirstValue = 71f;
                         setLivesRemainingTextYFirstValue = true;
                         LivesRemainingTextYFirstValue = 7f;
+                        setLivesSpriteHeightFirstValue = true;
+                        LivesSpriteHeightFirstValue = 80f;
+                        if (interpolationValue < 1)
+                        {
+                            this.LivesSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.LivesSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("LivesSprite.SourceFile", "AllUIAssets.png");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.LivesSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                        }
+                        setLivesSpriteTextureHeightFirstValue = true;
+                        LivesSpriteTextureHeightFirstValue = 128;
+                        setLivesSpriteTextureLeftFirstValue = true;
+                        LivesSpriteTextureLeftFirstValue = 2443;
+                        setLivesSpriteTextureTopFirstValue = true;
+                        LivesSpriteTextureTopFirstValue = 779;
+                        setLivesSpriteTextureWidthFirstValue = true;
+                        LivesSpriteTextureWidthFirstValue = 54;
+                        setLivesSpriteWidthFirstValue = true;
+                        LivesSpriteWidthFirstValue = 42.5196f;
+                        if (interpolationValue < 1)
+                        {
+                            this.LivesSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                        }
+                        setLivesSpriteXFirstValue = true;
+                        LivesSpriteXFirstValue = 5f;
+                        if (interpolationValue < 1)
+                        {
+                            this.LivesSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.LivesSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        setLivesSpriteYFirstValue = true;
+                        LivesSpriteYFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.LivesSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.LivesSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
                         setLivesXSpriteAlphaFirstValue = true;
                         LivesXSpriteAlphaFirstValue = 0;
                         setLivesXSpriteHeightFirstValue = true;
@@ -756,58 +756,6 @@
                         }
                         setLivesContainerXSecondValue = true;
                         LivesContainerXSecondValue = 15f;
-                        setLiveSpriteHeightSecondValue = true;
-                        LiveSpriteHeightSecondValue = 80f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.LiveSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.LiveSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            SetProperty("LiveSprite.SourceFile", "AllUIAssets.png");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.LiveSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
-                        }
-                        setLiveSpriteTextureHeightSecondValue = true;
-                        LiveSpriteTextureHeightSecondValue = 128;
-                        setLiveSpriteTextureLeftSecondValue = true;
-                        LiveSpriteTextureLeftSecondValue = 2443;
-                        setLiveSpriteTextureTopSecondValue = true;
-                        LiveSpriteTextureTopSecondValue = 779;
-                        setLiveSpriteTextureWidthSecondValue = true;
-                        LiveSpriteTextureWidthSecondValue = 54;
-                        setLiveSpriteWidthSecondValue = true;
-                        LiveSpriteWidthSecondValue = 42.5196f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.LiveSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
-                        }
-                        setLiveSpriteXSecondValue = true;
-                        LiveSpriteXSecondValue = 5f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.LiveSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.LiveSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                        }
-                        setLiveSpriteYSecondValue = true;
-                        LiveSpriteYSecondValue = 0f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.LiveSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.LiveSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                        }
                         if (interpolationValue >= 1)
                         {
                             SetProperty("LivesRemainingText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
@@ -840,6 +788,58 @@
                         LivesRemainingTextXSecondValue = 71f;
                         setLivesRemainingTextYSecondValue = true;
                         LivesRemainingTextYSecondValue = 7f;
+                        setLivesSpriteHeightSecondValue = true;
+                        LivesSpriteHeightSecondValue = 80f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.LivesSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.LivesSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("LivesSprite.SourceFile", "AllUIAssets.png");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.LivesSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                        }
+                        setLivesSpriteTextureHeightSecondValue = true;
+                        LivesSpriteTextureHeightSecondValue = 128;
+                        setLivesSpriteTextureLeftSecondValue = true;
+                        LivesSpriteTextureLeftSecondValue = 2443;
+                        setLivesSpriteTextureTopSecondValue = true;
+                        LivesSpriteTextureTopSecondValue = 779;
+                        setLivesSpriteTextureWidthSecondValue = true;
+                        LivesSpriteTextureWidthSecondValue = 54;
+                        setLivesSpriteWidthSecondValue = true;
+                        LivesSpriteWidthSecondValue = 42.5196f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.LivesSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                        }
+                        setLivesSpriteXSecondValue = true;
+                        LivesSpriteXSecondValue = 5f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.LivesSprite.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.LivesSprite.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        setLivesSpriteYSecondValue = true;
+                        LivesSpriteYSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.LivesSprite.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.LivesSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
                         setLivesXSpriteAlphaSecondValue = true;
                         LivesXSpriteAlphaSecondValue = 0;
                         setLivesXSpriteHeightSecondValue = true;
@@ -1040,38 +1040,6 @@
                 {
                     LivesContainer.X = LivesContainerXFirstValue * (1 - interpolationValue) + LivesContainerXSecondValue * interpolationValue;
                 }
-                if (setLiveSpriteHeightFirstValue && setLiveSpriteHeightSecondValue)
-                {
-                    LiveSprite.Height = LiveSpriteHeightFirstValue * (1 - interpolationValue) + LiveSpriteHeightSecondValue * interpolationValue;
-                }
-                if (setLiveSpriteTextureHeightFirstValue && setLiveSpriteTextureHeightSecondValue)
-                {
-                    LiveSprite.TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(LiveSpriteTextureHeightFirstValue* (1 - interpolationValue) + LiveSpriteTextureHeightSecondValue * interpolationValue);
-                }
-                if (setLiveSpriteTextureLeftFirstValue && setLiveSpriteTextureLeftSecondValue)
-                {
-                    LiveSprite.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(LiveSpriteTextureLeftFirstValue* (1 - interpolationValue) + LiveSpriteTextureLeftSecondValue * interpolationValue);
-                }
-                if (setLiveSpriteTextureTopFirstValue && setLiveSpriteTextureTopSecondValue)
-                {
-                    LiveSprite.TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(LiveSpriteTextureTopFirstValue* (1 - interpolationValue) + LiveSpriteTextureTopSecondValue * interpolationValue);
-                }
-                if (setLiveSpriteTextureWidthFirstValue && setLiveSpriteTextureWidthSecondValue)
-                {
-                    LiveSprite.TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(LiveSpriteTextureWidthFirstValue* (1 - interpolationValue) + LiveSpriteTextureWidthSecondValue * interpolationValue);
-                }
-                if (setLiveSpriteWidthFirstValue && setLiveSpriteWidthSecondValue)
-                {
-                    LiveSprite.Width = LiveSpriteWidthFirstValue * (1 - interpolationValue) + LiveSpriteWidthSecondValue * interpolationValue;
-                }
-                if (setLiveSpriteXFirstValue && setLiveSpriteXSecondValue)
-                {
-                    LiveSprite.X = LiveSpriteXFirstValue * (1 - interpolationValue) + LiveSpriteXSecondValue * interpolationValue;
-                }
-                if (setLiveSpriteYFirstValue && setLiveSpriteYSecondValue)
-                {
-                    LiveSprite.Y = LiveSpriteYFirstValue * (1 - interpolationValue) + LiveSpriteYSecondValue * interpolationValue;
-                }
                 if (setLivesRemainingTextHeightFirstValue && setLivesRemainingTextHeightSecondValue)
                 {
                     LivesRemainingText.Height = LivesRemainingTextHeightFirstValue * (1 - interpolationValue) + LivesRemainingTextHeightSecondValue * interpolationValue;
@@ -1087,6 +1055,38 @@
                 if (setLivesRemainingTextYFirstValue && setLivesRemainingTextYSecondValue)
                 {
                     LivesRemainingText.Y = LivesRemainingTextYFirstValue * (1 - interpolationValue) + LivesRemainingTextYSecondValue * interpolationValue;
+                }
+                if (setLivesSpriteHeightFirstValue && setLivesSpriteHeightSecondValue)
+                {
+                    LivesSprite.Height = LivesSpriteHeightFirstValue * (1 - interpolationValue) + LivesSpriteHeightSecondValue * interpolationValue;
+                }
+                if (setLivesSpriteTextureHeightFirstValue && setLivesSpriteTextureHeightSecondValue)
+                {
+                    LivesSprite.TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(LivesSpriteTextureHeightFirstValue* (1 - interpolationValue) + LivesSpriteTextureHeightSecondValue * interpolationValue);
+                }
+                if (setLivesSpriteTextureLeftFirstValue && setLivesSpriteTextureLeftSecondValue)
+                {
+                    LivesSprite.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(LivesSpriteTextureLeftFirstValue* (1 - interpolationValue) + LivesSpriteTextureLeftSecondValue * interpolationValue);
+                }
+                if (setLivesSpriteTextureTopFirstValue && setLivesSpriteTextureTopSecondValue)
+                {
+                    LivesSprite.TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(LivesSpriteTextureTopFirstValue* (1 - interpolationValue) + LivesSpriteTextureTopSecondValue * interpolationValue);
+                }
+                if (setLivesSpriteTextureWidthFirstValue && setLivesSpriteTextureWidthSecondValue)
+                {
+                    LivesSprite.TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(LivesSpriteTextureWidthFirstValue* (1 - interpolationValue) + LivesSpriteTextureWidthSecondValue * interpolationValue);
+                }
+                if (setLivesSpriteWidthFirstValue && setLivesSpriteWidthSecondValue)
+                {
+                    LivesSprite.Width = LivesSpriteWidthFirstValue * (1 - interpolationValue) + LivesSpriteWidthSecondValue * interpolationValue;
+                }
+                if (setLivesSpriteXFirstValue && setLivesSpriteXSecondValue)
+                {
+                    LivesSprite.X = LivesSpriteXFirstValue * (1 - interpolationValue) + LivesSpriteXSecondValue * interpolationValue;
+                }
+                if (setLivesSpriteYFirstValue && setLivesSpriteYSecondValue)
+                {
+                    LivesSprite.Y = LivesSpriteYFirstValue * (1 - interpolationValue) + LivesSpriteYSecondValue * interpolationValue;
                 }
                 if (setLivesXSpriteAlphaFirstValue && setLivesXSpriteAlphaSecondValue)
                 {
@@ -1237,14 +1237,14 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
-                bool setLiveSpriteBlueFirstValue = false;
-                bool setLiveSpriteBlueSecondValue = false;
-                int LiveSpriteBlueFirstValue= 0;
-                int LiveSpriteBlueSecondValue= 0;
-                bool setLiveSpriteGreenFirstValue = false;
-                bool setLiveSpriteGreenSecondValue = false;
-                int LiveSpriteGreenFirstValue= 0;
-                int LiveSpriteGreenSecondValue= 0;
+                bool setLivesSpriteBlueFirstValue = false;
+                bool setLivesSpriteBlueSecondValue = false;
+                int LivesSpriteBlueFirstValue= 0;
+                int LivesSpriteBlueSecondValue= 0;
+                bool setLivesSpriteGreenFirstValue = false;
+                bool setLivesSpriteGreenSecondValue = false;
+                int LivesSpriteGreenFirstValue= 0;
+                int LivesSpriteGreenSecondValue= 0;
                 bool setLivesXSpriteAlphaFirstValue = false;
                 bool setLivesXSpriteAlphaSecondValue = false;
                 int LivesXSpriteAlphaFirstValue= 0;
@@ -1260,10 +1260,10 @@
                 switch(firstState)
                 {
                     case  LivesChange.StartReduce:
-                        setLiveSpriteBlueFirstValue = true;
-                        LiveSpriteBlueFirstValue = 255;
-                        setLiveSpriteGreenFirstValue = true;
-                        LiveSpriteGreenFirstValue = 255;
+                        setLivesSpriteBlueFirstValue = true;
+                        LivesSpriteBlueFirstValue = 255;
+                        setLivesSpriteGreenFirstValue = true;
+                        LivesSpriteGreenFirstValue = 255;
                         setLivesXSpriteAlphaFirstValue = true;
                         LivesXSpriteAlphaFirstValue = 0;
                         setLivesXSpriteHeightFirstValue = true;
@@ -1272,10 +1272,10 @@
                         LivesXSpriteWidthFirstValue = 64f;
                         break;
                     case  LivesChange.Mid1Reduce:
-                        setLiveSpriteBlueFirstValue = true;
-                        LiveSpriteBlueFirstValue = 100;
-                        setLiveSpriteGreenFirstValue = true;
-                        LiveSpriteGreenFirstValue = 100;
+                        setLivesSpriteBlueFirstValue = true;
+                        LivesSpriteBlueFirstValue = 100;
+                        setLivesSpriteGreenFirstValue = true;
+                        LivesSpriteGreenFirstValue = 100;
                         setLivesXSpriteAlphaFirstValue = true;
                         LivesXSpriteAlphaFirstValue = 100;
                         setLivesXSpriteHeightFirstValue = true;
@@ -1284,10 +1284,10 @@
                         LivesXSpriteWidthFirstValue = 64f;
                         break;
                     case  LivesChange.Mid2Reduce:
-                        setLiveSpriteBlueFirstValue = true;
-                        LiveSpriteBlueFirstValue = 0;
-                        setLiveSpriteGreenFirstValue = true;
-                        LiveSpriteGreenFirstValue = 0;
+                        setLivesSpriteBlueFirstValue = true;
+                        LivesSpriteBlueFirstValue = 0;
+                        setLivesSpriteGreenFirstValue = true;
+                        LivesSpriteGreenFirstValue = 0;
                         setLivesXSpriteAlphaFirstValue = true;
                         LivesXSpriteAlphaFirstValue = 255;
                         setLivesXSpriteHeightFirstValue = true;
@@ -1296,10 +1296,10 @@
                         LivesXSpriteWidthFirstValue = 80f;
                         break;
                     case  LivesChange.Mid3Reduce:
-                        setLiveSpriteBlueFirstValue = true;
-                        LiveSpriteBlueFirstValue = 150;
-                        setLiveSpriteGreenFirstValue = true;
-                        LiveSpriteGreenFirstValue = 150;
+                        setLivesSpriteBlueFirstValue = true;
+                        LivesSpriteBlueFirstValue = 150;
+                        setLivesSpriteGreenFirstValue = true;
+                        LivesSpriteGreenFirstValue = 150;
                         setLivesXSpriteAlphaFirstValue = true;
                         LivesXSpriteAlphaFirstValue = 100;
                         setLivesXSpriteHeightFirstValue = true;
@@ -1308,10 +1308,10 @@
                         LivesXSpriteWidthFirstValue = 64f;
                         break;
                     case  LivesChange.EndReduce:
-                        setLiveSpriteBlueFirstValue = true;
-                        LiveSpriteBlueFirstValue = 255;
-                        setLiveSpriteGreenFirstValue = true;
-                        LiveSpriteGreenFirstValue = 255;
+                        setLivesSpriteBlueFirstValue = true;
+                        LivesSpriteBlueFirstValue = 255;
+                        setLivesSpriteGreenFirstValue = true;
+                        LivesSpriteGreenFirstValue = 255;
                         setLivesXSpriteAlphaFirstValue = true;
                         LivesXSpriteAlphaFirstValue = 0;
                         setLivesXSpriteHeightFirstValue = true;
@@ -1323,10 +1323,10 @@
                 switch(secondState)
                 {
                     case  LivesChange.StartReduce:
-                        setLiveSpriteBlueSecondValue = true;
-                        LiveSpriteBlueSecondValue = 255;
-                        setLiveSpriteGreenSecondValue = true;
-                        LiveSpriteGreenSecondValue = 255;
+                        setLivesSpriteBlueSecondValue = true;
+                        LivesSpriteBlueSecondValue = 255;
+                        setLivesSpriteGreenSecondValue = true;
+                        LivesSpriteGreenSecondValue = 255;
                         setLivesXSpriteAlphaSecondValue = true;
                         LivesXSpriteAlphaSecondValue = 0;
                         setLivesXSpriteHeightSecondValue = true;
@@ -1335,10 +1335,10 @@
                         LivesXSpriteWidthSecondValue = 64f;
                         break;
                     case  LivesChange.Mid1Reduce:
-                        setLiveSpriteBlueSecondValue = true;
-                        LiveSpriteBlueSecondValue = 100;
-                        setLiveSpriteGreenSecondValue = true;
-                        LiveSpriteGreenSecondValue = 100;
+                        setLivesSpriteBlueSecondValue = true;
+                        LivesSpriteBlueSecondValue = 100;
+                        setLivesSpriteGreenSecondValue = true;
+                        LivesSpriteGreenSecondValue = 100;
                         setLivesXSpriteAlphaSecondValue = true;
                         LivesXSpriteAlphaSecondValue = 100;
                         setLivesXSpriteHeightSecondValue = true;
@@ -1347,10 +1347,10 @@
                         LivesXSpriteWidthSecondValue = 64f;
                         break;
                     case  LivesChange.Mid2Reduce:
-                        setLiveSpriteBlueSecondValue = true;
-                        LiveSpriteBlueSecondValue = 0;
-                        setLiveSpriteGreenSecondValue = true;
-                        LiveSpriteGreenSecondValue = 0;
+                        setLivesSpriteBlueSecondValue = true;
+                        LivesSpriteBlueSecondValue = 0;
+                        setLivesSpriteGreenSecondValue = true;
+                        LivesSpriteGreenSecondValue = 0;
                         setLivesXSpriteAlphaSecondValue = true;
                         LivesXSpriteAlphaSecondValue = 255;
                         setLivesXSpriteHeightSecondValue = true;
@@ -1359,10 +1359,10 @@
                         LivesXSpriteWidthSecondValue = 80f;
                         break;
                     case  LivesChange.Mid3Reduce:
-                        setLiveSpriteBlueSecondValue = true;
-                        LiveSpriteBlueSecondValue = 150;
-                        setLiveSpriteGreenSecondValue = true;
-                        LiveSpriteGreenSecondValue = 150;
+                        setLivesSpriteBlueSecondValue = true;
+                        LivesSpriteBlueSecondValue = 150;
+                        setLivesSpriteGreenSecondValue = true;
+                        LivesSpriteGreenSecondValue = 150;
                         setLivesXSpriteAlphaSecondValue = true;
                         LivesXSpriteAlphaSecondValue = 100;
                         setLivesXSpriteHeightSecondValue = true;
@@ -1371,10 +1371,10 @@
                         LivesXSpriteWidthSecondValue = 64f;
                         break;
                     case  LivesChange.EndReduce:
-                        setLiveSpriteBlueSecondValue = true;
-                        LiveSpriteBlueSecondValue = 255;
-                        setLiveSpriteGreenSecondValue = true;
-                        LiveSpriteGreenSecondValue = 255;
+                        setLivesSpriteBlueSecondValue = true;
+                        LivesSpriteBlueSecondValue = 255;
+                        setLivesSpriteGreenSecondValue = true;
+                        LivesSpriteGreenSecondValue = 255;
                         setLivesXSpriteAlphaSecondValue = true;
                         LivesXSpriteAlphaSecondValue = 0;
                         setLivesXSpriteHeightSecondValue = true;
@@ -1383,13 +1383,13 @@
                         LivesXSpriteWidthSecondValue = 64f;
                         break;
                 }
-                if (setLiveSpriteBlueFirstValue && setLiveSpriteBlueSecondValue)
+                if (setLivesSpriteBlueFirstValue && setLivesSpriteBlueSecondValue)
                 {
-                    LiveSprite.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(LiveSpriteBlueFirstValue* (1 - interpolationValue) + LiveSpriteBlueSecondValue * interpolationValue);
+                    LivesSprite.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(LivesSpriteBlueFirstValue* (1 - interpolationValue) + LivesSpriteBlueSecondValue * interpolationValue);
                 }
-                if (setLiveSpriteGreenFirstValue && setLiveSpriteGreenSecondValue)
+                if (setLivesSpriteGreenFirstValue && setLivesSpriteGreenSecondValue)
                 {
-                    LiveSprite.Green = FlatRedBall.Math.MathFunctions.RoundToInt(LiveSpriteGreenFirstValue* (1 - interpolationValue) + LiveSpriteGreenSecondValue * interpolationValue);
+                    LivesSprite.Green = FlatRedBall.Math.MathFunctions.RoundToInt(LivesSpriteGreenFirstValue* (1 - interpolationValue) + LivesSpriteGreenSecondValue * interpolationValue);
                 }
                 if (setLivesXSpriteAlphaFirstValue && setLivesXSpriteAlphaSecondValue)
                 {
@@ -2152,137 +2152,137 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Height",
+                            Name = "LivesSprite.Height",
                             Type = "float",
-                            Value = LiveSprite.Height
+                            Value = LivesSprite.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Height Units",
+                            Name = "LivesSprite.Height Units",
                             Type = "DimensionUnitType",
-                            Value = LiveSprite.HeightUnits
+                            Value = LivesSprite.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Parent",
+                            Name = "LivesSprite.Parent",
                             Type = "string",
-                            Value = LiveSprite.Parent
+                            Value = LivesSprite.Parent
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.SourceFile",
+                            Name = "LivesSprite.SourceFile",
                             Type = "string",
-                            Value = LiveSprite.SourceFile
+                            Value = LivesSprite.SourceFile
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Texture Address",
+                            Name = "LivesSprite.Texture Address",
                             Type = "TextureAddress",
-                            Value = LiveSprite.TextureAddress
+                            Value = LivesSprite.TextureAddress
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Texture Height",
+                            Name = "LivesSprite.Texture Height",
                             Type = "int",
-                            Value = LiveSprite.TextureHeight
+                            Value = LivesSprite.TextureHeight
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Texture Left",
+                            Name = "LivesSprite.Texture Left",
                             Type = "int",
-                            Value = LiveSprite.TextureLeft
+                            Value = LivesSprite.TextureLeft
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Texture Top",
+                            Name = "LivesSprite.Texture Top",
                             Type = "int",
-                            Value = LiveSprite.TextureTop
+                            Value = LivesSprite.TextureTop
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Texture Width",
+                            Name = "LivesSprite.Texture Width",
                             Type = "int",
-                            Value = LiveSprite.TextureWidth
+                            Value = LivesSprite.TextureWidth
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Width",
+                            Name = "LivesSprite.Width",
                             Type = "float",
-                            Value = LiveSprite.Width
+                            Value = LivesSprite.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Width Units",
+                            Name = "LivesSprite.Width Units",
                             Type = "DimensionUnitType",
-                            Value = LiveSprite.WidthUnits
+                            Value = LivesSprite.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.X",
+                            Name = "LivesSprite.X",
                             Type = "float",
-                            Value = LiveSprite.X
+                            Value = LivesSprite.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.X Origin",
+                            Name = "LivesSprite.X Origin",
                             Type = "HorizontalAlignment",
-                            Value = LiveSprite.XOrigin
+                            Value = LivesSprite.XOrigin
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.X Units",
+                            Name = "LivesSprite.X Units",
                             Type = "PositionUnitType",
-                            Value = LiveSprite.XUnits
+                            Value = LivesSprite.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Y",
+                            Name = "LivesSprite.Y",
                             Type = "float",
-                            Value = LiveSprite.Y
+                            Value = LivesSprite.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Y Origin",
+                            Name = "LivesSprite.Y Origin",
                             Type = "VerticalAlignment",
-                            Value = LiveSprite.YOrigin
+                            Value = LivesSprite.YOrigin
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Y Units",
+                            Name = "LivesSprite.Y Units",
                             Type = "PositionUnitType",
-                            Value = LiveSprite.YUnits
+                            Value = LivesSprite.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2922,137 +2922,137 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Height",
+                            Name = "LivesSprite.Height",
                             Type = "float",
-                            Value = LiveSprite.Height + 80f
+                            Value = LivesSprite.Height + 80f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Height Units",
+                            Name = "LivesSprite.Height Units",
                             Type = "DimensionUnitType",
-                            Value = LiveSprite.HeightUnits
+                            Value = LivesSprite.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Parent",
+                            Name = "LivesSprite.Parent",
                             Type = "string",
-                            Value = LiveSprite.Parent
+                            Value = LivesSprite.Parent
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.SourceFile",
+                            Name = "LivesSprite.SourceFile",
                             Type = "string",
-                            Value = LiveSprite.SourceFile
+                            Value = LivesSprite.SourceFile
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Texture Address",
+                            Name = "LivesSprite.Texture Address",
                             Type = "TextureAddress",
-                            Value = LiveSprite.TextureAddress
+                            Value = LivesSprite.TextureAddress
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Texture Height",
+                            Name = "LivesSprite.Texture Height",
                             Type = "int",
-                            Value = LiveSprite.TextureHeight + 128
+                            Value = LivesSprite.TextureHeight + 128
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Texture Left",
+                            Name = "LivesSprite.Texture Left",
                             Type = "int",
-                            Value = LiveSprite.TextureLeft + 2443
+                            Value = LivesSprite.TextureLeft + 2443
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Texture Top",
+                            Name = "LivesSprite.Texture Top",
                             Type = "int",
-                            Value = LiveSprite.TextureTop + 779
+                            Value = LivesSprite.TextureTop + 779
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Texture Width",
+                            Name = "LivesSprite.Texture Width",
                             Type = "int",
-                            Value = LiveSprite.TextureWidth + 54
+                            Value = LivesSprite.TextureWidth + 54
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Width",
+                            Name = "LivesSprite.Width",
                             Type = "float",
-                            Value = LiveSprite.Width + 42.5196f
+                            Value = LivesSprite.Width + 42.5196f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Width Units",
+                            Name = "LivesSprite.Width Units",
                             Type = "DimensionUnitType",
-                            Value = LiveSprite.WidthUnits
+                            Value = LivesSprite.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.X",
+                            Name = "LivesSprite.X",
                             Type = "float",
-                            Value = LiveSprite.X + 5f
+                            Value = LivesSprite.X + 5f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.X Origin",
+                            Name = "LivesSprite.X Origin",
                             Type = "HorizontalAlignment",
-                            Value = LiveSprite.XOrigin
+                            Value = LivesSprite.XOrigin
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.X Units",
+                            Name = "LivesSprite.X Units",
                             Type = "PositionUnitType",
-                            Value = LiveSprite.XUnits
+                            Value = LivesSprite.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Y",
+                            Name = "LivesSprite.Y",
                             Type = "float",
-                            Value = LiveSprite.Y + 0f
+                            Value = LivesSprite.Y + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Y Origin",
+                            Name = "LivesSprite.Y Origin",
                             Type = "VerticalAlignment",
-                            Value = LiveSprite.YOrigin
+                            Value = LivesSprite.YOrigin
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Y Units",
+                            Name = "LivesSprite.Y Units",
                             Type = "PositionUnitType",
-                            Value = LiveSprite.YUnits
+                            Value = LivesSprite.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3644,17 +3644,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Blue",
+                            Name = "LivesSprite.Blue",
                             Type = "int",
-                            Value = LiveSprite.Blue
+                            Value = LivesSprite.Blue
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Green",
+                            Name = "LivesSprite.Green",
                             Type = "int",
-                            Value = LiveSprite.Green
+                            Value = LivesSprite.Green
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3686,17 +3686,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Blue",
+                            Name = "LivesSprite.Blue",
                             Type = "int",
-                            Value = LiveSprite.Blue
+                            Value = LivesSprite.Blue
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Green",
+                            Name = "LivesSprite.Green",
                             Type = "int",
-                            Value = LiveSprite.Green
+                            Value = LivesSprite.Green
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3728,17 +3728,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Blue",
+                            Name = "LivesSprite.Blue",
                             Type = "int",
-                            Value = LiveSprite.Blue
+                            Value = LivesSprite.Blue
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Green",
+                            Name = "LivesSprite.Green",
                             Type = "int",
-                            Value = LiveSprite.Green
+                            Value = LivesSprite.Green
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3770,17 +3770,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Blue",
+                            Name = "LivesSprite.Blue",
                             Type = "int",
-                            Value = LiveSprite.Blue
+                            Value = LivesSprite.Blue
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Green",
+                            Name = "LivesSprite.Green",
                             Type = "int",
-                            Value = LiveSprite.Green
+                            Value = LivesSprite.Green
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3812,17 +3812,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Blue",
+                            Name = "LivesSprite.Blue",
                             Type = "int",
-                            Value = LiveSprite.Blue
+                            Value = LivesSprite.Blue
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Green",
+                            Name = "LivesSprite.Green",
                             Type = "int",
-                            Value = LiveSprite.Green
+                            Value = LivesSprite.Green
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3862,17 +3862,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Blue",
+                            Name = "LivesSprite.Blue",
                             Type = "int",
-                            Value = LiveSprite.Blue + 255
+                            Value = LivesSprite.Blue + 255
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Green",
+                            Name = "LivesSprite.Green",
                             Type = "int",
-                            Value = LiveSprite.Green + 255
+                            Value = LivesSprite.Green + 255
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3904,17 +3904,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Blue",
+                            Name = "LivesSprite.Blue",
                             Type = "int",
-                            Value = LiveSprite.Blue + 100
+                            Value = LivesSprite.Blue + 100
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Green",
+                            Name = "LivesSprite.Green",
                             Type = "int",
-                            Value = LiveSprite.Green + 100
+                            Value = LivesSprite.Green + 100
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3946,17 +3946,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Blue",
+                            Name = "LivesSprite.Blue",
                             Type = "int",
-                            Value = LiveSprite.Blue + 0
+                            Value = LivesSprite.Blue + 0
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Green",
+                            Name = "LivesSprite.Green",
                             Type = "int",
-                            Value = LiveSprite.Green + 0
+                            Value = LivesSprite.Green + 0
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -3988,17 +3988,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Blue",
+                            Name = "LivesSprite.Blue",
                             Type = "int",
-                            Value = LiveSprite.Blue + 150
+                            Value = LivesSprite.Blue + 150
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Green",
+                            Name = "LivesSprite.Green",
                             Type = "int",
-                            Value = LiveSprite.Green + 150
+                            Value = LivesSprite.Green + 150
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4030,17 +4030,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Blue",
+                            Name = "LivesSprite.Blue",
                             Type = "int",
-                            Value = LiveSprite.Blue + 255
+                            Value = LivesSprite.Blue + 255
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LiveSprite.Green",
+                            Name = "LivesSprite.Green",
                             Type = "int",
-                            Value = LiveSprite.Green + 255
+                            Value = LivesSprite.Green + 255
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -4645,7 +4645,7 @@
                 base.ApplyState(state);
             }
             private AbbatoirIntergrade.GumRuntimes.MessageFrameRuntime MessageFrameInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime LiveSprite { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime LivesSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime LivesRemainingText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime LivesXSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime LivesContainer { get; set; }
@@ -4728,7 +4728,7 @@
             private void AssignReferences () 
             {
                 MessageFrameInstance = this.GetGraphicalUiElementByName("MessageFrameInstance") as AbbatoirIntergrade.GumRuntimes.MessageFrameRuntime;
-                LiveSprite = this.GetGraphicalUiElementByName("LiveSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
+                LivesSprite = this.GetGraphicalUiElementByName("LivesSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 LivesRemainingText = this.GetGraphicalUiElementByName("LivesRemainingText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 LivesXSprite = this.GetGraphicalUiElementByName("LivesXSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 LivesContainer = this.GetGraphicalUiElementByName("LivesContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;

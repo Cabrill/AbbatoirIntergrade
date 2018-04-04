@@ -15,6 +15,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
 {
     class Chapter1Level : BaseLevel
     {
+        public override int LevelNumber => 1;
         public override string MapName => "Chapter1";
         public override string LocationName => "Nixeuy Farm";
         public override DateTime StartTime => new DateTime(2238, 10, 21, 4, 11, 0);

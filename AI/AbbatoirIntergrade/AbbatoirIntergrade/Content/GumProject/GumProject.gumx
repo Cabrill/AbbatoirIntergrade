@@ -169,6 +169,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>infodisplays/TutorialText</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>infodisplays/UpgradeInfo</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
@@ -242,6 +246,10 @@
   </ComponentReference>
   <ComponentReference>
     <Name>unique/MainMenuEye</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>unique/PointingArrow</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.UtilityClasses;
 using Accord.Genetic;
@@ -213,6 +214,8 @@ namespace AbbatoirIntergrade.StaticManagers
                 InstructionManager.AddSafe(UpdateAction);
             }
 
+            var lowPriorityThread = new Thread(RefreshAndGenerateTask) { Priority = ThreadPriority.BelowNormal };
+            lowPriorityThread.Start();
             Task.Run((Action)RefreshAndGenerateTask);
         }
 

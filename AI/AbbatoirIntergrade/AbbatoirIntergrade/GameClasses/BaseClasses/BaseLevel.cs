@@ -19,6 +19,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 {
     public abstract class BaseLevel
     {
+        public abstract int LevelNumber { get; }
         public abstract string MapName { get; }
         public abstract string LocationName { get; }
         public abstract DateTime StartTime { get; }
