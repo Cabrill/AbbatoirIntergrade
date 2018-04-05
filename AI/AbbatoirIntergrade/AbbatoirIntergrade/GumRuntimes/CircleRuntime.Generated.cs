@@ -615,6 +615,8 @@
                 }
                 set
                 {
+                    mWidth = value/2;
+                    mHeight = value/2;
                     ContainedCircle.Radius = value;
                 }
             }

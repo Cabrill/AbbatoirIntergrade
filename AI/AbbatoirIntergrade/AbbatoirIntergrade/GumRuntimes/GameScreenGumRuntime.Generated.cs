@@ -98,7 +98,7 @@
                             ReadyButtonInstance.Y = 125f;
                             ReadyButtonInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             PointingArrowInstance.Visible = false;
-                            TutorialTextInstance.Visible = true;
+                            TutorialTextInstance.Visible = false;
                             TutorialTextInstance.X = 0f;
                             TutorialTextInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
                             TutorialTextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
@@ -503,7 +503,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.TutorialTextInstance.Visible = true;
+                            this.TutorialTextInstance.Visible = false;
                         }
                         setTutorialTextInstanceXFirstValue = true;
                         TutorialTextInstanceXFirstValue = 0f;
@@ -680,7 +680,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.TutorialTextInstance.Visible = true;
+                            this.TutorialTextInstance.Visible = false;
                         }
                         setTutorialTextInstanceXSecondValue = true;
                         TutorialTextInstanceXSecondValue = 0f;
@@ -4255,24 +4255,24 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.HorizonBoxRuntime HorizonBoxInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime EnemyInfoInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime StructureInfoInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime ChatBoxInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime BuildMenuInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime LivesPointsDisplayInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime ChatHistoryInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime TopStatusBarInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime ScreenShadeInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime DimmingRectangle { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime LocationTimeAnnouncementInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TextRuntime HordeText { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime ReadyButtonInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime PointingArrowInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime TutorialTextInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.HorizonBoxRuntime HorizonBoxInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime EnemyInfoInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime StructureInfoInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime ChatBoxInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime BuildMenuInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime LivesPointsDisplayInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime ChatHistoryInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime TopStatusBarInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime ScreenShadeInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime DimmingRectangle { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime LocationTimeAnnouncementInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.TextRuntime HordeText { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime ReadyButtonInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime PointingArrowInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime TutorialTextInstance { get; set; }
             public GameScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)

@@ -39,7 +39,7 @@
                             MenuButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Menu;
                             MenuButton.Height = 64f;
                             MenuButton.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
-                            MenuButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            MenuButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                             MenuButton.Width = 64f;
                             MenuButton.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             SetProperty("SpriteInstance.SourceFile", "AllUIAssets.png");
@@ -59,7 +59,7 @@
                             WaveLabel.Green = 191;
                             WaveLabel.Height = 0f;
                             WaveLabel.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                            WaveLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            WaveLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                             WaveLabel.Red = 0;
                             WaveLabel.Text = "Wave";
                             WaveLabel.UseCustomFont = true;
@@ -71,7 +71,7 @@
                             SetProperty("WaveTextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             WaveTextInstance.Height = 0f;
                             WaveTextInstance.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                            WaveTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            WaveTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                             WaveTextInstance.Text = "0/15";
                             WaveTextInstance.UseCustomFont = true;
                             WaveTextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
@@ -86,7 +86,7 @@
                             TimeLabel.Height = 0f;
                             TimeLabel.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             TimeLabel.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Right;
-                            TimeLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            TimeLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                             TimeLabel.Red = 0;
                             TimeLabel.Text = "Time:";
                             TimeLabel.UseCustomFont = true;
@@ -105,7 +105,7 @@
                             TimeTextInstance.Height = 0f;
                             TimeTextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             TimeTextInstance.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            TimeTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            TimeTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                             TimeTextInstance.Red = 255;
                             TimeTextInstance.Text = "00:00.00";
                             TimeTextInstance.UseCustomFont = true;
@@ -120,7 +120,7 @@
                             PauseButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Pause;
                             PauseButton.Height = 64f;
                             PauseButton.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
-                            PauseButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer");
+                            PauseButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer") ?? this;
                             PauseButton.Width = 64f;
                             PauseButton.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             PauseButton.X = 0f;
@@ -129,7 +129,7 @@
                             PlayButton.Height = 64f;
                             PlayButton.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             PlayButton.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Highlight.NotHighlighted;
-                            PlayButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer");
+                            PlayButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer") ?? this;
                             PlayButton.CurrentSelectState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Select.Selected;
                             PlayButton.Width = 64f;
                             PlayButton.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
@@ -138,7 +138,7 @@
                             FastForwardButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.FastForward;
                             FastForwardButton.Height = 64f;
                             FastForwardButton.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
-                            FastForwardButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer");
+                            FastForwardButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer") ?? this;
                             FastForwardButton.Width = 64f;
                             FastForwardButton.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             FastForwardButton.X = 15f;
@@ -146,7 +146,7 @@
                             TimeButtonContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                             TimeButtonContainer.Height = 0f;
                             TimeButtonContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
-                            TimeButtonContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            TimeButtonContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                             TimeButtonContainer.Width = 0f;
                             TimeButtonContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                             TimeButtonContainer.X = 0f;
@@ -449,7 +449,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.FastForwardButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer");
+                            this.FastForwardButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer") ?? this;
                         }
                         setFastForwardButtonWidthFirstValue = true;
                         FastForwardButtonWidthFirstValue = 64f;
@@ -495,7 +495,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.MenuButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.MenuButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         setMenuButtonWidthFirstValue = true;
                         MenuButtonWidthFirstValue = 64f;
@@ -513,7 +513,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.PauseButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer");
+                            this.PauseButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer") ?? this;
                         }
                         setPauseButtonWidthFirstValue = true;
                         PauseButtonWidthFirstValue = 64f;
@@ -537,7 +537,7 @@
                         PlayButtonCurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Highlight.NotHighlighted;
                         if (interpolationValue < 1)
                         {
-                            this.PlayButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer");
+                            this.PlayButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer") ?? this;
                         }
                         setPlayButtonCurrentSelectStateFirstValue = true;
                         PlayButtonCurrentSelectStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Select.Selected;
@@ -579,7 +579,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.TimeButtonContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.TimeButtonContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         setTimeButtonContainerWidthFirstValue = true;
                         TimeButtonContainerWidthFirstValue = 0f;
@@ -621,7 +621,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.TimeLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.TimeLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         setTimeLabelRedFirstValue = true;
                         TimeLabelRedFirstValue = 0;
@@ -681,7 +681,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.TimeTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.TimeTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         setTimeTextInstanceRedFirstValue = true;
                         TimeTextInstanceRedFirstValue = 255;
@@ -735,7 +735,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.WaveLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.WaveLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         setWaveLabelRedFirstValue = true;
                         WaveLabelRedFirstValue = 0;
@@ -773,7 +773,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.WaveTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.WaveTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -818,7 +818,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.FastForwardButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer");
+                            this.FastForwardButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer") ?? this;
                         }
                         setFastForwardButtonWidthSecondValue = true;
                         FastForwardButtonWidthSecondValue = 64f;
@@ -864,7 +864,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.MenuButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.MenuButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         setMenuButtonWidthSecondValue = true;
                         MenuButtonWidthSecondValue = 64f;
@@ -882,7 +882,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.PauseButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer");
+                            this.PauseButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer") ?? this;
                         }
                         setPauseButtonWidthSecondValue = true;
                         PauseButtonWidthSecondValue = 64f;
@@ -906,7 +906,7 @@
                         PlayButtonCurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Highlight.NotHighlighted;
                         if (interpolationValue >= 1)
                         {
-                            this.PlayButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer");
+                            this.PlayButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer") ?? this;
                         }
                         setPlayButtonCurrentSelectStateSecondValue = true;
                         PlayButtonCurrentSelectStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Select.Selected;
@@ -948,7 +948,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.TimeButtonContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.TimeButtonContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         setTimeButtonContainerWidthSecondValue = true;
                         TimeButtonContainerWidthSecondValue = 0f;
@@ -990,7 +990,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.TimeLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.TimeLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         setTimeLabelRedSecondValue = true;
                         TimeLabelRedSecondValue = 0;
@@ -1050,7 +1050,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.TimeTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.TimeTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         setTimeTextInstanceRedSecondValue = true;
                         TimeTextInstanceRedSecondValue = 255;
@@ -1104,7 +1104,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.WaveLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.WaveLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         setWaveLabelRedSecondValue = true;
                         WaveLabelRedSecondValue = 0;
@@ -1142,7 +1142,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.WaveTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.WaveTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {

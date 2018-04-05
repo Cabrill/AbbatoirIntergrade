@@ -67,7 +67,7 @@
                             UpgradeText.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             UpgradeText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             UpgradeText.OutlineThickness = 2;
-                            UpgradeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer");
+                            UpgradeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer") ?? this;
                             UpgradeText.Red = 240;
                             UpgradeText.Text = "Upgrade:";
                             UpgradeText.UseCustomFont = true;
@@ -81,7 +81,7 @@
                             Upgrade1Text.Green = 255;
                             Upgrade1Text.Height = 0f;
                             Upgrade1Text.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            Upgrade1Text.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            Upgrade1Text.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer") ?? this;
                             Upgrade1Text.Red = 0;
                             Upgrade1Text.Text = "Type1";
                             Upgrade1Text.UseCustomFont = true;
@@ -94,7 +94,7 @@
                             Upgrade1Text.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                             Upgrade1Type.Height = 75f;
                             Upgrade1Type.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
-                            Upgrade1Type.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            Upgrade1Type.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer") ?? this;
                             Upgrade1Type.Width = 100f;
                             Upgrade1Type.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                             Upgrade1Type.X = 21.5f;
@@ -108,7 +108,7 @@
                             OrTextInstance.FontScale = 0.6f;
                             OrTextInstance.Green = 220;
                             OrTextInstance.Height = 0f;
-                            OrTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            OrTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer") ?? this;
                             OrTextInstance.Red = 220;
                             OrTextInstance.Text = "Or";
                             OrTextInstance.UseCustomFont = true;
@@ -125,7 +125,7 @@
                             Upgrade2Text.Green = 255;
                             Upgrade2Text.Height = 0f;
                             Upgrade2Text.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            Upgrade2Text.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            Upgrade2Text.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer") ?? this;
                             Upgrade2Text.Red = 0;
                             Upgrade2Text.Text = "Type1";
                             Upgrade2Text.UseCustomFont = true;
@@ -138,7 +138,7 @@
                             Upgrade2Text.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                             Upgrade2Type.Height = 75f;
                             Upgrade2Type.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
-                            Upgrade2Type.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            Upgrade2Type.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer") ?? this;
                             Upgrade2Type.Width = 100f;
                             Upgrade2Type.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                             Upgrade2Type.X = 78.5f;
@@ -150,13 +150,13 @@
                             TitleContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                             TitleContainer.Height = 40f;
                             TitleContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
-                            TitleContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            TitleContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                             TitleContainer.Width = 100f;
                             TitleContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             TitleContainer.WrapsChildren = false;
                             UpgradeContainer.Height = -40f;
                             UpgradeContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
-                            UpgradeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            UpgradeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                             UpgradeContainer.Visible = true;
                             UpgradeContainer.Width = 100f;
                             UpgradeContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -174,7 +174,7 @@
                             CostText.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             CostText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             CostText.OutlineThickness = 2;
-                            CostText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer");
+                            CostText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer") ?? this;
                             CostText.Red = 0;
                             CostText.Text = "5";
                             CostText.UseCustomFont = true;
@@ -187,7 +187,7 @@
                             CostText.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             PointsSprite.Height = 95f;
                             PointsSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer");
+                            PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer") ?? this;
                             SetProperty("PointsSprite.SourceFile", "AllUIAssets.png");
                             PointsSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             PointsSprite.TextureHeight = 122;
@@ -674,7 +674,7 @@
                         CostTextOutlineThicknessFirstValue = 2;
                         if (interpolationValue < 1)
                         {
-                            this.CostText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer");
+                            this.CostText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer") ?? this;
                         }
                         setCostTextRedFirstValue = true;
                         CostTextRedFirstValue = 0;
@@ -724,7 +724,7 @@
                         OrTextInstanceHeightFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
-                            this.OrTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            this.OrTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer") ?? this;
                         }
                         setOrTextInstanceRedFirstValue = true;
                         OrTextInstanceRedFirstValue = 220;
@@ -766,7 +766,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer");
+                            this.PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -818,7 +818,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.TitleContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.TitleContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         setTitleContainerWidthFirstValue = true;
                         TitleContainerWidthFirstValue = 100f;
@@ -848,7 +848,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.Upgrade1Text.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            this.Upgrade1Text.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer") ?? this;
                         }
                         setUpgrade1TextRedFirstValue = true;
                         Upgrade1TextRedFirstValue = 0;
@@ -890,7 +890,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.Upgrade1Type.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            this.Upgrade1Type.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer") ?? this;
                         }
                         setUpgrade1TypeWidthFirstValue = true;
                         Upgrade1TypeWidthFirstValue = 100f;
@@ -936,7 +936,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.Upgrade2Text.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            this.Upgrade2Text.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer") ?? this;
                         }
                         setUpgrade2TextRedFirstValue = true;
                         Upgrade2TextRedFirstValue = 0;
@@ -978,7 +978,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.Upgrade2Type.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            this.Upgrade2Type.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer") ?? this;
                         }
                         setUpgrade2TypeWidthFirstValue = true;
                         Upgrade2TypeWidthFirstValue = 100f;
@@ -1014,7 +1014,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.UpgradeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.UpgradeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -1068,7 +1068,7 @@
                         UpgradeTextOutlineThicknessFirstValue = 2;
                         if (interpolationValue < 1)
                         {
-                            this.UpgradeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer");
+                            this.UpgradeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer") ?? this;
                         }
                         setUpgradeTextRedFirstValue = true;
                         UpgradeTextRedFirstValue = 240;
@@ -1165,7 +1165,7 @@
                         CostTextOutlineThicknessSecondValue = 2;
                         if (interpolationValue >= 1)
                         {
-                            this.CostText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer");
+                            this.CostText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer") ?? this;
                         }
                         setCostTextRedSecondValue = true;
                         CostTextRedSecondValue = 0;
@@ -1215,7 +1215,7 @@
                         OrTextInstanceHeightSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
-                            this.OrTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            this.OrTextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer") ?? this;
                         }
                         setOrTextInstanceRedSecondValue = true;
                         OrTextInstanceRedSecondValue = 220;
@@ -1257,7 +1257,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer");
+                            this.PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1309,7 +1309,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.TitleContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.TitleContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         setTitleContainerWidthSecondValue = true;
                         TitleContainerWidthSecondValue = 100f;
@@ -1339,7 +1339,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.Upgrade1Text.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            this.Upgrade1Text.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer") ?? this;
                         }
                         setUpgrade1TextRedSecondValue = true;
                         Upgrade1TextRedSecondValue = 0;
@@ -1381,7 +1381,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.Upgrade1Type.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            this.Upgrade1Type.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer") ?? this;
                         }
                         setUpgrade1TypeWidthSecondValue = true;
                         Upgrade1TypeWidthSecondValue = 100f;
@@ -1427,7 +1427,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.Upgrade2Text.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            this.Upgrade2Text.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer") ?? this;
                         }
                         setUpgrade2TextRedSecondValue = true;
                         Upgrade2TextRedSecondValue = 0;
@@ -1469,7 +1469,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.Upgrade2Type.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer");
+                            this.Upgrade2Type.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "UpgradeContainer") ?? this;
                         }
                         setUpgrade2TypeWidthSecondValue = true;
                         Upgrade2TypeWidthSecondValue = 100f;
@@ -1505,7 +1505,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.UpgradeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.UpgradeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1559,7 +1559,7 @@
                         UpgradeTextOutlineThicknessSecondValue = 2;
                         if (interpolationValue >= 1)
                         {
-                            this.UpgradeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer");
+                            this.UpgradeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TitleContainer") ?? this;
                         }
                         setUpgradeTextRedSecondValue = true;
                         UpgradeTextRedSecondValue = 240;

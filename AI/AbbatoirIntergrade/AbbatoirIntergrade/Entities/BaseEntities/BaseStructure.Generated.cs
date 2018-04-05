@@ -465,6 +465,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 }
             }
         }
+        System.Collections.Generic.List<GumCoreShared.FlatRedBall.Embedded.PositionedObjectGueWrapper> gumAttachmentWrappers = new System.Collections.Generic.List<GumCoreShared.FlatRedBall.Embedded.PositionedObjectGueWrapper>();
         private FlatRedBall.Math.Geometry.ShapeCollection mGeneratedCollision;
         public FlatRedBall.Math.Geometry.ShapeCollection Collision
         {
@@ -517,7 +518,13 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mMinimumRangeCircleInstance, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(mRangePreviewSprite, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(mLightAimSpriteInstance, LayerProvidedByContainer);
-            mStructureUpgradeStatusInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(LayerProvidedByContainer)));
+            {
+mStructureUpgradeStatusInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(LayerProvidedByContainer)));
+var wrapperForAttachment = new GumCoreShared.FlatRedBall.Embedded.PositionedObjectGueWrapper(this, mStructureUpgradeStatusInstance);
+FlatRedBall.SpriteManager.AddPositionedObject(wrapperForAttachment);
+gumAttachmentWrappers.Add(wrapperForAttachment);
+}
+
             FlatRedBall.SpriteManager.AddToLayer(WarpSpriteInstance, LayerProvidedByContainer);
         }
         public virtual void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo) 
@@ -528,7 +535,13 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(mMinimumRangeCircleInstance, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(mRangePreviewSprite, LayerProvidedByContainer);
             FlatRedBall.SpriteManager.AddToLayer(mLightAimSpriteInstance, LayerProvidedByContainer);
-            mStructureUpgradeStatusInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(LayerProvidedByContainer)));
+            {
+mStructureUpgradeStatusInstance.AddToManagers(RenderingLibrary.SystemManagers.Default, System.Linq.Enumerable.FirstOrDefault(FlatRedBall.Gum.GumIdb.AllGumLayersOnFrbLayer(LayerProvidedByContainer)));
+var wrapperForAttachment = new GumCoreShared.FlatRedBall.Embedded.PositionedObjectGueWrapper(this, mStructureUpgradeStatusInstance);
+FlatRedBall.SpriteManager.AddPositionedObject(wrapperForAttachment);
+gumAttachmentWrappers.Add(wrapperForAttachment);
+}
+
             AddToManagersBottomUp(layerToAddTo);
             CustomInitialize();
         }
@@ -565,6 +578,10 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             if (WarpSpriteInstance != null)
             {
                 FlatRedBall.SpriteManager.RemoveSprite(WarpSpriteInstance);
+            }
+            for (int i = gumAttachmentWrappers.Count-1; i > -1; i--)
+            {
+                FlatRedBall.SpriteManager.RemovePositionedObject(gumAttachmentWrappers[i]);
             }
             mGeneratedCollision.RemoveFromManagers(clearThis: false);
             CustomDestroy();

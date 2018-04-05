@@ -45,6 +45,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>CheckBox</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>coloredbars/ResourceBar</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
@@ -54,6 +58,10 @@
   </ComponentReference>
   <ComponentReference>
     <Name>CreditDisplay</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>DropDown</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
@@ -177,6 +185,14 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>ListBox</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>ListBoxItem</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>LivesPointsDisplay</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
@@ -190,6 +206,10 @@
   </ComponentReference>
   <ComponentReference>
     <Name>OptionsControls</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>RadioButton</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>

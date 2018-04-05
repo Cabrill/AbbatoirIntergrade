@@ -14,9 +14,11 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("BuildMenu", typeof(AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ChatBox", typeof(AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ChatHistory", typeof(AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("CheckBox", typeof(AbbatoirIntergrade.GumRuntimes.CheckBoxRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("coloredbars/ResourceBar", typeof(AbbatoirIntergrade.GumRuntimes.ResourceBarRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ConfirmationWindow", typeof(AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("CreditDisplay", typeof(AbbatoirIntergrade.GumRuntimes.CreditDisplayRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("DropDown", typeof(AbbatoirIntergrade.GumRuntimes.DropDownRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("frames/ButtonFrame", typeof(AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("frames/ChatFrame", typeof(AbbatoirIntergrade.GumRuntimes.ChatFrameRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Frames/ChatOptionFrame", typeof(AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime));
@@ -47,10 +49,13 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("InfoDisplays/TopStatusBar", typeof(AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/TutorialText", typeof(AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("infodisplays/UpgradeInfo", typeof(AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ListBox", typeof(AbbatoirIntergrade.GumRuntimes.ListBoxRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ListBoxItem", typeof(AbbatoirIntergrade.GumRuntimes.ListBoxItemRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("LivesPointsDisplay", typeof(AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MenuWindow", typeof(AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MessageBox", typeof(AbbatoirIntergrade.GumRuntimes.MessageBoxRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("OptionsControls", typeof(AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("RadioButton", typeof(AbbatoirIntergrade.GumRuntimes.RadioButtonRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ScreenShade", typeof(AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ScrollThumb", typeof(AbbatoirIntergrade.GumRuntimes.ScrollThumbRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("SliderBar", typeof(AbbatoirIntergrade.GumRuntimes.SliderBarRuntime));

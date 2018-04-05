@@ -584,8 +584,8 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime BackgroundColoredRectangle { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime FRBLogoSprite { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime BackgroundColoredRectangle { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.SpriteRuntime FRBLogoSprite { get; set; }
             public FlatRedBallSplashGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)

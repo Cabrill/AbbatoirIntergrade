@@ -5,12 +5,19 @@
   <RequiredInstances>
     <InstanceSave>
       <Name>VerticalScrollBarInstance</Name>
+      <Behaviors>
+        <BehaviorReference>
+          <Name>ScrollBarBehavior</Name>
+        </BehaviorReference>
+      </Behaviors>
     </InstanceSave>
     <InstanceSave>
       <Name>InnerPanelInstance</Name>
+      <Behaviors />
     </InstanceSave>
     <InstanceSave>
       <Name>ClipContainerInstance</Name>
+      <Behaviors />
     </InstanceSave>
   </RequiredInstances>
 </BehaviorSave>

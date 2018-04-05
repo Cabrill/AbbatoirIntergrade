@@ -45,7 +45,7 @@
                             ColoredRectangleInstance.Green = 0;
                             ColoredRectangleInstance.Height = 100f;
                             ColoredRectangleInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ColoredRectangleInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            ColoredRectangleInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                             ColoredRectangleInstance.Red = 0;
                             ColoredRectangleInstance.Width = 100f;
                             ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -54,7 +54,7 @@
                             FillRectangle.Green = 225;
                             FillRectangle.Height = 100f;
                             FillRectangle.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            FillRectangle.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            FillRectangle.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                             FillRectangle.Red = 255;
                             FillRectangle.Width = 100f;
                             FillRectangle.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -68,7 +68,7 @@
                             ContainerInstance.X = 4f;
                             ContainerInstance.Y = 4f;
                             TextInstance.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                             TextInstance.Text = "650/1000";
                             TextInstance.UseCustomFont = true;
                             TextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
@@ -224,7 +224,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ColoredRectangleInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.ColoredRectangleInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         setColoredRectangleInstanceRedFirstValue = true;
                         ColoredRectangleInstanceRedFirstValue = 0;
@@ -268,7 +268,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.FillRectangle.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.FillRectangle.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         setFillRectangleRedFirstValue = true;
                         FillRectangleRedFirstValue = 255;
@@ -294,7 +294,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -361,7 +361,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ColoredRectangleInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.ColoredRectangleInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         setColoredRectangleInstanceRedSecondValue = true;
                         ColoredRectangleInstanceRedSecondValue = 0;
@@ -405,7 +405,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.FillRectangle.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.FillRectangle.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         setFillRectangleRedSecondValue = true;
                         FillRectangleRedSecondValue = 255;
@@ -431,7 +431,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {

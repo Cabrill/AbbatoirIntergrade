@@ -50,7 +50,7 @@
                             MessageFrameInstance.Y = 0f;
                             LivesSprite.Height = 80f;
                             LivesSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            LivesSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer");
+                            LivesSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer") ?? this;
                             SetProperty("LivesSprite.SourceFile", "AllUIAssets.png");
                             LivesSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             LivesSprite.TextureHeight = 128;
@@ -68,7 +68,7 @@
                             SetProperty("LivesRemainingText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             LivesRemainingText.Height = 112f;
                             LivesRemainingText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            LivesRemainingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer");
+                            LivesRemainingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer") ?? this;
                             LivesRemainingText.Text = "30";
                             LivesRemainingText.UseCustomFont = true;
                             LivesRemainingText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
@@ -78,7 +78,7 @@
                             LivesXSprite.Alpha = 0;
                             LivesXSprite.Height = 64f;
                             LivesXSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
-                            LivesXSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer");
+                            LivesXSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer") ?? this;
                             SetProperty("LivesXSprite.SourceFile", "AllUIAssets.png");
                             LivesXSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             LivesXSprite.TextureHeight = 114;
@@ -105,7 +105,7 @@
                             PointsContainer.Y = 0f;
                             PointsSprite.Height = 50f;
                             PointsSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer");
+                            PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer") ?? this;
                             SetProperty("PointsSprite.SourceFile", "AllUIAssets.png");
                             PointsSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             PointsSprite.TextureHeight = 122;
@@ -119,7 +119,7 @@
                             SetProperty("PointsText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             PointsText.Height = 112f;
                             PointsText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            PointsText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer");
+                            PointsText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer") ?? this;
                             PointsText.Text = "30";
                             PointsText.UseCustomFont = true;
                             PointsText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
@@ -130,7 +130,7 @@
                             SetProperty("PointsChangeText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             PointsChangeText.Height = 112f;
                             PointsChangeText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            PointsChangeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer");
+                            PointsChangeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer") ?? this;
                             PointsChangeText.Text = "+1";
                             PointsChangeText.UseCustomFont = true;
                             PointsChangeText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
@@ -481,7 +481,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.LivesRemainingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer");
+                            this.LivesRemainingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -509,7 +509,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.LivesSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer");
+                            this.LivesSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -563,7 +563,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.LivesXSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer");
+                            this.LivesXSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -625,7 +625,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.PointsChangeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer");
+                            this.PointsChangeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -669,7 +669,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer");
+                            this.PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -713,7 +713,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.PointsText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer");
+                            this.PointsText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -768,7 +768,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.LivesRemainingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer");
+                            this.LivesRemainingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -796,7 +796,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.LivesSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer");
+                            this.LivesSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -850,7 +850,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.LivesXSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer");
+                            this.LivesXSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LivesContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -912,7 +912,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.PointsChangeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer");
+                            this.PointsChangeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -956,7 +956,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer");
+                            this.PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1000,7 +1000,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.PointsText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer");
+                            this.PointsText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "PointsContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {

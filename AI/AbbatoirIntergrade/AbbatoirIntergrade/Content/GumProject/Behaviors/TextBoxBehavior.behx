@@ -21,9 +21,11 @@
     <InstanceSave>
       <Name>TextInstance</Name>
       <BaseType>Text</BaseType>
+      <Behaviors />
     </InstanceSave>
     <InstanceSave>
       <Name>CaretInstance</Name>
+      <Behaviors />
     </InstanceSave>
   </RequiredInstances>
 </BehaviorSave>

@@ -701,7 +701,7 @@
             	: base(false, tryCreateFormsObject)
             {
                 this.HasEvents = false;
-                this.ExposeChildrenEvents = false;
+                this.ExposeChildrenEvents = true;
                 if (fullInstantiation)
                 {
                     Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "frames/LargeInfoFrame");

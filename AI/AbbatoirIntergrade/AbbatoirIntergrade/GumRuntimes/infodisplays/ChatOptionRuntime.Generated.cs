@@ -48,7 +48,7 @@
                             TextInstance.FontSize = 30;
                             TextInstance.Height = 0f;
                             TextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
-                            TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatOptionFrameInstance");
+                            TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatOptionFrameInstance") ?? this;
                             TextInstance.Width = -80f;
                             TextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             TextInstance.X = 40f;
@@ -186,7 +186,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatOptionFrameInstance");
+                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatOptionFrameInstance") ?? this;
                         }
                         setTextInstanceWidthFirstValue = true;
                         TextInstanceWidthFirstValue = -80f;
@@ -265,7 +265,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatOptionFrameInstance");
+                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatOptionFrameInstance") ?? this;
                         }
                         setTextInstanceWidthSecondValue = true;
                         TextInstanceWidthSecondValue = -80f;

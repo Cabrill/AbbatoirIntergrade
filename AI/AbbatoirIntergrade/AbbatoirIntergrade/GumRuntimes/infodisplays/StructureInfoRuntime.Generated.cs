@@ -73,7 +73,7 @@
                             GlowSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             NameContainer.Height = 10f;
                             NameContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            NameContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            NameContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                             NameContainer.Width = 100f;
                             NameContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             NameContainer.Y = 3f;
@@ -88,7 +88,7 @@
                             NameText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             NameText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             NameText.OutlineThickness = 2;
-                            NameText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer");
+                            NameText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer") ?? this;
                             NameText.Red = 255;
                             NameText.Text = "Structure";
                             NameText.UseCustomFont = true;
@@ -99,7 +99,7 @@
                             StatsContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                             StatsContainer.Height = 60.5f;
                             StatsContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            StatsContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            StatsContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                             StatsContainer.Width = 69.21875f;
                             StatsContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             StatsContainer.WrapsChildren = true;
@@ -112,7 +112,7 @@
                             InfoContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             InfoContainer.WrapsChildren = false;
                             ColoredRectangleInstance.Height = 4f;
-                            ColoredRectangleInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer");
+                            ColoredRectangleInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer") ?? this;
                             ColoredRectangleInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ColoredRectangleInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             ColoredRectangleInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
@@ -121,7 +121,7 @@
                             AttackDamageType.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Piercing;
                             AttackDamageType.Height = 100f;
                             AttackDamageType.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            AttackDamageType.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
+                            AttackDamageType.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer") ?? this;
                             AttackDamageType.ResistanceText = "50";
                             AttackDamageType.TextFontScale = 1f;
                             AttackDamageType.TextHorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
@@ -133,7 +133,7 @@
                             MinRange.AttributeText = "100";
                             MinRange.Height = 75f;
                             MinRange.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            MinRange.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangeContainer");
+                            MinRange.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangeContainer") ?? this;
                             MinRange.TextInstanceFontScale = 0.5f;
                             MinRange.TextInstanceHorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                             MinRange.Width = 50f;
@@ -144,7 +144,7 @@
                             MaxRange.AttributeText = "50";
                             MaxRange.Height = 75f;
                             MaxRange.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            MaxRange.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangeContainer");
+                            MaxRange.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangeContainer") ?? this;
                             MaxRange.TextInstanceFontScale = 0.5f;
                             MaxRange.TextInstanceHorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                             MaxRange.Width = 50f;
@@ -154,20 +154,20 @@
                             AttackCostContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                             AttackCostContainer.Height = 24.9f;
                             AttackCostContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            AttackCostContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            AttackCostContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                             AttackCostContainer.Width = 100f;
                             AttackCostContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             RangeContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                             RangeContainer.Height = 24.9f;
                             RangeContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            RangeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            RangeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                             RangeContainer.Width = 0f;
                             RangeContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             AttackSpeed.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
                             AttackSpeed.AttributeText = "3 sec";
                             AttackSpeed.Height = 24.9f;
                             AttackSpeed.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            AttackSpeed.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            AttackSpeed.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                             AttackSpeed.TextInstanceFontScale = 0.5f;
                             AttackSpeed.TextInstanceHorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                             AttackSpeed.Width = 0f;
@@ -176,14 +176,14 @@
                             PointOrSplash.AttributeText = "Single";
                             PointOrSplash.Height = 24.9f;
                             PointOrSplash.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            PointOrSplash.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            PointOrSplash.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                             PointOrSplash.TextInstanceFontScale = 0.5f;
                             PointOrSplash.TextInstanceHorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                             PointOrSplash.Width = 0f;
                             PointOrSplash.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             PointsSprite.Height = 50f;
                             PointsSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
+                            PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer") ?? this;
                             SetProperty("PointsSprite.SourceFile", "AllUIAssets.png");
                             PointsSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             PointsSprite.TextureHeight = 122;
@@ -200,7 +200,7 @@
                             CostText.Height = 0f;
                             CostText.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             CostText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            CostText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
+                            CostText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer") ?? this;
                             CostText.Red = 124;
                             CostText.Text = "20";
                             CostText.UseCustomFont = true;
@@ -211,7 +211,7 @@
                             CostText.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             UpgradeInfoInstance.Height = 24f;
                             UpgradeInfoInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            UpgradeInfoInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            UpgradeInfoInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                             UpgradeInfoInstance.Width = 354f;
                             UpgradeInfoInstance.X = 79f;
                             UpgradeInfoInstance.Y = 0f;
@@ -596,7 +596,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.AttackCostContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.AttackCostContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                         }
                         setAttackCostContainerWidthFirstValue = true;
                         AttackCostContainerWidthFirstValue = 100f;
@@ -616,7 +616,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.AttackDamageType.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
+                            this.AttackDamageType.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -654,7 +654,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.AttackSpeed.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.AttackSpeed.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                         }
                         setAttackSpeedTextInstanceFontScaleFirstValue = true;
                         AttackSpeedTextInstanceFontScaleFirstValue = 0.5f;
@@ -680,7 +680,7 @@
                         ColoredRectangleInstanceHeightFirstValue = 4f;
                         if (interpolationValue < 1)
                         {
-                            this.ColoredRectangleInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer");
+                            this.ColoredRectangleInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -722,7 +722,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.CostText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
+                            this.CostText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer") ?? this;
                         }
                         setCostTextRedFirstValue = true;
                         CostTextRedFirstValue = 124;
@@ -840,7 +840,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.MaxRange.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangeContainer");
+                            this.MaxRange.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangeContainer") ?? this;
                         }
                         setMaxRangeTextInstanceFontScaleFirstValue = true;
                         MaxRangeTextInstanceFontScaleFirstValue = 0.5f;
@@ -876,7 +876,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.MinRange.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangeContainer");
+                            this.MinRange.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangeContainer") ?? this;
                         }
                         setMinRangeTextInstanceFontScaleFirstValue = true;
                         MinRangeTextInstanceFontScaleFirstValue = 0.5f;
@@ -904,7 +904,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.NameContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.NameContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         setNameContainerWidthFirstValue = true;
                         NameContainerWidthFirstValue = 100f;
@@ -948,7 +948,7 @@
                         NameTextOutlineThicknessFirstValue = 2;
                         if (interpolationValue < 1)
                         {
-                            this.NameText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer");
+                            this.NameText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer") ?? this;
                         }
                         setNameTextRedFirstValue = true;
                         NameTextRedFirstValue = 255;
@@ -984,7 +984,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.PointOrSplash.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.PointOrSplash.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                         }
                         setPointOrSplashTextInstanceFontScaleFirstValue = true;
                         PointOrSplashTextInstanceFontScaleFirstValue = 0.5f;
@@ -1006,7 +1006,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
+                            this.PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -1050,7 +1050,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.RangeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.RangeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                         }
                         setRangeContainerWidthFirstValue = true;
                         RangeContainerWidthFirstValue = 0f;
@@ -1070,7 +1070,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.StatsContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.StatsContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         setStatsContainerWidthFirstValue = true;
                         StatsContainerWidthFirstValue = 69.21875f;
@@ -1098,7 +1098,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.UpgradeInfoInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.UpgradeInfoInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         setUpgradeInfoInstanceWidthFirstValue = true;
                         UpgradeInfoInstanceWidthFirstValue = 354f;
@@ -1153,7 +1153,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.AttackCostContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.AttackCostContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                         }
                         setAttackCostContainerWidthSecondValue = true;
                         AttackCostContainerWidthSecondValue = 100f;
@@ -1173,7 +1173,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.AttackDamageType.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
+                            this.AttackDamageType.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1211,7 +1211,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.AttackSpeed.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.AttackSpeed.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                         }
                         setAttackSpeedTextInstanceFontScaleSecondValue = true;
                         AttackSpeedTextInstanceFontScaleSecondValue = 0.5f;
@@ -1237,7 +1237,7 @@
                         ColoredRectangleInstanceHeightSecondValue = 4f;
                         if (interpolationValue >= 1)
                         {
-                            this.ColoredRectangleInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer");
+                            this.ColoredRectangleInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1279,7 +1279,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.CostText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
+                            this.CostText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer") ?? this;
                         }
                         setCostTextRedSecondValue = true;
                         CostTextRedSecondValue = 124;
@@ -1397,7 +1397,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.MaxRange.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangeContainer");
+                            this.MaxRange.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangeContainer") ?? this;
                         }
                         setMaxRangeTextInstanceFontScaleSecondValue = true;
                         MaxRangeTextInstanceFontScaleSecondValue = 0.5f;
@@ -1433,7 +1433,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.MinRange.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangeContainer");
+                            this.MinRange.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RangeContainer") ?? this;
                         }
                         setMinRangeTextInstanceFontScaleSecondValue = true;
                         MinRangeTextInstanceFontScaleSecondValue = 0.5f;
@@ -1461,7 +1461,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.NameContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.NameContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         setNameContainerWidthSecondValue = true;
                         NameContainerWidthSecondValue = 100f;
@@ -1505,7 +1505,7 @@
                         NameTextOutlineThicknessSecondValue = 2;
                         if (interpolationValue >= 1)
                         {
-                            this.NameText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer");
+                            this.NameText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer") ?? this;
                         }
                         setNameTextRedSecondValue = true;
                         NameTextRedSecondValue = 255;
@@ -1541,7 +1541,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.PointOrSplash.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.PointOrSplash.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                         }
                         setPointOrSplashTextInstanceFontScaleSecondValue = true;
                         PointOrSplashTextInstanceFontScaleSecondValue = 0.5f;
@@ -1563,7 +1563,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer");
+                            this.PointsSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1607,7 +1607,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.RangeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.RangeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                         }
                         setRangeContainerWidthSecondValue = true;
                         RangeContainerWidthSecondValue = 0f;
@@ -1627,7 +1627,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.StatsContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.StatsContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         setStatsContainerWidthSecondValue = true;
                         StatsContainerWidthSecondValue = 69.21875f;
@@ -1655,7 +1655,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.UpgradeInfoInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer");
+                            this.UpgradeInfoInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
                         }
                         setUpgradeInfoInstanceWidthSecondValue = true;
                         UpgradeInfoInstanceWidthSecondValue = 354f;

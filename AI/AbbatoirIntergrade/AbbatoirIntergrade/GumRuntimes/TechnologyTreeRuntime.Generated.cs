@@ -50,7 +50,7 @@
                             TitleText.Height = 10f;
                             TitleText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             TitleText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            TitleText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            TitleText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                             TitleText.Text = "Technology Tree";
                             TitleText.UseCustomFont = true;
                             TitleText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -166,7 +166,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.TitleText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.TitleText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -291,7 +291,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.TitleText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.TitleText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {

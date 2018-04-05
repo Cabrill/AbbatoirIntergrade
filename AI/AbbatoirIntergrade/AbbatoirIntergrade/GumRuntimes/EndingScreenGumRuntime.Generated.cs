@@ -1515,12 +1515,12 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime EndingTextContainer { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime BlackFade { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ContainerRuntime CreditsContainer { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime EndingTextContainer { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime BlackFade { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.ContainerRuntime CreditsContainer { get; set; }
             public EndingScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)

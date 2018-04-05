@@ -123,6 +123,13 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
+        <Type>float</Type>
+        <Name>SpriteInstance.X</Name>
+        <Value xsi:type="xsd:float">0</Value>
+        <Category>Position</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>HorizontalAlignment</Type>
         <Name>SpriteInstance.X Origin</Name>
         <Value xsi:type="xsd:int">2</Value>
@@ -140,13 +147,6 @@
         <Value xsi:type="xsd:int">1</Value>
         <SetsValue>true</SetsValue>
       </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>SpriteInstance.X</Name>
-        <Value xsi:type="xsd:float">0</Value>
-        <Category>Position</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
     </State>
     <State>
       <Name>Right</Name>
@@ -155,6 +155,13 @@
         <Name>SpriteInstance.Rotation</Name>
         <Value xsi:type="xsd:float">0</Value>
         <Category>Flip and Rotation</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>SpriteInstance.X</Name>
+        <Value xsi:type="xsd:float">0</Value>
+        <Category>Position</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -175,13 +182,6 @@
         <Type>VerticalAlignment</Type>
         <Name>SpriteInstance.Y Origin</Name>
         <Value xsi:type="xsd:int">0</Value>
-        <Category>Position</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>SpriteInstance.X</Name>
-        <Value xsi:type="xsd:float">0</Value>
         <Category>Position</Category>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -196,6 +196,13 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
+        <Type>float</Type>
+        <Name>SpriteInstance.X</Name>
+        <Value xsi:type="xsd:float">0</Value>
+        <Category>Position</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>HorizontalAlignment</Type>
         <Name>SpriteInstance.X Origin</Name>
         <Value xsi:type="xsd:int">2</Value>
@@ -213,13 +220,6 @@
         <Type>VerticalAlignment</Type>
         <Name>SpriteInstance.Y Origin</Name>
         <Value xsi:type="xsd:int">1</Value>
-        <Category>Position</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>SpriteInstance.X</Name>
-        <Value xsi:type="xsd:float">0</Value>
         <Category>Position</Category>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -267,15 +267,10 @@
     <State>
       <Name>StartFlash</Name>
       <Variable>
-        <Type>float</Type>
-        <Name>SpriteInstance.Height</Name>
-        <Value xsi:type="xsd:float">90</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>SpriteInstance.Width</Name>
-        <Value xsi:type="xsd:float">90</Value>
+        <Type>int</Type>
+        <Name>SpriteInstance.Blue</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -286,10 +281,15 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>int</Type>
-        <Name>SpriteInstance.Blue</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <Category>Rendering</Category>
+        <Type>float</Type>
+        <Name>SpriteInstance.Height</Name>
+        <Value xsi:type="xsd:float">90</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>SpriteInstance.Width</Name>
+        <Value xsi:type="xsd:float">90</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

@@ -62,7 +62,7 @@
                             SetProperty("VersionText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             VersionText.FontScale = 0.5f;
                             VersionText.Height = 34f;
-                            VersionText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MenuFrameInstance");
+                            VersionText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MenuFrameInstance") ?? this;
                             VersionText.Text = "V1.0";
                             VersionText.UseCustomFont = true;
                             VersionText.Width = 186f;
@@ -72,7 +72,7 @@
                             VersionText.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             OptionsControlsInstance.Height = 54.47209f;
                             OptionsControlsInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            OptionsControlsInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MenuFrameInstance");
+                            OptionsControlsInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MenuFrameInstance") ?? this;
                             OptionsControlsInstance.Width = 70.73295f;
                             OptionsControlsInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             OptionsControlsInstance.X = 14.33591f;
@@ -91,7 +91,7 @@
                             CurrentMusicBackdrop.Green = 0;
                             CurrentMusicBackdrop.Height = -5f;
                             CurrentMusicBackdrop.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
-                            CurrentMusicBackdrop.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicFrame");
+                            CurrentMusicBackdrop.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicFrame") ?? this;
                             CurrentMusicBackdrop.Red = 0;
                             CurrentMusicBackdrop.Width = -5f;
                             CurrentMusicBackdrop.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
@@ -105,7 +105,7 @@
                             MusicInfo.FontScale = 0.4f;
                             MusicInfo.Height = 57f;
                             MusicInfo.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            MusicInfo.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicBackdrop");
+                            MusicInfo.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicBackdrop") ?? this;
                             MusicInfo.Text = "Anttis Instrumentals - In my Mind I am a Big Star";
                             MusicInfo.UseCustomFont = true;
                             MusicInfo.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
@@ -122,7 +122,7 @@
                             MusicLabel.Green = 255;
                             MusicLabel.Height = 57f;
                             MusicLabel.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                            MusicLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicBackdrop");
+                            MusicLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicBackdrop") ?? this;
                             MusicLabel.Red = 0;
                             MusicLabel.Text = "Current Music:";
                             MusicLabel.UseCustomFont = true;
@@ -508,7 +508,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.CurrentMusicBackdrop.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicFrame");
+                            this.CurrentMusicBackdrop.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicFrame") ?? this;
                         }
                         setCurrentMusicBackdropRedFirstValue = true;
                         CurrentMusicBackdropRedFirstValue = 0;
@@ -572,7 +572,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.MusicInfo.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicBackdrop");
+                            this.MusicInfo.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicBackdrop") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -626,7 +626,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.MusicLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicBackdrop");
+                            this.MusicLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicBackdrop") ?? this;
                         }
                         setMusicLabelRedFirstValue = true;
                         MusicLabelRedFirstValue = 0;
@@ -664,7 +664,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.OptionsControlsInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MenuFrameInstance");
+                            this.OptionsControlsInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MenuFrameInstance") ?? this;
                         }
                         setOptionsControlsInstanceWidthFirstValue = true;
                         OptionsControlsInstanceWidthFirstValue = 70.73295f;
@@ -694,7 +694,7 @@
                         VersionTextHeightFirstValue = 34f;
                         if (interpolationValue < 1)
                         {
-                            this.VersionText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MenuFrameInstance");
+                            this.VersionText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MenuFrameInstance") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -829,7 +829,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.CurrentMusicBackdrop.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicFrame");
+                            this.CurrentMusicBackdrop.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicFrame") ?? this;
                         }
                         setCurrentMusicBackdropRedSecondValue = true;
                         CurrentMusicBackdropRedSecondValue = 0;
@@ -893,7 +893,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.MusicInfo.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicBackdrop");
+                            this.MusicInfo.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicBackdrop") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -947,7 +947,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.MusicLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicBackdrop");
+                            this.MusicLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "CurrentMusicBackdrop") ?? this;
                         }
                         setMusicLabelRedSecondValue = true;
                         MusicLabelRedSecondValue = 0;
@@ -985,7 +985,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.OptionsControlsInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MenuFrameInstance");
+                            this.OptionsControlsInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MenuFrameInstance") ?? this;
                         }
                         setOptionsControlsInstanceWidthSecondValue = true;
                         OptionsControlsInstanceWidthSecondValue = 70.73295f;
@@ -1015,7 +1015,7 @@
                         VersionTextHeightSecondValue = 34f;
                         if (interpolationValue >= 1)
                         {
-                            this.VersionText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MenuFrameInstance");
+                            this.VersionText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MenuFrameInstance") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {

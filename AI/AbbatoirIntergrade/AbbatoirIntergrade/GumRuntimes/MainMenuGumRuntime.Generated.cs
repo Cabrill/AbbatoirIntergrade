@@ -1676,11 +1676,11 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime BackgroundSprite { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.DimmingRuntime DimmingInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime LeftEye { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime RightEye { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TextRuntime PressAnyKeyText { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.SpriteRuntime BackgroundSprite { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.DimmingRuntime DimmingInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime LeftEye { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime RightEye { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.TextRuntime PressAnyKeyText { get; set; }
             public MainMenuGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)

@@ -34,7 +34,7 @@
                             InnerPanelInstance.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                             InnerPanelInstance.Height = 0f;
                             InnerPanelInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
-                            InnerPanelInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ClipContainerInstance");
+                            InnerPanelInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ClipContainerInstance") ?? this;
                             InnerPanelInstance.Width = 0f;
                             InnerPanelInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             VerticalScrollBarInstance.Height = 95.6991f;
@@ -63,7 +63,7 @@
                             SetProperty("EndingText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             EndingText.FontScale = 0.6f;
                             EndingText.Height = 0f;
-                            EndingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InnerPanelInstance");
+                            EndingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InnerPanelInstance") ?? this;
                             EndingText.Text = "";
                             EndingText.UseCustomFont = true;
                             EndingText.Width = 100f;
@@ -223,7 +223,7 @@
                         EndingTextHeightFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
-                            this.EndingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InnerPanelInstance");
+                            this.EndingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InnerPanelInstance") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -257,7 +257,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.InnerPanelInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ClipContainerInstance");
+                            this.InnerPanelInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ClipContainerInstance") ?? this;
                         }
                         setInnerPanelInstanceWidthFirstValue = true;
                         InnerPanelInstanceWidthFirstValue = 0f;
@@ -362,7 +362,7 @@
                         EndingTextHeightSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
-                            this.EndingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InnerPanelInstance");
+                            this.EndingText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InnerPanelInstance") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -396,7 +396,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.InnerPanelInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ClipContainerInstance");
+                            this.InnerPanelInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ClipContainerInstance") ?? this;
                         }
                         setInnerPanelInstanceWidthSecondValue = true;
                         InnerPanelInstanceWidthSecondValue = 0f;

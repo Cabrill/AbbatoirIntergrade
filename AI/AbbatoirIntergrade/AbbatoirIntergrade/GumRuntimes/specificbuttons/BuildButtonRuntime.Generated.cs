@@ -66,7 +66,7 @@
                             SelectSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             StructureSprite.Height = 50f;
                             StructureSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            StructureSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            StructureSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                             StructureSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             StructureSprite.Width = 50f;
                             StructureSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -341,7 +341,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.StructureSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.StructureSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -482,7 +482,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.StructureSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.StructureSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {

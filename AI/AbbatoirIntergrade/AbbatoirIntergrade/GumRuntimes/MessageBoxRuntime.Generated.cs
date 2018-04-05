@@ -36,11 +36,11 @@
                             ChatFrameInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             ChatFrameInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             YesButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
-                            YesButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance");
+                            YesButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance") ?? this;
                             YesButton.X = 894f;
                             YesButton.Y = 342f;
                             YesButton1.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
-                            YesButton1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance");
+                            YesButton1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance") ?? this;
                             YesButton1.X = 101f;
                             YesButton1.Y = 339f;
                             break;
@@ -136,7 +136,7 @@
                         YesButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
                         if (interpolationValue < 1)
                         {
-                            this.YesButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance");
+                            this.YesButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance") ?? this;
                         }
                         setYesButtonXFirstValue = true;
                         YesButtonXFirstValue = 894f;
@@ -146,7 +146,7 @@
                         YesButton1CurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
                         if (interpolationValue < 1)
                         {
-                            this.YesButton1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance");
+                            this.YesButton1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance") ?? this;
                         }
                         setYesButton1XFirstValue = true;
                         YesButton1XFirstValue = 101f;
@@ -193,7 +193,7 @@
                         YesButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
                         if (interpolationValue >= 1)
                         {
-                            this.YesButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance");
+                            this.YesButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance") ?? this;
                         }
                         setYesButtonXSecondValue = true;
                         YesButtonXSecondValue = 894f;
@@ -203,7 +203,7 @@
                         YesButton1CurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
                         if (interpolationValue >= 1)
                         {
-                            this.YesButton1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance");
+                            this.YesButton1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance") ?? this;
                         }
                         setYesButton1XSecondValue = true;
                         YesButton1XSecondValue = 101f;

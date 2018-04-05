@@ -1018,9 +1018,9 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime LeftEye { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime RightEye { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime LeftEye { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime RightEye { get; set; }
             public LoadingScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)

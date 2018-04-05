@@ -28,6 +28,11 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>Confirmation</Type>
+      <Name>ConfirmationState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
       <Type>int</Type>
       <Name>ContinueText.Blue</Name>
       <Value xsi:type="xsd:int">0</Value>
@@ -320,13 +325,13 @@
       <Name>ShowSkip</Name>
       <Variable>
         <Type>bool</Type>
-        <Name>SkipTutorialText.Visible</Name>
+        <Name>SkipTutorialButton.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>bool</Type>
-        <Name>SkipTutorialButton.Visible</Name>
+        <Name>SkipTutorialText.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>

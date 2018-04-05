@@ -68,6 +68,7 @@ namespace AbbatoirIntergrade.Entities.Structures
                 }
             }
         }
+        System.Collections.Generic.List<GumCoreShared.FlatRedBall.Embedded.PositionedObjectGueWrapper> gumAttachmentWrappers = new System.Collections.Generic.List<GumCoreShared.FlatRedBall.Embedded.PositionedObjectGueWrapper>();
         public BombardingTower () 
         	: this(FlatRedBall.Screens.ScreenManager.CurrentScreen.ContentManagerName, true)
         {
@@ -151,6 +152,10 @@ namespace AbbatoirIntergrade.Entities.Structures
             if (PivotPoint != null)
             {
                 FlatRedBall.SpriteManager.ConvertToManuallyUpdated(PivotPoint);
+            }
+            for (int i = gumAttachmentWrappers.Count-1; i > -1; i--)
+            {
+                FlatRedBall.SpriteManager.RemovePositionedObject(gumAttachmentWrappers[i]);
             }
             CustomDestroy();
         }

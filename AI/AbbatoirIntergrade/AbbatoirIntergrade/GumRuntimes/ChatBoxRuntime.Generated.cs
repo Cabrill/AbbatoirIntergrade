@@ -88,7 +88,7 @@
                             ChatOption0.Height = 0f;
                             ChatOption0.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                             ChatOption0.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
-                            ChatOption0.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer");
+                            ChatOption0.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
                             ChatOption0.Width = 100f;
                             ChatOption0.X = 0f;
                             ChatOption0.Y = 0f;
@@ -96,7 +96,7 @@
                             CurrentText.FontSize = 30;
                             CurrentText.Height = 18.29847f;
                             CurrentText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            CurrentText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatContainer");
+                            CurrentText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatContainer") ?? this;
                             CurrentText.Width = 92.96616f;
                             CurrentText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             CurrentText.X = 0.820613f;
@@ -105,16 +105,16 @@
                             CurrentText.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             ChatOption1.Height = 0f;
                             ChatOption1.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
-                            ChatOption1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer");
+                            ChatOption1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
                             ChatOption1.Width = 100f;
                             ChatOption2.Height = 0f;
                             ChatOption2.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
-                            ChatOption2.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer");
+                            ChatOption2.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
                             ChatOption2.Width = 100f;
                             ResponseContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                             ResponseContainer.Height = 80f;
                             ResponseContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ResponseContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatContainer");
+                            ResponseContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatContainer") ?? this;
                             ResponseContainer.Width = 100f;
                             ResponseContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ResponseContainer.WrapsChildren = false;
@@ -152,7 +152,7 @@
                             TextInstance.Height = -64f;
                             TextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             TextInstance.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MessageBox");
+                            TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MessageBox") ?? this;
                             TextInstance.Text = "!";
                             TextInstance.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             TextInstance.Visible = false;
@@ -182,8 +182,8 @@
                             RecentResponseContainer.Y = 10f;
                             RecentResponseContainer.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             DialogueShownChatOption.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.Highlighted;
-                            DialogueShownChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer");
-                            ResponseChosenChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer");
+                            DialogueShownChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer") ?? this;
+                            ResponseChosenChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer") ?? this;
                             ResponseChosenChatOption.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
                             ResponseChosenChatOption.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                             ResponseChosenChatOption.Y = 5f;
@@ -749,7 +749,7 @@
                         ChatOption0CurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue < 1)
                         {
-                            this.ChatOption0.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer");
+                            this.ChatOption0.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
                         }
                         setChatOption0WidthFirstValue = true;
                         ChatOption0WidthFirstValue = 100f;
@@ -763,7 +763,7 @@
                         ChatOption1CurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue < 1)
                         {
-                            this.ChatOption1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer");
+                            this.ChatOption1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
                         }
                         setChatOption1WidthFirstValue = true;
                         ChatOption1WidthFirstValue = 100f;
@@ -773,7 +773,7 @@
                         ChatOption2CurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue < 1)
                         {
-                            this.ChatOption2.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer");
+                            this.ChatOption2.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
                         }
                         setChatOption2WidthFirstValue = true;
                         ChatOption2WidthFirstValue = 100f;
@@ -855,7 +855,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.CurrentText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatContainer");
+                            this.CurrentText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatContainer") ?? this;
                         }
                         setCurrentTextWidthFirstValue = true;
                         CurrentTextWidthFirstValue = 92.96616f;
@@ -879,7 +879,7 @@
                         DialogueShownChatOptionCurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.Highlighted;
                         if (interpolationValue < 1)
                         {
-                            this.DialogueShownChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer");
+                            this.DialogueShownChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer") ?? this;
                         }
                         setHeightFirstValue = true;
                         HeightFirstValue = 50f;
@@ -943,7 +943,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ResponseChosenChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer");
+                            this.ResponseChosenChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -967,7 +967,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ResponseContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatContainer");
+                            this.ResponseContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatContainer") ?? this;
                         }
                         setResponseContainerWidthFirstValue = true;
                         ResponseContainerWidthFirstValue = 100f;
@@ -1037,7 +1037,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MessageBox");
+                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MessageBox") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -1168,7 +1168,7 @@
                         ChatOption0CurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue >= 1)
                         {
-                            this.ChatOption0.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer");
+                            this.ChatOption0.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
                         }
                         setChatOption0WidthSecondValue = true;
                         ChatOption0WidthSecondValue = 100f;
@@ -1182,7 +1182,7 @@
                         ChatOption1CurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue >= 1)
                         {
-                            this.ChatOption1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer");
+                            this.ChatOption1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
                         }
                         setChatOption1WidthSecondValue = true;
                         ChatOption1WidthSecondValue = 100f;
@@ -1192,7 +1192,7 @@
                         ChatOption2CurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue >= 1)
                         {
-                            this.ChatOption2.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer");
+                            this.ChatOption2.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
                         }
                         setChatOption2WidthSecondValue = true;
                         ChatOption2WidthSecondValue = 100f;
@@ -1274,7 +1274,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.CurrentText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatContainer");
+                            this.CurrentText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatContainer") ?? this;
                         }
                         setCurrentTextWidthSecondValue = true;
                         CurrentTextWidthSecondValue = 92.96616f;
@@ -1298,7 +1298,7 @@
                         DialogueShownChatOptionCurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.Highlighted;
                         if (interpolationValue >= 1)
                         {
-                            this.DialogueShownChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer");
+                            this.DialogueShownChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer") ?? this;
                         }
                         setHeightSecondValue = true;
                         HeightSecondValue = 50f;
@@ -1362,7 +1362,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ResponseChosenChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer");
+                            this.ResponseChosenChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1386,7 +1386,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ResponseContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatContainer");
+                            this.ResponseContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatContainer") ?? this;
                         }
                         setResponseContainerWidthSecondValue = true;
                         ResponseContainerWidthSecondValue = 100f;
@@ -1456,7 +1456,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MessageBox");
+                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MessageBox") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {

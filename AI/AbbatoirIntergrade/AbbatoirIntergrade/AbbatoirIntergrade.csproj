@@ -318,6 +318,7 @@
     <Compile Include="GumRuntimes\ChatHistoryRuntime.Generated.cs">
       <DependentUpon>ChatHistoryRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\CheckBoxRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.cs" />
     <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.Generated.cs">
@@ -329,6 +330,20 @@
       <DependentUpon>ConfirmationWindowRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\CreditDisplayRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DefaultForms\ButtonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DefaultForms\CheckBoxRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DefaultForms\ColoredFrameRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DefaultForms\ComboBoxRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DefaultForms\ListBoxItemRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DefaultForms\ListBoxRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DefaultForms\RadioButtonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DefaultForms\ScrollBarRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DefaultForms\ScrollBarThumbRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DefaultForms\ScrollViewerRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DefaultForms\SliderRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DefaultForms\TextBoxRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DefaultForms\ToggleButtonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DropDownRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\EndingScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\FlatRedBallSplashGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\frames\ButtonFrameRuntime.cs" />
@@ -405,6 +420,8 @@
     <Compile Include="GumRuntimes\infodisplays\UpgradeInfoRuntime.Generated.cs">
       <DependentUpon>UpgradeInfoRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\ListBoxItemRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ListBoxRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\LivesPointsDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\LoadingScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.cs" />
@@ -422,6 +439,7 @@
     <Compile Include="GumRuntimes\OptionsControlsRuntime.Generated.cs">
       <DependentUpon>OptionsControlsRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\RadioButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ScreenShadeRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ScrollThumbRuntime.Generated.cs" />
@@ -1413,6 +1431,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ChatHistory</Name>
     </None>
+    <None Include="content\gumproject\components\checkbox.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>checkbox</Name>
+    </None>
     <None Include="content\gumproject\components\coloredbars\resourcebar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ResourceBar</Name>
@@ -1424,6 +1446,10 @@
     <None Include="content\gumproject\components\creditdisplay.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>creditdisplay</Name>
+    </None>
+    <None Include="content\gumproject\components\dropdown.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>dropdown</Name>
     </None>
     <None Include="content\gumproject\components\frames\buttonframe.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1545,6 +1571,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>upgradeinfo</Name>
     </None>
+    <None Include="content\gumproject\components\listbox.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>listbox</Name>
+    </None>
+    <None Include="content\gumproject\components\listboxitem.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>listboxitem</Name>
+    </None>
     <None Include="content\gumproject\components\livespointsdisplay.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>LivesPointsDisplay</Name>
@@ -1560,6 +1594,10 @@
     <None Include="content\gumproject\components\optionscontrols.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>OptionsControls</Name>
+    </None>
+    <None Include="content\gumproject\components\radiobutton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>radiobutton</Name>
     </None>
     <None Include="content\gumproject\components\screenshade.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

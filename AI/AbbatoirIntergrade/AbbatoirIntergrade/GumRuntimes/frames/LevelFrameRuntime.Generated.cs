@@ -39,7 +39,7 @@
                             YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             BackgroundSprite.Height = 100f;
                             BackgroundSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
-                            BackgroundSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
+                            BackgroundSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer") ?? this;
                             SetProperty("BackgroundSprite.SourceFile", "AllUIAssets.png");
                             BackgroundSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             BackgroundSprite.TextureHeight = 265;
@@ -125,7 +125,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.BackgroundSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
+                            this.BackgroundSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -182,7 +182,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.BackgroundSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer");
+                            this.BackgroundSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "BackgroundContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {

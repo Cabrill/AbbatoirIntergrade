@@ -46,33 +46,38 @@
                             BarSprite.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ThumbInstance.Height = 150f;
                             ThumbInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
-                            ThumbInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ScrollTrack");
-                            ThumbInstance.Width = 100f;
+                            ThumbInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ScrollTrack") ?? this;
+                            ThumbInstance.Width = 90f;
                             ThumbInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ThumbInstance.X = 5f;
+                            ThumbInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             UpButtonInstance.Height = 5f;
                             UpButtonInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            UpButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            UpButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                             UpButtonInstance.Width = 113f;
                             UpButtonInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                            UpButtonInstance.X = 0f;
                             UpButtonInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             UpButtonInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                            UpButtonInstance.Y = 8f;
-                            ScrollTrack.Height = 88.88889f;
+                            UpButtonInstance.Y = 0.5f;
+                            UpButtonInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            ScrollTrack.Height = 89.5f;
                             ScrollTrack.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ScrollTrack.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            ScrollTrack.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                             ScrollTrack.Width = 100f;
                             ScrollTrack.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             DownButtonInstance.Height = 5f;
                             DownButtonInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            DownButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            DownButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                             DownButtonInstance.CurrentUpDownState = AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.UpDown.Down;
                             DownButtonInstance.Width = 113f;
                             DownButtonInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
+                            DownButtonInstance.X = -3f;
                             DownButtonInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             DownButtonInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                            DownButtonInstance.Y = -8f;
+                            DownButtonInstance.Y = 5f;
                             DownButtonInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
-                            DownButtonInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                            DownButtonInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             ContainerInstance.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                             ContainerInstance.Height = 100f;
                             ContainerInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -142,6 +147,10 @@
                 bool setDownButtonInstanceWidthSecondValue = false;
                 float DownButtonInstanceWidthFirstValue= 0;
                 float DownButtonInstanceWidthSecondValue= 0;
+                bool setDownButtonInstanceXFirstValue = false;
+                bool setDownButtonInstanceXSecondValue = false;
+                float DownButtonInstanceXFirstValue= 0;
+                float DownButtonInstanceXSecondValue= 0;
                 bool setDownButtonInstanceYFirstValue = false;
                 bool setDownButtonInstanceYSecondValue = false;
                 float DownButtonInstanceYFirstValue= 0;
@@ -166,6 +175,10 @@
                 bool setThumbInstanceWidthSecondValue = false;
                 float ThumbInstanceWidthFirstValue= 0;
                 float ThumbInstanceWidthSecondValue= 0;
+                bool setThumbInstanceXFirstValue = false;
+                bool setThumbInstanceXSecondValue = false;
+                float ThumbInstanceXFirstValue= 0;
+                float ThumbInstanceXSecondValue= 0;
                 bool setUpButtonInstanceHeightFirstValue = false;
                 bool setUpButtonInstanceHeightSecondValue = false;
                 float UpButtonInstanceHeightFirstValue= 0;
@@ -174,6 +187,10 @@
                 bool setUpButtonInstanceWidthSecondValue = false;
                 float UpButtonInstanceWidthFirstValue= 0;
                 float UpButtonInstanceWidthSecondValue= 0;
+                bool setUpButtonInstanceXFirstValue = false;
+                bool setUpButtonInstanceXSecondValue = false;
+                float UpButtonInstanceXFirstValue= 0;
+                float UpButtonInstanceXSecondValue= 0;
                 bool setUpButtonInstanceYFirstValue = false;
                 bool setUpButtonInstanceYSecondValue = false;
                 float UpButtonInstanceYFirstValue= 0;
@@ -237,7 +254,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.DownButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.DownButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         setDownButtonInstanceCurrentUpDownStateFirstValue = true;
                         DownButtonInstanceCurrentUpDownStateFirstValue = AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.UpDown.Down;
@@ -247,6 +264,8 @@
                         {
                             this.DownButtonInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                         }
+                        setDownButtonInstanceXFirstValue = true;
+                        DownButtonInstanceXFirstValue = -3f;
                         if (interpolationValue < 1)
                         {
                             this.DownButtonInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
@@ -256,14 +275,14 @@
                             this.DownButtonInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setDownButtonInstanceYFirstValue = true;
-                        DownButtonInstanceYFirstValue = -8f;
+                        DownButtonInstanceYFirstValue = 5f;
                         if (interpolationValue < 1)
                         {
                             this.DownButtonInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.DownButtonInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                            this.DownButtonInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setHeightFirstValue = true;
                         HeightFirstValue = 100f;
@@ -272,14 +291,14 @@
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setScrollTrackHeightFirstValue = true;
-                        ScrollTrackHeightFirstValue = 88.88889f;
+                        ScrollTrackHeightFirstValue = 89.5f;
                         if (interpolationValue < 1)
                         {
                             this.ScrollTrack.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ScrollTrack.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.ScrollTrack.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         setScrollTrackWidthFirstValue = true;
                         ScrollTrackWidthFirstValue = 100f;
@@ -295,13 +314,19 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ThumbInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ScrollTrack");
+                            this.ThumbInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ScrollTrack") ?? this;
                         }
                         setThumbInstanceWidthFirstValue = true;
-                        ThumbInstanceWidthFirstValue = 100f;
+                        ThumbInstanceWidthFirstValue = 90f;
                         if (interpolationValue < 1)
                         {
                             this.ThumbInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setThumbInstanceXFirstValue = true;
+                        ThumbInstanceXFirstValue = 5f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ThumbInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setUpButtonInstanceHeightFirstValue = true;
                         UpButtonInstanceHeightFirstValue = 5f;
@@ -311,7 +336,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.UpButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.UpButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         setUpButtonInstanceWidthFirstValue = true;
                         UpButtonInstanceWidthFirstValue = 113f;
@@ -319,6 +344,8 @@
                         {
                             this.UpButtonInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                         }
+                        setUpButtonInstanceXFirstValue = true;
+                        UpButtonInstanceXFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
                             this.UpButtonInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
@@ -328,7 +355,11 @@
                             this.UpButtonInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setUpButtonInstanceYFirstValue = true;
-                        UpButtonInstanceYFirstValue = 8f;
+                        UpButtonInstanceYFirstValue = 0.5f;
+                        if (interpolationValue < 1)
+                        {
+                            this.UpButtonInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
                         setWidthFirstValue = true;
                         WidthFirstValue = 5f;
                         if (interpolationValue < 1)
@@ -400,7 +431,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.DownButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.DownButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         setDownButtonInstanceCurrentUpDownStateSecondValue = true;
                         DownButtonInstanceCurrentUpDownStateSecondValue = AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.UpDown.Down;
@@ -410,6 +441,8 @@
                         {
                             this.DownButtonInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                         }
+                        setDownButtonInstanceXSecondValue = true;
+                        DownButtonInstanceXSecondValue = -3f;
                         if (interpolationValue >= 1)
                         {
                             this.DownButtonInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
@@ -419,14 +452,14 @@
                             this.DownButtonInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setDownButtonInstanceYSecondValue = true;
-                        DownButtonInstanceYSecondValue = -8f;
+                        DownButtonInstanceYSecondValue = 5f;
                         if (interpolationValue >= 1)
                         {
                             this.DownButtonInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.DownButtonInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                            this.DownButtonInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setHeightSecondValue = true;
                         HeightSecondValue = 100f;
@@ -435,14 +468,14 @@
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setScrollTrackHeightSecondValue = true;
-                        ScrollTrackHeightSecondValue = 88.88889f;
+                        ScrollTrackHeightSecondValue = 89.5f;
                         if (interpolationValue >= 1)
                         {
                             this.ScrollTrack.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ScrollTrack.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.ScrollTrack.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         setScrollTrackWidthSecondValue = true;
                         ScrollTrackWidthSecondValue = 100f;
@@ -458,13 +491,19 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ThumbInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ScrollTrack");
+                            this.ThumbInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ScrollTrack") ?? this;
                         }
                         setThumbInstanceWidthSecondValue = true;
-                        ThumbInstanceWidthSecondValue = 100f;
+                        ThumbInstanceWidthSecondValue = 90f;
                         if (interpolationValue >= 1)
                         {
                             this.ThumbInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setThumbInstanceXSecondValue = true;
+                        ThumbInstanceXSecondValue = 5f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ThumbInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setUpButtonInstanceHeightSecondValue = true;
                         UpButtonInstanceHeightSecondValue = 5f;
@@ -474,7 +513,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.UpButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.UpButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         setUpButtonInstanceWidthSecondValue = true;
                         UpButtonInstanceWidthSecondValue = 113f;
@@ -482,6 +521,8 @@
                         {
                             this.UpButtonInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                         }
+                        setUpButtonInstanceXSecondValue = true;
+                        UpButtonInstanceXSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
                             this.UpButtonInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
@@ -491,7 +532,11 @@
                             this.UpButtonInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setUpButtonInstanceYSecondValue = true;
-                        UpButtonInstanceYSecondValue = 8f;
+                        UpButtonInstanceYSecondValue = 0.5f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.UpButtonInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
                         setWidthSecondValue = true;
                         WidthSecondValue = 5f;
                         if (interpolationValue >= 1)
@@ -544,6 +589,10 @@
                 {
                     DownButtonInstance.Width = DownButtonInstanceWidthFirstValue * (1 - interpolationValue) + DownButtonInstanceWidthSecondValue * interpolationValue;
                 }
+                if (setDownButtonInstanceXFirstValue && setDownButtonInstanceXSecondValue)
+                {
+                    DownButtonInstance.X = DownButtonInstanceXFirstValue * (1 - interpolationValue) + DownButtonInstanceXSecondValue * interpolationValue;
+                }
                 if (setDownButtonInstanceYFirstValue && setDownButtonInstanceYSecondValue)
                 {
                     DownButtonInstance.Y = DownButtonInstanceYFirstValue * (1 - interpolationValue) + DownButtonInstanceYSecondValue * interpolationValue;
@@ -568,6 +617,10 @@
                 {
                     ThumbInstance.Width = ThumbInstanceWidthFirstValue * (1 - interpolationValue) + ThumbInstanceWidthSecondValue * interpolationValue;
                 }
+                if (setThumbInstanceXFirstValue && setThumbInstanceXSecondValue)
+                {
+                    ThumbInstance.X = ThumbInstanceXFirstValue * (1 - interpolationValue) + ThumbInstanceXSecondValue * interpolationValue;
+                }
                 if (setUpButtonInstanceHeightFirstValue && setUpButtonInstanceHeightSecondValue)
                 {
                     UpButtonInstance.Height = UpButtonInstanceHeightFirstValue * (1 - interpolationValue) + UpButtonInstanceHeightSecondValue * interpolationValue;
@@ -575,6 +628,10 @@
                 if (setUpButtonInstanceWidthFirstValue && setUpButtonInstanceWidthSecondValue)
                 {
                     UpButtonInstance.Width = UpButtonInstanceWidthFirstValue * (1 - interpolationValue) + UpButtonInstanceWidthSecondValue * interpolationValue;
+                }
+                if (setUpButtonInstanceXFirstValue && setUpButtonInstanceXSecondValue)
+                {
+                    UpButtonInstance.X = UpButtonInstanceXFirstValue * (1 - interpolationValue) + UpButtonInstanceXSecondValue * interpolationValue;
                 }
                 if (setUpButtonInstanceYFirstValue && setUpButtonInstanceYSecondValue)
                 {
@@ -906,6 +963,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "ThumbInstance.X",
+                            Type = "float",
+                            Value = ThumbInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ThumbInstance.X Units",
+                            Type = "PositionUnitType",
+                            Value = ThumbInstance.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "UpButtonInstance.Height",
                             Type = "float",
                             Value = UpButtonInstance.Height
@@ -946,6 +1019,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "UpButtonInstance.X",
+                            Type = "float",
+                            Value = UpButtonInstance.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "UpButtonInstance.X Origin",
                             Type = "HorizontalAlignment",
                             Value = UpButtonInstance.XOrigin
@@ -965,6 +1046,14 @@
                             Name = "UpButtonInstance.Y",
                             Type = "float",
                             Value = UpButtonInstance.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpButtonInstance.Y Units",
+                            Type = "PositionUnitType",
+                            Value = UpButtonInstance.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1053,6 +1142,14 @@
                             Name = "DownButtonInstance.Width Units",
                             Type = "DimensionUnitType",
                             Value = DownButtonInstance.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DownButtonInstance.X",
+                            Type = "float",
+                            Value = DownButtonInstance.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1294,7 +1391,7 @@
                             SetsValue = true,
                             Name = "ThumbInstance.Width",
                             Type = "float",
-                            Value = ThumbInstance.Width + 100f
+                            Value = ThumbInstance.Width + 90f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1303,6 +1400,22 @@
                             Name = "ThumbInstance.Width Units",
                             Type = "DimensionUnitType",
                             Value = ThumbInstance.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ThumbInstance.X",
+                            Type = "float",
+                            Value = ThumbInstance.X + 5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ThumbInstance.X Units",
+                            Type = "PositionUnitType",
+                            Value = ThumbInstance.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1348,6 +1461,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "UpButtonInstance.X",
+                            Type = "float",
+                            Value = UpButtonInstance.X + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "UpButtonInstance.X Origin",
                             Type = "HorizontalAlignment",
                             Value = UpButtonInstance.XOrigin
@@ -1366,7 +1487,15 @@
                             SetsValue = true,
                             Name = "UpButtonInstance.Y",
                             Type = "float",
-                            Value = UpButtonInstance.Y + 8f
+                            Value = UpButtonInstance.Y + 0.5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UpButtonInstance.Y Units",
+                            Type = "PositionUnitType",
+                            Value = UpButtonInstance.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1374,7 +1503,7 @@
                             SetsValue = true,
                             Name = "ScrollTrack.Height",
                             Type = "float",
-                            Value = ScrollTrack.Height + 88.88889f
+                            Value = ScrollTrack.Height + 89.5f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1460,6 +1589,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "DownButtonInstance.X",
+                            Type = "float",
+                            Value = DownButtonInstance.X + -3f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "DownButtonInstance.X Origin",
                             Type = "HorizontalAlignment",
                             Value = DownButtonInstance.XOrigin
@@ -1478,7 +1615,7 @@
                             SetsValue = true,
                             Name = "DownButtonInstance.Y",
                             Type = "float",
-                            Value = DownButtonInstance.Y + -8f
+                            Value = DownButtonInstance.Y + 5f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

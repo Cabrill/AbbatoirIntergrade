@@ -4884,28 +4884,28 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.SpriteRuntime BackgroundMapSprite { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TechnologyTreeRuntime TechnologyTreeInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance1 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance2 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance3 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance4 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance5 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance6 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance7 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance8 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance9 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance10 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ScreenDimRectangle { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.StyleBarRuntime StyleBarInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime OptionsButtonInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime ChatHistoryInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.OkMessageRuntime OkMessageInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TowerSelectionBoxRuntime TowerSelectionBoxInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.SpriteRuntime BackgroundMapSprite { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.TechnologyTreeRuntime TechnologyTreeInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance1 { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance2 { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance3 { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance4 { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance5 { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance6 { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance7 { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance8 { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance9 { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime LevelButtonInstance10 { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ScreenDimRectangle { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.StyleBarRuntime StyleBarInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime OptionsButtonInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime ChatHistoryInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.OkMessageRuntime OkMessageInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.TowerSelectionBoxRuntime TowerSelectionBoxInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
             public MapScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)

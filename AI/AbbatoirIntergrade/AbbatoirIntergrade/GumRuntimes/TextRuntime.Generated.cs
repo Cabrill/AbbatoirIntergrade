@@ -34,9 +34,15 @@
             {
                 Default
             }
+            public enum ColorCategory
+            {
+                Gray,
+                Black
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
+            ColorCategory mCurrentColorCategoryState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -76,6 +82,30 @@
                             Y = 0f;
                             YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                             YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                            break;
+                    }
+                }
+            }
+            public ColorCategory CurrentColorCategoryState
+            {
+                get
+                {
+                    return mCurrentColorCategoryState;
+                }
+                set
+                {
+                    mCurrentColorCategoryState = value;
+                    switch(mCurrentColorCategoryState)
+                    {
+                        case  ColorCategory.Gray:
+                            Blue = 208;
+                            Green = 208;
+                            Red = 208;
+                            break;
+                        case  ColorCategory.Black:
+                            Blue = 49;
+                            Green = 49;
+                            Red = 49;
                             break;
                     }
                 }
@@ -357,6 +387,85 @@
                     mCurrentVariableState = secondState;
                 }
             }
+            public void InterpolateBetween (ColorCategory firstState, ColorCategory secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                bool setBlueFirstValue = false;
+                bool setBlueSecondValue = false;
+                int BlueFirstValue= 0;
+                int BlueSecondValue= 0;
+                bool setGreenFirstValue = false;
+                bool setGreenSecondValue = false;
+                int GreenFirstValue= 0;
+                int GreenSecondValue= 0;
+                bool setRedFirstValue = false;
+                bool setRedSecondValue = false;
+                int RedFirstValue= 0;
+                int RedSecondValue= 0;
+                switch(firstState)
+                {
+                    case  ColorCategory.Gray:
+                        setBlueFirstValue = true;
+                        BlueFirstValue = 208;
+                        setGreenFirstValue = true;
+                        GreenFirstValue = 208;
+                        setRedFirstValue = true;
+                        RedFirstValue = 208;
+                        break;
+                    case  ColorCategory.Black:
+                        setBlueFirstValue = true;
+                        BlueFirstValue = 49;
+                        setGreenFirstValue = true;
+                        GreenFirstValue = 49;
+                        setRedFirstValue = true;
+                        RedFirstValue = 49;
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  ColorCategory.Gray:
+                        setBlueSecondValue = true;
+                        BlueSecondValue = 208;
+                        setGreenSecondValue = true;
+                        GreenSecondValue = 208;
+                        setRedSecondValue = true;
+                        RedSecondValue = 208;
+                        break;
+                    case  ColorCategory.Black:
+                        setBlueSecondValue = true;
+                        BlueSecondValue = 49;
+                        setGreenSecondValue = true;
+                        GreenSecondValue = 49;
+                        setRedSecondValue = true;
+                        RedSecondValue = 49;
+                        break;
+                }
+                if (setBlueFirstValue && setBlueSecondValue)
+                {
+                    Blue = FlatRedBall.Math.MathFunctions.RoundToInt(BlueFirstValue* (1 - interpolationValue) + BlueSecondValue * interpolationValue);
+                }
+                if (setGreenFirstValue && setGreenSecondValue)
+                {
+                    Green = FlatRedBall.Math.MathFunctions.RoundToInt(GreenFirstValue* (1 - interpolationValue) + GreenSecondValue * interpolationValue);
+                }
+                if (setRedFirstValue && setRedSecondValue)
+                {
+                    Red = FlatRedBall.Math.MathFunctions.RoundToInt(RedFirstValue* (1 - interpolationValue) + RedSecondValue * interpolationValue);
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentColorCategoryState = firstState;
+                }
+                else
+                {
+                    mCurrentColorCategoryState = secondState;
+                }
+            }
             #endregion
             #region State Interpolate To
             public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.TextRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.TextRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
@@ -409,6 +518,60 @@
                 }
                 tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
                 tweener.Ended += ()=> this.CurrentVariableState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.TextRuntime.ColorCategory fromState,AbbatoirIntergrade.GumRuntimes.TextRuntime.ColorCategory toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (ColorCategory toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "ColorCategory").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentColorCategoryState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (ColorCategory toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentColorCategoryState = toState;
                 tweener.Start();
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
@@ -841,6 +1004,126 @@
                 }
                 return newState;
             }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (ColorCategory state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  ColorCategory.Gray:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Blue",
+                            Type = "int",
+                            Value = Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Green",
+                            Type = "int",
+                            Value = Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Red",
+                            Type = "int",
+                            Value = Red
+                        }
+                        );
+                        break;
+                    case  ColorCategory.Black:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Blue",
+                            Type = "int",
+                            Value = Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Green",
+                            Type = "int",
+                            Value = Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Red",
+                            Type = "int",
+                            Value = Red
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (ColorCategory state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  ColorCategory.Gray:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Blue",
+                            Type = "int",
+                            Value = Blue + 208
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Green",
+                            Type = "int",
+                            Value = Green + 208
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Red",
+                            Type = "int",
+                            Value = Red + 208
+                        }
+                        );
+                        break;
+                    case  ColorCategory.Black:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Blue",
+                            Type = "int",
+                            Value = Blue + 49
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Green",
+                            Type = "int",
+                            Value = Green + 49
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Red",
+                            Type = "int",
+                            Value = Red + 49
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
             #endregion
             public override void ApplyState (Gum.DataTypes.Variables.StateSave state) 
             {
@@ -851,6 +1134,11 @@
                     if (category == null)
                     {
                         if (state.Name == "Default") this.mCurrentVariableState = VariableState.Default;
+                    }
+                    else if (category.Name == "ColorCategory")
+                    {
+                        if(state.Name == "Gray") this.mCurrentColorCategoryState = ColorCategory.Gray;
+                        if(state.Name == "Black") this.mCurrentColorCategoryState = ColorCategory.Black;
                     }
                 }
                 base.ApplyState(state);

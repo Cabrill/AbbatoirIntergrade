@@ -35,7 +35,7 @@
                             SoundText.FontScale = 1f;
                             SoundText.Height = 20f;
                             SoundText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            SoundText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer");
+                            SoundText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer") ?? this;
                             SoundText.Text = "Sound Volume";
                             SoundText.UseCustomFont = true;
                             SoundText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
@@ -43,24 +43,52 @@
                             NamesContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                             NamesContainer.Height = 100f;
                             NamesContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            NamesContainer.Width = 50f;
+                            NamesContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionsDisplayContainer") ?? this;
+                            NamesContainer.Width = 49f;
                             NamesContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            SoundSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer");
+                            SoundSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer") ?? this;
                             OptionContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                             OptionContainer.Height = 100f;
                             OptionContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            OptionContainer.Width = 50f;
+                            OptionContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionsDisplayContainer") ?? this;
+                            OptionContainer.Width = 49f;
                             OptionContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            OptionContainer.X = 1f;
+                            OptionContainer.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             SetProperty("MusicText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             MusicText.FontScale = 1f;
                             MusicText.Height = 20f;
                             MusicText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            MusicText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer");
+                            MusicText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer") ?? this;
                             MusicText.Text = "Music Volume";
                             MusicText.UseCustomFont = true;
                             MusicText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             MusicText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            MusicSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer");
+                            MusicSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer") ?? this;
+                            SetProperty("ResolutionText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            ResolutionText.FontScale = 1f;
+                            ResolutionText.Height = 20f;
+                            ResolutionText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ResolutionText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer") ?? this;
+                            ResolutionText.Text = "Full Screen";
+                            ResolutionText.UseCustomFont = true;
+                            ResolutionText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            ResolutionText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            FullScreenCheckBox.CheckBoxText = "";
+                            FullScreenCheckBox.Height = 15f;
+                            FullScreenCheckBox.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            FullScreenCheckBox.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer") ?? this;
+                            FullScreenCheckBox.Width = 14.5f;
+                            FullScreenCheckBox.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            FullScreenCheckBox.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            FullScreenCheckBox.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            FullScreenCheckBox.Y = 2.5f;
+                            FullScreenCheckBox.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                            OptionsDisplayContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                            OptionsDisplayContainer.Height = 100f;
+                            OptionsDisplayContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            OptionsDisplayContainer.Width = 100f;
+                            OptionsDisplayContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             break;
                     }
                 }
@@ -75,6 +103,18 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
+                bool setFullScreenCheckBoxHeightFirstValue = false;
+                bool setFullScreenCheckBoxHeightSecondValue = false;
+                float FullScreenCheckBoxHeightFirstValue= 0;
+                float FullScreenCheckBoxHeightSecondValue= 0;
+                bool setFullScreenCheckBoxWidthFirstValue = false;
+                bool setFullScreenCheckBoxWidthSecondValue = false;
+                float FullScreenCheckBoxWidthFirstValue= 0;
+                float FullScreenCheckBoxWidthSecondValue= 0;
+                bool setFullScreenCheckBoxYFirstValue = false;
+                bool setFullScreenCheckBoxYSecondValue = false;
+                float FullScreenCheckBoxYFirstValue= 0;
+                float FullScreenCheckBoxYSecondValue= 0;
                 bool setHeightFirstValue = false;
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
@@ -103,6 +143,26 @@
                 bool setOptionContainerWidthSecondValue = false;
                 float OptionContainerWidthFirstValue= 0;
                 float OptionContainerWidthSecondValue= 0;
+                bool setOptionContainerXFirstValue = false;
+                bool setOptionContainerXSecondValue = false;
+                float OptionContainerXFirstValue= 0;
+                float OptionContainerXSecondValue= 0;
+                bool setOptionsDisplayContainerHeightFirstValue = false;
+                bool setOptionsDisplayContainerHeightSecondValue = false;
+                float OptionsDisplayContainerHeightFirstValue= 0;
+                float OptionsDisplayContainerHeightSecondValue= 0;
+                bool setOptionsDisplayContainerWidthFirstValue = false;
+                bool setOptionsDisplayContainerWidthSecondValue = false;
+                float OptionsDisplayContainerWidthFirstValue= 0;
+                float OptionsDisplayContainerWidthSecondValue= 0;
+                bool setResolutionTextFontScaleFirstValue = false;
+                bool setResolutionTextFontScaleSecondValue = false;
+                float ResolutionTextFontScaleFirstValue= 0;
+                float ResolutionTextFontScaleSecondValue= 0;
+                bool setResolutionTextHeightFirstValue = false;
+                bool setResolutionTextHeightSecondValue = false;
+                float ResolutionTextHeightFirstValue= 0;
+                float ResolutionTextHeightSecondValue= 0;
                 bool setSoundTextFontScaleFirstValue = false;
                 bool setSoundTextFontScaleSecondValue = false;
                 float SoundTextFontScaleFirstValue= 0;
@@ -122,6 +182,40 @@
                         {
                             this.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.FullScreenCheckBox.CheckBoxText = "";
+                        }
+                        setFullScreenCheckBoxHeightFirstValue = true;
+                        FullScreenCheckBoxHeightFirstValue = 15f;
+                        if (interpolationValue < 1)
+                        {
+                            this.FullScreenCheckBox.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.FullScreenCheckBox.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer") ?? this;
+                        }
+                        setFullScreenCheckBoxWidthFirstValue = true;
+                        FullScreenCheckBoxWidthFirstValue = 14.5f;
+                        if (interpolationValue < 1)
+                        {
+                            this.FullScreenCheckBox.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.FullScreenCheckBox.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.FullScreenCheckBox.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        setFullScreenCheckBoxYFirstValue = true;
+                        FullScreenCheckBoxYFirstValue = 2.5f;
+                        if (interpolationValue < 1)
+                        {
+                            this.FullScreenCheckBox.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
                         setHeightFirstValue = true;
                         HeightFirstValue = 50f;
                         if (interpolationValue < 1)
@@ -130,7 +224,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.MusicSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer");
+                            this.MusicSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -146,7 +240,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.MusicText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer");
+                            this.MusicText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -174,8 +268,12 @@
                         {
                             this.NamesContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.NamesContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionsDisplayContainer") ?? this;
+                        }
                         setNamesContainerWidthFirstValue = true;
-                        NamesContainerWidthFirstValue = 50f;
+                        NamesContainerWidthFirstValue = 49f;
                         if (interpolationValue < 1)
                         {
                             this.NamesContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -190,15 +288,73 @@
                         {
                             this.OptionContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.OptionContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionsDisplayContainer") ?? this;
+                        }
                         setOptionContainerWidthFirstValue = true;
-                        OptionContainerWidthFirstValue = 50f;
+                        OptionContainerWidthFirstValue = 49f;
                         if (interpolationValue < 1)
                         {
                             this.OptionContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setOptionContainerXFirstValue = true;
+                        OptionContainerXFirstValue = 1f;
                         if (interpolationValue < 1)
                         {
-                            this.SoundSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer");
+                            this.OptionContainer.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.OptionsDisplayContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                        }
+                        setOptionsDisplayContainerHeightFirstValue = true;
+                        OptionsDisplayContainerHeightFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.OptionsDisplayContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setOptionsDisplayContainerWidthFirstValue = true;
+                        OptionsDisplayContainerWidthFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.OptionsDisplayContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("ResolutionText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
+                        setResolutionTextFontScaleFirstValue = true;
+                        ResolutionTextFontScaleFirstValue = 1f;
+                        setResolutionTextHeightFirstValue = true;
+                        ResolutionTextHeightFirstValue = 20f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ResolutionText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ResolutionText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer") ?? this;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ResolutionText.Text = "Full Screen";
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ResolutionText.UseCustomFont = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ResolutionText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ResolutionText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.SoundSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -214,7 +370,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.SoundText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer");
+                            this.SoundText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -251,6 +407,40 @@
                         {
                             this.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            this.FullScreenCheckBox.CheckBoxText = "";
+                        }
+                        setFullScreenCheckBoxHeightSecondValue = true;
+                        FullScreenCheckBoxHeightSecondValue = 15f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.FullScreenCheckBox.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.FullScreenCheckBox.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer") ?? this;
+                        }
+                        setFullScreenCheckBoxWidthSecondValue = true;
+                        FullScreenCheckBoxWidthSecondValue = 14.5f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.FullScreenCheckBox.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.FullScreenCheckBox.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.FullScreenCheckBox.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        setFullScreenCheckBoxYSecondValue = true;
+                        FullScreenCheckBoxYSecondValue = 2.5f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.FullScreenCheckBox.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
                         setHeightSecondValue = true;
                         HeightSecondValue = 50f;
                         if (interpolationValue >= 1)
@@ -259,7 +449,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.MusicSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer");
+                            this.MusicSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -275,7 +465,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.MusicText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer");
+                            this.MusicText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -303,8 +493,12 @@
                         {
                             this.NamesContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            this.NamesContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionsDisplayContainer") ?? this;
+                        }
                         setNamesContainerWidthSecondValue = true;
-                        NamesContainerWidthSecondValue = 50f;
+                        NamesContainerWidthSecondValue = 49f;
                         if (interpolationValue >= 1)
                         {
                             this.NamesContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -319,15 +513,73 @@
                         {
                             this.OptionContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            this.OptionContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionsDisplayContainer") ?? this;
+                        }
                         setOptionContainerWidthSecondValue = true;
-                        OptionContainerWidthSecondValue = 50f;
+                        OptionContainerWidthSecondValue = 49f;
                         if (interpolationValue >= 1)
                         {
                             this.OptionContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setOptionContainerXSecondValue = true;
+                        OptionContainerXSecondValue = 1f;
                         if (interpolationValue >= 1)
                         {
-                            this.SoundSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer");
+                            this.OptionContainer.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.OptionsDisplayContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                        }
+                        setOptionsDisplayContainerHeightSecondValue = true;
+                        OptionsDisplayContainerHeightSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.OptionsDisplayContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        setOptionsDisplayContainerWidthSecondValue = true;
+                        OptionsDisplayContainerWidthSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.OptionsDisplayContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("ResolutionText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
+                        setResolutionTextFontScaleSecondValue = true;
+                        ResolutionTextFontScaleSecondValue = 1f;
+                        setResolutionTextHeightSecondValue = true;
+                        ResolutionTextHeightSecondValue = 20f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ResolutionText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ResolutionText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer") ?? this;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ResolutionText.Text = "Full Screen";
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ResolutionText.UseCustomFont = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ResolutionText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ResolutionText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.SoundSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -343,7 +595,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.SoundText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer");
+                            this.SoundText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -373,6 +625,18 @@
                         }
                         break;
                 }
+                if (setFullScreenCheckBoxHeightFirstValue && setFullScreenCheckBoxHeightSecondValue)
+                {
+                    FullScreenCheckBox.Height = FullScreenCheckBoxHeightFirstValue * (1 - interpolationValue) + FullScreenCheckBoxHeightSecondValue * interpolationValue;
+                }
+                if (setFullScreenCheckBoxWidthFirstValue && setFullScreenCheckBoxWidthSecondValue)
+                {
+                    FullScreenCheckBox.Width = FullScreenCheckBoxWidthFirstValue * (1 - interpolationValue) + FullScreenCheckBoxWidthSecondValue * interpolationValue;
+                }
+                if (setFullScreenCheckBoxYFirstValue && setFullScreenCheckBoxYSecondValue)
+                {
+                    FullScreenCheckBox.Y = FullScreenCheckBoxYFirstValue * (1 - interpolationValue) + FullScreenCheckBoxYSecondValue * interpolationValue;
+                }
                 if (setHeightFirstValue && setHeightSecondValue)
                 {
                     Height = HeightFirstValue * (1 - interpolationValue) + HeightSecondValue * interpolationValue;
@@ -400,6 +664,26 @@
                 if (setOptionContainerWidthFirstValue && setOptionContainerWidthSecondValue)
                 {
                     OptionContainer.Width = OptionContainerWidthFirstValue * (1 - interpolationValue) + OptionContainerWidthSecondValue * interpolationValue;
+                }
+                if (setOptionContainerXFirstValue && setOptionContainerXSecondValue)
+                {
+                    OptionContainer.X = OptionContainerXFirstValue * (1 - interpolationValue) + OptionContainerXSecondValue * interpolationValue;
+                }
+                if (setOptionsDisplayContainerHeightFirstValue && setOptionsDisplayContainerHeightSecondValue)
+                {
+                    OptionsDisplayContainer.Height = OptionsDisplayContainerHeightFirstValue * (1 - interpolationValue) + OptionsDisplayContainerHeightSecondValue * interpolationValue;
+                }
+                if (setOptionsDisplayContainerWidthFirstValue && setOptionsDisplayContainerWidthSecondValue)
+                {
+                    OptionsDisplayContainer.Width = OptionsDisplayContainerWidthFirstValue * (1 - interpolationValue) + OptionsDisplayContainerWidthSecondValue * interpolationValue;
+                }
+                if (setResolutionTextFontScaleFirstValue && setResolutionTextFontScaleSecondValue)
+                {
+                    ResolutionText.FontScale = ResolutionTextFontScaleFirstValue * (1 - interpolationValue) + ResolutionTextFontScaleSecondValue * interpolationValue;
+                }
+                if (setResolutionTextHeightFirstValue && setResolutionTextHeightSecondValue)
+                {
+                    ResolutionText.Height = ResolutionTextHeightFirstValue * (1 - interpolationValue) + ResolutionTextHeightSecondValue * interpolationValue;
                 }
                 if (setSoundTextFontScaleFirstValue && setSoundTextFontScaleSecondValue)
                 {
@@ -486,6 +770,7 @@
                 base.StopAnimations();
                 SoundSlider.StopAnimations();
                 MusicSlider.StopAnimations();
+                FullScreenCheckBox.StopAnimations();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -641,6 +926,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "NamesContainer.Parent",
+                            Type = "string",
+                            Value = NamesContainer.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "NamesContainer.Width",
                             Type = "float",
                             Value = NamesContainer.Width
@@ -689,6 +982,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "OptionContainer.Parent",
+                            Type = "string",
+                            Value = OptionContainer.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "OptionContainer.Width",
                             Type = "float",
                             Value = OptionContainer.Width
@@ -700,6 +1001,22 @@
                             Name = "OptionContainer.Width Units",
                             Type = "DimensionUnitType",
                             Value = OptionContainer.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionContainer.X",
+                            Type = "float",
+                            Value = OptionContainer.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionContainer.X Units",
+                            Type = "PositionUnitType",
+                            Value = OptionContainer.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -780,6 +1097,198 @@
                             Name = "MusicSlider.Parent",
                             Type = "string",
                             Value = MusicSlider.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.CustomFontFile",
+                            Type = "string",
+                            Value = ResolutionText.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.Font Scale",
+                            Type = "float",
+                            Value = ResolutionText.FontScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.Height",
+                            Type = "float",
+                            Value = ResolutionText.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ResolutionText.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.Parent",
+                            Type = "string",
+                            Value = ResolutionText.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.Text",
+                            Type = "string",
+                            Value = ResolutionText.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.UseCustomFont",
+                            Type = "bool",
+                            Value = ResolutionText.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.VerticalAlignment",
+                            Type = "VerticalAlignment",
+                            Value = ResolutionText.VerticalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ResolutionText.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.CheckBoxText",
+                            Type = "string",
+                            Value = FullScreenCheckBox.CheckBoxText
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.Height",
+                            Type = "float",
+                            Value = FullScreenCheckBox.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = FullScreenCheckBox.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.Parent",
+                            Type = "string",
+                            Value = FullScreenCheckBox.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.Width",
+                            Type = "float",
+                            Value = FullScreenCheckBox.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = FullScreenCheckBox.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = FullScreenCheckBox.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.X Units",
+                            Type = "PositionUnitType",
+                            Value = FullScreenCheckBox.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.Y",
+                            Type = "float",
+                            Value = FullScreenCheckBox.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.Y Units",
+                            Type = "PositionUnitType",
+                            Value = FullScreenCheckBox.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsDisplayContainer.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = OptionsDisplayContainer.ChildrenLayout
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsDisplayContainer.Height",
+                            Type = "float",
+                            Value = OptionsDisplayContainer.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsDisplayContainer.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = OptionsDisplayContainer.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsDisplayContainer.Width",
+                            Type = "float",
+                            Value = OptionsDisplayContainer.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsDisplayContainer.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = OptionsDisplayContainer.WidthUnits
                         }
                         );
                         break;
@@ -939,9 +1448,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "NamesContainer.Parent",
+                            Type = "string",
+                            Value = NamesContainer.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "NamesContainer.Width",
                             Type = "float",
-                            Value = NamesContainer.Width + 50f
+                            Value = NamesContainer.Width + 49f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -987,9 +1504,17 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "OptionContainer.Parent",
+                            Type = "string",
+                            Value = OptionContainer.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "OptionContainer.Width",
                             Type = "float",
-                            Value = OptionContainer.Width + 50f
+                            Value = OptionContainer.Width + 49f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -998,6 +1523,22 @@
                             Name = "OptionContainer.Width Units",
                             Type = "DimensionUnitType",
                             Value = OptionContainer.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionContainer.X",
+                            Type = "float",
+                            Value = OptionContainer.X + 1f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionContainer.X Units",
+                            Type = "PositionUnitType",
+                            Value = OptionContainer.XUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1080,6 +1621,198 @@
                             Value = MusicSlider.Parent
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.CustomFontFile",
+                            Type = "string",
+                            Value = ResolutionText.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.Font Scale",
+                            Type = "float",
+                            Value = ResolutionText.FontScale + 1f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.Height",
+                            Type = "float",
+                            Value = ResolutionText.Height + 20f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ResolutionText.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.Parent",
+                            Type = "string",
+                            Value = ResolutionText.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.Text",
+                            Type = "string",
+                            Value = ResolutionText.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.UseCustomFont",
+                            Type = "bool",
+                            Value = ResolutionText.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.VerticalAlignment",
+                            Type = "VerticalAlignment",
+                            Value = ResolutionText.VerticalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ResolutionText.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.CheckBoxText",
+                            Type = "string",
+                            Value = FullScreenCheckBox.CheckBoxText
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.Height",
+                            Type = "float",
+                            Value = FullScreenCheckBox.Height + 15f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = FullScreenCheckBox.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.Parent",
+                            Type = "string",
+                            Value = FullScreenCheckBox.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.Width",
+                            Type = "float",
+                            Value = FullScreenCheckBox.Width + 14.5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = FullScreenCheckBox.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = FullScreenCheckBox.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.X Units",
+                            Type = "PositionUnitType",
+                            Value = FullScreenCheckBox.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.Y",
+                            Type = "float",
+                            Value = FullScreenCheckBox.Y + 2.5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.Y Units",
+                            Type = "PositionUnitType",
+                            Value = FullScreenCheckBox.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsDisplayContainer.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = OptionsDisplayContainer.ChildrenLayout
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsDisplayContainer.Height",
+                            Type = "float",
+                            Value = OptionsDisplayContainer.Height + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsDisplayContainer.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = OptionsDisplayContainer.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsDisplayContainer.Width",
+                            Type = "float",
+                            Value = OptionsDisplayContainer.Width + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsDisplayContainer.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = OptionsDisplayContainer.WidthUnits
+                        }
+                        );
                         break;
                 }
                 return newState;
@@ -1104,6 +1837,9 @@
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime OptionContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime MusicText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SliderBarRuntime MusicSlider { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.TextRuntime ResolutionText { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.CheckBoxRuntime FullScreenCheckBox { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.ContainerRuntime OptionsDisplayContainer { get; set; }
             public OptionsControlsRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
             {
@@ -1137,6 +1873,9 @@
                 OptionContainer = this.GetGraphicalUiElementByName("OptionContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 MusicText = this.GetGraphicalUiElementByName("MusicText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 MusicSlider = this.GetGraphicalUiElementByName("MusicSlider") as AbbatoirIntergrade.GumRuntimes.SliderBarRuntime;
+                ResolutionText = this.GetGraphicalUiElementByName("ResolutionText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+                FullScreenCheckBox = this.GetGraphicalUiElementByName("FullScreenCheckBox") as AbbatoirIntergrade.GumRuntimes.CheckBoxRuntime;
+                OptionsDisplayContainer = this.GetGraphicalUiElementByName("OptionsDisplayContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

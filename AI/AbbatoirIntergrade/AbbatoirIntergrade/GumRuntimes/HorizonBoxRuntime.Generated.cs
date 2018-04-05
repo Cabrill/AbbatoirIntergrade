@@ -58,7 +58,7 @@
                             YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddleInverted;
                             StarContainer.Height = 1000f;
                             StarContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            StarContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer");
+                            StarContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer") ?? this;
                             StarContainer.Width = 112.5f;
                             StarContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             StarContainer.X = 50f;
@@ -70,7 +70,7 @@
                             SkyRectangle.Green = 222;
                             SkyRectangle.Height = 100f;
                             SkyRectangle.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            SkyRectangle.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer");
+                            SkyRectangle.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer") ?? this;
                             SkyRectangle.Red = 152;
                             SkyRectangle.Visible = true;
                             SkyRectangle.Width = 100f;
@@ -79,7 +79,7 @@
                             SkyRectangle.Y = 0f;
                             SunMoonContainer.Height = 200f;
                             SunMoonContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            SunMoonContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer");
+                            SunMoonContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer") ?? this;
                             SunMoonContainer.Width = 100f;
                             SunMoonContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             VisibleHorizonContainer.ClipsChildren = true;
@@ -89,7 +89,7 @@
                             VisibleHorizonContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             StarrySkySprite.Animate = false;
                             StarrySkySprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            StarrySkySprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StarContainer");
+                            StarrySkySprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StarContainer") ?? this;
                             StarrySkySprite.Rotation = -45f;
                             SetProperty("StarrySkySprite.SourceFile", "../Screens/GameScreen/starry_sky.png");
                             StarrySkySprite.Visible = true;
@@ -104,7 +104,7 @@
                             SunSprite.Green = 160;
                             SunSprite.Height = 22.222f;
                             SunSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            SunSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer");
+                            SunSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer") ?? this;
                             SetProperty("SunSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
                             SunSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             SunSprite.TextureHeight = 256;
@@ -123,7 +123,7 @@
                             MoonSprite.Green = 0;
                             MoonSprite.Height = 13.3332f;
                             MoonSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            MoonSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer");
+                            MoonSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer") ?? this;
                             SetProperty("MoonSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
                             MoonSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             MoonSprite.TextureHeight = 256;
@@ -139,7 +139,7 @@
                             MoonSprite.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddleInverted;
                             SkyHazeSprite.Alpha = 200;
                             SkyHazeSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            SkyHazeSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer");
+                            SkyHazeSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer") ?? this;
                             SetProperty("SkyHazeSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
                             SkyHazeSprite.TextureAddress = Gum.Managers.TextureAddress.Custom;
                             SkyHazeSprite.TextureHeight = 144;
@@ -154,7 +154,7 @@
                             DawnDuskSprite.Green = 140;
                             DawnDuskSprite.Height = 25f;
                             DawnDuskSprite.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            DawnDuskSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer");
+                            DawnDuskSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer") ?? this;
                             DawnDuskSprite.Red = 255;
                             DawnDuskSprite.Rotation = 0f;
                             SetProperty("DawnDuskSprite.SourceFile", "../Screens/GameScreen/AllAssetsSheet.png");
@@ -681,7 +681,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.DawnDuskSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer");
+                            this.DawnDuskSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer") ?? this;
                         }
                         setDawnDuskSpriteRedFirstValue = true;
                         DawnDuskSpriteRedFirstValue = 255;
@@ -789,7 +789,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.MoonSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer");
+                            this.MoonSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -841,7 +841,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.SkyHazeSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer");
+                            this.SkyHazeSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -881,7 +881,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.SkyRectangle.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer");
+                            this.SkyRectangle.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer") ?? this;
                         }
                         setSkyRectangleRedFirstValue = true;
                         SkyRectangleRedFirstValue = 152;
@@ -907,7 +907,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.StarContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer");
+                            this.StarContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer") ?? this;
                         }
                         setStarContainerWidthFirstValue = true;
                         StarContainerWidthFirstValue = 112.5f;
@@ -939,7 +939,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.StarrySkySprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StarContainer");
+                            this.StarrySkySprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StarContainer") ?? this;
                         }
                         setStarrySkySpriteRotationFirstValue = true;
                         StarrySkySpriteRotationFirstValue = -45f;
@@ -983,7 +983,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.SunMoonContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer");
+                            this.SunMoonContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer") ?? this;
                         }
                         setSunMoonContainerWidthFirstValue = true;
                         SunMoonContainerWidthFirstValue = 100f;
@@ -1003,7 +1003,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.SunSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer");
+                            this.SunSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -1184,7 +1184,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.DawnDuskSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer");
+                            this.DawnDuskSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer") ?? this;
                         }
                         setDawnDuskSpriteRedSecondValue = true;
                         DawnDuskSpriteRedSecondValue = 255;
@@ -1292,7 +1292,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.MoonSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer");
+                            this.MoonSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1344,7 +1344,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.SkyHazeSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer");
+                            this.SkyHazeSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1384,7 +1384,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.SkyRectangle.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer");
+                            this.SkyRectangle.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer") ?? this;
                         }
                         setSkyRectangleRedSecondValue = true;
                         SkyRectangleRedSecondValue = 152;
@@ -1410,7 +1410,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.StarContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer");
+                            this.StarContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer") ?? this;
                         }
                         setStarContainerWidthSecondValue = true;
                         StarContainerWidthSecondValue = 112.5f;
@@ -1442,7 +1442,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.StarrySkySprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StarContainer");
+                            this.StarrySkySprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StarContainer") ?? this;
                         }
                         setStarrySkySpriteRotationSecondValue = true;
                         StarrySkySpriteRotationSecondValue = -45f;
@@ -1486,7 +1486,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.SunMoonContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer");
+                            this.SunMoonContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "VisibleHorizonContainer") ?? this;
                         }
                         setSunMoonContainerWidthSecondValue = true;
                         SunMoonContainerWidthSecondValue = 100f;
@@ -1506,7 +1506,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.SunSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer");
+                            this.SunSprite.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SunMoonContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {

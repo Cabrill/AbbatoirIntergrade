@@ -20,10 +20,16 @@
   <RequiredInstances>
     <InstanceSave>
       <Name>ListBoxInstance</Name>
+      <Behaviors>
+        <BehaviorReference>
+          <Name>ListBoxBehavior</Name>
+        </BehaviorReference>
+      </Behaviors>
     </InstanceSave>
     <InstanceSave>
       <Name>TextInstance</Name>
       <BaseType>Text</BaseType>
+      <Behaviors />
     </InstanceSave>
   </RequiredInstances>
 </BehaviorSave>

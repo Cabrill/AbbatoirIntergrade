@@ -52,7 +52,7 @@
                             StatsContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                             StatsContainer.Height = 88.80209f;
                             StatsContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            StatsContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TallInfoFrameInstance");
+                            StatsContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TallInfoFrameInstance") ?? this;
                             StatsContainer.Width = 67.44791f;
                             StatsContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             StatsContainer.WrapsChildren = true;
@@ -60,7 +60,7 @@
                             StatsContainer.Y = 29f;
                             NameContainer.Height = 19f;
                             NameContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            NameContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            NameContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                             NameContainer.Width = 100f;
                             NameContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             SetProperty("NameText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
@@ -71,7 +71,7 @@
                             NameText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             NameText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             NameText.OutlineThickness = 2;
-                            NameText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer");
+                            NameText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer") ?? this;
                             NameText.Text = "Enemy";
                             NameText.UseCustomFont = true;
                             NameText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
@@ -86,62 +86,62 @@
                             HealthDisplay.AttributeText = "5";
                             HealthDisplay.Height = 20f;
                             HealthDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            HealthDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            HealthDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                             HealthDisplay.Width = 100f;
                             HealthDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             SpeedDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MoveSpeed;
                             SpeedDisplay.AttributeText = "200";
                             SpeedDisplay.Height = 20f;
                             SpeedDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            SpeedDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            SpeedDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                             SpeedDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ResistanceContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                             ResistanceContainer.Height = 40f;
                             ResistanceContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ResistanceContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            ResistanceContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                             ResistanceContainer.Width = 100f;
                             ResistanceContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             LeftResistances.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                             LeftResistances.Height = 100f;
                             LeftResistances.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            LeftResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer");
+                            LeftResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer") ?? this;
                             LeftResistances.Width = 50f;
                             LeftResistances.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             RightResistances.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                             RightResistances.Height = 100f;
                             RightResistances.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            RightResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer");
+                            RightResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer") ?? this;
                             RightResistances.Width = 50f;
                             RightResistances.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             PiercingResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Piercing;
                             PiercingResist.Height = 33.3f;
                             PiercingResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            PiercingResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
+                            PiercingResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances") ?? this;
                             PiercingResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ChemicalResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Chemical;
                             ChemicalResist.Height = 33.3f;
                             ChemicalResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ChemicalResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
+                            ChemicalResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances") ?? this;
                             ChemicalResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             FrostResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Frost;
                             FrostResist.Height = 33.3f;
                             FrostResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            FrostResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
+                            FrostResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances") ?? this;
                             FrostResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             BombardResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Bombarding;
                             BombardResist.Height = 33.3f;
                             BombardResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            BombardResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
+                            BombardResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances") ?? this;
                             BombardResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ElectricResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Electric;
                             ElectricResist.Height = 33.3f;
                             ElectricResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ElectricResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
+                            ElectricResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances") ?? this;
                             ElectricResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             FireResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Fire;
                             FireResist.Height = 33.3f;
                             FireResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            FireResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
+                            FireResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances") ?? this;
                             FireResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             break;
                     }
@@ -332,7 +332,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.BombardResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
+                            this.BombardResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -350,7 +350,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ChemicalResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
+                            this.ChemicalResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -376,7 +376,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ElectricResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
+                            this.ElectricResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -394,7 +394,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.FireResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
+                            this.FireResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -412,7 +412,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.FrostResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
+                            this.FrostResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -434,7 +434,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.HealthDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.HealthDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                         }
                         setHealthDisplayWidthFirstValue = true;
                         HealthDisplayWidthFirstValue = 100f;
@@ -460,7 +460,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.LeftResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer");
+                            this.LeftResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer") ?? this;
                         }
                         setLeftResistancesWidthFirstValue = true;
                         LeftResistancesWidthFirstValue = 50f;
@@ -476,7 +476,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.NameContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.NameContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                         }
                         setNameContainerWidthFirstValue = true;
                         NameContainerWidthFirstValue = 100f;
@@ -510,7 +510,7 @@
                         NameTextOutlineThicknessFirstValue = 2;
                         if (interpolationValue < 1)
                         {
-                            this.NameText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer");
+                            this.NameText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -552,7 +552,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.PiercingResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
+                            this.PiercingResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -570,7 +570,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ResistanceContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.ResistanceContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                         }
                         setResistanceContainerWidthFirstValue = true;
                         ResistanceContainerWidthFirstValue = 100f;
@@ -590,7 +590,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.RightResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer");
+                            this.RightResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer") ?? this;
                         }
                         setRightResistancesWidthFirstValue = true;
                         RightResistancesWidthFirstValue = 50f;
@@ -614,7 +614,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.SpeedDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.SpeedDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -632,7 +632,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.StatsContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TallInfoFrameInstance");
+                            this.StatsContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TallInfoFrameInstance") ?? this;
                         }
                         setStatsContainerWidthFirstValue = true;
                         StatsContainerWidthFirstValue = 67.44791f;
@@ -699,7 +699,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.BombardResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
+                            this.BombardResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -717,7 +717,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ChemicalResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
+                            this.ChemicalResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -743,7 +743,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ElectricResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
+                            this.ElectricResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -761,7 +761,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.FireResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances");
+                            this.FireResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -779,7 +779,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.FrostResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
+                            this.FrostResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -801,7 +801,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.HealthDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.HealthDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                         }
                         setHealthDisplayWidthSecondValue = true;
                         HealthDisplayWidthSecondValue = 100f;
@@ -827,7 +827,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.LeftResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer");
+                            this.LeftResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer") ?? this;
                         }
                         setLeftResistancesWidthSecondValue = true;
                         LeftResistancesWidthSecondValue = 50f;
@@ -843,7 +843,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.NameContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.NameContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                         }
                         setNameContainerWidthSecondValue = true;
                         NameContainerWidthSecondValue = 100f;
@@ -877,7 +877,7 @@
                         NameTextOutlineThicknessSecondValue = 2;
                         if (interpolationValue >= 1)
                         {
-                            this.NameText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer");
+                            this.NameText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NameContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -919,7 +919,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.PiercingResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances");
+                            this.PiercingResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -937,7 +937,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ResistanceContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.ResistanceContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                         }
                         setResistanceContainerWidthSecondValue = true;
                         ResistanceContainerWidthSecondValue = 100f;
@@ -957,7 +957,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.RightResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer");
+                            this.RightResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer") ?? this;
                         }
                         setRightResistancesWidthSecondValue = true;
                         RightResistancesWidthSecondValue = 50f;
@@ -981,7 +981,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.SpeedDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer");
+                            this.SpeedDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -999,7 +999,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.StatsContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TallInfoFrameInstance");
+                            this.StatsContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TallInfoFrameInstance") ?? this;
                         }
                         setStatsContainerWidthSecondValue = true;
                         StatsContainerWidthSecondValue = 67.44791f;

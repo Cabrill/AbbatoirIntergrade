@@ -38,7 +38,7 @@
                             SetProperty("TextInstance.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                             TextInstance.FontScale = 0.8f;
                             TextInstance.Height = 917f;
-                            TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LargeInfoFrameInstance");
+                            TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LargeInfoFrameInstance") ?? this;
                             TextInstance.UseCustomFont = true;
                             TextInstance.Width = 1584f;
                             TextInstance.X = 11.73942f;
@@ -47,7 +47,7 @@
                             TextInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             OKButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
                             OKButton.Height = 100f;
-                            OKButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LargeInfoFrameInstance");
+                            OKButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LargeInfoFrameInstance") ?? this;
                             OKButton.Width = 10f;
                             OKButton.X = 86.74876f;
                             OKButton.XUnits = Gum.Converters.GeneralUnitType.Percentage;
@@ -142,7 +142,7 @@
                         OKButtonHeightFirstValue = 100f;
                         if (interpolationValue < 1)
                         {
-                            this.OKButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LargeInfoFrameInstance");
+                            this.OKButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LargeInfoFrameInstance") ?? this;
                         }
                         setOKButtonWidthFirstValue = true;
                         OKButtonWidthFirstValue = 10f;
@@ -168,7 +168,7 @@
                         TextInstanceHeightFirstValue = 917f;
                         if (interpolationValue < 1)
                         {
-                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LargeInfoFrameInstance");
+                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LargeInfoFrameInstance") ?? this;
                         }
                         if (interpolationValue < 1)
                         {
@@ -231,7 +231,7 @@
                         OKButtonHeightSecondValue = 100f;
                         if (interpolationValue >= 1)
                         {
-                            this.OKButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LargeInfoFrameInstance");
+                            this.OKButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LargeInfoFrameInstance") ?? this;
                         }
                         setOKButtonWidthSecondValue = true;
                         OKButtonWidthSecondValue = 10f;
@@ -257,7 +257,7 @@
                         TextInstanceHeightSecondValue = 917f;
                         if (interpolationValue >= 1)
                         {
-                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LargeInfoFrameInstance");
+                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LargeInfoFrameInstance") ?? this;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -938,6 +938,7 @@
             public OkMessageRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
             {
+                this.HasEvents = false;
                 if (fullInstantiation)
                 {
                     Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "infodisplays/OkMessage");

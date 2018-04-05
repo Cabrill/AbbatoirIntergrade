@@ -53,7 +53,6 @@
                         case  VariableState.Default:
                             Alpha = 255;
                             Animate = false;
-                            Blend = Gum.RenderingLibrary.Blend.Normal;
                             Blue = 255;
                             FlipHorizontal = false;
                             FlipVertical = false;
@@ -163,10 +162,6 @@
                         {
                             this.Animate = false;
                         }
-                        if (interpolationValue < 1)
-                        {
-                            this.Blend = Gum.RenderingLibrary.Blend.Normal;
-                        }
                         setBlueFirstValue = true;
                         BlueFirstValue = 255;
                         if (interpolationValue < 1)
@@ -253,10 +248,6 @@
                         if (interpolationValue >= 1)
                         {
                             this.Animate = false;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.Blend = Gum.RenderingLibrary.Blend.Normal;
                         }
                         setBlueSecondValue = true;
                         BlueSecondValue = 255;
@@ -494,14 +485,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Blend",
-                            Type = "Blend",
-                            Value = Blend
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "Blue",
                             Type = "int",
                             Value = Blue
@@ -731,14 +714,6 @@
                             Name = "Animate",
                             Type = "bool",
                             Value = Animate
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Blend",
-                            Type = "Blend",
-                            Value = Blend
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
