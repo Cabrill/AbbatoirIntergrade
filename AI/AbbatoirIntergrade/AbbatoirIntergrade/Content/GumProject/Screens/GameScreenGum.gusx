@@ -266,6 +266,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>OptionsState</Type>
+      <Name>MenuWindowInstance.OptionsState</Name>
+      <Value xsi:type="xsd:string">NoFullScreen</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>bool</Type>
       <Name>MenuWindowInstance.Visible</Name>
       <Value xsi:type="xsd:boolean">false</Value>

@@ -65,6 +65,7 @@
                             ChatHistoryInstance.Y = 0f;
                             ScreenShadeInstance.Visible = false;
                             MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
+                            MenuWindowInstance.CurrentOptionsState = AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime.Options.NoFullScreen;
                             MenuWindowInstance.Visible = false;
                             DimmingRectangle.Alpha = 0;
                             DimmingRectangle.Blue = 0;
@@ -334,6 +335,10 @@
                 bool setLocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue = false;
                 LocationTimeAnnouncementRuntime.Displaying LocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue= LocationTimeAnnouncementRuntime.Displaying.Start;
                 LocationTimeAnnouncementRuntime.Displaying LocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue= LocationTimeAnnouncementRuntime.Displaying.Start;
+                bool setMenuWindowInstanceCurrentOptionsStateFirstValue = false;
+                bool setMenuWindowInstanceCurrentOptionsStateSecondValue = false;
+                MenuWindowRuntime.Options MenuWindowInstanceCurrentOptionsStateFirstValue= MenuWindowRuntime.Options.Visible;
+                MenuWindowRuntime.Options MenuWindowInstanceCurrentOptionsStateSecondValue= MenuWindowRuntime.Options.Visible;
                 bool setReadyButtonInstanceXFirstValue = false;
                 bool setReadyButtonInstanceXSecondValue = false;
                 float ReadyButtonInstanceXFirstValue= 0;
@@ -473,6 +478,8 @@
                         {
                             this.MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
                         }
+                        setMenuWindowInstanceCurrentOptionsStateFirstValue = true;
+                        MenuWindowInstanceCurrentOptionsStateFirstValue = AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime.Options.NoFullScreen;
                         if (interpolationValue < 1)
                         {
                             this.MenuWindowInstance.Visible = false;
@@ -650,6 +657,8 @@
                         {
                             this.MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
                         }
+                        setMenuWindowInstanceCurrentOptionsStateSecondValue = true;
+                        MenuWindowInstanceCurrentOptionsStateSecondValue = AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime.Options.NoFullScreen;
                         if (interpolationValue >= 1)
                         {
                             this.MenuWindowInstance.Visible = false;
@@ -791,6 +800,10 @@
                 if (setLocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue && setLocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue)
                 {
                     LocationTimeAnnouncementInstance.InterpolateBetween(LocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue, LocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue, interpolationValue);
+                }
+                if (setMenuWindowInstanceCurrentOptionsStateFirstValue && setMenuWindowInstanceCurrentOptionsStateSecondValue)
+                {
+                    MenuWindowInstance.InterpolateBetween(MenuWindowInstanceCurrentOptionsStateFirstValue, MenuWindowInstanceCurrentOptionsStateSecondValue, interpolationValue);
                 }
                 if (setReadyButtonInstanceXFirstValue && setReadyButtonInstanceXSecondValue)
                 {
@@ -2369,6 +2382,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "MenuWindowInstance.OptionsState",
+                            Type = "OptionsState",
+                            Value = MenuWindowInstance.CurrentOptionsState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "MenuWindowInstance.Visible",
                             Type = "bool",
                             Value = MenuWindowInstance.Visible
@@ -2822,6 +2843,14 @@
                             Name = "MenuWindowInstance.ButtonType1State",
                             Type = "ButtonTypeState",
                             Value = MenuWindowInstance.ButtonType1State
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MenuWindowInstance.OptionsState",
+                            Type = "OptionsState",
+                            Value = MenuWindowInstance.CurrentOptionsState
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

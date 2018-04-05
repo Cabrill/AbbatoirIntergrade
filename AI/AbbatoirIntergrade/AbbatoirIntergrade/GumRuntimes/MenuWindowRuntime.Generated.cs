@@ -11,7 +11,8 @@
             public enum Options
             {
                 Visible,
-                Hidden
+                Hidden,
+                NoFullScreen
             }
             #endregion
             #region State Fields
@@ -155,10 +156,16 @@
                     switch(mCurrentOptionsState)
                     {
                         case  Options.Visible:
+                            OptionsControlsInstance.CurrentVariableState = AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.Default;
                             OptionsControlsInstance.Visible = true;
                             break;
                         case  Options.Hidden:
+                            OptionsControlsInstance.CurrentVariableState = AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.Default;
                             OptionsControlsInstance.Visible = false;
+                            break;
+                        case  Options.NoFullScreen:
+                            OptionsControlsInstance.CurrentVariableState = AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.HiddenFullScreen;
+                            OptionsControlsInstance.Visible = true;
                             break;
                     }
                 }
@@ -1296,35 +1303,67 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
+                bool setOptionsControlsInstanceCurrentVariableStateFirstValue = false;
+                bool setOptionsControlsInstanceCurrentVariableStateSecondValue = false;
+                OptionsControlsRuntime.VariableState OptionsControlsInstanceCurrentVariableStateFirstValue= OptionsControlsRuntime.VariableState.Default;
+                OptionsControlsRuntime.VariableState OptionsControlsInstanceCurrentVariableStateSecondValue= OptionsControlsRuntime.VariableState.Default;
                 switch(firstState)
                 {
                     case  Options.Visible:
+                        setOptionsControlsInstanceCurrentVariableStateFirstValue = true;
+                        OptionsControlsInstanceCurrentVariableStateFirstValue = AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.Default;
                         if (interpolationValue < 1)
                         {
                             this.OptionsControlsInstance.Visible = true;
                         }
                         break;
                     case  Options.Hidden:
+                        setOptionsControlsInstanceCurrentVariableStateFirstValue = true;
+                        OptionsControlsInstanceCurrentVariableStateFirstValue = AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.Default;
                         if (interpolationValue < 1)
                         {
                             this.OptionsControlsInstance.Visible = false;
+                        }
+                        break;
+                    case  Options.NoFullScreen:
+                        setOptionsControlsInstanceCurrentVariableStateFirstValue = true;
+                        OptionsControlsInstanceCurrentVariableStateFirstValue = AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.HiddenFullScreen;
+                        if (interpolationValue < 1)
+                        {
+                            this.OptionsControlsInstance.Visible = true;
                         }
                         break;
                 }
                 switch(secondState)
                 {
                     case  Options.Visible:
+                        setOptionsControlsInstanceCurrentVariableStateSecondValue = true;
+                        OptionsControlsInstanceCurrentVariableStateSecondValue = AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.Default;
                         if (interpolationValue >= 1)
                         {
                             this.OptionsControlsInstance.Visible = true;
                         }
                         break;
                     case  Options.Hidden:
+                        setOptionsControlsInstanceCurrentVariableStateSecondValue = true;
+                        OptionsControlsInstanceCurrentVariableStateSecondValue = AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.Default;
                         if (interpolationValue >= 1)
                         {
                             this.OptionsControlsInstance.Visible = false;
                         }
                         break;
+                    case  Options.NoFullScreen:
+                        setOptionsControlsInstanceCurrentVariableStateSecondValue = true;
+                        OptionsControlsInstanceCurrentVariableStateSecondValue = AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.HiddenFullScreen;
+                        if (interpolationValue >= 1)
+                        {
+                            this.OptionsControlsInstance.Visible = true;
+                        }
+                        break;
+                }
+                if (setOptionsControlsInstanceCurrentVariableStateFirstValue && setOptionsControlsInstanceCurrentVariableStateSecondValue)
+                {
+                    OptionsControlsInstance.InterpolateBetween(OptionsControlsInstanceCurrentVariableStateFirstValue, OptionsControlsInstanceCurrentVariableStateSecondValue, interpolationValue);
                 }
                 if (interpolationValue < 1)
                 {
@@ -3217,6 +3256,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "OptionsControlsInstance.State",
+                            Type = "State",
+                            Value = OptionsControlsInstance.CurrentVariableState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "OptionsControlsInstance.Visible",
                             Type = "bool",
                             Value = OptionsControlsInstance.Visible
@@ -3224,6 +3271,32 @@
                         );
                         break;
                     case  Options.Hidden:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsControlsInstance.State",
+                            Type = "State",
+                            Value = OptionsControlsInstance.CurrentVariableState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsControlsInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsControlsInstance.Visible
+                        }
+                        );
+                        break;
+                    case  Options.NoFullScreen:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsControlsInstance.State",
+                            Type = "State",
+                            Value = OptionsControlsInstance.CurrentVariableState
+                        }
+                        );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -3245,6 +3318,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "OptionsControlsInstance.State",
+                            Type = "State",
+                            Value = OptionsControlsInstance.CurrentVariableState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "OptionsControlsInstance.Visible",
                             Type = "bool",
                             Value = OptionsControlsInstance.Visible
@@ -3252,6 +3333,32 @@
                         );
                         break;
                     case  Options.Hidden:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsControlsInstance.State",
+                            Type = "State",
+                            Value = OptionsControlsInstance.CurrentVariableState
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsControlsInstance.Visible",
+                            Type = "bool",
+                            Value = OptionsControlsInstance.Visible
+                        }
+                        );
+                        break;
+                    case  Options.NoFullScreen:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "OptionsControlsInstance.State",
+                            Type = "State",
+                            Value = OptionsControlsInstance.CurrentVariableState
+                        }
+                        );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
@@ -3279,6 +3386,7 @@
                     {
                         if(state.Name == "Visible") this.mCurrentOptionsState = Options.Visible;
                         if(state.Name == "Hidden") this.mCurrentOptionsState = Options.Hidden;
+                        if(state.Name == "NoFullScreen") this.mCurrentOptionsState = Options.NoFullScreen;
                     }
                 }
                 base.ApplyState(state);

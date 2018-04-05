@@ -730,6 +730,12 @@
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
+      <Variable>
+        <Type>State</Type>
+        <Name>OptionsControlsInstance.State</Name>
+        <Value xsi:type="xsd:string">Default</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
     </State>
     <State>
       <Name>Hidden</Name>
@@ -737,6 +743,27 @@
         <Type>bool</Type>
         <Name>OptionsControlsInstance.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>State</Type>
+        <Name>OptionsControlsInstance.State</Name>
+        <Value xsi:type="xsd:string">Default</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>NoFullScreen</Name>
+      <Variable>
+        <Type>State</Type>
+        <Name>OptionsControlsInstance.State</Name>
+        <Value xsi:type="xsd:string">HiddenFullScreen</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>OptionsControlsInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

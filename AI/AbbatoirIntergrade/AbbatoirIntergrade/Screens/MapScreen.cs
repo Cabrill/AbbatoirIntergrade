@@ -30,8 +30,6 @@ namespace AbbatoirIntergrade.Screens
 	{
 	    private SoundEffectInstance StructureChoiceSound;
 
-	    private bool hasPopulatedChat;
-
 		void CustomInitialize()
 		{
 		    LocalLogManager.AddLine("Main Menu - Load GameState Data");
@@ -223,19 +221,21 @@ namespace AbbatoirIntergrade.Screens
                             FlatRedBallServices.Game.Exit();
                         });
                     });
-                    menuWindow.ButtonType3State = ButtonFrameRuntime.ButtonType.Disabled;
-                    //menuWindow.AssignEventToButton3(window => {
-                    //    LocalLogManager.AddLine("Main Menu - Show chat history");
-                    //    if (!hasPopulatedChat)
-                    //    {
-                    //        ChatHistoryInstance.PopulateWithAllChatHistory();
-                    //        hasPopulatedChat = true;
-                    //    }
-                    //    ChatHistoryInstance.Visible = true; });
+                    //menuWindow.ButtonType3State = ButtonFrameRuntime.ButtonType.Disabled;
+                    menuWindow.AssignEventToButton3(window =>
+                    {
+                        LocalLogManager.AddLine("Main Menu - Show chat history");
+                            ChatHistoryInstance.PopulateWithAllChatHistory();
+                        ChatHistoryInstance.Visible = true;
+                    });
                     menuWindow.AssignEventToButton4(window => OkMessageInstance.ShowMessage(Messages["Intro"].MessageText));
 	            }
 	        }
-	        ChatHistoryInstance.CloseButtonClick += (sender, args) => ChatHistoryInstance.Visible = false;
+	        ChatHistoryInstance.CloseButtonClick += (sender, args) =>
+	        {
+	            ChatHistoryInstance.Children.Clear();
+	            ChatHistoryInstance.Visible = false;
+	        };
 	    }
 
 	    private void ShowMenu(IWindow window)

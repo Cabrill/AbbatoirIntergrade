@@ -571,11 +571,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 StructureUpgradeStatusInstance.Visible = false;
                 return;
             }
+            StructureUpgradeStatusInstance.Parent = null;
+            
 
             StructureUpgradeStatusInstance.Visible = true;
 
             StructureUpgradeStatusInstance.X = X;
             StructureUpgradeStatusInstance.Y = Y;
+            
 
             if (_upgradesApplied.Count == 3)
             {

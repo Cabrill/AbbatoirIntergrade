@@ -6,7 +6,8 @@
             #region State Enums
             public enum VariableState
             {
-                Default
+                Default,
+                HiddenFullScreen
             }
             #endregion
             #region State Fields
@@ -89,6 +90,10 @@
                             OptionsDisplayContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             OptionsDisplayContainer.Width = 100f;
                             OptionsDisplayContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            break;
+                        case  VariableState.HiddenFullScreen:
+                            ResolutionText.Visible = false;
+                            FullScreenCheckBox.Visible = false;
                             break;
                     }
                 }
@@ -399,6 +404,16 @@
                             this.WrapsChildren = true;
                         }
                         break;
+                    case  VariableState.HiddenFullScreen:
+                        if (interpolationValue < 1)
+                        {
+                            this.FullScreenCheckBox.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ResolutionText.Visible = false;
+                        }
+                        break;
                 }
                 switch(secondState)
                 {
@@ -622,6 +637,16 @@
                         if (interpolationValue >= 1)
                         {
                             this.WrapsChildren = true;
+                        }
+                        break;
+                    case  VariableState.HiddenFullScreen:
+                        if (interpolationValue >= 1)
+                        {
+                            this.FullScreenCheckBox.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ResolutionText.Visible = false;
                         }
                         break;
                 }
@@ -1292,6 +1317,24 @@
                         }
                         );
                         break;
+                    case  VariableState.HiddenFullScreen:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.Visible",
+                            Type = "bool",
+                            Value = ResolutionText.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.Visible",
+                            Type = "bool",
+                            Value = FullScreenCheckBox.Visible
+                        }
+                        );
+                        break;
                 }
                 return newState;
             }
@@ -1814,6 +1857,24 @@
                         }
                         );
                         break;
+                    case  VariableState.HiddenFullScreen:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResolutionText.Visible",
+                            Type = "bool",
+                            Value = ResolutionText.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FullScreenCheckBox.Visible",
+                            Type = "bool",
+                            Value = FullScreenCheckBox.Visible
+                        }
+                        );
+                        break;
                 }
                 return newState;
             }
@@ -1827,6 +1888,7 @@
                     if (category == null)
                     {
                         if (state.Name == "Default") this.mCurrentVariableState = VariableState.Default;
+                        if (state.Name == "HiddenFullScreen") this.mCurrentVariableState = VariableState.HiddenFullScreen;
                     }
                 }
                 base.ApplyState(state);

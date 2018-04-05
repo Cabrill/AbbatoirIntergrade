@@ -403,6 +403,21 @@
       <SetsValue>true</SetsValue>
     </Variable>
   </State>
+  <State>
+    <Name>HiddenFullScreen</Name>
+    <Variable>
+      <Type>bool</Type>
+      <Name>FullScreenCheckBox.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>ResolutionText.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+  </State>
   <Instance>
     <Name>SoundText</Name>
     <BaseType>Text</BaseType>

@@ -31,8 +31,8 @@ namespace AbbatoirIntergrade.Screens
 #endif
             GameStateManager.LoadIfNecessary();
 
-            endingReached = PlayerDataManager.PlayerEndingReached;
-
+            //endingReached = PlayerDataManager.PlayerEndingReached;
+            endingReached = EndingTypes.Silent;
 		    EndingTextContainer.EndingTextText = EndingText[endingReached.ToString()].EndingWords;
 
             switch (endingReached)
@@ -70,7 +70,7 @@ namespace AbbatoirIntergrade.Screens
 
 		    if (isDisplayingCredits)
 		    {
-		        (CreditsContainer.Children[0] as GraphicalUiElement).Y -= (float)TimeManager.CurrentTime/3;
+		        (CreditsContainer.Children[0] as GraphicalUiElement).Y -= TimeManager.LastSecondDifference*35;
 
 		        var lastItem = CreditsContainer.Children[CreditsContainer.Children.Count - 1];
 		        var lastItemHeight = lastItem.Height;
