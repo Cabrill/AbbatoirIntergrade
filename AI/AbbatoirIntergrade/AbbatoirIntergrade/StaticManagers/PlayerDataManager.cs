@@ -44,7 +44,7 @@ namespace AbbatoirIntergrade.StaticManagers
         public static int TotalWavesSent => Data.ChapterResults.Sum(r => r.WavesCompleted);
         public static int TotalEnemiesKilled => Data.ChapterResults.Sum(r => r.EnemiesDefeated.TotalEnemies);
         public static bool PlayerHasBeatGame => Data.HasBeatenGame;
-        public static int PlayerEndingReached => Data.GotPositiveEnding ? 1 : Data.GotNegativeEnding ? -1 : 0;
+        public static EndingTypes PlayerEndingReached => Data.EndingType;
         public static bool PlayerHasSeenIntro => Data.HasSeenIntro;
 
         private static readonly List<string> AllPossibleTowers = new List<string>()
@@ -163,11 +163,9 @@ namespace AbbatoirIntergrade.StaticManagers
             Data.CurrentPlayDateTime = result.InGameDateTime;
         }
 
-        public static void MarkPlayerReachedEnding(int endingValue)
+        public static void MarkPlayerReachedEnding(EndingTypes endingType)
         {
-            Data.GotPositiveEnding = endingValue > 0;
-            Data.GotNeutralEnding = endingValue == 0;
-            Data.GotNegativeEnding = endingValue < 0;
+            Data.EndingType = endingType;
         }
 
         public static void MarkSeenIntro()

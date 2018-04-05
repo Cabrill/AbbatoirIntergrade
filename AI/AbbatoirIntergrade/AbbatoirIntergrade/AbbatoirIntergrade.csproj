@@ -330,19 +330,6 @@
       <DependentUpon>ConfirmationWindowRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\CreditDisplayRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\DefaultForms\ButtonRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\DefaultForms\CheckBoxRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\DefaultForms\ColoredFrameRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\DefaultForms\ComboBoxRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\DefaultForms\ListBoxItemRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\DefaultForms\ListBoxRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\DefaultForms\RadioButtonRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\DefaultForms\ScrollBarRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\DefaultForms\ScrollBarThumbRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\DefaultForms\ScrollViewerRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\DefaultForms\SliderRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\DefaultForms\TextBoxRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\DefaultForms\ToggleButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\DropDownRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\EndingScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\FlatRedBallSplashGumRuntime.Generated.cs" />

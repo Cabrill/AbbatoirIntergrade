@@ -1057,15 +1057,19 @@ namespace AbbatoirIntergrade.Screens
 
             var currentDisplayMessageName = ChatBoxInstance.CurrentIncomingMessage.DisplayName;
 
-            var endingResult = 0;
+            var endingResult = EndingTypes.Silent;
 
             if (currentDisplayMessageName.Contains("Positive"))
             {
-                endingResult = 1;
+                endingResult = EndingTypes.Positive;
             }
             else if (currentDisplayMessageName.Contains("Negative"))
             {
-                endingResult = -1;    
+                endingResult = EndingTypes.Negative;    
+            }
+            else if (currentDisplayMessageName.Contains("Silence"))
+            {
+                endingResult = EndingTypes.Silent;
             }
 
             PlayerDataManager.MarkPlayerReachedEnding(endingResult);

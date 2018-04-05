@@ -87,11 +87,11 @@ namespace AbbatoirIntergrade.StaticManagers
             AddDeferredEvent("LevelComplete", eventResults);
         }
 
-        public static void SendGameCompleteEvent(int endingResult)
+        public static void SendGameCompleteEvent(EndingTypes endingResult)
         {
             var gameResults = new
             {
-                EndingType = endingResult < 0 ? "Negative" : endingResult > 0 ? "Positive" : "Neutral",
+                EndingType = endingResult.ToString(),
                 TotalPlayTimeInSeconds = PlayerDataManager.TotalPlayTimeInSeconds,
                 TotalWavesSent = PlayerDataManager.TotalWavesSent,
                 TotalEnemiesKilled = PlayerDataManager.TotalEnemiesKilled,

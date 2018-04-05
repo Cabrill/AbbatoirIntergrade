@@ -28,17 +28,11 @@ namespace AbbatoirIntergrade.GameClasses
         [XmlElement("HasSeenIntro")]
         public bool HasSeenIntro { get; set; }
 
+        [XmlElement("EndingType")]
+        public EndingTypes EndingType { get; set; }
+
         [XmlIgnore]
-        public bool HasBeatenGame => GotPositiveEnding || GotNeutralEnding || GotNegativeEnding;
-
-        [XmlElement("GotPositiveEnding")]
-        public bool GotPositiveEnding { get; set; }
-
-        [XmlElement("GotNeutralEnding")]
-        public bool GotNeutralEnding { get; set; }
-
-        [XmlElement("GotNegativeEnding")]
-        public bool GotNegativeEnding { get; set; }
+        public bool HasBeatenGame => EndingType != EndingTypes.None;
 
         [XmlElement("HasTowerChoiceAvailable")]
         public bool HasTowerChoiceAvailable { get; set; }

@@ -9,6 +9,15 @@ using FlatRedBall;
 
 namespace AbbatoirIntergrade
 {
+    public enum EndingTypes
+    {
+        None,
+        Positive,
+        Neutral,
+        Negative,
+        Silent
+    };
+
     public enum DamageTypes
     {
         Piercing,

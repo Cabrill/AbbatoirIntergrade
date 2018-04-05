@@ -21,7 +21,7 @@ namespace AbbatoirIntergrade.Screens
 {
 	public partial class EndingScreen
 	{
-	    private int endingReached;
+	    private EndingTypes endingReached;
 	    private bool isDisplayingCredits;
 
 		void CustomInitialize()
@@ -33,27 +33,34 @@ namespace AbbatoirIntergrade.Screens
 
             endingReached = PlayerDataManager.PlayerEndingReached;
 
-            var endingText = endingReached > 0 ? "Positive" : endingReached < 0 ? "Negative" : "Neutral";
-            EndingTextContainer.EndingTextText = EndingText[endingText].EndingWords;
+		    EndingTextContainer.EndingTextText = EndingText[endingReached.ToString()].EndingWords;
+
+            switch (endingReached)
+		    {
+		        case EndingTypes.None:
+		            break;
+		        case EndingTypes.Positive:
+		            SoundManager.PlaySong(GlobalContent.Brallit_Robotic_Chaotic, true, true);
+		            EndingScreenGumInstance.CurrentEndingsState = EndingScreenGumRuntime.Endings.Positive;
+                    break;
+		        case EndingTypes.Neutral:
+		            SoundManager.PlaySong(GlobalContent.anttisinstrumentals_glitchthis, true, true);
+		            EndingScreenGumInstance.CurrentEndingsState = EndingScreenGumRuntime.Endings.Neutral;
+                    break;
+		        case EndingTypes.Negative:
+		            SoundManager.PlaySong(GlobalContent.Brallit_One_Accord, true, true);
+		            EndingScreenGumInstance.CurrentEndingsState = EndingScreenGumRuntime.Endings.Negative;
+                    break;
+		        case EndingTypes.Silent:
+		            SoundManager.PlaySong(GlobalContent.Brallit_One_Accord, true, true);
+		            EndingScreenGumInstance.CurrentEndingsState = EndingScreenGumRuntime.Endings.Negative;
+                    break;
+		        default:
+		            throw new ArgumentOutOfRangeException();
+		    }
 
             ButtonInstance.Click += HandleButtonClick;
 
-		    if (endingReached > 0)
-		    {
-		        SoundManager.PlaySong(GlobalContent.Brallit_Robotic_Chaotic, true, true);
-                EndingScreenGumInstance.CurrentEndingsState = EndingScreenGumRuntime.Endings.Positive;
-            }
-            else if (endingReached < 0)
-		    {
-		        SoundManager.PlaySong(GlobalContent.Brallit_One_Accord, true, true);
-		        EndingScreenGumInstance.CurrentEndingsState = EndingScreenGumRuntime.Endings.Negative;
-            }
-		    else
-		    {
-                SoundManager.PlaySong(GlobalContent.anttisinstrumentals_glitchthis, true, true);
-		        EndingScreenGumInstance.CurrentEndingsState = EndingScreenGumRuntime.Endings.Neutral;
-            }
-            
             EndingScreenGumInstance.CurrentFadingState = EndingScreenGumRuntime.Fading.Faded;
 		}
 
