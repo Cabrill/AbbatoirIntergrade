@@ -39,6 +39,7 @@
                     {
                         case  VariableState.Default:
                             SetProperty("BackgroundSprite.SourceFile", "../Screens/MainMenu/empty_building.png");
+                            BackgroundSprite.Visible = true;
                             LeftEye.CurrentEyeOpeningState = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Closed;
                             LeftEye.CurrentEyePositionState = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition.Left;
                             LeftEye.Y = -150f;
@@ -183,6 +184,10 @@
                         {
                             SetProperty("BackgroundSprite.SourceFile", "../Screens/MainMenu/empty_building.png");
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.BackgroundSprite.Visible = true;
+                        }
                         setLeftEyeCurrentEyeOpeningStateFirstValue = true;
                         LeftEyeCurrentEyeOpeningStateFirstValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Closed;
                         setLeftEyeCurrentEyePositionStateFirstValue = true;
@@ -265,6 +270,10 @@
                         if (interpolationValue >= 1)
                         {
                             SetProperty("BackgroundSprite.SourceFile", "../Screens/MainMenu/empty_building.png");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.BackgroundSprite.Visible = true;
                         }
                         setLeftEyeCurrentEyeOpeningStateSecondValue = true;
                         LeftEyeCurrentEyeOpeningStateSecondValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Closed;
@@ -1052,6 +1061,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "BackgroundSprite.Visible",
+                            Type = "bool",
+                            Value = BackgroundSprite.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "LeftEye.EyeOpeningState",
                             Type = "EyeOpeningState",
                             Value = LeftEye.CurrentEyeOpeningState
@@ -1265,6 +1282,14 @@
                             Name = "BackgroundSprite.SourceFile",
                             Type = "string",
                             Value = BackgroundSprite.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "BackgroundSprite.Visible",
+                            Type = "bool",
+                            Value = BackgroundSprite.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

@@ -31,8 +31,7 @@ namespace AbbatoirIntergrade.Screens
 #endif
             GameStateManager.LoadIfNecessary();
 
-            //endingReached = PlayerDataManager.PlayerEndingReached;
-            endingReached = EndingTypes.Silent;
+            endingReached = PlayerDataManager.PlayerEndingReached;
 		    EndingTextContainer.EndingTextText = EndingText[endingReached.ToString()].EndingWords;
 
             switch (endingReached)
@@ -123,6 +122,7 @@ namespace AbbatoirIntergrade.Screens
 
 	    private void ReturnToMenu()
 	    {
+	        PlayerDataManager.WipeToRestart();
 	        LoadingScreen.TransitionToScreen(typeof(MainMenu));
 	    }
 

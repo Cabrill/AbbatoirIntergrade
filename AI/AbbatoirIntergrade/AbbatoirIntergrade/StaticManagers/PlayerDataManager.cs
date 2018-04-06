@@ -189,5 +189,14 @@ namespace AbbatoirIntergrade.StaticManagers
         {
             Data.HasSeenIntro = true;
         }
+
+        public static void WipeToRestart()
+        {
+            Data.ChapterResults.Clear();
+            Data.DialogueShownChosen.Clear();
+            Data.ChosenDialogueIds.Clear();
+
+            SaveData();
+        }
     }
 }

@@ -61,6 +61,11 @@ namespace AbbatoirIntergrade.Screens
 	            PlayerDataManager.MarkSeenIntro();
                 PlayerDataManager.SaveData();
 	        }
+            else if (PlayerDataManager.PlayerHasBeatGame && PlayerDataManager.LevelResults.Count == 0)
+	        {
+	            LocalLogManager.AddLine("Main Menu - Show Welcome Back Message");
+	            OkMessageInstance.ShowMessage(Messages["WelcomeBack"].MessageText);
+            }
 	    }
 
 	    private void OfferStructureChoiceIfAvailable()
