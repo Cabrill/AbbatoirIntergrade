@@ -47,7 +47,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
 	            RotationZVelocity = 0;
 	            RotationZ = 0;
 	            SpriteInstance.TextureScale = 1f;
-	            CircleInstance.Radius *= 2;
+	            CircleInstance.Radius = 150;
 	            RotationX = 0;
 	            RotationY = 0;
 	            RotationZ = 0;

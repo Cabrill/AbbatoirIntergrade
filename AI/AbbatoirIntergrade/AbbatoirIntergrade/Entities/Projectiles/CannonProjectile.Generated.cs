@@ -422,7 +422,23 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                 mCircleInstance.CopyAbsoluteToRelative();
                 mCircleInstance.AttachTo(this, false);
             }
-            base.CircleInstance.Radius = 32f;
+            if (CircleInstance.Parent == null)
+            {
+                base.CircleInstance.X = 0f;
+            }
+            else
+            {
+                base.CircleInstance.RelativeX = 0f;
+            }
+            if (CircleInstance.Parent == null)
+            {
+                base.CircleInstance.Y = 0f;
+            }
+            else
+            {
+                base.CircleInstance.RelativeY = 0f;
+            }
+            base.CircleInstance.Radius = 16f;
             base.CircleInstance.Color = Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = false;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
@@ -686,7 +702,23 @@ namespace AbbatoirIntergrade.Entities.Projectiles
             }
             SpriteInstance.Alpha = SpriteInstanceAlphaReset;
             SpriteInstance.AlphaRate = SpriteInstanceAlphaRateReset;
-            base.CircleInstance.Radius = 32f;
+            if (CircleInstance.Parent == null)
+            {
+                base.CircleInstance.X = 0f;
+            }
+            else
+            {
+                base.CircleInstance.RelativeX = 0f;
+            }
+            if (CircleInstance.Parent == null)
+            {
+                base.CircleInstance.Y = 0f;
+            }
+            else
+            {
+                base.CircleInstance.RelativeY = 0f;
+            }
+            base.CircleInstance.Radius = 16f;
             base.CircleInstance.Color = Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = false;
             CircleInstance.Radius = CircleInstanceRadiusReset;

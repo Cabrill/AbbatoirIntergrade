@@ -16,7 +16,7 @@ namespace AbbatoirIntergrade.DataTypes
         public const string Game_Framework = "Game Framework";
         public const string Level_Design_Software = "Level Design Software";
         public const string Story_Editing_Software = "Story Editing Software";
-        public const string Game_Design_Tools = "Game Design Tools";
+        public const string Development_Tools = "Development Tools";
         public const string Supervisors = "Supervisors";
         public const string Special_Thanks = "Special Thanks";
         public static System.Collections.Generic.List<System.String> OrderedList = new System.Collections.Generic.List<System.String>
@@ -32,7 +32,7 @@ namespace AbbatoirIntergrade.DataTypes
         ,Game_Framework
         ,Level_Design_Software
         ,Story_Editing_Software
-        ,Game_Design_Tools
+        ,Development_Tools
         ,Supervisors
         ,Special_Thanks
         };

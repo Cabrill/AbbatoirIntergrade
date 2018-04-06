@@ -155,7 +155,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             CurrentState = VariableState.Impact;
             UpdateAnimation();
 	        CustomHandleImpact(enemy);
-	        CanStillDoDamage = false;
+	        if (!(this is CannonProjectile)) CanStillDoDamage = false;
             Velocity = Vector3.Zero;
         }
 
