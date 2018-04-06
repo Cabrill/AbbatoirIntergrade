@@ -79,9 +79,13 @@ namespace AbbatoirIntergrade
             ReducedTileMapInfo.FastCreateFromTmx = true;
             FlatRedBallServices.InitializeFlatRedBall(this, graphics);
 
-			CameraSetup.SetupCamera(SpriteManager.Camera, graphics);
+            CameraSetup.Data.AllowWidowResizing = !PlayerDataManager.UseFullScreen;
+            CameraSetup.Data.IsFullScreen = PlayerDataManager.UseFullScreen;
+            CameraSetup.Data.Scale = PlayerDataManager.UseFullScreen ? 100f : 50f;
+
+            CameraSetup.SetupCamera(SpriteManager.Camera, graphics);
 			GlobalContent.Initialize();
-			FlatRedBall.Screens.ScreenManager.Start(typeof(AbbatoirIntergrade.Screens.GameScreen));
+			FlatRedBall.Screens.ScreenManager.Start(typeof(AbbatoirIntergrade.Screens.FlatRedBallSplashScreen));
             base.Initialize();
         }
 

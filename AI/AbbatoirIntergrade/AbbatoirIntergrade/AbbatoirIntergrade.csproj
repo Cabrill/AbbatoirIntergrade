@@ -1211,6 +1211,11 @@
       <Name>Zach_Darshon_Sea_of_Dead_Thoughts</Name>
       <Link>content\globalcontent\music\zach_darshon_sea_of_dead_thoughts.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\testsound.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>testsound</Name>
+      <Link>content\globalcontent\testsound.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\desktopgl\screens\gamescreen\effects\darknessshader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>darknessshader</Name>

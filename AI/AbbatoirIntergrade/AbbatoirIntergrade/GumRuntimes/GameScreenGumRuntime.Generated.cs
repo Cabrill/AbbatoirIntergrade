@@ -100,12 +100,6 @@
                             ReadyButtonInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             PointingArrowInstance.Visible = false;
                             TutorialTextInstance.Visible = false;
-                            TutorialTextInstance.X = 0f;
-                            TutorialTextInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
-                            TutorialTextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
-                            TutorialTextInstance.Y = 0f;
-                            TutorialTextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
-                            TutorialTextInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                             break;
                     }
                 }
@@ -347,14 +341,6 @@
                 bool setReadyButtonInstanceYSecondValue = false;
                 float ReadyButtonInstanceYFirstValue= 0;
                 float ReadyButtonInstanceYSecondValue= 0;
-                bool setTutorialTextInstanceXFirstValue = false;
-                bool setTutorialTextInstanceXSecondValue = false;
-                float TutorialTextInstanceXFirstValue= 0;
-                float TutorialTextInstanceXSecondValue= 0;
-                bool setTutorialTextInstanceYFirstValue = false;
-                bool setTutorialTextInstanceYSecondValue = false;
-                float TutorialTextInstanceYFirstValue= 0;
-                float TutorialTextInstanceYSecondValue= 0;
                 switch(firstState)
                 {
                     case  VariableState.Default:
@@ -511,26 +497,6 @@
                         if (interpolationValue < 1)
                         {
                             this.TutorialTextInstance.Visible = false;
-                        }
-                        setTutorialTextInstanceXFirstValue = true;
-                        TutorialTextInstanceXFirstValue = 0f;
-                        if (interpolationValue < 1)
-                        {
-                            this.TutorialTextInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.TutorialTextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
-                        }
-                        setTutorialTextInstanceYFirstValue = true;
-                        TutorialTextInstanceYFirstValue = 0f;
-                        if (interpolationValue < 1)
-                        {
-                            this.TutorialTextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.TutorialTextInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                         }
                         break;
                 }
@@ -691,26 +657,6 @@
                         {
                             this.TutorialTextInstance.Visible = false;
                         }
-                        setTutorialTextInstanceXSecondValue = true;
-                        TutorialTextInstanceXSecondValue = 0f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.TutorialTextInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.TutorialTextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
-                        }
-                        setTutorialTextInstanceYSecondValue = true;
-                        TutorialTextInstanceYSecondValue = 0f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.TutorialTextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.TutorialTextInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
-                        }
                         break;
                 }
                 if (setChatBoxInstanceCurrentAppearanceStateFirstValue && setChatBoxInstanceCurrentAppearanceStateSecondValue)
@@ -812,14 +758,6 @@
                 if (setReadyButtonInstanceYFirstValue && setReadyButtonInstanceYSecondValue)
                 {
                     ReadyButtonInstance.Y = ReadyButtonInstanceYFirstValue * (1 - interpolationValue) + ReadyButtonInstanceYSecondValue * interpolationValue;
-                }
-                if (setTutorialTextInstanceXFirstValue && setTutorialTextInstanceXSecondValue)
-                {
-                    TutorialTextInstance.X = TutorialTextInstanceXFirstValue * (1 - interpolationValue) + TutorialTextInstanceXSecondValue * interpolationValue;
-                }
-                if (setTutorialTextInstanceYFirstValue && setTutorialTextInstanceYSecondValue)
-                {
-                    TutorialTextInstance.Y = TutorialTextInstanceYFirstValue * (1 - interpolationValue) + TutorialTextInstanceYSecondValue * interpolationValue;
                 }
                 if (interpolationValue < 1)
                 {
@@ -2659,54 +2597,6 @@
                             Value = TutorialTextInstance.Visible
                         }
                         );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TutorialTextInstance.X",
-                            Type = "float",
-                            Value = TutorialTextInstance.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TutorialTextInstance.X Origin",
-                            Type = "HorizontalAlignment",
-                            Value = TutorialTextInstance.XOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TutorialTextInstance.X Units",
-                            Type = "PositionUnitType",
-                            Value = TutorialTextInstance.XUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TutorialTextInstance.Y",
-                            Type = "float",
-                            Value = TutorialTextInstance.Y
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TutorialTextInstance.Y Origin",
-                            Type = "VerticalAlignment",
-                            Value = TutorialTextInstance.YOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TutorialTextInstance.Y Units",
-                            Type = "PositionUnitType",
-                            Value = TutorialTextInstance.YUnits
-                        }
-                        );
                         break;
                 }
                 return newState;
@@ -3123,54 +3013,6 @@
                             Name = "TutorialTextInstance.Visible",
                             Type = "bool",
                             Value = TutorialTextInstance.Visible
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TutorialTextInstance.X",
-                            Type = "float",
-                            Value = TutorialTextInstance.X + 0f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TutorialTextInstance.X Origin",
-                            Type = "HorizontalAlignment",
-                            Value = TutorialTextInstance.XOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TutorialTextInstance.X Units",
-                            Type = "PositionUnitType",
-                            Value = TutorialTextInstance.XUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TutorialTextInstance.Y",
-                            Type = "float",
-                            Value = TutorialTextInstance.Y + 0f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TutorialTextInstance.Y Origin",
-                            Type = "VerticalAlignment",
-                            Value = TutorialTextInstance.YOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TutorialTextInstance.Y Units",
-                            Type = "PositionUnitType",
-                            Value = TutorialTextInstance.YUnits
                         }
                         );
                         break;

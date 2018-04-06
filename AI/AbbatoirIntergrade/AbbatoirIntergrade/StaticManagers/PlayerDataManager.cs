@@ -17,6 +17,8 @@ namespace AbbatoirIntergrade.StaticManagers
     {
         private static PlayerData Data { get; set; }
 
+        public static bool UseFullScreen => Data.UseFullScreen;
+
         public static string CurrentPlayerId => Data.PlayerId;
         public static DateTime CurrentGameDateTime => Data.CurrentPlayDateTime;
 
@@ -88,6 +90,21 @@ namespace AbbatoirIntergrade.StaticManagers
             Data.AvailableTowers.Add(typeof(PiercingTower).AssemblyQualifiedName);
 
             Reset();
+        }
+
+        public static void SetSoundVolume(float preferredVolume)
+        {
+            Data.PreferredSoundVolume = preferredVolume;
+        }
+
+        public static void SetMusicVolume(float preferredVolume)
+        {
+            Data.PreferredMusicVolume = preferredVolume;
+        }
+
+        public static void SetFullScreen(bool useFullScreen)
+        {
+            Data.UseFullScreen = useFullScreen;
         }
 
         public static void Reset()

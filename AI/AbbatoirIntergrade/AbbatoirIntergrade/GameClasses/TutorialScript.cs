@@ -36,7 +36,7 @@ namespace AbbatoirIntergrade.GameClasses
     {
         void PointAtGumObject(GraphicalUiElement objectToPointAt, PointingArrowRuntime.PointDirection direction = PointingArrowRuntime.PointDirection.Right, string doName = null);
         void PointAtUpgradeStatus(PointingArrowRuntime.PointDirection direction, string doName = null);
-        void ShowText(string text, bool requiresConfirmation = false, bool allowSkip = false, string doName = null);
+        void ShowText(string text, bool requiresConfirmation = false, bool allowSkip = false, string doName = null, bool onLeft = false);
         void HideText(string doName = null);
         void PauseGame(string doName = null);
         void UnPauseGame(string doName = null);
@@ -81,18 +81,18 @@ namespace AbbatoirIntergrade.GameClasses
             AfterThat();
             Do.HidePointer();
             Do.ShowText("The animals will be here soon, so you need to create a defensive structure.  Move your mouse over the ground, " +
-                        "find a spot on the ground where the cursor isn't red, and then left click to open the build menu.", doName: "CreateTowerInfo");
+                        "find a spot on the ground where the cursor isn't red, and then left click to open the build menu.", doName: "CreateTowerInfo", onLeft:true);
 
             If.BuildMenuShown();
             Do.PointAtGumObject(_gameScreen.BuildMenuInstance.GetGraphicalUiElementByName("BuildButtonInstance0"), doName: "PointAtBuildButton");
             Do.ShowText("This is your menu of available towers.  Right now you can only build an arrow tower, but later you will unlock more." +
-                        "\n\nHover over the arrow tower now.", doName: "HoverButton");
+                        "\n\nHover over the arrow tower now.", doName: "HoverButton", onLeft: true);
 
             If.PiercingTowerHighlighted();
             Do.ShowText("You can now see the damage type (30 piercing), build cost (10 satoshis), min/max range, seconds between attacks, and target type (single/group).  \n\nThe large green circle originating where you " +
                         "clicked represents the firing range, and the red circle is minimum range.  \n\nEnemies in the red circle will be too close for the tower to hit.  " +
                         "\n\nTry building this tower now.", 
-                doName: "ConfirmRange");
+                doName: "ConfirmRange", onLeft: true);
 
             If.StructureExists();
             Do.PointAtGumObject(_gameScreen.LivesPointsDisplayInstance.GetGraphicalUiElementByName("PointsContainer"), 
@@ -113,7 +113,7 @@ namespace AbbatoirIntergrade.GameClasses
             Do.PauseGame();
             Do.PointAtGumObject(_gameScreen.ChatBoxInstance.GetGraphicalUiElementByName("MessageBox"), 
                 PointingArrowRuntime.PointDirection.Left, doName: "PointAtChatBox");
-            Do.ShowText("You have an incoming message.  Click here to read it.");
+            Do.ShowText("You have an incoming message.  Click on the new message indicator to read it.");
 
             If.MessageOpened();
             Do.HidePointer();
@@ -125,7 +125,7 @@ namespace AbbatoirIntergrade.GameClasses
             If.EnemySelected();
             Do.PointAtGumObject(_gameScreen.EnemyInfoInstance, 
                 PointingArrowRuntime.PointDirection.Left, doName: "PointAtEnemyInfo");
-            Do.ShowText("Here you can see the animals health, run speed, and damage resistances.  High resistance (green) means it won't " +
+            Do.ShowText("Here you can see the animals health, run speed, and damage resistances.  Higher resistance (green) means it won't " +
                         "be affected as much by that type of damage, while red means it is very susceptible to that damage type." +
                         "\n\nRight-click anywhere to hide this information.", doName: "ExplainResistances");
 
@@ -147,7 +147,11 @@ namespace AbbatoirIntergrade.GameClasses
             If.StructureUpgraded();
             Do.PointAtUpgradeStatus(PointingArrowRuntime.PointDirection.Up, doName: "PointAtUpgradedStatus");
             Do.ShowText("You can now see the tower has been upgraded.  That's all you need to know to defend your people.  " +
-                        "\n\ngGood luck!", 
+                        "\n\nPS:  Even if you aren't successful in evacuating all your people on a level the game will continue, " +
+                        "so don't fixate on singular success on any particular level.  "+
+                        "\n\nYour main objective should be to find a permanent solution to the conflict, not to succeed in defending any " +
+                        "particular outpost as the animals are generated faster than you could hope to kill them."+
+                        "\n\nGood luck!", 
                 requiresConfirmation:true, doName: "EndTutorialMessage");
 
             AfterThat();
@@ -295,9 +299,9 @@ namespace AbbatoirIntergrade.GameClasses
             generalAction.IsCompleteFunction = () => _gameScreen.PointingArrowInstance.Visible;
         }
 
-        public void ShowText(string text, bool requiresConfirmation = false, bool allowSkip = false, string cmdName = null)
+        public void ShowText(string text, bool requiresConfirmation = false, bool allowSkip = false, string cmdName = null, bool onLeft = false)
         {
-            Action action = () => _gameScreen.TutorialTextInstance.ShowText(text, requiresConfirmation, allowSkip);
+            Action action = () => _gameScreen.TutorialTextInstance.ShowText(text, requiresConfirmation, allowSkip, onLeft);
             var generalAction = CreateGeneralAction(action, cmdName);
             generalAction.IsCompleteFunction = () => !requiresConfirmation || _gameScreen.TutorialTextInstance.HasBeenConfirmed;
         }
@@ -404,8 +408,11 @@ namespace AbbatoirIntergrade.GameClasses
 
         public void Skip()
         {
+            _gameScreen.ReadyButtonInstance.Visible = true;
+
             _gameScreen.PointingArrowInstance.StopAnimations();
             _gameScreen.PointingArrowInstance.Visible = false;
+
             IsFinished = true;
         }
     }

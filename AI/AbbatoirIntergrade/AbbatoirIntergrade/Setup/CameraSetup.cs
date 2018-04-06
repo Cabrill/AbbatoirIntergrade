@@ -29,7 +29,7 @@
                 ResolutionHeight = 1440,
                 Is2D = true,
                 AspectRatio = 1.7777777777777777777777777778m,
-                IsFullScreen = false,
+                IsFullScreen = true,
                 AllowWidowResizing = false,
                 ResizeBehavior = ResizeBehavior.StretchVisibleArea,
             }

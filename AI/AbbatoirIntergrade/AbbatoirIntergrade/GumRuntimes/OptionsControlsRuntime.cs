@@ -14,6 +14,7 @@ namespace AbbatoirIntergrade.GumRuntimes
     public partial class OptionsControlsRuntime
     {
         private CheckBox FullScreenCheck;
+        private bool FirstTime = true;
 
         public List<DisplayMode> DisplayModes
         {
@@ -26,6 +27,7 @@ namespace AbbatoirIntergrade.GumRuntimes
 
         partial void CustomInitialize()
         {
+
             SoundSlider.FormsControl.ValueChanged += SoundVolumeSliderValueChanged;
             MusicSlider.FormsControl.ValueChanged += MusicVolumeSliderValueChanged;
             //PopulateDisplayModes();
@@ -35,12 +37,18 @@ namespace AbbatoirIntergrade.GumRuntimes
             //ResolutionListBox.IsVisible = !FullScreenCheck.IsChecked.Value;
 
             //ApplyButton.Click += ApplyDisplay;
+            FullScreenCheck.IsChecked = PlayerDataManager.UseFullScreen;
+            ResizeText.Visible = !PlayerDataManager.UseFullScreen;
             FullScreenCheck.Checked += OnChecked;
             FullScreenCheck.Unchecked += OnChecked;
+
         }
 
         private void OnChecked(object sender, EventArgs eventArgs)
         {
+            PlayerDataManager.SetFullScreen(FullScreenCheck.IsChecked.Value);
+            ResizeText.Visible = !FullScreenCheck.IsChecked.Value;
+
             CameraSetup.Data.AllowWidowResizing = !FullScreenCheck.IsChecked.Value;
             CameraSetup.Data.IsFullScreen = FullScreenCheck.IsChecked.Value;
             CameraSetup.Data.Scale = FullScreenCheck.IsChecked.Value ? 100f : 50f;
@@ -112,6 +120,7 @@ namespace AbbatoirIntergrade.GumRuntimes
             var newColorValue = (int)(255 * (newValue/100f));
             MusicSlider.ColoredRectangleBlue = newColorValue;
             MusicSlider.ColoredRectangleGreen = newColorValue;
+            PlayerDataManager.SetMusicVolume((float)newValue);
         }
 
         private void SoundVolumeSliderValueChanged(object sender, EventArgs e)
@@ -122,6 +131,17 @@ namespace AbbatoirIntergrade.GumRuntimes
             var newColorValue = (int)(255 * (newValue/100f));
             SoundSlider.ColoredRectangleBlue = newColorValue;
             SoundSlider.ColoredRectangleGreen = newColorValue;
+
+            PlayerDataManager.SetSoundVolume((float)newValue);
+
+            if (FirstTime)
+            {
+                FirstTime = false;
+            }
+            else
+            {
+                SoundManager.PlayTestSound();
+            }
         }
 
         public void RefreshValues()

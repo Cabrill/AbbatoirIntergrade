@@ -1,14 +1,20 @@
 "Title (string, required)",Credit (List<string>)
 Game Designer,Jared Bagley
-Character Design,Yuexin Du
+Character and Landscape Art,Yuexin Du
+Animation,Jared Bagley
+Development Support,Vic Chelaru
 Music,Anttis Instrumentals
 ,Brallit
 ,Zach Darshon
 Game Engine,FlatRedBall
-Development Support,Vic Chelaur
+Machine Learning Framework,Accord.NET
+Data Analytics Framework,Keen.IO
 Game Framework,MonoGame
 Level Design Software,Tiled
 Story Editing Software,Articy: Draft
+Game Design Tools,Glue
+,Gum
+,Visual Studio
 Supervisors,Derek Fewster
 ,Hannu Toivonen
 ,Mark Granroth-Wilding

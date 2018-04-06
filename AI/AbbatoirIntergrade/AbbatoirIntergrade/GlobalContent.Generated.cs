@@ -325,6 +325,7 @@ namespace AbbatoirIntergrade
                 return mZach_Darshon_Sea_of_Dead_Thoughts;
             }
         }
+        public static Microsoft.Xna.Framework.Audio.SoundEffect testsound { get; set; }
         [System.Obsolete("Use GetFile instead")]
         public static object GetStaticMember (string memberName) 
         {
@@ -388,6 +389,8 @@ namespace AbbatoirIntergrade
                     return SongNames;
                 case  "Zach_Darshon_Sea_of_Dead_Thoughts":
                     return Zach_Darshon_Sea_of_Dead_Thoughts;
+                case  "testsound":
+                    return testsound;
             }
             return null;
         }
@@ -453,6 +456,8 @@ namespace AbbatoirIntergrade
                     return SongNames;
                 case  "Zach_Darshon_Sea_of_Dead_Thoughts":
                     return Zach_Darshon_Sea_of_Dead_Thoughts;
+                case  "testsound":
+                    return testsound;
             }
             return null;
         }
@@ -488,6 +493,7 @@ namespace AbbatoirIntergrade
                     SongNames = temporaryCsvObject;
                 }
             }
+            testsound = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/globalcontent/testsound", ContentManagerName);
             			IsInitialized = true;
             #if DEBUG && WINDOWS
             InitializeFileWatch();
@@ -633,6 +639,10 @@ namespace AbbatoirIntergrade
                 if (relativeFileName == "content/globalcontent/music/zach_darshon_sea_of_dead_thoughts.mp3")
                 {
                     Reload(Zach_Darshon_Sea_of_Dead_Thoughts);
+                }
+                if (relativeFileName == "content/globalcontent/testsound.wav")
+                {
+                    Reload(testsound);
                 }
             }
             catch{}

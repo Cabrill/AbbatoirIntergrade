@@ -13,6 +13,8 @@ namespace AbbatoirIntergrade.StaticManagers
 {
     public static class SoundManager
     {
+        private static SoundEffectInstance TestSound;
+
         public static string CurrentArtistName => (AudioManager.CurrentlyPlayingSong != null
             ? GlobalContent.SongNames[AudioManager.CurrentlyPlayingSong.Name].ArtistName
             : "");
@@ -62,6 +64,15 @@ namespace AbbatoirIntergrade.StaticManagers
             return false;
         }
 
+        public static void PlayTestSound()
+        {
+            if (TestSound == null)
+            {
+                TestSound = GlobalContent.testsound.CreateInstance();
+            }
+            PlaySoundEffect(TestSound);
+        }
+
         public static void PlaySoundEffect(SoundEffectInstance effect, bool shouldLoop = false)
         {
             if (SoundVolumeLevel == 0) return;
@@ -86,6 +97,7 @@ namespace AbbatoirIntergrade.StaticManagers
             {
                 _shouldLoopOneSong = shouldLoop;
                 AudioManager.PlaySong(songToPlay, forceRestart, true);
+                MediaPlayer.Volume = effectiveMusicVolumeLevel;
             }
             catch (Exception e)
             {
@@ -107,6 +119,7 @@ namespace AbbatoirIntergrade.StaticManagers
             var firstSong = GlobalContent.GetFile(firstSongName) as Song;
 
             AudioManager.PlaySong(firstSong, true, true);
+            MediaPlayer.Volume = effectiveMusicVolumeLevel;
         }
 
         private static void PlayNextSongInList()
@@ -130,6 +143,7 @@ namespace AbbatoirIntergrade.StaticManagers
             var nextSong = GlobalContent.GetFile(nextSongName) as Song;
 
             AudioManager.PlaySong(nextSong, true, true);
+            MediaPlayer.Volume = effectiveMusicVolumeLevel;
         }
 
         private const double a = 1e-3;

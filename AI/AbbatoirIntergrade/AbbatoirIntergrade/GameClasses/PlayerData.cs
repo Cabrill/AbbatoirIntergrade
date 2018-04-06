@@ -28,6 +28,9 @@ namespace AbbatoirIntergrade.GameClasses
         [XmlElement("HasSeenIntro")]
         public bool HasSeenIntro { get; set; }
 
+        [XmlElement("UseFullScreen")]
+        public bool UseFullScreen { get; set; } = true;
+
         [XmlElement("EndingType")]
         public EndingTypes EndingType { get; set; }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AbbatoirIntergrade.StaticManagers;
 using FlatRedBall;
 using FlatRedBall.Gui;
 
@@ -12,7 +13,7 @@ namespace AbbatoirIntergrade.GumRuntimes
     {
         partial void CustomInitialize()
         {
-            
+            CloseButton.Click += window => PlayerDataManager.SaveData();
         }
 
         public void AssignEventToCloseButton(Action<IWindow> assignedEvent)

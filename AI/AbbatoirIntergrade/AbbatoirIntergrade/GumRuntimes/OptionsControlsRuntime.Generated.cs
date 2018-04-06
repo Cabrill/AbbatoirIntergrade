@@ -66,15 +66,15 @@
                             MusicText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             MusicText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             MusicSlider.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer") ?? this;
-                            SetProperty("ResolutionText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
-                            ResolutionText.FontScale = 1f;
-                            ResolutionText.Height = 20f;
-                            ResolutionText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ResolutionText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer") ?? this;
-                            ResolutionText.Text = "Full Screen";
-                            ResolutionText.UseCustomFont = true;
-                            ResolutionText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            ResolutionText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            SetProperty("FullScreenText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            FullScreenText.FontScale = 1f;
+                            FullScreenText.Height = 20f;
+                            FullScreenText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            FullScreenText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer") ?? this;
+                            FullScreenText.Text = "Full Screen";
+                            FullScreenText.UseCustomFont = true;
+                            FullScreenText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            FullScreenText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             FullScreenCheckBox.CheckBoxText = "";
                             FullScreenCheckBox.Height = 15f;
                             FullScreenCheckBox.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -90,10 +90,25 @@
                             OptionsDisplayContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             OptionsDisplayContainer.Width = 100f;
                             OptionsDisplayContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ResizeText.Blue = 255;
+                            SetProperty("ResizeText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            ResizeText.FontScale = 0.75f;
+                            ResizeText.Green = 255;
+                            ResizeText.Height = 0f;
+                            ResizeText.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                            ResizeText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                            ResizeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer") ?? this;
+                            ResizeText.Red = 0;
+                            ResizeText.Text = "(Resize the window by dragging the edges)";
+                            ResizeText.UseCustomFont = true;
+                            ResizeText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                            ResizeText.Width = 100f;
+                            ResizeText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             break;
                         case  VariableState.HiddenFullScreen:
-                            ResolutionText.Visible = false;
+                            FullScreenText.Visible = false;
                             FullScreenCheckBox.Visible = false;
+                            ResizeText.Visible = false;
                             break;
                     }
                 }
@@ -120,6 +135,14 @@
                 bool setFullScreenCheckBoxYSecondValue = false;
                 float FullScreenCheckBoxYFirstValue= 0;
                 float FullScreenCheckBoxYSecondValue= 0;
+                bool setFullScreenTextFontScaleFirstValue = false;
+                bool setFullScreenTextFontScaleSecondValue = false;
+                float FullScreenTextFontScaleFirstValue= 0;
+                float FullScreenTextFontScaleSecondValue= 0;
+                bool setFullScreenTextHeightFirstValue = false;
+                bool setFullScreenTextHeightSecondValue = false;
+                float FullScreenTextHeightFirstValue= 0;
+                float FullScreenTextHeightSecondValue= 0;
                 bool setHeightFirstValue = false;
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
@@ -160,14 +183,30 @@
                 bool setOptionsDisplayContainerWidthSecondValue = false;
                 float OptionsDisplayContainerWidthFirstValue= 0;
                 float OptionsDisplayContainerWidthSecondValue= 0;
-                bool setResolutionTextFontScaleFirstValue = false;
-                bool setResolutionTextFontScaleSecondValue = false;
-                float ResolutionTextFontScaleFirstValue= 0;
-                float ResolutionTextFontScaleSecondValue= 0;
-                bool setResolutionTextHeightFirstValue = false;
-                bool setResolutionTextHeightSecondValue = false;
-                float ResolutionTextHeightFirstValue= 0;
-                float ResolutionTextHeightSecondValue= 0;
+                bool setResizeTextBlueFirstValue = false;
+                bool setResizeTextBlueSecondValue = false;
+                int ResizeTextBlueFirstValue= 0;
+                int ResizeTextBlueSecondValue= 0;
+                bool setResizeTextFontScaleFirstValue = false;
+                bool setResizeTextFontScaleSecondValue = false;
+                float ResizeTextFontScaleFirstValue= 0;
+                float ResizeTextFontScaleSecondValue= 0;
+                bool setResizeTextGreenFirstValue = false;
+                bool setResizeTextGreenSecondValue = false;
+                int ResizeTextGreenFirstValue= 0;
+                int ResizeTextGreenSecondValue= 0;
+                bool setResizeTextHeightFirstValue = false;
+                bool setResizeTextHeightSecondValue = false;
+                float ResizeTextHeightFirstValue= 0;
+                float ResizeTextHeightSecondValue= 0;
+                bool setResizeTextRedFirstValue = false;
+                bool setResizeTextRedSecondValue = false;
+                int ResizeTextRedFirstValue= 0;
+                int ResizeTextRedSecondValue= 0;
+                bool setResizeTextWidthFirstValue = false;
+                bool setResizeTextWidthSecondValue = false;
+                float ResizeTextWidthFirstValue= 0;
+                float ResizeTextWidthSecondValue= 0;
                 bool setSoundTextFontScaleFirstValue = false;
                 bool setSoundTextFontScaleSecondValue = false;
                 float SoundTextFontScaleFirstValue= 0;
@@ -220,6 +259,38 @@
                         if (interpolationValue < 1)
                         {
                             this.FullScreenCheckBox.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("FullScreenText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
+                        setFullScreenTextFontScaleFirstValue = true;
+                        FullScreenTextFontScaleFirstValue = 1f;
+                        setFullScreenTextHeightFirstValue = true;
+                        FullScreenTextHeightFirstValue = 20f;
+                        if (interpolationValue < 1)
+                        {
+                            this.FullScreenText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.FullScreenText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer") ?? this;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.FullScreenText.Text = "Full Screen";
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.FullScreenText.UseCustomFont = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.FullScreenText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.FullScreenText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setHeightFirstValue = true;
                         HeightFirstValue = 50f;
@@ -325,37 +396,49 @@
                         {
                             this.OptionsDisplayContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setResizeTextBlueFirstValue = true;
+                        ResizeTextBlueFirstValue = 255;
                         if (interpolationValue < 1)
                         {
-                            SetProperty("ResolutionText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            SetProperty("ResizeText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                         }
-                        setResolutionTextFontScaleFirstValue = true;
-                        ResolutionTextFontScaleFirstValue = 1f;
-                        setResolutionTextHeightFirstValue = true;
-                        ResolutionTextHeightFirstValue = 20f;
+                        setResizeTextFontScaleFirstValue = true;
+                        ResizeTextFontScaleFirstValue = 0.75f;
+                        setResizeTextGreenFirstValue = true;
+                        ResizeTextGreenFirstValue = 255;
+                        setResizeTextHeightFirstValue = true;
+                        ResizeTextHeightFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
-                            this.ResolutionText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.ResolutionText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer") ?? this;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.ResolutionText.Text = "Full Screen";
+                            this.ResizeText.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ResolutionText.UseCustomFont = true;
+                            this.ResizeText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ResolutionText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            this.ResizeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer") ?? this;
+                        }
+                        setResizeTextRedFirstValue = true;
+                        ResizeTextRedFirstValue = 0;
+                        if (interpolationValue < 1)
+                        {
+                            this.ResizeText.Text = "(Resize the window by dragging the edges)";
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ResolutionText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.ResizeText.UseCustomFont = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ResizeText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                        }
+                        setResizeTextWidthFirstValue = true;
+                        ResizeTextWidthFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.ResizeText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
@@ -411,7 +494,11 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ResolutionText.Visible = false;
+                            this.FullScreenText.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ResizeText.Visible = false;
                         }
                         break;
                 }
@@ -455,6 +542,38 @@
                         if (interpolationValue >= 1)
                         {
                             this.FullScreenCheckBox.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("FullScreenText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                        }
+                        setFullScreenTextFontScaleSecondValue = true;
+                        FullScreenTextFontScaleSecondValue = 1f;
+                        setFullScreenTextHeightSecondValue = true;
+                        FullScreenTextHeightSecondValue = 20f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.FullScreenText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.FullScreenText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer") ?? this;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.FullScreenText.Text = "Full Screen";
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.FullScreenText.UseCustomFont = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.FullScreenText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.FullScreenText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setHeightSecondValue = true;
                         HeightSecondValue = 50f;
@@ -560,37 +679,49 @@
                         {
                             this.OptionsDisplayContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
+                        setResizeTextBlueSecondValue = true;
+                        ResizeTextBlueSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("ResolutionText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
+                            SetProperty("ResizeText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
                         }
-                        setResolutionTextFontScaleSecondValue = true;
-                        ResolutionTextFontScaleSecondValue = 1f;
-                        setResolutionTextHeightSecondValue = true;
-                        ResolutionTextHeightSecondValue = 20f;
+                        setResizeTextFontScaleSecondValue = true;
+                        ResizeTextFontScaleSecondValue = 0.75f;
+                        setResizeTextGreenSecondValue = true;
+                        ResizeTextGreenSecondValue = 255;
+                        setResizeTextHeightSecondValue = true;
+                        ResizeTextHeightSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
-                            this.ResolutionText.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.ResolutionText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "NamesContainer") ?? this;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.ResolutionText.Text = "Full Screen";
+                            this.ResizeText.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ResolutionText.UseCustomFont = true;
+                            this.ResizeText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ResolutionText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                            this.ResizeText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "OptionContainer") ?? this;
+                        }
+                        setResizeTextRedSecondValue = true;
+                        ResizeTextRedSecondValue = 0;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ResizeText.Text = "(Resize the window by dragging the edges)";
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ResolutionText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.ResizeText.UseCustomFont = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ResizeText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                        }
+                        setResizeTextWidthSecondValue = true;
+                        ResizeTextWidthSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ResizeText.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -646,7 +777,11 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ResolutionText.Visible = false;
+                            this.FullScreenText.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ResizeText.Visible = false;
                         }
                         break;
                 }
@@ -661,6 +796,14 @@
                 if (setFullScreenCheckBoxYFirstValue && setFullScreenCheckBoxYSecondValue)
                 {
                     FullScreenCheckBox.Y = FullScreenCheckBoxYFirstValue * (1 - interpolationValue) + FullScreenCheckBoxYSecondValue * interpolationValue;
+                }
+                if (setFullScreenTextFontScaleFirstValue && setFullScreenTextFontScaleSecondValue)
+                {
+                    FullScreenText.FontScale = FullScreenTextFontScaleFirstValue * (1 - interpolationValue) + FullScreenTextFontScaleSecondValue * interpolationValue;
+                }
+                if (setFullScreenTextHeightFirstValue && setFullScreenTextHeightSecondValue)
+                {
+                    FullScreenText.Height = FullScreenTextHeightFirstValue * (1 - interpolationValue) + FullScreenTextHeightSecondValue * interpolationValue;
                 }
                 if (setHeightFirstValue && setHeightSecondValue)
                 {
@@ -702,13 +845,29 @@
                 {
                     OptionsDisplayContainer.Width = OptionsDisplayContainerWidthFirstValue * (1 - interpolationValue) + OptionsDisplayContainerWidthSecondValue * interpolationValue;
                 }
-                if (setResolutionTextFontScaleFirstValue && setResolutionTextFontScaleSecondValue)
+                if (setResizeTextBlueFirstValue && setResizeTextBlueSecondValue)
                 {
-                    ResolutionText.FontScale = ResolutionTextFontScaleFirstValue * (1 - interpolationValue) + ResolutionTextFontScaleSecondValue * interpolationValue;
+                    ResizeText.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(ResizeTextBlueFirstValue* (1 - interpolationValue) + ResizeTextBlueSecondValue * interpolationValue);
                 }
-                if (setResolutionTextHeightFirstValue && setResolutionTextHeightSecondValue)
+                if (setResizeTextFontScaleFirstValue && setResizeTextFontScaleSecondValue)
                 {
-                    ResolutionText.Height = ResolutionTextHeightFirstValue * (1 - interpolationValue) + ResolutionTextHeightSecondValue * interpolationValue;
+                    ResizeText.FontScale = ResizeTextFontScaleFirstValue * (1 - interpolationValue) + ResizeTextFontScaleSecondValue * interpolationValue;
+                }
+                if (setResizeTextGreenFirstValue && setResizeTextGreenSecondValue)
+                {
+                    ResizeText.Green = FlatRedBall.Math.MathFunctions.RoundToInt(ResizeTextGreenFirstValue* (1 - interpolationValue) + ResizeTextGreenSecondValue * interpolationValue);
+                }
+                if (setResizeTextHeightFirstValue && setResizeTextHeightSecondValue)
+                {
+                    ResizeText.Height = ResizeTextHeightFirstValue * (1 - interpolationValue) + ResizeTextHeightSecondValue * interpolationValue;
+                }
+                if (setResizeTextRedFirstValue && setResizeTextRedSecondValue)
+                {
+                    ResizeText.Red = FlatRedBall.Math.MathFunctions.RoundToInt(ResizeTextRedFirstValue* (1 - interpolationValue) + ResizeTextRedSecondValue * interpolationValue);
+                }
+                if (setResizeTextWidthFirstValue && setResizeTextWidthSecondValue)
+                {
+                    ResizeText.Width = ResizeTextWidthFirstValue * (1 - interpolationValue) + ResizeTextWidthSecondValue * interpolationValue;
                 }
                 if (setSoundTextFontScaleFirstValue && setSoundTextFontScaleSecondValue)
                 {
@@ -1127,73 +1286,73 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.CustomFontFile",
+                            Name = "FullScreenText.CustomFontFile",
                             Type = "string",
-                            Value = ResolutionText.CustomFontFile
+                            Value = FullScreenText.CustomFontFile
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.Font Scale",
+                            Name = "FullScreenText.Font Scale",
                             Type = "float",
-                            Value = ResolutionText.FontScale
+                            Value = FullScreenText.FontScale
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.Height",
+                            Name = "FullScreenText.Height",
                             Type = "float",
-                            Value = ResolutionText.Height
+                            Value = FullScreenText.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.Height Units",
+                            Name = "FullScreenText.Height Units",
                             Type = "DimensionUnitType",
-                            Value = ResolutionText.HeightUnits
+                            Value = FullScreenText.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.Parent",
+                            Name = "FullScreenText.Parent",
                             Type = "string",
-                            Value = ResolutionText.Parent
+                            Value = FullScreenText.Parent
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.Text",
+                            Name = "FullScreenText.Text",
                             Type = "string",
-                            Value = ResolutionText.Text
+                            Value = FullScreenText.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.UseCustomFont",
+                            Name = "FullScreenText.UseCustomFont",
                             Type = "bool",
-                            Value = ResolutionText.UseCustomFont
+                            Value = FullScreenText.UseCustomFont
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.VerticalAlignment",
+                            Name = "FullScreenText.VerticalAlignment",
                             Type = "VerticalAlignment",
-                            Value = ResolutionText.VerticalAlignment
+                            Value = FullScreenText.VerticalAlignment
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.Width Units",
+                            Name = "FullScreenText.Width Units",
                             Type = "DimensionUnitType",
-                            Value = ResolutionText.WidthUnits
+                            Value = FullScreenText.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1316,14 +1475,126 @@
                             Value = OptionsDisplayContainer.WidthUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Blue",
+                            Type = "int",
+                            Value = ResizeText.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.CustomFontFile",
+                            Type = "string",
+                            Value = ResizeText.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Font Scale",
+                            Type = "float",
+                            Value = ResizeText.FontScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Green",
+                            Type = "int",
+                            Value = ResizeText.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Height",
+                            Type = "float",
+                            Value = ResizeText.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ResizeText.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.HorizontalAlignment",
+                            Type = "HorizontalAlignment",
+                            Value = ResizeText.HorizontalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Parent",
+                            Type = "string",
+                            Value = ResizeText.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Red",
+                            Type = "int",
+                            Value = ResizeText.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Text",
+                            Type = "string",
+                            Value = ResizeText.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.UseCustomFont",
+                            Type = "bool",
+                            Value = ResizeText.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.VerticalAlignment",
+                            Type = "VerticalAlignment",
+                            Value = ResizeText.VerticalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Width",
+                            Type = "float",
+                            Value = ResizeText.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ResizeText.WidthUnits
+                        }
+                        );
                         break;
                     case  VariableState.HiddenFullScreen:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.Visible",
+                            Name = "FullScreenText.Visible",
                             Type = "bool",
-                            Value = ResolutionText.Visible
+                            Value = FullScreenText.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1332,6 +1603,14 @@
                             Name = "FullScreenCheckBox.Visible",
                             Type = "bool",
                             Value = FullScreenCheckBox.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Visible",
+                            Type = "bool",
+                            Value = ResizeText.Visible
                         }
                         );
                         break;
@@ -1667,73 +1946,73 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.CustomFontFile",
+                            Name = "FullScreenText.CustomFontFile",
                             Type = "string",
-                            Value = ResolutionText.CustomFontFile
+                            Value = FullScreenText.CustomFontFile
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.Font Scale",
+                            Name = "FullScreenText.Font Scale",
                             Type = "float",
-                            Value = ResolutionText.FontScale + 1f
+                            Value = FullScreenText.FontScale + 1f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.Height",
+                            Name = "FullScreenText.Height",
                             Type = "float",
-                            Value = ResolutionText.Height + 20f
+                            Value = FullScreenText.Height + 20f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.Height Units",
+                            Name = "FullScreenText.Height Units",
                             Type = "DimensionUnitType",
-                            Value = ResolutionText.HeightUnits
+                            Value = FullScreenText.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.Parent",
+                            Name = "FullScreenText.Parent",
                             Type = "string",
-                            Value = ResolutionText.Parent
+                            Value = FullScreenText.Parent
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.Text",
+                            Name = "FullScreenText.Text",
                             Type = "string",
-                            Value = ResolutionText.Text
+                            Value = FullScreenText.Text
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.UseCustomFont",
+                            Name = "FullScreenText.UseCustomFont",
                             Type = "bool",
-                            Value = ResolutionText.UseCustomFont
+                            Value = FullScreenText.UseCustomFont
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.VerticalAlignment",
+                            Name = "FullScreenText.VerticalAlignment",
                             Type = "VerticalAlignment",
-                            Value = ResolutionText.VerticalAlignment
+                            Value = FullScreenText.VerticalAlignment
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.Width Units",
+                            Name = "FullScreenText.Width Units",
                             Type = "DimensionUnitType",
-                            Value = ResolutionText.WidthUnits
+                            Value = FullScreenText.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1856,14 +2135,126 @@
                             Value = OptionsDisplayContainer.WidthUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Blue",
+                            Type = "int",
+                            Value = ResizeText.Blue + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.CustomFontFile",
+                            Type = "string",
+                            Value = ResizeText.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Font Scale",
+                            Type = "float",
+                            Value = ResizeText.FontScale + 0.75f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Green",
+                            Type = "int",
+                            Value = ResizeText.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Height",
+                            Type = "float",
+                            Value = ResizeText.Height + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ResizeText.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.HorizontalAlignment",
+                            Type = "HorizontalAlignment",
+                            Value = ResizeText.HorizontalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Parent",
+                            Type = "string",
+                            Value = ResizeText.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Red",
+                            Type = "int",
+                            Value = ResizeText.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Text",
+                            Type = "string",
+                            Value = ResizeText.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.UseCustomFont",
+                            Type = "bool",
+                            Value = ResizeText.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.VerticalAlignment",
+                            Type = "VerticalAlignment",
+                            Value = ResizeText.VerticalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Width",
+                            Type = "float",
+                            Value = ResizeText.Width + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ResizeText.WidthUnits
+                        }
+                        );
                         break;
                     case  VariableState.HiddenFullScreen:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ResolutionText.Visible",
+                            Name = "FullScreenText.Visible",
                             Type = "bool",
-                            Value = ResolutionText.Visible
+                            Value = FullScreenText.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1872,6 +2263,14 @@
                             Name = "FullScreenCheckBox.Visible",
                             Type = "bool",
                             Value = FullScreenCheckBox.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ResizeText.Visible",
+                            Type = "bool",
+                            Value = ResizeText.Visible
                         }
                         );
                         break;
@@ -1899,9 +2298,10 @@
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime OptionContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime MusicText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SliderBarRuntime MusicSlider { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TextRuntime ResolutionText { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.TextRuntime FullScreenText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.CheckBoxRuntime FullScreenCheckBox { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime OptionsDisplayContainer { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.TextRuntime ResizeText { get; set; }
             public OptionsControlsRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
             {
@@ -1935,9 +2335,10 @@
                 OptionContainer = this.GetGraphicalUiElementByName("OptionContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 MusicText = this.GetGraphicalUiElementByName("MusicText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 MusicSlider = this.GetGraphicalUiElementByName("MusicSlider") as AbbatoirIntergrade.GumRuntimes.SliderBarRuntime;
-                ResolutionText = this.GetGraphicalUiElementByName("ResolutionText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
+                FullScreenText = this.GetGraphicalUiElementByName("FullScreenText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 FullScreenCheckBox = this.GetGraphicalUiElementByName("FullScreenCheckBox") as AbbatoirIntergrade.GumRuntimes.CheckBoxRuntime;
                 OptionsDisplayContainer = this.GetGraphicalUiElementByName("OptionsDisplayContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
+                ResizeText = this.GetGraphicalUiElementByName("ResizeText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

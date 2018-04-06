@@ -18,11 +18,17 @@
                 ShowSkip,
                 DontShow
             }
+            public enum Placement
+            {
+                Left,
+                Right
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
             Confirmation mCurrentConfirmationState;
             SkipTutorial mCurrentSkipTutorialState;
+            Placement mCurrentPlacementState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -121,6 +127,34 @@
                         case  SkipTutorial.DontShow:
                             SkipTutorialButton.Visible = false;
                             SkipTutorialText.Visible = false;
+                            break;
+                    }
+                }
+            }
+            public Placement CurrentPlacementState
+            {
+                get
+                {
+                    return mCurrentPlacementState;
+                }
+                set
+                {
+                    mCurrentPlacementState = value;
+                    switch(mCurrentPlacementState)
+                    {
+                        case  Placement.Left:
+                            XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                            XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                            Y = -50f;
+                            YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                            YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            break;
+                        case  Placement.Right:
+                            XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                            XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                            Y = 0f;
+                            YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                            YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                             break;
                     }
                 }
@@ -724,6 +758,117 @@
                     mCurrentSkipTutorialState = secondState;
                 }
             }
+            public void InterpolateBetween (Placement firstState, Placement secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                bool setYFirstValue = false;
+                bool setYSecondValue = false;
+                float YFirstValue= 0;
+                float YSecondValue= 0;
+                switch(firstState)
+                {
+                    case  Placement.Left:
+                        if (interpolationValue < 1)
+                        {
+                            this.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                        }
+                        setYFirstValue = true;
+                        YFirstValue = -50f;
+                        if (interpolationValue < 1)
+                        {
+                            this.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        break;
+                    case  Placement.Right:
+                        if (interpolationValue < 1)
+                        {
+                            this.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
+                        setYFirstValue = true;
+                        YFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  Placement.Left:
+                        if (interpolationValue >= 1)
+                        {
+                            this.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                        }
+                        setYSecondValue = true;
+                        YSecondValue = -50f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        break;
+                    case  Placement.Right:
+                        if (interpolationValue >= 1)
+                        {
+                            this.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
+                        setYSecondValue = true;
+                        YSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
+                        break;
+                }
+                if (setYFirstValue && setYSecondValue)
+                {
+                    Y = YFirstValue * (1 - interpolationValue) + YSecondValue * interpolationValue;
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentPlacementState = firstState;
+                }
+                else
+                {
+                    mCurrentPlacementState = secondState;
+                }
+            }
             #endregion
             #region State Interpolate To
             public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
@@ -884,6 +1029,60 @@
                 }
                 tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
                 tweener.Ended += ()=> this.CurrentSkipTutorialState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime.Placement fromState,AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime.Placement toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (Placement toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "Placement").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentPlacementState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (Placement toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentPlacementState = toState;
                 tweener.Start();
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
@@ -1735,6 +1934,190 @@
                 }
                 return newState;
             }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (Placement state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Placement.Left:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "X Units",
+                            Type = "PositionUnitType",
+                            Value = XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Y",
+                            Type = "float",
+                            Value = Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Y Units",
+                            Type = "PositionUnitType",
+                            Value = YUnits
+                        }
+                        );
+                        break;
+                    case  Placement.Right:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "X Units",
+                            Type = "PositionUnitType",
+                            Value = XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Y",
+                            Type = "float",
+                            Value = Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Y Units",
+                            Type = "PositionUnitType",
+                            Value = YUnits
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (Placement state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  Placement.Left:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "X Units",
+                            Type = "PositionUnitType",
+                            Value = XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Y",
+                            Type = "float",
+                            Value = Y + -50f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Y Units",
+                            Type = "PositionUnitType",
+                            Value = YUnits
+                        }
+                        );
+                        break;
+                    case  Placement.Right:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "X Units",
+                            Type = "PositionUnitType",
+                            Value = XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Y",
+                            Type = "float",
+                            Value = Y + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Y Units",
+                            Type = "PositionUnitType",
+                            Value = YUnits
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
             #endregion
             public override void ApplyState (Gum.DataTypes.Variables.StateSave state) 
             {
@@ -1755,6 +2138,11 @@
                     {
                         if(state.Name == "ShowSkip") this.mCurrentSkipTutorialState = SkipTutorial.ShowSkip;
                         if(state.Name == "DontShow") this.mCurrentSkipTutorialState = SkipTutorial.DontShow;
+                    }
+                    else if (category.Name == "Placement")
+                    {
+                        if(state.Name == "Left") this.mCurrentPlacementState = Placement.Left;
+                        if(state.Name == "Right") this.mCurrentPlacementState = Placement.Right;
                     }
                 }
                 base.ApplyState(state);
