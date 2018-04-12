@@ -48,6 +48,7 @@ namespace AbbatoirIntergrade.StaticManagers
         public static bool PlayerHasBeatGame => Data.HasBeatenGame;
         public static EndingTypes PlayerEndingReached => Data.EndingType;
         public static bool PlayerHasSeenIntro => Data.HasSeenIntro;
+        public static int TilesGameCompleted => Data.TimesCompleted;
 
         private static readonly List<string> AllPossibleTowers = new List<string>()
         {
@@ -78,7 +79,11 @@ namespace AbbatoirIntergrade.StaticManagers
                 InitializeNewData();
             }
             if (!RecordedPlayTime.HasValue) RecordedPlayTime = Data.PlayTimeInSeconds;
-            if (firstLoad) Data.GameLaunchCount += 1;
+            if (firstLoad)
+            {
+                Data.GameLaunchCount += 1;
+                SaveData();
+            }
 
             SoundManager.MusicVolumeLevel = Data.PreferredMusicVolume;
             SoundManager.SoundVolumeLevel = Data.PreferredSoundVolume;
@@ -183,6 +188,7 @@ namespace AbbatoirIntergrade.StaticManagers
         public static void MarkPlayerReachedEnding(EndingTypes endingType)
         {
             Data.EndingType = endingType;
+            Data.TimesCompleted += 1;
         }
 
         public static void MarkSeenIntro()

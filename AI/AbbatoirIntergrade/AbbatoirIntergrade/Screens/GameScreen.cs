@@ -124,7 +124,7 @@ namespace AbbatoirIntergrade.Screens
             ScreamSounds.Shuffle();
 
             LocalLogManager.AddLine("Game Screen - Load Level");
-            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter7Level();
+            CurrentLevel = GameStateManager.CurrentLevel ?? new Chapter10Level();
             CurrentLevel.Reset();
             CurrentLevel.OnNewWaveStart += HandleWaveStarted;
             CurrentLevel.OnWaveEnd += HandleWaveEnded;

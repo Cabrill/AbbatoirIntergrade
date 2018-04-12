@@ -16,6 +16,9 @@ namespace AbbatoirIntergrade.DataTypes
         public const string Game_Framework = "Game Framework";
         public const string Level_Design_Software = "Level Design Software";
         public const string Story_Editing_Software = "Story Editing Software";
+        public const string Animation_Software = "Animation Software";
+        public const string Image_Editing = "Image Editing";
+        public const string Celestial_Calculations = "Celestial Calculations";
         public const string Development_Tools = "Development Tools";
         public const string Supervisors = "Supervisors";
         public const string Special_Thanks = "Special Thanks";
@@ -32,6 +35,9 @@ namespace AbbatoirIntergrade.DataTypes
         ,Game_Framework
         ,Level_Design_Software
         ,Story_Editing_Software
+        ,Animation_Software
+        ,Image_Editing
+        ,Celestial_Calculations
         ,Development_Tools
         ,Supervisors
         ,Special_Thanks

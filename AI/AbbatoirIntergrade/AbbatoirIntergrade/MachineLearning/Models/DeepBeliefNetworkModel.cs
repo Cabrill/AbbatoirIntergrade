@@ -36,10 +36,12 @@ namespace AbbatoirIntergrade.MachineLearning.Models
         public double LastMSE { get; private set; }
         public int LastSampleSize { get; private set; }
         public bool IsReady { get; private set; }
+        private Mutex _modelMutex;
 
         public void Initialize(int inputCount)
         {
             IsReady = false;
+            _modelMutex = new Mutex();
 
             network = new DeepBeliefNetwork((int)inputCount, HiddenLayerNodes, 1);
             new GaussianWeights(network, 0.1).Randomize();
@@ -110,7 +112,9 @@ namespace AbbatoirIntergrade.MachineLearning.Models
 
         private void ReplaceModelWithUpdate(DeepBeliefNetwork updatedNetwork)
         {
+            _modelMutex.WaitOne();
             network = updatedNetwork;
+            _modelMutex.ReleaseMutex();
             IsReady = true;
         }
 
@@ -167,13 +171,14 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             var input = waveData.WaveInputs.ToArray();
             var outputData = waveData.WaveScores.ToArray();
             var error = 0.0;
+            _modelMutex.WaitOne();
             for (var i = 0; i < outputData.Length; i++)
             {
                 var prediction = network.Compute(input[i])[0];
                 var actual = outputData[i];
                 error += Math.Pow(prediction - actual, 2);
             }
-
+            _modelMutex.ReleaseMutex();
             error /= outputData.Length;
 
             LastSampleSize = outputData.Length;
@@ -186,9 +191,9 @@ namespace AbbatoirIntergrade.MachineLearning.Models
         public double Predict(double[] input)
         {
             var sw = Stopwatch.StartNew();
-
+            _modelMutex.WaitOne();
             var prediction = network.Compute(input)[0];
-
+            _modelMutex.ReleaseMutex();
             sw.Stop();
 
             if (double.IsInfinity(prediction) || double.IsNaN(prediction))
@@ -226,6 +231,7 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             {
                 return false;
             }
+            _modelMutex = new Mutex();
             hasTrained = true;
             IsReady = true;
             return true;
@@ -235,7 +241,9 @@ namespace AbbatoirIntergrade.MachineLearning.Models
         {
             try
             {
+                _modelMutex.WaitOne();
                 Serializer.Save(network, fileName);
+                _modelMutex.ReleaseMutex();
             }
             catch (Exception ex)
             {

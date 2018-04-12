@@ -34,8 +34,11 @@ namespace AbbatoirIntergrade.GameClasses
         [XmlElement("EndingType")]
         public EndingTypes EndingType { get; set; }
 
+        [XmlElement("TimesCompleted")]
+        public int TimesCompleted { get; set; }
+
         [XmlIgnore]
-        public bool HasBeatenGame => EndingType != EndingTypes.None;
+        public bool HasBeatenGame => TimesCompleted > 0;
 
         [XmlElement("HasTowerChoiceAvailable")]
         public bool HasTowerChoiceAvailable { get; set; }

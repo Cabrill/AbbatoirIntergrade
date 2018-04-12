@@ -69,7 +69,7 @@ namespace AbbatoirIntergrade.Screens
 
 		    if (isDisplayingCredits)
 		    {
-		        (CreditsContainer.Children[0] as GraphicalUiElement).Y -= TimeManager.LastSecondDifference*35;
+		        (CreditsContainer.Children[0] as GraphicalUiElement).Y -= TimeManager.LastSecondDifference*50;
 
 		        var lastItem = CreditsContainer.Children[CreditsContainer.Children.Count - 1];
 		        var lastItemHeight = lastItem.Height;

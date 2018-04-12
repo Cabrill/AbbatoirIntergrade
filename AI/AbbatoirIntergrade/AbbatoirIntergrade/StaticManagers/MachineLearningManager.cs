@@ -19,6 +19,7 @@ using FlatRedBall.Instructions;
 using FlatRedBall.IO;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
+using MoreLinq;
 using Point = FlatRedBall.Math.Geometry.Point;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
 
@@ -34,6 +35,7 @@ namespace AbbatoirIntergrade.StaticManagers
         private static WaveData _waveData;
         private static List<double> _levelPartialInput;
         private static double[] _currentWaveInput;
+        private static string[] _dataHeaders;
 
         private static DeepBeliefNetworkModel _machineLearningModel;
         private static bool IsLearningTaskRunning = false;
@@ -69,7 +71,6 @@ namespace AbbatoirIntergrade.StaticManagers
 
         private static int InputCount;
 
-
         private static string _modelFileName;
         private static string _waveDataFileName;
 
@@ -97,7 +98,7 @@ namespace AbbatoirIntergrade.StaticManagers
             _waveData = _waveData ?? new WaveData
             {
                 WaveInputs = new List<double[]>(),
-                WaveScores = new List<double>()
+                WaveScores = new List<double>(),
             };
         }
 
@@ -266,6 +267,13 @@ namespace AbbatoirIntergrade.StaticManagers
             {
                 _waveData.WaveInputs.Add(_currentWaveInput);
                 _waveData.WaveScores.Add(_waveScore);
+
+                var waveDataResults = new
+                {
+                    RawWaveData = _waveScore + "," + string.Join(",", _currentWaveInput),
+                };
+
+                AnalyticsManager.SendEventImmediately("WaveData", waveDataResults);
             }
 
             if (IsLearningTaskRunning || !shouldLearnFromWave) return;

@@ -33,11 +33,13 @@ namespace AbbatoirIntergrade.StaticManagers
         private static string _geneticsFileName;
 
         private static bool _CurrentlyRefreshingOrSaving = false;
+        private static Mutex _geneticsMutex;
 
         public static void Initialize()
         {
             LocalLogManager.AddLine("Genetics manager initialization");
             ChromosomeFitnessFunction = new FitnessFunction();
+            _geneticsMutex = new Mutex();
 
             if (EnemyTypeChromosomes == null)
             {
@@ -96,9 +98,11 @@ namespace AbbatoirIntergrade.StaticManagers
 
             try
             {
+                _geneticsMutex.WaitOne();
                 FileManager.XmlSerialize(EnemyTypeChromosomes, _geneticsFileName);
                 FileManager.XmlSerialize(LegacyChromosomes, _legacyGeneticsFileName);
                 FileManager.XmlSerialize(GenerationCount, _generationCountFileName);
+                _geneticsMutex.ReleaseMutex();
             }
             catch (Exception ex)
             {
@@ -113,6 +117,7 @@ namespace AbbatoirIntergrade.StaticManagers
         {
             List<SerializableChromosome> chromosomeList;
 
+            _geneticsMutex.WaitOne();
             if (EnemyTypeChromosomes[enemyType].Any(c => c.Fitness > 0))
             {
                 chromosomeList = EnemyTypeChromosomes[enemyType].ToList();
@@ -126,6 +131,7 @@ namespace AbbatoirIntergrade.StaticManagers
                     chromosomeList.Add(FlatRedBallServices.Random.In(EnemyTypeChromosomes[enemyType]));
                 }
             }
+            _geneticsMutex.ReleaseMutex();
 
             return chromosomeList;
         }
@@ -134,9 +140,13 @@ namespace AbbatoirIntergrade.StaticManagers
         {
             try
             {
+                _geneticsMutex.WaitOne();
                 RankFitness(enemyType, EnemyTypeChromosomes[enemyType]);
 
-                return EnemyTypeChromosomes[enemyType].MaxBy(e => e.Fitness);
+                var chromsome = EnemyTypeChromosomes[enemyType].MaxBy(e => e.Fitness);
+                _geneticsMutex.ReleaseMutex();
+
+                return chromsome;
             }
             catch (Exception e)
             {
@@ -203,7 +213,9 @@ namespace AbbatoirIntergrade.StaticManagers
                         newDictionary.Add(enemyType, currentList);
                     }
                 }
+                _geneticsMutex.WaitOne();
                 EnemyTypeChromosomes = newDictionary;
+                _geneticsMutex.ReleaseMutex();
                 GenerationCount++;
 
                 RefreshAllFitnessEvaluations();
@@ -317,10 +329,12 @@ namespace AbbatoirIntergrade.StaticManagers
 
         private static void RefreshAllFitnessEvaluations()
         {
+            _geneticsMutex.WaitOne();
             foreach (var enemyTypeAndChromosomeList in EnemyTypeChromosomes)
             {
                 RankFitness(enemyTypeAndChromosomeList.Key, enemyTypeAndChromosomeList.Value);
             }
+            _geneticsMutex.ReleaseMutex();
         }
 
         private static void RankFitness(EnemyTypes enemyType, List<SerializableChromosome> chromosomes)

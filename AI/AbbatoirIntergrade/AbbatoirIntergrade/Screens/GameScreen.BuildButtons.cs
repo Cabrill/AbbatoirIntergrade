@@ -43,6 +43,14 @@ namespace AbbatoirIntergrade.Screens
                     StructureBuildSound.Pan = newBuilding.X / (Camera.Main.OrthogonalWidth / 2);
 
                     SoundManager.PlaySoundEffect(StructureBuildSound);
+
+                    var towerBuiltData = new
+                    {
+                        TowerType = buildButton.BuildingType.AssemblyQualifiedName,
+                        NewTowerCount = AllStructuresList.Count,
+                        AllTowersUnlocked = PlayerDataManager.GetAvailableTowers().Count == 6 ? "True" : "False"
+                    };
+                    AnalyticsManager.AddDeferredEvent("TowerBuilt", towerBuiltData);
                 }
             }
         }

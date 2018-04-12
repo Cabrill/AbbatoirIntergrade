@@ -92,6 +92,7 @@ namespace AbbatoirIntergrade.StaticManagers
             var gameResults = new
             {
                 EndingType = endingResult.ToString(),
+                TimesGameCompleted = PlayerDataManager.TilesGameCompleted,
                 TotalPlayTimeInSeconds = PlayerDataManager.TotalPlayTimeInSeconds,
                 TotalWavesSent = PlayerDataManager.TotalWavesSent,
                 TotalEnemiesKilled = PlayerDataManager.TotalEnemiesKilled,
