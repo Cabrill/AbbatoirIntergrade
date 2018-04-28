@@ -178,7 +178,7 @@
     <property name="StructureDescription" type="string" />
     <property name="ProjectileSpeed" type="float" default="800" />
     <property name="RangedRadius" type="float" default="850" />
-    <property name="AttackDamage" type="float" default="60" />
+    <property name="AttackDamage" type="float" default="40" />
     <property name="SecondsBetweenFiring" type="float" default="6" />
     <property name="ProjectileAltitude" type="float" default="100" />
     <property name="HasSplashDamage" type="bool" default="true" />

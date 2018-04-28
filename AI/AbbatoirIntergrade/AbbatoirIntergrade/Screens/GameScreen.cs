@@ -1126,7 +1126,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void CreateResourceNotification(BaseEnemy enemy)
         {
-            var pointValue = (int) enemy.GetEnemyType().PointValue();
+            var pointValue = (int) Math.Max(1,enemy.GetEnemyType().PointValue()/2.25);
             CurrentSatoshis += pointValue;
 
             LivesPointsDisplayInstance.SatoshiChange = $"+{pointValue}";

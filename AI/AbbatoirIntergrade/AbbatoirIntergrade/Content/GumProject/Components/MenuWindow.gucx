@@ -668,7 +668,7 @@
     <Variable>
       <Type>string</Type>
       <Name>VersionText.Text</Name>
-      <Value xsi:type="xsd:string">V1.0</Value>
+      <Value xsi:type="xsd:string">V1.0.1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -725,30 +725,30 @@
     <State>
       <Name>Visible</Name>
       <Variable>
-        <Type>bool</Type>
-        <Name>OptionsControlsInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>State</Type>
         <Name>OptionsControlsInstance.State</Name>
         <Value xsi:type="xsd:string">Default</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>OptionsControlsInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Hidden</Name>
       <Variable>
-        <Type>bool</Type>
-        <Name>OptionsControlsInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>State</Type>
         <Name>OptionsControlsInstance.State</Name>
         <Value xsi:type="xsd:string">Default</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>OptionsControlsInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

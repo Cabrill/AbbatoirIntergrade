@@ -263,15 +263,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             if (PathingLine != null)
             {
-                PathingSegments = new Segment[PathingLine.Points.Count - 1];
-                for (var i = 0; i <= pathing.Points.Count - 2; i++)
-                {
-                    PathingSegments[i] = new Segment(pathing.AbsolutePointPosition(i), pathing.AbsolutePointPosition(i + 1));
-                }
-
-                firstNavigationPoint = PathingLine.AbsolutePointPosition(0);
-                secondNavigationPoint = PathingLine.AbsolutePointPosition(1);
-                secondNavigationPointFlying = PathingLine.AbsolutePointPosition(PathingLine.Points.Count - 1);
+                UpdatePathingValues();
             }
         }
 
@@ -488,6 +480,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             if (Altitude <=0f && IsOnFinalFrameOfAnimation)
             {
+                if (IsDrowning)
+                {
+                    OnDeath?.Invoke(this);
+                    OnDeath -= OnDeath;
+                }
                 deathAnimationFinished = true;
                 this.Call(() =>
                 {

@@ -16,9 +16,9 @@ namespace AbbatoirIntergrade.GumRuntimes
     {
         private BaseStructure structureShown;
         private StructureInfoSaveState structureSaveShown;
-        private const int FirstUpgradeCost = 5;
-        private const int SecondUpgradeCost = 8;
-        private const int FinalUpgradeCost = 12;
+        private int FirstUpgradeCost = 5;
+        private int SecondUpgradeCost = 8;
+        private int FinalUpgradeCost = 12;
 
         public Action<BaseStructure, UpgradeTypes, int> OnUpgradeAction;
 
@@ -88,6 +88,9 @@ namespace AbbatoirIntergrade.GumRuntimes
         private void SetDisplayFor(BaseStructure structure, int currentSatoshis, bool allowUpgrades)
         {
             Visible = true;
+            FirstUpgradeCost = (int)(structure.SatoshiCost * 0.5);
+            SecondUpgradeCost = (int) (structure.SatoshiCost * 1.25);
+            FinalUpgradeCost = (int) (structure.SatoshiCost * 2);
             structureShown = structure;
 
             var minMaxX = (CameraZoomManager.OriginalOrthogonalWidth - GetAbsoluteWidth()) / 2;

@@ -64,7 +64,7 @@
                             VersionText.FontScale = 0.5f;
                             VersionText.Height = 34f;
                             VersionText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MenuFrameInstance") ?? this;
-                            VersionText.Text = "V1.0";
+                            VersionText.Text = "V1.0.1";
                             VersionText.UseCustomFont = true;
                             VersionText.Width = 186f;
                             VersionText.X = 10.95123f;
@@ -705,7 +705,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.VersionText.Text = "V1.0";
+                            this.VersionText.Text = "V1.0.1";
                         }
                         if (interpolationValue < 1)
                         {
@@ -1026,7 +1026,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.VersionText.Text = "V1.0";
+                            this.VersionText.Text = "V1.0.1";
                         }
                         if (interpolationValue >= 1)
                         {

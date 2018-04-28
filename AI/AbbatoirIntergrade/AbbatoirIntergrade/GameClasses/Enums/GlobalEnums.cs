@@ -80,7 +80,7 @@ namespace AbbatoirIntergrade
             var speedPoints = enemyAttributes.Speed / minSpeed;
             var flyingPoints = enemyAttributes.IsFlying ? 1.5 : 1;
 
-            var survivalPoints = ((healthPoints + speedPoints) / 2) * flyingPoints;
+            
 
             var piercePoints = enemyAttributes.PiercingResist - minPierce;
             var bombardPoints = enemyAttributes.BombardResist - minBombard;
@@ -91,8 +91,11 @@ namespace AbbatoirIntergrade
             
             var resistPoints = piercePoints + bombardPoints + chemicalPoints + frostPoints + firePoints +
                                 electricPoints;
-            
-            var pointValue = survivalPoints * resistPoints;
+
+            var survivalPoints = healthPoints * resistPoints;
+            var movePoints = speedPoints * flyingPoints;
+
+            var pointValue = survivalPoints * movePoints;
             //var pointString = Regex.Replace(enemyType.ToString(), "[^0-9.]", "");
             //int.TryParse(pointString, out pointValue);
 

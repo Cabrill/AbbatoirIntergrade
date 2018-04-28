@@ -43,10 +43,6 @@ namespace AbbatoirIntergrade.StaticManagers
         private static FlatRedBall.Math.PositionedObjectList<BaseStructure> _allTowers;
         private static Polygon _groundPathing;
         private static List<Polygon> _waterShapes;
-        private static Vector3 _firstPathingPoint;
-        private static Vector3 _lastPathingPoint;
-        private static double _totalPathLength;
-        private static double[] _segmentLengths;
         private static int _waveEnemyCount;
 
         //Max paramters for towers
@@ -233,7 +229,6 @@ namespace AbbatoirIntergrade.StaticManagers
         {
             _groundPathing = groundPathing;
             _waterShapes = waterShapes;
-            UpdatePathingValues();
             CreatePartialInput();
         }
 
@@ -261,8 +256,6 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static void NotifyOfWaveEnd(bool shouldLearnFromWave)
         {
-            _waveScore = 0;
-
             if (shouldLearnFromWave)
             {
                 _waveData.WaveInputs.Add(_currentWaveInput);
@@ -275,6 +268,8 @@ namespace AbbatoirIntergrade.StaticManagers
 
                 AnalyticsManager.SendEventImmediately("WaveData", waveDataResults);
             }
+
+            _waveScore = 0;
 
             if (IsLearningTaskRunning || !shouldLearnFromWave) return;
 
@@ -306,24 +301,6 @@ namespace AbbatoirIntergrade.StaticManagers
             _maxProjectileSpeed = Math.Max(_maxProjectileSpeed, tower.ProjectileSpeed);
 
             _maxSecondsBetweenFiring = Math.Max(_maxSecondsBetweenFiring, tower.SecondsBetweenFiring);
-        }
-
-        private static void UpdatePathingValues()
-        {
-            _totalPathLength = 0;
-            _segmentLengths = new double[_groundPathing.Points.Count - 1];
-            _firstPathingPoint = _groundPathing.AbsolutePointPosition(0);
-            _lastPathingPoint = _groundPathing.AbsolutePointPosition(_groundPathing.Points.Count - 1);
-
-            for (var i = 0; i < _groundPathing.Points.Count - 2; i++)
-            {
-                var point1 = _groundPathing.AbsolutePointPosition(i);
-                var point2 = _groundPathing.AbsolutePointPosition(i + 1);
-                var segmentValue = (point1 - point2).Length();
-                _totalPathLength += segmentValue;
-
-                _segmentLengths[i] = segmentValue;
-            }
         }
 
         private static double[] CurrentWaveToInput(List<BaseEnemy> newWaveEnemies)
@@ -519,42 +496,7 @@ namespace AbbatoirIntergrade.StaticManagers
         private static double CalculateScoreFor(BaseEnemy enemy)
         {
             if (enemy.HasReachedGoal) return 1.0;
-
-            var score = 0.0;
-            Vector3 firstPoint, secondPoint;
-
-
-            if (enemy.IsFlying)
-            {
-                firstPoint = _firstPathingPoint;
-                secondPoint = _lastPathingPoint;
-            }
-            else
-            {
-                var pathingPointIndex = enemy.PathingPointIndex;
-
-                for (var i = 0; i < pathingPointIndex-1; i++)
-                {
-                    score += _segmentLengths[i] / _totalPathLength;
-                }
-
-                firstPoint = _groundPathing.AbsolutePointPosition(pathingPointIndex - 1);
-                secondPoint = _groundPathing.AbsolutePointPosition(pathingPointIndex);
-            }
-
-            var distanceBetweenPoints = (firstPoint - secondPoint).Length();
-            var enemyDistanceToSecondPoint = (enemy.Position - secondPoint).Length();
-
-            if (enemyDistanceToSecondPoint < distanceBetweenPoints)
-            {
-                var pointProgress = distanceBetweenPoints - enemyDistanceToSecondPoint;
-
-                score += pointProgress / _totalPathLength;
-            }
-
-            score *= 0.01f;
-
-            return score;
+            return enemy.GetProgress();
         }
 
         private static double AbsoluteXCoordinateToRelative(float xcoord)

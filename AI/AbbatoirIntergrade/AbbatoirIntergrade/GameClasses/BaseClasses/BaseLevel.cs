@@ -50,6 +50,17 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
                 {
                     _availableEnemyTypes = Waves.SelectMany(w => w.EnemyTypes).Distinct().ToList();
                 }
+                if (PlayerDataManager.PlayerHasBeatGame)
+                {
+                    _availableEnemyTypes = new List<EnemyTypes>();
+                    var allenemyTypes = Enum.GetValues(typeof(EnemyTypes)).Cast<EnemyTypes>().ToList();
+                    for (var i = 0; i < 5; i++)
+                    {
+                        var randomEnemy = FlatRedBallServices.Random.In(allenemyTypes);
+                        _availableEnemyTypes.Add(randomEnemy);
+                        allenemyTypes.Remove(randomEnemy);
+                    }
+                }
                 return _availableEnemyTypes;
             }
         }
@@ -135,7 +146,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
             _currentlyGeneratingNewWave = true;
             void GenerateWaveIfNecessary()
             {
-                var currentWave = CurrentWaveNumber < Waves.Count ? Waves[CurrentWaveNumber] : GenerateWave();
+                var currentWave = CurrentWaveNumber < Waves.Count  && !PlayerDataManager.PlayerHasBeatGame ? Waves[CurrentWaveNumber] : GenerateWave();
 
                 Action stuffToDoOnPrimaryThread = () => FinishCreatingEnemiesForWave(currentWave);
                 InstructionManager.AddSafe(stuffToDoOnPrimaryThread);
@@ -162,9 +173,22 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 
         private BaseWave GenerateWave()
         {
-            var pointsAvailable = Waves.Last().PointValue + CurrentWaveNumber;
+            var pointsAvailable = 0.0;
+            if (PlayerDataManager.PlayerHasBeatGame)
+            {
+                pointsAvailable = AvailableEnemyTypes.Min(t => t.PointValue()) + 3 + (CurrentWaveNumber * 3);
+            }
+            else
+            {
+                pointsAvailable = Waves.Last().PointValue + CurrentWaveNumber;
+            }
+            
             var generatedWave = MachineLearningManager.GenerateWave(AvailableEnemyTypes, pointsAvailable);
 
+            if (generatedWave.EnemyTypes.Count == 0 || generatedWave.EnemyCounts.TotalEnemies == 0)
+            {
+                var doh = 1;
+            }
             return generatedWave;
         }
 

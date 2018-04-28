@@ -23,6 +23,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         private static Vector3 secondNavigationPoint;
         private static Vector3 secondNavigationPointFlying;
 
+        private static Vector3 _firstPathingPoint;
+        private static Vector3 _lastPathingPoint;
+        private static double _totalPathLength;
+        private static double[] _segmentLengths;
+
         #endregion
 
         #region Placement methods
@@ -157,6 +162,75 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             var altitudeVelocity = - ((GravityDrag * timeToTravel) / 2);
 
             return altitudeVelocity;
+        }
+
+        private static void UpdatePathingValues()
+        {
+            _totalPathLength = 0;
+            _segmentLengths = new double[PathingLine.Points.Count - 1];
+            _firstPathingPoint = PathingLine.AbsolutePointPosition(0);
+            _lastPathingPoint = PathingLine.AbsolutePointPosition(PathingLine.Points.Count - 1);
+
+            for (var i = 0; i < PathingLine.Points.Count - 2; i++)
+            {
+                var point1 = PathingLine.AbsolutePointPosition(i);
+                var point2 = PathingLine.AbsolutePointPosition(i + 1);
+                var segmentValue = (point1 - point2).Length();
+                _totalPathLength += segmentValue;
+
+                _segmentLengths[i] = segmentValue;
+            }
+
+            PathingSegments = new Segment[PathingLine.Points.Count - 1];
+            for (var i = 0; i <= PathingLine.Points.Count - 2; i++)
+            {
+                PathingSegments[i] = new Segment(PathingLine.AbsolutePointPosition(i), PathingLine.AbsolutePointPosition(i + 1));
+            }
+
+            firstNavigationPoint = PathingLine.AbsolutePointPosition(0);
+            secondNavigationPoint = PathingLine.AbsolutePointPosition(1);
+            secondNavigationPointFlying = PathingLine.AbsolutePointPosition(PathingLine.Points.Count - 1);
+        }
+
+        public double GetProgress()
+        {
+            if (HasReachedGoal) return 0;
+
+            var score = 0.0;
+            Vector3 firstPoint, secondPoint;
+
+
+            if (IsFlying)
+            {
+                firstPoint = _firstPathingPoint;
+                secondPoint = _lastPathingPoint;
+            }
+            else
+            {
+                var pathingPointIndex = PathingPointIndex;
+
+                for (var i = 0; i < pathingPointIndex - 1; i++)
+                {
+                    score += _segmentLengths[i] / _totalPathLength;
+                }
+
+                firstPoint = PathingLine.AbsolutePointPosition(pathingPointIndex - 1);
+                secondPoint = PathingLine.AbsolutePointPosition(pathingPointIndex);
+            }
+
+            var distanceBetweenPoints = (firstPoint - secondPoint).Length();
+            var enemyDistanceToSecondPoint = (Position - secondPoint).Length();
+
+            if (enemyDistanceToSecondPoint < distanceBetweenPoints)
+            {
+                var pointProgress = distanceBetweenPoints - enemyDistanceToSecondPoint;
+
+                score += pointProgress / _totalPathLength;
+            }
+
+            score *= 0.01f;
+
+            return score;
         }
         #endregion
     }

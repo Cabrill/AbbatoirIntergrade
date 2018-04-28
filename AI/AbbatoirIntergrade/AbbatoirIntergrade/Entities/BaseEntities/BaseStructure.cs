@@ -369,18 +369,22 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         private void ChooseTarget()
         {
             var offScreenX = -Camera.Main.OrthogonalWidth / 2;
+            var bestTargetProgress = 0.0;
             BaseEnemy newTarget = null;
 
-            foreach (BaseEnemy pt in _potentialTargetList)
+            foreach (var pt in _potentialTargetList)
             {
                 if (pt.IsDead) continue;
                 if (pt.X < offScreenX) continue;
                 if (pt.IsFlying && this is BombardingTower) continue;
                 if (!pt.CollideAgainst(RangeCircleInstance)) continue;
                 if (pt.CollideAgainst(MinimumRangeCircleInstance)) continue;
-                
+
+                var ptProgress = pt.GetProgress();
+                if (!(ptProgress > bestTargetProgress)) continue;
+
+                bestTargetProgress = ptProgress;
                 newTarget = pt;
-                break;
             }
 
             if (newTarget != null)

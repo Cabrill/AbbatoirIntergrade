@@ -69,13 +69,13 @@ namespace AbbatoirIntergrade.Screens
 
 		    if (isDisplayingCredits)
 		    {
-		        (CreditsContainer.Children[0] as GraphicalUiElement).Y -= TimeManager.LastSecondDifference*50;
+		        (CreditsContainer.Children[0] as GraphicalUiElement).Y -= TimeManager.LastSecondDifference*100;
 
 		        var lastItem = CreditsContainer.Children[CreditsContainer.Children.Count - 1];
 		        var lastItemHeight = lastItem.Height;
 		        var lastItemY = IPositionedSizedObjectExtensionMethods.GetAbsoluteY(lastItem);
 
-		        if (lastItemY < -lastItemHeight)
+		        if (lastItemY < -lastItemHeight+100f)
 		        {
 		            ReturnToMenu();
 		        }
@@ -84,7 +84,9 @@ namespace AbbatoirIntergrade.Screens
 
         private void HandleButtonClick(FlatRedBall.Gui.IWindow window)
         {
+            //ReturnToMenu();
             EndingScreenGumInstance.FadeOutAnimation.Play();
+            ButtonInstance.Enabled = false;
             this.Call(RollCredits)
                 .After(EndingScreenGumInstance.FadeOutAnimation.Length);
         }
