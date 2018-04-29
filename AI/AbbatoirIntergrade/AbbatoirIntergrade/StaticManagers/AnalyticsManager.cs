@@ -26,16 +26,16 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static void Initialize()
         {
-            //LocalLogManager.AddLine("Analytics manager initialization");
-            //var projectSettings = new ProjectSettingsProvider(KeenProjectID, writeKey: KeenWriteKey);
-            //Client = new KeenClient(projectSettings);
-            //DeferredClient = new KeenClient(projectSettings, new EventCacheMemory());
+            LocalLogManager.AddLine("Analytics manager initialization");
+            var projectSettings = new ProjectSettingsProvider(KeenProjectID, writeKey: KeenWriteKey);
+            Client = new KeenClient(projectSettings);
+            DeferredClient = new KeenClient(projectSettings, new EventCacheMemory());
 
-            //var playerId = PlayerDataManager.CurrentPlayerId;
+            var playerId = PlayerDataManager.CurrentPlayerId;
 
-            //Client.AddGlobalProperty("PlayerID", playerId);
+            Client.AddGlobalProperty("PlayerID", playerId);
 
-            //DeferredClient.AddGlobalProperty("PlayerID", playerId);
+            DeferredClient.AddGlobalProperty("PlayerID", playerId);
         }
 
         public static void SendEventImmediately(string eventName, object eventData)
@@ -44,7 +44,7 @@ namespace AbbatoirIntergrade.StaticManagers
             //{
             //    AddOn.IpToGeo("IPAddress", "Location")
             //};
-            //Client.AddEventAsync(eventName, eventData);
+            Client.AddEventAsync(eventName, eventData);
         }
 
         public static void AddDeferredEvent(string eventName, object eventData)
@@ -53,56 +53,54 @@ namespace AbbatoirIntergrade.StaticManagers
             //{
             //    AddOn.IpToGeo("IPAddress", "Location")
             //};
-            //DeferredClient.AddEventAsync(eventName, eventData);
+            DeferredClient.AddEventAsync(eventName, eventData);
         }
 
         public static void SendDeferredEvents()
         {
-            //DeferredClient.SendCachedEventsAsync();
+            DeferredClient.SendCachedEventsAsync();
         }
 
         public static void FlushDeferredEvents()
         {
-            //DeferredClient.EventCache.ClearAsync();
+            DeferredClient.EventCache.ClearAsync();
         }
 
         public static void SendLevelCompleteEvent(LevelResult results)
         {
-            //var eventResults = new
-            //{
-            //    LevelNumber = results.LevelNumber,
-            //    LevelName = results.LevelName,
-            //    LevelStarted = results.DateTimeStarted,
-            //    LevelFinished = results.DateTimeFinished,
-            //    InGameTime = results.InGameDateTime,
-            //    TimePlayed = results.TimePlayed,
-            //    EnemiesDefeated = results.EnemiesDefeated,
-            //    WavesCompleted = results.WavesCompleted,
-            //    ModelMSE = MachineLearningManager.CurrentMeanSquaredError,
-            //    ModelSampleSize = MachineLearningManager.SampleSize,
-            //};
+            var eventResults = new
+            {
+                LevelNumber = results.LevelNumber,
+                LevelName = results.LevelName,
+                LevelStarted = results.DateTimeStarted,
+                LevelFinished = results.DateTimeFinished,
+                InGameTime = results.InGameDateTime,
+                TimePlayed = results.TimePlayed,
+                EnemiesDefeated = results.EnemiesDefeated,
+                WavesCompleted = results.WavesCompleted,
+            };
 
-            //AddDeferredEvent("LevelComplete", eventResults);
+            AddDeferredEvent("LevelComplete", eventResults);
         }
 
         public static void SendGameCompleteEvent(EndingTypes endingResult)
         {
-            //var gameResults = new
-            //{
-            //    EndingType = endingResult.ToString(),
-            //    TimesGameCompleted = PlayerDataManager.TilesGameCompleted,
-            //    TotalPlayTimeInSeconds = PlayerDataManager.TotalPlayTimeInSeconds,
-            //    TotalWavesSent = PlayerDataManager.TotalWavesSent,
-            //    TotalEnemiesKilled = PlayerDataManager.TotalEnemiesKilled,
-            //    GameLaunchCount = PlayerDataManager.GameLaunchCount,
-            //    DialogueResponseCount = PlayerDataManager.TotalResponseCount,
-            //    PositiveResponsePercent = PlayerDataManager.PositiveDialoguePercent,
-            //    NegativeResponsePercent = PlayerDataManager.NegativeDialoguePercent,
-            //    NeutralResponsePercent = PlayerDataManager.NeutralDialoguePercent,
-            //    SilenceResponsePercent = PlayerDataManager.SilentDialoguePercent,
-            //};
+            var gameResults = new
+            {
+                EndingType = endingResult.ToString(),
+                TimesGameCompleted = PlayerDataManager.TilesGameCompleted,
+                TotalPlayTimeInSeconds = PlayerDataManager.TotalPlayTimeInSeconds,
+                TotalWavesSent = PlayerDataManager.TotalWavesSent,
+                TotalEnemiesKilled = PlayerDataManager.TotalEnemiesKilled,
+                GameLaunchCount = PlayerDataManager.GameLaunchCount,
+                DialogueResponseCount = PlayerDataManager.TotalResponseCount,
+                PositiveResponsePercent = PlayerDataManager.PositiveDialoguePercent,
+                NegativeResponsePercent = PlayerDataManager.NegativeDialoguePercent,
+                NeutralResponsePercent = PlayerDataManager.NeutralDialoguePercent,
+                SilenceResponsePercent = PlayerDataManager.SilentDialoguePercent,
+            };
 
-            //AddDeferredEvent("GameCompleted", gameResults);
+            AddDeferredEvent("GameCompleted", gameResults);
         }
 
         //private static string GetLocalIPAddress()

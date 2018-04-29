@@ -110,12 +110,12 @@ namespace AbbatoirIntergrade.Screens
 	            LocalLogManager.AddLine("Main Menu - Add tower selection");
                 var selectedTower = towerSelectionBox.StructureTypeChosen;
 
-	            var towerSelectionEvent = new
-	            {
-                    TowerSelected = selectedTower.Name,
-                    SelectionNumber = PlayerDataManager.GetAvailableTowers().Count - 1,
-	            };
-                AnalyticsManager.SendEventImmediately("TowerSelection", towerSelectionEvent);
+	            //var towerSelectionEvent = new
+	            //{
+             //       TowerSelected = selectedTower.Name,
+             //       SelectionNumber = PlayerDataManager.GetAvailableTowers().Count - 1,
+	            //};
+             //   AnalyticsManager.SendEventImmediately("TowerSelection", towerSelectionEvent);
 
                 PlayerDataManager.AddTowerAvailability(selectedTower);
                 PlayerDataManager.SaveData();

@@ -44,13 +44,13 @@ namespace AbbatoirIntergrade.Screens
 
                     SoundManager.PlaySoundEffect(StructureBuildSound);
 
-                    var towerBuiltData = new
-                    {
-                        TowerType = buildButton.BuildingType.AssemblyQualifiedName,
-                        NewTowerCount = AllStructuresList.Count,
-                        AllTowersUnlocked = PlayerDataManager.GetAvailableTowers().Count == 6 ? "True" : "False"
-                    };
-                    AnalyticsManager.AddDeferredEvent("TowerBuilt", towerBuiltData);
+                    //var towerBuiltData = new
+                    //{
+                    //    TowerType = buildButton.BuildingType.AssemblyQualifiedName,
+                    //    NewTowerCount = AllStructuresList.Count,
+                    //    AllTowersUnlocked = PlayerDataManager.GetAvailableTowers().Count == 6 ? "True" : "False"
+                    //};
+                    //AnalyticsManager.AddDeferredEvent("TowerBuilt", towerBuiltData);
                 }
             }
         }

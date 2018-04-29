@@ -38,7 +38,7 @@ namespace AbbatoirIntergrade.GumRuntimes
         private void OnFastForwardButtonClick(IWindow window)
         {
             FastForwardButtonInstanceClick?.Invoke(window);
-            TimeScale = 2.5;
+            TimeScale = 2;
             SetFRBTimeScale();
             PlayButton.CurrentSelectState = ButtonFrameRuntime.Select.NotSelected;
             PauseButton.CurrentSelectState = ButtonFrameRuntime.Select.NotSelected;
@@ -97,7 +97,7 @@ namespace AbbatoirIntergrade.GumRuntimes
 
         public void UpdateWave(int currentLevelCurrentWaveNumber, int totalWaves)
         {
-            WaveTextInstance.Text =  $"{currentLevelCurrentWaveNumber} / {totalWaves}";
+            WaveTextInstance.Text = totalWaves >= 999 ? $"{currentLevelCurrentWaveNumber} / ???" : $"{currentLevelCurrentWaveNumber} / {totalWaves}";
         }
 
         public void UpdateTime(double currentTime, bool isPaused)

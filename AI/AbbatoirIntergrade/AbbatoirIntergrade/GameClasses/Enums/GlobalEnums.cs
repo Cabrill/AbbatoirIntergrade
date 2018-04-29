@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.Entities.BaseEntities;
+using AbbatoirIntergrade.UtilityClasses;
 using FlatRedBall;
 
 namespace AbbatoirIntergrade
@@ -96,10 +97,64 @@ namespace AbbatoirIntergrade
             var movePoints = speedPoints * flyingPoints;
 
             var pointValue = survivalPoints * movePoints;
-            //var pointString = Regex.Replace(enemyType.ToString(), "[^0-9.]", "");
-            //int.TryParse(pointString, out pointValue);
 
             PointValues.Add(enemyType, pointValue);
+
+            return pointValue;
+        }
+
+        public static double PointValue(this EnemyTypes enemyType, SerializableChromosome chromosome)
+        {
+            if (!HasCalculatedMinimums) CalculateMinimums();
+
+            var enemyAttributes = BaseEnemy.GetGeneticAttributes(enemyType.Attributes(), chromosome);
+
+            var healthPoints = enemyAttributes.MaximumHealth / minHealth;
+            var speedPoints = enemyAttributes.EffectiveSpeed / minSpeed;
+            var flyingPoints = enemyAttributes.IsFlying ? 1.5 : 1;
+
+            var piercePoints = enemyAttributes.EffectivePiercingResist - minPierce;
+            var bombardPoints = enemyAttributes.EffectiveBombardResist - minBombard;
+            var chemicalPoints = enemyAttributes.EffectiveChemicalResist - minChemical;
+            var frostPoints = enemyAttributes.EffectiveFrostResist - minFrost;
+            var firePoints = enemyAttributes.EffectiveFireResist - minFire;
+            var electricPoints = enemyAttributes.EffectiveElectricResist - minElectric;
+
+            var resistPoints = piercePoints + bombardPoints + chemicalPoints + frostPoints + firePoints +
+                               electricPoints;
+
+            var survivalPoints = healthPoints * resistPoints;
+            var movePoints = speedPoints * flyingPoints;
+
+            var pointValue = survivalPoints * movePoints;
+
+            return pointValue;
+        }
+
+        public static double PointValue(this BaseEnemy enemy)
+        {
+            if (!HasCalculatedMinimums) CalculateMinimums();
+
+            var enemyAttributes = BaseEnemy.GetGeneticAttributes(enemy.GetBaseAttributes(), enemy.Chromosome);
+
+            var healthPoints = enemyAttributes.MaximumHealth / minHealth;
+            var speedPoints = enemyAttributes.EffectiveSpeed / minSpeed;
+            var flyingPoints = enemyAttributes.IsFlying ? 1.5 : 1;
+
+            var piercePoints = enemyAttributes.EffectivePiercingResist - minPierce;
+            var bombardPoints = enemyAttributes.EffectiveBombardResist - minBombard;
+            var chemicalPoints = enemyAttributes.EffectiveChemicalResist - minChemical;
+            var frostPoints = enemyAttributes.EffectiveFrostResist - minFrost;
+            var firePoints = enemyAttributes.EffectiveFireResist - minFire;
+            var electricPoints = enemyAttributes.EffectiveElectricResist - minElectric;
+
+            var resistPoints = piercePoints + bombardPoints + chemicalPoints + frostPoints + firePoints +
+                               electricPoints;
+
+            var survivalPoints = healthPoints * resistPoints;
+            var movePoints = speedPoints * flyingPoints;
+
+            var pointValue = survivalPoints * movePoints;
 
             return pointValue;
         }

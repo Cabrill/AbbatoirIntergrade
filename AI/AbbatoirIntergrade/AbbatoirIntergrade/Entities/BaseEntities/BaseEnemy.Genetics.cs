@@ -83,7 +83,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             EffectiveElectricResist = effectiveAttributes.EffectiveElectricResist;
         }
 
-        protected BaseAttributes GetBaseAttributes()
+        public BaseAttributes GetBaseAttributes()
         {
             return new BaseAttributes()
             {

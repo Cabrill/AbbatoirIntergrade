@@ -29,19 +29,19 @@ namespace AbbatoirIntergrade.MachineLearning.Models
         private int Epochs = 100;
         private int HiddenLayerNodes = 150;
         private bool hasTrained;
-        private bool declineEpochs = true;
+        private bool declineEpochs = false;
         private float declineRate = 200;
 
         public double LastPrediction { get; private set; }
         public double LastMSE { get; private set; }
         public int LastSampleSize { get; private set; }
         public bool IsReady { get; private set; }
-        private Mutex _modelMutex;
+        public bool IsCurrentlyLearning { get; private set; }
+        private Mutex _modelMutex = new Mutex();
 
         public void Initialize(int inputCount)
         {
             IsReady = false;
-            _modelMutex = new Mutex();
 
             network = new DeepBeliefNetwork((int)inputCount, HiddenLayerNodes, 1);
             new GaussianWeights(network, 0.1).Randomize();
@@ -92,22 +92,19 @@ namespace AbbatoirIntergrade.MachineLearning.Models
 
         public void LearnAll(WaveData waveData)
         {
-            void LearnThenUpdateNetworkAction()
-            {
-                var updatedNetwork = LearnOnBackgroundThread(waveData.WaveInputs.ToArray(), waveData.WaveScores.ToArray());
-                MeanSquaredError(waveData);
-                var performanceData = new
-                {
-                    MSE = LastMSE,
-                    SampleSize = LastSampleSize,
-                    LearnTime = LastLearnTime,
-                };
-                AnalyticsManager.SendEventImmediately("ModelUpdate", performanceData);
-                Action UpdateAction = () => ReplaceModelWithUpdate(updatedNetwork);
-                InstructionManager.AddSafe(UpdateAction);
-            }
+            IsCurrentlyLearning = true;
+            var updatedNetwork = LearnForUpdatedModel(waveData.WaveInputs.ToArray(), waveData.WaveScores.ToArray());
+            UpdateMeanSquaredError(waveData);
 
-            Task.Run((Action) LearnThenUpdateNetworkAction);
+            var performanceData = new
+            {
+                MSE = LastMSE,
+                SampleSize = LastSampleSize,
+                LearnTime = LastLearnTime,
+            };
+            AnalyticsManager.SendEventImmediately("ModelUpdate", performanceData);
+
+            ReplaceModelWithUpdate(updatedNetwork);
         }
 
         private void ReplaceModelWithUpdate(DeepBeliefNetwork updatedNetwork)
@@ -116,9 +113,10 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             network = updatedNetwork;
             _modelMutex.ReleaseMutex();
             IsReady = true;
+            IsCurrentlyLearning = false;
         }
 
-        private DeepBeliefNetwork LearnOnBackgroundThread(double[][] inputs, double[] outputDouble)
+        private DeepBeliefNetwork LearnForUpdatedModel(double[][] inputs, double[] outputDouble)
         {
             updatingNetwork = network.DeepClone();
 
@@ -166,19 +164,19 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             return updatingNetwork;
         }
 
-        public double MeanSquaredError(WaveData waveData)
+        public double UpdateMeanSquaredError(WaveData waveData)
         {
             var input = waveData.WaveInputs.ToArray();
             var outputData = waveData.WaveScores.ToArray();
             var error = 0.0;
-            _modelMutex.WaitOne();
+            
             for (var i = 0; i < outputData.Length; i++)
             {
                 var prediction = network.Compute(input[i])[0];
                 var actual = outputData[i];
                 error += Math.Pow(prediction - actual, 2);
             }
-            _modelMutex.ReleaseMutex();
+            
             error /= outputData.Length;
 
             LastSampleSize = outputData.Length;
@@ -219,6 +217,7 @@ namespace AbbatoirIntergrade.MachineLearning.Models
 
         public bool Load(string fileName)
         {
+            _modelMutex.WaitOne();
             var fileExists = FileManager.FileExists(fileName);
             if (!fileExists) return false;
 
@@ -231,9 +230,9 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             {
                 return false;
             }
-            _modelMutex = new Mutex();
             hasTrained = true;
             IsReady = true;
+            _modelMutex.ReleaseMutex();
             return true;
         }
 

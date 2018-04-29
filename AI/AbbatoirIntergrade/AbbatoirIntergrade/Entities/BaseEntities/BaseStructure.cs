@@ -128,7 +128,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 if (DebugVariables.TurretsAimAtMouse) RotateToAimMouse();
 #endif
 
-                if (targetEnemy != null && (targetEnemy.IsDead || !RangeCircleInstance.CollideAgainst(targetEnemy.Collision) || MinimumRangeCircleInstance.CollideAgainst(targetEnemy.Collision)))
+                if (targetEnemy != null && (targetEnemy.IsDead || targetEnemy.HasReachedGoal || !RangeCircleInstance.CollideAgainst(targetEnemy.Collision) || MinimumRangeCircleInstance.CollideAgainst(targetEnemy.Collision)))
                 {
                     targetEnemy = null;
                 }
@@ -375,13 +375,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             foreach (var pt in _potentialTargetList)
             {
                 if (pt.IsDead) continue;
+                if (pt.HasReachedGoal) continue;
                 if (pt.X < offScreenX) continue;
                 if (pt.IsFlying && this is BombardingTower) continue;
                 if (!pt.CollideAgainst(RangeCircleInstance)) continue;
                 if (pt.CollideAgainst(MinimumRangeCircleInstance)) continue;
 
                 var ptProgress = pt.GetProgress();
-                if (!(ptProgress > bestTargetProgress)) continue;
+                if (ptProgress < bestTargetProgress) continue;
 
                 bestTargetProgress = ptProgress;
                 newTarget = pt;

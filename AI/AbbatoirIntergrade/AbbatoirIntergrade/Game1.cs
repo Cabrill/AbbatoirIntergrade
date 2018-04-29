@@ -12,6 +12,7 @@ using FlatRedBall.Debugging;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
@@ -29,8 +30,17 @@ namespace AbbatoirIntergrade
         public Game1() : base ()
         {
             LocalLogManager.StartLog();
+
             AppDomain currentDomain = AppDomain.CurrentDomain;
             currentDomain.UnhandledException += new UnhandledExceptionEventHandler(LocalLogManager.UncaughtExceptionLogger);
+
+            //Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.AboveNormal;
+            //var proc = Process.GetCurrentProcess();
+            //proc.Threads[0]
+            //var affinityMask = (long)proc.ProcessorAffinity;
+            //affinityMask &= 0x000F; // use only any of the first 4 available processors
+            //proc.ProcessorAffinity = (IntPtr)affinityMask;
+
             graphics = new GraphicsDeviceManager(this);
 
 #if WINDOWS_PHONE || ANDROID || IOS
@@ -93,6 +103,11 @@ namespace AbbatoirIntergrade
         protected override void Update(GameTime gameTime)
         {
             FlatRedBallServices.Update(gameTime);
+
+            //for (var i = 0; i < 10; i++)
+            //{
+            //    GeneticsManager.PerformTest(i);
+            //}
 
             FlatRedBall.Screens.ScreenManager.Activity();
 

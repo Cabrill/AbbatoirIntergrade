@@ -185,12 +185,15 @@ namespace AbbatoirIntergrade.Screens
             LocalLogManager.AddLine("Game Screen - Display local time");
             LocationTimeInstance.Display(CurrentLevel.LocationName, currentLevelDateTime);
 
-            if (CurrentLevel.LevelNumber == 1)
+            if (CurrentLevel.LevelNumber == 1 && !PlayerDataManager.PlayerHasBeatGame)
             {
                 _tutorialScript = new TutorialScript(this);
                 _tutorialScript.Initialize();
                 TutorialTextInstance.OnSkipTutorialClicked = () => _tutorialScript.Skip();
             }
+
+            UpdateInfoBar();
+            LivesPointsDisplayInstance.LivesRemaining = CurrentLevel.RemainingLives.ToString();
 
             this.Call(() =>CurrentMusicDisplayInstance.TimedDisplay(true)).After(5f);
         }
@@ -662,6 +665,7 @@ namespace AbbatoirIntergrade.Screens
 	            if (enemy.HasReachedGoal)
 	            {
 	                HandleEnemyReachingGoal();
+                    MachineLearningManager.UpdateWaveScore(enemy);
 	                enemy.Destroy();
 	            }
             }
@@ -1126,7 +1130,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void CreateResourceNotification(BaseEnemy enemy)
         {
-            var pointValue = (int) Math.Max(1,enemy.GetEnemyType().PointValue()/2.25);
+            var pointValue = (int) Math.Max(1,enemy.PointValue()/2.25);
             CurrentSatoshis += pointValue;
 
             LivesPointsDisplayInstance.SatoshiChange = $"+{pointValue}";

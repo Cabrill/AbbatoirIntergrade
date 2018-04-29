@@ -69,6 +69,7 @@ namespace AbbatoirIntergrade.StaticManagers
 
         private static string _modelFileName;
         private static string _waveDataFileName;
+        private static object FileLocker= new object();
 
         public static void LoadData(string modelFileName, string waveDataFileName)
         {
@@ -82,11 +83,14 @@ namespace AbbatoirIntergrade.StaticManagers
                             (MaxEnemies * CountPerEnemy);
 
             _machineLearningModel = new DeepBeliefNetworkModel();
-            var canLoadExistingModel =  _machineLearningModel.Load(_modelFileName);
-
-            if (!canLoadExistingModel)
+            lock (FileLocker)
             {
-                _machineLearningModel.Initialize(InputCount);
+                var canLoadExistingModel = _machineLearningModel.Load(_modelFileName);
+            
+                if (!canLoadExistingModel)
+                {
+                    _machineLearningModel.Initialize(InputCount);
+                }
             }
 
             var waveDataExists = FileManager.FileExists(_waveDataFileName);
@@ -100,8 +104,11 @@ namespace AbbatoirIntergrade.StaticManagers
 
         private static void SaveData()
         {
-            FileManager.BinarySerialize(_waveData, _waveDataFileName);
-            _machineLearningModel.Save(_modelFileName);
+            lock (FileLocker)
+            {
+                FileManager.BinarySerialize(_waveData, _waveDataFileName);
+                _machineLearningModel.Save(_modelFileName);
+            }
         }
 
         public static BaseWave GenerateWave(List<EnemyTypes> availableEnemyTypes, double pointsAvailable)
@@ -271,17 +278,19 @@ namespace AbbatoirIntergrade.StaticManagers
 
             _waveScore = 0;
 
-            if (IsLearningTaskRunning || !shouldLearnFromWave) return;
+            if (_machineLearningModel.IsCurrentlyLearning || !shouldLearnFromWave) return;
 
             void LearnAndRefreshTask()
             {
                 _machineLearningModel.LearnAll(_waveData);
                 GeneticsManager.EvaluateAndGenerate();
                 SaveData();
-                IsLearningTaskRunning = false;
             }
 
-            var lowPriorityThread = new Thread(LearnAndRefreshTask) {Priority = ThreadPriority.BelowNormal};
+            var lowPriorityThread = new Thread(LearnAndRefreshTask)
+            {
+                Priority = ThreadPriority.Lowest
+            };
             lowPriorityThread.Start();
         }
 
