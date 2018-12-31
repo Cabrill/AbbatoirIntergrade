@@ -85,7 +85,7 @@ namespace AbbatoirIntergrade.StaticManagers
             }
         }
 
-        private static void CreateNewGeneticPool()
+        public static void CreateNewGeneticPool()
         {
             GenerationCount = 0;
 
@@ -102,8 +102,6 @@ namespace AbbatoirIntergrade.StaticManagers
 
                 EnemyTypeChromosomes.Add(enemyType, chromosomeList);
             }
-            if (ChromosomeFitnessFunction.PartialInputList != null)
-                RefreshAllFitnessEvaluations();
         }
 
         public static bool Load(string fileName)
@@ -122,6 +120,7 @@ namespace AbbatoirIntergrade.StaticManagers
             {
                 EnemyTypeChromosomes = FileManager.XmlDeserialize(typeof(SerializableDictionary<EnemyTypes, List<SerializableChromosome>>), _geneticsFileName) as SerializableDictionary<EnemyTypes, List<SerializableChromosome>>;
                 GenerationCount = FileManager.XmlDeserialize(typeof(int?), _generationCountFileName) as int?;
+                _geneticsMutex.ReleaseMutex();
             }
             catch (Exception ex)
             {
@@ -129,7 +128,6 @@ namespace AbbatoirIntergrade.StaticManagers
                 return false;
             }
 
-            _geneticsMutex.ReleaseMutex();
             return true;
         }
 
@@ -159,20 +157,14 @@ namespace AbbatoirIntergrade.StaticManagers
         {
             List<SerializableChromosome> chromosomeList;
 
+            if (!EnemyTypeChromosomes[enemyType].Any(c => c.Fitness > 0))
+            {
+                RefreshAllFitnessEvaluations();
+            }
+
             _geneticsMutex.WaitOne();
-            if (EnemyTypeChromosomes[enemyType].Any(c => c.Fitness > 0))
-            {
-                chromosomeList = EnemyTypeChromosomes[enemyType].ToList();
-                ApplySelection(chromosomeList, numberToReturn);
-            }
-            else
-            {
-                chromosomeList = new List<SerializableChromosome>();
-                for (var i = 0; i < numberToReturn; i++)
-                {
-                    chromosomeList.Add(FlatRedBallServices.Random.In(EnemyTypeChromosomes[enemyType]));
-                }
-            }
+            chromosomeList = EnemyTypeChromosomes[enemyType].ToList();
+            ApplySelection(chromosomeList, numberToReturn);
             _geneticsMutex.ReleaseMutex();
 
             return chromosomeList;
@@ -180,11 +172,14 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static SerializableChromosome GetBestChromsomeForEnemyType(EnemyTypes enemyType)
         {
+            if (!EnemyTypeChromosomes[enemyType].Any(c => c.Fitness > 0))
+            {
+                RefreshAllFitnessEvaluations();
+            }
+
             try
             {
                 _geneticsMutex.WaitOne();
-                RankFitness(enemyType, EnemyTypeChromosomes[enemyType]);
-
                 var chromsome = EnemyTypeChromosomes[enemyType].MaxBy(e => e.Fitness);
                 _geneticsMutex.ReleaseMutex();
 
@@ -203,12 +198,11 @@ namespace AbbatoirIntergrade.StaticManagers
         public static void EvaluateAndGenerate()
         {
             if (!MachineLearningManager.IsReadyToEvaluate) return;
-            if (_CurrentlyRefreshingOrSaving) return;
-            _CurrentlyRefreshingOrSaving = true;
-            void RefreshAndGenerateTask()
-            {
+            //if (_CurrentlyRefreshingOrSaving) return;
+            //_CurrentlyRefreshingOrSaving = true;
+            //void RefreshAndGenerateTask()
+            //{
                 var newDictionary = new SerializableDictionary<EnemyTypes, List<SerializableChromosome>>();
-
                 foreach (var enemyTypeAndChromosomeList in EnemyTypeChromosomes)
                 {
                     var enemyType = enemyTypeAndChromosomeList.Key;
@@ -225,8 +219,8 @@ namespace AbbatoirIntergrade.StaticManagers
                             PerformCrossover(ref currentList);
                             PerformMutation(ref currentList);
 
-                            PerformCrossover(ref currentList, true);
-                            PerformMutation(ref currentList, true);
+                            //PerformCrossover(ref currentList, true);
+                            //PerformMutation(ref currentList, true);
 
                             PerformNewGeneration(ref currentList);
                         }
@@ -243,17 +237,56 @@ namespace AbbatoirIntergrade.StaticManagers
                 EnemyTypeChromosomes = newDictionary;
                 _geneticsMutex.ReleaseMutex();
 
-                AnalyticsManager.SendEventImmediately("GeneticGeneration", CreateEventObject());
+                RefreshAllFitnessEvaluations();
+                //AnalyticsManager.SendEventImmediately("GeneticGeneration", CreateEventObject());
 
                 GenerationCount++;
 
-                Action UpdateAction = () => Save(_geneticsFileName);
-                InstructionManager.AddSafe(UpdateAction);
-            }
+            //    Action UpdateAction = () => Save(_geneticsFileName);
+            //    InstructionManager.AddSafe(UpdateAction);
+            //}
 
-            var lowPriorityThread = new Thread(RefreshAndGenerateTask) { Priority = ThreadPriority.BelowNormal };
-            lowPriorityThread.Start();
-            Task.Run((Action)RefreshAndGenerateTask);
+            //var lowPriorityThread = new Thread(RefreshAndGenerateTask) { Priority = ThreadPriority.BelowNormal };
+            //lowPriorityThread.Start();
+            //Task.Run((Action)RefreshAndGenerateTask);
+        }
+
+        public static double GetAverageFitness()
+        {
+
+            var Chicken2Current = GetBestChromsomeForEnemyType(EnemyTypes.Chicken2)?.Fitness ?? 0;
+            var Chicken3Current = GetBestChromsomeForEnemyType(EnemyTypes.Chicken3)?.Fitness ?? 0;
+            var Chicken1Current = GetBestChromsomeForEnemyType(EnemyTypes.Chicken1)?.Fitness ?? 0;
+
+            var averageChicken = (Chicken1Current + Chicken2Current + Chicken3Current) / 3;
+            
+            var Pig1Current = GetBestChromsomeForEnemyType(EnemyTypes.Pig1)?.Fitness ?? 0;
+            var Pig2Current = GetBestChromsomeForEnemyType(EnemyTypes.Pig2)?.Fitness ?? 0;
+            var Pig3Current = GetBestChromsomeForEnemyType(EnemyTypes.Pig3)?.Fitness ?? 0;
+
+            var averagePig = (Pig1Current + Pig2Current + Pig3Current) / 3;
+            
+            var Cow1Current = GetBestChromsomeForEnemyType(EnemyTypes.Cow1)?.Fitness ?? 0;
+            var Cow2Current = GetBestChromsomeForEnemyType(EnemyTypes.Cow2)?.Fitness ?? 0;
+            var Cow3Current = GetBestChromsomeForEnemyType(EnemyTypes.Cow3)?.Fitness ?? 0;
+
+            var averageCow = (Cow1Current + Cow2Current + Cow3Current) / 3;
+            
+            var Rabbit1Current = GetBestChromsomeForEnemyType(EnemyTypes.Rabbit1)?.Fitness ?? 0;
+            var Rabbit2Current = GetBestChromsomeForEnemyType(EnemyTypes.Rabbit2)?.Fitness ?? 0;
+            var Rabbit3Current = GetBestChromsomeForEnemyType(EnemyTypes.Rabbit3)?.Fitness ?? 0;
+
+            var averageRabbit = (Rabbit1Current + Rabbit2Current + Rabbit3Current) / 3;
+             
+            var Sheep1Current = GetBestChromsomeForEnemyType(EnemyTypes.Sheep1)?.Fitness ?? 0;
+            var Sheep2Current = GetBestChromsomeForEnemyType(EnemyTypes.Sheep2)?.Fitness ?? 0;
+            var Sheep3Current = GetBestChromsomeForEnemyType(EnemyTypes.Sheep3)?.Fitness ?? 0;
+
+            var averageSheep = (Sheep1Current + Sheep2Current + Sheep3Current) / 3;
+
+            var totalAverage = (averageChicken + averagePig + averageCow + averageRabbit + averageSheep) / 5;
+
+            return totalAverage;
         }
 
         private static object CreateEventObject()
@@ -369,7 +402,7 @@ namespace AbbatoirIntergrade.StaticManagers
         private static void RankFitness(EnemyTypes enemyType, List<SerializableChromosome> chromosomes)
         {
             ChromosomeFitnessFunction.EnemyType = enemyType;
-            ChromosomeFitnessFunction.PartialInputList = MachineLearningManager.GetCurrentPartialInputList();
+            ChromosomeFitnessFunction.PartialInputList = MachineLearningManager.GetFitnessRankingInput();
 
             foreach (var chromosome in chromosomes)
             {
@@ -418,13 +451,18 @@ namespace AbbatoirIntergrade.StaticManagers
 
             public double Evaluate(IChromosome chromosome)
             {
-                var baseFitness = EnemyType.PointValue();
-                var geneticEvaluation = ((EnemyType.PointValue(chromosome as SerializableChromosome) / baseFitness) - 1)/0.1;
+                //var baseFitness = EnemyType.PointValue();
+                //var geneticEvaluation = ((EnemyType.PointValue(chromosome as SerializableChromosome) / baseFitness) - 1)/0.1;
 
-                var machinelearningEvaluation = MachineLearningManager.Evaluate(new List<double>(PartialInputList),
-                    EnemyType, chromosome as SerializableChromosome);
+                var machinelearningEvaluation = 0.0;
 
-                return geneticEvaluation+machinelearningEvaluation;
+                if (MachineLearningManager.IsReadyToEvaluate)
+                {
+                    machinelearningEvaluation = MachineLearningManager.Evaluate(new List<double>(PartialInputList),
+                        EnemyType, chromosome as SerializableChromosome);
+                }
+
+                return machinelearningEvaluation;
             }
         }
     }

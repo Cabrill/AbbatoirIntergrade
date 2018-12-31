@@ -405,12 +405,10 @@
   <Instance>
     <Name>IncreaseAmount</Name>
     <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>MineralsSprite</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

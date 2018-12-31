@@ -28,7 +28,6 @@ using StateInterpolationPlugin;
 using Layer = FlatRedBall.Graphics.Layer;
 using Sprite = FlatRedBall.Sprite;
 using SpriteManager = FlatRedBall.SpriteManager;
-using AbbatoirIntergrade.GumRuntimes.infodisplays;
 
 namespace AbbatoirIntergrade.Entities.BaseEntities
 {
@@ -427,6 +426,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 #if DEBUG
                 if (DebugVariables.SlowTimeForShots)FlatRedBall.TimeManager.TimeFactor = 0.01;
 #endif
+                targetEnemy = null;
             }
         }
 

@@ -165,7 +165,6 @@
   <Instance>
     <Name>TextInstance</Name>
     <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

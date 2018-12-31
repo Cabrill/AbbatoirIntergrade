@@ -1281,57 +1281,46 @@
   <Instance>
     <Name>StarContainer</Name>
     <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>SkyRectangle</Name>
     <BaseType>ColoredRectangle</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>SunMoonContainer</Name>
     <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>VisibleHorizonContainer</Name>
     <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>StarrySkySprite</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>SunSprite</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>MoonSprite</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>SkyHazeSprite</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>DawnDuskSprite</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>CloudCoverSprite</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ForegroundSprite</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

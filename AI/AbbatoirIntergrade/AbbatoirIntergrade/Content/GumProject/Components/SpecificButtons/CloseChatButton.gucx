@@ -143,7 +143,6 @@
   <Instance>
     <Name>SpriteInstance</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

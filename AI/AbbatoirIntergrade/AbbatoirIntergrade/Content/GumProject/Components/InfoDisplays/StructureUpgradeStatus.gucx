@@ -432,17 +432,14 @@
   <Instance>
     <Name>AttributeIconInstance</Name>
     <BaseType>infodisplays/AttributeIcon</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>AttributeIconInstance1</Name>
     <BaseType>infodisplays/AttributeIcon</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>AttributeIconInstance2</Name>
     <BaseType>infodisplays/AttributeIcon</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

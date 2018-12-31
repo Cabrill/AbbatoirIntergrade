@@ -1446,87 +1446,70 @@
   <Instance>
     <Name>GlowSprite</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>NameContainer</Name>
     <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>NameText</Name>
     <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>TallInfoFrameInstance</Name>
     <BaseType>frames/TallInfoFrame</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>StatsContainer</Name>
     <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>InfoContainer</Name>
     <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ColoredRectangleInstance</Name>
     <BaseType>ColoredRectangle</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>AttackDamageType</Name>
     <BaseType>infodisplays/ResistanceDisplay</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>MinRange</Name>
     <BaseType>infodisplays/AttributeDisplay</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>MaxRange</Name>
     <BaseType>infodisplays/AttributeDisplay</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>AttackCostContainer</Name>
     <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>RangeContainer</Name>
     <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>AttackSpeed</Name>
     <BaseType>infodisplays/AttributeDisplay</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>PointOrSplash</Name>
     <BaseType>infodisplays/AttributeDisplay</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>PointsSprite</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>CostText</Name>
     <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>UpgradeInfoInstance</Name>
     <BaseType>infodisplays/UpgradeInfo</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

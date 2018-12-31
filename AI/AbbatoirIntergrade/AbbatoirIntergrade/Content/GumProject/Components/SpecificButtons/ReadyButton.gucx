@@ -374,12 +374,10 @@
   <Instance>
     <Name>MessageFrameInstance</Name>
     <BaseType>frames/MessageFrame</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>TextInstance</Name>
     <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors>
     <ElementBehaviorReference>

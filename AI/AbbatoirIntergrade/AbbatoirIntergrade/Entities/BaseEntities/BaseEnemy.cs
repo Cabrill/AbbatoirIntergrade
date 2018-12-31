@@ -193,7 +193,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 	    private void CustomActivity()
 		{
-		    if (!isHorde) UpdateStatusEffect();
+		    UpdateStatusEffect();
 
             if (!IsFlying || IsDead || IsStunned || IsHurt)
 		    {
@@ -217,6 +217,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 //Remove drag in the air
 		        Drag = 0.1f;
 		        Altitude = Math.Max(0, Altitude + AltitudeVelocity * TimeManager.SecondDifference);
+
+                //Just hit the ground.  take some damage?
+		        if (!IsFlying && !IsDead && Altitude <= 0)
+		        {
+		            var dmg = (AltitudeVelocity / (10* GravityDrag)) * MaximumHealth;
+                    TakeDamage(dmg);
+		        }
+
 		        if (IsFlying && IsDead && SpriteInstance.CurrentFrameIndex == flyingFinalDeathAnimationFrameIndex)
 		            SpriteInstance.Animate = false;
 		        if (IsHurt && IsOnFinalFrameOfAnimation && !IsFlying) SpriteInstance.Animate = false;
@@ -243,7 +251,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
 		    if (!IsDead)
 		    {
-		        if (!isHorde) UpdateNavigationTargetProgress();
+		        UpdateNavigationTargetProgress();
 
 		        if (!IsHurt)
 		        {
@@ -253,7 +261,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
 
 		    UpdateSpritesRelativeY();
-		    if (!isHorde) UpdateHealthBar();
+		    UpdateHealthBar();
 		}
 
         internal static void Initialize(Polygon pathing, TileNodeNetwork pathingNodeNetwork)

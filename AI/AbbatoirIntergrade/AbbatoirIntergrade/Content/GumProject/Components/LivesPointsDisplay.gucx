@@ -1027,47 +1027,38 @@
   <Instance>
     <Name>MessageFrameInstance</Name>
     <BaseType>frames/MessageFrame</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LivesSprite</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LivesRemainingText</Name>
     <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LivesXSprite</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LivesContainer</Name>
     <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>PointsContainer</Name>
     <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>PointsSprite</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>PointsText</Name>
     <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>PointsChangeText</Name>
     <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

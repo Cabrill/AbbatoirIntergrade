@@ -16,8 +16,8 @@ namespace AbbatoirIntergrade.GameClasses.Levels
         public override string MapName => "Chapter8";
         public override string LocationName => "Overton Keep";
         public override DateTime StartTime => new DateTime(2017, 10, 28, 15, 0, 0);
-        public override int StartingLives => 30;
-        public override int WavesToSurvive => 15;
+        public override int StartingLives => 40;
+        public override int WavesToSurvive => 20;
         public override int StartingSatoshis => 40;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.SparseTrees;
         public override List<string> SongNameList => new List<string>() { nameof(GlobalContent.anttisinstrumentals_digitalconcertoremake), nameof(GlobalContent.anttisinstrumentals_inmymindiamabigstar), nameof(GlobalContent.anttisinstrumentals_melancholysound) };

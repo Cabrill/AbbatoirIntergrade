@@ -75,7 +75,7 @@ namespace AbbatoirIntergrade.Screens
 		        var lastItemHeight = lastItem.Height;
 		        var lastItemY = IPositionedSizedObjectExtensionMethods.GetAbsoluteY(lastItem);
 
-		        if (lastItemY < -lastItemHeight+100f)
+		        if (lastItemY < -lastItemHeight/2)
 		        {
 		            ReturnToMenu();
 		        }

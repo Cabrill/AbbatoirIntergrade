@@ -1843,82 +1843,66 @@
   <Instance>
     <Name>ChatFrameInstance</Name>
     <BaseType>frames/ChatFrame</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>StyleBarInstance</Name>
     <BaseType>frames/StyleBar</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ColoredRectangleInstance</Name>
     <BaseType>ColoredRectangle</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ChatOption0</Name>
     <BaseType>infodisplays/ChatOption</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>CurrentText</Name>
     <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ChatOption1</Name>
     <BaseType>infodisplays/ChatOption</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ChatOption2</Name>
     <BaseType>infodisplays/ChatOption</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ResponseContainer</Name>
     <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ChatContainer</Name>
     <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>CloseChatButtonInstance</Name>
     <BaseType>specificbuttons/CloseChatButton</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>MessageBox</Name>
     <BaseType>Frames/GlowingBox</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>TextInstance</Name>
     <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ChatHistoryButton</Name>
     <BaseType>specificbuttons/UpDownButton</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>RecentResponseContainer</Name>
     <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>DialogueShownChatOption</Name>
     <BaseType>infodisplays/ChatOption</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ResponseChosenChatOption</Name>
     <BaseType>infodisplays/ChatOption</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

@@ -13,17 +13,11 @@
             public bool AllowWidowResizing { get; set; }
             public bool IsFullScreen { get; set; }
             public ResizeBehavior ResizeBehavior { get; set; }
-            public WidthOrHeight DominantInternalCoordinates { get; set; }
         }
         public enum ResizeBehavior
         {
             StretchVisibleArea,
             IncreaseVisibleArea
-        }
-        public enum WidthOrHeight
-        {
-            Width,
-            Height
         }
         internal static class CameraSetup
         {
@@ -38,7 +32,6 @@
                 IsFullScreen = true,
                 AllowWidowResizing = false,
                 ResizeBehavior = ResizeBehavior.StretchVisibleArea,
-                DominantInternalCoordinates = WidthOrHeight.Height,
             }
             ;
             internal static void ResetCamera (Camera cameraToReset = null) 
@@ -56,7 +49,7 @@
                 }
                 if (Data.AspectRatio != null)
                 {
-                    SetAspectRatioTo(Data.AspectRatio.Value, Data.DominantInternalCoordinates, Data.ResolutionWidth, Data.ResolutionHeight);
+                    SetAspectRatioTo(Data.AspectRatio.Value);
                 }
             }
             internal static void SetupCamera (Camera cameraToSetUp, Microsoft.Xna.Framework.GraphicsDeviceManager graphicsDeviceManager) 
@@ -97,8 +90,6 @@
                 else
                 {
                     FlatRedBall.FlatRedBallServices.GraphicsOptions.SetResolution((int)(Data.ResolutionWidth * Data.Scale/ 100.0f), (int)(Data.ResolutionHeight * Data.Scale/ 100.0f));
-                    var newWindowSize = new Windows.Foundation.Size((int)(Data.ResolutionWidth * Data.Scale/ 100.0f), (int)(Data.ResolutionHeight * Data.Scale/ 100.0f));
-                    Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TryResizeView(newWindowSize); 
                 }
                 #endif
             }
@@ -106,7 +97,7 @@
             {
                 if (Data.AspectRatio != null)
                 {
-                    SetAspectRatioTo(Data.AspectRatio.Value, Data.DominantInternalCoordinates, Data.ResolutionWidth, Data.ResolutionHeight);
+                    SetAspectRatioTo(Data.AspectRatio.Value);
                 }
                 if (Data.Is2D && Data.ResizeBehavior == ResizeBehavior.IncreaseVisibleArea)
                 {
@@ -114,7 +105,7 @@
                     FlatRedBall.Camera.Main.FixAspectRatioYConstant();
                 }
             }
-            private static void SetAspectRatioTo (decimal aspectRatio, WidthOrHeight dominantInternalCoordinates, int desiredWidth, int desiredHeight) 
+            private static void SetAspectRatioTo (decimal aspectRatio) 
             {
                 var resolutionAspectRatio = FlatRedBall.FlatRedBallServices.GraphicsOptions.ResolutionWidth / (decimal)FlatRedBall.FlatRedBallServices.GraphicsOptions.ResolutionHeight;
                 int destinationRectangleWidth;
@@ -134,16 +125,7 @@
                     x = (FlatRedBall.FlatRedBallServices.GraphicsOptions.ResolutionWidth - destinationRectangleWidth) / 2;
                 }
                 FlatRedBall.Camera.Main.DestinationRectangle = new Microsoft.Xna.Framework.Rectangle(x, y, destinationRectangleWidth, destinationRectangleHeight);
-                if (dominantInternalCoordinates == WidthOrHeight.Height)
-                {
-                    FlatRedBall.Camera.Main.OrthogonalHeight = desiredHeight;
-                    FlatRedBall.Camera.Main.FixAspectRatioYConstant();
-                }
-                else
-                {
-                    FlatRedBall.Camera.Main.OrthogonalWidth = desiredWidth;
-                    FlatRedBall.Camera.Main.FixAspectRatioXConstant();
-                }
+                FlatRedBall.Camera.Main.FixAspectRatioYConstant();
             }
         }
     }

@@ -216,27 +216,22 @@
   <Instance>
     <Name>DimmingInstance</Name>
     <BaseType>unique/Dimming</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>MessageFrameInstance</Name>
     <BaseType>frames/MessageFrame</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>MessageText</Name>
     <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ConfirmButton</Name>
     <BaseType>frames/ButtonFrame</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>CancelButton</Name>
     <BaseType>frames/ButtonFrame</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

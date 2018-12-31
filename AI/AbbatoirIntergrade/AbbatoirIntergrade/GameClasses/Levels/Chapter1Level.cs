@@ -23,7 +23,7 @@ namespace AbbatoirIntergrade.GameClasses.Levels
         public override int StartingSatoshis => 15;
         public override HorizonBoxRuntime.Scenery Scenery => HorizonBoxRuntime.Scenery.SparseTrees;
         public override List<string> SongNameList => new List<string>() {nameof(GlobalContent.Zach_Darshon_Sea_of_Dead_Thoughts), nameof(GlobalContent.anttisinstrumentals_badmorning), nameof(GlobalContent.anttisinstrumentals_woman), nameof(GlobalContent.anttisinstrumentals_sidish) };
-        public override int WavesToSurvive => 10;
+        public override int WavesToSurvive => 12;
 
         public override List<BaseWave> Waves => new List<BaseWave>() { 
             new BaseWave(new EnemyList(EnemyTypes.Chicken1, 2)),

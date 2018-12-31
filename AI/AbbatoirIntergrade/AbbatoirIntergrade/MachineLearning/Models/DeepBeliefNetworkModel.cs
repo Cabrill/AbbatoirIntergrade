@@ -11,6 +11,7 @@ using Accord.Math;
 using Accord.Neuro;
 using Accord.Neuro.Learning;
 using Accord.Neuro.Networks;
+using Accord.Statistics;
 using FlatRedBall;
 using FlatRedBall.Instructions;
 using FlatRedBall.IO;
@@ -21,66 +22,69 @@ namespace AbbatoirIntergrade.MachineLearning.Models
     {
         public long LastLearnTime { get; private set; }
         public long LastPredictTime { get; private set; }
+        public double AVMMSE { get; private set; } = 0;
 
         private DeepBeliefNetwork network;
         private DeepBeliefNetwork updatingNetwork;
         private DeepBeliefNetworkLearning unsupervisedTeacher;
         private BackPropagationLearning supervisedTeacher;
-        private int Epochs = 100;
-        private int HiddenLayerNodes = 150;
+        private int Epochs = 300;
+        private int HiddenLayerNodes;
         private bool hasTrained;
-        private bool declineEpochs = false;
-        private float declineRate = 200;
+        private bool declineEpochs = true;
+        private int declineRate = 100;
 
         public double LastPrediction { get; private set; }
         public double LastMSE { get; private set; }
         public int LastSampleSize { get; private set; }
         public bool IsReady { get; private set; }
         public bool IsCurrentlyLearning { get; private set; }
-        private Mutex _modelMutex = new Mutex();
+        public Stopwatch LearningStopwatch { get; private set; }= new Stopwatch();
+        private readonly Mutex _modelMutex = new Mutex();
+        private double unsupervisedLR;
+        private double unsupervisedM;
+        private double unsupervisedD;
+        private double supervisedLR;
+        private double supervisedM;
 
-        public void Initialize(int inputCount)
+        public void Initialize(int inputCount, int hiddenLayerNodes, double usLR, double usM, double usD, double sLR, double sM)
         {
-            IsReady = false;
+            //IsReady = false;
+            IsReady = true;
+            HiddenLayerNodes = hiddenLayerNodes;
+            unsupervisedLR = usLR;
+            unsupervisedM = usM;
+            unsupervisedD = usD;
+            supervisedLR = sLR;
+            supervisedM = sM;
 
-            network = new DeepBeliefNetwork((int)inputCount, HiddenLayerNodes, 1);
+            network = new DeepBeliefNetwork(inputCount, HiddenLayerNodes, 1);
             new GaussianWeights(network, 0.1).Randomize();
             network.UpdateVisibleWeights();
 
-            unsupervisedTeacher = new DeepBeliefNetworkLearning(network)
-            {
-                Algorithm = (h, v, i) => new ContrastiveDivergenceLearning(h, v)
-                {
-                    LearningRate = 0.1,
-                    Momentum = 0.9,
-                    Decay = 0.01,
-                }
-            };
 
-            supervisedTeacher = new BackPropagationLearning(network)
-            {
-                LearningRate = 0.1,
-                Momentum = 0.5
-            };
+
+            CreateTeachers(network);
         }
 
-        private void CreateTeachers()
+        public void CreateTeachers(DeepBeliefNetwork dbn)
         {
-            unsupervisedTeacher = new DeepBeliefNetworkLearning(network)
+            unsupervisedTeacher = new DeepBeliefNetworkLearning(dbn)
             {
                 Algorithm = (h, v, i) => new ContrastiveDivergenceLearning(h, v)
                 {
-                    LearningRate = 0.1,
-                    Momentum = 0.9,
-                    Decay = 0.01,
+                    LearningRate = unsupervisedLR,
+                    Momentum = unsupervisedM,
+                    Decay = unsupervisedD,
                 }
             };
 
-            supervisedTeacher = new BackPropagationLearning(network)
+            supervisedTeacher = new BackPropagationLearning(dbn)
             {
-                LearningRate = 0.1,
-                Momentum = 0.5
+                LearningRate = supervisedLR,
+                Momentum = supervisedM
             };
+
         }
 
         public string GetName()
@@ -93,18 +97,21 @@ namespace AbbatoirIntergrade.MachineLearning.Models
         public void LearnAll(WaveData waveData)
         {
             IsCurrentlyLearning = true;
-            var updatedNetwork = LearnForUpdatedModel(waveData.WaveInputs.ToArray(), waveData.WaveScores.ToArray());
             UpdateMeanSquaredError(waveData);
+            //var updatedNetwork = 
+                LearnForUpdatedModel(waveData.WaveInputs.ToArray(), waveData.WaveScores.ToArray());
 
-            var performanceData = new
-            {
-                MSE = LastMSE,
-                SampleSize = LastSampleSize,
-                LearnTime = LastLearnTime,
-            };
-            AnalyticsManager.SendEventImmediately("ModelUpdate", performanceData);
+            //var performanceData = new
+            //{
+            //    MSE = LastMSE,
+            //    AVMMSE = AVMMSE,
+            //    SampleSize = LastSampleSize,
+            //    LastScore = waveData.WaveScores.Last(),
+            //    LearnTime = LastLearnTime,
+            //};
+            //AnalyticsManager.SendEventImmediately("ModelUpdate", performanceData);
 
-            ReplaceModelWithUpdate(updatedNetwork);
+            //ReplaceModelWithUpdate(updatedNetwork);
         }
 
         private void ReplaceModelWithUpdate(DeepBeliefNetwork updatedNetwork)
@@ -116,9 +123,13 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             IsCurrentlyLearning = false;
         }
 
-        private DeepBeliefNetwork LearnForUpdatedModel(double[][] inputs, double[] outputDouble)
+        private void LearnForUpdatedModel(double[][] inputs, double[] outputDouble)
         {
-            updatingNetwork = network.DeepClone();
+            _modelMutex.WaitOne();
+            //updatingNetwork = network.DeepClone();
+            _modelMutex.ReleaseMutex();
+
+            //CreateTeachers(network);
 
             var sampleSize = outputDouble.Length;
             var inputToUse = inputs;
@@ -130,22 +141,28 @@ namespace AbbatoirIntergrade.MachineLearning.Models
                 outputData[i] = new[] { outputToUse[i] };
             }
 
-            var sw = Stopwatch.StartNew();
+            LearningStopwatch.Reset();
+            LearningStopwatch.Start();
 
             // Setup batches of input for learning.
             var batchCount = Math.Max(1, inputToUse.Length / 100);
             // Create mini-batches to speed learning.
-            var groups = Accord.Statistics.Tools.RandomGroups(inputToUse.Length, batchCount);
-            var batches = inputToUse.Subgroups(groups);
 
-            var epochsToUse = (declineEpochs ? Math.Max(5, Epochs * (1 - sampleSize / declineRate)) : Epochs);
+            int[] groups = Accord.Statistics.Tools.RandomGroups(inputToUse.Length, batchCount);
+            double[][][] batches = inputToUse.Subgroups(groups);
+
+            var epochsToUse = Epochs;
+            if (declineEpochs && sampleSize > declineRate)
+            {
+                epochsToUse = Math.Max(10, epochsToUse + declineRate - sampleSize);
+            }
 
             // Unsupervised learning on each hidden layer, except for the output layer.
-            for (var layerIndex = 0; layerIndex < updatingNetwork.Machines.Count - 1; layerIndex++)
+            for (var layerIndex = 0; layerIndex < network.Machines.Count - 1; layerIndex++)
             {
                 unsupervisedTeacher.LayerIndex = layerIndex;
                 var layerData = unsupervisedTeacher.GetLayerInput(batches);
-                for (var i = 0; i < epochsToUse / 2.5; i++)
+                for (var i = 0; i < epochsToUse / 3; i++)
                 {
                     unsupervisedTeacher.RunEpoch(layerData);
                 }
@@ -156,31 +173,39 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             {
                 supervisedTeacher.RunEpoch(inputToUse, outputData);
             }
-            updatingNetwork.UpdateVisibleWeights();
+            //updatingNetwork.UpdateVisibleWeights();
 
-            sw.Stop();
-            LastLearnTime = sw.ElapsedMilliseconds;
+            LearningStopwatch.Stop();
+            
+            LastLearnTime = LearningStopwatch.ElapsedMilliseconds;
 
-            return updatingNetwork;
+            LearningStopwatch.Reset();
+
+            //return updatingNetwork;
         }
 
-        public double UpdateMeanSquaredError(WaveData waveData)
+        private double UpdateMeanSquaredError(WaveData waveData)
         {
             var input = waveData.WaveInputs.ToArray();
             var outputData = waveData.WaveScores.ToArray();
             var error = 0.0;
+            var avmError = 0.0;
             
             for (var i = 0; i < outputData.Length; i++)
             {
                 var prediction = network.Compute(input[i])[0];
+                var av = i == 0 ? 0 : outputData.Take(i).Average(d => d);
                 var actual = outputData[i];
                 error += Math.Pow(prediction - actual, 2);
+                avmError += Math.Pow(av - actual, 2);
             }
             
             error /= outputData.Length;
+            avmError /= outputData.Length;
 
             LastSampleSize = outputData.Length;
             LastMSE = error;
+            AVMMSE = avmError;
 
             return error;
         }
@@ -219,15 +244,20 @@ namespace AbbatoirIntergrade.MachineLearning.Models
         {
             _modelMutex.WaitOne();
             var fileExists = FileManager.FileExists(fileName);
-            if (!fileExists) return false;
+            if (!fileExists)
+            {
+                _modelMutex.ReleaseMutex();
+                return false;
+            }
 
             try
             {
                 Serializer.Load(fileName, out network);
-                CreateTeachers();
+                //CreateTeachers();
             }
             catch (Exception ex)
             {
+                _modelMutex.ReleaseMutex();
                 return false;
             }
             hasTrained = true;
@@ -246,6 +276,7 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             }
             catch (Exception ex)
             {
+                _modelMutex.ReleaseMutex();
                 return false;
             }
             return true;

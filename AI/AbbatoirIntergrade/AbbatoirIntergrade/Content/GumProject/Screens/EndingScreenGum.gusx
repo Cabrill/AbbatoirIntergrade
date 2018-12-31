@@ -284,31 +284,25 @@
   <Instance>
     <Name>SpriteInstance</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ButtonFrameInstance</Name>
     <BaseType>frames/ButtonFrame</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>EndingTextContainer</Name>
     <BaseType>ChatHistory</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>BlackFade</Name>
     <BaseType>ColoredRectangle</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>CurrentMusicDisplayInstance</Name>
     <BaseType>infodisplays/CurrentMusicDisplay</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>CreditsContainer</Name>
     <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
 </ScreenSave>

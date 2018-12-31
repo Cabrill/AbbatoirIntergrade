@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FlatRedBall;
 using FlatRedBall.Input;
+using FlatRedBall.Audio;
 using FlatRedBall.Gui;
 using FlatRedBall.Math.Geometry;
 using AbbatoirIntergrade.Entities;
@@ -24,7 +25,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Camera = FlatRedBall.Camera;
 using ShapeManager = FlatRedBall.Math.Geometry.ShapeManager;
-using AbbatoirIntergrade.GumRuntimes.infodisplays;
+using FlatRedBall.Scripting;
 
 namespace AbbatoirIntergrade.Screens
 {
@@ -197,6 +198,11 @@ namespace AbbatoirIntergrade.Screens
             this.Call(() =>CurrentMusicDisplayInstance.TimedDisplay(true)).After(5f);
         }
 
+
+#if DEBUG
+        private string DebugText = "\n\nNo Data Yet";
+#endif
+
         private void HandleWaveStarted(object sender, EventArgs e)
         {
             LocalLogManager.AddLine("Game Screen - Start Wave");
@@ -210,7 +216,8 @@ namespace AbbatoirIntergrade.Screens
             LocalLogManager.AddLine("Game Screen - Wave ended");
 
             var shouldLearnFromWave = AllStructuresList.Count <= MachineLearningManager.MaxTowers &&
-                                      CurrentLevel.LastWave.EnemyCounts.TotalEnemies <= MachineLearningManager.MaxEnemies;
+                                      CurrentLevel.LastWave.EnemyCounts.TotalEnemies <= MachineLearningManager.MaxEnemies &&
+                                      CurrentLevel.LastWave.EnemyCounts.TotalEnemies > 0;
 
             MachineLearningManager.NotifyOfWaveEnd(shouldLearnFromWave);
 
@@ -398,10 +405,10 @@ namespace AbbatoirIntergrade.Screens
             if (firstTimeCalled) GameScreenGumInstance.FadeInAnimation.Play();
             if (_tutorialScript != null && !_tutorialScript.IsFinished) _tutorialScript.Activity();
 #if DEBUG
-            FlatRedBall.Debugging.Debugger.Write(GuiManager.Cursor.WindowOver);
             HandleDebugInput();
             ShowDebugInfo();
 #endif
+
             if (SoundManager.Update()) CurrentMusicDisplayInstance.TimedDisplay();
             HandleKeyboardInput();
             HandleTouchActivity();
@@ -422,8 +429,10 @@ namespace AbbatoirIntergrade.Screens
 
                 UpdateGameTime();
 
-                CurrentLevel.Update();
-                
+                if (CurrentGameMode != GameMode.Ending)
+                {
+                    CurrentLevel.Update();
+                }
 
                 HorizonBoxInstance.Update(currentLevelDateTime);
 
@@ -665,7 +674,7 @@ namespace AbbatoirIntergrade.Screens
 	            {
 	                HandleEnemyReachingGoal();
                     MachineLearningManager.UpdateWaveScore(enemy);
-	                enemy.Destroy();
+                    enemy.Destroy();
 	            }
             }
 	    }
@@ -708,7 +717,7 @@ namespace AbbatoirIntergrade.Screens
 	                            enemy.GetHitBy(projectile);
 	                        }
 	                    }
-	                    else if (cannonProjectile.CollideAgainst(enemy))
+	                    else if (enemy.Altitude < 100 && cannonProjectile.CollideAgainst(enemy))
 	                    {
 	                        enemiesImpacted.Add(enemy);
 	                    }
@@ -771,7 +780,6 @@ namespace AbbatoirIntergrade.Screens
             else
             {
                 EnemyInfoInstance.Hide();
-                //StructureInfoInstance.Hide();
             }
         }
 
@@ -781,6 +789,8 @@ namespace AbbatoirIntergrade.Screens
 
             if (sender is StructurePlacement placement)
             {
+                EnemyInfoInstance.Hide();
+                StructureInfoInstance.Hide();
                 BuildMenuInstance.DisplayForPlacement(placement);
                 selectedObject = placement;
             }
@@ -849,6 +859,29 @@ namespace AbbatoirIntergrade.Screens
 #if DEBUG
         private void ShowDebugInfo()
         {
+            var lastMSE = MachineLearningManager.CurrentMeanSquaredError;
+            var avmMSE = MachineLearningManager.AverageValueMSE;
+            var currentPrediction = CurrentGameMode == GameMode.Normal
+                ? MachineLearningManager.CurrentPrediction.ToString()
+                : "N\\A";
+            var sampleSize = MachineLearningManager.SampleSize == 0 ? "N/A" : MachineLearningManager.SampleSize.ToString();
+            var lastScore = MachineLearningManager.LastWaveScore;
+            var learning = MachineLearningManager.CurrentlyLearning ? "True" : "False";
+            var lastLearn = MachineLearningManager.LastLearnTime;
+            var currentLearn = MachineLearningManager.CurrentLearnTime;
+            var currentScore =
+                CurrentGameMode == GameMode.Normal
+                    ? MachineLearningManager.CurrentScore.ToString()
+                    : "N\\A"; 
+
+            DebugText = $"\n\n\nMSE: {lastMSE}\nAVM: {avmMSE}\nSamples: {sampleSize}\n\nLast Score: {lastScore}\n\nCurrentScore: {currentScore}\nCurrent Prediction: {currentPrediction}\n\nLast Learn Time: {lastLearn}\nLearning: {learning}\nLearn Time: {currentLearn}";
+
+            FlatRedBall.Debugging.Debugger.TextRed = 1f;
+            FlatRedBall.Debugging.Debugger.TextBlue = 1f;
+            FlatRedBall.Debugging.Debugger.TextGreen = 1f;
+            
+            FlatRedBall.Debugging.Debugger.Write(DebugText);
+
             if (DebugVariables.ShowPerformanceStats)
             {
                 string allUpdatedInfo = FlatRedBall.Debugging.Debugger.GetAutomaticallyUpdatedObjectInformation();

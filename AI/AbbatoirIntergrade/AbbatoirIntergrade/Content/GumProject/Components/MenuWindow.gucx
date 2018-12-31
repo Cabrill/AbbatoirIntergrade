@@ -771,62 +771,50 @@
   <Instance>
     <Name>MenuFrameInstance</Name>
     <BaseType>frames/MenuFrame</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ButtonFrameInstance</Name>
     <BaseType>frames/ButtonFrame</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ButtonFrameInstance1</Name>
     <BaseType>frames/ButtonFrame</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ButtonFrameInstance2</Name>
     <BaseType>frames/ButtonFrame</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ButtonFrameInstance3</Name>
     <BaseType>frames/ButtonFrame</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>VersionText</Name>
     <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>OptionsControlsInstance</Name>
     <BaseType>OptionsControls</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>CloseButton</Name>
     <BaseType>specificbuttons/CloseChatButton</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>CurrentMusicBackdrop</Name>
     <BaseType>ColoredRectangle</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>MusicInfo</Name>
     <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>MusicLabel</Name>
     <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>CurrentMusicFrame</Name>
     <BaseType>ColoredRectangle</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

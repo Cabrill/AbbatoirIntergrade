@@ -11,6 +11,7 @@ using AbbatoirIntergrade.Factories;
 using AbbatoirIntergrade.GameClasses.Interfaces;
 using AbbatoirIntergrade.GumRuntimes;
 using AbbatoirIntergrade.StaticManagers;
+using Accord.IO;
 using FlatRedBall;
 using FlatRedBall.Instructions;
 using FlatRedBall.TileGraphics;
@@ -33,7 +34,7 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 
         public virtual int StartingLives { get; } = 1;
         public virtual int StartingSatoshis { get; } = 10;
-
+        
         public abstract HorizonBoxRuntime.Scenery Scenery { get; }
 
         private double SecondsBetweenWaves = 0;
@@ -42,25 +43,29 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
 
         private List<EnemyTypes> _availableEnemyTypes;
 
-        public virtual List<EnemyTypes> AvailableEnemyTypes
+        public List<EnemyTypes> AvailableEnemyTypes
         {
             get
             {
                 if (_availableEnemyTypes == null)
                 {
-                    _availableEnemyTypes = Waves.SelectMany(w => w.EnemyTypes).Distinct().ToList();
-                }
-                if (PlayerDataManager.PlayerHasBeatGame)
-                {
-                    _availableEnemyTypes = new List<EnemyTypes>();
-                    var allenemyTypes = Enum.GetValues(typeof(EnemyTypes)).Cast<EnemyTypes>().ToList();
-                    for (var i = 0; i < 5; i++)
+                    if (PlayerDataManager.PlayerHasBeatGame)
                     {
-                        var randomEnemy = FlatRedBallServices.Random.In(allenemyTypes);
-                        _availableEnemyTypes.Add(randomEnemy);
-                        allenemyTypes.Remove(randomEnemy);
+                        _availableEnemyTypes = new List<EnemyTypes>();
+                        var allenemyTypes = Enum.GetValues(typeof(EnemyTypes)).Cast<EnemyTypes>().ToList();
+                        for (var i = 0; i < 5; i++)
+                        {
+                            var randomEnemy = FlatRedBallServices.Random.In(allenemyTypes);
+                            _availableEnemyTypes.Add(randomEnemy);
+                            allenemyTypes.Remove(randomEnemy);
+                        }
+                    }
+                    else
+                    {
+                        _availableEnemyTypes = Waves.SelectMany(w => w.EnemyTypes).Distinct().ToList();
                     }
                 }
+
                 return _availableEnemyTypes;
             }
         }
@@ -147,7 +152,10 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
             void GenerateWaveIfNecessary()
             {
                 var currentWave = CurrentWaveNumber < Waves.Count  && !PlayerDataManager.PlayerHasBeatGame ? Waves[CurrentWaveNumber] : GenerateWave();
-
+                if (currentWave.EnemyCounts.TotalEnemies == 0)
+                {
+                    var doh = 1;
+                }
                 Action stuffToDoOnPrimaryThread = () => FinishCreatingEnemiesForWave(currentWave);
                 InstructionManager.AddSafe(stuffToDoOnPrimaryThread);
             }
@@ -158,6 +166,10 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
         private void FinishCreatingEnemiesForWave(BaseWave currentWave)
         {
             currentWave.CreateEnemies();
+            if (currentWave.CreatedEnemies.Count == 0)
+            {
+                var doh = 1;
+            }
 
             CurrentWaveNumber++;
 
@@ -176,11 +188,15 @@ namespace AbbatoirIntergrade.GameClasses.BaseClasses
             var pointsAvailable = 0.0;
             if (PlayerDataManager.PlayerHasBeatGame)
             {
-                pointsAvailable = AvailableEnemyTypes.Min(t => t.PointValue()) + 3 + (CurrentWaveNumber * 3);
+                _availableEnemyTypes = null;
+
+                var minPoints = AvailableEnemyTypes.Min(t => t.PointValue());
+                var addPoints = StartingSatoshis * CurrentWaveNumber * (CurrentWaveNumber/15f);
+                pointsAvailable = minPoints + addPoints;
             }
             else
             {
-                pointsAvailable = Waves.Last().PointValue + CurrentWaveNumber;
+                pointsAvailable = LastWave.PointValue + (StartingSatoshis * CurrentWaveNumber * (CurrentWaveNumber / 30));
             }
             
             var generatedWave = MachineLearningManager.GenerateWave(AvailableEnemyTypes, pointsAvailable);

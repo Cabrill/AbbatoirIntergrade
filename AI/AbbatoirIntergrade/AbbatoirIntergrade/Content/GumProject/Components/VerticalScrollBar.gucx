@@ -353,32 +353,26 @@
   <Instance>
     <Name>BarSprite</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ThumbInstance</Name>
     <BaseType>ScrollThumb</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>UpButtonInstance</Name>
     <BaseType>specificbuttons/UpDownButton</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ScrollTrack</Name>
     <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>DownButtonInstance</Name>
     <BaseType>specificbuttons/UpDownButton</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ContainerInstance</Name>
     <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors>
     <ElementBehaviorReference>

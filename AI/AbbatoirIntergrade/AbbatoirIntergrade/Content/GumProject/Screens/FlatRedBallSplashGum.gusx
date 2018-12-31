@@ -111,11 +111,9 @@
   <Instance>
     <Name>BackgroundColoredRectangle</Name>
     <BaseType>ColoredRectangle</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>FRBLogoSprite</Name>
     <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
   </Instance>
 </ScreenSave>

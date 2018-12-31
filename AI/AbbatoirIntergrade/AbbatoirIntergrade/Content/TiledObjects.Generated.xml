@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <objecttype name="Chicken1Enemy">
     <property name="DisplayName" type="string" default="Chicken" />
@@ -124,7 +124,7 @@
     <property name="SpriteInstanceRed" type="float" default="0" />
     <property name="SpriteInstanceGreen" type="float" default="1" />
     <property name="SpriteInstanceBlue" type="float" default="0" />
-    <property name="SpriteInstanceColorOperation" type="ColorOperation" default="Texture" />
+    <property name="SpriteInstanceColorOperation" type="ColorOperation" default="ColorTextureAlpha" />
     <property name="SpriteInstanceTextureScale" type="float" default="1" />
     <property name="SpriteInstanceAnimate" type="bool" default="true" />
     <property name="SpriteInstanceAlpha" type="float" default="1" />

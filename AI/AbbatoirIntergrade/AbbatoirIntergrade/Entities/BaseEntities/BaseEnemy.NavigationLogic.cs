@@ -92,7 +92,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                     _targetPointForNavigation = PathingLine.AbsolutePointPosition(++PathingPointIndex);
                 }
             }
-            else if (X+ DistanceToAchievePoint > Camera.Main.OrthogonalWidth / 2)
+
+            if (X+ DistanceToAchievePoint > Camera.Main.OrthogonalWidth / 2)
             {
                 HasReachedGoal = true;
             }
@@ -171,14 +172,21 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             _firstPathingPoint = PathingLine.AbsolutePointPosition(0);
             _lastPathingPoint = PathingLine.AbsolutePointPosition(PathingLine.Points.Count - 1);
 
-            for (var i = 0; i < PathingLine.Points.Count - 2; i++)
+            if (PathingLine.Points.Count == 2)
             {
-                var point1 = PathingLine.AbsolutePointPosition(i);
-                var point2 = PathingLine.AbsolutePointPosition(i + 1);
-                var segmentValue = (point1 - point2).Length();
-                _totalPathLength += segmentValue;
+                _totalPathLength = (_firstPathingPoint - _lastPathingPoint).Length();
+            }
+            else
+            {
+                for (var i = 0; i < PathingLine.Points.Count - 2; i++)
+                {
+                    var point1 = PathingLine.AbsolutePointPosition(i);
+                    var point2 = PathingLine.AbsolutePointPosition(i + 1);
+                    var segmentValue = (point1 - point2).Length();
+                    _totalPathLength += segmentValue;
 
-                _segmentLengths[i] = segmentValue;
+                    _segmentLengths[i] = segmentValue;
+                }
             }
 
             PathingSegments = new Segment[PathingLine.Points.Count - 1];
@@ -198,7 +206,6 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
 
             var score = 0.0;
             Vector3 firstPoint, secondPoint;
-
 
             if (IsFlying)
             {
@@ -228,7 +235,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 score += pointProgress / _totalPathLength;
             }
 
-            score *= 0.01f;
+            score *= 0.1f;
 
             return score;
         }
