@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.GameClasses;
+using AbbatoirIntergrade.GumRuntimes.infodisplays;
 using FlatRedBall.Glue.StateInterpolation;
 using FlatRedBall.Gui;
 

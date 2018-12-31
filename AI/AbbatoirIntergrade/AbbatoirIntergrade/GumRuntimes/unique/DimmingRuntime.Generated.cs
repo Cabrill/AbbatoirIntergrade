@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.unique
     {
         public partial class DimmingRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -200,7 +200,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.DimmingRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.DimmingRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.unique.DimmingRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.unique.DimmingRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

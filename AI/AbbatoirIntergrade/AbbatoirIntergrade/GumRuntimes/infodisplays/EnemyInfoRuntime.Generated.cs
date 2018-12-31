@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.infodisplays
     {
         public partial class EnemyInfoRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -21,8 +21,8 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            HasMelee mCurrentHasMeleeState;
-            HasRanged mCurrentHasRangedState;
+            HasMelee? mCurrentHasMeleeState;
+            HasRanged? mCurrentHasRangedState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -82,14 +82,14 @@
                             NameText.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             TallInfoFrameInstance.Height = 100f;
                             TallInfoFrameInstance.Width = 100f;
-                            HealthDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                            HealthDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                             HealthDisplay.AttributeText = "5";
                             HealthDisplay.Height = 20f;
                             HealthDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             HealthDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                             HealthDisplay.Width = 100f;
                             HealthDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            SpeedDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MoveSpeed;
+                            SpeedDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MoveSpeed;
                             SpeedDisplay.AttributeText = "200";
                             SpeedDisplay.Height = 20f;
                             SpeedDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -113,32 +113,32 @@
                             RightResistances.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResistanceContainer") ?? this;
                             RightResistances.Width = 50f;
                             RightResistances.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            PiercingResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Piercing;
+                            PiercingResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Piercing;
                             PiercingResist.Height = 33.3f;
                             PiercingResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             PiercingResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances") ?? this;
                             PiercingResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ChemicalResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Chemical;
+                            ChemicalResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Chemical;
                             ChemicalResist.Height = 33.3f;
                             ChemicalResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ChemicalResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances") ?? this;
                             ChemicalResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            FrostResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Frost;
+                            FrostResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Frost;
                             FrostResist.Height = 33.3f;
                             FrostResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             FrostResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LeftResistances") ?? this;
                             FrostResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            BombardResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Bombarding;
+                            BombardResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Bombarding;
                             BombardResist.Height = 33.3f;
                             BombardResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             BombardResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances") ?? this;
                             BombardResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ElectricResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Electric;
+                            ElectricResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Electric;
                             ElectricResist.Height = 33.3f;
                             ElectricResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ElectricResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances") ?? this;
                             ElectricResist.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            FireResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Fire;
+                            FireResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Fire;
                             FireResist.Height = 33.3f;
                             FireResist.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             FireResist.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RightResistances") ?? this;
@@ -147,7 +147,7 @@
                     }
                 }
             }
-            public HasMelee CurrentHasMeleeState
+            public HasMelee? CurrentHasMeleeState
             {
                 get
                 {
@@ -155,17 +155,20 @@
                 }
                 set
                 {
-                    mCurrentHasMeleeState = value;
-                    switch(mCurrentHasMeleeState)
+                    if (value != null)
                     {
-                        case  HasMelee.True:
-                            break;
-                        case  HasMelee.False:
-                            break;
+                        mCurrentHasMeleeState = value;
+                        switch(mCurrentHasMeleeState)
+                        {
+                            case  HasMelee.True:
+                                break;
+                            case  HasMelee.False:
+                                break;
+                        }
                     }
                 }
             }
-            public HasRanged CurrentHasRangedState
+            public HasRanged? CurrentHasRangedState
             {
                 get
                 {
@@ -173,13 +176,16 @@
                 }
                 set
                 {
-                    mCurrentHasRangedState = value;
-                    switch(mCurrentHasRangedState)
+                    if (value != null)
                     {
-                        case  HasRanged.True:
-                            break;
-                        case  HasRanged.False:
-                            break;
+                        mCurrentHasRangedState = value;
+                        switch(mCurrentHasRangedState)
+                        {
+                            case  HasRanged.True:
+                                break;
+                            case  HasRanged.False:
+                                break;
+                        }
                     }
                 }
             }
@@ -322,7 +328,7 @@
                     case  VariableState.Default:
                         if (interpolationValue < 1)
                         {
-                            this.BombardResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Bombarding;
+                            this.BombardResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Bombarding;
                         }
                         setBombardResistHeightFirstValue = true;
                         BombardResistHeightFirstValue = 33.3f;
@@ -340,7 +346,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ChemicalResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Chemical;
+                            this.ChemicalResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Chemical;
                         }
                         setChemicalResistHeightFirstValue = true;
                         ChemicalResistHeightFirstValue = 33.3f;
@@ -366,7 +372,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.ElectricResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Electric;
+                            this.ElectricResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Electric;
                         }
                         setElectricResistHeightFirstValue = true;
                         ElectricResistHeightFirstValue = 33.3f;
@@ -384,7 +390,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.FireResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Fire;
+                            this.FireResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Fire;
                         }
                         setFireResistHeightFirstValue = true;
                         FireResistHeightFirstValue = 33.3f;
@@ -402,7 +408,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.FrostResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Frost;
+                            this.FrostResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Frost;
                         }
                         setFrostResistHeightFirstValue = true;
                         FrostResistHeightFirstValue = 33.3f;
@@ -420,7 +426,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.HealthDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                            this.HealthDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         }
                         if (interpolationValue < 1)
                         {
@@ -542,7 +548,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.PiercingResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Piercing;
+                            this.PiercingResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Piercing;
                         }
                         setPiercingResistHeightFirstValue = true;
                         PiercingResistHeightFirstValue = 33.3f;
@@ -600,7 +606,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.SpeedDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MoveSpeed;
+                            this.SpeedDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MoveSpeed;
                         }
                         if (interpolationValue < 1)
                         {
@@ -689,7 +695,7 @@
                     case  VariableState.Default:
                         if (interpolationValue >= 1)
                         {
-                            this.BombardResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Bombarding;
+                            this.BombardResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Bombarding;
                         }
                         setBombardResistHeightSecondValue = true;
                         BombardResistHeightSecondValue = 33.3f;
@@ -707,7 +713,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ChemicalResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Chemical;
+                            this.ChemicalResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Chemical;
                         }
                         setChemicalResistHeightSecondValue = true;
                         ChemicalResistHeightSecondValue = 33.3f;
@@ -733,7 +739,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.ElectricResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Electric;
+                            this.ElectricResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Electric;
                         }
                         setElectricResistHeightSecondValue = true;
                         ElectricResistHeightSecondValue = 33.3f;
@@ -751,7 +757,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.FireResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Fire;
+                            this.FireResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Fire;
                         }
                         setFireResistHeightSecondValue = true;
                         FireResistHeightSecondValue = 33.3f;
@@ -769,7 +775,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.FrostResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Frost;
+                            this.FrostResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Frost;
                         }
                         setFrostResistHeightSecondValue = true;
                         FrostResistHeightSecondValue = 33.3f;
@@ -787,7 +793,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.HealthDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                            this.HealthDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -909,7 +915,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.PiercingResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Piercing;
+                            this.PiercingResist.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Piercing;
                         }
                         setPiercingResistHeightSecondValue = true;
                         PiercingResistHeightSecondValue = 33.3f;
@@ -967,7 +973,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.SpeedDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MoveSpeed;
+                            this.SpeedDisplay.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MoveSpeed;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1248,7 +1254,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.EnemyInfoRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.EnemyInfoRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1302,7 +1308,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime.HasMelee fromState,AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime.HasMelee toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.EnemyInfoRuntime.HasMelee fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.EnemyInfoRuntime.HasMelee toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1356,7 +1362,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime.HasRanged fromState,AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime.HasRanged toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.EnemyInfoRuntime.HasRanged fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.EnemyInfoRuntime.HasRanged toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -3218,18 +3224,18 @@
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime StatsContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime NameContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime NameText { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TallInfoFrameRuntime TallInfoFrameInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime HealthDisplay { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime SpeedDisplay { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.TallInfoFrameRuntime TallInfoFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeDisplayRuntime HealthDisplay { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeDisplayRuntime SpeedDisplay { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ResistanceContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime LeftResistances { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime RightResistances { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime PiercingResist { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime ChemicalResist { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime FrostResist { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime BombardResist { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime ElectricResist { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime FireResist { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime PiercingResist { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime ChemicalResist { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime FrostResist { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime BombardResist { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime ElectricResist { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime FireResist { get; set; }
             public string EnemyName
             {
                 get
@@ -3283,18 +3289,18 @@
                 StatsContainer = this.GetGraphicalUiElementByName("StatsContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 NameContainer = this.GetGraphicalUiElementByName("NameContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 NameText = this.GetGraphicalUiElementByName("NameText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                TallInfoFrameInstance = this.GetGraphicalUiElementByName("TallInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.TallInfoFrameRuntime;
-                HealthDisplay = this.GetGraphicalUiElementByName("HealthDisplay") as AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime;
-                SpeedDisplay = this.GetGraphicalUiElementByName("SpeedDisplay") as AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime;
+                TallInfoFrameInstance = this.GetGraphicalUiElementByName("TallInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.TallInfoFrameRuntime;
+                HealthDisplay = this.GetGraphicalUiElementByName("HealthDisplay") as AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeDisplayRuntime;
+                SpeedDisplay = this.GetGraphicalUiElementByName("SpeedDisplay") as AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeDisplayRuntime;
                 ResistanceContainer = this.GetGraphicalUiElementByName("ResistanceContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 LeftResistances = this.GetGraphicalUiElementByName("LeftResistances") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 RightResistances = this.GetGraphicalUiElementByName("RightResistances") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
-                PiercingResist = this.GetGraphicalUiElementByName("PiercingResist") as AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime;
-                ChemicalResist = this.GetGraphicalUiElementByName("ChemicalResist") as AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime;
-                FrostResist = this.GetGraphicalUiElementByName("FrostResist") as AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime;
-                BombardResist = this.GetGraphicalUiElementByName("BombardResist") as AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime;
-                ElectricResist = this.GetGraphicalUiElementByName("ElectricResist") as AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime;
-                FireResist = this.GetGraphicalUiElementByName("FireResist") as AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime;
+                PiercingResist = this.GetGraphicalUiElementByName("PiercingResist") as AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime;
+                ChemicalResist = this.GetGraphicalUiElementByName("ChemicalResist") as AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime;
+                FrostResist = this.GetGraphicalUiElementByName("FrostResist") as AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime;
+                BombardResist = this.GetGraphicalUiElementByName("BombardResist") as AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime;
+                ElectricResist = this.GetGraphicalUiElementByName("ElectricResist") as AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime;
+                FireResist = this.GetGraphicalUiElementByName("FireResist") as AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime;
                 StatsContainer.Click += (unused) => StatsContainerClick?.Invoke(this);
                 NameContainer.Click += (unused) => NameContainerClick?.Invoke(this);
                 TallInfoFrameInstance.Click += (unused) => TallInfoFrameInstanceClick?.Invoke(this);

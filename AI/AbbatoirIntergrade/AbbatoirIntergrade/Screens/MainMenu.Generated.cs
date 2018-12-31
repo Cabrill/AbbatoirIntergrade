@@ -2,15 +2,8 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
+using System.Linq;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -33,7 +26,7 @@ namespace AbbatoirIntergrade.Screens
         private FlatRedBall.Sprite ISpriteInstance;
         private FlatRedBall.Sprite NtergradeSpriteInstance;
         private AbbatoirIntergrade.GumRuntimes.MainMenuGumRuntime MainMenuGumRuntime;
-        private AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime LeftEye;
+        private AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime LeftEye;
         protected global::RenderingLibrary.Graphics.Layer AboveEverythingLayerGum;
         public MainMenu () 
         	: base ("MainMenu")
@@ -53,7 +46,7 @@ namespace AbbatoirIntergrade.Screens
             NtergradeSpriteInstance = new FlatRedBall.Sprite();
             NtergradeSpriteInstance.Name = "NtergradeSpriteInstance";
             MainMenuGumRuntime = MainMenuGum.GetGraphicalUiElementByName("this") as AbbatoirIntergrade.GumRuntimes.MainMenuGumRuntime;
-            LeftEye = MainMenuGum.GetGraphicalUiElementByName("LeftEye") as AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime;
+            LeftEye = MainMenuGum.GetGraphicalUiElementByName("LeftEye") as AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime;
             
             
             PostInitialize();
@@ -449,6 +442,16 @@ namespace AbbatoirIntergrade.Screens
             blue_eye = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/screens/mainmenu/blue_eye.png", contentManagerName);
             Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;  MainMenuGum = new FlatRedBall.Gum.GumIdb();  MainMenuGum.LoadFromFile("content/gumproject/screens/mainmenugum.gusx");  MainMenuGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false; MainMenuGum.Element.UpdateLayout(); MainMenuGum.Element.UpdateLayout();
             CustomLoadStaticContent(contentManagerName);
+        }
+        public override void PauseThisScreen () 
+        {
+            StateInterpolationPlugin.TweenerManager.Self.Pause();
+            base.PauseThisScreen();
+        }
+        public override void UnpauseThisScreen () 
+        {
+            StateInterpolationPlugin.TweenerManager.Self.Unpause();
+            base.UnpauseThisScreen();
         }
         [System.Obsolete("Use GetFile instead")]
         public static object GetStaticMember (string memberName) 

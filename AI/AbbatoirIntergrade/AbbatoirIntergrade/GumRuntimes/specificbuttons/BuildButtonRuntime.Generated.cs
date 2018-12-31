@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.SpecificButtons
     {
         public partial class BuildButtonRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -23,8 +23,8 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Highlight mCurrentHighlightState;
-            Select mCurrentSelectState;
+            Highlight? mCurrentHighlightState;
+            Select? mCurrentSelectState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -88,7 +88,7 @@
                     }
                 }
             }
-            public Highlight CurrentHighlightState
+            public Highlight? CurrentHighlightState
             {
                 get
                 {
@@ -96,33 +96,36 @@
                 }
                 set
                 {
-                    mCurrentHighlightState = value;
-                    switch(mCurrentHighlightState)
+                    if (value != null)
                     {
-                        case  Highlight.Highlighted:
-                            BackgroundSprite.Blue = 255;
-                            BackgroundSprite.Green = 255;
-                            BackgroundSprite.TextureLeft = 512;
-                            break;
-                        case  Highlight.NotHighlighted:
-                            BackgroundSprite.Blue = 255;
-                            BackgroundSprite.Green = 255;
-                            BackgroundSprite.TextureLeft = 0;
-                            break;
-                        case  Highlight.HighlightedCantAfford:
-                            BackgroundSprite.Blue = 0;
-                            BackgroundSprite.Green = 0;
-                            BackgroundSprite.TextureLeft = 512;
-                            break;
-                        case  Highlight.NotHighlightedCantAfford:
-                            BackgroundSprite.Blue = 0;
-                            BackgroundSprite.Green = 0;
-                            BackgroundSprite.TextureLeft = 0;
-                            break;
+                        mCurrentHighlightState = value;
+                        switch(mCurrentHighlightState)
+                        {
+                            case  Highlight.Highlighted:
+                                BackgroundSprite.Blue = 255;
+                                BackgroundSprite.Green = 255;
+                                BackgroundSprite.TextureLeft = 512;
+                                break;
+                            case  Highlight.NotHighlighted:
+                                BackgroundSprite.Blue = 255;
+                                BackgroundSprite.Green = 255;
+                                BackgroundSprite.TextureLeft = 0;
+                                break;
+                            case  Highlight.HighlightedCantAfford:
+                                BackgroundSprite.Blue = 0;
+                                BackgroundSprite.Green = 0;
+                                BackgroundSprite.TextureLeft = 512;
+                                break;
+                            case  Highlight.NotHighlightedCantAfford:
+                                BackgroundSprite.Blue = 0;
+                                BackgroundSprite.Green = 0;
+                                BackgroundSprite.TextureLeft = 0;
+                                break;
+                        }
                     }
                 }
             }
-            public Select CurrentSelectState
+            public Select? CurrentSelectState
             {
                 get
                 {
@@ -130,15 +133,18 @@
                 }
                 set
                 {
-                    mCurrentSelectState = value;
-                    switch(mCurrentSelectState)
+                    if (value != null)
                     {
-                        case  Select.Selected:
-                            SelectSprite.Visible = true;
-                            break;
-                        case  Select.NotSelected:
-                            SelectSprite.Visible = false;
-                            break;
+                        mCurrentSelectState = value;
+                        switch(mCurrentSelectState)
+                        {
+                            case  Select.Selected:
+                                SelectSprite.Visible = true;
+                                break;
+                            case  Select.NotSelected:
+                                SelectSprite.Visible = false;
+                                break;
+                        }
                     }
                 }
             }
@@ -779,7 +785,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -833,7 +839,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime.Highlight fromState,AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime.Highlight toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime.Highlight fromState,AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime.Highlight toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -887,7 +893,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime.Select fromState,AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime.Select toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime.Select fromState,AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime.Select toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

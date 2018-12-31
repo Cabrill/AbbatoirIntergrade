@@ -1,4 +1,5 @@
-    using System.Linq;
+using AbbatoirIntergrade.GumRuntimes.frames;
+using System.Linq;
     namespace AbbatoirIntergrade.GumRuntimes
     {
         public partial class MenuWindowRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
@@ -17,7 +18,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Options mCurrentOptionsState;
+            Options? mCurrentOptionsState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -64,7 +65,7 @@
                             VersionText.FontScale = 0.5f;
                             VersionText.Height = 34f;
                             VersionText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MenuFrameInstance") ?? this;
-                            VersionText.Text = "V1.1.0";
+                            VersionText.Text = "V1.0.1";
                             VersionText.UseCustomFont = true;
                             VersionText.Width = 186f;
                             VersionText.X = 10.95123f;
@@ -144,7 +145,7 @@
                     }
                 }
             }
-            public Options CurrentOptionsState
+            public Options? CurrentOptionsState
             {
                 get
                 {
@@ -152,21 +153,24 @@
                 }
                 set
                 {
-                    mCurrentOptionsState = value;
-                    switch(mCurrentOptionsState)
+                    if (value != null)
                     {
-                        case  Options.Visible:
-                            OptionsControlsInstance.CurrentVariableState = AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.Default;
-                            OptionsControlsInstance.Visible = true;
-                            break;
-                        case  Options.Hidden:
-                            OptionsControlsInstance.CurrentVariableState = AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.Default;
-                            OptionsControlsInstance.Visible = false;
-                            break;
-                        case  Options.NoFullScreen:
-                            OptionsControlsInstance.CurrentVariableState = AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.HiddenFullScreen;
-                            OptionsControlsInstance.Visible = true;
-                            break;
+                        mCurrentOptionsState = value;
+                        switch(mCurrentOptionsState)
+                        {
+                            case  Options.Visible:
+                                OptionsControlsInstance.CurrentVariableState = AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.Default;
+                                OptionsControlsInstance.Visible = true;
+                                break;
+                            case  Options.Hidden:
+                                OptionsControlsInstance.CurrentVariableState = AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.Default;
+                                OptionsControlsInstance.Visible = false;
+                                break;
+                            case  Options.NoFullScreen:
+                                OptionsControlsInstance.CurrentVariableState = AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.HiddenFullScreen;
+                                OptionsControlsInstance.Visible = true;
+                                break;
+                        }
                     }
                 }
             }
@@ -1305,8 +1309,8 @@
                 #endif
                 bool setOptionsControlsInstanceCurrentVariableStateFirstValue = false;
                 bool setOptionsControlsInstanceCurrentVariableStateSecondValue = false;
-                OptionsControlsRuntime.VariableState OptionsControlsInstanceCurrentVariableStateFirstValue= OptionsControlsRuntime.VariableState.Default;
-                OptionsControlsRuntime.VariableState OptionsControlsInstanceCurrentVariableStateSecondValue= OptionsControlsRuntime.VariableState.Default;
+                AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState OptionsControlsInstanceCurrentVariableStateFirstValue= AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.Default;
+                AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState OptionsControlsInstanceCurrentVariableStateSecondValue= AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime.VariableState.Default;
                 switch(firstState)
                 {
                     case  Options.Visible:
@@ -3391,19 +3395,19 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.MenuFrameRuntime MenuFrameInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance1 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance2 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance3 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.MenuFrameRuntime MenuFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime ButtonFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime ButtonFrameInstance1 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime ButtonFrameInstance2 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime ButtonFrameInstance3 { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime VersionText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime OptionsControlsInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime CloseButton { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.specificbuttons.CloseChatButtonRuntime CloseButton { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime CurrentMusicBackdrop { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime MusicInfo { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime MusicLabel { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime CurrentMusicFrame { get; set; }
-            public ButtonFrameRuntime.ButtonType ButtonType1State
+            public ButtonFrameRuntime.ButtonType? ButtonType1State
             {
                 get
                 {
@@ -3418,7 +3422,7 @@
                     }
                 }
             }
-            public ButtonFrameRuntime.ButtonType ButtonType2State
+            public ButtonFrameRuntime.ButtonType? ButtonType2State
             {
                 get
                 {
@@ -3433,7 +3437,7 @@
                     }
                 }
             }
-            public ButtonFrameRuntime.ButtonType ButtonType3State
+            public ButtonFrameRuntime.ButtonType? ButtonType3State
             {
                 get
                 {
@@ -3448,7 +3452,7 @@
                     }
                 }
             }
-            public ButtonFrameRuntime.ButtonType ButtonType4State
+            public ButtonFrameRuntime.ButtonType? ButtonType4State
             {
                 get
                 {
@@ -3494,14 +3498,14 @@
             }
             private void AssignReferences () 
             {
-                MenuFrameInstance = this.GetGraphicalUiElementByName("MenuFrameInstance") as AbbatoirIntergrade.GumRuntimes.MenuFrameRuntime;
-                ButtonFrameInstance = this.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                ButtonFrameInstance1 = this.GetGraphicalUiElementByName("ButtonFrameInstance1") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                ButtonFrameInstance2 = this.GetGraphicalUiElementByName("ButtonFrameInstance2") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                ButtonFrameInstance3 = this.GetGraphicalUiElementByName("ButtonFrameInstance3") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
+                MenuFrameInstance = this.GetGraphicalUiElementByName("MenuFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.MenuFrameRuntime;
+                ButtonFrameInstance = this.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
+                ButtonFrameInstance1 = this.GetGraphicalUiElementByName("ButtonFrameInstance1") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
+                ButtonFrameInstance2 = this.GetGraphicalUiElementByName("ButtonFrameInstance2") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
+                ButtonFrameInstance3 = this.GetGraphicalUiElementByName("ButtonFrameInstance3") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
                 VersionText = this.GetGraphicalUiElementByName("VersionText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 OptionsControlsInstance = this.GetGraphicalUiElementByName("OptionsControlsInstance") as AbbatoirIntergrade.GumRuntimes.OptionsControlsRuntime;
-                CloseButton = this.GetGraphicalUiElementByName("CloseButton") as AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime;
+                CloseButton = this.GetGraphicalUiElementByName("CloseButton") as AbbatoirIntergrade.GumRuntimes.specificbuttons.CloseChatButtonRuntime;
                 CurrentMusicBackdrop = this.GetGraphicalUiElementByName("CurrentMusicBackdrop") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 MusicInfo = this.GetGraphicalUiElementByName("MusicInfo") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 MusicLabel = this.GetGraphicalUiElementByName("MusicLabel") as AbbatoirIntergrade.GumRuntimes.TextRuntime;

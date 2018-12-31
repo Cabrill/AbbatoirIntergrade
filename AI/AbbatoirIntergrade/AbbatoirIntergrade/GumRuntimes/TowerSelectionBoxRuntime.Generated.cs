@@ -16,7 +16,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            SelectionMode mCurrentSelectionModeState;
+            SelectionMode? mCurrentSelectionModeState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -43,10 +43,10 @@
                             LargeInfoFrameInstance.Y = 0f;
                             LargeInfoFrameInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             LargeInfoFrameInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                            StructureChoice1.CurrentUpgradeAvailabilityState = AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.UpgradeAvailability.NotAvailable;
+                            StructureChoice1.CurrentUpgradeAvailabilityState = AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.UpgradeAvailability.NotAvailable;
                             StructureChoice1.X = -450f;
                             StructureChoice1.Y = -100f;
-                            StructureChoice2.CurrentUpgradeAvailabilityState = AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.UpgradeAvailability.NotAvailable;
+                            StructureChoice2.CurrentUpgradeAvailabilityState = AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.UpgradeAvailability.NotAvailable;
                             StructureChoice2.X = 450f;
                             StructureChoice2.Y = -100f;
                             SetProperty("InstructionsText.CustomFontFile", "../globalcontent/Font50MoireExtraBold.fnt");
@@ -67,7 +67,7 @@
                             TextInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             TextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             TextInstance.Y = 639f;
-                            ConfirmButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                            ConfirmButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                             ConfirmButton.Visible = false;
                             ConfirmButton.X = 0f;
                             ConfirmButton.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
@@ -77,7 +77,7 @@
                     }
                 }
             }
-            public SelectionMode CurrentSelectionModeState
+            public SelectionMode? CurrentSelectionModeState
             {
                 get
                 {
@@ -85,35 +85,38 @@
                 }
                 set
                 {
-                    mCurrentSelectionModeState = value;
-                    switch(mCurrentSelectionModeState)
+                    if (value != null)
                     {
-                        case  SelectionMode.Single:
-                            StructureChoice1.CurrentSelectionState = AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.Selection.Selected;
-                            StructureChoice1.X = -4f;
-                            StructureChoice1.Y = -23.6349f;
-                            StructureChoice2.Visible = false;
-                            InstructionsText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            InstructionsText.Text = "We have developed our final defense:";
-                            InstructionsText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            TextInstance.Visible = false;
-                            ConfirmButton.Visible = true;
-                            ConfirmButton.X = 581f;
-                            ConfirmButton.Y = 843f;
-                            break;
-                        case  SelectionMode.Double:
-                            StructureChoice1.CurrentSelectionState = AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.Selection.Selected;
-                            StructureChoice1.X = -450f;
-                            StructureChoice1.Y = -100f;
-                            StructureChoice2.Visible = true;
-                            InstructionsText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            InstructionsText.Text = "We have time to develop one new defense!  \n\nChoose one:";
-                            InstructionsText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Top;
-                            TextInstance.Visible = true;
-                            ConfirmButton.Visible = false;
-                            ConfirmButton.X = 0f;
-                            ConfirmButton.Y = 841f;
-                            break;
+                        mCurrentSelectionModeState = value;
+                        switch(mCurrentSelectionModeState)
+                        {
+                            case  SelectionMode.Single:
+                                StructureChoice1.CurrentSelectionState = AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.Selection.Selected;
+                                StructureChoice1.X = -4f;
+                                StructureChoice1.Y = -23.6349f;
+                                StructureChoice2.Visible = false;
+                                InstructionsText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                                InstructionsText.Text = "We have developed our final defense:";
+                                InstructionsText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                                TextInstance.Visible = false;
+                                ConfirmButton.Visible = true;
+                                ConfirmButton.X = 581f;
+                                ConfirmButton.Y = 843f;
+                                break;
+                            case  SelectionMode.Double:
+                                StructureChoice1.CurrentSelectionState = AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.Selection.Selected;
+                                StructureChoice1.X = -450f;
+                                StructureChoice1.Y = -100f;
+                                StructureChoice2.Visible = true;
+                                InstructionsText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                                InstructionsText.Text = "We have time to develop one new defense!  \n\nChoose one:";
+                                InstructionsText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                                TextInstance.Visible = true;
+                                ConfirmButton.Visible = false;
+                                ConfirmButton.X = 0f;
+                                ConfirmButton.Y = 841f;
+                                break;
+                        }
                     }
                 }
             }
@@ -129,8 +132,8 @@
                 #endif
                 bool setConfirmButtonCurrentButtonTypeStateFirstValue = false;
                 bool setConfirmButtonCurrentButtonTypeStateSecondValue = false;
-                ButtonFrameRuntime.ButtonType ConfirmButtonCurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
-                ButtonFrameRuntime.ButtonType ConfirmButtonCurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType ConfirmButtonCurrentButtonTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType ConfirmButtonCurrentButtonTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                 bool setConfirmButtonXFirstValue = false;
                 bool setConfirmButtonXSecondValue = false;
                 float ConfirmButtonXFirstValue= 0;
@@ -177,8 +180,8 @@
                 float LargeInfoFrameInstanceYSecondValue= 0;
                 bool setStructureChoice1CurrentUpgradeAvailabilityStateFirstValue = false;
                 bool setStructureChoice1CurrentUpgradeAvailabilityStateSecondValue = false;
-                StructureInfoRuntime.UpgradeAvailability StructureChoice1CurrentUpgradeAvailabilityStateFirstValue= StructureInfoRuntime.UpgradeAvailability.Available;
-                StructureInfoRuntime.UpgradeAvailability StructureChoice1CurrentUpgradeAvailabilityStateSecondValue= StructureInfoRuntime.UpgradeAvailability.Available;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.UpgradeAvailability StructureChoice1CurrentUpgradeAvailabilityStateFirstValue= AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.UpgradeAvailability.Available;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.UpgradeAvailability StructureChoice1CurrentUpgradeAvailabilityStateSecondValue= AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.UpgradeAvailability.Available;
                 bool setStructureChoice1XFirstValue = false;
                 bool setStructureChoice1XSecondValue = false;
                 float StructureChoice1XFirstValue= 0;
@@ -189,8 +192,8 @@
                 float StructureChoice1YSecondValue= 0;
                 bool setStructureChoice2CurrentUpgradeAvailabilityStateFirstValue = false;
                 bool setStructureChoice2CurrentUpgradeAvailabilityStateSecondValue = false;
-                StructureInfoRuntime.UpgradeAvailability StructureChoice2CurrentUpgradeAvailabilityStateFirstValue= StructureInfoRuntime.UpgradeAvailability.Available;
-                StructureInfoRuntime.UpgradeAvailability StructureChoice2CurrentUpgradeAvailabilityStateSecondValue= StructureInfoRuntime.UpgradeAvailability.Available;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.UpgradeAvailability StructureChoice2CurrentUpgradeAvailabilityStateFirstValue= AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.UpgradeAvailability.Available;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.UpgradeAvailability StructureChoice2CurrentUpgradeAvailabilityStateSecondValue= AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.UpgradeAvailability.Available;
                 bool setStructureChoice2XFirstValue = false;
                 bool setStructureChoice2XSecondValue = false;
                 float StructureChoice2XFirstValue= 0;
@@ -223,7 +226,7 @@
                 {
                     case  VariableState.Default:
                         setConfirmButtonCurrentButtonTypeStateFirstValue = true;
-                        ConfirmButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                        ConfirmButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                         if (interpolationValue < 1)
                         {
                             this.ConfirmButton.Visible = false;
@@ -295,13 +298,13 @@
                             this.LargeInfoFrameInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setStructureChoice1CurrentUpgradeAvailabilityStateFirstValue = true;
-                        StructureChoice1CurrentUpgradeAvailabilityStateFirstValue = AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.UpgradeAvailability.NotAvailable;
+                        StructureChoice1CurrentUpgradeAvailabilityStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.UpgradeAvailability.NotAvailable;
                         setStructureChoice1XFirstValue = true;
                         StructureChoice1XFirstValue = -450f;
                         setStructureChoice1YFirstValue = true;
                         StructureChoice1YFirstValue = -100f;
                         setStructureChoice2CurrentUpgradeAvailabilityStateFirstValue = true;
-                        StructureChoice2CurrentUpgradeAvailabilityStateFirstValue = AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.UpgradeAvailability.NotAvailable;
+                        StructureChoice2CurrentUpgradeAvailabilityStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.UpgradeAvailability.NotAvailable;
                         setStructureChoice2XFirstValue = true;
                         StructureChoice2XFirstValue = 450f;
                         setStructureChoice2YFirstValue = true;
@@ -350,7 +353,7 @@
                 {
                     case  VariableState.Default:
                         setConfirmButtonCurrentButtonTypeStateSecondValue = true;
-                        ConfirmButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                        ConfirmButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                         if (interpolationValue >= 1)
                         {
                             this.ConfirmButton.Visible = false;
@@ -422,13 +425,13 @@
                             this.LargeInfoFrameInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setStructureChoice1CurrentUpgradeAvailabilityStateSecondValue = true;
-                        StructureChoice1CurrentUpgradeAvailabilityStateSecondValue = AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.UpgradeAvailability.NotAvailable;
+                        StructureChoice1CurrentUpgradeAvailabilityStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.UpgradeAvailability.NotAvailable;
                         setStructureChoice1XSecondValue = true;
                         StructureChoice1XSecondValue = -450f;
                         setStructureChoice1YSecondValue = true;
                         StructureChoice1YSecondValue = -100f;
                         setStructureChoice2CurrentUpgradeAvailabilityStateSecondValue = true;
-                        StructureChoice2CurrentUpgradeAvailabilityStateSecondValue = AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.UpgradeAvailability.NotAvailable;
+                        StructureChoice2CurrentUpgradeAvailabilityStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.UpgradeAvailability.NotAvailable;
                         setStructureChoice2XSecondValue = true;
                         StructureChoice2XSecondValue = 450f;
                         setStructureChoice2YSecondValue = true;
@@ -592,8 +595,8 @@
                 float ConfirmButtonYSecondValue= 0;
                 bool setStructureChoice1CurrentSelectionStateFirstValue = false;
                 bool setStructureChoice1CurrentSelectionStateSecondValue = false;
-                StructureInfoRuntime.Selection StructureChoice1CurrentSelectionStateFirstValue= StructureInfoRuntime.Selection.Selected;
-                StructureInfoRuntime.Selection StructureChoice1CurrentSelectionStateSecondValue= StructureInfoRuntime.Selection.Selected;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.Selection StructureChoice1CurrentSelectionStateFirstValue= AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.Selection.Selected;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.Selection StructureChoice1CurrentSelectionStateSecondValue= AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.Selection.Selected;
                 bool setStructureChoice1XFirstValue = false;
                 bool setStructureChoice1XSecondValue = false;
                 float StructureChoice1XFirstValue= 0;
@@ -626,7 +629,7 @@
                             this.InstructionsText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         setStructureChoice1CurrentSelectionStateFirstValue = true;
-                        StructureChoice1CurrentSelectionStateFirstValue = AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.Selection.Selected;
+                        StructureChoice1CurrentSelectionStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.Selection.Selected;
                         setStructureChoice1XFirstValue = true;
                         StructureChoice1XFirstValue = -4f;
                         setStructureChoice1YFirstValue = true;
@@ -662,7 +665,7 @@
                             this.InstructionsText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Top;
                         }
                         setStructureChoice1CurrentSelectionStateFirstValue = true;
-                        StructureChoice1CurrentSelectionStateFirstValue = AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.Selection.Selected;
+                        StructureChoice1CurrentSelectionStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.Selection.Selected;
                         setStructureChoice1XFirstValue = true;
                         StructureChoice1XFirstValue = -450f;
                         setStructureChoice1YFirstValue = true;
@@ -701,7 +704,7 @@
                             this.InstructionsText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         setStructureChoice1CurrentSelectionStateSecondValue = true;
-                        StructureChoice1CurrentSelectionStateSecondValue = AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.Selection.Selected;
+                        StructureChoice1CurrentSelectionStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.Selection.Selected;
                         setStructureChoice1XSecondValue = true;
                         StructureChoice1XSecondValue = -4f;
                         setStructureChoice1YSecondValue = true;
@@ -737,7 +740,7 @@
                             this.InstructionsText.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Top;
                         }
                         setStructureChoice1CurrentSelectionStateSecondValue = true;
-                        StructureChoice1CurrentSelectionStateSecondValue = AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.Selection.Selected;
+                        StructureChoice1CurrentSelectionStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.Selection.Selected;
                         setStructureChoice1XSecondValue = true;
                         StructureChoice1XSecondValue = -450f;
                         setStructureChoice1YSecondValue = true;
@@ -1991,13 +1994,13 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.DimmingRuntime DimmingInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.LargeInfoFrameRuntime LargeInfoFrameInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime StructureChoice1 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime StructureChoice2 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.unique.DimmingRuntime DimmingInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.LargeInfoFrameRuntime LargeInfoFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime StructureChoice1 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime StructureChoice2 { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime InstructionsText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ConfirmButton { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime ConfirmButton { get; set; }
             public TowerSelectionBoxRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
             {
@@ -2025,13 +2028,13 @@
             }
             private void AssignReferences () 
             {
-                DimmingInstance = this.GetGraphicalUiElementByName("DimmingInstance") as AbbatoirIntergrade.GumRuntimes.DimmingRuntime;
-                LargeInfoFrameInstance = this.GetGraphicalUiElementByName("LargeInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.LargeInfoFrameRuntime;
-                StructureChoice1 = this.GetGraphicalUiElementByName("StructureChoice1") as AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime;
-                StructureChoice2 = this.GetGraphicalUiElementByName("StructureChoice2") as AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime;
+                DimmingInstance = this.GetGraphicalUiElementByName("DimmingInstance") as AbbatoirIntergrade.GumRuntimes.unique.DimmingRuntime;
+                LargeInfoFrameInstance = this.GetGraphicalUiElementByName("LargeInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.LargeInfoFrameRuntime;
+                StructureChoice1 = this.GetGraphicalUiElementByName("StructureChoice1") as AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime;
+                StructureChoice2 = this.GetGraphicalUiElementByName("StructureChoice2") as AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime;
                 InstructionsText = this.GetGraphicalUiElementByName("InstructionsText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 TextInstance = this.GetGraphicalUiElementByName("TextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                ConfirmButton = this.GetGraphicalUiElementByName("ConfirmButton") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
+                ConfirmButton = this.GetGraphicalUiElementByName("ConfirmButton") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

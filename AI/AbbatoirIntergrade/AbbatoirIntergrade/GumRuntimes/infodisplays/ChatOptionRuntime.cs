@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using AbbatoirIntergrade.GameClasses;
 using FlatRedBall.Gui;
 
-namespace AbbatoirIntergrade.GumRuntimes
+namespace AbbatoirIntergrade.GumRuntimes.infodisplays
 {
     public partial class ChatOptionRuntime
     {

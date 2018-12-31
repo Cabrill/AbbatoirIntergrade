@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.infodisplays
     {
         public partial class CurrentMusicDisplayRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -17,7 +17,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Appearing mCurrentAppearingState;
+            Appearing? mCurrentAppearingState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -71,7 +71,7 @@
                     }
                 }
             }
-            public Appearing CurrentAppearingState
+            public Appearing? CurrentAppearingState
             {
                 get
                 {
@@ -79,24 +79,27 @@
                 }
                 set
                 {
-                    mCurrentAppearingState = value;
-                    switch(mCurrentAppearingState)
+                    if (value != null)
                     {
-                        case  Appearing.Hidden:
-                            ArtistName.Alpha = 0;
-                            HyphenText.Alpha = 0;
-                            TrackName.Alpha = 0;
-                            break;
-                        case  Appearing.PartiallyDisplayed:
-                            ArtistName.Alpha = 255;
-                            HyphenText.Alpha = 0;
-                            TrackName.Alpha = 0;
-                            break;
-                        case  Appearing.Displayed:
-                            ArtistName.Alpha = 255;
-                            HyphenText.Alpha = 255;
-                            TrackName.Alpha = 255;
-                            break;
+                        mCurrentAppearingState = value;
+                        switch(mCurrentAppearingState)
+                        {
+                            case  Appearing.Hidden:
+                                ArtistName.Alpha = 0;
+                                HyphenText.Alpha = 0;
+                                TrackName.Alpha = 0;
+                                break;
+                            case  Appearing.PartiallyDisplayed:
+                                ArtistName.Alpha = 255;
+                                HyphenText.Alpha = 0;
+                                TrackName.Alpha = 0;
+                                break;
+                            case  Appearing.Displayed:
+                                ArtistName.Alpha = 255;
+                                HyphenText.Alpha = 255;
+                                TrackName.Alpha = 255;
+                                break;
+                        }
                     }
                 }
             }
@@ -574,7 +577,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -628,7 +631,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing fromState,AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.Appearing fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.Appearing toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

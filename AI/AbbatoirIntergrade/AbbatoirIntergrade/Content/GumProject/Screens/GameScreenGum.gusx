@@ -791,73 +791,91 @@
   <Instance>
     <Name>HorizonBoxInstance</Name>
     <BaseType>HorizonBox</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>EnemyInfoInstance</Name>
     <BaseType>infodisplays/EnemyInfo</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>StructureInfoInstance</Name>
     <BaseType>infodisplays/StructureInfo</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ChatBoxInstance</Name>
     <BaseType>ChatBox</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>BuildMenuInstance</Name>
     <BaseType>BuildMenu</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LivesPointsDisplayInstance</Name>
     <BaseType>LivesPointsDisplay</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ChatHistoryInstance</Name>
     <BaseType>ChatHistory</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>TopStatusBarInstance</Name>
     <BaseType>InfoDisplays/TopStatusBar</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ScreenShadeInstance</Name>
     <BaseType>ScreenShade</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>MenuWindowInstance</Name>
     <BaseType>MenuWindow</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>DimmingRectangle</Name>
     <BaseType>ColoredRectangle</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LocationTimeAnnouncementInstance</Name>
     <BaseType>infodisplays/LocationTimeAnnouncement</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ConfirmationWindowInstance</Name>
     <BaseType>ConfirmationWindow</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>CurrentMusicDisplayInstance</Name>
     <BaseType>infodisplays/CurrentMusicDisplay</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>HordeText</Name>
     <BaseType>Text</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ReadyButtonInstance</Name>
     <BaseType>specificbuttons/ReadyButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>PointingArrowInstance</Name>
     <BaseType>unique/PointingArrow</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>TutorialTextInstance</Name>
     <BaseType>infodisplays/TutorialText</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
 </ScreenSave>

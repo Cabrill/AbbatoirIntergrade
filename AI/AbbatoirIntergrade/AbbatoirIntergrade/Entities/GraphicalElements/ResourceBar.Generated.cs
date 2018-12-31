@@ -2,18 +2,10 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Screens;
+using System.Linq;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -195,9 +187,9 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             BarSprite.Width = 100f;
             BarSprite.Height = 25f;
             #if FRB_MDX
-            BarSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Color;
+            BarSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.ColorTextureAlpha;
             #else
-            BarSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Color;
+            BarSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
             #endif
             BarSprite.Green = 1f;
             if (FrameSprite.Parent == null)
@@ -217,9 +209,9 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             FrameSprite.Width = 101f;
             FrameSprite.Height = 26f;
             #if FRB_MDX
-            FrameSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Color;
+            FrameSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.ColorTextureAlpha;
             #else
-            FrameSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Color;
+            FrameSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
             #endif
             FrameSprite.Red = 1f;
             FrameSprite.Green = 1f;
@@ -241,9 +233,9 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             BackgroundSprite.Width = 99f;
             BackgroundSprite.Height = 24f;
             #if FRB_MDX
-            BackgroundSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Color;
+            BackgroundSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.ColorTextureAlpha;
             #else
-            BackgroundSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Color;
+            BackgroundSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
             #endif
             BackgroundSprite.Alpha = 0.8f;
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
@@ -277,9 +269,9 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             BarSprite.Width = 100f;
             BarSprite.Height = 25f;
             #if FRB_MDX
-            BarSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Color;
+            BarSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.ColorTextureAlpha;
             #else
-            BarSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Color;
+            BarSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
             #endif
             BarSprite.Green = 1f;
             if (FrameSprite.Parent == null)
@@ -294,9 +286,9 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             FrameSprite.Width = 101f;
             FrameSprite.Height = 26f;
             #if FRB_MDX
-            FrameSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Color;
+            FrameSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.ColorTextureAlpha;
             #else
-            FrameSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Color;
+            FrameSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
             #endif
             FrameSprite.Red = 1f;
             FrameSprite.Green = 1f;
@@ -313,9 +305,9 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             BackgroundSprite.Width = 99f;
             BackgroundSprite.Height = 24f;
             #if FRB_MDX
-            BackgroundSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Color;
+            BackgroundSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.ColorTextureAlpha;
             #else
-            BackgroundSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Color;
+            BackgroundSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
             #endif
             BackgroundSprite.Alpha = 0.8f;
             BarSpriteRed = 0f;

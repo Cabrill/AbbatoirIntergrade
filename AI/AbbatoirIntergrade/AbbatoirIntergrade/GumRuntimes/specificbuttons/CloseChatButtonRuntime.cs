@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FlatRedBall.Gui;
 
-namespace AbbatoirIntergrade.GumRuntimes
+namespace AbbatoirIntergrade.GumRuntimes.specificbuttons
 {
     partial class CloseChatButtonRuntime
     {

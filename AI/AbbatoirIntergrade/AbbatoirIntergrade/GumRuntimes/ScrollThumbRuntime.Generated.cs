@@ -18,7 +18,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            ButtonCategory mCurrentButtonCategoryState;
+            ButtonCategory? mCurrentButtonCategoryState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -45,7 +45,7 @@
                     }
                 }
             }
-            public ButtonCategory CurrentButtonCategoryState
+            public ButtonCategory? CurrentButtonCategoryState
             {
                 get
                 {
@@ -53,33 +53,36 @@
                 }
                 set
                 {
-                    mCurrentButtonCategoryState = value;
-                    switch(mCurrentButtonCategoryState)
+                    if (value != null)
                     {
-                        case  ButtonCategory.Enabled:
-                            SpriteInstance.Alpha = 255;
-                            SpriteInstance.Blue = 255;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 255;
-                            break;
-                        case  ButtonCategory.Disabled:
-                            SpriteInstance.Alpha = 100;
-                            SpriteInstance.Blue = 100;
-                            SpriteInstance.Green = 100;
-                            SpriteInstance.Red = 100;
-                            break;
-                        case  ButtonCategory.Highlighted:
-                            SpriteInstance.Alpha = 255;
-                            SpriteInstance.Blue = 255;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 0;
-                            break;
-                        case  ButtonCategory.Pushed:
-                            SpriteInstance.Alpha = 255;
-                            SpriteInstance.Blue = 255;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 0;
-                            break;
+                        mCurrentButtonCategoryState = value;
+                        switch(mCurrentButtonCategoryState)
+                        {
+                            case  ButtonCategory.Enabled:
+                                SpriteInstance.Alpha = 255;
+                                SpriteInstance.Blue = 255;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 255;
+                                break;
+                            case  ButtonCategory.Disabled:
+                                SpriteInstance.Alpha = 100;
+                                SpriteInstance.Blue = 100;
+                                SpriteInstance.Green = 100;
+                                SpriteInstance.Red = 100;
+                                break;
+                            case  ButtonCategory.Highlighted:
+                                SpriteInstance.Alpha = 255;
+                                SpriteInstance.Blue = 255;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 0;
+                                break;
+                            case  ButtonCategory.Pushed:
+                                SpriteInstance.Alpha = 255;
+                                SpriteInstance.Blue = 255;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 0;
+                                break;
+                        }
                     }
                 }
             }

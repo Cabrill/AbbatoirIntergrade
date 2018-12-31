@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.StaticManagers;
 
-namespace AbbatoirIntergrade.GumRuntimes
+namespace AbbatoirIntergrade.GumRuntimes.infodisplays
 {
     public partial class CurrentMusicDisplayRuntime
     {

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.GameClasses;
+using AbbatoirIntergrade.GumRuntimes.Frames;
+using AbbatoirIntergrade.GumRuntimes.infodisplays;
 using AbbatoirIntergrade.StaticManagers;
 using Gum.Converters;
 using RenderingLibrary.Graphics;

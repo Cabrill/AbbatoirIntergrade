@@ -2,15 +2,8 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
+using System.Linq;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -37,10 +30,10 @@ namespace AbbatoirIntergrade.Screens
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BaseStructure> StructureList;
         private FlatRedBall.Graphics.Layer StructureLayer;
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BasePlayerProjectile> ProjectileList;
-        private AbbatoirIntergrade.GumRuntimes.OkMessageRuntime OkMessageInstance;
+        private AbbatoirIntergrade.GumRuntimes.infodisplays.OkMessageRuntime OkMessageInstance;
         private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance;
         private FlatRedBall.Graphics.Layer HUDLayer;
-        private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance;
+        private AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance;
         protected global::RenderingLibrary.Graphics.Layer StructureLayerGum;
         protected global::RenderingLibrary.Graphics.Layer HUDLayerGum;
         public MapScreen () 
@@ -60,11 +53,11 @@ namespace AbbatoirIntergrade.Screens
             StructureLayer.Name = "StructureLayer";
             ProjectileList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.BaseEntities.BasePlayerProjectile>();
             ProjectileList.Name = "ProjectileList";
-            OkMessageInstance = MapScreenGum.GetGraphicalUiElementByName("OkMessageInstance") as AbbatoirIntergrade.GumRuntimes.OkMessageRuntime;
+            OkMessageInstance = MapScreenGum.GetGraphicalUiElementByName("OkMessageInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.OkMessageRuntime;
             ConfirmationWindowInstance = MapScreenGum.GetGraphicalUiElementByName("ConfirmationWindowInstance") as AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime;
             HUDLayer = new FlatRedBall.Graphics.Layer();
             HUDLayer.Name = "HUDLayer";
-            CurrentMusicDisplayInstance = MapScreenGum.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
+            CurrentMusicDisplayInstance = MapScreenGum.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime;
             
             
             PostInitialize();
@@ -342,6 +335,16 @@ namespace AbbatoirIntergrade.Screens
             }
             StructureSelection = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/screens/mapscreen/structureselection", contentManagerName);
             CustomLoadStaticContent(contentManagerName);
+        }
+        public override void PauseThisScreen () 
+        {
+            StateInterpolationPlugin.TweenerManager.Self.Pause();
+            base.PauseThisScreen();
+        }
+        public override void UnpauseThisScreen () 
+        {
+            StateInterpolationPlugin.TweenerManager.Self.Unpause();
+            base.UnpauseThisScreen();
         }
         [System.Obsolete("Use GetFile instead")]
         public static object GetStaticMember (string memberName) 

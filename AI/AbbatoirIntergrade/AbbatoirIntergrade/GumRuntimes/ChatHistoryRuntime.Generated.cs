@@ -1312,9 +1312,9 @@
             }
             private bool tryCreateFormsObject;
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime InnerPanelInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TallestInfoFrameRuntime TallestInfoFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.TallestInfoFrameRuntime TallestInfoFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.VerticalScrollBarRuntime VerticalScrollBarInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime CloseButton { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.specificbuttons.CloseChatButtonRuntime CloseButton { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ClipContainerInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime EndingText { get; set; }
             public string EndingTextText
@@ -1361,9 +1361,9 @@
             private void AssignReferences () 
             {
                 InnerPanelInstance = this.GetGraphicalUiElementByName("InnerPanelInstance") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
-                TallestInfoFrameInstance = this.GetGraphicalUiElementByName("TallestInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.TallestInfoFrameRuntime;
+                TallestInfoFrameInstance = this.GetGraphicalUiElementByName("TallestInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.TallestInfoFrameRuntime;
                 VerticalScrollBarInstance = this.GetGraphicalUiElementByName("VerticalScrollBarInstance") as AbbatoirIntergrade.GumRuntimes.VerticalScrollBarRuntime;
-                CloseButton = this.GetGraphicalUiElementByName("CloseButton") as AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime;
+                CloseButton = this.GetGraphicalUiElementByName("CloseButton") as AbbatoirIntergrade.GumRuntimes.specificbuttons.CloseChatButtonRuntime;
                 ClipContainerInstance = this.GetGraphicalUiElementByName("ClipContainerInstance") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 EndingText = this.GetGraphicalUiElementByName("EndingText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 if (tryCreateFormsObject)

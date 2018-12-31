@@ -19,7 +19,7 @@ namespace AbbatoirIntergrade.Factories
             Sheep1Enemy instance = null;
             if (string.IsNullOrEmpty(mContentManagerName))
             {
-                throw new System.Exception("You must first initialize the factory to use it. You can either add PositionedObjectList of type Sheep1Enemy (the most common solution) or call Initialize in custom code");
+                throw new System.Exception("You must first initialize the factory for this type because it is pooled. You can either add PositionedObjectList of type Sheep1Enemy (the most common solution) or call Initialize in custom code");
             }
             instance = mPool.GetNextAvailable();
             if (instance == null)

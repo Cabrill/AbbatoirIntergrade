@@ -10,7 +10,7 @@ using AbbatoirIntergrade.Entities.Structures;
 using AbbatoirIntergrade.StaticManagers;
 using Microsoft.Xna.Framework;
 
-namespace AbbatoirIntergrade.GumRuntimes
+namespace AbbatoirIntergrade.GumRuntimes.infodisplays
 {
     public partial class StructureInfoRuntime
     {

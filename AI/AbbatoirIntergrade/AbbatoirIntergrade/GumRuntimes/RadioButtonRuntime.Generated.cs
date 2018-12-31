@@ -22,7 +22,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            RadioButtonCategory mCurrentRadioButtonCategoryState;
+            RadioButtonCategory? mCurrentRadioButtonCategoryState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -71,7 +71,7 @@
                     }
                 }
             }
-            public RadioButtonCategory CurrentRadioButtonCategoryState
+            public RadioButtonCategory? CurrentRadioButtonCategoryState
             {
                 get
                 {
@@ -79,105 +79,108 @@
                 }
                 set
                 {
-                    mCurrentRadioButtonCategoryState = value;
-                    switch(mCurrentRadioButtonCategoryState)
+                    if (value != null)
                     {
-                        case  RadioButtonCategory.EnabledOn:
-                            ColoredRectangleInstance.Blue = 0;
-                            ColoredRectangleInstance.Green = 0;
-                            ColoredRectangleInstance.Red = 0;
-                            ColoredRectangleInstance1.Blue = 255;
-                            ColoredRectangleInstance1.Green = 255;
-                            ColoredRectangleInstance1.Red = 0;
-                            ColoredRectangleInstance1.Visible = true;
-                            TextInstance.Blue = 255;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 0;
-                            break;
-                        case  RadioButtonCategory.EnabledOff:
-                            ColoredRectangleInstance.Blue = 0;
-                            ColoredRectangleInstance.Green = 0;
-                            ColoredRectangleInstance.Red = 0;
-                            ColoredRectangleInstance1.Blue = 255;
-                            ColoredRectangleInstance1.Green = 255;
-                            ColoredRectangleInstance1.Red = 0;
-                            ColoredRectangleInstance1.Visible = false;
-                            TextInstance.Blue = 255;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 255;
-                            break;
-                        case  RadioButtonCategory.DisabledOn:
-                            ColoredRectangleInstance.Blue = 169;
-                            ColoredRectangleInstance.Green = 169;
-                            ColoredRectangleInstance.Red = 169;
-                            ColoredRectangleInstance1.Blue = 220;
-                            ColoredRectangleInstance1.Green = 220;
-                            ColoredRectangleInstance1.Red = 220;
-                            ColoredRectangleInstance1.Visible = true;
-                            TextInstance.Blue = 169;
-                            TextInstance.Green = 169;
-                            TextInstance.Red = 169;
-                            break;
-                        case  RadioButtonCategory.DisabledOff:
-                            ColoredRectangleInstance.Blue = 169;
-                            ColoredRectangleInstance.Green = 169;
-                            ColoredRectangleInstance.Red = 169;
-                            ColoredRectangleInstance1.Blue = 255;
-                            ColoredRectangleInstance1.Green = 255;
-                            ColoredRectangleInstance1.Red = 0;
-                            ColoredRectangleInstance1.Visible = false;
-                            TextInstance.Blue = 169;
-                            TextInstance.Green = 169;
-                            TextInstance.Red = 169;
-                            break;
-                        case  RadioButtonCategory.HighlightedOn:
-                            ColoredRectangleInstance.Blue = 0;
-                            ColoredRectangleInstance.Green = 128;
-                            ColoredRectangleInstance.Red = 0;
-                            ColoredRectangleInstance1.Blue = 212;
-                            ColoredRectangleInstance1.Green = 255;
-                            ColoredRectangleInstance1.Red = 127;
-                            ColoredRectangleInstance1.Visible = true;
-                            TextInstance.Blue = 47;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 173;
-                            break;
-                        case  RadioButtonCategory.HighlightedOff:
-                            ColoredRectangleInstance.Blue = 0;
-                            ColoredRectangleInstance.Green = 128;
-                            ColoredRectangleInstance.Red = 0;
-                            ColoredRectangleInstance1.Blue = 255;
-                            ColoredRectangleInstance1.Green = 255;
-                            ColoredRectangleInstance1.Red = 0;
-                            ColoredRectangleInstance1.Visible = false;
-                            TextInstance.Blue = 47;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 173;
-                            break;
-                        case  RadioButtonCategory.PushedOn:
-                            ColoredRectangleInstance.Blue = 50;
-                            ColoredRectangleInstance.Green = 205;
-                            ColoredRectangleInstance.Red = 154;
-                            ColoredRectangleInstance1.Blue = 0;
-                            ColoredRectangleInstance1.Green = 255;
-                            ColoredRectangleInstance1.Red = 0;
-                            ColoredRectangleInstance1.Visible = true;
-                            TextInstance.Blue = 0;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 0;
-                            break;
-                        case  RadioButtonCategory.PushedOff:
-                            ColoredRectangleInstance.Blue = 87;
-                            ColoredRectangleInstance.Green = 139;
-                            ColoredRectangleInstance.Red = 46;
-                            ColoredRectangleInstance1.Blue = 0;
-                            ColoredRectangleInstance1.Green = 255;
-                            ColoredRectangleInstance1.Red = 0;
-                            ColoredRectangleInstance1.Visible = false;
-                            TextInstance.Blue = 0;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 0;
-                            break;
+                        mCurrentRadioButtonCategoryState = value;
+                        switch(mCurrentRadioButtonCategoryState)
+                        {
+                            case  RadioButtonCategory.EnabledOn:
+                                ColoredRectangleInstance.Blue = 0;
+                                ColoredRectangleInstance.Green = 0;
+                                ColoredRectangleInstance.Red = 0;
+                                ColoredRectangleInstance1.Blue = 255;
+                                ColoredRectangleInstance1.Green = 255;
+                                ColoredRectangleInstance1.Red = 0;
+                                ColoredRectangleInstance1.Visible = true;
+                                TextInstance.Blue = 255;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 0;
+                                break;
+                            case  RadioButtonCategory.EnabledOff:
+                                ColoredRectangleInstance.Blue = 0;
+                                ColoredRectangleInstance.Green = 0;
+                                ColoredRectangleInstance.Red = 0;
+                                ColoredRectangleInstance1.Blue = 255;
+                                ColoredRectangleInstance1.Green = 255;
+                                ColoredRectangleInstance1.Red = 0;
+                                ColoredRectangleInstance1.Visible = false;
+                                TextInstance.Blue = 255;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 255;
+                                break;
+                            case  RadioButtonCategory.DisabledOn:
+                                ColoredRectangleInstance.Blue = 169;
+                                ColoredRectangleInstance.Green = 169;
+                                ColoredRectangleInstance.Red = 169;
+                                ColoredRectangleInstance1.Blue = 220;
+                                ColoredRectangleInstance1.Green = 220;
+                                ColoredRectangleInstance1.Red = 220;
+                                ColoredRectangleInstance1.Visible = true;
+                                TextInstance.Blue = 169;
+                                TextInstance.Green = 169;
+                                TextInstance.Red = 169;
+                                break;
+                            case  RadioButtonCategory.DisabledOff:
+                                ColoredRectangleInstance.Blue = 169;
+                                ColoredRectangleInstance.Green = 169;
+                                ColoredRectangleInstance.Red = 169;
+                                ColoredRectangleInstance1.Blue = 255;
+                                ColoredRectangleInstance1.Green = 255;
+                                ColoredRectangleInstance1.Red = 0;
+                                ColoredRectangleInstance1.Visible = false;
+                                TextInstance.Blue = 169;
+                                TextInstance.Green = 169;
+                                TextInstance.Red = 169;
+                                break;
+                            case  RadioButtonCategory.HighlightedOn:
+                                ColoredRectangleInstance.Blue = 0;
+                                ColoredRectangleInstance.Green = 128;
+                                ColoredRectangleInstance.Red = 0;
+                                ColoredRectangleInstance1.Blue = 212;
+                                ColoredRectangleInstance1.Green = 255;
+                                ColoredRectangleInstance1.Red = 127;
+                                ColoredRectangleInstance1.Visible = true;
+                                TextInstance.Blue = 47;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 173;
+                                break;
+                            case  RadioButtonCategory.HighlightedOff:
+                                ColoredRectangleInstance.Blue = 0;
+                                ColoredRectangleInstance.Green = 128;
+                                ColoredRectangleInstance.Red = 0;
+                                ColoredRectangleInstance1.Blue = 255;
+                                ColoredRectangleInstance1.Green = 255;
+                                ColoredRectangleInstance1.Red = 0;
+                                ColoredRectangleInstance1.Visible = false;
+                                TextInstance.Blue = 47;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 173;
+                                break;
+                            case  RadioButtonCategory.PushedOn:
+                                ColoredRectangleInstance.Blue = 50;
+                                ColoredRectangleInstance.Green = 205;
+                                ColoredRectangleInstance.Red = 154;
+                                ColoredRectangleInstance1.Blue = 0;
+                                ColoredRectangleInstance1.Green = 255;
+                                ColoredRectangleInstance1.Red = 0;
+                                ColoredRectangleInstance1.Visible = true;
+                                TextInstance.Blue = 0;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 0;
+                                break;
+                            case  RadioButtonCategory.PushedOff:
+                                ColoredRectangleInstance.Blue = 87;
+                                ColoredRectangleInstance.Green = 139;
+                                ColoredRectangleInstance.Red = 46;
+                                ColoredRectangleInstance1.Blue = 0;
+                                ColoredRectangleInstance1.Green = 255;
+                                ColoredRectangleInstance1.Red = 0;
+                                ColoredRectangleInstance1.Visible = false;
+                                TextInstance.Blue = 0;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 0;
+                                break;
+                        }
                     }
                 }
             }

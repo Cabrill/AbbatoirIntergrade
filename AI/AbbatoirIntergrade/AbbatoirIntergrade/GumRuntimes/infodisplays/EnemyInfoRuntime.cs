@@ -8,7 +8,7 @@ using AbbatoirIntergrade.Entities.BaseEntities;
 using AbbatoirIntergrade.StaticManagers;
 using Microsoft.Xna.Framework;
 
-namespace AbbatoirIntergrade.GumRuntimes
+namespace AbbatoirIntergrade.GumRuntimes.infodisplays
 {
     public partial class EnemyInfoRuntime
     {

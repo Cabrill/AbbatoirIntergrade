@@ -318,7 +318,10 @@
     <Compile Include="GumRuntimes\ChatHistoryRuntime.Generated.cs">
       <DependentUpon>ChatHistoryRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\CheckBoxRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\CheckBoxRuntime.cs" />
+    <Compile Include="GumRuntimes\CheckBoxRuntime.Generated.cs">
+      <DependentUpon>CheckBoxRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.cs" />
     <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.Generated.cs">
@@ -329,37 +332,97 @@
     <Compile Include="GumRuntimes\ConfirmationWindowRuntime.Generated.cs">
       <DependentUpon>ConfirmationWindowRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\CreditDisplayRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\DropDownRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\EndingScreenGumRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\FlatRedBallSplashGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\CreditDisplayRuntime.cs" />
+    <Compile Include="GumRuntimes\CreditDisplayRuntime.Generated.cs">
+      <DependentUpon>CreditDisplayRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\DropDownRuntime.cs" />
+    <Compile Include="GumRuntimes\DropDownRuntime.Generated.cs">
+      <DependentUpon>DropDownRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\EndingScreenGumRuntime.cs" />
+    <Compile Include="GumRuntimes\EndingScreenGumRuntime.Generated.cs">
+      <DependentUpon>EndingScreenGumRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\FlatRedBallSplashGumRuntime.cs" />
+    <Compile Include="GumRuntimes\FlatRedBallSplashGumRuntime.Generated.cs">
+      <DependentUpon>FlatRedBallSplashGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\frames\ButtonFrameRuntime.cs" />
     <Compile Include="GumRuntimes\frames\ButtonFrameRuntime.Generated.cs">
       <DependentUpon>ButtonFrameRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\frames\ChatFrameRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\Frames\ChatOptionFrameRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\frames\FourButtonFrameRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\frames\ChatFrameRuntime.cs" />
+    <Compile Include="GumRuntimes\frames\ChatFrameRuntime.Generated.cs">
+      <DependentUpon>ChatFrameRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\Frames\ChatOptionFrameRuntime.cs" />
+    <Compile Include="GumRuntimes\Frames\ChatOptionFrameRuntime.Generated.cs">
+      <DependentUpon>ChatOptionFrameRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\frames\FourButtonFrameRuntime.cs" />
+    <Compile Include="GumRuntimes\frames\FourButtonFrameRuntime.Generated.cs">
+      <DependentUpon>FourButtonFrameRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\Frames\GlowingBox1Runtime.Generated.cs" />
-    <Compile Include="GumRuntimes\Frames\GlowingBoxRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\frames\LargeInfoFrameRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\frames\LevelFrameRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\frames\MenuFrameRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\frames\MessageFrameRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\frames\SevenButtonFrameRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\frames\StyleBarRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\frames\TallestInfoFrameRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\frames\TallInfoFrameRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\Frames\GlowingBoxRuntime.cs" />
+    <Compile Include="GumRuntimes\Frames\GlowingBoxRuntime.Generated.cs">
+      <DependentUpon>GlowingBoxRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\frames\LargeInfoFrameRuntime.cs" />
+    <Compile Include="GumRuntimes\frames\LargeInfoFrameRuntime.Generated.cs">
+      <DependentUpon>LargeInfoFrameRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\frames\LevelFrameRuntime.cs" />
+    <Compile Include="GumRuntimes\frames\LevelFrameRuntime.Generated.cs">
+      <DependentUpon>LevelFrameRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\frames\MenuFrameRuntime.cs" />
+    <Compile Include="GumRuntimes\frames\MenuFrameRuntime.Generated.cs">
+      <DependentUpon>MenuFrameRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\frames\MessageFrameRuntime.cs" />
+    <Compile Include="GumRuntimes\frames\MessageFrameRuntime.Generated.cs">
+      <DependentUpon>MessageFrameRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\frames\SevenButtonFrameRuntime.cs" />
+    <Compile Include="GumRuntimes\frames\SevenButtonFrameRuntime.Generated.cs">
+      <DependentUpon>SevenButtonFrameRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\frames\StyleBarRuntime.cs" />
+    <Compile Include="GumRuntimes\frames\StyleBarRuntime.Generated.cs">
+      <DependentUpon>StyleBarRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\frames\TallestInfoFrameRuntime.cs" />
+    <Compile Include="GumRuntimes\frames\TallestInfoFrameRuntime.Generated.cs">
+      <DependentUpon>TallestInfoFrameRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\frames\TallInfoFrameRuntime.cs" />
+    <Compile Include="GumRuntimes\frames\TallInfoFrameRuntime.Generated.cs">
+      <DependentUpon>TallInfoFrameRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\frames\WhiteFrameRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\GameScreenGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\frames\WhiteFrameRuntime.cs" />
+    <Compile Include="GumRuntimes\frames\WhiteFrameRuntime.Generated.cs">
+      <DependentUpon>WhiteFrameRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\GameScreenGumRuntime.cs" />
+    <Compile Include="GumRuntimes\GameScreenGumRuntime.Generated.cs">
+      <DependentUpon>GameScreenGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\GumIdb.Generated.cs" />
     <Compile Include="GumRuntimes\HorizonBoxRuntime.cs" />
     <Compile Include="GumRuntimes\HorizonBoxRuntime.Generated.cs">
       <DependentUpon>HorizonBoxRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\infodisplays\AttributeDisplayRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\infodisplays\AttributeIconRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\AttributeDisplayRuntime.cs" />
+    <Compile Include="GumRuntimes\infodisplays\AttributeDisplayRuntime.Generated.cs">
+      <DependentUpon>AttributeDisplayRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\infodisplays\AttributeIconRuntime.cs" />
+    <Compile Include="GumRuntimes\infodisplays\AttributeIconRuntime.Generated.cs">
+      <DependentUpon>AttributeIconRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\infodisplays\AttributIconRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\ChatOptionRuntime.cs" />
     <Compile Include="GumRuntimes\infodisplays\ChatOptionRuntime.Generated.cs">
@@ -369,7 +432,10 @@
     <Compile Include="GumRuntimes\infodisplays\CurrentMusicDisplayRuntime.Generated.cs">
       <DependentUpon>CurrentMusicDisplayRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\infodisplays\DamageTypeIconRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\DamageTypeIconRuntime.cs" />
+    <Compile Include="GumRuntimes\infodisplays\DamageTypeIconRuntime.Generated.cs">
+      <DependentUpon>DamageTypeIconRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\infodisplays\EnemyInfoRuntime.cs" />
     <Compile Include="GumRuntimes\infodisplays\EnemyInfoRuntime.Generated.cs">
       <DependentUpon>EnemyInfoRuntime.cs</DependentUpon>
@@ -394,7 +460,10 @@
     <Compile Include="GumRuntimes\infodisplays\StructureInfoRuntime.Generated.cs">
       <DependentUpon>StructureInfoRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\infodisplays\StructureUpgradeStatusRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\StructureUpgradeStatusRuntime.cs" />
+    <Compile Include="GumRuntimes\infodisplays\StructureUpgradeStatusRuntime.Generated.cs">
+      <DependentUpon>StructureUpgradeStatusRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\infodisplays\TopStatusBarRuntime.cs" />
     <Compile Include="GumRuntimes\InfoDisplays\TopStatusBarRuntime.Generated.cs">
       <DependentUpon>TopStatusBarRuntime.cs</DependentUpon>
@@ -407,29 +476,57 @@
     <Compile Include="GumRuntimes\infodisplays\UpgradeInfoRuntime.Generated.cs">
       <DependentUpon>UpgradeInfoRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\ListBoxItemRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\ListBoxRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\LivesPointsDisplayRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\LoadingScreenGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ListBoxItemRuntime.cs" />
+    <Compile Include="GumRuntimes\ListBoxItemRuntime.Generated.cs">
+      <DependentUpon>ListBoxItemRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\ListBoxRuntime.cs" />
+    <Compile Include="GumRuntimes\ListBoxRuntime.Generated.cs">
+      <DependentUpon>ListBoxRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\LivesPointsDisplayRuntime.cs" />
+    <Compile Include="GumRuntimes\LivesPointsDisplayRuntime.Generated.cs">
+      <DependentUpon>LivesPointsDisplayRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\LoadingScreenGumRuntime.cs" />
+    <Compile Include="GumRuntimes\LoadingScreenGumRuntime.Generated.cs">
+      <DependentUpon>LoadingScreenGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\MainMenuGumRuntime.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs">
       <DependentUpon>MainMenuGumRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\MapScreenGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\MapScreenGumRuntime.cs" />
+    <Compile Include="GumRuntimes\MapScreenGumRuntime.Generated.cs">
+      <DependentUpon>MapScreenGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\MenuWindowRuntime.cs" />
     <Compile Include="GumRuntimes\MenuWindowRuntime.Generated.cs">
       <DependentUpon>MenuWindowRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\MessageBoxRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\MessageBoxRuntime.cs" />
+    <Compile Include="GumRuntimes\MessageBoxRuntime.Generated.cs">
+      <DependentUpon>MessageBoxRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\OptionsControlsRuntime.cs" />
     <Compile Include="GumRuntimes\OptionsControlsRuntime.Generated.cs">
       <DependentUpon>OptionsControlsRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\RadioButtonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\PolygonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\RadioButtonRuntime.cs" />
+    <Compile Include="GumRuntimes\RadioButtonRuntime.Generated.cs">
+      <DependentUpon>RadioButtonRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\ScreenShadeRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\ScrollThumbRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ScreenShadeRuntime.cs" />
+    <Compile Include="GumRuntimes\ScreenShadeRuntime.Generated.cs">
+      <DependentUpon>ScreenShadeRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\ScrollThumbRuntime.cs" />
+    <Compile Include="GumRuntimes\ScrollThumbRuntime.Generated.cs">
+      <DependentUpon>ScrollThumbRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\SliderBarRuntime.cs" />
     <Compile Include="GumRuntimes\SliderBarRuntime.Generated.cs">
       <DependentUpon>SliderBarRuntime.cs</DependentUpon>
@@ -447,23 +544,50 @@
     <Compile Include="GumRuntimes\specificbuttons\LevelButtonRuntime.Generated.cs">
       <DependentUpon>LevelButtonRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\specificbuttons\OptionsButtonRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\specificbuttons\ReadyButtonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\specificbuttons\OptionsButtonRuntime.cs" />
+    <Compile Include="GumRuntimes\specificbuttons\OptionsButtonRuntime.Generated.cs">
+      <DependentUpon>OptionsButtonRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\specificbuttons\ReadyButtonRuntime.cs" />
+    <Compile Include="GumRuntimes\specificbuttons\ReadyButtonRuntime.Generated.cs">
+      <DependentUpon>ReadyButtonRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\specificbuttons\SettingsButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\StartGameButtonRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\specificbuttons\UpDownButtonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\specificbuttons\UpDownButtonRuntime.cs" />
+    <Compile Include="GumRuntimes\specificbuttons\UpDownButtonRuntime.Generated.cs">
+      <DependentUpon>UpDownButtonRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\TechnologyTreeRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\TechnologyTreeRuntime.cs" />
+    <Compile Include="GumRuntimes\TechnologyTreeRuntime.Generated.cs">
+      <DependentUpon>TechnologyTreeRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\TextRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\ThumbRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ThumbRuntime.cs" />
+    <Compile Include="GumRuntimes\ThumbRuntime.Generated.cs">
+      <DependentUpon>ThumbRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\TowerSelectionBoxRuntime.cs" />
     <Compile Include="GumRuntimes\TowerSelectionBoxRuntime.Generated.cs">
       <DependentUpon>TowerSelectionBoxRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\unique\DimmingRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\unique\MainMenuEyeRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\unique\PointingArrowRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\VerticalScrollBarRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\unique\DimmingRuntime.cs" />
+    <Compile Include="GumRuntimes\unique\DimmingRuntime.Generated.cs">
+      <DependentUpon>DimmingRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\unique\MainMenuEyeRuntime.cs" />
+    <Compile Include="GumRuntimes\unique\MainMenuEyeRuntime.Generated.cs">
+      <DependentUpon>MainMenuEyeRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\unique\PointingArrowRuntime.cs" />
+    <Compile Include="GumRuntimes\unique\PointingArrowRuntime.Generated.cs">
+      <DependentUpon>PointingArrowRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\VerticalScrollBarRuntime.cs" />
+    <Compile Include="GumRuntimes\VerticalScrollBarRuntime.Generated.cs">
+      <DependentUpon>VerticalScrollBarRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="MachineLearning\Models\DeepBeliefNetworkModel.cs" />
     <Compile Include="MachineLearning\WaveData.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />
@@ -529,6 +653,9 @@
     <Compile Include="SunMoonCalculations\SunAndMoonCalculation.cs" />
     <Compile Include="SunMoonCalculations\SunTimes.cs" />
     <Compile Include="SunMoonCalculations\TimeMap.cs" />
+    <Compile Include="TileCollisions\CollidableListVsTileShapeCollectionRelationship.cs" />
+    <Compile Include="TileCollisions\CollidableVsTileShapeCollectionRelationship.cs" />
+    <Compile Include="TileCollisions\CollisionManagerTileShapeCollectionExtensions.cs" />
     <Compile Include="TileCollisions\TileShapeCollection.cs" />
     <Compile Include="TileEntities\TileEntityInstantiator.cs" />
     <Compile Include="TileGraphics\AbstractMapLayer.cs" />
@@ -1657,7 +1784,7 @@
     </None>
     <None Include="content\gumproject\fontcache\font18arial.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font18Arial</Name>
+      <Name>font18arial</Name>
     </None>
     <None Include="content\gumproject\fontcache\font18arial_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1665,7 +1792,7 @@
     </None>
     <None Include="content\gumproject\fontcache\font30svi_basic_manual.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font30SVI_Basic_Manual</Name>
+      <Name>font30svi_basic_manual</Name>
     </None>
     <None Include="content\gumproject\fontcache\font30svi_basic_manual_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1673,7 +1800,7 @@
     </None>
     <None Include="content\gumproject\fontcache\font30sylfaen.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font30Sylfaen</Name>
+      <Name>font30sylfaen</Name>
     </None>
     <None Include="content\gumproject\fontcache\font30sylfaen_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1681,7 +1808,7 @@
     </None>
     <None Include="content\gumproject\fontcache\font48bahnschrift.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font48Bahnschrift</Name>
+      <Name>font48bahnschrift</Name>
     </None>
     <None Include="content\gumproject\fontcache\font48bahnschrift_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1770,6 +1897,10 @@
     <None Include="content\gumproject\standards\nineslice.gutx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>NineSlice</Name>
+    </None>
+    <None Include="content\gumproject\standards\polygon.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>polygon</Name>
     </None>
     <None Include="content\gumproject\standards\rectangle.gutx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -2082,7 +2213,7 @@
     <Folder Include="content\screens\gamescreen\music\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\GitHub\FlatRedBall\Engines\FlatRedBallXNA\FlatRedBall\FlatRedBallDesktopGL.csproj">
+    <ProjectReference Include="..\..\..\..\FlatRedBall\Engines\FlatRedBallXNA\FlatRedBall\FlatRedBallDesktopGL.csproj">
       <Project>{10bda06c-7269-4cce-ae2a-d445f414520a}</Project>
       <Name>FlatRedBallDesktopGL</Name>
     </ProjectReference>

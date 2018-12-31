@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.frames
     {
         public partial class ButtonFrameRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -39,10 +39,10 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Highlight mCurrentHighlightState;
-            Select mCurrentSelectState;
-            ButtonType mCurrentButtonTypeState;
-            Colors mCurrentColorsState;
+            Highlight? mCurrentHighlightState;
+            Select? mCurrentSelectState;
+            ButtonType? mCurrentButtonTypeState;
+            Colors? mCurrentColorsState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -101,7 +101,7 @@
                     }
                 }
             }
-            public Highlight CurrentHighlightState
+            public Highlight? CurrentHighlightState
             {
                 get
                 {
@@ -109,19 +109,22 @@
                 }
                 set
                 {
-                    mCurrentHighlightState = value;
-                    switch(mCurrentHighlightState)
+                    if (value != null)
                     {
-                        case  Highlight.Highlighted:
-                            BackgroundSprite.TextureLeft = 512;
-                            break;
-                        case  Highlight.NotHighlighted:
-                            BackgroundSprite.TextureLeft = 0;
-                            break;
+                        mCurrentHighlightState = value;
+                        switch(mCurrentHighlightState)
+                        {
+                            case  Highlight.Highlighted:
+                                BackgroundSprite.TextureLeft = 512;
+                                break;
+                            case  Highlight.NotHighlighted:
+                                BackgroundSprite.TextureLeft = 0;
+                                break;
+                        }
                     }
                 }
             }
-            public Select CurrentSelectState
+            public Select? CurrentSelectState
             {
                 get
                 {
@@ -129,21 +132,24 @@
                 }
                 set
                 {
-                    mCurrentSelectState = value;
-                    switch(mCurrentSelectState)
+                    if (value != null)
                     {
-                        case  Select.Selected:
-                            SelectSprite.Visible = true;
-                            SpriteInstance.Red = 176;
-                            break;
-                        case  Select.NotSelected:
-                            SelectSprite.Visible = false;
-                            SpriteInstance.Red = 255;
-                            break;
+                        mCurrentSelectState = value;
+                        switch(mCurrentSelectState)
+                        {
+                            case  Select.Selected:
+                                SelectSprite.Visible = true;
+                                SpriteInstance.Red = 176;
+                                break;
+                            case  Select.NotSelected:
+                                SelectSprite.Visible = false;
+                                SpriteInstance.Red = 255;
+                                break;
+                        }
                     }
                 }
             }
-            public ButtonType CurrentButtonTypeState
+            public ButtonType? CurrentButtonTypeState
             {
                 get
                 {
@@ -151,85 +157,88 @@
                 }
                 set
                 {
-                    mCurrentButtonTypeState = value;
-                    switch(mCurrentButtonTypeState)
+                    if (value != null)
                     {
-                        case  ButtonType.Check:
-                            BackgroundSprite.Alpha = 255;
-                            SpriteInstance.TextureHeight = 256;
-                            SpriteInstance.TextureLeft = 3780;
-                            SpriteInstance.TextureTop = 1675;
-                            SpriteInstance.TextureWidth = 256;
-                            SpriteInstance.Visible = true;
-                            break;
-                        case  ButtonType.X:
-                            BackgroundSprite.Alpha = 255;
-                            SpriteInstance.TextureHeight = 200;
-                            SpriteInstance.TextureLeft = 3550;
-                            SpriteInstance.TextureTop = 1692;
-                            SpriteInstance.TextureWidth = 200;
-                            SpriteInstance.Visible = true;
-                            break;
-                        case  ButtonType.Play:
-                            BackgroundSprite.Alpha = 255;
-                            SpriteInstance.TextureHeight = 200;
-                            SpriteInstance.TextureLeft = 3720;
-                            SpriteInstance.TextureTop = 2750;
-                            SpriteInstance.TextureWidth = 200;
-                            SpriteInstance.Visible = true;
-                            break;
-                        case  ButtonType.Disabled:
-                            BackgroundSprite.Alpha = 150;
-                            SpriteInstance.TextureHeight = 200;
-                            SpriteInstance.TextureLeft = 3808;
-                            SpriteInstance.TextureTop = 1692;
-                            SpriteInstance.TextureWidth = 200;
-                            SpriteInstance.Visible = false;
-                            break;
-                        case  ButtonType.Menu:
-                            BackgroundSprite.Alpha = 255;
-                            SpriteInstance.TextureHeight = 200;
-                            SpriteInstance.TextureLeft = 3707;
-                            SpriteInstance.TextureTop = 3770;
-                            SpriteInstance.TextureWidth = 200;
-                            SpriteInstance.Visible = true;
-                            break;
-                        case  ButtonType.Pause:
-                            BackgroundSprite.Alpha = 255;
-                            SpriteInstance.TextureHeight = 200;
-                            SpriteInstance.TextureLeft = 3707;
-                            SpriteInstance.TextureTop = 3005;
-                            SpriteInstance.TextureWidth = 200;
-                            SpriteInstance.Visible = true;
-                            break;
-                        case  ButtonType.FastForward:
-                            BackgroundSprite.Alpha = 255;
-                            SpriteInstance.TextureHeight = 200;
-                            SpriteInstance.TextureLeft = 3550;
-                            SpriteInstance.TextureTop = 2212;
-                            SpriteInstance.TextureWidth = 200;
-                            SpriteInstance.Visible = true;
-                            break;
-                        case  ButtonType.Restart:
-                            BackgroundSprite.Alpha = 255;
-                            SpriteInstance.TextureHeight = 200;
-                            SpriteInstance.TextureLeft = 3805;
-                            SpriteInstance.TextureTop = 2205;
-                            SpriteInstance.TextureWidth = 200;
-                            SpriteInstance.Visible = true;
-                            break;
-                        case  ButtonType.History:
-                            BackgroundSprite.Alpha = 255;
-                            SpriteInstance.TextureHeight = 250;
-                            SpriteInstance.TextureLeft = 3522;
-                            SpriteInstance.TextureTop = 945;
-                            SpriteInstance.TextureWidth = 250;
-                            SpriteInstance.Visible = true;
-                            break;
+                        mCurrentButtonTypeState = value;
+                        switch(mCurrentButtonTypeState)
+                        {
+                            case  ButtonType.Check:
+                                BackgroundSprite.Alpha = 255;
+                                SpriteInstance.TextureHeight = 256;
+                                SpriteInstance.TextureLeft = 3780;
+                                SpriteInstance.TextureTop = 1675;
+                                SpriteInstance.TextureWidth = 256;
+                                SpriteInstance.Visible = true;
+                                break;
+                            case  ButtonType.X:
+                                BackgroundSprite.Alpha = 255;
+                                SpriteInstance.TextureHeight = 200;
+                                SpriteInstance.TextureLeft = 3550;
+                                SpriteInstance.TextureTop = 1692;
+                                SpriteInstance.TextureWidth = 200;
+                                SpriteInstance.Visible = true;
+                                break;
+                            case  ButtonType.Play:
+                                BackgroundSprite.Alpha = 255;
+                                SpriteInstance.TextureHeight = 200;
+                                SpriteInstance.TextureLeft = 3720;
+                                SpriteInstance.TextureTop = 2750;
+                                SpriteInstance.TextureWidth = 200;
+                                SpriteInstance.Visible = true;
+                                break;
+                            case  ButtonType.Disabled:
+                                BackgroundSprite.Alpha = 150;
+                                SpriteInstance.TextureHeight = 200;
+                                SpriteInstance.TextureLeft = 3808;
+                                SpriteInstance.TextureTop = 1692;
+                                SpriteInstance.TextureWidth = 200;
+                                SpriteInstance.Visible = false;
+                                break;
+                            case  ButtonType.Menu:
+                                BackgroundSprite.Alpha = 255;
+                                SpriteInstance.TextureHeight = 200;
+                                SpriteInstance.TextureLeft = 3707;
+                                SpriteInstance.TextureTop = 3770;
+                                SpriteInstance.TextureWidth = 200;
+                                SpriteInstance.Visible = true;
+                                break;
+                            case  ButtonType.Pause:
+                                BackgroundSprite.Alpha = 255;
+                                SpriteInstance.TextureHeight = 200;
+                                SpriteInstance.TextureLeft = 3707;
+                                SpriteInstance.TextureTop = 3005;
+                                SpriteInstance.TextureWidth = 200;
+                                SpriteInstance.Visible = true;
+                                break;
+                            case  ButtonType.FastForward:
+                                BackgroundSprite.Alpha = 255;
+                                SpriteInstance.TextureHeight = 200;
+                                SpriteInstance.TextureLeft = 3550;
+                                SpriteInstance.TextureTop = 2212;
+                                SpriteInstance.TextureWidth = 200;
+                                SpriteInstance.Visible = true;
+                                break;
+                            case  ButtonType.Restart:
+                                BackgroundSprite.Alpha = 255;
+                                SpriteInstance.TextureHeight = 200;
+                                SpriteInstance.TextureLeft = 3805;
+                                SpriteInstance.TextureTop = 2205;
+                                SpriteInstance.TextureWidth = 200;
+                                SpriteInstance.Visible = true;
+                                break;
+                            case  ButtonType.History:
+                                BackgroundSprite.Alpha = 255;
+                                SpriteInstance.TextureHeight = 250;
+                                SpriteInstance.TextureLeft = 3522;
+                                SpriteInstance.TextureTop = 945;
+                                SpriteInstance.TextureWidth = 250;
+                                SpriteInstance.Visible = true;
+                                break;
+                        }
                     }
                 }
             }
-            public Colors CurrentColorsState
+            public Colors? CurrentColorsState
             {
                 get
                 {
@@ -237,42 +246,45 @@
                 }
                 set
                 {
-                    mCurrentColorsState = value;
-                    switch(mCurrentColorsState)
+                    if (value != null)
                     {
-                        case  Colors.Normal:
-                            BackgroundSprite.Blue = 255;
-                            BackgroundSprite.Green = 255;
-                            BackgroundSprite.Red = 255;
-                            SelectSprite.Blue = 255;
-                            SelectSprite.Green = 255;
-                            SelectSprite.Red = 255;
-                            SpriteInstance.Blue = 255;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 255;
-                            break;
-                        case  Colors.Red:
-                            BackgroundSprite.Blue = 0;
-                            BackgroundSprite.Green = 0;
-                            BackgroundSprite.Red = 255;
-                            SelectSprite.Blue = 0;
-                            SelectSprite.Green = 0;
-                            SelectSprite.Red = 255;
-                            SpriteInstance.Blue = 0;
-                            SpriteInstance.Green = 0;
-                            SpriteInstance.Red = 255;
-                            break;
-                        case  Colors.Green:
-                            BackgroundSprite.Blue = 0;
-                            BackgroundSprite.Green = 255;
-                            BackgroundSprite.Red = 0;
-                            SelectSprite.Blue = 0;
-                            SelectSprite.Green = 255;
-                            SelectSprite.Red = 0;
-                            SpriteInstance.Blue = 0;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 0;
-                            break;
+                        mCurrentColorsState = value;
+                        switch(mCurrentColorsState)
+                        {
+                            case  Colors.Normal:
+                                BackgroundSprite.Blue = 255;
+                                BackgroundSprite.Green = 255;
+                                BackgroundSprite.Red = 255;
+                                SelectSprite.Blue = 255;
+                                SelectSprite.Green = 255;
+                                SelectSprite.Red = 255;
+                                SpriteInstance.Blue = 255;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 255;
+                                break;
+                            case  Colors.Red:
+                                BackgroundSprite.Blue = 0;
+                                BackgroundSprite.Green = 0;
+                                BackgroundSprite.Red = 255;
+                                SelectSprite.Blue = 0;
+                                SelectSprite.Green = 0;
+                                SelectSprite.Red = 255;
+                                SpriteInstance.Blue = 0;
+                                SpriteInstance.Green = 0;
+                                SpriteInstance.Red = 255;
+                                break;
+                            case  Colors.Green:
+                                BackgroundSprite.Blue = 0;
+                                BackgroundSprite.Green = 255;
+                                BackgroundSprite.Red = 0;
+                                SelectSprite.Blue = 0;
+                                SelectSprite.Green = 255;
+                                SelectSprite.Red = 0;
+                                SpriteInstance.Blue = 0;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 0;
+                                break;
+                        }
                     }
                 }
             }
@@ -1383,7 +1395,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1437,7 +1449,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Highlight fromState,AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Highlight toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Highlight fromState,AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Highlight toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1491,7 +1503,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Select fromState,AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Select toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Select fromState,AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Select toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1545,7 +1557,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType fromState,AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType fromState,AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1599,7 +1611,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Colors fromState,AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Colors toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Colors fromState,AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Colors toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

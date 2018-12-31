@@ -33,9 +33,9 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Appearance mCurrentAppearanceState;
-            MessageIndicator mCurrentMessageIndicatorState;
-            ResponseAvailability mCurrentResponseAvailabilityState;
+            Appearance? mCurrentAppearanceState;
+            MessageIndicator? mCurrentMessageIndicatorState;
+            ResponseAvailability? mCurrentResponseAvailabilityState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -87,7 +87,7 @@
                             ColoredRectangleInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             ChatOption0.Height = 0f;
                             ChatOption0.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
-                            ChatOption0.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
+                            ChatOption0.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.NotHighlighted;
                             ChatOption0.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
                             ChatOption0.Width = 100f;
                             ChatOption0.X = 0f;
@@ -104,11 +104,11 @@
                             CurrentText.Y = 2.029169f;
                             CurrentText.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             ChatOption1.Height = 0f;
-                            ChatOption1.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
+                            ChatOption1.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.NotHighlighted;
                             ChatOption1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
                             ChatOption1.Width = 100f;
                             ChatOption2.Height = 0f;
-                            ChatOption2.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
+                            ChatOption2.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.NotHighlighted;
                             ChatOption2.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
                             ChatOption2.Width = 100f;
                             ResponseContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
@@ -139,7 +139,7 @@
                             CloseChatButtonInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             CloseChatButtonInstance.Y = 6.777447f;
                             CloseChatButtonInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Black;
+                            MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Black;
                             MessageBox.Height = 100f;
                             MessageBox.HeightUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                             MessageBox.Visible = false;
@@ -165,7 +165,7 @@
                             TextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             TextInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                             ChatHistoryButton.Height = 56f;
-                            ChatHistoryButton.CurrentUpDownState = AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.UpDown.Up;
+                            ChatHistoryButton.CurrentUpDownState = AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.UpDown.Up;
                             ChatHistoryButton.Width = 66f;
                             ChatHistoryButton.X = 4.244792f;
                             ChatHistoryButton.XUnits = Gum.Converters.GeneralUnitType.Percentage;
@@ -181,7 +181,7 @@
                             RecentResponseContainer.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             RecentResponseContainer.Y = 10f;
                             RecentResponseContainer.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            DialogueShownChatOption.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.Highlighted;
+                            DialogueShownChatOption.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.Highlighted;
                             DialogueShownChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer") ?? this;
                             ResponseChosenChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer") ?? this;
                             ResponseChosenChatOption.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
@@ -191,7 +191,7 @@
                     }
                 }
             }
-            public Appearance CurrentAppearanceState
+            public Appearance? CurrentAppearanceState
             {
                 get
                 {
@@ -199,133 +199,136 @@
                 }
                 set
                 {
-                    mCurrentAppearanceState = value;
-                    switch(mCurrentAppearanceState)
+                    if (value != null)
                     {
-                        case  Appearance.ChatOpen:
-                            ChatFrameInstance.Height = 100f;
-                            ChatFrameInstance.Visible = true;
-                            StyleBarInstance.Height = 10f;
-                            StyleBarInstance.Visible = false;
-                            StyleBarInstance.Width = 100f;
-                            StyleBarInstance.X = 50f;
-                            StyleBarInstance.Y = 50f;
-                            ColoredRectangleInstance.Alpha = 160;
-                            ColoredRectangleInstance.Height = 82.10236f;
-                            ColoredRectangleInstance.Visible = true;
-                            CurrentText.Visible = true;
-                            ResponseContainer.Visible = true;
-                            ChatContainer.Visible = false;
-                            CloseChatButtonInstance.Visible = true;
-                            MessageBox.Visible = false;
-                            TextInstance.Visible = false;
-                            ChatHistoryButton.Visible = true;
-                            RecentResponseContainer.Visible = false;
-                            break;
-                        case  Appearance.Appear1:
-                            ChatFrameInstance.Height = 5f;
-                            ChatFrameInstance.Visible = false;
-                            StyleBarInstance.Height = 10f;
-                            StyleBarInstance.Visible = true;
-                            StyleBarInstance.Width = 10f;
-                            StyleBarInstance.X = 6f;
-                            StyleBarInstance.Y = 90f;
-                            ColoredRectangleInstance.Alpha = 160;
-                            ColoredRectangleInstance.Height = 4.1f;
-                            ColoredRectangleInstance.Visible = false;
-                            CurrentText.Visible = false;
-                            ResponseContainer.Visible = false;
-                            ChatContainer.Visible = false;
-                            CloseChatButtonInstance.Visible = false;
-                            MessageBox.Visible = false;
-                            TextInstance.Visible = false;
-                            ChatHistoryButton.Visible = false;
-                            RecentResponseContainer.Visible = false;
-                            break;
-                        case  Appearance.Appear2:
-                            ChatFrameInstance.Height = 5f;
-                            ChatFrameInstance.Visible = false;
-                            StyleBarInstance.Height = 10f;
-                            StyleBarInstance.Visible = true;
-                            StyleBarInstance.Width = 100f;
-                            StyleBarInstance.X = 50f;
-                            StyleBarInstance.Y = 50f;
-                            ColoredRectangleInstance.Alpha = 160;
-                            ColoredRectangleInstance.Height = 4.1f;
-                            ColoredRectangleInstance.Visible = false;
-                            CurrentText.Visible = false;
-                            ResponseContainer.Visible = false;
-                            ChatContainer.Visible = false;
-                            CloseChatButtonInstance.Visible = false;
-                            MessageBox.Visible = false;
-                            TextInstance.Visible = false;
-                            ChatHistoryButton.Visible = false;
-                            RecentResponseContainer.Visible = false;
-                            break;
-                        case  Appearance.Appear3:
-                            ChatFrameInstance.Height = 5f;
-                            ChatFrameInstance.Visible = true;
-                            StyleBarInstance.Height = 10f;
-                            StyleBarInstance.Visible = false;
-                            StyleBarInstance.Width = 100f;
-                            StyleBarInstance.X = 50f;
-                            StyleBarInstance.Y = 50f;
-                            ColoredRectangleInstance.Alpha = 0;
-                            ColoredRectangleInstance.Height = 4.1f;
-                            ColoredRectangleInstance.Visible = true;
-                            CurrentText.Visible = false;
-                            ResponseContainer.Visible = true;
-                            ChatContainer.Visible = false;
-                            CloseChatButtonInstance.Visible = false;
-                            MessageBox.Visible = false;
-                            TextInstance.Visible = false;
-                            ChatHistoryButton.Visible = false;
-                            RecentResponseContainer.Visible = false;
-                            break;
-                        case  Appearance.Appear4:
-                            ChatFrameInstance.Height = 100f;
-                            ChatFrameInstance.Visible = true;
-                            StyleBarInstance.Height = 10f;
-                            StyleBarInstance.Visible = false;
-                            StyleBarInstance.Width = 100f;
-                            StyleBarInstance.X = 50f;
-                            StyleBarInstance.Y = 50f;
-                            ColoredRectangleInstance.Alpha = 80;
-                            ColoredRectangleInstance.Height = 82.10236f;
-                            ColoredRectangleInstance.Visible = true;
-                            CurrentText.Visible = false;
-                            ResponseContainer.Visible = false;
-                            ChatContainer.Visible = true;
-                            CloseChatButtonInstance.Visible = false;
-                            MessageBox.Visible = false;
-                            TextInstance.Visible = false;
-                            ChatHistoryButton.Visible = false;
-                            RecentResponseContainer.Visible = false;
-                            break;
-                        case  Appearance.ChatClosed:
-                            ChatFrameInstance.Height = 100f;
-                            ChatFrameInstance.Visible = false;
-                            StyleBarInstance.Height = 10f;
-                            StyleBarInstance.Visible = false;
-                            StyleBarInstance.Width = 10f;
-                            StyleBarInstance.X = 6f;
-                            StyleBarInstance.Y = 90f;
-                            ColoredRectangleInstance.Alpha = 160;
-                            ColoredRectangleInstance.Height = 4.1f;
-                            ColoredRectangleInstance.Visible = false;
-                            CurrentText.Visible = true;
-                            ResponseContainer.Visible = true;
-                            ChatContainer.Visible = false;
-                            CloseChatButtonInstance.Visible = false;
-                            MessageBox.Visible = true;
-                            TextInstance.Visible = false;
-                            ChatHistoryButton.Visible = false;
-                            RecentResponseContainer.Visible = false;
-                            break;
+                        mCurrentAppearanceState = value;
+                        switch(mCurrentAppearanceState)
+                        {
+                            case  Appearance.ChatOpen:
+                                ChatFrameInstance.Height = 100f;
+                                ChatFrameInstance.Visible = true;
+                                StyleBarInstance.Height = 10f;
+                                StyleBarInstance.Visible = false;
+                                StyleBarInstance.Width = 100f;
+                                StyleBarInstance.X = 50f;
+                                StyleBarInstance.Y = 50f;
+                                ColoredRectangleInstance.Alpha = 160;
+                                ColoredRectangleInstance.Height = 82.10236f;
+                                ColoredRectangleInstance.Visible = true;
+                                CurrentText.Visible = true;
+                                ResponseContainer.Visible = true;
+                                ChatContainer.Visible = false;
+                                CloseChatButtonInstance.Visible = true;
+                                MessageBox.Visible = false;
+                                TextInstance.Visible = false;
+                                ChatHistoryButton.Visible = true;
+                                RecentResponseContainer.Visible = false;
+                                break;
+                            case  Appearance.Appear1:
+                                ChatFrameInstance.Height = 5f;
+                                ChatFrameInstance.Visible = false;
+                                StyleBarInstance.Height = 10f;
+                                StyleBarInstance.Visible = true;
+                                StyleBarInstance.Width = 10f;
+                                StyleBarInstance.X = 6f;
+                                StyleBarInstance.Y = 90f;
+                                ColoredRectangleInstance.Alpha = 160;
+                                ColoredRectangleInstance.Height = 4.1f;
+                                ColoredRectangleInstance.Visible = false;
+                                CurrentText.Visible = false;
+                                ResponseContainer.Visible = false;
+                                ChatContainer.Visible = false;
+                                CloseChatButtonInstance.Visible = false;
+                                MessageBox.Visible = false;
+                                TextInstance.Visible = false;
+                                ChatHistoryButton.Visible = false;
+                                RecentResponseContainer.Visible = false;
+                                break;
+                            case  Appearance.Appear2:
+                                ChatFrameInstance.Height = 5f;
+                                ChatFrameInstance.Visible = false;
+                                StyleBarInstance.Height = 10f;
+                                StyleBarInstance.Visible = true;
+                                StyleBarInstance.Width = 100f;
+                                StyleBarInstance.X = 50f;
+                                StyleBarInstance.Y = 50f;
+                                ColoredRectangleInstance.Alpha = 160;
+                                ColoredRectangleInstance.Height = 4.1f;
+                                ColoredRectangleInstance.Visible = false;
+                                CurrentText.Visible = false;
+                                ResponseContainer.Visible = false;
+                                ChatContainer.Visible = false;
+                                CloseChatButtonInstance.Visible = false;
+                                MessageBox.Visible = false;
+                                TextInstance.Visible = false;
+                                ChatHistoryButton.Visible = false;
+                                RecentResponseContainer.Visible = false;
+                                break;
+                            case  Appearance.Appear3:
+                                ChatFrameInstance.Height = 5f;
+                                ChatFrameInstance.Visible = true;
+                                StyleBarInstance.Height = 10f;
+                                StyleBarInstance.Visible = false;
+                                StyleBarInstance.Width = 100f;
+                                StyleBarInstance.X = 50f;
+                                StyleBarInstance.Y = 50f;
+                                ColoredRectangleInstance.Alpha = 0;
+                                ColoredRectangleInstance.Height = 4.1f;
+                                ColoredRectangleInstance.Visible = true;
+                                CurrentText.Visible = false;
+                                ResponseContainer.Visible = true;
+                                ChatContainer.Visible = false;
+                                CloseChatButtonInstance.Visible = false;
+                                MessageBox.Visible = false;
+                                TextInstance.Visible = false;
+                                ChatHistoryButton.Visible = false;
+                                RecentResponseContainer.Visible = false;
+                                break;
+                            case  Appearance.Appear4:
+                                ChatFrameInstance.Height = 100f;
+                                ChatFrameInstance.Visible = true;
+                                StyleBarInstance.Height = 10f;
+                                StyleBarInstance.Visible = false;
+                                StyleBarInstance.Width = 100f;
+                                StyleBarInstance.X = 50f;
+                                StyleBarInstance.Y = 50f;
+                                ColoredRectangleInstance.Alpha = 80;
+                                ColoredRectangleInstance.Height = 82.10236f;
+                                ColoredRectangleInstance.Visible = true;
+                                CurrentText.Visible = false;
+                                ResponseContainer.Visible = false;
+                                ChatContainer.Visible = true;
+                                CloseChatButtonInstance.Visible = false;
+                                MessageBox.Visible = false;
+                                TextInstance.Visible = false;
+                                ChatHistoryButton.Visible = false;
+                                RecentResponseContainer.Visible = false;
+                                break;
+                            case  Appearance.ChatClosed:
+                                ChatFrameInstance.Height = 100f;
+                                ChatFrameInstance.Visible = false;
+                                StyleBarInstance.Height = 10f;
+                                StyleBarInstance.Visible = false;
+                                StyleBarInstance.Width = 10f;
+                                StyleBarInstance.X = 6f;
+                                StyleBarInstance.Y = 90f;
+                                ColoredRectangleInstance.Alpha = 160;
+                                ColoredRectangleInstance.Height = 4.1f;
+                                ColoredRectangleInstance.Visible = false;
+                                CurrentText.Visible = true;
+                                ResponseContainer.Visible = true;
+                                ChatContainer.Visible = false;
+                                CloseChatButtonInstance.Visible = false;
+                                MessageBox.Visible = true;
+                                TextInstance.Visible = false;
+                                ChatHistoryButton.Visible = false;
+                                RecentResponseContainer.Visible = false;
+                                break;
+                        }
                     }
                 }
             }
-            public MessageIndicator CurrentMessageIndicatorState
+            public MessageIndicator? CurrentMessageIndicatorState
             {
                 get
                 {
@@ -333,48 +336,51 @@
                 }
                 set
                 {
-                    mCurrentMessageIndicatorState = value;
-                    switch(mCurrentMessageIndicatorState)
+                    if (value != null)
                     {
-                        case  MessageIndicator.NewMessage:
-                            MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Blue;
-                            TextInstance.Blue = 0;
-                            TextInstance.Green = 0;
-                            TextInstance.Red = 0;
-                            TextInstance.Visible = true;
-                            break;
-                        case  MessageIndicator.NoMessage:
-                            MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Black;
-                            TextInstance.Blue = 255;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 255;
-                            TextInstance.Visible = false;
-                            break;
-                        case  MessageIndicator.NoMessageHighlighted:
-                            MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
-                            TextInstance.Blue = 255;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 255;
-                            TextInstance.Visible = false;
-                            break;
-                        case  MessageIndicator.NewMessageHighlighted:
-                            MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
-                            TextInstance.Blue = 255;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 255;
-                            TextInstance.Visible = true;
-                            break;
-                        case  MessageIndicator.NewMessageBig:
-                            MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Blue;
-                            TextInstance.Blue = 0;
-                            TextInstance.Green = 0;
-                            TextInstance.Red = 255;
-                            TextInstance.Visible = false;
-                            break;
+                        mCurrentMessageIndicatorState = value;
+                        switch(mCurrentMessageIndicatorState)
+                        {
+                            case  MessageIndicator.NewMessage:
+                                MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Blue;
+                                TextInstance.Blue = 0;
+                                TextInstance.Green = 0;
+                                TextInstance.Red = 0;
+                                TextInstance.Visible = true;
+                                break;
+                            case  MessageIndicator.NoMessage:
+                                MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Black;
+                                TextInstance.Blue = 255;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 255;
+                                TextInstance.Visible = false;
+                                break;
+                            case  MessageIndicator.NoMessageHighlighted:
+                                MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Green;
+                                TextInstance.Blue = 255;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 255;
+                                TextInstance.Visible = false;
+                                break;
+                            case  MessageIndicator.NewMessageHighlighted:
+                                MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Green;
+                                TextInstance.Blue = 255;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 255;
+                                TextInstance.Visible = true;
+                                break;
+                            case  MessageIndicator.NewMessageBig:
+                                MessageBox.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Blue;
+                                TextInstance.Blue = 0;
+                                TextInstance.Green = 0;
+                                TextInstance.Red = 255;
+                                TextInstance.Visible = false;
+                                break;
+                        }
                     }
                 }
             }
-            public ResponseAvailability CurrentResponseAvailabilityState
+            public ResponseAvailability? CurrentResponseAvailabilityState
             {
                 get
                 {
@@ -382,17 +388,20 @@
                 }
                 set
                 {
-                    mCurrentResponseAvailabilityState = value;
-                    switch(mCurrentResponseAvailabilityState)
+                    if (value != null)
                     {
-                        case  ResponseAvailability.AwaitingResponse:
-                            ChatContainer.Visible = true;
-                            RecentResponseContainer.Visible = false;
-                            break;
-                        case  ResponseAvailability.AlreadyResponded:
-                            ChatContainer.Visible = false;
-                            RecentResponseContainer.Visible = true;
-                            break;
+                        mCurrentResponseAvailabilityState = value;
+                        switch(mCurrentResponseAvailabilityState)
+                        {
+                            case  ResponseAvailability.AwaitingResponse:
+                                ChatContainer.Visible = true;
+                                RecentResponseContainer.Visible = false;
+                                break;
+                            case  ResponseAvailability.AlreadyResponded:
+                                ChatContainer.Visible = false;
+                                RecentResponseContainer.Visible = true;
+                                break;
+                        }
                     }
                 }
             }
@@ -444,8 +453,8 @@
                 float ChatHistoryButtonHeightSecondValue= 0;
                 bool setChatHistoryButtonCurrentUpDownStateFirstValue = false;
                 bool setChatHistoryButtonCurrentUpDownStateSecondValue = false;
-                UpDownButtonRuntime.UpDown ChatHistoryButtonCurrentUpDownStateFirstValue= UpDownButtonRuntime.UpDown.Up;
-                UpDownButtonRuntime.UpDown ChatHistoryButtonCurrentUpDownStateSecondValue= UpDownButtonRuntime.UpDown.Up;
+                AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.UpDown ChatHistoryButtonCurrentUpDownStateFirstValue= AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.UpDown.Up;
+                AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.UpDown ChatHistoryButtonCurrentUpDownStateSecondValue= AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.UpDown.Up;
                 bool setChatHistoryButtonWidthFirstValue = false;
                 bool setChatHistoryButtonWidthSecondValue = false;
                 float ChatHistoryButtonWidthFirstValue= 0;
@@ -464,8 +473,8 @@
                 float ChatOption0HeightSecondValue= 0;
                 bool setChatOption0CurrentHighlightStateFirstValue = false;
                 bool setChatOption0CurrentHighlightStateSecondValue = false;
-                ChatOptionRuntime.Highlight ChatOption0CurrentHighlightStateFirstValue= ChatOptionRuntime.Highlight.Highlighted;
-                ChatOptionRuntime.Highlight ChatOption0CurrentHighlightStateSecondValue= ChatOptionRuntime.Highlight.Highlighted;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight ChatOption0CurrentHighlightStateFirstValue= AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.Highlighted;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight ChatOption0CurrentHighlightStateSecondValue= AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.Highlighted;
                 bool setChatOption0WidthFirstValue = false;
                 bool setChatOption0WidthSecondValue = false;
                 float ChatOption0WidthFirstValue= 0;
@@ -484,8 +493,8 @@
                 float ChatOption1HeightSecondValue= 0;
                 bool setChatOption1CurrentHighlightStateFirstValue = false;
                 bool setChatOption1CurrentHighlightStateSecondValue = false;
-                ChatOptionRuntime.Highlight ChatOption1CurrentHighlightStateFirstValue= ChatOptionRuntime.Highlight.Highlighted;
-                ChatOptionRuntime.Highlight ChatOption1CurrentHighlightStateSecondValue= ChatOptionRuntime.Highlight.Highlighted;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight ChatOption1CurrentHighlightStateFirstValue= AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.Highlighted;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight ChatOption1CurrentHighlightStateSecondValue= AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.Highlighted;
                 bool setChatOption1WidthFirstValue = false;
                 bool setChatOption1WidthSecondValue = false;
                 float ChatOption1WidthFirstValue= 0;
@@ -496,8 +505,8 @@
                 float ChatOption2HeightSecondValue= 0;
                 bool setChatOption2CurrentHighlightStateFirstValue = false;
                 bool setChatOption2CurrentHighlightStateSecondValue = false;
-                ChatOptionRuntime.Highlight ChatOption2CurrentHighlightStateFirstValue= ChatOptionRuntime.Highlight.Highlighted;
-                ChatOptionRuntime.Highlight ChatOption2CurrentHighlightStateSecondValue= ChatOptionRuntime.Highlight.Highlighted;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight ChatOption2CurrentHighlightStateFirstValue= AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.Highlighted;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight ChatOption2CurrentHighlightStateSecondValue= AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.Highlighted;
                 bool setChatOption2WidthFirstValue = false;
                 bool setChatOption2WidthSecondValue = false;
                 float ChatOption2WidthFirstValue= 0;
@@ -572,16 +581,16 @@
                 float CurrentTextYSecondValue= 0;
                 bool setDialogueShownChatOptionCurrentHighlightStateFirstValue = false;
                 bool setDialogueShownChatOptionCurrentHighlightStateSecondValue = false;
-                ChatOptionRuntime.Highlight DialogueShownChatOptionCurrentHighlightStateFirstValue= ChatOptionRuntime.Highlight.Highlighted;
-                ChatOptionRuntime.Highlight DialogueShownChatOptionCurrentHighlightStateSecondValue= ChatOptionRuntime.Highlight.Highlighted;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight DialogueShownChatOptionCurrentHighlightStateFirstValue= AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.Highlighted;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight DialogueShownChatOptionCurrentHighlightStateSecondValue= AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.Highlighted;
                 bool setHeightFirstValue = false;
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
                 float HeightSecondValue= 0;
                 bool setMessageBoxCurrentColorStateStateFirstValue = false;
                 bool setMessageBoxCurrentColorStateStateSecondValue = false;
-                GlowingBoxRuntime.ColorState MessageBoxCurrentColorStateStateFirstValue= GlowingBoxRuntime.ColorState.Red;
-                GlowingBoxRuntime.ColorState MessageBoxCurrentColorStateStateSecondValue= GlowingBoxRuntime.ColorState.Red;
+                AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState MessageBoxCurrentColorStateStateFirstValue= AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Red;
+                AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState MessageBoxCurrentColorStateStateSecondValue= AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Red;
                 bool setMessageBoxHeightFirstValue = false;
                 bool setMessageBoxHeightSecondValue = false;
                 float MessageBoxHeightFirstValue= 0;
@@ -724,7 +733,7 @@
                         setChatHistoryButtonHeightFirstValue = true;
                         ChatHistoryButtonHeightFirstValue = 56f;
                         setChatHistoryButtonCurrentUpDownStateFirstValue = true;
-                        ChatHistoryButtonCurrentUpDownStateFirstValue = AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.UpDown.Up;
+                        ChatHistoryButtonCurrentUpDownStateFirstValue = AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.UpDown.Up;
                         setChatHistoryButtonWidthFirstValue = true;
                         ChatHistoryButtonWidthFirstValue = 66f;
                         setChatHistoryButtonXFirstValue = true;
@@ -746,7 +755,7 @@
                             this.ChatOption0.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                         }
                         setChatOption0CurrentHighlightStateFirstValue = true;
-                        ChatOption0CurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
+                        ChatOption0CurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue < 1)
                         {
                             this.ChatOption0.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
@@ -760,7 +769,7 @@
                         setChatOption1HeightFirstValue = true;
                         ChatOption1HeightFirstValue = 0f;
                         setChatOption1CurrentHighlightStateFirstValue = true;
-                        ChatOption1CurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
+                        ChatOption1CurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue < 1)
                         {
                             this.ChatOption1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
@@ -770,7 +779,7 @@
                         setChatOption2HeightFirstValue = true;
                         ChatOption2HeightFirstValue = 0f;
                         setChatOption2CurrentHighlightStateFirstValue = true;
-                        ChatOption2CurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
+                        ChatOption2CurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue < 1)
                         {
                             this.ChatOption2.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
@@ -876,7 +885,7 @@
                             this.CurrentText.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setDialogueShownChatOptionCurrentHighlightStateFirstValue = true;
-                        DialogueShownChatOptionCurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.Highlighted;
+                        DialogueShownChatOptionCurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.Highlighted;
                         if (interpolationValue < 1)
                         {
                             this.DialogueShownChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer") ?? this;
@@ -888,7 +897,7 @@
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setMessageBoxCurrentColorStateStateFirstValue = true;
-                        MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Black;
+                        MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Black;
                         setMessageBoxHeightFirstValue = true;
                         MessageBoxHeightFirstValue = 100f;
                         if (interpolationValue < 1)
@@ -1143,7 +1152,7 @@
                         setChatHistoryButtonHeightSecondValue = true;
                         ChatHistoryButtonHeightSecondValue = 56f;
                         setChatHistoryButtonCurrentUpDownStateSecondValue = true;
-                        ChatHistoryButtonCurrentUpDownStateSecondValue = AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.UpDown.Up;
+                        ChatHistoryButtonCurrentUpDownStateSecondValue = AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.UpDown.Up;
                         setChatHistoryButtonWidthSecondValue = true;
                         ChatHistoryButtonWidthSecondValue = 66f;
                         setChatHistoryButtonXSecondValue = true;
@@ -1165,7 +1174,7 @@
                             this.ChatOption0.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                         }
                         setChatOption0CurrentHighlightStateSecondValue = true;
-                        ChatOption0CurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
+                        ChatOption0CurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue >= 1)
                         {
                             this.ChatOption0.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
@@ -1179,7 +1188,7 @@
                         setChatOption1HeightSecondValue = true;
                         ChatOption1HeightSecondValue = 0f;
                         setChatOption1CurrentHighlightStateSecondValue = true;
-                        ChatOption1CurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
+                        ChatOption1CurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue >= 1)
                         {
                             this.ChatOption1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
@@ -1189,7 +1198,7 @@
                         setChatOption2HeightSecondValue = true;
                         ChatOption2HeightSecondValue = 0f;
                         setChatOption2CurrentHighlightStateSecondValue = true;
-                        ChatOption2CurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.NotHighlighted;
+                        ChatOption2CurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.NotHighlighted;
                         if (interpolationValue >= 1)
                         {
                             this.ChatOption2.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ResponseContainer") ?? this;
@@ -1295,7 +1304,7 @@
                             this.CurrentText.YUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setDialogueShownChatOptionCurrentHighlightStateSecondValue = true;
-                        DialogueShownChatOptionCurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight.Highlighted;
+                        DialogueShownChatOptionCurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight.Highlighted;
                         if (interpolationValue >= 1)
                         {
                             this.DialogueShownChatOption.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "RecentResponseContainer") ?? this;
@@ -1307,7 +1316,7 @@
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setMessageBoxCurrentColorStateStateSecondValue = true;
-                        MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Black;
+                        MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Black;
                         setMessageBoxHeightSecondValue = true;
                         MessageBoxHeightSecondValue = 100f;
                         if (interpolationValue >= 1)
@@ -2598,8 +2607,8 @@
                 #endif
                 bool setMessageBoxCurrentColorStateStateFirstValue = false;
                 bool setMessageBoxCurrentColorStateStateSecondValue = false;
-                GlowingBoxRuntime.ColorState MessageBoxCurrentColorStateStateFirstValue= GlowingBoxRuntime.ColorState.Red;
-                GlowingBoxRuntime.ColorState MessageBoxCurrentColorStateStateSecondValue= GlowingBoxRuntime.ColorState.Red;
+                AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState MessageBoxCurrentColorStateStateFirstValue= AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Red;
+                AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState MessageBoxCurrentColorStateStateSecondValue= AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Red;
                 bool setTextInstanceBlueFirstValue = false;
                 bool setTextInstanceBlueSecondValue = false;
                 int TextInstanceBlueFirstValue= 0;
@@ -2616,7 +2625,7 @@
                 {
                     case  MessageIndicator.NewMessage:
                         setMessageBoxCurrentColorStateStateFirstValue = true;
-                        MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Blue;
+                        MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Blue;
                         setTextInstanceBlueFirstValue = true;
                         TextInstanceBlueFirstValue = 0;
                         setTextInstanceGreenFirstValue = true;
@@ -2630,7 +2639,7 @@
                         break;
                     case  MessageIndicator.NoMessage:
                         setMessageBoxCurrentColorStateStateFirstValue = true;
-                        MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Black;
+                        MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Black;
                         setTextInstanceBlueFirstValue = true;
                         TextInstanceBlueFirstValue = 255;
                         setTextInstanceGreenFirstValue = true;
@@ -2644,7 +2653,7 @@
                         break;
                     case  MessageIndicator.NoMessageHighlighted:
                         setMessageBoxCurrentColorStateStateFirstValue = true;
-                        MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
+                        MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Green;
                         setTextInstanceBlueFirstValue = true;
                         TextInstanceBlueFirstValue = 255;
                         setTextInstanceGreenFirstValue = true;
@@ -2658,7 +2667,7 @@
                         break;
                     case  MessageIndicator.NewMessageHighlighted:
                         setMessageBoxCurrentColorStateStateFirstValue = true;
-                        MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
+                        MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Green;
                         setTextInstanceBlueFirstValue = true;
                         TextInstanceBlueFirstValue = 255;
                         setTextInstanceGreenFirstValue = true;
@@ -2672,7 +2681,7 @@
                         break;
                     case  MessageIndicator.NewMessageBig:
                         setMessageBoxCurrentColorStateStateFirstValue = true;
-                        MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Blue;
+                        MessageBoxCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Blue;
                         setTextInstanceBlueFirstValue = true;
                         TextInstanceBlueFirstValue = 0;
                         setTextInstanceGreenFirstValue = true;
@@ -2689,7 +2698,7 @@
                 {
                     case  MessageIndicator.NewMessage:
                         setMessageBoxCurrentColorStateStateSecondValue = true;
-                        MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Blue;
+                        MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Blue;
                         setTextInstanceBlueSecondValue = true;
                         TextInstanceBlueSecondValue = 0;
                         setTextInstanceGreenSecondValue = true;
@@ -2703,7 +2712,7 @@
                         break;
                     case  MessageIndicator.NoMessage:
                         setMessageBoxCurrentColorStateStateSecondValue = true;
-                        MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Black;
+                        MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Black;
                         setTextInstanceBlueSecondValue = true;
                         TextInstanceBlueSecondValue = 255;
                         setTextInstanceGreenSecondValue = true;
@@ -2717,7 +2726,7 @@
                         break;
                     case  MessageIndicator.NoMessageHighlighted:
                         setMessageBoxCurrentColorStateStateSecondValue = true;
-                        MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
+                        MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Green;
                         setTextInstanceBlueSecondValue = true;
                         TextInstanceBlueSecondValue = 255;
                         setTextInstanceGreenSecondValue = true;
@@ -2731,7 +2740,7 @@
                         break;
                     case  MessageIndicator.NewMessageHighlighted:
                         setMessageBoxCurrentColorStateStateSecondValue = true;
-                        MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Green;
+                        MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Green;
                         setTextInstanceBlueSecondValue = true;
                         TextInstanceBlueSecondValue = 255;
                         setTextInstanceGreenSecondValue = true;
@@ -2745,7 +2754,7 @@
                         break;
                     case  MessageIndicator.NewMessageBig:
                         setMessageBoxCurrentColorStateStateSecondValue = true;
-                        MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime.ColorState.Blue;
+                        MessageBoxCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime.ColorState.Blue;
                         setTextInstanceBlueSecondValue = true;
                         TextInstanceBlueSecondValue = 0;
                         setTextInstanceGreenSecondValue = true;
@@ -8067,22 +8076,22 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.ChatFrameRuntime ChatFrameInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.StyleBarRuntime StyleBarInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ChatFrameRuntime ChatFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.StyleBarRuntime StyleBarInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime ChatOption0 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime ChatOption0 { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime CurrentText { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime ChatOption1 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime ChatOption2 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime ChatOption1 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime ChatOption2 { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ResponseContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ChatContainer { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime CloseChatButtonInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime MessageBox { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.specificbuttons.CloseChatButtonRuntime CloseChatButtonInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime MessageBox { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime ChatHistoryButton { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime ChatHistoryButton { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime RecentResponseContainer { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime DialogueShownChatOption { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime ResponseChosenChatOption { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime DialogueShownChatOption { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime ResponseChosenChatOption { get; set; }
             public bool ChatContainerVisible
             {
                 get
@@ -8142,22 +8151,22 @@
             }
             private void AssignReferences () 
             {
-                ChatFrameInstance = this.GetGraphicalUiElementByName("ChatFrameInstance") as AbbatoirIntergrade.GumRuntimes.ChatFrameRuntime;
-                StyleBarInstance = this.GetGraphicalUiElementByName("StyleBarInstance") as AbbatoirIntergrade.GumRuntimes.StyleBarRuntime;
+                ChatFrameInstance = this.GetGraphicalUiElementByName("ChatFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.ChatFrameRuntime;
+                StyleBarInstance = this.GetGraphicalUiElementByName("StyleBarInstance") as AbbatoirIntergrade.GumRuntimes.frames.StyleBarRuntime;
                 ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
-                ChatOption0 = this.GetGraphicalUiElementByName("ChatOption0") as AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime;
+                ChatOption0 = this.GetGraphicalUiElementByName("ChatOption0") as AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime;
                 CurrentText = this.GetGraphicalUiElementByName("CurrentText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                ChatOption1 = this.GetGraphicalUiElementByName("ChatOption1") as AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime;
-                ChatOption2 = this.GetGraphicalUiElementByName("ChatOption2") as AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime;
+                ChatOption1 = this.GetGraphicalUiElementByName("ChatOption1") as AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime;
+                ChatOption2 = this.GetGraphicalUiElementByName("ChatOption2") as AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime;
                 ResponseContainer = this.GetGraphicalUiElementByName("ResponseContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 ChatContainer = this.GetGraphicalUiElementByName("ChatContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
-                CloseChatButtonInstance = this.GetGraphicalUiElementByName("CloseChatButtonInstance") as AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime;
-                MessageBox = this.GetGraphicalUiElementByName("MessageBox") as AbbatoirIntergrade.GumRuntimes.GlowingBoxRuntime;
+                CloseChatButtonInstance = this.GetGraphicalUiElementByName("CloseChatButtonInstance") as AbbatoirIntergrade.GumRuntimes.specificbuttons.CloseChatButtonRuntime;
+                MessageBox = this.GetGraphicalUiElementByName("MessageBox") as AbbatoirIntergrade.GumRuntimes.Frames.GlowingBoxRuntime;
                 TextInstance = this.GetGraphicalUiElementByName("TextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                ChatHistoryButton = this.GetGraphicalUiElementByName("ChatHistoryButton") as AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime;
+                ChatHistoryButton = this.GetGraphicalUiElementByName("ChatHistoryButton") as AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime;
                 RecentResponseContainer = this.GetGraphicalUiElementByName("RecentResponseContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
-                DialogueShownChatOption = this.GetGraphicalUiElementByName("DialogueShownChatOption") as AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime;
-                ResponseChosenChatOption = this.GetGraphicalUiElementByName("ResponseChosenChatOption") as AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime;
+                DialogueShownChatOption = this.GetGraphicalUiElementByName("DialogueShownChatOption") as AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime;
+                ResponseChosenChatOption = this.GetGraphicalUiElementByName("ResponseChosenChatOption") as AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

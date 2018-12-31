@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using FlatRedBall;
 using FlatRedBall.Input;
-using FlatRedBall.Audio;
 using FlatRedBall.Gui;
 using FlatRedBall.Math.Geometry;
 using AbbatoirIntergrade.Entities;
@@ -25,7 +24,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Camera = FlatRedBall.Camera;
 using ShapeManager = FlatRedBall.Math.Geometry.ShapeManager;
-using FlatRedBall.Scripting;
+using AbbatoirIntergrade.GumRuntimes.infodisplays;
 
 namespace AbbatoirIntergrade.Screens
 {

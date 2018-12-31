@@ -2,20 +2,11 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Screens;
+using System.Linq;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
-using AbbatoirIntergrade.Performance;
 using FlatRedBall.Gui;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,52 +20,66 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
         #if DEBUG
         static bool HasBeenLoadedWithGlobalContentManager = false;
         #endif
-        public enum CurrentlyActive
+        public class CurrentlyActive
         {
-            Uninitialized = 0, //This exists so that the first set call actually does something
-            Unknown = 1, //This exists so that if the entity is actually a child entity and has set a child state, you will get this
-            Active = 2, 
-            Inactive = 3
+            public float X;
+            public float Y;
+            public float Z;
+            public float SpriteInstanceRed;
+            public float SpriteInstanceGreen;
+            public float SpriteInstanceBlue;
+            public FlatRedBall.Graphics.ColorOperation SpriteInstanceColorOperation;
+            public float SpriteInstanceTextureScale;
+            public bool SpriteInstanceAnimate;
+            public float SpriteInstanceAlpha;
+            public static CurrentlyActive Active = new CurrentlyActive()
+            {
+                SpriteInstanceRed = 0.1f,
+                SpriteInstanceGreen = 1f,
+                SpriteInstanceBlue = 1f,
+                SpriteInstanceTextureScale = 1f,
+                SpriteInstanceAnimate = true,
+                SpriteInstanceAlpha = 255f,
+            }
+            ;
+            public static CurrentlyActive Inactive = new CurrentlyActive()
+            {
+                SpriteInstanceRed = 1f,
+                SpriteInstanceGreen = 0f,
+                SpriteInstanceBlue = 0f,
+                SpriteInstanceTextureScale = 0.5f,
+                SpriteInstanceAnimate = false,
+                SpriteInstanceAlpha = 100f,
+            }
+            ;
         }
-        protected int mCurrentCurrentlyActiveState = 0;
+        private CurrentlyActive mCurrentCurrentlyActiveState = null;
         public Entities.GraphicalElements.StructurePlacement.CurrentlyActive CurrentCurrentlyActiveState
         {
             get
             {
-                if (mCurrentCurrentlyActiveState >= 0 && mCurrentCurrentlyActiveState <= 3)
-                {
-                    return (CurrentlyActive)mCurrentCurrentlyActiveState;
-                }
-                else
-                {
-                    return CurrentlyActive.Unknown;
-                }
+                return mCurrentCurrentlyActiveState;
             }
             set
             {
-                mCurrentCurrentlyActiveState = (int)value;
-                switch(CurrentCurrentlyActiveState)
+                mCurrentCurrentlyActiveState = value;
+                if (CurrentCurrentlyActiveState == CurrentlyActive.Active)
                 {
-                    case  CurrentlyActive.Uninitialized:
-                        break;
-                    case  CurrentlyActive.Unknown:
-                        break;
-                    case  CurrentlyActive.Active:
-                        SpriteInstanceRed = 0.1f;
-                        SpriteInstanceGreen = 1f;
-                        SpriteInstanceBlue = 1f;
-                        SpriteInstanceTextureScale = 1f;
-                        SpriteInstanceAnimate = true;
-                        SpriteInstanceAlpha = 255f;
-                        break;
-                    case  CurrentlyActive.Inactive:
-                        SpriteInstanceRed = 1f;
-                        SpriteInstanceGreen = 0f;
-                        SpriteInstanceBlue = 0f;
-                        SpriteInstanceTextureScale = 0.5f;
-                        SpriteInstanceAnimate = false;
-                        SpriteInstanceAlpha = 100f;
-                        break;
+                    SpriteInstanceRed = 0.1f;
+                    SpriteInstanceGreen = 1f;
+                    SpriteInstanceBlue = 1f;
+                    SpriteInstanceTextureScale = 1f;
+                    SpriteInstanceAnimate = true;
+                    SpriteInstanceAlpha = 255f;
+                }
+                else if (CurrentCurrentlyActiveState == CurrentlyActive.Inactive)
+                {
+                    SpriteInstanceRed = 1f;
+                    SpriteInstanceGreen = 0f;
+                    SpriteInstanceBlue = 0f;
+                    SpriteInstanceTextureScale = 0.5f;
+                    SpriteInstanceAnimate = false;
+                    SpriteInstanceAlpha = 100f;
                 }
             }
         }
@@ -396,7 +401,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             SpriteInstanceRed = 0f;
             SpriteInstanceGreen = 1f;
             SpriteInstanceBlue = 0f;
-            SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
+            SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
             SpriteInstanceTextureScale = 1f;
             SpriteInstanceAnimate = true;
             SpriteInstanceAlpha = 1f;
@@ -488,20 +493,19 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
         }
         public FlatRedBall.Instructions.Instruction InterpolateToState (CurrentlyActive stateToInterpolateTo, double secondsToTake) 
         {
-            switch(stateToInterpolateTo)
+            if (stateToInterpolateTo == CurrentlyActive.Active)
             {
-                case  CurrentlyActive.Active:
-                    SpriteInstance.RedRate = (0.1f - SpriteInstance.Red) / (float)secondsToTake;
-                    SpriteInstance.GreenRate = (1f - SpriteInstance.Green) / (float)secondsToTake;
-                    SpriteInstance.BlueRate = (1f - SpriteInstance.Blue) / (float)secondsToTake;
-                    SpriteInstance.AlphaRate = (255f - SpriteInstance.Alpha) / (float)secondsToTake;
-                    break;
-                case  CurrentlyActive.Inactive:
-                    SpriteInstance.RedRate = (1f - SpriteInstance.Red) / (float)secondsToTake;
-                    SpriteInstance.GreenRate = (0f - SpriteInstance.Green) / (float)secondsToTake;
-                    SpriteInstance.BlueRate = (0f - SpriteInstance.Blue) / (float)secondsToTake;
-                    SpriteInstance.AlphaRate = (100f - SpriteInstance.Alpha) / (float)secondsToTake;
-                    break;
+                SpriteInstance.RedRate = (0.1f - SpriteInstance.Red) / (float)secondsToTake;
+                SpriteInstance.GreenRate = (1f - SpriteInstance.Green) / (float)secondsToTake;
+                SpriteInstance.BlueRate = (1f - SpriteInstance.Blue) / (float)secondsToTake;
+                SpriteInstance.AlphaRate = (255f - SpriteInstance.Alpha) / (float)secondsToTake;
+            }
+            else if (stateToInterpolateTo == CurrentlyActive.Inactive)
+            {
+                SpriteInstance.RedRate = (1f - SpriteInstance.Red) / (float)secondsToTake;
+                SpriteInstance.GreenRate = (0f - SpriteInstance.Green) / (float)secondsToTake;
+                SpriteInstance.BlueRate = (0f - SpriteInstance.Blue) / (float)secondsToTake;
+                SpriteInstance.AlphaRate = (100f - SpriteInstance.Alpha) / (float)secondsToTake;
             }
             var instruction = new FlatRedBall.Instructions.DelegateInstruction<CurrentlyActive>(StopStateInterpolation, stateToInterpolateTo);
             instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
@@ -510,20 +514,19 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
         }
         public void StopStateInterpolation (CurrentlyActive stateToStop) 
         {
-            switch(stateToStop)
+            if (stateToStop == CurrentlyActive.Active)
             {
-                case  CurrentlyActive.Active:
-                    SpriteInstance.RedRate =  0;
-                    SpriteInstance.GreenRate =  0;
-                    SpriteInstance.BlueRate =  0;
-                    SpriteInstance.AlphaRate =  0;
-                    break;
-                case  CurrentlyActive.Inactive:
-                    SpriteInstance.RedRate =  0;
-                    SpriteInstance.GreenRate =  0;
-                    SpriteInstance.BlueRate =  0;
-                    SpriteInstance.AlphaRate =  0;
-                    break;
+                SpriteInstance.RedRate =  0;
+                SpriteInstance.GreenRate =  0;
+                SpriteInstance.BlueRate =  0;
+                SpriteInstance.AlphaRate =  0;
+            }
+            else if (stateToStop == CurrentlyActive.Inactive)
+            {
+                SpriteInstance.RedRate =  0;
+                SpriteInstance.GreenRate =  0;
+                SpriteInstance.BlueRate =  0;
+                SpriteInstance.AlphaRate =  0;
             }
             CurrentCurrentlyActiveState = stateToStop;
         }
@@ -550,55 +553,53 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             bool setSpriteInstanceAlpha = true;
             float SpriteInstanceAlphaFirstValue= 0;
             float SpriteInstanceAlphaSecondValue= 0;
-            switch(firstState)
+            if (firstState == CurrentlyActive.Active)
             {
-                case  CurrentlyActive.Active:
-                    SpriteInstanceRedFirstValue = 0.1f;
-                    SpriteInstanceGreenFirstValue = 1f;
-                    SpriteInstanceBlueFirstValue = 1f;
-                    SpriteInstanceTextureScaleFirstValue = 1f;
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceAnimate = true;
-                    }
-                    SpriteInstanceAlphaFirstValue = 255f;
-                    break;
-                case  CurrentlyActive.Inactive:
-                    SpriteInstanceRedFirstValue = 1f;
-                    SpriteInstanceGreenFirstValue = 0f;
-                    SpriteInstanceBlueFirstValue = 0f;
-                    SpriteInstanceTextureScaleFirstValue = 0.5f;
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceAnimate = false;
-                    }
-                    SpriteInstanceAlphaFirstValue = 100f;
-                    break;
+                SpriteInstanceRedFirstValue = 0.1f;
+                SpriteInstanceGreenFirstValue = 1f;
+                SpriteInstanceBlueFirstValue = 1f;
+                SpriteInstanceTextureScaleFirstValue = 1f;
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceAnimate = true;
+                }
+                SpriteInstanceAlphaFirstValue = 255f;
             }
-            switch(secondState)
+            else if (firstState == CurrentlyActive.Inactive)
             {
-                case  CurrentlyActive.Active:
-                    SpriteInstanceRedSecondValue = 0.1f;
-                    SpriteInstanceGreenSecondValue = 1f;
-                    SpriteInstanceBlueSecondValue = 1f;
-                    SpriteInstanceTextureScaleSecondValue = 1f;
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceAnimate = true;
-                    }
-                    SpriteInstanceAlphaSecondValue = 255f;
-                    break;
-                case  CurrentlyActive.Inactive:
-                    SpriteInstanceRedSecondValue = 1f;
-                    SpriteInstanceGreenSecondValue = 0f;
-                    SpriteInstanceBlueSecondValue = 0f;
-                    SpriteInstanceTextureScaleSecondValue = 0.5f;
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceAnimate = false;
-                    }
-                    SpriteInstanceAlphaSecondValue = 100f;
-                    break;
+                SpriteInstanceRedFirstValue = 1f;
+                SpriteInstanceGreenFirstValue = 0f;
+                SpriteInstanceBlueFirstValue = 0f;
+                SpriteInstanceTextureScaleFirstValue = 0.5f;
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceAnimate = false;
+                }
+                SpriteInstanceAlphaFirstValue = 100f;
+            }
+            if (secondState == CurrentlyActive.Active)
+            {
+                SpriteInstanceRedSecondValue = 0.1f;
+                SpriteInstanceGreenSecondValue = 1f;
+                SpriteInstanceBlueSecondValue = 1f;
+                SpriteInstanceTextureScaleSecondValue = 1f;
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceAnimate = true;
+                }
+                SpriteInstanceAlphaSecondValue = 255f;
+            }
+            else if (secondState == CurrentlyActive.Inactive)
+            {
+                SpriteInstanceRedSecondValue = 1f;
+                SpriteInstanceGreenSecondValue = 0f;
+                SpriteInstanceBlueSecondValue = 0f;
+                SpriteInstanceTextureScaleSecondValue = 0.5f;
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceAnimate = false;
+                }
+                SpriteInstanceAlphaSecondValue = 100f;
             }
             if (setSpriteInstanceRed)
             {
@@ -622,22 +623,21 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             }
             if (interpolationValue < 1)
             {
-                mCurrentCurrentlyActiveState = (int)firstState;
+                mCurrentCurrentlyActiveState = firstState;
             }
             else
             {
-                mCurrentCurrentlyActiveState = (int)secondState;
+                mCurrentCurrentlyActiveState = secondState;
             }
         }
         public static void PreloadStateContent (CurrentlyActive state, string contentManagerName) 
         {
             ContentManagerName = contentManagerName;
-            switch(state)
+            if (state == CurrentlyActive.Active)
             {
-                case  CurrentlyActive.Active:
-                    break;
-                case  CurrentlyActive.Inactive:
-                    break;
+            }
+            else if (state == CurrentlyActive.Inactive)
+            {
             }
         }
         [System.Obsolete("Use GetFile instead")]

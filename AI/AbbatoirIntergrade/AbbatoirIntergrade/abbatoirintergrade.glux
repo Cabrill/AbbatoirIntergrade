@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <GlueProjectSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <In2D>true</In2D>
   <RunFullscreen>false</RunFullscreen>
@@ -75,7 +75,7 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/EndingScreenGum.gusx</SourceFile>
-          <SourceName>ButtonFrameInstance (AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime)</SourceName>
+          <SourceName>ButtonFrameInstance (AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime)</SourceName>
           <InstanceName>ButtonInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -93,7 +93,7 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/EndingScreenGum.gusx</SourceFile>
-          <SourceName>CurrentMusicDisplayInstance (AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime)</SourceName>
+          <SourceName>CurrentMusicDisplayInstance (AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime)</SourceName>
           <InstanceName>CurrentMusicDisplayInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -703,7 +703,7 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
-          <SourceName>EnemyInfoInstance (AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime)</SourceName>
+          <SourceName>EnemyInfoInstance (AbbatoirIntergrade.GumRuntimes.infodisplays.EnemyInfoRuntime)</SourceName>
           <InstanceName>EnemyInfoInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
@@ -727,7 +727,7 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
-          <SourceName>StructureInfoInstance (AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime)</SourceName>
+          <SourceName>StructureInfoInstance (AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime)</SourceName>
           <InstanceName>StructureInfoInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
@@ -815,7 +815,7 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
-          <SourceName>TopStatusBarInstance (AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime)</SourceName>
+          <SourceName>TopStatusBarInstance (AbbatoirIntergrade.GumRuntimes.InfoDisplays.TopStatusBarRuntime)</SourceName>
           <InstanceName>TopStatusBarInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
@@ -859,7 +859,7 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
-          <SourceName>LocationTimeAnnouncementInstance (AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime)</SourceName>
+          <SourceName>LocationTimeAnnouncementInstance (AbbatoirIntergrade.GumRuntimes.infodisplays.LocationTimeAnnouncementRuntime)</SourceName>
           <InstanceName>LocationTimeInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -879,7 +879,7 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
-          <SourceName>CurrentMusicDisplayInstance (AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime)</SourceName>
+          <SourceName>CurrentMusicDisplayInstance (AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime)</SourceName>
           <InstanceName>CurrentMusicDisplayInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -909,7 +909,7 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
-          <SourceName>ReadyButtonInstance (AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime)</SourceName>
+          <SourceName>ReadyButtonInstance (AbbatoirIntergrade.GumRuntimes.specificbuttons.ReadyButtonRuntime)</SourceName>
           <InstanceName>ReadyButtonInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
@@ -920,7 +920,7 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
-          <SourceName>PointingArrowInstance (AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime)</SourceName>
+          <SourceName>PointingArrowInstance (AbbatoirIntergrade.GumRuntimes.unique.PointingArrowRuntime)</SourceName>
           <InstanceName>PointingArrowInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
@@ -932,7 +932,7 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
-          <SourceName>TutorialTextInstance (AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime)</SourceName>
+          <SourceName>TutorialTextInstance (AbbatoirIntergrade.GumRuntimes.infodisplays.TutorialTextRuntime)</SourceName>
           <InstanceName>TutorialTextInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
@@ -1267,7 +1267,7 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/MainMenuGum.gusx</SourceFile>
-          <SourceName>LeftEye (AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime)</SourceName>
+          <SourceName>LeftEye (AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime)</SourceName>
           <InstanceName>LeftEye</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -1388,7 +1388,7 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/MapScreenGum.gusx</SourceFile>
-          <SourceName>OkMessageInstance (AbbatoirIntergrade.GumRuntimes.OkMessageRuntime)</SourceName>
+          <SourceName>OkMessageInstance (AbbatoirIntergrade.GumRuntimes.infodisplays.OkMessageRuntime)</SourceName>
           <InstanceName>OkMessageInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -1419,7 +1419,7 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/MapScreenGum.gusx</SourceFile>
-          <SourceName>CurrentMusicDisplayInstance (AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime)</SourceName>
+          <SourceName>CurrentMusicDisplayInstance (AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime)</SourceName>
           <InstanceName>CurrentMusicDisplayInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -1519,6 +1519,7 @@
               <Name>Drowning</Name>
             </StateSave>
           </States>
+          <ExcludedVariables />
           <Name>Action</Name>
           <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
         </StateSaveCategory>
@@ -1545,6 +1546,7 @@
               <Name>MovingRight</Name>
             </StateSave>
           </States>
+          <ExcludedVariables />
           <Name>Direction</Name>
           <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
         </StateSaveCategory>
@@ -1821,6 +1823,7 @@
               <Name>BurningAndPoisoned</Name>
             </StateSave>
           </States>
+          <ExcludedVariables />
           <Name>Status</Name>
           <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
         </StateSaveCategory>
@@ -2149,7 +2152,7 @@
           </Properties>
           <Name>SpriteInstanceColorOperation</Name>
           <Type>ColorOperation</Type>
-          <DefaultValue xsi:type="xsd:int">4</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
           <SourceObject>SpriteInstance</SourceObject>
           <SourceObjectProperty>ColorOperation</SourceObjectProperty>
         </CustomVariable>
@@ -2256,6 +2259,11 @@
             <Type>bool</Type>
             <Member>IgnoreAnimationChainTextureFlip</Member>
             <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>FlatRedBall.Graphics.ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>0</ValueAsInt>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -3031,6 +3039,7 @@
               <Name>Off</Name>
             </StateSave>
           </States>
+          <ExcludedVariables />
           <Name>OnOff</Name>
           <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
         </StateSaveCategory>
@@ -3102,7 +3111,7 @@
           </Properties>
           <Name>SpriteInstanceColorOperation</Name>
           <Type>ColorOperation</Type>
-          <DefaultValue xsi:type="xsd:int">4</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
           <SourceObject>SpriteInstance</SourceObject>
           <SourceObjectProperty>ColorOperation</SourceObjectProperty>
         </CustomVariable>
@@ -8235,6 +8244,7 @@
               <Name>NotJumping</Name>
             </StateSave>
           </States>
+          <ExcludedVariables />
           <Name>Jump</Name>
           <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
         </StateSaveCategory>
@@ -11540,6 +11550,7 @@
               <Name>Inactive</Name>
             </StateSave>
           </States>
+          <ExcludedVariables />
           <Name>CurrentlyActive</Name>
           <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
         </StateSaveCategory>
@@ -11623,7 +11634,7 @@
           </Properties>
           <Name>SpriteInstanceColorOperation</Name>
           <Type>ColorOperation</Type>
-          <DefaultValue xsi:type="xsd:int">7</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
           <SourceObject>SpriteInstance</SourceObject>
           <SourceObjectProperty>ColorOperation</SourceObjectProperty>
         </CustomVariable>
@@ -13952,7 +13963,7 @@
           <CustomProperty>
             <Type>ColorOperation</Type>
             <Member>ColorOperation</Member>
-            <ValueAsInt>4</ValueAsInt>
+            <ValueAsInt>3</ValueAsInt>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -14263,7 +14274,7 @@
           <CustomProperty>
             <Type>ColorOperation</Type>
             <Member>ColorOperation</Member>
-            <ValueAsInt>4</ValueAsInt>
+            <ValueAsInt>0</ValueAsInt>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -18240,5 +18251,6 @@
     <AllowWindowResizing>false</AllowWindowResizing>
     <Scale>75</Scale>
     <ResizeBehavior>StretchVisibleArea</ResizeBehavior>
+    <DominantInternalCoordinates>Height</DominantInternalCoordinates>
   </DisplaySettings>
 </GlueProjectSave>

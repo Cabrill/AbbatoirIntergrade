@@ -16,7 +16,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            CreditType mCurrentCreditTypeState;
+            CreditType? mCurrentCreditTypeState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -46,7 +46,7 @@
                     }
                 }
             }
-            public CreditType CurrentCreditTypeState
+            public CreditType? CurrentCreditTypeState
             {
                 get
                 {
@@ -54,23 +54,26 @@
                 }
                 set
                 {
-                    mCurrentCreditTypeState = value;
-                    switch(mCurrentCreditTypeState)
+                    if (value != null)
                     {
-                        case  CreditType.Header:
-                            Y = 50f;
-                            TextInstance.Blue = 255;
-                            TextInstance.FontScale = 1f;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 0;
-                            break;
-                        case  CreditType.Detail:
-                            Y = 0f;
-                            TextInstance.Blue = 255;
-                            TextInstance.FontScale = 0.75f;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 255;
-                            break;
+                        mCurrentCreditTypeState = value;
+                        switch(mCurrentCreditTypeState)
+                        {
+                            case  CreditType.Header:
+                                Y = 50f;
+                                TextInstance.Blue = 255;
+                                TextInstance.FontScale = 1f;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 0;
+                                break;
+                            case  CreditType.Detail:
+                                Y = 0f;
+                                TextInstance.Blue = 255;
+                                TextInstance.FontScale = 0.75f;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 255;
+                                break;
+                        }
                     }
                 }
             }

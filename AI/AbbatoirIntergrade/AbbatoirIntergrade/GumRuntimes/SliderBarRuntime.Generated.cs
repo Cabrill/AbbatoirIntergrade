@@ -14,7 +14,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            SliderCategory mCurrentSliderCategoryState;
+            SliderCategory? mCurrentSliderCategoryState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -63,7 +63,7 @@
                     }
                 }
             }
-            public SliderCategory CurrentSliderCategoryState
+            public SliderCategory? CurrentSliderCategoryState
             {
                 get
                 {
@@ -71,9 +71,12 @@
                 }
                 set
                 {
-                    mCurrentSliderCategoryState = value;
-                    switch(mCurrentSliderCategoryState)
+                    if (value != null)
                     {
+                        mCurrentSliderCategoryState = value;
+                        switch(mCurrentSliderCategoryState)
+                        {
+                        }
                     }
                 }
             }

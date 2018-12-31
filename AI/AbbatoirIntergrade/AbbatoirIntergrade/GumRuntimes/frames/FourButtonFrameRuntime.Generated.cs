@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.frames
     {
         public partial class FourButtonFrameRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -17,7 +17,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Rotated mCurrentRotatedState;
+            Rotated? mCurrentRotatedState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -53,7 +53,7 @@
                     }
                 }
             }
-            public Rotated CurrentRotatedState
+            public Rotated? CurrentRotatedState
             {
                 get
                 {
@@ -61,24 +61,27 @@
                 }
                 set
                 {
-                    mCurrentRotatedState = value;
-                    switch(mCurrentRotatedState)
+                    if (value != null)
                     {
-                        case  Rotated.Left:
-                            SpriteInstance.Rotation = 90f;
-                            SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
-                            SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
-                            break;
-                        case  Rotated.Right:
-                            SpriteInstance.Rotation = -90f;
-                            SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                            SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
-                            break;
-                        case  Rotated.None:
-                            SpriteInstance.Rotation = 0f;
-                            SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                            SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
-                            break;
+                        mCurrentRotatedState = value;
+                        switch(mCurrentRotatedState)
+                        {
+                            case  Rotated.Left:
+                                SpriteInstance.Rotation = 90f;
+                                SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                                SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                                break;
+                            case  Rotated.Right:
+                                SpriteInstance.Rotation = -90f;
+                                SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                                SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                                break;
+                            case  Rotated.None:
+                                SpriteInstance.Rotation = 0f;
+                                SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                                SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                                break;
+                        }
                     }
                 }
             }
@@ -380,7 +383,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -434,7 +437,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated fromState,AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.Rotated fromState,AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.Rotated toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

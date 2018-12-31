@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.specificbuttons
     {
         public partial class LevelButtonRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -31,8 +31,8 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            ButtonCategory mCurrentButtonCategoryState;
-            LevelNumber mCurrentLevelNumberState;
+            ButtonCategory? mCurrentButtonCategoryState;
+            LevelNumber? mCurrentLevelNumberState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -89,7 +89,7 @@
                     }
                 }
             }
-            public ButtonCategory CurrentButtonCategoryState
+            public ButtonCategory? CurrentButtonCategoryState
             {
                 get
                 {
@@ -97,65 +97,68 @@
                 }
                 set
                 {
-                    mCurrentButtonCategoryState = value;
-                    switch(mCurrentButtonCategoryState)
+                    if (value != null)
                     {
-                        case  ButtonCategory.Enabled:
-                            FrameSprite.TextureHeight = 263;
-                            FrameSprite.TextureLeft = 0;
-                            FrameSprite.TextureTop = 2306;
-                            FrameSprite.TextureWidth = 250;
-                            HighlightSprite.Blue = 255;
-                            HighlightSprite.Red = 255;
-                            HighlightSprite.Visible = false;
-                            NumberSprite.Blue = 255;
-                            NumberSprite.Green = 255;
-                            NumberSprite.Red = 255;
-                            NumberSprite.Visible = true;
-                            break;
-                        case  ButtonCategory.Disabled:
-                            FrameSprite.TextureHeight = 114;
-                            FrameSprite.TextureLeft = 2505;
-                            FrameSprite.TextureTop = 792;
-                            FrameSprite.TextureWidth = 114;
-                            HighlightSprite.Blue = 255;
-                            HighlightSprite.Red = 255;
-                            HighlightSprite.Visible = false;
-                            NumberSprite.Blue = 255;
-                            NumberSprite.Green = 255;
-                            NumberSprite.Red = 255;
-                            NumberSprite.Visible = false;
-                            break;
-                        case  ButtonCategory.Highlighted:
-                            FrameSprite.TextureHeight = 263;
-                            FrameSprite.TextureLeft = 0;
-                            FrameSprite.TextureTop = 2306;
-                            FrameSprite.TextureWidth = 250;
-                            HighlightSprite.Blue = 255;
-                            HighlightSprite.Red = 255;
-                            HighlightSprite.Visible = true;
-                            NumberSprite.Blue = 255;
-                            NumberSprite.Green = 255;
-                            NumberSprite.Red = 255;
-                            NumberSprite.Visible = true;
-                            break;
-                        case  ButtonCategory.Pushed:
-                            FrameSprite.TextureHeight = 263;
-                            FrameSprite.TextureLeft = 0;
-                            FrameSprite.TextureTop = 2306;
-                            FrameSprite.TextureWidth = 250;
-                            HighlightSprite.Blue = 50;
-                            HighlightSprite.Red = 50;
-                            HighlightSprite.Visible = true;
-                            NumberSprite.Blue = 0;
-                            NumberSprite.Green = 255;
-                            NumberSprite.Red = 50;
-                            NumberSprite.Visible = true;
-                            break;
+                        mCurrentButtonCategoryState = value;
+                        switch(mCurrentButtonCategoryState)
+                        {
+                            case  ButtonCategory.Enabled:
+                                FrameSprite.TextureHeight = 263;
+                                FrameSprite.TextureLeft = 0;
+                                FrameSprite.TextureTop = 2306;
+                                FrameSprite.TextureWidth = 250;
+                                HighlightSprite.Blue = 255;
+                                HighlightSprite.Red = 255;
+                                HighlightSprite.Visible = false;
+                                NumberSprite.Blue = 255;
+                                NumberSprite.Green = 255;
+                                NumberSprite.Red = 255;
+                                NumberSprite.Visible = true;
+                                break;
+                            case  ButtonCategory.Disabled:
+                                FrameSprite.TextureHeight = 114;
+                                FrameSprite.TextureLeft = 2505;
+                                FrameSprite.TextureTop = 792;
+                                FrameSprite.TextureWidth = 114;
+                                HighlightSprite.Blue = 255;
+                                HighlightSprite.Red = 255;
+                                HighlightSprite.Visible = false;
+                                NumberSprite.Blue = 255;
+                                NumberSprite.Green = 255;
+                                NumberSprite.Red = 255;
+                                NumberSprite.Visible = false;
+                                break;
+                            case  ButtonCategory.Highlighted:
+                                FrameSprite.TextureHeight = 263;
+                                FrameSprite.TextureLeft = 0;
+                                FrameSprite.TextureTop = 2306;
+                                FrameSprite.TextureWidth = 250;
+                                HighlightSprite.Blue = 255;
+                                HighlightSprite.Red = 255;
+                                HighlightSprite.Visible = true;
+                                NumberSprite.Blue = 255;
+                                NumberSprite.Green = 255;
+                                NumberSprite.Red = 255;
+                                NumberSprite.Visible = true;
+                                break;
+                            case  ButtonCategory.Pushed:
+                                FrameSprite.TextureHeight = 263;
+                                FrameSprite.TextureLeft = 0;
+                                FrameSprite.TextureTop = 2306;
+                                FrameSprite.TextureWidth = 250;
+                                HighlightSprite.Blue = 50;
+                                HighlightSprite.Red = 50;
+                                HighlightSprite.Visible = true;
+                                NumberSprite.Blue = 0;
+                                NumberSprite.Green = 255;
+                                NumberSprite.Red = 50;
+                                NumberSprite.Visible = true;
+                                break;
+                        }
                     }
                 }
             }
-            public LevelNumber CurrentLevelNumberState
+            public LevelNumber? CurrentLevelNumberState
             {
                 get
                 {
@@ -163,89 +166,92 @@
                 }
                 set
                 {
-                    mCurrentLevelNumberState = value;
-                    switch(mCurrentLevelNumberState)
+                    if (value != null)
                     {
-                        case  LevelNumber.Level1:
-                            NumberSprite.FlipHorizontal = false;
-                            NumberSprite.TextureHeight = 116;
-                            NumberSprite.TextureLeft = 100;
-                            NumberSprite.TextureTop = 2055;
-                            NumberSprite.TextureWidth = 40;
-                            NumberSprite.Width = 20f;
-                            break;
-                        case  LevelNumber.Level2:
-                            NumberSprite.FlipHorizontal = false;
-                            NumberSprite.TextureHeight = 116;
-                            NumberSprite.TextureLeft = 162;
-                            NumberSprite.TextureTop = 2055;
-                            NumberSprite.TextureWidth = 100;
-                            NumberSprite.Width = 35f;
-                            break;
-                        case  LevelNumber.Level3:
-                            NumberSprite.FlipHorizontal = false;
-                            NumberSprite.TextureHeight = 116;
-                            NumberSprite.TextureLeft = 260;
-                            NumberSprite.TextureTop = 2055;
-                            NumberSprite.TextureWidth = 85;
-                            NumberSprite.Width = 35f;
-                            break;
-                        case  LevelNumber.Level4:
-                            NumberSprite.FlipHorizontal = false;
-                            NumberSprite.TextureHeight = 116;
-                            NumberSprite.TextureLeft = 355;
-                            NumberSprite.TextureTop = 2055;
-                            NumberSprite.TextureWidth = 90;
-                            NumberSprite.Width = 35f;
-                            break;
-                        case  LevelNumber.Level5:
-                            NumberSprite.FlipHorizontal = false;
-                            NumberSprite.TextureHeight = 116;
-                            NumberSprite.TextureLeft = 0;
-                            NumberSprite.TextureTop = 2180;
-                            NumberSprite.TextureWidth = 95;
-                            NumberSprite.Width = 35f;
-                            break;
-                        case  LevelNumber.Level6:
-                            NumberSprite.FlipHorizontal = false;
-                            NumberSprite.TextureHeight = 116;
-                            NumberSprite.TextureLeft = 100;
-                            NumberSprite.TextureTop = 2180;
-                            NumberSprite.TextureWidth = 95;
-                            NumberSprite.Width = 35f;
-                            break;
-                        case  LevelNumber.Level7:
-                            NumberSprite.FlipHorizontal = false;
-                            NumberSprite.TextureHeight = 116;
-                            NumberSprite.TextureLeft = 190;
-                            NumberSprite.TextureTop = 2180;
-                            NumberSprite.TextureWidth = 95;
-                            NumberSprite.Width = 35f;
-                            break;
-                        case  LevelNumber.Level8:
-                            NumberSprite.FlipHorizontal = false;
-                            NumberSprite.TextureHeight = 116;
-                            NumberSprite.TextureLeft = 290;
-                            NumberSprite.TextureTop = 2180;
-                            NumberSprite.TextureWidth = 95;
-                            NumberSprite.Width = 35f;
-                            break;
-                        case  LevelNumber.Level9:
-                            NumberSprite.FlipHorizontal = false;
-                            NumberSprite.TextureHeight = 116;
-                            NumberSprite.TextureLeft = 385;
-                            NumberSprite.TextureTop = 2180;
-                            NumberSprite.TextureWidth = 95;
-                            NumberSprite.Width = 35f;
-                            break;
-                        case  LevelNumber.Level10:
-                            NumberSprite.FlipHorizontal = true;
-                            NumberSprite.TextureHeight = 116;
-                            NumberSprite.TextureLeft = 0;
-                            NumberSprite.TextureTop = 2055;
-                            NumberSprite.TextureWidth = 150;
-                            NumberSprite.Width = 50f;
-                            break;
+                        mCurrentLevelNumberState = value;
+                        switch(mCurrentLevelNumberState)
+                        {
+                            case  LevelNumber.Level1:
+                                NumberSprite.FlipHorizontal = false;
+                                NumberSprite.TextureHeight = 116;
+                                NumberSprite.TextureLeft = 100;
+                                NumberSprite.TextureTop = 2055;
+                                NumberSprite.TextureWidth = 40;
+                                NumberSprite.Width = 20f;
+                                break;
+                            case  LevelNumber.Level2:
+                                NumberSprite.FlipHorizontal = false;
+                                NumberSprite.TextureHeight = 116;
+                                NumberSprite.TextureLeft = 162;
+                                NumberSprite.TextureTop = 2055;
+                                NumberSprite.TextureWidth = 100;
+                                NumberSprite.Width = 35f;
+                                break;
+                            case  LevelNumber.Level3:
+                                NumberSprite.FlipHorizontal = false;
+                                NumberSprite.TextureHeight = 116;
+                                NumberSprite.TextureLeft = 260;
+                                NumberSprite.TextureTop = 2055;
+                                NumberSprite.TextureWidth = 85;
+                                NumberSprite.Width = 35f;
+                                break;
+                            case  LevelNumber.Level4:
+                                NumberSprite.FlipHorizontal = false;
+                                NumberSprite.TextureHeight = 116;
+                                NumberSprite.TextureLeft = 355;
+                                NumberSprite.TextureTop = 2055;
+                                NumberSprite.TextureWidth = 90;
+                                NumberSprite.Width = 35f;
+                                break;
+                            case  LevelNumber.Level5:
+                                NumberSprite.FlipHorizontal = false;
+                                NumberSprite.TextureHeight = 116;
+                                NumberSprite.TextureLeft = 0;
+                                NumberSprite.TextureTop = 2180;
+                                NumberSprite.TextureWidth = 95;
+                                NumberSprite.Width = 35f;
+                                break;
+                            case  LevelNumber.Level6:
+                                NumberSprite.FlipHorizontal = false;
+                                NumberSprite.TextureHeight = 116;
+                                NumberSprite.TextureLeft = 100;
+                                NumberSprite.TextureTop = 2180;
+                                NumberSprite.TextureWidth = 95;
+                                NumberSprite.Width = 35f;
+                                break;
+                            case  LevelNumber.Level7:
+                                NumberSprite.FlipHorizontal = false;
+                                NumberSprite.TextureHeight = 116;
+                                NumberSprite.TextureLeft = 190;
+                                NumberSprite.TextureTop = 2180;
+                                NumberSprite.TextureWidth = 95;
+                                NumberSprite.Width = 35f;
+                                break;
+                            case  LevelNumber.Level8:
+                                NumberSprite.FlipHorizontal = false;
+                                NumberSprite.TextureHeight = 116;
+                                NumberSprite.TextureLeft = 290;
+                                NumberSprite.TextureTop = 2180;
+                                NumberSprite.TextureWidth = 95;
+                                NumberSprite.Width = 35f;
+                                break;
+                            case  LevelNumber.Level9:
+                                NumberSprite.FlipHorizontal = false;
+                                NumberSprite.TextureHeight = 116;
+                                NumberSprite.TextureLeft = 385;
+                                NumberSprite.TextureTop = 2180;
+                                NumberSprite.TextureWidth = 95;
+                                NumberSprite.Width = 35f;
+                                break;
+                            case  LevelNumber.Level10:
+                                NumberSprite.FlipHorizontal = true;
+                                NumberSprite.TextureHeight = 116;
+                                NumberSprite.TextureLeft = 0;
+                                NumberSprite.TextureTop = 2055;
+                                NumberSprite.TextureWidth = 150;
+                                NumberSprite.Width = 50f;
+                                break;
+                        }
                     }
                 }
             }
@@ -1358,7 +1364,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.specificbuttons.LevelButtonRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.specificbuttons.LevelButtonRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1412,7 +1418,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory fromState,AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.ButtonCategory toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.specificbuttons.LevelButtonRuntime.ButtonCategory fromState,AbbatoirIntergrade.GumRuntimes.specificbuttons.LevelButtonRuntime.ButtonCategory toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1466,7 +1472,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber fromState,AbbatoirIntergrade.GumRuntimes.LevelButtonRuntime.LevelNumber toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.specificbuttons.LevelButtonRuntime.LevelNumber fromState,AbbatoirIntergrade.GumRuntimes.specificbuttons.LevelButtonRuntime.LevelNumber toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

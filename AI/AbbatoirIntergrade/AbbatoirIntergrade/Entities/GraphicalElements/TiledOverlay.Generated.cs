@@ -2,19 +2,10 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Screens;
+using System.Linq;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
-using AbbatoirIntergrade.Performance;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;

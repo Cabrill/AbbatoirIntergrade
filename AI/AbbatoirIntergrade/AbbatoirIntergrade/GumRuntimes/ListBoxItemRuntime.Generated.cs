@@ -17,7 +17,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            ListBoxItemCategory mCurrentListBoxItemCategoryState;
+            ListBoxItemCategory? mCurrentListBoxItemCategoryState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -56,7 +56,7 @@
                     }
                 }
             }
-            public ListBoxItemCategory CurrentListBoxItemCategoryState
+            public ListBoxItemCategory? CurrentListBoxItemCategoryState
             {
                 get
                 {
@@ -64,33 +64,36 @@
                 }
                 set
                 {
-                    mCurrentListBoxItemCategoryState = value;
-                    switch(mCurrentListBoxItemCategoryState)
+                    if (value != null)
                     {
-                        case  ListBoxItemCategory.Enabled:
-                            ColoredRectangleInstance.Blue = 255;
-                            ColoredRectangleInstance.Green = 255;
-                            ColoredRectangleInstance.Red = 0;
-                            TextInstance.Blue = 255;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 255;
-                            break;
-                        case  ListBoxItemCategory.Highlighted:
-                            ColoredRectangleInstance.Blue = 212;
-                            ColoredRectangleInstance.Green = 255;
-                            ColoredRectangleInstance.Red = 127;
-                            TextInstance.Blue = 220;
-                            TextInstance.Green = 245;
-                            TextInstance.Red = 245;
-                            break;
-                        case  ListBoxItemCategory.Selected:
-                            ColoredRectangleInstance.Blue = 0;
-                            ColoredRectangleInstance.Green = 255;
-                            ColoredRectangleInstance.Red = 0;
-                            TextInstance.Blue = 245;
-                            TextInstance.Green = 245;
-                            TextInstance.Red = 245;
-                            break;
+                        mCurrentListBoxItemCategoryState = value;
+                        switch(mCurrentListBoxItemCategoryState)
+                        {
+                            case  ListBoxItemCategory.Enabled:
+                                ColoredRectangleInstance.Blue = 255;
+                                ColoredRectangleInstance.Green = 255;
+                                ColoredRectangleInstance.Red = 0;
+                                TextInstance.Blue = 255;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 255;
+                                break;
+                            case  ListBoxItemCategory.Highlighted:
+                                ColoredRectangleInstance.Blue = 212;
+                                ColoredRectangleInstance.Green = 255;
+                                ColoredRectangleInstance.Red = 127;
+                                TextInstance.Blue = 220;
+                                TextInstance.Green = 245;
+                                TextInstance.Red = 245;
+                                break;
+                            case  ListBoxItemCategory.Selected:
+                                ColoredRectangleInstance.Blue = 0;
+                                ColoredRectangleInstance.Green = 255;
+                                ColoredRectangleInstance.Red = 0;
+                                TextInstance.Blue = 245;
+                                TextInstance.Green = 245;
+                                TextInstance.Red = 245;
+                                break;
+                        }
                     }
                 }
             }

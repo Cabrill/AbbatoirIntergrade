@@ -44,13 +44,13 @@
                             TextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                             TextInstance.Y = 1151f;
                             TextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
-                            LeftEye.CurrentEyeOpeningState = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Open;
-                            LeftEye.CurrentEyePositionState = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition.Left;
+                            LeftEye.CurrentEyeOpeningState = AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyeOpening.Open;
+                            LeftEye.CurrentEyePositionState = AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyePosition.Left;
                             LeftEye.Y = -150f;
                             LeftEye.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             LeftEye.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                            RightEye.CurrentEyeOpeningState = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Open;
-                            RightEye.CurrentEyePositionState = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition.Right;
+                            RightEye.CurrentEyeOpeningState = AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyeOpening.Open;
+                            RightEye.CurrentEyePositionState = AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyePosition.Right;
                             RightEye.X = 0f;
                             RightEye.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
                             RightEye.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
@@ -73,24 +73,24 @@
                 #endif
                 bool setLeftEyeCurrentEyeOpeningStateFirstValue = false;
                 bool setLeftEyeCurrentEyeOpeningStateSecondValue = false;
-                MainMenuEyeRuntime.EyeOpening LeftEyeCurrentEyeOpeningStateFirstValue= MainMenuEyeRuntime.EyeOpening.Closed;
-                MainMenuEyeRuntime.EyeOpening LeftEyeCurrentEyeOpeningStateSecondValue= MainMenuEyeRuntime.EyeOpening.Closed;
+                AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyeOpening LeftEyeCurrentEyeOpeningStateFirstValue= AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyeOpening.Closed;
+                AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyeOpening LeftEyeCurrentEyeOpeningStateSecondValue= AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyeOpening.Closed;
                 bool setLeftEyeCurrentEyePositionStateFirstValue = false;
                 bool setLeftEyeCurrentEyePositionStateSecondValue = false;
-                MainMenuEyeRuntime.EyePosition LeftEyeCurrentEyePositionStateFirstValue= MainMenuEyeRuntime.EyePosition.Left;
-                MainMenuEyeRuntime.EyePosition LeftEyeCurrentEyePositionStateSecondValue= MainMenuEyeRuntime.EyePosition.Left;
+                AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyePosition LeftEyeCurrentEyePositionStateFirstValue= AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyePosition.Left;
+                AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyePosition LeftEyeCurrentEyePositionStateSecondValue= AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyePosition.Left;
                 bool setLeftEyeYFirstValue = false;
                 bool setLeftEyeYSecondValue = false;
                 float LeftEyeYFirstValue= 0;
                 float LeftEyeYSecondValue= 0;
                 bool setRightEyeCurrentEyeOpeningStateFirstValue = false;
                 bool setRightEyeCurrentEyeOpeningStateSecondValue = false;
-                MainMenuEyeRuntime.EyeOpening RightEyeCurrentEyeOpeningStateFirstValue= MainMenuEyeRuntime.EyeOpening.Closed;
-                MainMenuEyeRuntime.EyeOpening RightEyeCurrentEyeOpeningStateSecondValue= MainMenuEyeRuntime.EyeOpening.Closed;
+                AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyeOpening RightEyeCurrentEyeOpeningStateFirstValue= AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyeOpening.Closed;
+                AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyeOpening RightEyeCurrentEyeOpeningStateSecondValue= AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyeOpening.Closed;
                 bool setRightEyeCurrentEyePositionStateFirstValue = false;
                 bool setRightEyeCurrentEyePositionStateSecondValue = false;
-                MainMenuEyeRuntime.EyePosition RightEyeCurrentEyePositionStateFirstValue= MainMenuEyeRuntime.EyePosition.Left;
-                MainMenuEyeRuntime.EyePosition RightEyeCurrentEyePositionStateSecondValue= MainMenuEyeRuntime.EyePosition.Left;
+                AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyePosition RightEyeCurrentEyePositionStateFirstValue= AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyePosition.Left;
+                AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyePosition RightEyeCurrentEyePositionStateSecondValue= AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyePosition.Left;
                 bool setRightEyeXFirstValue = false;
                 bool setRightEyeXSecondValue = false;
                 float RightEyeXFirstValue= 0;
@@ -135,9 +135,9 @@
                 {
                     case  VariableState.Default:
                         setLeftEyeCurrentEyeOpeningStateFirstValue = true;
-                        LeftEyeCurrentEyeOpeningStateFirstValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Open;
+                        LeftEyeCurrentEyeOpeningStateFirstValue = AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyeOpening.Open;
                         setLeftEyeCurrentEyePositionStateFirstValue = true;
-                        LeftEyeCurrentEyePositionStateFirstValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition.Left;
+                        LeftEyeCurrentEyePositionStateFirstValue = AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyePosition.Left;
                         setLeftEyeYFirstValue = true;
                         LeftEyeYFirstValue = -150f;
                         if (interpolationValue < 1)
@@ -149,9 +149,9 @@
                             this.LeftEye.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setRightEyeCurrentEyeOpeningStateFirstValue = true;
-                        RightEyeCurrentEyeOpeningStateFirstValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Open;
+                        RightEyeCurrentEyeOpeningStateFirstValue = AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyeOpening.Open;
                         setRightEyeCurrentEyePositionStateFirstValue = true;
-                        RightEyeCurrentEyePositionStateFirstValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition.Right;
+                        RightEyeCurrentEyePositionStateFirstValue = AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyePosition.Right;
                         setRightEyeXFirstValue = true;
                         RightEyeXFirstValue = 0f;
                         if (interpolationValue < 1)
@@ -238,9 +238,9 @@
                 {
                     case  VariableState.Default:
                         setLeftEyeCurrentEyeOpeningStateSecondValue = true;
-                        LeftEyeCurrentEyeOpeningStateSecondValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Open;
+                        LeftEyeCurrentEyeOpeningStateSecondValue = AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyeOpening.Open;
                         setLeftEyeCurrentEyePositionStateSecondValue = true;
-                        LeftEyeCurrentEyePositionStateSecondValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition.Left;
+                        LeftEyeCurrentEyePositionStateSecondValue = AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyePosition.Left;
                         setLeftEyeYSecondValue = true;
                         LeftEyeYSecondValue = -150f;
                         if (interpolationValue >= 1)
@@ -252,9 +252,9 @@
                             this.LeftEye.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setRightEyeCurrentEyeOpeningStateSecondValue = true;
-                        RightEyeCurrentEyeOpeningStateSecondValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening.Open;
+                        RightEyeCurrentEyeOpeningStateSecondValue = AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyeOpening.Open;
                         setRightEyeCurrentEyePositionStateSecondValue = true;
-                        RightEyeCurrentEyePositionStateSecondValue = AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition.Right;
+                        RightEyeCurrentEyePositionStateSecondValue = AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyePosition.Right;
                         setRightEyeXSecondValue = true;
                         RightEyeXSecondValue = 0f;
                         if (interpolationValue >= 1)
@@ -1019,8 +1019,8 @@
                 base.ApplyState(state);
             }
             public AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
-            public AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime LeftEye { get; set; }
-            public AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime RightEye { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime LeftEye { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime RightEye { get; set; }
             public LoadingScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -1047,8 +1047,8 @@
             private void AssignReferences () 
             {
                 TextInstance = this.GetGraphicalUiElementByName("TextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                LeftEye = this.GetGraphicalUiElementByName("LeftEye") as AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime;
-                RightEye = this.GetGraphicalUiElementByName("RightEye") as AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime;
+                LeftEye = this.GetGraphicalUiElementByName("LeftEye") as AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime;
+                RightEye = this.GetGraphicalUiElementByName("RightEye") as AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

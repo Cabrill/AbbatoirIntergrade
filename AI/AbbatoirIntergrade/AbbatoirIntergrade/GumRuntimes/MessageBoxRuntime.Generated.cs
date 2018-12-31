@@ -35,11 +35,11 @@
                             ChatFrameInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             ChatFrameInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             ChatFrameInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                            YesButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                            YesButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                             YesButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance") ?? this;
                             YesButton.X = 894f;
                             YesButton.Y = 342f;
-                            YesButton1.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
+                            YesButton1.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.X;
                             YesButton1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance") ?? this;
                             YesButton1.X = 101f;
                             YesButton1.Y = 339f;
@@ -75,8 +75,8 @@
                 float WidthSecondValue= 0;
                 bool setYesButtonCurrentButtonTypeStateFirstValue = false;
                 bool setYesButtonCurrentButtonTypeStateSecondValue = false;
-                ButtonFrameRuntime.ButtonType YesButtonCurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
-                ButtonFrameRuntime.ButtonType YesButtonCurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType YesButtonCurrentButtonTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType YesButtonCurrentButtonTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                 bool setYesButtonXFirstValue = false;
                 bool setYesButtonXSecondValue = false;
                 float YesButtonXFirstValue= 0;
@@ -87,8 +87,8 @@
                 float YesButtonYSecondValue= 0;
                 bool setYesButton1CurrentButtonTypeStateFirstValue = false;
                 bool setYesButton1CurrentButtonTypeStateSecondValue = false;
-                ButtonFrameRuntime.ButtonType YesButton1CurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
-                ButtonFrameRuntime.ButtonType YesButton1CurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType YesButton1CurrentButtonTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType YesButton1CurrentButtonTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                 bool setYesButton1XFirstValue = false;
                 bool setYesButton1XSecondValue = false;
                 float YesButton1XFirstValue= 0;
@@ -133,7 +133,7 @@
                             this.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setYesButtonCurrentButtonTypeStateFirstValue = true;
-                        YesButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                        YesButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                         if (interpolationValue < 1)
                         {
                             this.YesButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance") ?? this;
@@ -143,7 +143,7 @@
                         setYesButtonYFirstValue = true;
                         YesButtonYFirstValue = 342f;
                         setYesButton1CurrentButtonTypeStateFirstValue = true;
-                        YesButton1CurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
+                        YesButton1CurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.X;
                         if (interpolationValue < 1)
                         {
                             this.YesButton1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance") ?? this;
@@ -190,7 +190,7 @@
                             this.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setYesButtonCurrentButtonTypeStateSecondValue = true;
-                        YesButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                        YesButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                         if (interpolationValue >= 1)
                         {
                             this.YesButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance") ?? this;
@@ -200,7 +200,7 @@
                         setYesButtonYSecondValue = true;
                         YesButtonYSecondValue = 342f;
                         setYesButton1CurrentButtonTypeStateSecondValue = true;
-                        YesButton1CurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
+                        YesButton1CurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.X;
                         if (interpolationValue >= 1)
                         {
                             this.YesButton1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ChatFrameInstance") ?? this;
@@ -649,9 +649,9 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.ChatFrameRuntime ChatFrameInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime YesButton { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime YesButton1 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ChatFrameRuntime ChatFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime YesButton { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime YesButton1 { get; set; }
             public MessageBoxRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
             {
@@ -678,9 +678,9 @@
             }
             private void AssignReferences () 
             {
-                ChatFrameInstance = this.GetGraphicalUiElementByName("ChatFrameInstance") as AbbatoirIntergrade.GumRuntimes.ChatFrameRuntime;
-                YesButton = this.GetGraphicalUiElementByName("YesButton") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                YesButton1 = this.GetGraphicalUiElementByName("YesButton1") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
+                ChatFrameInstance = this.GetGraphicalUiElementByName("ChatFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.ChatFrameRuntime;
+                YesButton = this.GetGraphicalUiElementByName("YesButton") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
+                YesButton1 = this.GetGraphicalUiElementByName("YesButton1") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

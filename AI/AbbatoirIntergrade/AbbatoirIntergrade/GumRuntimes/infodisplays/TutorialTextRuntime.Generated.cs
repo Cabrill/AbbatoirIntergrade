@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.infodisplays
     {
         public partial class TutorialTextRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -26,9 +26,9 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Confirmation mCurrentConfirmationState;
-            SkipTutorial mCurrentSkipTutorialState;
-            Placement mCurrentPlacementState;
+            Confirmation? mCurrentConfirmationState;
+            SkipTutorial? mCurrentSkipTutorialState;
+            Placement? mCurrentPlacementState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -55,11 +55,11 @@
                             TextInstance.Width = 620f;
                             TextInstance.X = 108f;
                             TextInstance.Y = 50f;
-                            ConfirmationButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                            ConfirmationButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                             ConfirmationButton.X = 732f;
                             ConfirmationButton.Y = 434f;
-                            SkipTutorialButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
-                            SkipTutorialButton.CurrentColorsState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Colors.Red;
+                            SkipTutorialButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.X;
+                            SkipTutorialButton.CurrentColorsState = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Colors.Red;
                             SkipTutorialButton.X = 69f;
                             SkipTutorialButton.Y = 436f;
                             SkipTutorialText.Blue = 0;
@@ -87,7 +87,7 @@
                     }
                 }
             }
-            public Confirmation CurrentConfirmationState
+            public Confirmation? CurrentConfirmationState
             {
                 get
                 {
@@ -95,21 +95,24 @@
                 }
                 set
                 {
-                    mCurrentConfirmationState = value;
-                    switch(mCurrentConfirmationState)
+                    if (value != null)
                     {
-                        case  Confirmation.Allow:
-                            ConfirmationButton.Visible = true;
-                            ContinueText.Visible = true;
-                            break;
-                        case  Confirmation.Denied:
-                            ConfirmationButton.Visible = false;
-                            ContinueText.Visible = false;
-                            break;
+                        mCurrentConfirmationState = value;
+                        switch(mCurrentConfirmationState)
+                        {
+                            case  Confirmation.Allow:
+                                ConfirmationButton.Visible = true;
+                                ContinueText.Visible = true;
+                                break;
+                            case  Confirmation.Denied:
+                                ConfirmationButton.Visible = false;
+                                ContinueText.Visible = false;
+                                break;
+                        }
                     }
                 }
             }
-            public SkipTutorial CurrentSkipTutorialState
+            public SkipTutorial? CurrentSkipTutorialState
             {
                 get
                 {
@@ -117,21 +120,24 @@
                 }
                 set
                 {
-                    mCurrentSkipTutorialState = value;
-                    switch(mCurrentSkipTutorialState)
+                    if (value != null)
                     {
-                        case  SkipTutorial.ShowSkip:
-                            SkipTutorialButton.Visible = true;
-                            SkipTutorialText.Visible = true;
-                            break;
-                        case  SkipTutorial.DontShow:
-                            SkipTutorialButton.Visible = false;
-                            SkipTutorialText.Visible = false;
-                            break;
+                        mCurrentSkipTutorialState = value;
+                        switch(mCurrentSkipTutorialState)
+                        {
+                            case  SkipTutorial.ShowSkip:
+                                SkipTutorialButton.Visible = true;
+                                SkipTutorialText.Visible = true;
+                                break;
+                            case  SkipTutorial.DontShow:
+                                SkipTutorialButton.Visible = false;
+                                SkipTutorialText.Visible = false;
+                                break;
+                        }
                     }
                 }
             }
-            public Placement CurrentPlacementState
+            public Placement? CurrentPlacementState
             {
                 get
                 {
@@ -139,23 +145,26 @@
                 }
                 set
                 {
-                    mCurrentPlacementState = value;
-                    switch(mCurrentPlacementState)
+                    if (value != null)
                     {
-                        case  Placement.Left:
-                            XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                            XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
-                            Y = -50f;
-                            YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
-                            YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                            break;
-                        case  Placement.Right:
-                            XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
-                            XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
-                            Y = 0f;
-                            YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
-                            YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
-                            break;
+                        mCurrentPlacementState = value;
+                        switch(mCurrentPlacementState)
+                        {
+                            case  Placement.Left:
+                                XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                                XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                                Y = -50f;
+                                YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                                YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                                break;
+                            case  Placement.Right:
+                                XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                                XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                                Y = 0f;
+                                YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                                YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                                break;
+                        }
                     }
                 }
             }
@@ -171,8 +180,8 @@
                 #endif
                 bool setConfirmationButtonCurrentButtonTypeStateFirstValue = false;
                 bool setConfirmationButtonCurrentButtonTypeStateSecondValue = false;
-                ButtonFrameRuntime.ButtonType ConfirmationButtonCurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
-                ButtonFrameRuntime.ButtonType ConfirmationButtonCurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType ConfirmationButtonCurrentButtonTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType ConfirmationButtonCurrentButtonTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                 bool setConfirmationButtonXFirstValue = false;
                 bool setConfirmationButtonXSecondValue = false;
                 float ConfirmationButtonXFirstValue= 0;
@@ -227,12 +236,12 @@
                 float LargeInfoFrameInstanceWidthSecondValue= 0;
                 bool setSkipTutorialButtonCurrentButtonTypeStateFirstValue = false;
                 bool setSkipTutorialButtonCurrentButtonTypeStateSecondValue = false;
-                ButtonFrameRuntime.ButtonType SkipTutorialButtonCurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
-                ButtonFrameRuntime.ButtonType SkipTutorialButtonCurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType SkipTutorialButtonCurrentButtonTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType SkipTutorialButtonCurrentButtonTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                 bool setSkipTutorialButtonCurrentColorsStateFirstValue = false;
                 bool setSkipTutorialButtonCurrentColorsStateSecondValue = false;
-                ButtonFrameRuntime.Colors SkipTutorialButtonCurrentColorsStateFirstValue= ButtonFrameRuntime.Colors.Normal;
-                ButtonFrameRuntime.Colors SkipTutorialButtonCurrentColorsStateSecondValue= ButtonFrameRuntime.Colors.Normal;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Colors SkipTutorialButtonCurrentColorsStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Colors.Normal;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Colors SkipTutorialButtonCurrentColorsStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Colors.Normal;
                 bool setSkipTutorialButtonXFirstValue = false;
                 bool setSkipTutorialButtonXSecondValue = false;
                 float SkipTutorialButtonXFirstValue= 0;
@@ -297,7 +306,7 @@
                 {
                     case  VariableState.Default:
                         setConfirmationButtonCurrentButtonTypeStateFirstValue = true;
-                        ConfirmationButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                        ConfirmationButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                         setConfirmationButtonXFirstValue = true;
                         ConfirmationButtonXFirstValue = 732f;
                         setConfirmationButtonYFirstValue = true;
@@ -337,9 +346,9 @@
                         setLargeInfoFrameInstanceWidthFirstValue = true;
                         LargeInfoFrameInstanceWidthFirstValue = 100f;
                         setSkipTutorialButtonCurrentButtonTypeStateFirstValue = true;
-                        SkipTutorialButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
+                        SkipTutorialButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.X;
                         setSkipTutorialButtonCurrentColorsStateFirstValue = true;
-                        SkipTutorialButtonCurrentColorsStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Colors.Red;
+                        SkipTutorialButtonCurrentColorsStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Colors.Red;
                         setSkipTutorialButtonXFirstValue = true;
                         SkipTutorialButtonXFirstValue = 69f;
                         setSkipTutorialButtonYFirstValue = true;
@@ -400,7 +409,7 @@
                 {
                     case  VariableState.Default:
                         setConfirmationButtonCurrentButtonTypeStateSecondValue = true;
-                        ConfirmationButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                        ConfirmationButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                         setConfirmationButtonXSecondValue = true;
                         ConfirmationButtonXSecondValue = 732f;
                         setConfirmationButtonYSecondValue = true;
@@ -440,9 +449,9 @@
                         setLargeInfoFrameInstanceWidthSecondValue = true;
                         LargeInfoFrameInstanceWidthSecondValue = 100f;
                         setSkipTutorialButtonCurrentButtonTypeStateSecondValue = true;
-                        SkipTutorialButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
+                        SkipTutorialButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.X;
                         setSkipTutorialButtonCurrentColorsStateSecondValue = true;
-                        SkipTutorialButtonCurrentColorsStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Colors.Red;
+                        SkipTutorialButtonCurrentColorsStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Colors.Red;
                         setSkipTutorialButtonXSecondValue = true;
                         SkipTutorialButtonXSecondValue = 69f;
                         setSkipTutorialButtonYSecondValue = true;
@@ -871,7 +880,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.TutorialTextRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.TutorialTextRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -925,7 +934,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime.Confirmation fromState,AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime.Confirmation toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.TutorialTextRuntime.Confirmation fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.TutorialTextRuntime.Confirmation toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -979,7 +988,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime.SkipTutorial fromState,AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime.SkipTutorial toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.TutorialTextRuntime.SkipTutorial fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.TutorialTextRuntime.SkipTutorial toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1033,7 +1042,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime.Placement fromState,AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime.Placement toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.TutorialTextRuntime.Placement fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.TutorialTextRuntime.Placement toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -2147,10 +2156,10 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.LargeInfoFrameRuntime LargeInfoFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.LargeInfoFrameRuntime LargeInfoFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ConfirmationButton { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime SkipTutorialButton { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime ConfirmationButton { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime SkipTutorialButton { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime SkipTutorialText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime ContinueText { get; set; }
             public TutorialTextRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
@@ -2180,10 +2189,10 @@
             }
             private void AssignReferences () 
             {
-                LargeInfoFrameInstance = this.GetGraphicalUiElementByName("LargeInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.LargeInfoFrameRuntime;
+                LargeInfoFrameInstance = this.GetGraphicalUiElementByName("LargeInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.LargeInfoFrameRuntime;
                 TextInstance = this.GetGraphicalUiElementByName("TextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                ConfirmationButton = this.GetGraphicalUiElementByName("ConfirmationButton") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                SkipTutorialButton = this.GetGraphicalUiElementByName("SkipTutorialButton") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
+                ConfirmationButton = this.GetGraphicalUiElementByName("ConfirmationButton") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
+                SkipTutorialButton = this.GetGraphicalUiElementByName("SkipTutorialButton") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
                 SkipTutorialText = this.GetGraphicalUiElementByName("SkipTutorialText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 ContinueText = this.GetGraphicalUiElementByName("ContinueText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
             }

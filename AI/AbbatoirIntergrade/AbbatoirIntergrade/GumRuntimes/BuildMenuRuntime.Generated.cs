@@ -20,7 +20,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Capacity mCurrentCapacityState;
+            Capacity? mCurrentCapacityState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -92,7 +92,7 @@
                     }
                 }
             }
-            public Capacity CurrentCapacityState
+            public Capacity? CurrentCapacityState
             {
                 get
                 {
@@ -100,216 +100,219 @@
                 }
                 set
                 {
-                    mCurrentCapacityState = value;
-                    switch(mCurrentCapacityState)
+                    if (value != null)
                     {
-                        case  Capacity.Four:
-                            XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
-                            FourButtonFrameInstance.CurrentRotatedState = AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated.None;
-                            FourButtonFrameInstance.Visible = true;
-                            FourButtonFrameInstance.X = 50f;
-                            FourButtonFrameInstance.Y = 100f;
-                            SevenButtonFrameInstance.Visible = false;
-                            SevenButtonFrameInstance.X = 47.50298f;
-                            SevenButtonFrameInstance.Y = 100.8836f;
-                            BuildButtonInstance0.X = 43.19118f;
-                            BuildButtonInstance0.Y = 67.92753f;
-                            BuildButtonInstance1.X = 34.37128f;
-                            BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BuildButtonInstance1.Y = 51.32274f;
-                            BuildButtonInstance2.X = 52.03481f;
-                            BuildButtonInstance2.Y = 51.35582f;
-                            BuildButtonInstance3.X = 43.17259f;
-                            BuildButtonInstance3.Y = 34.02776f;
-                            BuildButtonInstance4.Visible = false;
-                            BuildButtonInstance4.X = 0f;
-                            BuildButtonInstance4.Y = 0f;
-                            BuildButtonInstance5.Height = 24.47f;
-                            BuildButtonInstance5.Visible = false;
-                            BuildButtonInstance5.Width = 13.647f;
-                            BuildButtonInstance5.X = 0f;
-                            BuildButtonInstance5.Y = 0f;
-                            BuildButtonInstance6.Height = 24.47f;
-                            BuildButtonInstance6.Visible = false;
-                            BuildButtonInstance6.Width = 13.647f;
-                            BuildButtonInstance6.X = 0f;
-                            BuildButtonInstance6.Y = 0f;
-                            break;
-                        case  Capacity.FourLeft:
-                            XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
-                            YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            FourButtonFrameInstance.CurrentRotatedState = AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated.Left;
-                            FourButtonFrameInstance.Visible = true;
-                            FourButtonFrameInstance.X = 81.64063f;
-                            FourButtonFrameInstance.Y = 83.00002f;
-                            SevenButtonFrameInstance.Visible = false;
-                            SevenButtonFrameInstance.X = 47.50298f;
-                            SevenButtonFrameInstance.Y = 100.8836f;
-                            BuildButtonInstance0.X = 82.09743f;
-                            BuildButtonInstance0.Y = 37.92752f;
-                            BuildButtonInstance1.X = 72.73f;
-                            BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BuildButtonInstance1.Y = 53.82274f;
-                            BuildButtonInstance2.X = 72.73793f;
-                            BuildButtonInstance2.Y = 21.95767f;
-                            BuildButtonInstance3.X = 63.01634f;
-                            BuildButtonInstance3.Y = 37.91665f;
-                            BuildButtonInstance4.Visible = false;
-                            BuildButtonInstance4.X = 0f;
-                            BuildButtonInstance4.Y = 0f;
-                            BuildButtonInstance5.Height = 24.47f;
-                            BuildButtonInstance5.Visible = false;
-                            BuildButtonInstance5.Width = 13.647f;
-                            BuildButtonInstance5.X = 0f;
-                            BuildButtonInstance5.Y = 0f;
-                            BuildButtonInstance6.Height = 24.47f;
-                            BuildButtonInstance6.Visible = false;
-                            BuildButtonInstance6.Width = 13.647f;
-                            BuildButtonInstance6.X = 0f;
-                            BuildButtonInstance6.Y = 0f;
-                            break;
-                        case  Capacity.FourRight:
-                            XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                            YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            FourButtonFrameInstance.CurrentRotatedState = AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated.Right;
-                            FourButtonFrameInstance.Visible = true;
-                            FourButtonFrameInstance.X = 11.69791f;
-                            FourButtonFrameInstance.Y = 82.79628f;
-                            SevenButtonFrameInstance.Visible = false;
-                            SevenButtonFrameInstance.X = 47.50298f;
-                            SevenButtonFrameInstance.Y = 100.8836f;
-                            BuildButtonInstance0.X = 4.363056f;
-                            BuildButtonInstance0.Y = 37.92752f;
-                            BuildButtonInstance1.X = 13.73f;
-                            BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BuildButtonInstance1.Y = 53.56481f;
-                            BuildButtonInstance2.X = 13.73f;
-                            BuildButtonInstance2.Y = 22.05026f;
-                            BuildButtonInstance3.X = 23.38464f;
-                            BuildButtonInstance3.Y = 37.7976f;
-                            BuildButtonInstance4.Visible = false;
-                            BuildButtonInstance4.X = 0f;
-                            BuildButtonInstance4.Y = 0f;
-                            BuildButtonInstance5.Height = 24.47f;
-                            BuildButtonInstance5.Visible = false;
-                            BuildButtonInstance5.Width = 13.647f;
-                            BuildButtonInstance5.X = 0f;
-                            BuildButtonInstance5.Y = 0f;
-                            BuildButtonInstance6.Height = 24.47f;
-                            BuildButtonInstance6.Visible = false;
-                            BuildButtonInstance6.Width = 13.647f;
-                            BuildButtonInstance6.X = 0f;
-                            BuildButtonInstance6.Y = 0f;
-                            break;
-                        case  Capacity.Seven:
-                            XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
-                            FourButtonFrameInstance.Visible = false;
-                            FourButtonFrameInstance.X = 50f;
-                            FourButtonFrameInstance.Y = 100f;
-                            SevenButtonFrameInstance.CurrentRotatedState = AbbatoirIntergrade.GumRuntimes.SevenButtonFrameRuntime.Rotated.None;
-                            SevenButtonFrameInstance.Visible = true;
-                            SevenButtonFrameInstance.X = 47.50298f;
-                            SevenButtonFrameInstance.Y = 100.8836f;
-                            BuildButtonInstance0.X = 43.14814f;
-                            BuildButtonInstance0.Y = 68.01085f;
-                            BuildButtonInstance1.X = 34.26563f;
-                            BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BuildButtonInstance1.Y = 51.43519f;
-                            BuildButtonInstance2.X = 52.06459f;
-                            BuildButtonInstance2.Y = 51.57408f;
-                            BuildButtonInstance3.X = 43.15125f;
-                            BuildButtonInstance3.Y = 35.08086f;
-                            BuildButtonInstance4.Visible = true;
-                            BuildButtonInstance4.X = 34.29688f;
-                            BuildButtonInstance4.Y = 18.35648f;
-                            BuildButtonInstance5.Height = 24.47f;
-                            BuildButtonInstance5.Visible = true;
-                            BuildButtonInstance5.Width = 13.647f;
-                            BuildButtonInstance5.X = 52.00523f;
-                            BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BuildButtonInstance5.Y = 18.31018f;
-                            BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BuildButtonInstance6.Height = 24.47f;
-                            BuildButtonInstance6.Visible = true;
-                            BuildButtonInstance6.Width = 13.647f;
-                            BuildButtonInstance6.X = 43.15125f;
-                            BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BuildButtonInstance6.Y = 1.134257f;
-                            break;
-                        case  Capacity.SevenLeft:
-                            XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
-                            YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            FourButtonFrameInstance.Visible = false;
-                            FourButtonFrameInstance.X = 56.6875f;
-                            FourButtonFrameInstance.Y = 99.77779f;
-                            SevenButtonFrameInstance.CurrentRotatedState = AbbatoirIntergrade.GumRuntimes.SevenButtonFrameRuntime.Rotated.Left;
-                            SevenButtonFrameInstance.Visible = true;
-                            SevenButtonFrameInstance.X = 60.5945f;
-                            SevenButtonFrameInstance.Y = 116.85f;
-                            BuildButtonInstance0.X = 82.00231f;
-                            BuildButtonInstance0.Y = 37.87195f;
-                            BuildButtonInstance1.X = 72.76563f;
-                            BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BuildButtonInstance1.Y = 53.65741f;
-                            BuildButtonInstance2.X = 72.76772f;
-                            BuildButtonInstance2.Y = 21.99075f;
-                            BuildButtonInstance3.X = 63.51583f;
-                            BuildButtonInstance3.Y = 37.90495f;
-                            BuildButtonInstance4.Visible = true;
-                            BuildButtonInstance4.X = 54.14063f;
-                            BuildButtonInstance4.Y = 53.63426f;
-                            BuildButtonInstance5.Height = 24.47f;
-                            BuildButtonInstance5.Visible = true;
-                            BuildButtonInstance5.Width = 13.647f;
-                            BuildButtonInstance5.X = 54.1146f;
-                            BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BuildButtonInstance5.Y = 22.02546f;
-                            BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BuildButtonInstance6.Height = 24.47f;
-                            BuildButtonInstance6.Visible = true;
-                            BuildButtonInstance6.Width = 13.647f;
-                            BuildButtonInstance6.X = 44.38015f;
-                            BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BuildButtonInstance6.Y = 37.88074f;
-                            break;
-                        case  Capacity.SevenRight:
-                            XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                            YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            FourButtonFrameInstance.Visible = false;
-                            FourButtonFrameInstance.X = 50f;
-                            FourButtonFrameInstance.Y = 100f;
-                            SevenButtonFrameInstance.CurrentRotatedState = AbbatoirIntergrade.GumRuntimes.SevenButtonFrameRuntime.Rotated.Right;
-                            SevenButtonFrameInstance.Visible = true;
-                            SevenButtonFrameInstance.X = 9.088921f;
-                            SevenButtonFrameInstance.Y = 116.5294f;
-                            BuildButtonInstance0.X = 4.293975f;
-                            BuildButtonInstance0.Y = 37.88f;
-                            BuildButtonInstance1.X = 13.57813f;
-                            BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BuildButtonInstance1.Y = 53.87964f;
-                            BuildButtonInstance2.X = 13.61667f;
-                            BuildButtonInstance2.Y = 21.90742f;
-                            BuildButtonInstance3.X = 22.90776f;
-                            BuildButtonInstance3.Y = 37.90197f;
-                            BuildButtonInstance4.Visible = true;
-                            BuildButtonInstance4.X = 32.28125f;
-                            BuildButtonInstance4.Y = 53.74537f;
-                            BuildButtonInstance5.Height = 24.47f;
-                            BuildButtonInstance5.Visible = true;
-                            BuildButtonInstance5.Width = 13.647f;
-                            BuildButtonInstance5.X = 32.29986f;
-                            BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BuildButtonInstance5.Y = 22.04827f;
-                            BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BuildButtonInstance6.Height = 24.47f;
-                            BuildButtonInstance6.Visible = true;
-                            BuildButtonInstance6.Width = 13.647f;
-                            BuildButtonInstance6.X = 41.88341f;
-                            BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            BuildButtonInstance6.Y = 37.8168f;
-                            break;
+                        mCurrentCapacityState = value;
+                        switch(mCurrentCapacityState)
+                        {
+                            case  Capacity.Four:
+                                XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                                YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                                FourButtonFrameInstance.CurrentRotatedState = AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.Rotated.None;
+                                FourButtonFrameInstance.Visible = true;
+                                FourButtonFrameInstance.X = 50f;
+                                FourButtonFrameInstance.Y = 100f;
+                                SevenButtonFrameInstance.Visible = false;
+                                SevenButtonFrameInstance.X = 47.50298f;
+                                SevenButtonFrameInstance.Y = 100.8836f;
+                                BuildButtonInstance0.X = 43.19118f;
+                                BuildButtonInstance0.Y = 67.92753f;
+                                BuildButtonInstance1.X = 34.37128f;
+                                BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                                BuildButtonInstance1.Y = 51.32274f;
+                                BuildButtonInstance2.X = 52.03481f;
+                                BuildButtonInstance2.Y = 51.35582f;
+                                BuildButtonInstance3.X = 43.17259f;
+                                BuildButtonInstance3.Y = 34.02776f;
+                                BuildButtonInstance4.Visible = false;
+                                BuildButtonInstance4.X = 0f;
+                                BuildButtonInstance4.Y = 0f;
+                                BuildButtonInstance5.Height = 24.47f;
+                                BuildButtonInstance5.Visible = false;
+                                BuildButtonInstance5.Width = 13.647f;
+                                BuildButtonInstance5.X = 0f;
+                                BuildButtonInstance5.Y = 0f;
+                                BuildButtonInstance6.Height = 24.47f;
+                                BuildButtonInstance6.Visible = false;
+                                BuildButtonInstance6.Width = 13.647f;
+                                BuildButtonInstance6.X = 0f;
+                                BuildButtonInstance6.Y = 0f;
+                                break;
+                            case  Capacity.FourLeft:
+                                XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                                YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                                FourButtonFrameInstance.CurrentRotatedState = AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.Rotated.Left;
+                                FourButtonFrameInstance.Visible = true;
+                                FourButtonFrameInstance.X = 81.64063f;
+                                FourButtonFrameInstance.Y = 83.00002f;
+                                SevenButtonFrameInstance.Visible = false;
+                                SevenButtonFrameInstance.X = 47.50298f;
+                                SevenButtonFrameInstance.Y = 100.8836f;
+                                BuildButtonInstance0.X = 82.09743f;
+                                BuildButtonInstance0.Y = 37.92752f;
+                                BuildButtonInstance1.X = 72.73f;
+                                BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                                BuildButtonInstance1.Y = 53.82274f;
+                                BuildButtonInstance2.X = 72.73793f;
+                                BuildButtonInstance2.Y = 21.95767f;
+                                BuildButtonInstance3.X = 63.01634f;
+                                BuildButtonInstance3.Y = 37.91665f;
+                                BuildButtonInstance4.Visible = false;
+                                BuildButtonInstance4.X = 0f;
+                                BuildButtonInstance4.Y = 0f;
+                                BuildButtonInstance5.Height = 24.47f;
+                                BuildButtonInstance5.Visible = false;
+                                BuildButtonInstance5.Width = 13.647f;
+                                BuildButtonInstance5.X = 0f;
+                                BuildButtonInstance5.Y = 0f;
+                                BuildButtonInstance6.Height = 24.47f;
+                                BuildButtonInstance6.Visible = false;
+                                BuildButtonInstance6.Width = 13.647f;
+                                BuildButtonInstance6.X = 0f;
+                                BuildButtonInstance6.Y = 0f;
+                                break;
+                            case  Capacity.FourRight:
+                                XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                                YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                                FourButtonFrameInstance.CurrentRotatedState = AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.Rotated.Right;
+                                FourButtonFrameInstance.Visible = true;
+                                FourButtonFrameInstance.X = 11.69791f;
+                                FourButtonFrameInstance.Y = 82.79628f;
+                                SevenButtonFrameInstance.Visible = false;
+                                SevenButtonFrameInstance.X = 47.50298f;
+                                SevenButtonFrameInstance.Y = 100.8836f;
+                                BuildButtonInstance0.X = 4.363056f;
+                                BuildButtonInstance0.Y = 37.92752f;
+                                BuildButtonInstance1.X = 13.73f;
+                                BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                                BuildButtonInstance1.Y = 53.56481f;
+                                BuildButtonInstance2.X = 13.73f;
+                                BuildButtonInstance2.Y = 22.05026f;
+                                BuildButtonInstance3.X = 23.38464f;
+                                BuildButtonInstance3.Y = 37.7976f;
+                                BuildButtonInstance4.Visible = false;
+                                BuildButtonInstance4.X = 0f;
+                                BuildButtonInstance4.Y = 0f;
+                                BuildButtonInstance5.Height = 24.47f;
+                                BuildButtonInstance5.Visible = false;
+                                BuildButtonInstance5.Width = 13.647f;
+                                BuildButtonInstance5.X = 0f;
+                                BuildButtonInstance5.Y = 0f;
+                                BuildButtonInstance6.Height = 24.47f;
+                                BuildButtonInstance6.Visible = false;
+                                BuildButtonInstance6.Width = 13.647f;
+                                BuildButtonInstance6.X = 0f;
+                                BuildButtonInstance6.Y = 0f;
+                                break;
+                            case  Capacity.Seven:
+                                XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                                YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                                FourButtonFrameInstance.Visible = false;
+                                FourButtonFrameInstance.X = 50f;
+                                FourButtonFrameInstance.Y = 100f;
+                                SevenButtonFrameInstance.CurrentRotatedState = AbbatoirIntergrade.GumRuntimes.frames.SevenButtonFrameRuntime.Rotated.None;
+                                SevenButtonFrameInstance.Visible = true;
+                                SevenButtonFrameInstance.X = 47.50298f;
+                                SevenButtonFrameInstance.Y = 100.8836f;
+                                BuildButtonInstance0.X = 43.14814f;
+                                BuildButtonInstance0.Y = 68.01085f;
+                                BuildButtonInstance1.X = 34.26563f;
+                                BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                                BuildButtonInstance1.Y = 51.43519f;
+                                BuildButtonInstance2.X = 52.06459f;
+                                BuildButtonInstance2.Y = 51.57408f;
+                                BuildButtonInstance3.X = 43.15125f;
+                                BuildButtonInstance3.Y = 35.08086f;
+                                BuildButtonInstance4.Visible = true;
+                                BuildButtonInstance4.X = 34.29688f;
+                                BuildButtonInstance4.Y = 18.35648f;
+                                BuildButtonInstance5.Height = 24.47f;
+                                BuildButtonInstance5.Visible = true;
+                                BuildButtonInstance5.Width = 13.647f;
+                                BuildButtonInstance5.X = 52.00523f;
+                                BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                                BuildButtonInstance5.Y = 18.31018f;
+                                BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                                BuildButtonInstance6.Height = 24.47f;
+                                BuildButtonInstance6.Visible = true;
+                                BuildButtonInstance6.Width = 13.647f;
+                                BuildButtonInstance6.X = 43.15125f;
+                                BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                                BuildButtonInstance6.Y = 1.134257f;
+                                break;
+                            case  Capacity.SevenLeft:
+                                XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                                YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                                FourButtonFrameInstance.Visible = false;
+                                FourButtonFrameInstance.X = 56.6875f;
+                                FourButtonFrameInstance.Y = 99.77779f;
+                                SevenButtonFrameInstance.CurrentRotatedState = AbbatoirIntergrade.GumRuntimes.frames.SevenButtonFrameRuntime.Rotated.Left;
+                                SevenButtonFrameInstance.Visible = true;
+                                SevenButtonFrameInstance.X = 60.5945f;
+                                SevenButtonFrameInstance.Y = 116.85f;
+                                BuildButtonInstance0.X = 82.00231f;
+                                BuildButtonInstance0.Y = 37.87195f;
+                                BuildButtonInstance1.X = 72.76563f;
+                                BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                                BuildButtonInstance1.Y = 53.65741f;
+                                BuildButtonInstance2.X = 72.76772f;
+                                BuildButtonInstance2.Y = 21.99075f;
+                                BuildButtonInstance3.X = 63.51583f;
+                                BuildButtonInstance3.Y = 37.90495f;
+                                BuildButtonInstance4.Visible = true;
+                                BuildButtonInstance4.X = 54.14063f;
+                                BuildButtonInstance4.Y = 53.63426f;
+                                BuildButtonInstance5.Height = 24.47f;
+                                BuildButtonInstance5.Visible = true;
+                                BuildButtonInstance5.Width = 13.647f;
+                                BuildButtonInstance5.X = 54.1146f;
+                                BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                                BuildButtonInstance5.Y = 22.02546f;
+                                BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                                BuildButtonInstance6.Height = 24.47f;
+                                BuildButtonInstance6.Visible = true;
+                                BuildButtonInstance6.Width = 13.647f;
+                                BuildButtonInstance6.X = 44.38015f;
+                                BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                                BuildButtonInstance6.Y = 37.88074f;
+                                break;
+                            case  Capacity.SevenRight:
+                                XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                                YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                                FourButtonFrameInstance.Visible = false;
+                                FourButtonFrameInstance.X = 50f;
+                                FourButtonFrameInstance.Y = 100f;
+                                SevenButtonFrameInstance.CurrentRotatedState = AbbatoirIntergrade.GumRuntimes.frames.SevenButtonFrameRuntime.Rotated.Right;
+                                SevenButtonFrameInstance.Visible = true;
+                                SevenButtonFrameInstance.X = 9.088921f;
+                                SevenButtonFrameInstance.Y = 116.5294f;
+                                BuildButtonInstance0.X = 4.293975f;
+                                BuildButtonInstance0.Y = 37.88f;
+                                BuildButtonInstance1.X = 13.57813f;
+                                BuildButtonInstance1.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                                BuildButtonInstance1.Y = 53.87964f;
+                                BuildButtonInstance2.X = 13.61667f;
+                                BuildButtonInstance2.Y = 21.90742f;
+                                BuildButtonInstance3.X = 22.90776f;
+                                BuildButtonInstance3.Y = 37.90197f;
+                                BuildButtonInstance4.Visible = true;
+                                BuildButtonInstance4.X = 32.28125f;
+                                BuildButtonInstance4.Y = 53.74537f;
+                                BuildButtonInstance5.Height = 24.47f;
+                                BuildButtonInstance5.Visible = true;
+                                BuildButtonInstance5.Width = 13.647f;
+                                BuildButtonInstance5.X = 32.29986f;
+                                BuildButtonInstance5.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                                BuildButtonInstance5.Y = 22.04827f;
+                                BuildButtonInstance5.YUnits = Gum.Converters.GeneralUnitType.Percentage;
+                                BuildButtonInstance6.Height = 24.47f;
+                                BuildButtonInstance6.Visible = true;
+                                BuildButtonInstance6.Width = 13.647f;
+                                BuildButtonInstance6.X = 41.88341f;
+                                BuildButtonInstance6.XUnits = Gum.Converters.GeneralUnitType.Percentage;
+                                BuildButtonInstance6.Y = 37.8168f;
+                                break;
+                        }
                     }
                 }
             }
@@ -928,8 +931,8 @@
                 float BuildButtonInstance6YSecondValue= 0;
                 bool setFourButtonFrameInstanceCurrentRotatedStateFirstValue = false;
                 bool setFourButtonFrameInstanceCurrentRotatedStateSecondValue = false;
-                FourButtonFrameRuntime.Rotated FourButtonFrameInstanceCurrentRotatedStateFirstValue= FourButtonFrameRuntime.Rotated.Left;
-                FourButtonFrameRuntime.Rotated FourButtonFrameInstanceCurrentRotatedStateSecondValue= FourButtonFrameRuntime.Rotated.Left;
+                AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.Rotated FourButtonFrameInstanceCurrentRotatedStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.Rotated.Left;
+                AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.Rotated FourButtonFrameInstanceCurrentRotatedStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.Rotated.Left;
                 bool setFourButtonFrameInstanceXFirstValue = false;
                 bool setFourButtonFrameInstanceXSecondValue = false;
                 float FourButtonFrameInstanceXFirstValue= 0;
@@ -948,8 +951,8 @@
                 float SevenButtonFrameInstanceYSecondValue= 0;
                 bool setSevenButtonFrameInstanceCurrentRotatedStateFirstValue = false;
                 bool setSevenButtonFrameInstanceCurrentRotatedStateSecondValue = false;
-                SevenButtonFrameRuntime.Rotated SevenButtonFrameInstanceCurrentRotatedStateFirstValue= SevenButtonFrameRuntime.Rotated.Left;
-                SevenButtonFrameRuntime.Rotated SevenButtonFrameInstanceCurrentRotatedStateSecondValue= SevenButtonFrameRuntime.Rotated.Left;
+                AbbatoirIntergrade.GumRuntimes.frames.SevenButtonFrameRuntime.Rotated SevenButtonFrameInstanceCurrentRotatedStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.SevenButtonFrameRuntime.Rotated.Left;
+                AbbatoirIntergrade.GumRuntimes.frames.SevenButtonFrameRuntime.Rotated SevenButtonFrameInstanceCurrentRotatedStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.SevenButtonFrameRuntime.Rotated.Left;
                 switch(firstState)
                 {
                     case  Capacity.Four:
@@ -1006,7 +1009,7 @@
                         setBuildButtonInstance6YFirstValue = true;
                         BuildButtonInstance6YFirstValue = 0f;
                         setFourButtonFrameInstanceCurrentRotatedStateFirstValue = true;
-                        FourButtonFrameInstanceCurrentRotatedStateFirstValue = AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated.None;
+                        FourButtonFrameInstanceCurrentRotatedStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.Rotated.None;
                         if (interpolationValue < 1)
                         {
                             this.FourButtonFrameInstance.Visible = true;
@@ -1086,7 +1089,7 @@
                         setBuildButtonInstance6YFirstValue = true;
                         BuildButtonInstance6YFirstValue = 0f;
                         setFourButtonFrameInstanceCurrentRotatedStateFirstValue = true;
-                        FourButtonFrameInstanceCurrentRotatedStateFirstValue = AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated.Left;
+                        FourButtonFrameInstanceCurrentRotatedStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.Rotated.Left;
                         if (interpolationValue < 1)
                         {
                             this.FourButtonFrameInstance.Visible = true;
@@ -1166,7 +1169,7 @@
                         setBuildButtonInstance6YFirstValue = true;
                         BuildButtonInstance6YFirstValue = 0f;
                         setFourButtonFrameInstanceCurrentRotatedStateFirstValue = true;
-                        FourButtonFrameInstanceCurrentRotatedStateFirstValue = AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated.Right;
+                        FourButtonFrameInstanceCurrentRotatedStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.Rotated.Right;
                         if (interpolationValue < 1)
                         {
                             this.FourButtonFrameInstance.Visible = true;
@@ -1266,7 +1269,7 @@
                         setFourButtonFrameInstanceYFirstValue = true;
                         FourButtonFrameInstanceYFirstValue = 100f;
                         setSevenButtonFrameInstanceCurrentRotatedStateFirstValue = true;
-                        SevenButtonFrameInstanceCurrentRotatedStateFirstValue = AbbatoirIntergrade.GumRuntimes.SevenButtonFrameRuntime.Rotated.None;
+                        SevenButtonFrameInstanceCurrentRotatedStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.SevenButtonFrameRuntime.Rotated.None;
                         if (interpolationValue < 1)
                         {
                             this.SevenButtonFrameInstance.Visible = true;
@@ -1358,7 +1361,7 @@
                         setFourButtonFrameInstanceYFirstValue = true;
                         FourButtonFrameInstanceYFirstValue = 99.77779f;
                         setSevenButtonFrameInstanceCurrentRotatedStateFirstValue = true;
-                        SevenButtonFrameInstanceCurrentRotatedStateFirstValue = AbbatoirIntergrade.GumRuntimes.SevenButtonFrameRuntime.Rotated.Left;
+                        SevenButtonFrameInstanceCurrentRotatedStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.SevenButtonFrameRuntime.Rotated.Left;
                         if (interpolationValue < 1)
                         {
                             this.SevenButtonFrameInstance.Visible = true;
@@ -1450,7 +1453,7 @@
                         setFourButtonFrameInstanceYFirstValue = true;
                         FourButtonFrameInstanceYFirstValue = 100f;
                         setSevenButtonFrameInstanceCurrentRotatedStateFirstValue = true;
-                        SevenButtonFrameInstanceCurrentRotatedStateFirstValue = AbbatoirIntergrade.GumRuntimes.SevenButtonFrameRuntime.Rotated.Right;
+                        SevenButtonFrameInstanceCurrentRotatedStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.SevenButtonFrameRuntime.Rotated.Right;
                         if (interpolationValue < 1)
                         {
                             this.SevenButtonFrameInstance.Visible = true;
@@ -1525,7 +1528,7 @@
                         setBuildButtonInstance6YSecondValue = true;
                         BuildButtonInstance6YSecondValue = 0f;
                         setFourButtonFrameInstanceCurrentRotatedStateSecondValue = true;
-                        FourButtonFrameInstanceCurrentRotatedStateSecondValue = AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated.None;
+                        FourButtonFrameInstanceCurrentRotatedStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.Rotated.None;
                         if (interpolationValue >= 1)
                         {
                             this.FourButtonFrameInstance.Visible = true;
@@ -1605,7 +1608,7 @@
                         setBuildButtonInstance6YSecondValue = true;
                         BuildButtonInstance6YSecondValue = 0f;
                         setFourButtonFrameInstanceCurrentRotatedStateSecondValue = true;
-                        FourButtonFrameInstanceCurrentRotatedStateSecondValue = AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated.Left;
+                        FourButtonFrameInstanceCurrentRotatedStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.Rotated.Left;
                         if (interpolationValue >= 1)
                         {
                             this.FourButtonFrameInstance.Visible = true;
@@ -1685,7 +1688,7 @@
                         setBuildButtonInstance6YSecondValue = true;
                         BuildButtonInstance6YSecondValue = 0f;
                         setFourButtonFrameInstanceCurrentRotatedStateSecondValue = true;
-                        FourButtonFrameInstanceCurrentRotatedStateSecondValue = AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime.Rotated.Right;
+                        FourButtonFrameInstanceCurrentRotatedStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime.Rotated.Right;
                         if (interpolationValue >= 1)
                         {
                             this.FourButtonFrameInstance.Visible = true;
@@ -1785,7 +1788,7 @@
                         setFourButtonFrameInstanceYSecondValue = true;
                         FourButtonFrameInstanceYSecondValue = 100f;
                         setSevenButtonFrameInstanceCurrentRotatedStateSecondValue = true;
-                        SevenButtonFrameInstanceCurrentRotatedStateSecondValue = AbbatoirIntergrade.GumRuntimes.SevenButtonFrameRuntime.Rotated.None;
+                        SevenButtonFrameInstanceCurrentRotatedStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.SevenButtonFrameRuntime.Rotated.None;
                         if (interpolationValue >= 1)
                         {
                             this.SevenButtonFrameInstance.Visible = true;
@@ -1877,7 +1880,7 @@
                         setFourButtonFrameInstanceYSecondValue = true;
                         FourButtonFrameInstanceYSecondValue = 99.77779f;
                         setSevenButtonFrameInstanceCurrentRotatedStateSecondValue = true;
-                        SevenButtonFrameInstanceCurrentRotatedStateSecondValue = AbbatoirIntergrade.GumRuntimes.SevenButtonFrameRuntime.Rotated.Left;
+                        SevenButtonFrameInstanceCurrentRotatedStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.SevenButtonFrameRuntime.Rotated.Left;
                         if (interpolationValue >= 1)
                         {
                             this.SevenButtonFrameInstance.Visible = true;
@@ -1969,7 +1972,7 @@
                         setFourButtonFrameInstanceYSecondValue = true;
                         FourButtonFrameInstanceYSecondValue = 100f;
                         setSevenButtonFrameInstanceCurrentRotatedStateSecondValue = true;
-                        SevenButtonFrameInstanceCurrentRotatedStateSecondValue = AbbatoirIntergrade.GumRuntimes.SevenButtonFrameRuntime.Rotated.Right;
+                        SevenButtonFrameInstanceCurrentRotatedStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.SevenButtonFrameRuntime.Rotated.Right;
                         if (interpolationValue >= 1)
                         {
                             this.SevenButtonFrameInstance.Visible = true;
@@ -6271,15 +6274,15 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime FourButtonFrameInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.SevenButtonFrameRuntime SevenButtonFrameInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance0 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance1 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance2 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance3 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance4 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance5 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime BuildButtonInstance6 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime FourButtonFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.SevenButtonFrameRuntime SevenButtonFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime BuildButtonInstance0 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime BuildButtonInstance1 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime BuildButtonInstance2 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime BuildButtonInstance3 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime BuildButtonInstance4 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime BuildButtonInstance5 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime BuildButtonInstance6 { get; set; }
             public BuildMenuRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
             {
@@ -6307,15 +6310,15 @@
             }
             private void AssignReferences () 
             {
-                FourButtonFrameInstance = this.GetGraphicalUiElementByName("FourButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.FourButtonFrameRuntime;
-                SevenButtonFrameInstance = this.GetGraphicalUiElementByName("SevenButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.SevenButtonFrameRuntime;
-                BuildButtonInstance0 = this.GetGraphicalUiElementByName("BuildButtonInstance0") as AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime;
-                BuildButtonInstance1 = this.GetGraphicalUiElementByName("BuildButtonInstance1") as AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime;
-                BuildButtonInstance2 = this.GetGraphicalUiElementByName("BuildButtonInstance2") as AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime;
-                BuildButtonInstance3 = this.GetGraphicalUiElementByName("BuildButtonInstance3") as AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime;
-                BuildButtonInstance4 = this.GetGraphicalUiElementByName("BuildButtonInstance4") as AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime;
-                BuildButtonInstance5 = this.GetGraphicalUiElementByName("BuildButtonInstance5") as AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime;
-                BuildButtonInstance6 = this.GetGraphicalUiElementByName("BuildButtonInstance6") as AbbatoirIntergrade.GumRuntimes.BuildButtonRuntime;
+                FourButtonFrameInstance = this.GetGraphicalUiElementByName("FourButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.FourButtonFrameRuntime;
+                SevenButtonFrameInstance = this.GetGraphicalUiElementByName("SevenButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.SevenButtonFrameRuntime;
+                BuildButtonInstance0 = this.GetGraphicalUiElementByName("BuildButtonInstance0") as AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime;
+                BuildButtonInstance1 = this.GetGraphicalUiElementByName("BuildButtonInstance1") as AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime;
+                BuildButtonInstance2 = this.GetGraphicalUiElementByName("BuildButtonInstance2") as AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime;
+                BuildButtonInstance3 = this.GetGraphicalUiElementByName("BuildButtonInstance3") as AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime;
+                BuildButtonInstance4 = this.GetGraphicalUiElementByName("BuildButtonInstance4") as AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime;
+                BuildButtonInstance5 = this.GetGraphicalUiElementByName("BuildButtonInstance5") as AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime;
+                BuildButtonInstance6 = this.GetGraphicalUiElementByName("BuildButtonInstance6") as AbbatoirIntergrade.GumRuntimes.SpecificButtons.BuildButtonRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

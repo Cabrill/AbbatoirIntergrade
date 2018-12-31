@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.specificbuttons
     {
         public partial class ReadyButtonRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -24,8 +24,8 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            ButtonCategory mCurrentButtonCategoryState;
-            PulseDisplay mCurrentPulseDisplayState;
+            ButtonCategory? mCurrentButtonCategoryState;
+            PulseDisplay? mCurrentPulseDisplayState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -60,7 +60,7 @@
                     }
                 }
             }
-            public ButtonCategory CurrentButtonCategoryState
+            public ButtonCategory? CurrentButtonCategoryState
             {
                 get
                 {
@@ -68,33 +68,36 @@
                 }
                 set
                 {
-                    mCurrentButtonCategoryState = value;
-                    switch(mCurrentButtonCategoryState)
+                    if (value != null)
                     {
-                        case  ButtonCategory.Enabled:
-                            TextInstance.Blue = 255;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 255;
-                            break;
-                        case  ButtonCategory.Disabled:
-                            TextInstance.Blue = 255;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 255;
-                            break;
-                        case  ButtonCategory.Highlighted:
-                            TextInstance.Blue = 255;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 0;
-                            break;
-                        case  ButtonCategory.Pushed:
-                            TextInstance.Blue = 154;
-                            TextInstance.Green = 250;
-                            TextInstance.Red = 0;
-                            break;
+                        mCurrentButtonCategoryState = value;
+                        switch(mCurrentButtonCategoryState)
+                        {
+                            case  ButtonCategory.Enabled:
+                                TextInstance.Blue = 255;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 255;
+                                break;
+                            case  ButtonCategory.Disabled:
+                                TextInstance.Blue = 255;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 255;
+                                break;
+                            case  ButtonCategory.Highlighted:
+                                TextInstance.Blue = 255;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 0;
+                                break;
+                            case  ButtonCategory.Pushed:
+                                TextInstance.Blue = 154;
+                                TextInstance.Green = 250;
+                                TextInstance.Red = 0;
+                                break;
+                        }
                     }
                 }
             }
-            public PulseDisplay CurrentPulseDisplayState
+            public PulseDisplay? CurrentPulseDisplayState
             {
                 get
                 {
@@ -102,29 +105,32 @@
                 }
                 set
                 {
-                    mCurrentPulseDisplayState = value;
-                    switch(mCurrentPulseDisplayState)
+                    if (value != null)
                     {
-                        case  PulseDisplay.PulseStart:
-                            Height = 92f;
-                            Width = 483f;
-                            TextInstance.FontScale = 1f;
-                            break;
-                        case  PulseDisplay.PulseMid:
-                            Height = 96f;
-                            Width = 503f;
-                            TextInstance.Blue = 255;
-                            TextInstance.FontScale = 1.05f;
-                            TextInstance.Green = 240;
-                            TextInstance.Red = 150;
-                            break;
-                        case  PulseDisplay.PulseEnd:
-                            Height = 100f;
-                            Width = 523f;
-                            TextInstance.FontScale = 1.2f;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 150;
-                            break;
+                        mCurrentPulseDisplayState = value;
+                        switch(mCurrentPulseDisplayState)
+                        {
+                            case  PulseDisplay.PulseStart:
+                                Height = 92f;
+                                Width = 483f;
+                                TextInstance.FontScale = 1f;
+                                break;
+                            case  PulseDisplay.PulseMid:
+                                Height = 96f;
+                                Width = 503f;
+                                TextInstance.Blue = 255;
+                                TextInstance.FontScale = 1.05f;
+                                TextInstance.Green = 240;
+                                TextInstance.Red = 150;
+                                break;
+                            case  PulseDisplay.PulseEnd:
+                                Height = 100f;
+                                Width = 523f;
+                                TextInstance.FontScale = 1.2f;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 150;
+                                break;
+                        }
                     }
                 }
             }
@@ -569,7 +575,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.specificbuttons.ReadyButtonRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.specificbuttons.ReadyButtonRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -623,7 +629,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime.ButtonCategory fromState,AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime.ButtonCategory toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.specificbuttons.ReadyButtonRuntime.ButtonCategory fromState,AbbatoirIntergrade.GumRuntimes.specificbuttons.ReadyButtonRuntime.ButtonCategory toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -677,7 +683,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime.PulseDisplay fromState,AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime.PulseDisplay toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.specificbuttons.ReadyButtonRuntime.PulseDisplay fromState,AbbatoirIntergrade.GumRuntimes.specificbuttons.ReadyButtonRuntime.PulseDisplay toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1679,7 +1685,7 @@
                 base.ApplyState(state);
             }
             private bool tryCreateFormsObject;
-            private AbbatoirIntergrade.GumRuntimes.MessageFrameRuntime MessageFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.MessageFrameRuntime MessageFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
             public int ReadyTextBlue
             {
@@ -1773,7 +1779,7 @@
             }
             private void AssignReferences () 
             {
-                MessageFrameInstance = this.GetGraphicalUiElementByName("MessageFrameInstance") as AbbatoirIntergrade.GumRuntimes.MessageFrameRuntime;
+                MessageFrameInstance = this.GetGraphicalUiElementByName("MessageFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.MessageFrameRuntime;
                 TextInstance = this.GetGraphicalUiElementByName("TextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 if (tryCreateFormsObject)
                 {

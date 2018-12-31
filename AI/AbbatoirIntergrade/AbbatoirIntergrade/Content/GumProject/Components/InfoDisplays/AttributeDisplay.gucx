@@ -406,14 +406,17 @@
   <Instance>
     <Name>AttributeIconInstance</Name>
     <BaseType>infodisplays/AttributeIcon</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>AttributeTextInstance</Name>
     <BaseType>Text</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>UpgradeSprite</Name>
     <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

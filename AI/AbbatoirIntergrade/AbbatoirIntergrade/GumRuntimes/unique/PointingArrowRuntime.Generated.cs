@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.unique
     {
         public partial class PointingArrowRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -23,8 +23,8 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            PointDirection mCurrentPointDirectionState;
-            Flashing mCurrentFlashingState;
+            PointDirection? mCurrentPointDirectionState;
+            Flashing? mCurrentFlashingState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -55,7 +55,7 @@
                     }
                 }
             }
-            public PointDirection CurrentPointDirectionState
+            public PointDirection? CurrentPointDirectionState
             {
                 get
                 {
@@ -63,41 +63,44 @@
                 }
                 set
                 {
-                    mCurrentPointDirectionState = value;
-                    switch(mCurrentPointDirectionState)
+                    if (value != null)
                     {
-                        case  PointDirection.Left:
-                            SpriteInstance.Rotation = 180f;
-                            SpriteInstance.X = 0f;
-                            SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
-                            SpriteInstance.Y = 58f;
-                            SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            break;
-                        case  PointDirection.Right:
-                            SpriteInstance.Rotation = 0f;
-                            SpriteInstance.X = 0f;
-                            SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                            SpriteInstance.Y = 0f;
-                            SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
-                            break;
-                        case  PointDirection.Up:
-                            SpriteInstance.Rotation = 90f;
-                            SpriteInstance.X = 0f;
-                            SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
-                            SpriteInstance.Y = 58f;
-                            SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
-                            break;
-                        case  PointDirection.Down:
-                            SpriteInstance.Rotation = -90f;
-                            SpriteInstance.X = -58f;
-                            SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
-                            SpriteInstance.Y = 0f;
-                            SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
-                            break;
+                        mCurrentPointDirectionState = value;
+                        switch(mCurrentPointDirectionState)
+                        {
+                            case  PointDirection.Left:
+                                SpriteInstance.Rotation = 180f;
+                                SpriteInstance.X = 0f;
+                                SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                                SpriteInstance.Y = 58f;
+                                SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                                break;
+                            case  PointDirection.Right:
+                                SpriteInstance.Rotation = 0f;
+                                SpriteInstance.X = 0f;
+                                SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                                SpriteInstance.Y = 0f;
+                                SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                                break;
+                            case  PointDirection.Up:
+                                SpriteInstance.Rotation = 90f;
+                                SpriteInstance.X = 0f;
+                                SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                                SpriteInstance.Y = 58f;
+                                SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
+                                break;
+                            case  PointDirection.Down:
+                                SpriteInstance.Rotation = -90f;
+                                SpriteInstance.X = -58f;
+                                SpriteInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                                SpriteInstance.Y = 0f;
+                                SpriteInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                                break;
+                        }
                     }
                 }
             }
-            public Flashing CurrentFlashingState
+            public Flashing? CurrentFlashingState
             {
                 get
                 {
@@ -105,21 +108,24 @@
                 }
                 set
                 {
-                    mCurrentFlashingState = value;
-                    switch(mCurrentFlashingState)
+                    if (value != null)
                     {
-                        case  Flashing.StartFlash:
-                            SpriteInstance.Blue = 255;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Height = 90f;
-                            SpriteInstance.Width = 90f;
-                            break;
-                        case  Flashing.EndFlash:
-                            SpriteInstance.Blue = 0;
-                            SpriteInstance.Green = 0;
-                            SpriteInstance.Height = 100f;
-                            SpriteInstance.Width = 100f;
-                            break;
+                        mCurrentFlashingState = value;
+                        switch(mCurrentFlashingState)
+                        {
+                            case  Flashing.StartFlash:
+                                SpriteInstance.Blue = 255;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Height = 90f;
+                                SpriteInstance.Width = 90f;
+                                break;
+                            case  Flashing.EndFlash:
+                                SpriteInstance.Blue = 0;
+                                SpriteInstance.Green = 0;
+                                SpriteInstance.Height = 100f;
+                                SpriteInstance.Width = 100f;
+                                break;
+                        }
                     }
                 }
             }
@@ -544,7 +550,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.unique.PointingArrowRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.unique.PointingArrowRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -598,7 +604,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime.PointDirection fromState,AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime.PointDirection toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.unique.PointingArrowRuntime.PointDirection fromState,AbbatoirIntergrade.GumRuntimes.unique.PointingArrowRuntime.PointDirection toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -652,7 +658,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime.Flashing fromState,AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime.Flashing toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.unique.PointingArrowRuntime.Flashing fromState,AbbatoirIntergrade.GumRuntimes.unique.PointingArrowRuntime.Flashing toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

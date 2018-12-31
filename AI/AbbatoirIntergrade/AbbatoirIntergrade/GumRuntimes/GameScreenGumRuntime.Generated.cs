@@ -32,9 +32,9 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            ChatHistoryShowing mCurrentChatHistoryShowingState;
-            Fading mCurrentFadingState;
-            HordeDisplay mCurrentHordeDisplayState;
+            ChatHistoryShowing? mCurrentChatHistoryShowingState;
+            Fading? mCurrentFadingState;
+            HordeDisplay? mCurrentHordeDisplayState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -64,7 +64,7 @@
                             ChatHistoryInstance.X = 10f;
                             ChatHistoryInstance.Y = 0f;
                             ScreenShadeInstance.Visible = false;
-                            MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
+                            MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.X;
                             MenuWindowInstance.CurrentOptionsState = AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime.Options.NoFullScreen;
                             MenuWindowInstance.Visible = false;
                             DimmingRectangle.Alpha = 0;
@@ -75,9 +75,9 @@
                             DimmingRectangle.Red = 0;
                             DimmingRectangle.Width = 100f;
                             DimmingRectangle.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            LocationTimeAnnouncementInstance.CurrentDisplayingState = AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime.Displaying.Start;
+                            LocationTimeAnnouncementInstance.CurrentDisplayingState = AbbatoirIntergrade.GumRuntimes.infodisplays.LocationTimeAnnouncementRuntime.Displaying.Start;
                             ConfirmationWindowInstance.Visible = false;
-                            CurrentMusicDisplayInstance.CurrentAppearingState = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
+                            CurrentMusicDisplayInstance.CurrentAppearingState = AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.Appearing.Hidden;
                             CurrentMusicDisplayInstance.X = -10f;
                             CurrentMusicDisplayInstance.Y = 230f;
                             HordeText.Blue = 50;
@@ -104,7 +104,7 @@
                     }
                 }
             }
-            public ChatHistoryShowing CurrentChatHistoryShowingState
+            public ChatHistoryShowing? CurrentChatHistoryShowingState
             {
                 get
                 {
@@ -112,68 +112,71 @@
                 }
                 set
                 {
-                    mCurrentChatHistoryShowingState = value;
-                    switch(mCurrentChatHistoryShowingState)
+                    if (value != null)
                     {
-                        case  ChatHistoryShowing.ChatHistoryHidden:
-                            ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatOpen;
-                            ChatBoxInstance.RecentResponseContainerVisible = false;
-                            ChatBoxInstance.Visible = true;
-                            ChatBoxInstance.Width = 50f;
-                            ChatBoxInstance.X = 0f;
-                            ChatBoxInstance.Y = 50f;
-                            ChatHistoryInstance.Visible = false;
-                            break;
-                        case  ChatHistoryShowing.ChatHistoryShow1:
-                            ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear4;
-                            ChatBoxInstance.RecentResponseContainerVisible = false;
-                            ChatBoxInstance.Visible = true;
-                            ChatBoxInstance.Width = 50f;
-                            ChatBoxInstance.X = 0f;
-                            ChatBoxInstance.Y = 50f;
-                            ChatHistoryInstance.Visible = false;
-                            break;
-                        case  ChatHistoryShowing.ChatHistoryShow2:
-                            ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear3;
-                            ChatBoxInstance.ChatContainerVisible = false;
-                            ChatBoxInstance.RecentResponseContainerVisible = false;
-                            ChatBoxInstance.Visible = true;
-                            ChatBoxInstance.Width = 50f;
-                            ChatBoxInstance.X = 0f;
-                            ChatBoxInstance.Y = 50f;
-                            ChatHistoryInstance.Visible = false;
-                            break;
-                        case  ChatHistoryShowing.ChatHistoryShow3:
-                            ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear2;
-                            ChatBoxInstance.RecentResponseContainerVisible = false;
-                            ChatBoxInstance.Visible = true;
-                            ChatBoxInstance.Width = 50f;
-                            ChatBoxInstance.X = 0f;
-                            ChatBoxInstance.Y = 50f;
-                            ChatHistoryInstance.Visible = false;
-                            break;
-                        case  ChatHistoryShowing.ChatHistoryShow4:
-                            ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear2;
-                            ChatBoxInstance.RecentResponseContainerVisible = false;
-                            ChatBoxInstance.Visible = true;
-                            ChatBoxInstance.Width = 33.20313f;
-                            ChatBoxInstance.X = 10f;
-                            ChatBoxInstance.Y = 28f;
-                            ChatHistoryInstance.Visible = false;
-                            break;
-                        case  ChatHistoryShowing.ChatHistoryShown:
-                            ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatOpen;
-                            ChatBoxInstance.RecentResponseContainerVisible = false;
-                            ChatBoxInstance.Visible = false;
-                            ChatBoxInstance.Width = 33.20313f;
-                            ChatBoxInstance.X = 10f;
-                            ChatBoxInstance.Y = 28f;
-                            ChatHistoryInstance.Visible = true;
-                            break;
+                        mCurrentChatHistoryShowingState = value;
+                        switch(mCurrentChatHistoryShowingState)
+                        {
+                            case  ChatHistoryShowing.ChatHistoryHidden:
+                                ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatOpen;
+                                ChatBoxInstance.RecentResponseContainerVisible = false;
+                                ChatBoxInstance.Visible = true;
+                                ChatBoxInstance.Width = 50f;
+                                ChatBoxInstance.X = 0f;
+                                ChatBoxInstance.Y = 50f;
+                                ChatHistoryInstance.Visible = false;
+                                break;
+                            case  ChatHistoryShowing.ChatHistoryShow1:
+                                ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear4;
+                                ChatBoxInstance.RecentResponseContainerVisible = false;
+                                ChatBoxInstance.Visible = true;
+                                ChatBoxInstance.Width = 50f;
+                                ChatBoxInstance.X = 0f;
+                                ChatBoxInstance.Y = 50f;
+                                ChatHistoryInstance.Visible = false;
+                                break;
+                            case  ChatHistoryShowing.ChatHistoryShow2:
+                                ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear3;
+                                ChatBoxInstance.ChatContainerVisible = false;
+                                ChatBoxInstance.RecentResponseContainerVisible = false;
+                                ChatBoxInstance.Visible = true;
+                                ChatBoxInstance.Width = 50f;
+                                ChatBoxInstance.X = 0f;
+                                ChatBoxInstance.Y = 50f;
+                                ChatHistoryInstance.Visible = false;
+                                break;
+                            case  ChatHistoryShowing.ChatHistoryShow3:
+                                ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear2;
+                                ChatBoxInstance.RecentResponseContainerVisible = false;
+                                ChatBoxInstance.Visible = true;
+                                ChatBoxInstance.Width = 50f;
+                                ChatBoxInstance.X = 0f;
+                                ChatBoxInstance.Y = 50f;
+                                ChatHistoryInstance.Visible = false;
+                                break;
+                            case  ChatHistoryShowing.ChatHistoryShow4:
+                                ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.Appear2;
+                                ChatBoxInstance.RecentResponseContainerVisible = false;
+                                ChatBoxInstance.Visible = true;
+                                ChatBoxInstance.Width = 33.20313f;
+                                ChatBoxInstance.X = 10f;
+                                ChatBoxInstance.Y = 28f;
+                                ChatHistoryInstance.Visible = false;
+                                break;
+                            case  ChatHistoryShowing.ChatHistoryShown:
+                                ChatBoxInstance.CurrentAppearanceState = AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatOpen;
+                                ChatBoxInstance.RecentResponseContainerVisible = false;
+                                ChatBoxInstance.Visible = false;
+                                ChatBoxInstance.Width = 33.20313f;
+                                ChatBoxInstance.X = 10f;
+                                ChatBoxInstance.Y = 28f;
+                                ChatHistoryInstance.Visible = true;
+                                break;
+                        }
                     }
                 }
             }
-            public Fading CurrentFadingState
+            public Fading? CurrentFadingState
             {
                 get
                 {
@@ -181,19 +184,22 @@
                 }
                 set
                 {
-                    mCurrentFadingState = value;
-                    switch(mCurrentFadingState)
+                    if (value != null)
                     {
-                        case  Fading.Faded:
-                            DimmingRectangle.Alpha = 255;
-                            break;
-                        case  Fading.NotFaded:
-                            DimmingRectangle.Alpha = 0;
-                            break;
+                        mCurrentFadingState = value;
+                        switch(mCurrentFadingState)
+                        {
+                            case  Fading.Faded:
+                                DimmingRectangle.Alpha = 255;
+                                break;
+                            case  Fading.NotFaded:
+                                DimmingRectangle.Alpha = 0;
+                                break;
+                        }
                     }
                 }
             }
-            public HordeDisplay CurrentHordeDisplayState
+            public HordeDisplay? CurrentHordeDisplayState
             {
                 get
                 {
@@ -201,33 +207,36 @@
                 }
                 set
                 {
-                    mCurrentHordeDisplayState = value;
-                    switch(mCurrentHordeDisplayState)
+                    if (value != null)
                     {
-                        case  HordeDisplay.HordeStart:
-                            HordeText.Alpha = 0;
-                            HordeText.FontScale = 1f;
-                            HordeText.Visible = true;
-                            HordeText.X = 0f;
-                            break;
-                        case  HordeDisplay.HordeMiddle:
-                            HordeText.Alpha = 255;
-                            HordeText.FontScale = 1f;
-                            HordeText.Visible = true;
-                            HordeText.X = 0f;
-                            break;
-                        case  HordeDisplay.HordeMiddleBig:
-                            HordeText.Alpha = 255;
-                            HordeText.FontScale = 1.5f;
-                            HordeText.Visible = true;
-                            HordeText.X = 0f;
-                            break;
-                        case  HordeDisplay.HordeEnd:
-                            HordeText.Alpha = 0;
-                            HordeText.FontScale = 0.5f;
-                            HordeText.Visible = true;
-                            HordeText.X = 0f;
-                            break;
+                        mCurrentHordeDisplayState = value;
+                        switch(mCurrentHordeDisplayState)
+                        {
+                            case  HordeDisplay.HordeStart:
+                                HordeText.Alpha = 0;
+                                HordeText.FontScale = 1f;
+                                HordeText.Visible = true;
+                                HordeText.X = 0f;
+                                break;
+                            case  HordeDisplay.HordeMiddle:
+                                HordeText.Alpha = 255;
+                                HordeText.FontScale = 1f;
+                                HordeText.Visible = true;
+                                HordeText.X = 0f;
+                                break;
+                            case  HordeDisplay.HordeMiddleBig:
+                                HordeText.Alpha = 255;
+                                HordeText.FontScale = 1.5f;
+                                HordeText.Visible = true;
+                                HordeText.X = 0f;
+                                break;
+                            case  HordeDisplay.HordeEnd:
+                                HordeText.Alpha = 0;
+                                HordeText.FontScale = 0.5f;
+                                HordeText.Visible = true;
+                                HordeText.X = 0f;
+                                break;
+                        }
                     }
                 }
             }
@@ -243,8 +252,8 @@
                 #endif
                 bool setChatBoxInstanceCurrentAppearanceStateFirstValue = false;
                 bool setChatBoxInstanceCurrentAppearanceStateSecondValue = false;
-                ChatBoxRuntime.Appearance ChatBoxInstanceCurrentAppearanceStateFirstValue= ChatBoxRuntime.Appearance.ChatOpen;
-                ChatBoxRuntime.Appearance ChatBoxInstanceCurrentAppearanceStateSecondValue= ChatBoxRuntime.Appearance.ChatOpen;
+                AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance ChatBoxInstanceCurrentAppearanceStateFirstValue= AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatOpen;
+                AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance ChatBoxInstanceCurrentAppearanceStateSecondValue= AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatOpen;
                 bool setChatBoxInstanceXFirstValue = false;
                 bool setChatBoxInstanceXSecondValue = false;
                 float ChatBoxInstanceXFirstValue= 0;
@@ -263,8 +272,8 @@
                 float ChatHistoryInstanceYSecondValue= 0;
                 bool setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = false;
                 bool setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = false;
-                CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue= CurrentMusicDisplayRuntime.Appearing.Hidden;
-                CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue= CurrentMusicDisplayRuntime.Appearing.Hidden;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue= AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.Appearing.Hidden;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue= AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.Appearing.Hidden;
                 bool setCurrentMusicDisplayInstanceXFirstValue = false;
                 bool setCurrentMusicDisplayInstanceXSecondValue = false;
                 float CurrentMusicDisplayInstanceXFirstValue= 0;
@@ -327,12 +336,12 @@
                 float LivesPointsDisplayInstanceXSecondValue= 0;
                 bool setLocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue = false;
                 bool setLocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue = false;
-                LocationTimeAnnouncementRuntime.Displaying LocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue= LocationTimeAnnouncementRuntime.Displaying.Start;
-                LocationTimeAnnouncementRuntime.Displaying LocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue= LocationTimeAnnouncementRuntime.Displaying.Start;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.LocationTimeAnnouncementRuntime.Displaying LocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue= AbbatoirIntergrade.GumRuntimes.infodisplays.LocationTimeAnnouncementRuntime.Displaying.Start;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.LocationTimeAnnouncementRuntime.Displaying LocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue= AbbatoirIntergrade.GumRuntimes.infodisplays.LocationTimeAnnouncementRuntime.Displaying.Start;
                 bool setMenuWindowInstanceCurrentOptionsStateFirstValue = false;
                 bool setMenuWindowInstanceCurrentOptionsStateSecondValue = false;
-                MenuWindowRuntime.Options MenuWindowInstanceCurrentOptionsStateFirstValue= MenuWindowRuntime.Options.Visible;
-                MenuWindowRuntime.Options MenuWindowInstanceCurrentOptionsStateSecondValue= MenuWindowRuntime.Options.Visible;
+                AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime.Options MenuWindowInstanceCurrentOptionsStateFirstValue= AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime.Options.Visible;
+                AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime.Options MenuWindowInstanceCurrentOptionsStateSecondValue= AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime.Options.Visible;
                 bool setReadyButtonInstanceXFirstValue = false;
                 bool setReadyButtonInstanceXSecondValue = false;
                 float ReadyButtonInstanceXFirstValue= 0;
@@ -371,7 +380,7 @@
                             this.ConfirmationWindowInstance.Visible = false;
                         }
                         setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = true;
-                        CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
+                        CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.Appearing.Hidden;
                         setCurrentMusicDisplayInstanceXFirstValue = true;
                         CurrentMusicDisplayInstanceXFirstValue = -10f;
                         setCurrentMusicDisplayInstanceYFirstValue = true;
@@ -459,10 +468,10 @@
                             this.LivesPointsDisplayInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setLocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue = true;
-                        LocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue = AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime.Displaying.Start;
+                        LocationTimeAnnouncementInstanceCurrentDisplayingStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.LocationTimeAnnouncementRuntime.Displaying.Start;
                         if (interpolationValue < 1)
                         {
-                            this.MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
+                            this.MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.X;
                         }
                         setMenuWindowInstanceCurrentOptionsStateFirstValue = true;
                         MenuWindowInstanceCurrentOptionsStateFirstValue = AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime.Options.NoFullScreen;
@@ -530,7 +539,7 @@
                             this.ConfirmationWindowInstance.Visible = false;
                         }
                         setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = true;
-                        CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
+                        CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.Appearing.Hidden;
                         setCurrentMusicDisplayInstanceXSecondValue = true;
                         CurrentMusicDisplayInstanceXSecondValue = -10f;
                         setCurrentMusicDisplayInstanceYSecondValue = true;
@@ -618,10 +627,10 @@
                             this.LivesPointsDisplayInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                         }
                         setLocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue = true;
-                        LocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue = AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime.Displaying.Start;
+                        LocationTimeAnnouncementInstanceCurrentDisplayingStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.LocationTimeAnnouncementRuntime.Displaying.Start;
                         if (interpolationValue >= 1)
                         {
-                            this.MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
+                            this.MenuWindowInstance.ButtonType1State = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.X;
                         }
                         setMenuWindowInstanceCurrentOptionsStateSecondValue = true;
                         MenuWindowInstanceCurrentOptionsStateSecondValue = AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime.Options.NoFullScreen;
@@ -778,8 +787,8 @@
                 #endif
                 bool setChatBoxInstanceCurrentAppearanceStateFirstValue = false;
                 bool setChatBoxInstanceCurrentAppearanceStateSecondValue = false;
-                ChatBoxRuntime.Appearance ChatBoxInstanceCurrentAppearanceStateFirstValue= ChatBoxRuntime.Appearance.ChatOpen;
-                ChatBoxRuntime.Appearance ChatBoxInstanceCurrentAppearanceStateSecondValue= ChatBoxRuntime.Appearance.ChatOpen;
+                AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance ChatBoxInstanceCurrentAppearanceStateFirstValue= AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatOpen;
+                AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance ChatBoxInstanceCurrentAppearanceStateSecondValue= AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime.Appearance.ChatOpen;
                 bool setChatBoxInstanceWidthFirstValue = false;
                 bool setChatBoxInstanceWidthSecondValue = false;
                 float ChatBoxInstanceWidthFirstValue= 0;
@@ -4127,23 +4136,23 @@
                 base.ApplyState(state);
             }
             public AbbatoirIntergrade.GumRuntimes.HorizonBoxRuntime HorizonBoxInstance { get; set; }
-            public AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime EnemyInfoInstance { get; set; }
-            public AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime StructureInfoInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.infodisplays.EnemyInfoRuntime EnemyInfoInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime StructureInfoInstance { get; set; }
             public AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime ChatBoxInstance { get; set; }
             public AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime BuildMenuInstance { get; set; }
             public AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime LivesPointsDisplayInstance { get; set; }
             public AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime ChatHistoryInstance { get; set; }
-            public AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime TopStatusBarInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.InfoDisplays.TopStatusBarRuntime TopStatusBarInstance { get; set; }
             public AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime ScreenShadeInstance { get; set; }
             public AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance { get; set; }
             public AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime DimmingRectangle { get; set; }
-            public AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime LocationTimeAnnouncementInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.infodisplays.LocationTimeAnnouncementRuntime LocationTimeAnnouncementInstance { get; set; }
             public AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance { get; set; }
-            public AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
             public AbbatoirIntergrade.GumRuntimes.TextRuntime HordeText { get; set; }
-            public AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime ReadyButtonInstance { get; set; }
-            public AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime PointingArrowInstance { get; set; }
-            public AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime TutorialTextInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.specificbuttons.ReadyButtonRuntime ReadyButtonInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.unique.PointingArrowRuntime PointingArrowInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.infodisplays.TutorialTextRuntime TutorialTextInstance { get; set; }
             public GameScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
                 if (fullInstantiation)
@@ -4170,23 +4179,23 @@
             private void AssignReferences () 
             {
                 HorizonBoxInstance = this.GetGraphicalUiElementByName("HorizonBoxInstance") as AbbatoirIntergrade.GumRuntimes.HorizonBoxRuntime;
-                EnemyInfoInstance = this.GetGraphicalUiElementByName("EnemyInfoInstance") as AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime;
-                StructureInfoInstance = this.GetGraphicalUiElementByName("StructureInfoInstance") as AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime;
+                EnemyInfoInstance = this.GetGraphicalUiElementByName("EnemyInfoInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.EnemyInfoRuntime;
+                StructureInfoInstance = this.GetGraphicalUiElementByName("StructureInfoInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime;
                 ChatBoxInstance = this.GetGraphicalUiElementByName("ChatBoxInstance") as AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime;
                 BuildMenuInstance = this.GetGraphicalUiElementByName("BuildMenuInstance") as AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime;
                 LivesPointsDisplayInstance = this.GetGraphicalUiElementByName("LivesPointsDisplayInstance") as AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime;
                 ChatHistoryInstance = this.GetGraphicalUiElementByName("ChatHistoryInstance") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
-                TopStatusBarInstance = this.GetGraphicalUiElementByName("TopStatusBarInstance") as AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime;
+                TopStatusBarInstance = this.GetGraphicalUiElementByName("TopStatusBarInstance") as AbbatoirIntergrade.GumRuntimes.InfoDisplays.TopStatusBarRuntime;
                 ScreenShadeInstance = this.GetGraphicalUiElementByName("ScreenShadeInstance") as AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime;
                 MenuWindowInstance = this.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
                 DimmingRectangle = this.GetGraphicalUiElementByName("DimmingRectangle") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
-                LocationTimeAnnouncementInstance = this.GetGraphicalUiElementByName("LocationTimeAnnouncementInstance") as AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime;
+                LocationTimeAnnouncementInstance = this.GetGraphicalUiElementByName("LocationTimeAnnouncementInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.LocationTimeAnnouncementRuntime;
                 ConfirmationWindowInstance = this.GetGraphicalUiElementByName("ConfirmationWindowInstance") as AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime;
-                CurrentMusicDisplayInstance = this.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
+                CurrentMusicDisplayInstance = this.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime;
                 HordeText = this.GetGraphicalUiElementByName("HordeText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                ReadyButtonInstance = this.GetGraphicalUiElementByName("ReadyButtonInstance") as AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime;
-                PointingArrowInstance = this.GetGraphicalUiElementByName("PointingArrowInstance") as AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime;
-                TutorialTextInstance = this.GetGraphicalUiElementByName("TutorialTextInstance") as AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime;
+                ReadyButtonInstance = this.GetGraphicalUiElementByName("ReadyButtonInstance") as AbbatoirIntergrade.GumRuntimes.specificbuttons.ReadyButtonRuntime;
+                PointingArrowInstance = this.GetGraphicalUiElementByName("PointingArrowInstance") as AbbatoirIntergrade.GumRuntimes.unique.PointingArrowRuntime;
+                TutorialTextInstance = this.GetGraphicalUiElementByName("TutorialTextInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.TutorialTextRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

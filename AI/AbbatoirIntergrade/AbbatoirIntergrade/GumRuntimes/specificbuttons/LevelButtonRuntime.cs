@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Gum.Wireframe;
 
-namespace AbbatoirIntergrade.GumRuntimes
+namespace AbbatoirIntergrade.GumRuntimes.specificbuttons
 {
     public partial class LevelButtonRuntime
     {

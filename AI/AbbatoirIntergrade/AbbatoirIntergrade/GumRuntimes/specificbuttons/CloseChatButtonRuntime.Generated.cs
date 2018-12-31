@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.specificbuttons
     {
         public partial class CloseChatButtonRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -16,7 +16,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Highlight mCurrentHighlightState;
+            Highlight? mCurrentHighlightState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -46,7 +46,7 @@
                     }
                 }
             }
-            public Highlight CurrentHighlightState
+            public Highlight? CurrentHighlightState
             {
                 get
                 {
@@ -54,19 +54,22 @@
                 }
                 set
                 {
-                    mCurrentHighlightState = value;
-                    switch(mCurrentHighlightState)
+                    if (value != null)
                     {
-                        case  Highlight.Highlighted:
-                            SpriteInstance.Blue = 0;
-                            SpriteInstance.Green = 69;
-                            SpriteInstance.Red = 255;
-                            break;
-                        case  Highlight.NotHighlighted:
-                            SpriteInstance.Blue = 0;
-                            SpriteInstance.Green = 0;
-                            SpriteInstance.Red = 255;
-                            break;
+                        mCurrentHighlightState = value;
+                        switch(mCurrentHighlightState)
+                        {
+                            case  Highlight.Highlighted:
+                                SpriteInstance.Blue = 0;
+                                SpriteInstance.Green = 69;
+                                SpriteInstance.Red = 255;
+                                break;
+                            case  Highlight.NotHighlighted:
+                                SpriteInstance.Blue = 0;
+                                SpriteInstance.Green = 0;
+                                SpriteInstance.Red = 255;
+                                break;
+                        }
                     }
                 }
             }
@@ -296,7 +299,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.specificbuttons.CloseChatButtonRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.specificbuttons.CloseChatButtonRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -350,7 +353,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime.Highlight fromState,AbbatoirIntergrade.GumRuntimes.CloseChatButtonRuntime.Highlight toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.specificbuttons.CloseChatButtonRuntime.Highlight fromState,AbbatoirIntergrade.GumRuntimes.specificbuttons.CloseChatButtonRuntime.Highlight toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

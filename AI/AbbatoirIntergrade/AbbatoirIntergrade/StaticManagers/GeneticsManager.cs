@@ -102,7 +102,8 @@ namespace AbbatoirIntergrade.StaticManagers
 
                 EnemyTypeChromosomes.Add(enemyType, chromosomeList);
             }
-            RefreshAllFitnessEvaluations();
+            if (ChromosomeFitnessFunction.PartialInputList != null)
+                RefreshAllFitnessEvaluations();
         }
 
         public static bool Load(string fileName)

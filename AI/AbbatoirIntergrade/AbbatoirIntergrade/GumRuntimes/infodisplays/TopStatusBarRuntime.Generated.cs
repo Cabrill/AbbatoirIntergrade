@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.InfoDisplays
     {
         public partial class TopStatusBarRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -17,7 +17,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            TimeDisplay mCurrentTimeDisplayState;
+            TimeDisplay? mCurrentTimeDisplayState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -36,7 +36,7 @@
                             HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                             Width = 0f;
                             WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
-                            MenuButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Menu;
+                            MenuButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Menu;
                             MenuButton.Height = 64f;
                             MenuButton.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             MenuButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "InfoContainer") ?? this;
@@ -117,7 +117,7 @@
                             TimeTextInstance.Y = 0f;
                             TimeTextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             TimeTextInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                            PauseButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Pause;
+                            PauseButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Pause;
                             PauseButton.Height = 64f;
                             PauseButton.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             PauseButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer") ?? this;
@@ -125,17 +125,17 @@
                             PauseButton.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             PauseButton.X = 0f;
                             PauseButton.Y = 0f;
-                            PlayButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Play;
+                            PlayButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Play;
                             PlayButton.Height = 64f;
                             PlayButton.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
-                            PlayButton.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Highlight.NotHighlighted;
+                            PlayButton.CurrentHighlightState = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Highlight.NotHighlighted;
                             PlayButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer") ?? this;
-                            PlayButton.CurrentSelectState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Select.Selected;
+                            PlayButton.CurrentSelectState = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Select.Selected;
                             PlayButton.Width = 64f;
                             PlayButton.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             PlayButton.X = 15f;
                             PlayButton.Y = 0f;
-                            FastForwardButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.FastForward;
+                            FastForwardButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.FastForward;
                             FastForwardButton.Height = 64f;
                             FastForwardButton.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             FastForwardButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer") ?? this;
@@ -157,7 +157,7 @@
                     }
                 }
             }
-            public TimeDisplay CurrentTimeDisplayState
+            public TimeDisplay? CurrentTimeDisplayState
             {
                 get
                 {
@@ -165,24 +165,27 @@
                 }
                 set
                 {
-                    mCurrentTimeDisplayState = value;
-                    switch(mCurrentTimeDisplayState)
+                    if (value != null)
                     {
-                        case  TimeDisplay.TimeStart:
-                            TimeTextInstance.Blue = 169;
-                            TimeTextInstance.Green = 169;
-                            TimeTextInstance.Red = 169;
-                            break;
-                        case  TimeDisplay.TimeEnd:
-                            TimeTextInstance.Blue = 203;
-                            TimeTextInstance.Green = 192;
-                            TimeTextInstance.Red = 255;
-                            break;
-                        case  TimeDisplay.DefaultTime:
-                            TimeTextInstance.Blue = 255;
-                            TimeTextInstance.Green = 255;
-                            TimeTextInstance.Red = 255;
-                            break;
+                        mCurrentTimeDisplayState = value;
+                        switch(mCurrentTimeDisplayState)
+                        {
+                            case  TimeDisplay.TimeStart:
+                                TimeTextInstance.Blue = 169;
+                                TimeTextInstance.Green = 169;
+                                TimeTextInstance.Red = 169;
+                                break;
+                            case  TimeDisplay.TimeEnd:
+                                TimeTextInstance.Blue = 203;
+                                TimeTextInstance.Green = 192;
+                                TimeTextInstance.Red = 255;
+                                break;
+                            case  TimeDisplay.DefaultTime:
+                                TimeTextInstance.Blue = 255;
+                                TimeTextInstance.Green = 255;
+                                TimeTextInstance.Red = 255;
+                                break;
+                        }
                     }
                 }
             }
@@ -198,8 +201,8 @@
                 #endif
                 bool setFastForwardButtonCurrentButtonTypeStateFirstValue = false;
                 bool setFastForwardButtonCurrentButtonTypeStateSecondValue = false;
-                ButtonFrameRuntime.ButtonType FastForwardButtonCurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
-                ButtonFrameRuntime.ButtonType FastForwardButtonCurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType FastForwardButtonCurrentButtonTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType FastForwardButtonCurrentButtonTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                 bool setFastForwardButtonHeightFirstValue = false;
                 bool setFastForwardButtonHeightSecondValue = false;
                 float FastForwardButtonHeightFirstValue= 0;
@@ -234,8 +237,8 @@
                 float InfoContainerXSecondValue= 0;
                 bool setMenuButtonCurrentButtonTypeStateFirstValue = false;
                 bool setMenuButtonCurrentButtonTypeStateSecondValue = false;
-                ButtonFrameRuntime.ButtonType MenuButtonCurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
-                ButtonFrameRuntime.ButtonType MenuButtonCurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType MenuButtonCurrentButtonTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType MenuButtonCurrentButtonTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                 bool setMenuButtonHeightFirstValue = false;
                 bool setMenuButtonHeightSecondValue = false;
                 float MenuButtonHeightFirstValue= 0;
@@ -246,8 +249,8 @@
                 float MenuButtonWidthSecondValue= 0;
                 bool setPauseButtonCurrentButtonTypeStateFirstValue = false;
                 bool setPauseButtonCurrentButtonTypeStateSecondValue = false;
-                ButtonFrameRuntime.ButtonType PauseButtonCurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
-                ButtonFrameRuntime.ButtonType PauseButtonCurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType PauseButtonCurrentButtonTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType PauseButtonCurrentButtonTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                 bool setPauseButtonHeightFirstValue = false;
                 bool setPauseButtonHeightSecondValue = false;
                 float PauseButtonHeightFirstValue= 0;
@@ -266,20 +269,20 @@
                 float PauseButtonYSecondValue= 0;
                 bool setPlayButtonCurrentButtonTypeStateFirstValue = false;
                 bool setPlayButtonCurrentButtonTypeStateSecondValue = false;
-                ButtonFrameRuntime.ButtonType PlayButtonCurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
-                ButtonFrameRuntime.ButtonType PlayButtonCurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType PlayButtonCurrentButtonTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType PlayButtonCurrentButtonTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                 bool setPlayButtonHeightFirstValue = false;
                 bool setPlayButtonHeightSecondValue = false;
                 float PlayButtonHeightFirstValue= 0;
                 float PlayButtonHeightSecondValue= 0;
                 bool setPlayButtonCurrentHighlightStateFirstValue = false;
                 bool setPlayButtonCurrentHighlightStateSecondValue = false;
-                ButtonFrameRuntime.Highlight PlayButtonCurrentHighlightStateFirstValue= ButtonFrameRuntime.Highlight.Highlighted;
-                ButtonFrameRuntime.Highlight PlayButtonCurrentHighlightStateSecondValue= ButtonFrameRuntime.Highlight.Highlighted;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Highlight PlayButtonCurrentHighlightStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Highlight.Highlighted;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Highlight PlayButtonCurrentHighlightStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Highlight.Highlighted;
                 bool setPlayButtonCurrentSelectStateFirstValue = false;
                 bool setPlayButtonCurrentSelectStateSecondValue = false;
-                ButtonFrameRuntime.Select PlayButtonCurrentSelectStateFirstValue= ButtonFrameRuntime.Select.Selected;
-                ButtonFrameRuntime.Select PlayButtonCurrentSelectStateSecondValue= ButtonFrameRuntime.Select.Selected;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Select PlayButtonCurrentSelectStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Select.Selected;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Select PlayButtonCurrentSelectStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Select.Selected;
                 bool setPlayButtonWidthFirstValue = false;
                 bool setPlayButtonWidthSecondValue = false;
                 float PlayButtonWidthFirstValue= 0;
@@ -440,7 +443,7 @@
                 {
                     case  VariableState.Default:
                         setFastForwardButtonCurrentButtonTypeStateFirstValue = true;
-                        FastForwardButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.FastForward;
+                        FastForwardButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.FastForward;
                         setFastForwardButtonHeightFirstValue = true;
                         FastForwardButtonHeightFirstValue = 64f;
                         if (interpolationValue < 1)
@@ -486,7 +489,7 @@
                         setInfoContainerXFirstValue = true;
                         InfoContainerXFirstValue = 35f;
                         setMenuButtonCurrentButtonTypeStateFirstValue = true;
-                        MenuButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Menu;
+                        MenuButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Menu;
                         setMenuButtonHeightFirstValue = true;
                         MenuButtonHeightFirstValue = 64f;
                         if (interpolationValue < 1)
@@ -504,7 +507,7 @@
                             this.MenuButton.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                         }
                         setPauseButtonCurrentButtonTypeStateFirstValue = true;
-                        PauseButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Pause;
+                        PauseButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Pause;
                         setPauseButtonHeightFirstValue = true;
                         PauseButtonHeightFirstValue = 64f;
                         if (interpolationValue < 1)
@@ -526,7 +529,7 @@
                         setPauseButtonYFirstValue = true;
                         PauseButtonYFirstValue = 0f;
                         setPlayButtonCurrentButtonTypeStateFirstValue = true;
-                        PlayButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Play;
+                        PlayButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Play;
                         setPlayButtonHeightFirstValue = true;
                         PlayButtonHeightFirstValue = 64f;
                         if (interpolationValue < 1)
@@ -534,13 +537,13 @@
                             this.PlayButton.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                         }
                         setPlayButtonCurrentHighlightStateFirstValue = true;
-                        PlayButtonCurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Highlight.NotHighlighted;
+                        PlayButtonCurrentHighlightStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Highlight.NotHighlighted;
                         if (interpolationValue < 1)
                         {
                             this.PlayButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer") ?? this;
                         }
                         setPlayButtonCurrentSelectStateFirstValue = true;
-                        PlayButtonCurrentSelectStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Select.Selected;
+                        PlayButtonCurrentSelectStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Select.Selected;
                         setPlayButtonWidthFirstValue = true;
                         PlayButtonWidthFirstValue = 64f;
                         if (interpolationValue < 1)
@@ -809,7 +812,7 @@
                 {
                     case  VariableState.Default:
                         setFastForwardButtonCurrentButtonTypeStateSecondValue = true;
-                        FastForwardButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.FastForward;
+                        FastForwardButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.FastForward;
                         setFastForwardButtonHeightSecondValue = true;
                         FastForwardButtonHeightSecondValue = 64f;
                         if (interpolationValue >= 1)
@@ -855,7 +858,7 @@
                         setInfoContainerXSecondValue = true;
                         InfoContainerXSecondValue = 35f;
                         setMenuButtonCurrentButtonTypeStateSecondValue = true;
-                        MenuButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Menu;
+                        MenuButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Menu;
                         setMenuButtonHeightSecondValue = true;
                         MenuButtonHeightSecondValue = 64f;
                         if (interpolationValue >= 1)
@@ -873,7 +876,7 @@
                             this.MenuButton.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                         }
                         setPauseButtonCurrentButtonTypeStateSecondValue = true;
-                        PauseButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Pause;
+                        PauseButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Pause;
                         setPauseButtonHeightSecondValue = true;
                         PauseButtonHeightSecondValue = 64f;
                         if (interpolationValue >= 1)
@@ -895,7 +898,7 @@
                         setPauseButtonYSecondValue = true;
                         PauseButtonYSecondValue = 0f;
                         setPlayButtonCurrentButtonTypeStateSecondValue = true;
-                        PlayButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Play;
+                        PlayButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Play;
                         setPlayButtonHeightSecondValue = true;
                         PlayButtonHeightSecondValue = 64f;
                         if (interpolationValue >= 1)
@@ -903,13 +906,13 @@
                             this.PlayButton.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                         }
                         setPlayButtonCurrentHighlightStateSecondValue = true;
-                        PlayButtonCurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Highlight.NotHighlighted;
+                        PlayButtonCurrentHighlightStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Highlight.NotHighlighted;
                         if (interpolationValue >= 1)
                         {
                             this.PlayButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimeButtonContainer") ?? this;
                         }
                         setPlayButtonCurrentSelectStateSecondValue = true;
-                        PlayButtonCurrentSelectStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.Select.Selected;
+                        PlayButtonCurrentSelectStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.Select.Selected;
                         setPlayButtonWidthSecondValue = true;
                         PlayButtonWidthSecondValue = 64f;
                         if (interpolationValue >= 1)
@@ -1520,7 +1523,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.InfoDisplays.TopStatusBarRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.InfoDisplays.TopStatusBarRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1574,7 +1577,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime.TimeDisplay fromState,AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime.TimeDisplay toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.InfoDisplays.TopStatusBarRuntime.TimeDisplay fromState,AbbatoirIntergrade.GumRuntimes.InfoDisplays.TopStatusBarRuntime.TimeDisplay toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -3893,16 +3896,16 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime MenuButton { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime MenuButton { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime InfoContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime WaveLabel { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime WaveTextInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime TimeLabel { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime TimeTextInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime PauseButton { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime PlayButton { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime FastForwardButton { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime PauseButton { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime PlayButton { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime FastForwardButton { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime TimeButtonContainer { get; set; }
             public TopStatusBarRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
@@ -3930,16 +3933,16 @@
             }
             private void AssignReferences () 
             {
-                MenuButton = this.GetGraphicalUiElementByName("MenuButton") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
+                MenuButton = this.GetGraphicalUiElementByName("MenuButton") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
                 SpriteInstance = this.GetGraphicalUiElementByName("SpriteInstance") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 InfoContainer = this.GetGraphicalUiElementByName("InfoContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 WaveLabel = this.GetGraphicalUiElementByName("WaveLabel") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 WaveTextInstance = this.GetGraphicalUiElementByName("WaveTextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 TimeLabel = this.GetGraphicalUiElementByName("TimeLabel") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 TimeTextInstance = this.GetGraphicalUiElementByName("TimeTextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                PauseButton = this.GetGraphicalUiElementByName("PauseButton") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                PlayButton = this.GetGraphicalUiElementByName("PlayButton") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                FastForwardButton = this.GetGraphicalUiElementByName("FastForwardButton") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
+                PauseButton = this.GetGraphicalUiElementByName("PauseButton") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
+                PlayButton = this.GetGraphicalUiElementByName("PlayButton") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
+                FastForwardButton = this.GetGraphicalUiElementByName("FastForwardButton") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
                 TimeButtonContainer = this.GetGraphicalUiElementByName("TimeButtonContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 

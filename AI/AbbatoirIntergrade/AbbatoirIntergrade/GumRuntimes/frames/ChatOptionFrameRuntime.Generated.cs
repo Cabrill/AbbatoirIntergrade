@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.Frames
     {
         public partial class ChatOptionFrameRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -30,8 +30,8 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            FlickerState mCurrentFlickerStateState;
-            ColorState mCurrentColorStateState;
+            FlickerState? mCurrentFlickerStateState;
+            ColorState? mCurrentColorStateState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -236,7 +236,7 @@
                     }
                 }
             }
-            public FlickerState CurrentFlickerStateState
+            public FlickerState? CurrentFlickerStateState
             {
                 get
                 {
@@ -244,175 +244,178 @@
                 }
                 set
                 {
-                    mCurrentFlickerStateState = value;
-                    switch(mCurrentFlickerStateState)
+                    if (value != null)
                     {
-                        case  FlickerState.Flicker1:
-                            TopLeft.TextureLeft = 0;
-                            TopLeft.TextureTop = 0;
-                            Top.TextureLeft = 64;
-                            Top.TextureTop = 0;
-                            TopRight.TextureLeft = 192;
-                            TopRight.TextureTop = 0;
-                            Right.TextureLeft = 192;
-                            Right.TextureTop = 64;
-                            BottomRight.TextureLeft = 192;
-                            BottomRight.TextureTop = 192;
-                            Bottom.TextureLeft = 64;
-                            Bottom.TextureTop = 192;
-                            BottomLeft.TextureLeft = 0;
-                            BottomLeft.TextureTop = 192;
-                            Left.TextureLeft = 0;
-                            Left.TextureTop = 64;
-                            break;
-                        case  FlickerState.Flicker2:
-                            TopLeft.TextureLeft = 256;
-                            TopLeft.TextureTop = 0;
-                            Top.TextureLeft = 320;
-                            Top.TextureTop = 0;
-                            TopRight.TextureLeft = 448;
-                            TopRight.TextureTop = 0;
-                            Right.TextureLeft = 448;
-                            Right.TextureTop = 64;
-                            BottomRight.TextureLeft = 448;
-                            BottomRight.TextureTop = 192;
-                            Bottom.TextureLeft = 320;
-                            Bottom.TextureTop = 192;
-                            BottomLeft.TextureLeft = 256;
-                            BottomLeft.TextureTop = 192;
-                            Left.TextureLeft = 256;
-                            Left.TextureTop = 64;
-                            break;
-                        case  FlickerState.Flicker3:
-                            TopLeft.TextureLeft = 512;
-                            TopLeft.TextureTop = 0;
-                            Top.TextureLeft = 576;
-                            Top.TextureTop = 0;
-                            TopRight.TextureLeft = 704;
-                            TopRight.TextureTop = 0;
-                            Right.TextureLeft = 704;
-                            Right.TextureTop = 64;
-                            BottomRight.TextureLeft = 704;
-                            BottomRight.TextureTop = 192;
-                            Bottom.TextureLeft = 576;
-                            Bottom.TextureTop = 192;
-                            BottomLeft.TextureLeft = 512;
-                            BottomLeft.TextureTop = 192;
-                            Left.TextureLeft = 512;
-                            Left.TextureTop = 64;
-                            break;
-                        case  FlickerState.Flicker4:
-                            TopLeft.TextureLeft = 0;
-                            TopLeft.TextureTop = 256;
-                            Top.TextureLeft = 64;
-                            Top.TextureTop = 256;
-                            TopRight.TextureLeft = 192;
-                            TopRight.TextureTop = 256;
-                            Right.TextureLeft = 192;
-                            Right.TextureTop = 320;
-                            BottomRight.TextureLeft = 192;
-                            BottomRight.TextureTop = 448;
-                            Bottom.TextureLeft = 64;
-                            Bottom.TextureTop = 448;
-                            BottomLeft.TextureLeft = 0;
-                            BottomLeft.TextureTop = 448;
-                            Left.TextureLeft = 0;
-                            Left.TextureTop = 320;
-                            break;
-                        case  FlickerState.Flicker5:
-                            TopLeft.TextureLeft = 256;
-                            TopLeft.TextureTop = 256;
-                            Top.TextureLeft = 320;
-                            Top.TextureTop = 256;
-                            TopRight.TextureLeft = 448;
-                            TopRight.TextureTop = 256;
-                            Right.TextureLeft = 448;
-                            Right.TextureTop = 320;
-                            BottomRight.TextureLeft = 448;
-                            BottomRight.TextureTop = 448;
-                            Bottom.TextureLeft = 320;
-                            Bottom.TextureTop = 448;
-                            BottomLeft.TextureLeft = 256;
-                            BottomLeft.TextureTop = 448;
-                            Left.TextureLeft = 256;
-                            Left.TextureTop = 320;
-                            break;
-                        case  FlickerState.Flicker6:
-                            TopLeft.TextureLeft = 512;
-                            TopLeft.TextureTop = 256;
-                            Top.TextureLeft = 576;
-                            Top.TextureTop = 256;
-                            TopRight.TextureLeft = 704;
-                            TopRight.TextureTop = 256;
-                            Right.TextureLeft = 704;
-                            Right.TextureTop = 320;
-                            BottomRight.TextureLeft = 704;
-                            BottomRight.TextureTop = 448;
-                            Bottom.TextureLeft = 576;
-                            Bottom.TextureTop = 448;
-                            BottomLeft.TextureLeft = 512;
-                            BottomLeft.TextureTop = 448;
-                            Left.TextureLeft = 512;
-                            Left.TextureTop = 320;
-                            break;
-                        case  FlickerState.Flicker7:
-                            TopLeft.TextureLeft = 0;
-                            TopLeft.TextureTop = 512;
-                            Top.TextureLeft = 64;
-                            Top.TextureTop = 512;
-                            TopRight.TextureLeft = 192;
-                            TopRight.TextureTop = 512;
-                            Right.TextureLeft = 192;
-                            Right.TextureTop = 576;
-                            BottomRight.TextureLeft = 192;
-                            BottomRight.TextureTop = 704;
-                            Bottom.TextureLeft = 64;
-                            Bottom.TextureTop = 704;
-                            BottomLeft.TextureLeft = 0;
-                            BottomLeft.TextureTop = 704;
-                            Left.TextureLeft = 0;
-                            Left.TextureTop = 576;
-                            break;
-                        case  FlickerState.Flicker8:
-                            TopLeft.TextureLeft = 256;
-                            TopLeft.TextureTop = 512;
-                            Top.TextureLeft = 320;
-                            Top.TextureTop = 512;
-                            TopRight.TextureLeft = 448;
-                            TopRight.TextureTop = 512;
-                            Right.TextureLeft = 448;
-                            Right.TextureTop = 576;
-                            BottomRight.TextureLeft = 448;
-                            BottomRight.TextureTop = 704;
-                            Bottom.TextureLeft = 320;
-                            Bottom.TextureTop = 704;
-                            BottomLeft.TextureLeft = 256;
-                            BottomLeft.TextureTop = 704;
-                            Left.TextureLeft = 256;
-                            Left.TextureTop = 576;
-                            break;
-                        case  FlickerState.Flicker9:
-                            TopLeft.TextureLeft = 512;
-                            TopLeft.TextureTop = 512;
-                            Top.TextureLeft = 576;
-                            Top.TextureTop = 512;
-                            TopRight.TextureLeft = 704;
-                            TopRight.TextureTop = 512;
-                            Right.TextureLeft = 704;
-                            Right.TextureTop = 576;
-                            BottomRight.TextureLeft = 704;
-                            BottomRight.TextureTop = 704;
-                            Bottom.TextureLeft = 576;
-                            Bottom.TextureTop = 704;
-                            BottomLeft.TextureLeft = 512;
-                            BottomLeft.TextureTop = 704;
-                            Left.TextureLeft = 512;
-                            Left.TextureTop = 576;
-                            break;
+                        mCurrentFlickerStateState = value;
+                        switch(mCurrentFlickerStateState)
+                        {
+                            case  FlickerState.Flicker1:
+                                TopLeft.TextureLeft = 0;
+                                TopLeft.TextureTop = 0;
+                                Top.TextureLeft = 64;
+                                Top.TextureTop = 0;
+                                TopRight.TextureLeft = 192;
+                                TopRight.TextureTop = 0;
+                                Right.TextureLeft = 192;
+                                Right.TextureTop = 64;
+                                BottomRight.TextureLeft = 192;
+                                BottomRight.TextureTop = 192;
+                                Bottom.TextureLeft = 64;
+                                Bottom.TextureTop = 192;
+                                BottomLeft.TextureLeft = 0;
+                                BottomLeft.TextureTop = 192;
+                                Left.TextureLeft = 0;
+                                Left.TextureTop = 64;
+                                break;
+                            case  FlickerState.Flicker2:
+                                TopLeft.TextureLeft = 256;
+                                TopLeft.TextureTop = 0;
+                                Top.TextureLeft = 320;
+                                Top.TextureTop = 0;
+                                TopRight.TextureLeft = 448;
+                                TopRight.TextureTop = 0;
+                                Right.TextureLeft = 448;
+                                Right.TextureTop = 64;
+                                BottomRight.TextureLeft = 448;
+                                BottomRight.TextureTop = 192;
+                                Bottom.TextureLeft = 320;
+                                Bottom.TextureTop = 192;
+                                BottomLeft.TextureLeft = 256;
+                                BottomLeft.TextureTop = 192;
+                                Left.TextureLeft = 256;
+                                Left.TextureTop = 64;
+                                break;
+                            case  FlickerState.Flicker3:
+                                TopLeft.TextureLeft = 512;
+                                TopLeft.TextureTop = 0;
+                                Top.TextureLeft = 576;
+                                Top.TextureTop = 0;
+                                TopRight.TextureLeft = 704;
+                                TopRight.TextureTop = 0;
+                                Right.TextureLeft = 704;
+                                Right.TextureTop = 64;
+                                BottomRight.TextureLeft = 704;
+                                BottomRight.TextureTop = 192;
+                                Bottom.TextureLeft = 576;
+                                Bottom.TextureTop = 192;
+                                BottomLeft.TextureLeft = 512;
+                                BottomLeft.TextureTop = 192;
+                                Left.TextureLeft = 512;
+                                Left.TextureTop = 64;
+                                break;
+                            case  FlickerState.Flicker4:
+                                TopLeft.TextureLeft = 0;
+                                TopLeft.TextureTop = 256;
+                                Top.TextureLeft = 64;
+                                Top.TextureTop = 256;
+                                TopRight.TextureLeft = 192;
+                                TopRight.TextureTop = 256;
+                                Right.TextureLeft = 192;
+                                Right.TextureTop = 320;
+                                BottomRight.TextureLeft = 192;
+                                BottomRight.TextureTop = 448;
+                                Bottom.TextureLeft = 64;
+                                Bottom.TextureTop = 448;
+                                BottomLeft.TextureLeft = 0;
+                                BottomLeft.TextureTop = 448;
+                                Left.TextureLeft = 0;
+                                Left.TextureTop = 320;
+                                break;
+                            case  FlickerState.Flicker5:
+                                TopLeft.TextureLeft = 256;
+                                TopLeft.TextureTop = 256;
+                                Top.TextureLeft = 320;
+                                Top.TextureTop = 256;
+                                TopRight.TextureLeft = 448;
+                                TopRight.TextureTop = 256;
+                                Right.TextureLeft = 448;
+                                Right.TextureTop = 320;
+                                BottomRight.TextureLeft = 448;
+                                BottomRight.TextureTop = 448;
+                                Bottom.TextureLeft = 320;
+                                Bottom.TextureTop = 448;
+                                BottomLeft.TextureLeft = 256;
+                                BottomLeft.TextureTop = 448;
+                                Left.TextureLeft = 256;
+                                Left.TextureTop = 320;
+                                break;
+                            case  FlickerState.Flicker6:
+                                TopLeft.TextureLeft = 512;
+                                TopLeft.TextureTop = 256;
+                                Top.TextureLeft = 576;
+                                Top.TextureTop = 256;
+                                TopRight.TextureLeft = 704;
+                                TopRight.TextureTop = 256;
+                                Right.TextureLeft = 704;
+                                Right.TextureTop = 320;
+                                BottomRight.TextureLeft = 704;
+                                BottomRight.TextureTop = 448;
+                                Bottom.TextureLeft = 576;
+                                Bottom.TextureTop = 448;
+                                BottomLeft.TextureLeft = 512;
+                                BottomLeft.TextureTop = 448;
+                                Left.TextureLeft = 512;
+                                Left.TextureTop = 320;
+                                break;
+                            case  FlickerState.Flicker7:
+                                TopLeft.TextureLeft = 0;
+                                TopLeft.TextureTop = 512;
+                                Top.TextureLeft = 64;
+                                Top.TextureTop = 512;
+                                TopRight.TextureLeft = 192;
+                                TopRight.TextureTop = 512;
+                                Right.TextureLeft = 192;
+                                Right.TextureTop = 576;
+                                BottomRight.TextureLeft = 192;
+                                BottomRight.TextureTop = 704;
+                                Bottom.TextureLeft = 64;
+                                Bottom.TextureTop = 704;
+                                BottomLeft.TextureLeft = 0;
+                                BottomLeft.TextureTop = 704;
+                                Left.TextureLeft = 0;
+                                Left.TextureTop = 576;
+                                break;
+                            case  FlickerState.Flicker8:
+                                TopLeft.TextureLeft = 256;
+                                TopLeft.TextureTop = 512;
+                                Top.TextureLeft = 320;
+                                Top.TextureTop = 512;
+                                TopRight.TextureLeft = 448;
+                                TopRight.TextureTop = 512;
+                                Right.TextureLeft = 448;
+                                Right.TextureTop = 576;
+                                BottomRight.TextureLeft = 448;
+                                BottomRight.TextureTop = 704;
+                                Bottom.TextureLeft = 320;
+                                Bottom.TextureTop = 704;
+                                BottomLeft.TextureLeft = 256;
+                                BottomLeft.TextureTop = 704;
+                                Left.TextureLeft = 256;
+                                Left.TextureTop = 576;
+                                break;
+                            case  FlickerState.Flicker9:
+                                TopLeft.TextureLeft = 512;
+                                TopLeft.TextureTop = 512;
+                                Top.TextureLeft = 576;
+                                Top.TextureTop = 512;
+                                TopRight.TextureLeft = 704;
+                                TopRight.TextureTop = 512;
+                                Right.TextureLeft = 704;
+                                Right.TextureTop = 576;
+                                BottomRight.TextureLeft = 704;
+                                BottomRight.TextureTop = 704;
+                                Bottom.TextureLeft = 576;
+                                Bottom.TextureTop = 704;
+                                BottomLeft.TextureLeft = 512;
+                                BottomLeft.TextureTop = 704;
+                                Left.TextureLeft = 512;
+                                Left.TextureTop = 576;
+                                break;
+                        }
                     }
                 }
             }
-            public ColorState CurrentColorStateState
+            public ColorState? CurrentColorStateState
             {
                 get
                 {
@@ -420,125 +423,128 @@
                 }
                 set
                 {
-                    mCurrentColorStateState = value;
-                    switch(mCurrentColorStateState)
+                    if (value != null)
                     {
-                        case  ColorState.Red:
-                            Middle.Blue = 0;
-                            Middle.Green = 0;
-                            Middle.Red = 36;
-                            TopLeft.Blue = 0;
-                            TopLeft.Green = 0;
-                            TopLeft.Red = 255;
-                            Top.Blue = 0;
-                            Top.Green = 0;
-                            Top.Red = 255;
-                            TopRight.Blue = 0;
-                            TopRight.Green = 0;
-                            TopRight.Red = 255;
-                            Right.Blue = 0;
-                            Right.Green = 0;
-                            Right.Red = 255;
-                            BottomRight.Blue = 0;
-                            BottomRight.Green = 0;
-                            BottomRight.Red = 255;
-                            Bottom.Blue = 0;
-                            Bottom.Green = 0;
-                            Bottom.Red = 255;
-                            BottomLeft.Blue = 0;
-                            BottomLeft.Green = 0;
-                            BottomLeft.Red = 255;
-                            Left.Blue = 0;
-                            Left.Green = 0;
-                            Left.Red = 255;
-                            break;
-                        case  ColorState.Green:
-                            Middle.Blue = 0;
-                            Middle.Green = 48;
-                            Middle.Red = 0;
-                            TopLeft.Blue = 0;
-                            TopLeft.Green = 255;
-                            TopLeft.Red = 0;
-                            Top.Blue = 0;
-                            Top.Green = 255;
-                            Top.Red = 0;
-                            TopRight.Blue = 0;
-                            TopRight.Green = 255;
-                            TopRight.Red = 0;
-                            Right.Blue = 0;
-                            Right.Green = 255;
-                            Right.Red = 0;
-                            BottomRight.Blue = 0;
-                            BottomRight.Green = 255;
-                            BottomRight.Red = 0;
-                            Bottom.Blue = 0;
-                            Bottom.Green = 255;
-                            Bottom.Red = 0;
-                            BottomLeft.Blue = 0;
-                            BottomLeft.Green = 255;
-                            BottomLeft.Red = 0;
-                            Left.Blue = 0;
-                            Left.Green = 255;
-                            Left.Red = 0;
-                            break;
-                        case  ColorState.Black:
-                            Middle.Blue = 75;
-                            Middle.Green = 75;
-                            Middle.Red = 75;
-                            TopLeft.Blue = 50;
-                            TopLeft.Green = 50;
-                            TopLeft.Red = 50;
-                            Top.Blue = 50;
-                            Top.Green = 50;
-                            Top.Red = 50;
-                            TopRight.Blue = 50;
-                            TopRight.Green = 50;
-                            TopRight.Red = 50;
-                            Right.Blue = 50;
-                            Right.Green = 50;
-                            Right.Red = 50;
-                            BottomRight.Blue = 50;
-                            BottomRight.Green = 50;
-                            BottomRight.Red = 50;
-                            Bottom.Blue = 50;
-                            Bottom.Green = 50;
-                            Bottom.Red = 50;
-                            BottomLeft.Blue = 50;
-                            BottomLeft.Green = 50;
-                            BottomLeft.Red = 50;
-                            Left.Blue = 50;
-                            Left.Green = 50;
-                            Left.Red = 50;
-                            break;
-                        case  ColorState.Blue:
-                            Middle.Blue = 255;
-                            Middle.Green = 255;
-                            Middle.Red = 224;
-                            TopLeft.Blue = 235;
-                            TopLeft.Green = 206;
-                            TopLeft.Red = 135;
-                            Top.Blue = 250;
-                            Top.Green = 206;
-                            Top.Red = 135;
-                            TopRight.Blue = 250;
-                            TopRight.Green = 206;
-                            TopRight.Red = 135;
-                            Right.Blue = 250;
-                            Right.Green = 206;
-                            Right.Red = 135;
-                            BottomRight.Blue = 250;
-                            BottomRight.Green = 206;
-                            BottomRight.Red = 135;
-                            Bottom.Blue = 250;
-                            Bottom.Green = 206;
-                            Bottom.Red = 135;
-                            BottomLeft.Blue = 250;
-                            BottomLeft.Green = 206;
-                            BottomLeft.Red = 135;
-                            Left.Blue = 250;
-                            Left.Green = 206;
-                            Left.Red = 135;
-                            break;
+                        mCurrentColorStateState = value;
+                        switch(mCurrentColorStateState)
+                        {
+                            case  ColorState.Red:
+                                Middle.Blue = 0;
+                                Middle.Green = 0;
+                                Middle.Red = 36;
+                                TopLeft.Blue = 0;
+                                TopLeft.Green = 0;
+                                TopLeft.Red = 255;
+                                Top.Blue = 0;
+                                Top.Green = 0;
+                                Top.Red = 255;
+                                TopRight.Blue = 0;
+                                TopRight.Green = 0;
+                                TopRight.Red = 255;
+                                Right.Blue = 0;
+                                Right.Green = 0;
+                                Right.Red = 255;
+                                BottomRight.Blue = 0;
+                                BottomRight.Green = 0;
+                                BottomRight.Red = 255;
+                                Bottom.Blue = 0;
+                                Bottom.Green = 0;
+                                Bottom.Red = 255;
+                                BottomLeft.Blue = 0;
+                                BottomLeft.Green = 0;
+                                BottomLeft.Red = 255;
+                                Left.Blue = 0;
+                                Left.Green = 0;
+                                Left.Red = 255;
+                                break;
+                            case  ColorState.Green:
+                                Middle.Blue = 0;
+                                Middle.Green = 48;
+                                Middle.Red = 0;
+                                TopLeft.Blue = 0;
+                                TopLeft.Green = 255;
+                                TopLeft.Red = 0;
+                                Top.Blue = 0;
+                                Top.Green = 255;
+                                Top.Red = 0;
+                                TopRight.Blue = 0;
+                                TopRight.Green = 255;
+                                TopRight.Red = 0;
+                                Right.Blue = 0;
+                                Right.Green = 255;
+                                Right.Red = 0;
+                                BottomRight.Blue = 0;
+                                BottomRight.Green = 255;
+                                BottomRight.Red = 0;
+                                Bottom.Blue = 0;
+                                Bottom.Green = 255;
+                                Bottom.Red = 0;
+                                BottomLeft.Blue = 0;
+                                BottomLeft.Green = 255;
+                                BottomLeft.Red = 0;
+                                Left.Blue = 0;
+                                Left.Green = 255;
+                                Left.Red = 0;
+                                break;
+                            case  ColorState.Black:
+                                Middle.Blue = 75;
+                                Middle.Green = 75;
+                                Middle.Red = 75;
+                                TopLeft.Blue = 50;
+                                TopLeft.Green = 50;
+                                TopLeft.Red = 50;
+                                Top.Blue = 50;
+                                Top.Green = 50;
+                                Top.Red = 50;
+                                TopRight.Blue = 50;
+                                TopRight.Green = 50;
+                                TopRight.Red = 50;
+                                Right.Blue = 50;
+                                Right.Green = 50;
+                                Right.Red = 50;
+                                BottomRight.Blue = 50;
+                                BottomRight.Green = 50;
+                                BottomRight.Red = 50;
+                                Bottom.Blue = 50;
+                                Bottom.Green = 50;
+                                Bottom.Red = 50;
+                                BottomLeft.Blue = 50;
+                                BottomLeft.Green = 50;
+                                BottomLeft.Red = 50;
+                                Left.Blue = 50;
+                                Left.Green = 50;
+                                Left.Red = 50;
+                                break;
+                            case  ColorState.Blue:
+                                Middle.Blue = 255;
+                                Middle.Green = 255;
+                                Middle.Red = 224;
+                                TopLeft.Blue = 235;
+                                TopLeft.Green = 206;
+                                TopLeft.Red = 135;
+                                Top.Blue = 250;
+                                Top.Green = 206;
+                                Top.Red = 135;
+                                TopRight.Blue = 250;
+                                TopRight.Green = 206;
+                                TopRight.Red = 135;
+                                Right.Blue = 250;
+                                Right.Green = 206;
+                                Right.Red = 135;
+                                BottomRight.Blue = 250;
+                                BottomRight.Green = 206;
+                                BottomRight.Red = 135;
+                                Bottom.Blue = 250;
+                                Bottom.Green = 206;
+                                Bottom.Red = 135;
+                                BottomLeft.Blue = 250;
+                                BottomLeft.Green = 206;
+                                BottomLeft.Red = 135;
+                                Left.Blue = 250;
+                                Left.Green = 206;
+                                Left.Red = 135;
+                                break;
+                        }
                     }
                 }
             }
@@ -3927,7 +3933,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -3981,7 +3987,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime.FlickerState fromState,AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime.FlickerState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime.FlickerState fromState,AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime.FlickerState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -4035,7 +4041,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime.ColorState fromState,AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime.ColorState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime.ColorState fromState,AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime.ColorState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.specificbuttons
     {
         public partial class OptionsButtonRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -280,7 +280,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.OptionsButtonRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.OptionsButtonRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.specificbuttons.OptionsButtonRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.specificbuttons.OptionsButtonRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -697,7 +697,7 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime ButtonFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
             public OptionsButtonRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
@@ -726,7 +726,7 @@
             }
             private void AssignReferences () 
             {
-                ButtonFrameInstance = this.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
+                ButtonFrameInstance = this.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
                 SpriteInstance = this.GetGraphicalUiElementByName("SpriteInstance") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 

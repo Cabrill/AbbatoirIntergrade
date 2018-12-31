@@ -2,15 +2,8 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
+using System.Linq;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -118,6 +111,16 @@ namespace AbbatoirIntergrade.Screens
             #endif
             Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;  FlatRedBallSplashGum = new FlatRedBall.Gum.GumIdb();  FlatRedBallSplashGum.LoadFromFile("content/gumproject/screens/flatredballsplashgum.gusx");  FlatRedBallSplashGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false; FlatRedBallSplashGum.Element.UpdateLayout(); FlatRedBallSplashGum.Element.UpdateLayout();
             CustomLoadStaticContent(contentManagerName);
+        }
+        public override void PauseThisScreen () 
+        {
+            StateInterpolationPlugin.TweenerManager.Self.Pause();
+            base.PauseThisScreen();
+        }
+        public override void UnpauseThisScreen () 
+        {
+            StateInterpolationPlugin.TweenerManager.Self.Unpause();
+            base.UnpauseThisScreen();
         }
         [System.Obsolete("Use GetFile instead")]
         public static object GetStaticMember (string memberName) 

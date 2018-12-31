@@ -2,15 +2,8 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
+using System.Linq;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -135,6 +128,16 @@ namespace AbbatoirIntergrade.Screens
             Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;  LoadingScreenGum = new FlatRedBall.Gum.GumIdb();  LoadingScreenGum.LoadFromFile("content/gumproject/screens/loadingscreengum.gusx");  LoadingScreenGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false; LoadingScreenGum.Element.UpdateLayout(); LoadingScreenGum.Element.UpdateLayout();
             CustomLoadStaticContent(contentManagerName);
         }
+        public override void PauseThisScreen () 
+        {
+            StateInterpolationPlugin.TweenerManager.Self.Pause();
+            base.PauseThisScreen();
+        }
+        public override void UnpauseThisScreen () 
+        {
+            StateInterpolationPlugin.TweenerManager.Self.Unpause();
+            base.UnpauseThisScreen();
+        }
         [System.Obsolete("Use GetFile instead")]
         public static object GetStaticMember (string memberName) 
         {
@@ -181,7 +184,7 @@ namespace AbbatoirIntergrade.Screens
         }
         public static void TransitionToScreen (string screenName, System.Action<FlatRedBall.Screens.Screen> screenCreatedCallback = null) 
         {
-            Screen currentScreen = ScreenManager.CurrentScreen;
+            FlatRedBall.Screens.Screen currentScreen = FlatRedBall.Screens.ScreenManager.CurrentScreen;
             currentScreen.IsActivityFinished = true;
             currentScreen.NextScreen = typeof(LoadingScreen).FullName;
             mNextScreenToLoad = screenName;

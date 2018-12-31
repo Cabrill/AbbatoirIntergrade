@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.unique
     {
         public partial class MainMenuEyeRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -22,8 +22,8 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            EyeOpening mCurrentEyeOpeningState;
-            EyePosition mCurrentEyePositionState;
+            EyeOpening? mCurrentEyeOpeningState;
+            EyePosition? mCurrentEyePositionState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -65,7 +65,7 @@
                     }
                 }
             }
-            public EyeOpening CurrentEyeOpeningState
+            public EyeOpening? CurrentEyeOpeningState
             {
                 get
                 {
@@ -73,28 +73,31 @@
                 }
                 set
                 {
-                    mCurrentEyeOpeningState = value;
-                    switch(mCurrentEyeOpeningState)
+                    if (value != null)
                     {
-                        case  EyeOpening.Closed:
-                            FaceSprite.Alpha = 0;
-                            EyeSprite.TextureHeight = 0;
-                            EyeSprite.TextureTop = 1066;
-                            break;
-                        case  EyeOpening.Open:
-                            FaceSprite.Alpha = 255;
-                            EyeSprite.TextureHeight = 428;
-                            EyeSprite.TextureTop = 852;
-                            break;
-                        case  EyeOpening.Blink:
-                            FaceSprite.Alpha = 255;
-                            EyeSprite.TextureHeight = 0;
-                            EyeSprite.TextureTop = 1066;
-                            break;
+                        mCurrentEyeOpeningState = value;
+                        switch(mCurrentEyeOpeningState)
+                        {
+                            case  EyeOpening.Closed:
+                                FaceSprite.Alpha = 0;
+                                EyeSprite.TextureHeight = 0;
+                                EyeSprite.TextureTop = 1066;
+                                break;
+                            case  EyeOpening.Open:
+                                FaceSprite.Alpha = 255;
+                                EyeSprite.TextureHeight = 428;
+                                EyeSprite.TextureTop = 852;
+                                break;
+                            case  EyeOpening.Blink:
+                                FaceSprite.Alpha = 255;
+                                EyeSprite.TextureHeight = 0;
+                                EyeSprite.TextureTop = 1066;
+                                break;
+                        }
                     }
                 }
             }
-            public EyePosition CurrentEyePositionState
+            public EyePosition? CurrentEyePositionState
             {
                 get
                 {
@@ -102,23 +105,26 @@
                 }
                 set
                 {
-                    mCurrentEyePositionState = value;
-                    switch(mCurrentEyePositionState)
+                    if (value != null)
                     {
-                        case  EyePosition.Left:
-                            FaceSprite.FlipHorizontal = true;
-                            EyeSprite.FlipHorizontal = true;
-                            EyeSprite.Rotation = -5f;
-                            EyeSprite.X = 76f;
-                            EyeSprite.Y = 40f;
-                            break;
-                        case  EyePosition.Right:
-                            FaceSprite.FlipHorizontal = false;
-                            EyeSprite.FlipHorizontal = false;
-                            EyeSprite.Rotation = 5f;
-                            EyeSprite.X = -75f;
-                            EyeSprite.Y = 41f;
-                            break;
+                        mCurrentEyePositionState = value;
+                        switch(mCurrentEyePositionState)
+                        {
+                            case  EyePosition.Left:
+                                FaceSprite.FlipHorizontal = true;
+                                EyeSprite.FlipHorizontal = true;
+                                EyeSprite.Rotation = -5f;
+                                EyeSprite.X = 76f;
+                                EyeSprite.Y = 40f;
+                                break;
+                            case  EyePosition.Right:
+                                FaceSprite.FlipHorizontal = false;
+                                EyeSprite.FlipHorizontal = false;
+                                EyeSprite.Rotation = 5f;
+                                EyeSprite.X = -75f;
+                                EyeSprite.Y = 41f;
+                                break;
+                        }
                     }
                 }
             }
@@ -595,7 +601,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -649,7 +655,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening fromState,AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyeOpening toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyeOpening fromState,AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyeOpening toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -703,7 +709,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition fromState,AbbatoirIntergrade.GumRuntimes.MainMenuEyeRuntime.EyePosition toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyePosition fromState,AbbatoirIntergrade.GumRuntimes.unique.MainMenuEyeRuntime.EyePosition toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

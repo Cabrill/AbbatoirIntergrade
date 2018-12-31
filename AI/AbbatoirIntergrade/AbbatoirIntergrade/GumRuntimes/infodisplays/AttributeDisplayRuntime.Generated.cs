@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.infodisplays
     {
         public partial class AttributeDisplayRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -17,7 +17,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Upgraded mCurrentUpgradedState;
+            Upgraded? mCurrentUpgradedState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -71,7 +71,7 @@
                     }
                 }
             }
-            public Upgraded CurrentUpgradedState
+            public Upgraded? CurrentUpgradedState
             {
                 get
                 {
@@ -79,36 +79,39 @@
                 }
                 set
                 {
-                    mCurrentUpgradedState = value;
-                    switch(mCurrentUpgradedState)
+                    if (value != null)
                     {
-                        case  Upgraded.IsUpgraded:
-                            AttributeTextInstance.Blue = 0;
-                            AttributeTextInstance.Green = 255;
-                            AttributeTextInstance.Red = 0;
-                            UpgradeSprite.Blue = 140;
-                            UpgradeSprite.Green = 230;
-                            UpgradeSprite.Red = 240;
-                            UpgradeSprite.Visible = true;
-                            break;
-                        case  Upgraded.NotUpgraded:
-                            AttributeTextInstance.Blue = 255;
-                            AttributeTextInstance.Green = 255;
-                            AttributeTextInstance.Red = 255;
-                            UpgradeSprite.Blue = 255;
-                            UpgradeSprite.Green = 255;
-                            UpgradeSprite.Red = 255;
-                            UpgradeSprite.Visible = false;
-                            break;
-                        case  Upgraded.IsUpgradedNoArrow:
-                            AttributeTextInstance.Blue = 0;
-                            AttributeTextInstance.Green = 255;
-                            AttributeTextInstance.Red = 0;
-                            UpgradeSprite.Blue = 255;
-                            UpgradeSprite.Green = 255;
-                            UpgradeSprite.Red = 255;
-                            UpgradeSprite.Visible = false;
-                            break;
+                        mCurrentUpgradedState = value;
+                        switch(mCurrentUpgradedState)
+                        {
+                            case  Upgraded.IsUpgraded:
+                                AttributeTextInstance.Blue = 0;
+                                AttributeTextInstance.Green = 255;
+                                AttributeTextInstance.Red = 0;
+                                UpgradeSprite.Blue = 140;
+                                UpgradeSprite.Green = 230;
+                                UpgradeSprite.Red = 240;
+                                UpgradeSprite.Visible = true;
+                                break;
+                            case  Upgraded.NotUpgraded:
+                                AttributeTextInstance.Blue = 255;
+                                AttributeTextInstance.Green = 255;
+                                AttributeTextInstance.Red = 255;
+                                UpgradeSprite.Blue = 255;
+                                UpgradeSprite.Green = 255;
+                                UpgradeSprite.Red = 255;
+                                UpgradeSprite.Visible = false;
+                                break;
+                            case  Upgraded.IsUpgradedNoArrow:
+                                AttributeTextInstance.Blue = 0;
+                                AttributeTextInstance.Green = 255;
+                                AttributeTextInstance.Red = 0;
+                                UpgradeSprite.Blue = 255;
+                                UpgradeSprite.Green = 255;
+                                UpgradeSprite.Red = 255;
+                                UpgradeSprite.Visible = false;
+                                break;
+                        }
                     }
                 }
             }
@@ -658,7 +661,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeDisplayRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeDisplayRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -712,7 +715,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime.Upgraded fromState,AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime.Upgraded toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeDisplayRuntime.Upgraded fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeDisplayRuntime.Upgraded toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1739,10 +1742,10 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime AttributeIconInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime AttributeIconInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime AttributeTextInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime UpgradeSprite { get; set; }
-            public AttributeIconRuntime.AttributeType AttributeIconTypeState
+            public AttributeIconRuntime.AttributeType? AttributeIconTypeState
             {
                 get
                 {
@@ -1835,7 +1838,7 @@
             }
             private void AssignReferences () 
             {
-                AttributeIconInstance = this.GetGraphicalUiElementByName("AttributeIconInstance") as AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime;
+                AttributeIconInstance = this.GetGraphicalUiElementByName("AttributeIconInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime;
                 AttributeTextInstance = this.GetGraphicalUiElementByName("AttributeTextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 UpgradeSprite = this.GetGraphicalUiElementByName("UpgradeSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 AttributeIconInstance.Click += (unused) => AttributeIconInstanceClick?.Invoke(this);

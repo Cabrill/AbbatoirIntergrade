@@ -42,7 +42,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            ColorCategory mCurrentColorCategoryState;
+            ColorCategory? mCurrentColorCategoryState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -72,6 +72,7 @@
                             Rotation = 0f;
                             Text = "Hello";
                             UseCustomFont = false;
+                            UseFontSmoothing = true;
                             VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Top;
                             Visible = true;
                             Width = 100f;
@@ -86,7 +87,7 @@
                     }
                 }
             }
-            public ColorCategory CurrentColorCategoryState
+            public ColorCategory? CurrentColorCategoryState
             {
                 get
                 {
@@ -94,19 +95,22 @@
                 }
                 set
                 {
-                    mCurrentColorCategoryState = value;
-                    switch(mCurrentColorCategoryState)
+                    if (value != null)
                     {
-                        case  ColorCategory.Gray:
-                            Blue = 208;
-                            Green = 208;
-                            Red = 208;
-                            break;
-                        case  ColorCategory.Black:
-                            Blue = 49;
-                            Green = 49;
-                            Red = 49;
-                            break;
+                        mCurrentColorCategoryState = value;
+                        switch(mCurrentColorCategoryState)
+                        {
+                            case  ColorCategory.Gray:
+                                Blue = 208;
+                                Green = 208;
+                                Red = 208;
+                                break;
+                            case  ColorCategory.Black:
+                                Blue = 49;
+                                Green = 49;
+                                Red = 49;
+                                break;
+                        }
                     }
                 }
             }
@@ -215,6 +219,10 @@
                         }
                         if (interpolationValue < 1)
                         {
+                            this.UseFontSmoothing = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.VerticalAlignment = RenderingLibrary.Graphics.VerticalAlignment.Top;
                         }
                         if (interpolationValue < 1)
@@ -293,6 +301,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.UseCustomFont = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.UseFontSmoothing = true;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -713,6 +725,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "UseFontSmoothing",
+                            Type = "bool",
+                            Value = UseFontSmoothing
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "VerticalAlignment",
                             Type = "VerticalAlignment",
                             Value = VerticalAlignment
@@ -918,6 +938,14 @@
                             Name = "UseCustomFont",
                             Type = "bool",
                             Value = UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "UseFontSmoothing",
+                            Type = "bool",
+                            Value = UseFontSmoothing
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

@@ -2,19 +2,11 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Screens;
+using System.Linq;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
 using FlatRedBall.Gui;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,105 +20,182 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         #if DEBUG
         static bool HasBeenLoadedWithGlobalContentManager = false;
         #endif
-        public enum VariableState
+        public class VariableState
         {
-            Uninitialized = 0, //This exists so that the first set call actually does something
-            Unknown = 1, //This exists so that if the entity is actually a child entity and has set a child state, you will get this
-            ValidLocation = 2, 
-            InvalidLocation = 3, 
-            Built = 4, 
-            CantAfford = 5, 
-            Selected = 6
+            public float X;
+            public float Y;
+            public float Z;
+            public float SpriteInstanceRed;
+            public float SpriteInstanceGreen;
+            public FlatRedBall.Graphics.ColorOperation SpriteInstanceColorOperation;
+            public bool IsBeingPlaced;
+            public string DisplayName;
+            public bool HasLightSource;
+            public float LightSpriteInstanceRed;
+            public float LightSpriteInstanceGreen;
+            public float LightSpriteInstanceBlue;
+            public string StructureDescription;
+            public System.Double SecondsBetweenFiring;
+            public float AttackDamage;
+            public float ProjectileSpeed;
+            public float RangedRadius;
+            public float ProjectileAltitude;
+            public bool HasSplashDamage;
+            public bool SlowsEnemies;
+            public bool StunsEnemies;
+            public bool IsPiercing;
+            public bool IsBombarding;
+            public bool IsChemical;
+            public bool IsElectrical;
+            public bool IsFire;
+            public bool IsFrost;
+            public float MinimumRangeRadius;
+            public System.Double StatusEffectSeconds;
+            public float StatusDamageMultiplier;
+            public int SatoshiCost;
+            public static VariableState ValidLocation = new VariableState()
+            {
+                SpriteInstanceRed = 0f,
+                SpriteInstanceGreen = 255f,
+                SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate,
+            }
+            ;
+            public static VariableState InvalidLocation = new VariableState()
+            {
+                SpriteInstanceRed = 255f,
+                SpriteInstanceGreen = 0f,
+                SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate,
+            }
+            ;
+            public static VariableState Built = new VariableState()
+            {
+                SpriteInstanceRed = 0f,
+                SpriteInstanceGreen = 0f,
+                SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.InverseTexture,
+            }
+            ;
+            public static VariableState CantAfford = new VariableState()
+            {
+                SpriteInstanceRed = 255f,
+                SpriteInstanceGreen = 255f,
+            }
+            ;
+            public static VariableState Selected = new VariableState()
+            {
+                SpriteInstanceRed = 0f,
+                SpriteInstanceGreen = 255f,
+            }
+            ;
         }
-        protected int mCurrentState = 0;
+        private VariableState mCurrentState = null;
         public Entities.BaseEntities.BaseStructure.VariableState CurrentState
         {
             get
             {
-                if (mCurrentState >= 0 && mCurrentState <= 6)
-                {
-                    return (VariableState)mCurrentState;
-                }
-                else
-                {
-                    return VariableState.Unknown;
-                }
+                return mCurrentState;
             }
             set
             {
-                mCurrentState = (int)value;
-                switch(CurrentState)
+                mCurrentState = value;
+                if (CurrentState == VariableState.ValidLocation)
                 {
-                    case  VariableState.Uninitialized:
-                        break;
-                    case  VariableState.Unknown:
-                        break;
-                    case  VariableState.ValidLocation:
-                        SpriteInstanceRed = 0f;
-                        SpriteInstanceGreen = 255f;
-                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                        break;
-                    case  VariableState.InvalidLocation:
-                        SpriteInstanceRed = 255f;
-                        SpriteInstanceGreen = 0f;
-                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                        break;
-                    case  VariableState.Built:
-                        SpriteInstanceRed = 0f;
-                        SpriteInstanceGreen = 0f;
-                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
-                        break;
-                    case  VariableState.CantAfford:
-                        SpriteInstanceRed = 255f;
-                        SpriteInstanceGreen = 255f;
-                        break;
-                    case  VariableState.Selected:
-                        SpriteInstanceRed = 0f;
-                        SpriteInstanceGreen = 255f;
-                        break;
+                    SpriteInstanceRed = 0f;
+                    SpriteInstanceGreen = 255f;
+                    SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                }
+                else if (CurrentState == VariableState.InvalidLocation)
+                {
+                    SpriteInstanceRed = 255f;
+                    SpriteInstanceGreen = 0f;
+                    SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                }
+                else if (CurrentState == VariableState.Built)
+                {
+                    SpriteInstanceRed = 0f;
+                    SpriteInstanceGreen = 0f;
+                    SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.InverseTexture;
+                }
+                else if (CurrentState == VariableState.CantAfford)
+                {
+                    SpriteInstanceRed = 255f;
+                    SpriteInstanceGreen = 255f;
+                }
+                else if (CurrentState == VariableState.Selected)
+                {
+                    SpriteInstanceRed = 0f;
+                    SpriteInstanceGreen = 255f;
                 }
             }
         }
-        public enum OnOff
+        public class OnOff
         {
-            Uninitialized = 0, //This exists so that the first set call actually does something
-            Unknown = 1, //This exists so that if the entity is actually a child entity and has set a child state, you will get this
-            On = 2, 
-            Off = 3
+            public float X;
+            public float Y;
+            public float Z;
+            public float SpriteInstanceRed;
+            public float SpriteInstanceGreen;
+            public FlatRedBall.Graphics.ColorOperation SpriteInstanceColorOperation;
+            public bool IsBeingPlaced;
+            public string DisplayName;
+            public bool HasLightSource;
+            public float LightSpriteInstanceRed;
+            public float LightSpriteInstanceGreen;
+            public float LightSpriteInstanceBlue;
+            public string StructureDescription;
+            public System.Double SecondsBetweenFiring;
+            public float AttackDamage;
+            public float ProjectileSpeed;
+            public float RangedRadius;
+            public float ProjectileAltitude;
+            public bool HasSplashDamage;
+            public bool SlowsEnemies;
+            public bool StunsEnemies;
+            public bool IsPiercing;
+            public bool IsBombarding;
+            public bool IsChemical;
+            public bool IsElectrical;
+            public bool IsFire;
+            public bool IsFrost;
+            public float MinimumRangeRadius;
+            public System.Double StatusEffectSeconds;
+            public float StatusDamageMultiplier;
+            public int SatoshiCost;
+            public static OnOff On = new OnOff()
+            {
+                LightSpriteInstanceRed = 1f,
+                LightSpriteInstanceGreen = 1f,
+                LightSpriteInstanceBlue = 1f,
+            }
+            ;
+            public static OnOff Off = new OnOff()
+            {
+                LightSpriteInstanceRed = 1f,
+                LightSpriteInstanceGreen = 0.1f,
+                LightSpriteInstanceBlue = 0.1f,
+            }
+            ;
         }
-        protected int mCurrentOnOffState = 0;
+        private OnOff mCurrentOnOffState = null;
         public Entities.BaseEntities.BaseStructure.OnOff CurrentOnOffState
         {
             get
             {
-                if (mCurrentOnOffState >= 0 && mCurrentOnOffState <= 3)
-                {
-                    return (OnOff)mCurrentOnOffState;
-                }
-                else
-                {
-                    return OnOff.Unknown;
-                }
+                return mCurrentOnOffState;
             }
             set
             {
-                mCurrentOnOffState = (int)value;
-                switch(CurrentOnOffState)
+                mCurrentOnOffState = value;
+                if (CurrentOnOffState == OnOff.On)
                 {
-                    case  OnOff.Uninitialized:
-                        break;
-                    case  OnOff.Unknown:
-                        break;
-                    case  OnOff.On:
-                        LightSpriteInstanceRed = 1f;
-                        LightSpriteInstanceGreen = 1f;
-                        LightSpriteInstanceBlue = 1f;
-                        break;
-                    case  OnOff.Off:
-                        LightSpriteInstanceRed = 1f;
-                        LightSpriteInstanceGreen = 0.1f;
-                        LightSpriteInstanceBlue = 0.1f;
-                        break;
+                    LightSpriteInstanceRed = 1f;
+                    LightSpriteInstanceGreen = 1f;
+                    LightSpriteInstanceBlue = 1f;
+                }
+                else if (CurrentOnOffState == OnOff.Off)
+                {
+                    LightSpriteInstanceRed = 1f;
+                    LightSpriteInstanceGreen = 0.1f;
+                    LightSpriteInstanceBlue = 0.1f;
                 }
             }
         }
@@ -247,8 +316,8 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 mLightAimSpriteInstance = value;
             }
         }
-        private AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime mStructureUpgradeStatusInstance;
-        public AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime StructureUpgradeStatusInstance
+        private AbbatoirIntergrade.GumRuntimes.infodisplays.StructureUpgradeStatusRuntime mStructureUpgradeStatusInstance;
+        public AbbatoirIntergrade.GumRuntimes.infodisplays.StructureUpgradeStatusRuntime StructureUpgradeStatusInstance
         {
             get
             {
@@ -492,15 +561,20 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         protected virtual void InitializeEntity (bool addToManagers) 
         {
             LoadStaticContent(ContentManagerName);
+            // Not instantiating for Sprite mSpriteInstance in Entities\BaseEntities\BaseStructure because properties on the object prevent it
+            // Not instantiating for AxisAlignedRectangle mAxisAlignedRectangleInstance in Entities\BaseEntities\BaseStructure because properties on the object prevent it
+            // Not instantiating for Sprite mLightSpriteInstance in Entities\BaseEntities\BaseStructure because properties on the object prevent it
             mRangeCircleInstance = new FlatRedBall.Math.Geometry.Circle();
             mRangeCircleInstance.Name = "mRangeCircleInstance";
+            // Not instantiating for Sprite mAimSpriteInstance in Entities\BaseEntities\BaseStructure because properties on the object prevent it
+            // Not instantiating for PositionedObject mPivotPoint in Entities\BaseEntities\BaseStructure because properties on the object prevent it
             mMinimumRangeCircleInstance = new FlatRedBall.Math.Geometry.Circle();
             mMinimumRangeCircleInstance.Name = "mMinimumRangeCircleInstance";
             mRangePreviewSprite = new FlatRedBall.Sprite();
             mRangePreviewSprite.Name = "mRangePreviewSprite";
             mLightAimSpriteInstance = new FlatRedBall.Sprite();
             mLightAimSpriteInstance.Name = "mLightAimSpriteInstance";
-            {var oldLayoutSuspended = global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended; global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true; mStructureUpgradeStatusInstance = new AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime();global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = oldLayoutSuspended; mStructureUpgradeStatusInstance.UpdateLayout();}
+            {var oldLayoutSuspended = global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended; global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true; mStructureUpgradeStatusInstance = new AbbatoirIntergrade.GumRuntimes.infodisplays.StructureUpgradeStatusRuntime();global::Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = oldLayoutSuspended; mStructureUpgradeStatusInstance.UpdateLayout();}
             WarpSpriteInstance = new FlatRedBall.Sprite();
             WarpSpriteInstance.Name = "WarpSpriteInstance";
             
@@ -952,7 +1026,7 @@ gumAttachmentWrappers.Add(wrapperForAttachment);
                 }
             }
         }
-        static VariableState mLoadingState = VariableState.Uninitialized;
+        static VariableState mLoadingState = null;
         public static VariableState LoadingState
         {
             get
@@ -966,28 +1040,30 @@ gumAttachmentWrappers.Add(wrapperForAttachment);
         }
         public FlatRedBall.Instructions.Instruction InterpolateToState (VariableState stateToInterpolateTo, double secondsToTake) 
         {
-            switch(stateToInterpolateTo)
+            if (stateToInterpolateTo == VariableState.ValidLocation)
             {
-                case  VariableState.ValidLocation:
-                    SpriteInstance.RedRate = (0f - SpriteInstance.Red) / (float)secondsToTake;
-                    SpriteInstance.GreenRate = (255f - SpriteInstance.Green) / (float)secondsToTake;
-                    break;
-                case  VariableState.InvalidLocation:
-                    SpriteInstance.RedRate = (255f - SpriteInstance.Red) / (float)secondsToTake;
-                    SpriteInstance.GreenRate = (0f - SpriteInstance.Green) / (float)secondsToTake;
-                    break;
-                case  VariableState.Built:
-                    SpriteInstance.RedRate = (0f - SpriteInstance.Red) / (float)secondsToTake;
-                    SpriteInstance.GreenRate = (0f - SpriteInstance.Green) / (float)secondsToTake;
-                    break;
-                case  VariableState.CantAfford:
-                    SpriteInstance.RedRate = (255f - SpriteInstance.Red) / (float)secondsToTake;
-                    SpriteInstance.GreenRate = (255f - SpriteInstance.Green) / (float)secondsToTake;
-                    break;
-                case  VariableState.Selected:
-                    SpriteInstance.RedRate = (0f - SpriteInstance.Red) / (float)secondsToTake;
-                    SpriteInstance.GreenRate = (255f - SpriteInstance.Green) / (float)secondsToTake;
-                    break;
+                SpriteInstance.RedRate = (0f - SpriteInstance.Red) / (float)secondsToTake;
+                SpriteInstance.GreenRate = (255f - SpriteInstance.Green) / (float)secondsToTake;
+            }
+            else if (stateToInterpolateTo == VariableState.InvalidLocation)
+            {
+                SpriteInstance.RedRate = (255f - SpriteInstance.Red) / (float)secondsToTake;
+                SpriteInstance.GreenRate = (0f - SpriteInstance.Green) / (float)secondsToTake;
+            }
+            else if (stateToInterpolateTo == VariableState.Built)
+            {
+                SpriteInstance.RedRate = (0f - SpriteInstance.Red) / (float)secondsToTake;
+                SpriteInstance.GreenRate = (0f - SpriteInstance.Green) / (float)secondsToTake;
+            }
+            else if (stateToInterpolateTo == VariableState.CantAfford)
+            {
+                SpriteInstance.RedRate = (255f - SpriteInstance.Red) / (float)secondsToTake;
+                SpriteInstance.GreenRate = (255f - SpriteInstance.Green) / (float)secondsToTake;
+            }
+            else if (stateToInterpolateTo == VariableState.Selected)
+            {
+                SpriteInstance.RedRate = (0f - SpriteInstance.Red) / (float)secondsToTake;
+                SpriteInstance.GreenRate = (255f - SpriteInstance.Green) / (float)secondsToTake;
             }
             var instruction = new FlatRedBall.Instructions.DelegateInstruction<VariableState>(StopStateInterpolation, stateToInterpolateTo);
             instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
@@ -996,28 +1072,30 @@ gumAttachmentWrappers.Add(wrapperForAttachment);
         }
         public void StopStateInterpolation (VariableState stateToStop) 
         {
-            switch(stateToStop)
+            if (stateToStop == VariableState.ValidLocation)
             {
-                case  VariableState.ValidLocation:
-                    SpriteInstance.RedRate =  0;
-                    SpriteInstance.GreenRate =  0;
-                    break;
-                case  VariableState.InvalidLocation:
-                    SpriteInstance.RedRate =  0;
-                    SpriteInstance.GreenRate =  0;
-                    break;
-                case  VariableState.Built:
-                    SpriteInstance.RedRate =  0;
-                    SpriteInstance.GreenRate =  0;
-                    break;
-                case  VariableState.CantAfford:
-                    SpriteInstance.RedRate =  0;
-                    SpriteInstance.GreenRate =  0;
-                    break;
-                case  VariableState.Selected:
-                    SpriteInstance.RedRate =  0;
-                    SpriteInstance.GreenRate =  0;
-                    break;
+                SpriteInstance.RedRate =  0;
+                SpriteInstance.GreenRate =  0;
+            }
+            else if (stateToStop == VariableState.InvalidLocation)
+            {
+                SpriteInstance.RedRate =  0;
+                SpriteInstance.GreenRate =  0;
+            }
+            else if (stateToStop == VariableState.Built)
+            {
+                SpriteInstance.RedRate =  0;
+                SpriteInstance.GreenRate =  0;
+            }
+            else if (stateToStop == VariableState.CantAfford)
+            {
+                SpriteInstance.RedRate =  0;
+                SpriteInstance.GreenRate =  0;
+            }
+            else if (stateToStop == VariableState.Selected)
+            {
+                SpriteInstance.RedRate =  0;
+                SpriteInstance.GreenRate =  0;
             }
             CurrentState = stateToStop;
         }
@@ -1035,75 +1113,79 @@ gumAttachmentWrappers.Add(wrapperForAttachment);
             bool setSpriteInstanceGreen = true;
             float SpriteInstanceGreenFirstValue= 0;
             float SpriteInstanceGreenSecondValue= 0;
-            switch(firstState)
+            if (firstState == VariableState.ValidLocation)
             {
-                case  VariableState.ValidLocation:
-                    SpriteInstanceRedFirstValue = 0f;
-                    SpriteInstanceGreenFirstValue = 255f;
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                    }
-                    break;
-                case  VariableState.InvalidLocation:
-                    SpriteInstanceRedFirstValue = 255f;
-                    SpriteInstanceGreenFirstValue = 0f;
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                    }
-                    break;
-                case  VariableState.Built:
-                    SpriteInstanceRedFirstValue = 0f;
-                    SpriteInstanceGreenFirstValue = 0f;
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
-                    }
-                    break;
-                case  VariableState.CantAfford:
-                    SpriteInstanceRedFirstValue = 255f;
-                    SpriteInstanceGreenFirstValue = 255f;
-                    break;
-                case  VariableState.Selected:
-                    SpriteInstanceRedFirstValue = 0f;
-                    SpriteInstanceGreenFirstValue = 255f;
-                    break;
+                SpriteInstanceRedFirstValue = 0f;
+                SpriteInstanceGreenFirstValue = 255f;
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                }
             }
-            switch(secondState)
+            else if (firstState == VariableState.InvalidLocation)
             {
-                case  VariableState.ValidLocation:
-                    SpriteInstanceRedSecondValue = 0f;
-                    SpriteInstanceGreenSecondValue = 255f;
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                    }
-                    break;
-                case  VariableState.InvalidLocation:
-                    SpriteInstanceRedSecondValue = 255f;
-                    SpriteInstanceGreenSecondValue = 0f;
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                    }
-                    break;
-                case  VariableState.Built:
-                    SpriteInstanceRedSecondValue = 0f;
-                    SpriteInstanceGreenSecondValue = 0f;
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
-                    }
-                    break;
-                case  VariableState.CantAfford:
-                    SpriteInstanceRedSecondValue = 255f;
-                    SpriteInstanceGreenSecondValue = 255f;
-                    break;
-                case  VariableState.Selected:
-                    SpriteInstanceRedSecondValue = 0f;
-                    SpriteInstanceGreenSecondValue = 255f;
-                    break;
+                SpriteInstanceRedFirstValue = 255f;
+                SpriteInstanceGreenFirstValue = 0f;
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                }
+            }
+            else if (firstState == VariableState.Built)
+            {
+                SpriteInstanceRedFirstValue = 0f;
+                SpriteInstanceGreenFirstValue = 0f;
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.InverseTexture;
+                }
+            }
+            else if (firstState == VariableState.CantAfford)
+            {
+                SpriteInstanceRedFirstValue = 255f;
+                SpriteInstanceGreenFirstValue = 255f;
+            }
+            else if (firstState == VariableState.Selected)
+            {
+                SpriteInstanceRedFirstValue = 0f;
+                SpriteInstanceGreenFirstValue = 255f;
+            }
+            if (secondState == VariableState.ValidLocation)
+            {
+                SpriteInstanceRedSecondValue = 0f;
+                SpriteInstanceGreenSecondValue = 255f;
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                }
+            }
+            else if (secondState == VariableState.InvalidLocation)
+            {
+                SpriteInstanceRedSecondValue = 255f;
+                SpriteInstanceGreenSecondValue = 0f;
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                }
+            }
+            else if (secondState == VariableState.Built)
+            {
+                SpriteInstanceRedSecondValue = 0f;
+                SpriteInstanceGreenSecondValue = 0f;
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.InverseTexture;
+                }
+            }
+            else if (secondState == VariableState.CantAfford)
+            {
+                SpriteInstanceRedSecondValue = 255f;
+                SpriteInstanceGreenSecondValue = 255f;
+            }
+            else if (secondState == VariableState.Selected)
+            {
+                SpriteInstanceRedSecondValue = 0f;
+                SpriteInstanceGreenSecondValue = 255f;
             }
             if (setSpriteInstanceRed)
             {
@@ -1115,27 +1197,26 @@ gumAttachmentWrappers.Add(wrapperForAttachment);
             }
             if (interpolationValue < 1)
             {
-                mCurrentState = (int)firstState;
+                mCurrentState = firstState;
             }
             else
             {
-                mCurrentState = (int)secondState;
+                mCurrentState = secondState;
             }
         }
         public FlatRedBall.Instructions.Instruction InterpolateToState (OnOff stateToInterpolateTo, double secondsToTake) 
         {
-            switch(stateToInterpolateTo)
+            if (stateToInterpolateTo == OnOff.On)
             {
-                case  OnOff.On:
-                    LightSpriteInstance.RedRate = (1f - LightSpriteInstance.Red) / (float)secondsToTake;
-                    LightSpriteInstance.GreenRate = (1f - LightSpriteInstance.Green) / (float)secondsToTake;
-                    LightSpriteInstance.BlueRate = (1f - LightSpriteInstance.Blue) / (float)secondsToTake;
-                    break;
-                case  OnOff.Off:
-                    LightSpriteInstance.RedRate = (1f - LightSpriteInstance.Red) / (float)secondsToTake;
-                    LightSpriteInstance.GreenRate = (0.1f - LightSpriteInstance.Green) / (float)secondsToTake;
-                    LightSpriteInstance.BlueRate = (0.1f - LightSpriteInstance.Blue) / (float)secondsToTake;
-                    break;
+                LightSpriteInstance.RedRate = (1f - LightSpriteInstance.Red) / (float)secondsToTake;
+                LightSpriteInstance.GreenRate = (1f - LightSpriteInstance.Green) / (float)secondsToTake;
+                LightSpriteInstance.BlueRate = (1f - LightSpriteInstance.Blue) / (float)secondsToTake;
+            }
+            else if (stateToInterpolateTo == OnOff.Off)
+            {
+                LightSpriteInstance.RedRate = (1f - LightSpriteInstance.Red) / (float)secondsToTake;
+                LightSpriteInstance.GreenRate = (0.1f - LightSpriteInstance.Green) / (float)secondsToTake;
+                LightSpriteInstance.BlueRate = (0.1f - LightSpriteInstance.Blue) / (float)secondsToTake;
             }
             var instruction = new FlatRedBall.Instructions.DelegateInstruction<OnOff>(StopStateInterpolation, stateToInterpolateTo);
             instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
@@ -1144,18 +1225,17 @@ gumAttachmentWrappers.Add(wrapperForAttachment);
         }
         public void StopStateInterpolation (OnOff stateToStop) 
         {
-            switch(stateToStop)
+            if (stateToStop == OnOff.On)
             {
-                case  OnOff.On:
-                    LightSpriteInstance.RedRate =  0;
-                    LightSpriteInstance.GreenRate =  0;
-                    LightSpriteInstance.BlueRate =  0;
-                    break;
-                case  OnOff.Off:
-                    LightSpriteInstance.RedRate =  0;
-                    LightSpriteInstance.GreenRate =  0;
-                    LightSpriteInstance.BlueRate =  0;
-                    break;
+                LightSpriteInstance.RedRate =  0;
+                LightSpriteInstance.GreenRate =  0;
+                LightSpriteInstance.BlueRate =  0;
+            }
+            else if (stateToStop == OnOff.Off)
+            {
+                LightSpriteInstance.RedRate =  0;
+                LightSpriteInstance.GreenRate =  0;
+                LightSpriteInstance.BlueRate =  0;
             }
             CurrentOnOffState = stateToStop;
         }
@@ -1176,31 +1256,29 @@ gumAttachmentWrappers.Add(wrapperForAttachment);
             bool setLightSpriteInstanceBlue = true;
             float LightSpriteInstanceBlueFirstValue= 0;
             float LightSpriteInstanceBlueSecondValue= 0;
-            switch(firstState)
+            if (firstState == OnOff.On)
             {
-                case  OnOff.On:
-                    LightSpriteInstanceRedFirstValue = 1f;
-                    LightSpriteInstanceGreenFirstValue = 1f;
-                    LightSpriteInstanceBlueFirstValue = 1f;
-                    break;
-                case  OnOff.Off:
-                    LightSpriteInstanceRedFirstValue = 1f;
-                    LightSpriteInstanceGreenFirstValue = 0.1f;
-                    LightSpriteInstanceBlueFirstValue = 0.1f;
-                    break;
+                LightSpriteInstanceRedFirstValue = 1f;
+                LightSpriteInstanceGreenFirstValue = 1f;
+                LightSpriteInstanceBlueFirstValue = 1f;
             }
-            switch(secondState)
+            else if (firstState == OnOff.Off)
             {
-                case  OnOff.On:
-                    LightSpriteInstanceRedSecondValue = 1f;
-                    LightSpriteInstanceGreenSecondValue = 1f;
-                    LightSpriteInstanceBlueSecondValue = 1f;
-                    break;
-                case  OnOff.Off:
-                    LightSpriteInstanceRedSecondValue = 1f;
-                    LightSpriteInstanceGreenSecondValue = 0.1f;
-                    LightSpriteInstanceBlueSecondValue = 0.1f;
-                    break;
+                LightSpriteInstanceRedFirstValue = 1f;
+                LightSpriteInstanceGreenFirstValue = 0.1f;
+                LightSpriteInstanceBlueFirstValue = 0.1f;
+            }
+            if (secondState == OnOff.On)
+            {
+                LightSpriteInstanceRedSecondValue = 1f;
+                LightSpriteInstanceGreenSecondValue = 1f;
+                LightSpriteInstanceBlueSecondValue = 1f;
+            }
+            else if (secondState == OnOff.Off)
+            {
+                LightSpriteInstanceRedSecondValue = 1f;
+                LightSpriteInstanceGreenSecondValue = 0.1f;
+                LightSpriteInstanceBlueSecondValue = 0.1f;
             }
             if (setLightSpriteInstanceRed)
             {
@@ -1216,39 +1294,40 @@ gumAttachmentWrappers.Add(wrapperForAttachment);
             }
             if (interpolationValue < 1)
             {
-                mCurrentOnOffState = (int)firstState;
+                mCurrentOnOffState = firstState;
             }
             else
             {
-                mCurrentOnOffState = (int)secondState;
+                mCurrentOnOffState = secondState;
             }
         }
         public static void PreloadStateContent (VariableState state, string contentManagerName) 
         {
             ContentManagerName = contentManagerName;
-            switch(state)
+            if (state == VariableState.ValidLocation)
             {
-                case  VariableState.ValidLocation:
-                    break;
-                case  VariableState.InvalidLocation:
-                    break;
-                case  VariableState.Built:
-                    break;
-                case  VariableState.CantAfford:
-                    break;
-                case  VariableState.Selected:
-                    break;
+            }
+            else if (state == VariableState.InvalidLocation)
+            {
+            }
+            else if (state == VariableState.Built)
+            {
+            }
+            else if (state == VariableState.CantAfford)
+            {
+            }
+            else if (state == VariableState.Selected)
+            {
             }
         }
         public static void PreloadStateContent (OnOff state, string contentManagerName) 
         {
             ContentManagerName = contentManagerName;
-            switch(state)
+            if (state == OnOff.On)
             {
-                case  OnOff.On:
-                    break;
-                case  OnOff.Off:
-                    break;
+            }
+            else if (state == OnOff.Off)
+            {
             }
         }
         [System.Obsolete("Use GetFile instead")]

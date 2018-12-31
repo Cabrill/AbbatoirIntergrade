@@ -421,18 +421,22 @@
   <Instance>
     <Name>BackgroundSprite</Name>
     <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>SelectSprite</Name>
     <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>StructureSprite</Name>
     <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ContainerInstance</Name>
     <BaseType>Container</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

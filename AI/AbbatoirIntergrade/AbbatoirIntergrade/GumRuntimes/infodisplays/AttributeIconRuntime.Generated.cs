@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.infodisplays
     {
         public partial class AttributeIconRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -20,7 +20,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            AttributeType mCurrentAttributeTypeState;
+            AttributeType? mCurrentAttributeTypeState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -49,7 +49,7 @@
                     }
                 }
             }
-            public AttributeType CurrentAttributeTypeState
+            public AttributeType? CurrentAttributeTypeState
             {
                 get
                 {
@@ -57,45 +57,48 @@
                 }
                 set
                 {
-                    mCurrentAttributeTypeState = value;
-                    switch(mCurrentAttributeTypeState)
+                    if (value != null)
                     {
-                        case  AttributeType.Health:
-                            SpriteInstance.Blue = 75;
-                            SpriteInstance.Green = 75;
-                            SpriteInstance.Red = 255;
-                            SpriteInstance.TextureTop = 272;
-                            break;
-                        case  AttributeType.MaxRange:
-                            SpriteInstance.Blue = 50;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 50;
-                            SpriteInstance.TextureTop = 136;
-                            break;
-                        case  AttributeType.AttackSpeed:
-                            SpriteInstance.Blue = 200;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 200;
-                            SpriteInstance.TextureTop = 68;
-                            break;
-                        case  AttributeType.MinRange:
-                            SpriteInstance.Blue = 0;
-                            SpriteInstance.Green = 0;
-                            SpriteInstance.Red = 255;
-                            SpriteInstance.TextureTop = 136;
-                            break;
-                        case  AttributeType.MoveSpeed:
-                            SpriteInstance.Blue = 100;
-                            SpriteInstance.Green = 200;
-                            SpriteInstance.Red = 255;
-                            SpriteInstance.TextureTop = 204;
-                            break;
-                        case  AttributeType.PointOrSplash:
-                            SpriteInstance.Blue = 255;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 255;
-                            SpriteInstance.TextureTop = 0;
-                            break;
+                        mCurrentAttributeTypeState = value;
+                        switch(mCurrentAttributeTypeState)
+                        {
+                            case  AttributeType.Health:
+                                SpriteInstance.Blue = 75;
+                                SpriteInstance.Green = 75;
+                                SpriteInstance.Red = 255;
+                                SpriteInstance.TextureTop = 272;
+                                break;
+                            case  AttributeType.MaxRange:
+                                SpriteInstance.Blue = 50;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 50;
+                                SpriteInstance.TextureTop = 136;
+                                break;
+                            case  AttributeType.AttackSpeed:
+                                SpriteInstance.Blue = 200;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 200;
+                                SpriteInstance.TextureTop = 68;
+                                break;
+                            case  AttributeType.MinRange:
+                                SpriteInstance.Blue = 0;
+                                SpriteInstance.Green = 0;
+                                SpriteInstance.Red = 255;
+                                SpriteInstance.TextureTop = 136;
+                                break;
+                            case  AttributeType.MoveSpeed:
+                                SpriteInstance.Blue = 100;
+                                SpriteInstance.Green = 200;
+                                SpriteInstance.Red = 255;
+                                SpriteInstance.TextureTop = 204;
+                                break;
+                            case  AttributeType.PointOrSplash:
+                                SpriteInstance.Blue = 255;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 255;
+                                SpriteInstance.TextureTop = 0;
+                                break;
+                        }
                     }
                 }
             }
@@ -409,7 +412,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -463,7 +466,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType fromState,AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

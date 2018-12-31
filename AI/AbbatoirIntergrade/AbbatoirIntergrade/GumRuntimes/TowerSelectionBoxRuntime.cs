@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.Entities.BaseEntities;
 using AbbatoirIntergrade.Entities.Structures;
+using AbbatoirIntergrade.GumRuntimes.infodisplays;
 using FlatRedBall.Gui;
 
 namespace AbbatoirIntergrade.GumRuntimes

@@ -2,15 +2,8 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
+using System.Linq;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -32,9 +25,9 @@ namespace AbbatoirIntergrade.Screens
         
         private AbbatoirIntergrade.GumRuntimes.EndingScreenGumRuntime EndingScreenGumInstance;
         private AbbatoirIntergrade.GumRuntimes.TextRuntime EndingTextRuntimeInstance;
-        private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonInstance;
+        private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime ButtonInstance;
         private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime EndingTextContainer;
-        private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance;
+        private AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance;
         private AbbatoirIntergrade.GumRuntimes.ContainerRuntime CreditsContainer;
         public EndingScreen () 
         	: base ("EndingScreen")
@@ -45,9 +38,9 @@ namespace AbbatoirIntergrade.Screens
             LoadStaticContent(ContentManagerName);
             EndingScreenGumInstance = EndingScreenGum.GetGraphicalUiElementByName("this") as AbbatoirIntergrade.GumRuntimes.EndingScreenGumRuntime;
             EndingTextRuntimeInstance = EndingScreenGum.GetGraphicalUiElementByName("EndingText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-            ButtonInstance = EndingScreenGum.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
+            ButtonInstance = EndingScreenGum.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
             EndingTextContainer = EndingScreenGum.GetGraphicalUiElementByName("EndingTextContainer") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
-            CurrentMusicDisplayInstance = EndingScreenGum.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
+            CurrentMusicDisplayInstance = EndingScreenGum.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime;
             CreditsContainer = EndingScreenGum.GetGraphicalUiElementByName("CreditsContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
             
             
@@ -216,6 +209,16 @@ namespace AbbatoirIntergrade.Screens
                 }
             }
             CustomLoadStaticContent(contentManagerName);
+        }
+        public override void PauseThisScreen () 
+        {
+            StateInterpolationPlugin.TweenerManager.Self.Pause();
+            base.PauseThisScreen();
+        }
+        public override void UnpauseThisScreen () 
+        {
+            StateInterpolationPlugin.TweenerManager.Self.Unpause();
+            base.UnpauseThisScreen();
         }
         [System.Obsolete("Use GetFile instead")]
         public static object GetStaticMember (string memberName) 

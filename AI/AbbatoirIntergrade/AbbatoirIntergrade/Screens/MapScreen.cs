@@ -22,7 +22,8 @@ using Gum.Converters;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input;
 using RenderingLibrary.Graphics;
-
+using AbbatoirIntergrade.GumRuntimes.frames;
+using AbbatoirIntergrade.GumRuntimes.specificbuttons;
 
 namespace AbbatoirIntergrade.Screens
 {

@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.infodisplays
     {
         public partial class LocationTimeAnnouncementRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -17,7 +17,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Displaying mCurrentDisplayingState;
+            Displaying? mCurrentDisplayingState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -61,7 +61,7 @@
                     }
                 }
             }
-            public Displaying CurrentDisplayingState
+            public Displaying? CurrentDisplayingState
             {
                 get
                 {
@@ -69,30 +69,33 @@
                 }
                 set
                 {
-                    mCurrentDisplayingState = value;
-                    switch(mCurrentDisplayingState)
+                    if (value != null)
                     {
-                        case  Displaying.Start:
-                            Y = 0f;
-                            LocationText.Alpha = 0;
-                            LocationText.FontScale = 0.5f;
-                            DateTimeText.Alpha = 0;
-                            DateTimeText.FontScale = 0.35f;
-                            break;
-                        case  Displaying.Middle:
-                            Y = 30f;
-                            LocationText.Alpha = 255;
-                            LocationText.FontScale = 1f;
-                            DateTimeText.Alpha = 255;
-                            DateTimeText.FontScale = 0.7f;
-                            break;
-                        case  Displaying.End:
-                            Y = 35f;
-                            LocationText.Alpha = 0;
-                            LocationText.FontScale = 1.25f;
-                            DateTimeText.Alpha = 0;
-                            DateTimeText.FontScale = 0.875f;
-                            break;
+                        mCurrentDisplayingState = value;
+                        switch(mCurrentDisplayingState)
+                        {
+                            case  Displaying.Start:
+                                Y = 0f;
+                                LocationText.Alpha = 0;
+                                LocationText.FontScale = 0.5f;
+                                DateTimeText.Alpha = 0;
+                                DateTimeText.FontScale = 0.35f;
+                                break;
+                            case  Displaying.Middle:
+                                Y = 30f;
+                                LocationText.Alpha = 255;
+                                LocationText.FontScale = 1f;
+                                DateTimeText.Alpha = 255;
+                                DateTimeText.FontScale = 0.7f;
+                                break;
+                            case  Displaying.End:
+                                Y = 35f;
+                                LocationText.Alpha = 0;
+                                LocationText.FontScale = 1.25f;
+                                DateTimeText.Alpha = 0;
+                                DateTimeText.FontScale = 0.875f;
+                                break;
+                        }
                     }
                 }
             }
@@ -490,7 +493,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.LocationTimeAnnouncementRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.LocationTimeAnnouncementRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -544,7 +547,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime.Displaying fromState,AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime.Displaying toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.LocationTimeAnnouncementRuntime.Displaying fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.LocationTimeAnnouncementRuntime.Displaying toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

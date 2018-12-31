@@ -18,7 +18,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            ComboBoxCategory mCurrentComboBoxCategoryState;
+            ComboBoxCategory? mCurrentComboBoxCategoryState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -50,7 +50,7 @@
                     }
                 }
             }
-            public ComboBoxCategory CurrentComboBoxCategoryState
+            public ComboBoxCategory? CurrentComboBoxCategoryState
             {
                 get
                 {
@@ -58,17 +58,20 @@
                 }
                 set
                 {
-                    mCurrentComboBoxCategoryState = value;
-                    switch(mCurrentComboBoxCategoryState)
+                    if (value != null)
                     {
-                        case  ComboBoxCategory.Enabled:
-                            break;
-                        case  ComboBoxCategory.Disabled:
-                            break;
-                        case  ComboBoxCategory.Highlighted:
-                            break;
-                        case  ComboBoxCategory.Pushed:
-                            break;
+                        mCurrentComboBoxCategoryState = value;
+                        switch(mCurrentComboBoxCategoryState)
+                        {
+                            case  ComboBoxCategory.Enabled:
+                                break;
+                            case  ComboBoxCategory.Disabled:
+                                break;
+                            case  ComboBoxCategory.Highlighted:
+                                break;
+                            case  ComboBoxCategory.Pushed:
+                                break;
+                        }
                     }
                 }
             }

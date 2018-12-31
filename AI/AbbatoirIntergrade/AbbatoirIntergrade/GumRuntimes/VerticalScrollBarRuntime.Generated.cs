@@ -14,7 +14,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            ScrollBarCategory mCurrentScrollBarCategoryState;
+            ScrollBarCategory? mCurrentScrollBarCategoryState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -69,7 +69,7 @@
                             DownButtonInstance.Height = 5f;
                             DownButtonInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             DownButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
-                            DownButtonInstance.CurrentUpDownState = AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.UpDown.Down;
+                            DownButtonInstance.CurrentUpDownState = AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.UpDown.Down;
                             DownButtonInstance.Width = 113f;
                             DownButtonInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfOtherDimension;
                             DownButtonInstance.X = -3f;
@@ -87,7 +87,7 @@
                     }
                 }
             }
-            public ScrollBarCategory CurrentScrollBarCategoryState
+            public ScrollBarCategory? CurrentScrollBarCategoryState
             {
                 get
                 {
@@ -95,9 +95,12 @@
                 }
                 set
                 {
-                    mCurrentScrollBarCategoryState = value;
-                    switch(mCurrentScrollBarCategoryState)
+                    if (value != null)
                     {
+                        mCurrentScrollBarCategoryState = value;
+                        switch(mCurrentScrollBarCategoryState)
+                        {
+                        }
                     }
                 }
             }
@@ -141,8 +144,8 @@
                 float DownButtonInstanceHeightSecondValue= 0;
                 bool setDownButtonInstanceCurrentUpDownStateFirstValue = false;
                 bool setDownButtonInstanceCurrentUpDownStateSecondValue = false;
-                UpDownButtonRuntime.UpDown DownButtonInstanceCurrentUpDownStateFirstValue= UpDownButtonRuntime.UpDown.Up;
-                UpDownButtonRuntime.UpDown DownButtonInstanceCurrentUpDownStateSecondValue= UpDownButtonRuntime.UpDown.Up;
+                AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.UpDown DownButtonInstanceCurrentUpDownStateFirstValue= AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.UpDown.Up;
+                AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.UpDown DownButtonInstanceCurrentUpDownStateSecondValue= AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.UpDown.Up;
                 bool setDownButtonInstanceWidthFirstValue = false;
                 bool setDownButtonInstanceWidthSecondValue = false;
                 float DownButtonInstanceWidthFirstValue= 0;
@@ -257,7 +260,7 @@
                             this.DownButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         setDownButtonInstanceCurrentUpDownStateFirstValue = true;
-                        DownButtonInstanceCurrentUpDownStateFirstValue = AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.UpDown.Down;
+                        DownButtonInstanceCurrentUpDownStateFirstValue = AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.UpDown.Down;
                         setDownButtonInstanceWidthFirstValue = true;
                         DownButtonInstanceWidthFirstValue = 113f;
                         if (interpolationValue < 1)
@@ -434,7 +437,7 @@
                             this.DownButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance") ?? this;
                         }
                         setDownButtonInstanceCurrentUpDownStateSecondValue = true;
-                        DownButtonInstanceCurrentUpDownStateSecondValue = AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.UpDown.Down;
+                        DownButtonInstanceCurrentUpDownStateSecondValue = AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.UpDown.Down;
                         setDownButtonInstanceWidthSecondValue = true;
                         DownButtonInstanceWidthSecondValue = 113f;
                         if (interpolationValue >= 1)
@@ -1714,9 +1717,9 @@
             private bool tryCreateFormsObject;
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime BarSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ScrollThumbRuntime ThumbInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime UpButtonInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime UpButtonInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ScrollTrack { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime DownButtonInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime DownButtonInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ContainerInstance { get; set; }
             public VerticalScrollBarRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
@@ -1747,9 +1750,9 @@
             {
                 BarSprite = this.GetGraphicalUiElementByName("BarSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 ThumbInstance = this.GetGraphicalUiElementByName("ThumbInstance") as AbbatoirIntergrade.GumRuntimes.ScrollThumbRuntime;
-                UpButtonInstance = this.GetGraphicalUiElementByName("UpButtonInstance") as AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime;
+                UpButtonInstance = this.GetGraphicalUiElementByName("UpButtonInstance") as AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime;
                 ScrollTrack = this.GetGraphicalUiElementByName("ScrollTrack") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
-                DownButtonInstance = this.GetGraphicalUiElementByName("DownButtonInstance") as AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime;
+                DownButtonInstance = this.GetGraphicalUiElementByName("DownButtonInstance") as AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime;
                 ContainerInstance = this.GetGraphicalUiElementByName("ContainerInstance") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 if (tryCreateFormsObject)
                 {

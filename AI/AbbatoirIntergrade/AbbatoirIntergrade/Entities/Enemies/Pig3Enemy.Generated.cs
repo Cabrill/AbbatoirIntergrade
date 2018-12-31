@@ -2,20 +2,11 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Screens;
+using System.Linq;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
-using AbbatoirIntergrade.Performance;
 using FlatRedBall.Gui;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -141,7 +132,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
         	: base(contentManagerName, addToManagers)
         {
             ContentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
-           
         }
         protected override void InitializeEntity (bool addToManagers) 
         {
@@ -152,6 +142,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             mCircleInstance.Name = "mCircleInstance";
             LightSprite = new FlatRedBall.Sprite();
             LightSprite.Name = "LightSprite";
+            // Not instantiating for AxisAlignedRectangle AxisAlignedRectangleInstance in Entities\Enemies\Pig3Enemy because properties on the object prevent it
             
             base.InitializeEntity(addToManagers);
             if (SpriteInstance.Parent == null)

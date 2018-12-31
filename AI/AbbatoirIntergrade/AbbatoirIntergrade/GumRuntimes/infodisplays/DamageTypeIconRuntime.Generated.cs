@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.infodisplays
     {
         public partial class DamageTypeIconRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -20,7 +20,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            DamageType mCurrentDamageTypeState;
+            DamageType? mCurrentDamageTypeState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -49,7 +49,7 @@
                     }
                 }
             }
-            public DamageType CurrentDamageTypeState
+            public DamageType? CurrentDamageTypeState
             {
                 get
                 {
@@ -57,27 +57,30 @@
                 }
                 set
                 {
-                    mCurrentDamageTypeState = value;
-                    switch(mCurrentDamageTypeState)
+                    if (value != null)
                     {
-                        case  DamageType.Piercing:
-                            SpriteInstance.TextureTop = 365;
-                            break;
-                        case  DamageType.Bombarding:
-                            SpriteInstance.TextureTop = 292;
-                            break;
-                        case  DamageType.Chemical:
-                            SpriteInstance.TextureTop = 73;
-                            break;
-                        case  DamageType.Frost:
-                            SpriteInstance.TextureTop = 219;
-                            break;
-                        case  DamageType.Fire:
-                            SpriteInstance.TextureTop = 146;
-                            break;
-                        case  DamageType.Electric:
-                            SpriteInstance.TextureTop = 0;
-                            break;
+                        mCurrentDamageTypeState = value;
+                        switch(mCurrentDamageTypeState)
+                        {
+                            case  DamageType.Piercing:
+                                SpriteInstance.TextureTop = 365;
+                                break;
+                            case  DamageType.Bombarding:
+                                SpriteInstance.TextureTop = 292;
+                                break;
+                            case  DamageType.Chemical:
+                                SpriteInstance.TextureTop = 73;
+                                break;
+                            case  DamageType.Frost:
+                                SpriteInstance.TextureTop = 219;
+                                break;
+                            case  DamageType.Fire:
+                                SpriteInstance.TextureTop = 146;
+                                break;
+                            case  DamageType.Electric:
+                                SpriteInstance.TextureTop = 0;
+                                break;
+                        }
                     }
                 }
             }
@@ -295,7 +298,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -349,7 +352,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType fromState,AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

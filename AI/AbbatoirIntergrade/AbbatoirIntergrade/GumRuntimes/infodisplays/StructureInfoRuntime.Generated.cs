@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.infodisplays
     {
         public partial class StructureInfoRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -27,9 +27,9 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            UpgradeAvailability mCurrentUpgradeAvailabilityState;
-            Selection mCurrentSelectionState;
-            CostInfo mCurrentCostInfoState;
+            UpgradeAvailability? mCurrentUpgradeAvailabilityState;
+            Selection? mCurrentSelectionState;
+            CostInfo? mCurrentCostInfoState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -118,7 +118,7 @@
                             ColoredRectangleInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             ColoredRectangleInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
                             ColoredRectangleInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
-                            AttackDamageType.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Piercing;
+                            AttackDamageType.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Piercing;
                             AttackDamageType.Height = 100f;
                             AttackDamageType.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             AttackDamageType.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "AttackCostContainer") ?? this;
@@ -129,7 +129,7 @@
                             AttackDamageType.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             AttackDamageType.X = 0f;
                             AttackDamageType.Y = 0f;
-                            MinRange.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MinRange;
+                            MinRange.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MinRange;
                             MinRange.AttributeText = "100";
                             MinRange.Height = 75f;
                             MinRange.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -140,7 +140,7 @@
                             MinRange.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             MinRange.Y = 12.5f;
                             MinRange.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            MaxRange.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
+                            MaxRange.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
                             MaxRange.AttributeText = "50";
                             MaxRange.Height = 75f;
                             MaxRange.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -163,7 +163,7 @@
                             RangeContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "StatsContainer") ?? this;
                             RangeContainer.Width = 0f;
                             RangeContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
-                            AttackSpeed.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
+                            AttackSpeed.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
                             AttackSpeed.AttributeText = "3 sec";
                             AttackSpeed.Height = 24.9f;
                             AttackSpeed.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -172,7 +172,7 @@
                             AttackSpeed.TextInstanceHorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                             AttackSpeed.Width = 0f;
                             AttackSpeed.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
-                            PointOrSplash.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.PointOrSplash;
+                            PointOrSplash.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.PointOrSplash;
                             PointOrSplash.AttributeText = "Single";
                             PointOrSplash.Height = 24.9f;
                             PointOrSplash.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -219,7 +219,7 @@
                     }
                 }
             }
-            public UpgradeAvailability CurrentUpgradeAvailabilityState
+            public UpgradeAvailability? CurrentUpgradeAvailabilityState
             {
                 get
                 {
@@ -227,25 +227,28 @@
                 }
                 set
                 {
-                    mCurrentUpgradeAvailabilityState = value;
-                    switch(mCurrentUpgradeAvailabilityState)
+                    if (value != null)
                     {
-                        case  UpgradeAvailability.Available:
-                            UpgradeInfoInstance.CurrentAffordabilityState = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CanAfford;
-                            UpgradeInfoInstance.Visible = true;
-                            break;
-                        case  UpgradeAvailability.NotAvailable:
-                            UpgradeInfoInstance.CurrentAffordabilityState = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CanAfford;
-                            UpgradeInfoInstance.Visible = false;
-                            break;
-                        case  UpgradeAvailability.AvailableCantAfford:
-                            UpgradeInfoInstance.CurrentAffordabilityState = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CantAfford;
-                            UpgradeInfoInstance.Visible = true;
-                            break;
+                        mCurrentUpgradeAvailabilityState = value;
+                        switch(mCurrentUpgradeAvailabilityState)
+                        {
+                            case  UpgradeAvailability.Available:
+                                UpgradeInfoInstance.CurrentAffordabilityState = AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.Affordability.CanAfford;
+                                UpgradeInfoInstance.Visible = true;
+                                break;
+                            case  UpgradeAvailability.NotAvailable:
+                                UpgradeInfoInstance.CurrentAffordabilityState = AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.Affordability.CanAfford;
+                                UpgradeInfoInstance.Visible = false;
+                                break;
+                            case  UpgradeAvailability.AvailableCantAfford:
+                                UpgradeInfoInstance.CurrentAffordabilityState = AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.Affordability.CantAfford;
+                                UpgradeInfoInstance.Visible = true;
+                                break;
+                        }
                     }
                 }
             }
-            public Selection CurrentSelectionState
+            public Selection? CurrentSelectionState
             {
                 get
                 {
@@ -253,39 +256,42 @@
                 }
                 set
                 {
-                    mCurrentSelectionState = value;
-                    switch(mCurrentSelectionState)
+                    if (value != null)
                     {
-                        case  Selection.Selected:
-                            GlowSprite.Blue = 0;
-                            GlowSprite.Red = 0;
-                            GlowSprite.Visible = true;
-                            NameText.Alpha = 255;
-                            NameText.Blue = 47;
-                            NameText.Green = 255;
-                            NameText.Red = 173;
-                            ColoredRectangleInstance.Alpha = 255;
-                            ColoredRectangleInstance.Blue = 0;
-                            ColoredRectangleInstance.Green = 252;
-                            ColoredRectangleInstance.Red = 124;
-                            break;
-                        case  Selection.NotSelected:
-                            GlowSprite.Blue = 255;
-                            GlowSprite.Red = 255;
-                            GlowSprite.Visible = false;
-                            NameText.Alpha = 150;
-                            NameText.Blue = 0;
-                            NameText.Green = 165;
-                            NameText.Red = 255;
-                            ColoredRectangleInstance.Alpha = 150;
-                            ColoredRectangleInstance.Blue = 0;
-                            ColoredRectangleInstance.Green = 165;
-                            ColoredRectangleInstance.Red = 255;
-                            break;
+                        mCurrentSelectionState = value;
+                        switch(mCurrentSelectionState)
+                        {
+                            case  Selection.Selected:
+                                GlowSprite.Blue = 0;
+                                GlowSprite.Red = 0;
+                                GlowSprite.Visible = true;
+                                NameText.Alpha = 255;
+                                NameText.Blue = 47;
+                                NameText.Green = 255;
+                                NameText.Red = 173;
+                                ColoredRectangleInstance.Alpha = 255;
+                                ColoredRectangleInstance.Blue = 0;
+                                ColoredRectangleInstance.Green = 252;
+                                ColoredRectangleInstance.Red = 124;
+                                break;
+                            case  Selection.NotSelected:
+                                GlowSprite.Blue = 255;
+                                GlowSprite.Red = 255;
+                                GlowSprite.Visible = false;
+                                NameText.Alpha = 150;
+                                NameText.Blue = 0;
+                                NameText.Green = 165;
+                                NameText.Red = 255;
+                                ColoredRectangleInstance.Alpha = 150;
+                                ColoredRectangleInstance.Blue = 0;
+                                ColoredRectangleInstance.Green = 165;
+                                ColoredRectangleInstance.Red = 255;
+                                break;
+                        }
                     }
                 }
             }
-            public CostInfo CurrentCostInfoState
+            public CostInfo? CurrentCostInfoState
             {
                 get
                 {
@@ -293,17 +299,20 @@
                 }
                 set
                 {
-                    mCurrentCostInfoState = value;
-                    switch(mCurrentCostInfoState)
+                    if (value != null)
                     {
-                        case  CostInfo.Shown:
-                            PointsSprite.Visible = true;
-                            CostText.Visible = true;
-                            break;
-                        case  CostInfo.NotShown:
-                            PointsSprite.Visible = false;
-                            CostText.Visible = false;
-                            break;
+                        mCurrentCostInfoState = value;
+                        switch(mCurrentCostInfoState)
+                        {
+                            case  CostInfo.Shown:
+                                PointsSprite.Visible = true;
+                                CostText.Visible = true;
+                                break;
+                            case  CostInfo.NotShown:
+                                PointsSprite.Visible = false;
+                                CostText.Visible = false;
+                                break;
+                        }
                     }
                 }
             }
@@ -606,7 +615,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.AttackDamageType.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Piercing;
+                            this.AttackDamageType.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Piercing;
                         }
                         setAttackDamageTypeHeightFirstValue = true;
                         AttackDamageTypeHeightFirstValue = 100f;
@@ -640,7 +649,7 @@
                         AttackDamageTypeYFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
-                            this.AttackSpeed.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
+                            this.AttackSpeed.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
                         }
                         if (interpolationValue < 1)
                         {
@@ -826,7 +835,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.MaxRange.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
+                            this.MaxRange.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
                         }
                         if (interpolationValue < 1)
                         {
@@ -862,7 +871,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.MinRange.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MinRange;
+                            this.MinRange.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MinRange;
                         }
                         if (interpolationValue < 1)
                         {
@@ -970,7 +979,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.PointOrSplash.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.PointOrSplash;
+                            this.PointOrSplash.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.PointOrSplash;
                         }
                         if (interpolationValue < 1)
                         {
@@ -1163,7 +1172,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.AttackDamageType.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime.DamageType.Piercing;
+                            this.AttackDamageType.DamageTypeIconState = AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime.DamageType.Piercing;
                         }
                         setAttackDamageTypeHeightSecondValue = true;
                         AttackDamageTypeHeightSecondValue = 100f;
@@ -1197,7 +1206,7 @@
                         AttackDamageTypeYSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
-                            this.AttackSpeed.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
+                            this.AttackSpeed.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1383,7 +1392,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.MaxRange.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
+                            this.MaxRange.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1419,7 +1428,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.MinRange.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MinRange;
+                            this.MinRange.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MinRange;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1527,7 +1536,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.PointOrSplash.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.PointOrSplash;
+                            this.PointOrSplash.AttributeIconTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.PointOrSplash;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -1978,13 +1987,13 @@
                 #endif
                 bool setUpgradeInfoInstanceCurrentAffordabilityStateFirstValue = false;
                 bool setUpgradeInfoInstanceCurrentAffordabilityStateSecondValue = false;
-                UpgradeInfoRuntime.Affordability UpgradeInfoInstanceCurrentAffordabilityStateFirstValue= UpgradeInfoRuntime.Affordability.CanAfford;
-                UpgradeInfoRuntime.Affordability UpgradeInfoInstanceCurrentAffordabilityStateSecondValue= UpgradeInfoRuntime.Affordability.CanAfford;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.Affordability UpgradeInfoInstanceCurrentAffordabilityStateFirstValue= AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.Affordability.CanAfford;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.Affordability UpgradeInfoInstanceCurrentAffordabilityStateSecondValue= AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.Affordability.CanAfford;
                 switch(firstState)
                 {
                     case  UpgradeAvailability.Available:
                         setUpgradeInfoInstanceCurrentAffordabilityStateFirstValue = true;
-                        UpgradeInfoInstanceCurrentAffordabilityStateFirstValue = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CanAfford;
+                        UpgradeInfoInstanceCurrentAffordabilityStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.Affordability.CanAfford;
                         if (interpolationValue < 1)
                         {
                             this.UpgradeInfoInstance.Visible = true;
@@ -1992,7 +2001,7 @@
                         break;
                     case  UpgradeAvailability.NotAvailable:
                         setUpgradeInfoInstanceCurrentAffordabilityStateFirstValue = true;
-                        UpgradeInfoInstanceCurrentAffordabilityStateFirstValue = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CanAfford;
+                        UpgradeInfoInstanceCurrentAffordabilityStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.Affordability.CanAfford;
                         if (interpolationValue < 1)
                         {
                             this.UpgradeInfoInstance.Visible = false;
@@ -2000,7 +2009,7 @@
                         break;
                     case  UpgradeAvailability.AvailableCantAfford:
                         setUpgradeInfoInstanceCurrentAffordabilityStateFirstValue = true;
-                        UpgradeInfoInstanceCurrentAffordabilityStateFirstValue = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CantAfford;
+                        UpgradeInfoInstanceCurrentAffordabilityStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.Affordability.CantAfford;
                         if (interpolationValue < 1)
                         {
                             this.UpgradeInfoInstance.Visible = true;
@@ -2011,7 +2020,7 @@
                 {
                     case  UpgradeAvailability.Available:
                         setUpgradeInfoInstanceCurrentAffordabilityStateSecondValue = true;
-                        UpgradeInfoInstanceCurrentAffordabilityStateSecondValue = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CanAfford;
+                        UpgradeInfoInstanceCurrentAffordabilityStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.Affordability.CanAfford;
                         if (interpolationValue >= 1)
                         {
                             this.UpgradeInfoInstance.Visible = true;
@@ -2019,7 +2028,7 @@
                         break;
                     case  UpgradeAvailability.NotAvailable:
                         setUpgradeInfoInstanceCurrentAffordabilityStateSecondValue = true;
-                        UpgradeInfoInstanceCurrentAffordabilityStateSecondValue = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CanAfford;
+                        UpgradeInfoInstanceCurrentAffordabilityStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.Affordability.CanAfford;
                         if (interpolationValue >= 1)
                         {
                             this.UpgradeInfoInstance.Visible = false;
@@ -2027,7 +2036,7 @@
                         break;
                     case  UpgradeAvailability.AvailableCantAfford:
                         setUpgradeInfoInstanceCurrentAffordabilityStateSecondValue = true;
-                        UpgradeInfoInstanceCurrentAffordabilityStateSecondValue = AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability.CantAfford;
+                        UpgradeInfoInstanceCurrentAffordabilityStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.Affordability.CantAfford;
                         if (interpolationValue >= 1)
                         {
                             this.UpgradeInfoInstance.Visible = true;
@@ -2319,7 +2328,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -2373,7 +2382,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.UpgradeAvailability fromState,AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.UpgradeAvailability toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.UpgradeAvailability fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.UpgradeAvailability toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -2427,7 +2436,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.Selection fromState,AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.Selection toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.Selection fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.Selection toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -2481,7 +2490,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.CostInfo fromState,AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime.CostInfo toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.CostInfo fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime.CostInfo toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -5927,20 +5936,20 @@
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime GlowSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime NameContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime NameText { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.TallInfoFrameRuntime TallInfoFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.TallInfoFrameRuntime TallInfoFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime StatsContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime InfoContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime AttackDamageType { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime MinRange { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime MaxRange { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime AttackDamageType { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeDisplayRuntime MinRange { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeDisplayRuntime MaxRange { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime AttackCostContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime RangeContainer { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime AttackSpeed { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime PointOrSplash { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeDisplayRuntime AttackSpeed { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeDisplayRuntime PointOrSplash { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime PointsSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime CostText { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime UpgradeInfoInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime UpgradeInfoInstance { get; set; }
             public string SatoshiCost
             {
                 get
@@ -6009,20 +6018,20 @@
                 GlowSprite = this.GetGraphicalUiElementByName("GlowSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 NameContainer = this.GetGraphicalUiElementByName("NameContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 NameText = this.GetGraphicalUiElementByName("NameText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                TallInfoFrameInstance = this.GetGraphicalUiElementByName("TallInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.TallInfoFrameRuntime;
+                TallInfoFrameInstance = this.GetGraphicalUiElementByName("TallInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.TallInfoFrameRuntime;
                 StatsContainer = this.GetGraphicalUiElementByName("StatsContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 InfoContainer = this.GetGraphicalUiElementByName("InfoContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
-                AttackDamageType = this.GetGraphicalUiElementByName("AttackDamageType") as AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime;
-                MinRange = this.GetGraphicalUiElementByName("MinRange") as AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime;
-                MaxRange = this.GetGraphicalUiElementByName("MaxRange") as AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime;
+                AttackDamageType = this.GetGraphicalUiElementByName("AttackDamageType") as AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime;
+                MinRange = this.GetGraphicalUiElementByName("MinRange") as AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeDisplayRuntime;
+                MaxRange = this.GetGraphicalUiElementByName("MaxRange") as AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeDisplayRuntime;
                 AttackCostContainer = this.GetGraphicalUiElementByName("AttackCostContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 RangeContainer = this.GetGraphicalUiElementByName("RangeContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
-                AttackSpeed = this.GetGraphicalUiElementByName("AttackSpeed") as AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime;
-                PointOrSplash = this.GetGraphicalUiElementByName("PointOrSplash") as AbbatoirIntergrade.GumRuntimes.AttributeDisplayRuntime;
+                AttackSpeed = this.GetGraphicalUiElementByName("AttackSpeed") as AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeDisplayRuntime;
+                PointOrSplash = this.GetGraphicalUiElementByName("PointOrSplash") as AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeDisplayRuntime;
                 PointsSprite = this.GetGraphicalUiElementByName("PointsSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 CostText = this.GetGraphicalUiElementByName("CostText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                UpgradeInfoInstance = this.GetGraphicalUiElementByName("UpgradeInfoInstance") as AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime;
+                UpgradeInfoInstance = this.GetGraphicalUiElementByName("UpgradeInfoInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime;
                 NameContainer.Click += (unused) => NameContainerClick?.Invoke(this);
                 StatsContainer.Click += (unused) => StatsContainerClick?.Invoke(this);
                 InfoContainer.Click += (unused) => InfoContainerClick?.Invoke(this);

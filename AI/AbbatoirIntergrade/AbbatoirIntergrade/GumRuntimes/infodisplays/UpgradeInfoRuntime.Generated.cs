@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.infodisplays
     {
         public partial class UpgradeInfoRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -33,10 +33,10 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            OptionsAvailability mCurrentOptionsAvailabilityState;
-            OptionOneChoice mCurrentOptionOneChoiceState;
-            OptionTwoChoice mCurrentOptionTwoChoiceState;
-            Affordability mCurrentAffordabilityState;
+            OptionsAvailability? mCurrentOptionsAvailabilityState;
+            OptionOneChoice? mCurrentOptionOneChoiceState;
+            OptionTwoChoice? mCurrentOptionTwoChoiceState;
+            Affordability? mCurrentAffordabilityState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -54,7 +54,7 @@
                             ChildrenLayout = Gum.Managers.ChildrenLayout.Regular;
                             Width = 300f;
                             WrapsChildren = false;
-                            WhiteFrameInstance.CurrentColorState = AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color.Green;
+                            WhiteFrameInstance.CurrentColorState = AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color.Green;
                             WhiteFrameInstance.Height = 100f;
                             WhiteFrameInstance.Width = 100f;
                             UpgradeText.Blue = 140;
@@ -211,7 +211,7 @@
                     }
                 }
             }
-            public OptionsAvailability CurrentOptionsAvailabilityState
+            public OptionsAvailability? CurrentOptionsAvailabilityState
             {
                 get
                 {
@@ -219,27 +219,30 @@
                 }
                 set
                 {
-                    mCurrentOptionsAvailabilityState = value;
-                    switch(mCurrentOptionsAvailabilityState)
+                    if (value != null)
                     {
-                        case  OptionsAvailability.OneOption:
-                            Upgrade1Text.X = 50f;
-                            Upgrade1Type.X = 50f;
-                            OrTextInstance.Visible = false;
-                            Upgrade2Text.Visible = false;
-                            Upgrade2Type.Visible = false;
-                            break;
-                        case  OptionsAvailability.TwoOptions:
-                            Upgrade1Text.X = 21.5f;
-                            Upgrade1Type.X = 21.5f;
-                            OrTextInstance.Visible = true;
-                            Upgrade2Text.Visible = true;
-                            Upgrade2Type.Visible = true;
-                            break;
+                        mCurrentOptionsAvailabilityState = value;
+                        switch(mCurrentOptionsAvailabilityState)
+                        {
+                            case  OptionsAvailability.OneOption:
+                                Upgrade1Text.X = 50f;
+                                Upgrade1Type.X = 50f;
+                                OrTextInstance.Visible = false;
+                                Upgrade2Text.Visible = false;
+                                Upgrade2Type.Visible = false;
+                                break;
+                            case  OptionsAvailability.TwoOptions:
+                                Upgrade1Text.X = 21.5f;
+                                Upgrade1Type.X = 21.5f;
+                                OrTextInstance.Visible = true;
+                                Upgrade2Text.Visible = true;
+                                Upgrade2Type.Visible = true;
+                                break;
+                        }
                     }
                 }
             }
-            public OptionOneChoice CurrentOptionOneChoiceState
+            public OptionOneChoice? CurrentOptionOneChoiceState
             {
                 get
                 {
@@ -247,25 +250,28 @@
                 }
                 set
                 {
-                    mCurrentOptionOneChoiceState = value;
-                    switch(mCurrentOptionOneChoiceState)
+                    if (value != null)
                     {
-                        case  OptionOneChoice.UpgradeRange:
-                            Upgrade1Text.Text = "Range";
-                            Upgrade1Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
-                            break;
-                        case  OptionOneChoice.UpgradeSpeed:
-                            Upgrade1Text.Text = "Speed";
-                            Upgrade1Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
-                            break;
-                        case  OptionOneChoice.UpgradeDamage:
-                            Upgrade1Text.Text = "Damage";
-                            Upgrade1Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
-                            break;
+                        mCurrentOptionOneChoiceState = value;
+                        switch(mCurrentOptionOneChoiceState)
+                        {
+                            case  OptionOneChoice.UpgradeRange:
+                                Upgrade1Text.Text = "Range";
+                                Upgrade1Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
+                                break;
+                            case  OptionOneChoice.UpgradeSpeed:
+                                Upgrade1Text.Text = "Speed";
+                                Upgrade1Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
+                                break;
+                            case  OptionOneChoice.UpgradeDamage:
+                                Upgrade1Text.Text = "Damage";
+                                Upgrade1Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                                break;
+                        }
                     }
                 }
             }
-            public OptionTwoChoice CurrentOptionTwoChoiceState
+            public OptionTwoChoice? CurrentOptionTwoChoiceState
             {
                 get
                 {
@@ -273,25 +279,28 @@
                 }
                 set
                 {
-                    mCurrentOptionTwoChoiceState = value;
-                    switch(mCurrentOptionTwoChoiceState)
+                    if (value != null)
                     {
-                        case  OptionTwoChoice.UpgradeRange:
-                            Upgrade2Text.Text = "Range";
-                            Upgrade2Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
-                            break;
-                        case  OptionTwoChoice.UpgradeSpeed:
-                            Upgrade2Text.Text = "Speed";
-                            Upgrade2Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
-                            break;
-                        case  OptionTwoChoice.UpgradeDamage:
-                            Upgrade2Text.Text = "Damage";
-                            Upgrade2Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
-                            break;
+                        mCurrentOptionTwoChoiceState = value;
+                        switch(mCurrentOptionTwoChoiceState)
+                        {
+                            case  OptionTwoChoice.UpgradeRange:
+                                Upgrade2Text.Text = "Range";
+                                Upgrade2Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
+                                break;
+                            case  OptionTwoChoice.UpgradeSpeed:
+                                Upgrade2Text.Text = "Speed";
+                                Upgrade2Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
+                                break;
+                            case  OptionTwoChoice.UpgradeDamage:
+                                Upgrade2Text.Text = "Damage";
+                                Upgrade2Type.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                                break;
+                        }
                     }
                 }
             }
-            public Affordability CurrentAffordabilityState
+            public Affordability? CurrentAffordabilityState
             {
                 get
                 {
@@ -299,35 +308,38 @@
                 }
                 set
                 {
-                    mCurrentAffordabilityState = value;
-                    switch(mCurrentAffordabilityState)
+                    if (value != null)
                     {
-                        case  Affordability.CanAfford:
-                            WhiteFrameInstance.CurrentColorState = AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color.Green;
-                            UpgradeText.Alpha = 255;
-                            Upgrade1Text.Alpha = 255;
-                            Upgrade1Type.IconAlpha = 255;
-                            OrTextInstance.Alpha = 255;
-                            Upgrade2Text.Alpha = 255;
-                            Upgrade2Type.IconAlpha = 255;
-                            CostText.Blue = 255;
-                            CostText.Green = 255;
-                            CostText.Red = 0;
-                            PointsSprite.Alpha = 255;
-                            break;
-                        case  Affordability.CantAfford:
-                            WhiteFrameInstance.CurrentColorState = AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color.Red;
-                            UpgradeText.Alpha = 100;
-                            Upgrade1Text.Alpha = 100;
-                            Upgrade1Type.IconAlpha = 100;
-                            OrTextInstance.Alpha = 50;
-                            Upgrade2Text.Alpha = 100;
-                            Upgrade2Type.IconAlpha = 100;
-                            CostText.Blue = 0;
-                            CostText.Green = 0;
-                            CostText.Red = 255;
-                            PointsSprite.Alpha = 150;
-                            break;
+                        mCurrentAffordabilityState = value;
+                        switch(mCurrentAffordabilityState)
+                        {
+                            case  Affordability.CanAfford:
+                                WhiteFrameInstance.CurrentColorState = AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color.Green;
+                                UpgradeText.Alpha = 255;
+                                Upgrade1Text.Alpha = 255;
+                                Upgrade1Type.IconAlpha = 255;
+                                OrTextInstance.Alpha = 255;
+                                Upgrade2Text.Alpha = 255;
+                                Upgrade2Type.IconAlpha = 255;
+                                CostText.Blue = 255;
+                                CostText.Green = 255;
+                                CostText.Red = 0;
+                                PointsSprite.Alpha = 255;
+                                break;
+                            case  Affordability.CantAfford:
+                                WhiteFrameInstance.CurrentColorState = AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color.Red;
+                                UpgradeText.Alpha = 100;
+                                Upgrade1Text.Alpha = 100;
+                                Upgrade1Type.IconAlpha = 100;
+                                OrTextInstance.Alpha = 50;
+                                Upgrade2Text.Alpha = 100;
+                                Upgrade2Type.IconAlpha = 100;
+                                CostText.Blue = 0;
+                                CostText.Green = 0;
+                                CostText.Red = 255;
+                                PointsSprite.Alpha = 150;
+                                break;
+                        }
                     }
                 }
             }
@@ -603,8 +615,8 @@
                 float UpgradeTextWidthSecondValue= 0;
                 bool setWhiteFrameInstanceCurrentColorStateFirstValue = false;
                 bool setWhiteFrameInstanceCurrentColorStateSecondValue = false;
-                WhiteFrameRuntime.Color WhiteFrameInstanceCurrentColorStateFirstValue= WhiteFrameRuntime.Color.Red;
-                WhiteFrameRuntime.Color WhiteFrameInstanceCurrentColorStateSecondValue= WhiteFrameRuntime.Color.Red;
+                AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color WhiteFrameInstanceCurrentColorStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color.Red;
+                AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color WhiteFrameInstanceCurrentColorStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color.Red;
                 bool setWhiteFrameInstanceHeightFirstValue = false;
                 bool setWhiteFrameInstanceHeightSecondValue = false;
                 float WhiteFrameInstanceHeightFirstValue= 0;
@@ -1095,7 +1107,7 @@
                             this.UpgradeText.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                         }
                         setWhiteFrameInstanceCurrentColorStateFirstValue = true;
-                        WhiteFrameInstanceCurrentColorStateFirstValue = AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color.Green;
+                        WhiteFrameInstanceCurrentColorStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color.Green;
                         setWhiteFrameInstanceHeightFirstValue = true;
                         WhiteFrameInstanceHeightFirstValue = 100f;
                         setWhiteFrameInstanceWidthFirstValue = true;
@@ -1586,7 +1598,7 @@
                             this.UpgradeText.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                         }
                         setWhiteFrameInstanceCurrentColorStateSecondValue = true;
-                        WhiteFrameInstanceCurrentColorStateSecondValue = AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color.Green;
+                        WhiteFrameInstanceCurrentColorStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color.Green;
                         setWhiteFrameInstanceHeightSecondValue = true;
                         WhiteFrameInstanceHeightSecondValue = 100f;
                         setWhiteFrameInstanceWidthSecondValue = true;
@@ -2005,8 +2017,8 @@
                 #endif
                 bool setUpgrade1TypeCurrentAttributeTypeStateFirstValue = false;
                 bool setUpgrade1TypeCurrentAttributeTypeStateSecondValue = false;
-                AttributeIconRuntime.AttributeType Upgrade1TypeCurrentAttributeTypeStateFirstValue= AttributeIconRuntime.AttributeType.Health;
-                AttributeIconRuntime.AttributeType Upgrade1TypeCurrentAttributeTypeStateSecondValue= AttributeIconRuntime.AttributeType.Health;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType Upgrade1TypeCurrentAttributeTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType Upgrade1TypeCurrentAttributeTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                 switch(firstState)
                 {
                     case  OptionOneChoice.UpgradeRange:
@@ -2015,7 +2027,7 @@
                             this.Upgrade1Text.Text = "Range";
                         }
                         setUpgrade1TypeCurrentAttributeTypeStateFirstValue = true;
-                        Upgrade1TypeCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
+                        Upgrade1TypeCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
                         break;
                     case  OptionOneChoice.UpgradeSpeed:
                         if (interpolationValue < 1)
@@ -2023,7 +2035,7 @@
                             this.Upgrade1Text.Text = "Speed";
                         }
                         setUpgrade1TypeCurrentAttributeTypeStateFirstValue = true;
-                        Upgrade1TypeCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
+                        Upgrade1TypeCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
                         break;
                     case  OptionOneChoice.UpgradeDamage:
                         if (interpolationValue < 1)
@@ -2031,7 +2043,7 @@
                             this.Upgrade1Text.Text = "Damage";
                         }
                         setUpgrade1TypeCurrentAttributeTypeStateFirstValue = true;
-                        Upgrade1TypeCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        Upgrade1TypeCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         break;
                 }
                 switch(secondState)
@@ -2042,7 +2054,7 @@
                             this.Upgrade1Text.Text = "Range";
                         }
                         setUpgrade1TypeCurrentAttributeTypeStateSecondValue = true;
-                        Upgrade1TypeCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
+                        Upgrade1TypeCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
                         break;
                     case  OptionOneChoice.UpgradeSpeed:
                         if (interpolationValue >= 1)
@@ -2050,7 +2062,7 @@
                             this.Upgrade1Text.Text = "Speed";
                         }
                         setUpgrade1TypeCurrentAttributeTypeStateSecondValue = true;
-                        Upgrade1TypeCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
+                        Upgrade1TypeCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
                         break;
                     case  OptionOneChoice.UpgradeDamage:
                         if (interpolationValue >= 1)
@@ -2058,7 +2070,7 @@
                             this.Upgrade1Text.Text = "Damage";
                         }
                         setUpgrade1TypeCurrentAttributeTypeStateSecondValue = true;
-                        Upgrade1TypeCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        Upgrade1TypeCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         break;
                 }
                 if (setUpgrade1TypeCurrentAttributeTypeStateFirstValue && setUpgrade1TypeCurrentAttributeTypeStateSecondValue)
@@ -2084,8 +2096,8 @@
                 #endif
                 bool setUpgrade2TypeCurrentAttributeTypeStateFirstValue = false;
                 bool setUpgrade2TypeCurrentAttributeTypeStateSecondValue = false;
-                AttributeIconRuntime.AttributeType Upgrade2TypeCurrentAttributeTypeStateFirstValue= AttributeIconRuntime.AttributeType.Health;
-                AttributeIconRuntime.AttributeType Upgrade2TypeCurrentAttributeTypeStateSecondValue= AttributeIconRuntime.AttributeType.Health;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType Upgrade2TypeCurrentAttributeTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType Upgrade2TypeCurrentAttributeTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                 switch(firstState)
                 {
                     case  OptionTwoChoice.UpgradeRange:
@@ -2094,7 +2106,7 @@
                             this.Upgrade2Text.Text = "Range";
                         }
                         setUpgrade2TypeCurrentAttributeTypeStateFirstValue = true;
-                        Upgrade2TypeCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
+                        Upgrade2TypeCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
                         break;
                     case  OptionTwoChoice.UpgradeSpeed:
                         if (interpolationValue < 1)
@@ -2102,7 +2114,7 @@
                             this.Upgrade2Text.Text = "Speed";
                         }
                         setUpgrade2TypeCurrentAttributeTypeStateFirstValue = true;
-                        Upgrade2TypeCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
+                        Upgrade2TypeCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
                         break;
                     case  OptionTwoChoice.UpgradeDamage:
                         if (interpolationValue < 1)
@@ -2110,7 +2122,7 @@
                             this.Upgrade2Text.Text = "Damage";
                         }
                         setUpgrade2TypeCurrentAttributeTypeStateFirstValue = true;
-                        Upgrade2TypeCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        Upgrade2TypeCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         break;
                 }
                 switch(secondState)
@@ -2121,7 +2133,7 @@
                             this.Upgrade2Text.Text = "Range";
                         }
                         setUpgrade2TypeCurrentAttributeTypeStateSecondValue = true;
-                        Upgrade2TypeCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
+                        Upgrade2TypeCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
                         break;
                     case  OptionTwoChoice.UpgradeSpeed:
                         if (interpolationValue >= 1)
@@ -2129,7 +2141,7 @@
                             this.Upgrade2Text.Text = "Speed";
                         }
                         setUpgrade2TypeCurrentAttributeTypeStateSecondValue = true;
-                        Upgrade2TypeCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
+                        Upgrade2TypeCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
                         break;
                     case  OptionTwoChoice.UpgradeDamage:
                         if (interpolationValue >= 1)
@@ -2137,7 +2149,7 @@
                             this.Upgrade2Text.Text = "Damage";
                         }
                         setUpgrade2TypeCurrentAttributeTypeStateSecondValue = true;
-                        Upgrade2TypeCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        Upgrade2TypeCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         break;
                 }
                 if (setUpgrade2TypeCurrentAttributeTypeStateFirstValue && setUpgrade2TypeCurrentAttributeTypeStateSecondValue)
@@ -2203,8 +2215,8 @@
                 int UpgradeTextAlphaSecondValue= 0;
                 bool setWhiteFrameInstanceCurrentColorStateFirstValue = false;
                 bool setWhiteFrameInstanceCurrentColorStateSecondValue = false;
-                WhiteFrameRuntime.Color WhiteFrameInstanceCurrentColorStateFirstValue= WhiteFrameRuntime.Color.Red;
-                WhiteFrameRuntime.Color WhiteFrameInstanceCurrentColorStateSecondValue= WhiteFrameRuntime.Color.Red;
+                AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color WhiteFrameInstanceCurrentColorStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color.Red;
+                AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color WhiteFrameInstanceCurrentColorStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color.Red;
                 switch(firstState)
                 {
                     case  Affordability.CanAfford:
@@ -2229,7 +2241,7 @@
                         setUpgradeTextAlphaFirstValue = true;
                         UpgradeTextAlphaFirstValue = 255;
                         setWhiteFrameInstanceCurrentColorStateFirstValue = true;
-                        WhiteFrameInstanceCurrentColorStateFirstValue = AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color.Green;
+                        WhiteFrameInstanceCurrentColorStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color.Green;
                         break;
                     case  Affordability.CantAfford:
                         setCostTextBlueFirstValue = true;
@@ -2253,7 +2265,7 @@
                         setUpgradeTextAlphaFirstValue = true;
                         UpgradeTextAlphaFirstValue = 100;
                         setWhiteFrameInstanceCurrentColorStateFirstValue = true;
-                        WhiteFrameInstanceCurrentColorStateFirstValue = AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color.Red;
+                        WhiteFrameInstanceCurrentColorStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color.Red;
                         break;
                 }
                 switch(secondState)
@@ -2280,7 +2292,7 @@
                         setUpgradeTextAlphaSecondValue = true;
                         UpgradeTextAlphaSecondValue = 255;
                         setWhiteFrameInstanceCurrentColorStateSecondValue = true;
-                        WhiteFrameInstanceCurrentColorStateSecondValue = AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color.Green;
+                        WhiteFrameInstanceCurrentColorStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color.Green;
                         break;
                     case  Affordability.CantAfford:
                         setCostTextBlueSecondValue = true;
@@ -2304,7 +2316,7 @@
                         setUpgradeTextAlphaSecondValue = true;
                         UpgradeTextAlphaSecondValue = 100;
                         setWhiteFrameInstanceCurrentColorStateSecondValue = true;
-                        WhiteFrameInstanceCurrentColorStateSecondValue = AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color.Red;
+                        WhiteFrameInstanceCurrentColorStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color.Red;
                         break;
                 }
                 if (setCostTextBlueFirstValue && setCostTextBlueSecondValue)
@@ -2362,7 +2374,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -2416,7 +2428,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.OptionsAvailability fromState,AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.OptionsAvailability toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.OptionsAvailability fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.OptionsAvailability toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -2470,7 +2482,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.OptionOneChoice fromState,AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.OptionOneChoice toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.OptionOneChoice fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.OptionOneChoice toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -2524,7 +2536,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.OptionTwoChoice fromState,AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.OptionTwoChoice toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.OptionTwoChoice fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.OptionTwoChoice toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -2578,7 +2590,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability fromState,AbbatoirIntergrade.GumRuntimes.UpgradeInfoRuntime.Affordability toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.Affordability fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.UpgradeInfoRuntime.Affordability toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -6046,13 +6058,13 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime WhiteFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime WhiteFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime UpgradeText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime Upgrade1Text { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime Upgrade1Type { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime Upgrade1Type { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime OrTextInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime Upgrade2Text { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime Upgrade2Type { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime Upgrade2Type { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime TitleContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime UpgradeContainer { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime CostText { get; set; }
@@ -6101,13 +6113,13 @@
             }
             private void AssignReferences () 
             {
-                WhiteFrameInstance = this.GetGraphicalUiElementByName("WhiteFrameInstance") as AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime;
+                WhiteFrameInstance = this.GetGraphicalUiElementByName("WhiteFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime;
                 UpgradeText = this.GetGraphicalUiElementByName("UpgradeText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 Upgrade1Text = this.GetGraphicalUiElementByName("Upgrade1Text") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                Upgrade1Type = this.GetGraphicalUiElementByName("Upgrade1Type") as AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime;
+                Upgrade1Type = this.GetGraphicalUiElementByName("Upgrade1Type") as AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime;
                 OrTextInstance = this.GetGraphicalUiElementByName("OrTextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 Upgrade2Text = this.GetGraphicalUiElementByName("Upgrade2Text") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                Upgrade2Type = this.GetGraphicalUiElementByName("Upgrade2Type") as AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime;
+                Upgrade2Type = this.GetGraphicalUiElementByName("Upgrade2Type") as AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime;
                 TitleContainer = this.GetGraphicalUiElementByName("TitleContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 UpgradeContainer = this.GetGraphicalUiElementByName("UpgradeContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
                 CostText = this.GetGraphicalUiElementByName("CostText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;

@@ -18,7 +18,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            ButtonCategory mCurrentButtonCategoryState;
+            ButtonCategory? mCurrentButtonCategoryState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -53,7 +53,7 @@
                     }
                 }
             }
-            public ButtonCategory CurrentButtonCategoryState
+            public ButtonCategory? CurrentButtonCategoryState
             {
                 get
                 {
@@ -61,33 +61,36 @@
                 }
                 set
                 {
-                    mCurrentButtonCategoryState = value;
-                    switch(mCurrentButtonCategoryState)
+                    if (value != null)
                     {
-                        case  ButtonCategory.Enabled:
-                            ThumbSprite.Alpha = 255;
-                            ThumbSprite.Blue = 255;
-                            ThumbSprite.Green = 255;
-                            ThumbSprite.Red = 255;
-                            break;
-                        case  ButtonCategory.Disabled:
-                            ThumbSprite.Alpha = 100;
-                            ThumbSprite.Blue = 0;
-                            ThumbSprite.Green = 0;
-                            ThumbSprite.Red = 0;
-                            break;
-                        case  ButtonCategory.Highlighted:
-                            ThumbSprite.Alpha = 255;
-                            ThumbSprite.Blue = 210;
-                            ThumbSprite.Green = 250;
-                            ThumbSprite.Red = 250;
-                            break;
-                        case  ButtonCategory.Pushed:
-                            ThumbSprite.Alpha = 255;
-                            ThumbSprite.Blue = 0;
-                            ThumbSprite.Green = 255;
-                            ThumbSprite.Red = 255;
-                            break;
+                        mCurrentButtonCategoryState = value;
+                        switch(mCurrentButtonCategoryState)
+                        {
+                            case  ButtonCategory.Enabled:
+                                ThumbSprite.Alpha = 255;
+                                ThumbSprite.Blue = 255;
+                                ThumbSprite.Green = 255;
+                                ThumbSprite.Red = 255;
+                                break;
+                            case  ButtonCategory.Disabled:
+                                ThumbSprite.Alpha = 100;
+                                ThumbSprite.Blue = 0;
+                                ThumbSprite.Green = 0;
+                                ThumbSprite.Red = 0;
+                                break;
+                            case  ButtonCategory.Highlighted:
+                                ThumbSprite.Alpha = 255;
+                                ThumbSprite.Blue = 210;
+                                ThumbSprite.Green = 250;
+                                ThumbSprite.Red = 250;
+                                break;
+                            case  ButtonCategory.Pushed:
+                                ThumbSprite.Alpha = 255;
+                                ThumbSprite.Blue = 0;
+                                ThumbSprite.Green = 255;
+                                ThumbSprite.Red = 255;
+                                break;
+                        }
                     }
                 }
             }

@@ -2,19 +2,11 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Screens;
+using System.Linq;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
 using FlatRedBall.Gui;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -27,42 +19,40 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
         #if DEBUG
         static bool HasBeenLoadedWithGlobalContentManager = false;
         #endif
-        public enum VariableState
+        public class VariableState
         {
-            Uninitialized = 0, //This exists so that the first set call actually does something
-            Unknown = 1, //This exists so that if the entity is actually a child entity and has set a child state, you will get this
-            Enabled = 2, 
-            Disabled = 3
+            public float X;
+            public float Y;
+            public float Z;
+            public float SpriteInstanceAlpha;
+            public static VariableState Enabled = new VariableState()
+            {
+                SpriteInstanceAlpha = 1f,
+            }
+            ;
+            public static VariableState Disabled = new VariableState()
+            {
+                SpriteInstanceAlpha = 0.1f,
+            }
+            ;
         }
-        protected int mCurrentState = 0;
+        private VariableState mCurrentState = null;
         public Entities.GraphicalElements.Checkmark.VariableState CurrentState
         {
             get
             {
-                if (mCurrentState >= 0 && mCurrentState <= 3)
-                {
-                    return (VariableState)mCurrentState;
-                }
-                else
-                {
-                    return VariableState.Unknown;
-                }
+                return mCurrentState;
             }
             set
             {
-                mCurrentState = (int)value;
-                switch(CurrentState)
+                mCurrentState = value;
+                if (CurrentState == VariableState.Enabled)
                 {
-                    case  VariableState.Uninitialized:
-                        break;
-                    case  VariableState.Unknown:
-                        break;
-                    case  VariableState.Enabled:
-                        SpriteInstanceAlpha = 1f;
-                        break;
-                    case  VariableState.Disabled:
-                        SpriteInstanceAlpha = 0.1f;
-                        break;
+                    SpriteInstanceAlpha = 1f;
+                }
+                else if (CurrentState == VariableState.Disabled)
+                {
+                    SpriteInstanceAlpha = 0.1f;
                 }
             }
         }
@@ -195,9 +185,9 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             BackgroundSprite.Width = 100f;
             BackgroundSprite.Height = 100f;
             #if FRB_MDX
-            BackgroundSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Color;
+            BackgroundSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.ColorTextureAlpha;
             #else
-            BackgroundSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Color;
+            BackgroundSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
             #endif
             BackgroundSprite.Alpha = 0.75f;
             SpriteInstance.Texture = AllAssetsSheet;
@@ -237,9 +227,9 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             BackgroundSprite.Width = 100f;
             BackgroundSprite.Height = 100f;
             #if FRB_MDX
-            BackgroundSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Color;
+            BackgroundSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.ColorTextureAlpha;
             #else
-            BackgroundSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.Color;
+            BackgroundSprite.ColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
             #endif
             BackgroundSprite.Alpha = 0.75f;
             SpriteInstance.Texture = AllAssetsSheet;
@@ -300,7 +290,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
         {
             // Intentionally left blank because this element uses global content, so it should never be unloaded
         }
-        static VariableState mLoadingState = VariableState.Uninitialized;
+        static VariableState mLoadingState = null;
         public static VariableState LoadingState
         {
             get
@@ -314,14 +304,13 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
         }
         public FlatRedBall.Instructions.Instruction InterpolateToState (VariableState stateToInterpolateTo, double secondsToTake) 
         {
-            switch(stateToInterpolateTo)
+            if (stateToInterpolateTo == VariableState.Enabled)
             {
-                case  VariableState.Enabled:
-                    SpriteInstance.AlphaRate = (1f - SpriteInstance.Alpha) / (float)secondsToTake;
-                    break;
-                case  VariableState.Disabled:
-                    SpriteInstance.AlphaRate = (0.1f - SpriteInstance.Alpha) / (float)secondsToTake;
-                    break;
+                SpriteInstance.AlphaRate = (1f - SpriteInstance.Alpha) / (float)secondsToTake;
+            }
+            else if (stateToInterpolateTo == VariableState.Disabled)
+            {
+                SpriteInstance.AlphaRate = (0.1f - SpriteInstance.Alpha) / (float)secondsToTake;
             }
             var instruction = new FlatRedBall.Instructions.DelegateInstruction<VariableState>(StopStateInterpolation, stateToInterpolateTo);
             instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
@@ -330,14 +319,13 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
         }
         public void StopStateInterpolation (VariableState stateToStop) 
         {
-            switch(stateToStop)
+            if (stateToStop == VariableState.Enabled)
             {
-                case  VariableState.Enabled:
-                    SpriteInstance.AlphaRate =  0;
-                    break;
-                case  VariableState.Disabled:
-                    SpriteInstance.AlphaRate =  0;
-                    break;
+                SpriteInstance.AlphaRate =  0;
+            }
+            else if (stateToStop == VariableState.Disabled)
+            {
+                SpriteInstance.AlphaRate =  0;
             }
             CurrentState = stateToStop;
         }
@@ -352,23 +340,21 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             bool setSpriteInstanceAlpha = true;
             float SpriteInstanceAlphaFirstValue= 0;
             float SpriteInstanceAlphaSecondValue= 0;
-            switch(firstState)
+            if (firstState == VariableState.Enabled)
             {
-                case  VariableState.Enabled:
-                    SpriteInstanceAlphaFirstValue = 1f;
-                    break;
-                case  VariableState.Disabled:
-                    SpriteInstanceAlphaFirstValue = 0.1f;
-                    break;
+                SpriteInstanceAlphaFirstValue = 1f;
             }
-            switch(secondState)
+            else if (firstState == VariableState.Disabled)
             {
-                case  VariableState.Enabled:
-                    SpriteInstanceAlphaSecondValue = 1f;
-                    break;
-                case  VariableState.Disabled:
-                    SpriteInstanceAlphaSecondValue = 0.1f;
-                    break;
+                SpriteInstanceAlphaFirstValue = 0.1f;
+            }
+            if (secondState == VariableState.Enabled)
+            {
+                SpriteInstanceAlphaSecondValue = 1f;
+            }
+            else if (secondState == VariableState.Disabled)
+            {
+                SpriteInstanceAlphaSecondValue = 0.1f;
             }
             if (setSpriteInstanceAlpha)
             {
@@ -376,22 +362,21 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             }
             if (interpolationValue < 1)
             {
-                mCurrentState = (int)firstState;
+                mCurrentState = firstState;
             }
             else
             {
-                mCurrentState = (int)secondState;
+                mCurrentState = secondState;
             }
         }
         public static void PreloadStateContent (VariableState state, string contentManagerName) 
         {
             ContentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
-            switch(state)
+            if (state == VariableState.Enabled)
             {
-                case  VariableState.Enabled:
-                    break;
-                case  VariableState.Disabled:
-                    break;
+            }
+            else if (state == VariableState.Disabled)
+            {
             }
         }
         [System.Obsolete("Use GetFile instead")]

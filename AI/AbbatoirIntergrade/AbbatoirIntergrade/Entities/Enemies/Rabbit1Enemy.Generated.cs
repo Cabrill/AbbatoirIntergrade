@@ -2,19 +2,10 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Screens;
+using System.Linq;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
-using AbbatoirIntergrade.Performance;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -39,49 +30,61 @@ namespace AbbatoirIntergrade.Entities.Enemies
         #if DEBUG
         static bool HasBeenLoadedWithGlobalContentManager = false;
         #endif
-        public enum Jump
+        public class Jump
         {
-            Uninitialized = 0, //This exists so that the first set call actually does something
-            Unknown = 1, //This exists so that if the entity is actually a child entity and has set a child state, you will get this
-            InAir = 2, 
-            Landing = 3, 
-            PreparingJump = 4, 
-            NotJumping = 5
+            public float X;
+            public float Y;
+            public float Z;
+            public string DisplayName;
+            public bool IsFlying;
+            public bool HasLightSource;
+            public string SpriteInstanceCurrentChainName;
+            public bool IsJumper;
+            public float Mass;
+            public static Jump InAir = new Jump()
+            {
+                SpriteInstanceCurrentChainName = "InAir",
+            }
+            ;
+            public static Jump Landing = new Jump()
+            {
+                SpriteInstanceCurrentChainName = "Landing",
+            }
+            ;
+            public static Jump PreparingJump = new Jump()
+            {
+                SpriteInstanceCurrentChainName = "PreparingJump",
+            }
+            ;
+            public static Jump NotJumping = new Jump()
+            {
+            }
+            ;
         }
-        protected int mCurrentJumpState = 0;
+        private Jump mCurrentJumpState = null;
         public Entities.Enemies.Rabbit1Enemy.Jump CurrentJumpState
         {
             get
             {
-                if (mCurrentJumpState >= 0 && mCurrentJumpState <= 5)
-                {
-                    return (Jump)mCurrentJumpState;
-                }
-                else
-                {
-                    return Jump.Unknown;
-                }
+                return mCurrentJumpState;
             }
             set
             {
-                mCurrentJumpState = (int)value;
-                switch(CurrentJumpState)
+                mCurrentJumpState = value;
+                if (CurrentJumpState == Jump.InAir)
                 {
-                    case  Jump.Uninitialized:
-                        break;
-                    case  Jump.Unknown:
-                        break;
-                    case  Jump.InAir:
-                        SpriteInstanceCurrentChainName = "InAir";
-                        break;
-                    case  Jump.Landing:
-                        SpriteInstanceCurrentChainName = "Landing";
-                        break;
-                    case  Jump.PreparingJump:
-                        SpriteInstanceCurrentChainName = "PreparingJump";
-                        break;
-                    case  Jump.NotJumping:
-                        break;
+                    SpriteInstanceCurrentChainName = "InAir";
+                }
+                else if (CurrentJumpState == Jump.Landing)
+                {
+                    SpriteInstanceCurrentChainName = "Landing";
+                }
+                else if (CurrentJumpState == Jump.PreparingJump)
+                {
+                    SpriteInstanceCurrentChainName = "PreparingJump";
+                }
+                else if (CurrentJumpState == Jump.NotJumping)
+                {
                 }
             }
         }
@@ -159,7 +162,6 @@ namespace AbbatoirIntergrade.Entities.Enemies
         	: base(contentManagerName, addToManagers)
         {
             ContentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
-           
         }
         protected override void InitializeEntity (bool addToManagers) 
         {
@@ -170,6 +172,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             mCircleInstance.Name = "mCircleInstance";
             LightSprite = new FlatRedBall.Sprite();
             LightSprite.Name = "LightSprite";
+            // Not instantiating for AxisAlignedRectangle AxisAlignedRectangleInstance in Entities\Enemies\Rabbit1Enemy because properties on the object prevent it
             
             base.InitializeEntity(addToManagers);
             if (SpriteInstance.Parent == null)
@@ -1071,16 +1074,17 @@ namespace AbbatoirIntergrade.Entities.Enemies
         }
         public FlatRedBall.Instructions.Instruction InterpolateToState (Jump stateToInterpolateTo, double secondsToTake) 
         {
-            switch(stateToInterpolateTo)
+            if (stateToInterpolateTo == Jump.InAir)
             {
-                case  Jump.InAir:
-                    break;
-                case  Jump.Landing:
-                    break;
-                case  Jump.PreparingJump:
-                    break;
-                case  Jump.NotJumping:
-                    break;
+            }
+            else if (stateToInterpolateTo == Jump.Landing)
+            {
+            }
+            else if (stateToInterpolateTo == Jump.PreparingJump)
+            {
+            }
+            else if (stateToInterpolateTo == Jump.NotJumping)
+            {
             }
             var instruction = new FlatRedBall.Instructions.DelegateInstruction<Jump>(StopStateInterpolation, stateToInterpolateTo);
             instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
@@ -1089,16 +1093,17 @@ namespace AbbatoirIntergrade.Entities.Enemies
         }
         public void StopStateInterpolation (Jump stateToStop) 
         {
-            switch(stateToStop)
+            if (stateToStop == Jump.InAir)
             {
-                case  Jump.InAir:
-                    break;
-                case  Jump.Landing:
-                    break;
-                case  Jump.PreparingJump:
-                    break;
-                case  Jump.NotJumping:
-                    break;
+            }
+            else if (stateToStop == Jump.Landing)
+            {
+            }
+            else if (stateToStop == Jump.PreparingJump)
+            {
+            }
+            else if (stateToStop == Jump.NotJumping)
+            {
             }
             CurrentJumpState = stateToStop;
         }
@@ -1110,83 +1115,86 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 throw new System.Exception("interpolationValue cannot be NaN");
             }
             #endif
-            switch(firstState)
+            if (firstState == Jump.InAir)
             {
-                case  Jump.InAir:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "InAir";
-                    }
-                    break;
-                case  Jump.Landing:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "Landing";
-                    }
-                    break;
-                case  Jump.PreparingJump:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "PreparingJump";
-                    }
-                    break;
-                case  Jump.NotJumping:
-                    break;
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "InAir";
+                }
             }
-            switch(secondState)
+            else if (firstState == Jump.Landing)
             {
-                case  Jump.InAir:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "InAir";
-                    }
-                    break;
-                case  Jump.Landing:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "Landing";
-                    }
-                    break;
-                case  Jump.PreparingJump:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "PreparingJump";
-                    }
-                    break;
-                case  Jump.NotJumping:
-                    break;
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "Landing";
+                }
+            }
+            else if (firstState == Jump.PreparingJump)
+            {
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "PreparingJump";
+                }
+            }
+            else if (firstState == Jump.NotJumping)
+            {
+            }
+            if (secondState == Jump.InAir)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "InAir";
+                }
+            }
+            else if (secondState == Jump.Landing)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "Landing";
+                }
+            }
+            else if (secondState == Jump.PreparingJump)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "PreparingJump";
+                }
+            }
+            else if (secondState == Jump.NotJumping)
+            {
             }
             if (interpolationValue < 1)
             {
-                mCurrentJumpState = (int)firstState;
+                mCurrentJumpState = firstState;
             }
             else
             {
-                mCurrentJumpState = (int)secondState;
+                mCurrentJumpState = secondState;
             }
         }
         public static void PreloadStateContent (Jump state, string contentManagerName) 
         {
             ContentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
-            switch(state)
+            if (state == Jump.InAir)
             {
-                case  Jump.InAir:
-                    {
-                        object throwaway = "InAir";
-                    }
-                    break;
-                case  Jump.Landing:
-                    {
-                        object throwaway = "Landing";
-                    }
-                    break;
-                case  Jump.PreparingJump:
-                    {
-                        object throwaway = "PreparingJump";
-                    }
-                    break;
-                case  Jump.NotJumping:
-                    break;
+                {
+                    object throwaway = "InAir";
+                }
+            }
+            else if (state == Jump.Landing)
+            {
+                {
+                    object throwaway = "Landing";
+                }
+            }
+            else if (state == Jump.PreparingJump)
+            {
+                {
+                    object throwaway = "PreparingJump";
+                }
+            }
+            else if (state == Jump.NotJumping)
+            {
             }
         }
         [System.Obsolete("Use GetFile instead")]

@@ -1,5 +1,6 @@
-    using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+using AbbatoirIntergrade.GumRuntimes.Frames;
+using System.Linq;
+    namespace AbbatoirIntergrade.GumRuntimes.infodisplays
     {
         public partial class ChatOptionRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -16,7 +17,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Highlight mCurrentHighlightState;
+            Highlight? mCurrentHighlightState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -59,7 +60,7 @@
                     }
                 }
             }
-            public Highlight CurrentHighlightState
+            public Highlight? CurrentHighlightState
             {
                 get
                 {
@@ -67,21 +68,24 @@
                 }
                 set
                 {
-                    mCurrentHighlightState = value;
-                    switch(mCurrentHighlightState)
+                    if (value != null)
                     {
-                        case  Highlight.Highlighted:
-                            ChatOptionFrameInstance.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime.ColorState.Blue;
-                            TextInstance.Blue = 0;
-                            TextInstance.Green = 0;
-                            TextInstance.Red = 0;
-                            break;
-                        case  Highlight.NotHighlighted:
-                            ChatOptionFrameInstance.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime.ColorState.Black;
-                            TextInstance.Blue = 255;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 255;
-                            break;
+                        mCurrentHighlightState = value;
+                        switch(mCurrentHighlightState)
+                        {
+                            case  Highlight.Highlighted:
+                                ChatOptionFrameInstance.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime.ColorState.Blue;
+                                TextInstance.Blue = 0;
+                                TextInstance.Green = 0;
+                                TextInstance.Red = 0;
+                                break;
+                            case  Highlight.NotHighlighted:
+                                ChatOptionFrameInstance.CurrentColorStateState = AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime.ColorState.Black;
+                                TextInstance.Blue = 255;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 255;
+                                break;
+                        }
                     }
                 }
             }
@@ -360,8 +364,8 @@
                 #endif
                 bool setChatOptionFrameInstanceCurrentColorStateStateFirstValue = false;
                 bool setChatOptionFrameInstanceCurrentColorStateStateSecondValue = false;
-                ChatOptionFrameRuntime.ColorState ChatOptionFrameInstanceCurrentColorStateStateFirstValue= ChatOptionFrameRuntime.ColorState.Red;
-                ChatOptionFrameRuntime.ColorState ChatOptionFrameInstanceCurrentColorStateStateSecondValue= ChatOptionFrameRuntime.ColorState.Red;
+                AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime.ColorState ChatOptionFrameInstanceCurrentColorStateStateFirstValue= AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime.ColorState.Red;
+                AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime.ColorState ChatOptionFrameInstanceCurrentColorStateStateSecondValue= AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime.ColorState.Red;
                 bool setTextInstanceBlueFirstValue = false;
                 bool setTextInstanceBlueSecondValue = false;
                 int TextInstanceBlueFirstValue= 0;
@@ -378,7 +382,7 @@
                 {
                     case  Highlight.Highlighted:
                         setChatOptionFrameInstanceCurrentColorStateStateFirstValue = true;
-                        ChatOptionFrameInstanceCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime.ColorState.Blue;
+                        ChatOptionFrameInstanceCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime.ColorState.Blue;
                         setTextInstanceBlueFirstValue = true;
                         TextInstanceBlueFirstValue = 0;
                         setTextInstanceGreenFirstValue = true;
@@ -388,7 +392,7 @@
                         break;
                     case  Highlight.NotHighlighted:
                         setChatOptionFrameInstanceCurrentColorStateStateFirstValue = true;
-                        ChatOptionFrameInstanceCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime.ColorState.Black;
+                        ChatOptionFrameInstanceCurrentColorStateStateFirstValue = AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime.ColorState.Black;
                         setTextInstanceBlueFirstValue = true;
                         TextInstanceBlueFirstValue = 255;
                         setTextInstanceGreenFirstValue = true;
@@ -401,7 +405,7 @@
                 {
                     case  Highlight.Highlighted:
                         setChatOptionFrameInstanceCurrentColorStateStateSecondValue = true;
-                        ChatOptionFrameInstanceCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime.ColorState.Blue;
+                        ChatOptionFrameInstanceCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime.ColorState.Blue;
                         setTextInstanceBlueSecondValue = true;
                         TextInstanceBlueSecondValue = 0;
                         setTextInstanceGreenSecondValue = true;
@@ -411,7 +415,7 @@
                         break;
                     case  Highlight.NotHighlighted:
                         setChatOptionFrameInstanceCurrentColorStateStateSecondValue = true;
-                        ChatOptionFrameInstanceCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime.ColorState.Black;
+                        ChatOptionFrameInstanceCurrentColorStateStateSecondValue = AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime.ColorState.Black;
                         setTextInstanceBlueSecondValue = true;
                         TextInstanceBlueSecondValue = 255;
                         setTextInstanceGreenSecondValue = true;
@@ -447,7 +451,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -501,7 +505,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight fromState,AbbatoirIntergrade.GumRuntimes.ChatOptionRuntime.Highlight toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.ChatOptionRuntime.Highlight toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1139,9 +1143,9 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime ChatOptionFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime ChatOptionFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
-            public ChatOptionFrameRuntime.ColorState ChatColorState
+            public ChatOptionFrameRuntime.ColorState? ChatColorState
             {
                 get
                 {
@@ -1201,7 +1205,7 @@
             }
             private void AssignReferences () 
             {
-                ChatOptionFrameInstance = this.GetGraphicalUiElementByName("ChatOptionFrameInstance") as AbbatoirIntergrade.GumRuntimes.ChatOptionFrameRuntime;
+                ChatOptionFrameInstance = this.GetGraphicalUiElementByName("ChatOptionFrameInstance") as AbbatoirIntergrade.GumRuntimes.Frames.ChatOptionFrameRuntime;
                 TextInstance = this.GetGraphicalUiElementByName("TextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 

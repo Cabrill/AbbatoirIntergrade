@@ -22,8 +22,8 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Fading mCurrentFadingState;
-            Endings mCurrentEndingsState;
+            Fading? mCurrentFadingState;
+            Endings? mCurrentEndingsState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -41,7 +41,7 @@
                             SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/positive.png");
                             SpriteInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            ButtonFrameInstance.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                            ButtonFrameInstance.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                             ButtonFrameInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
                             ButtonFrameInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                             ButtonFrameInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
@@ -54,7 +54,7 @@
                             BlackFade.Red = 0;
                             BlackFade.Width = 100f;
                             BlackFade.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            CurrentMusicDisplayInstance.CurrentAppearingState = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
+                            CurrentMusicDisplayInstance.CurrentAppearingState = AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.Appearing.Hidden;
                             CreditsContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                             CreditsContainer.Height = 100f;
                             CreditsContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -67,7 +67,7 @@
                     }
                 }
             }
-            public Fading CurrentFadingState
+            public Fading? CurrentFadingState
             {
                 get
                 {
@@ -75,19 +75,22 @@
                 }
                 set
                 {
-                    mCurrentFadingState = value;
-                    switch(mCurrentFadingState)
+                    if (value != null)
                     {
-                        case  Fading.Faded:
-                            BlackFade.Alpha = 255;
-                            break;
-                        case  Fading.NotFaded:
-                            BlackFade.Alpha = 0;
-                            break;
+                        mCurrentFadingState = value;
+                        switch(mCurrentFadingState)
+                        {
+                            case  Fading.Faded:
+                                BlackFade.Alpha = 255;
+                                break;
+                            case  Fading.NotFaded:
+                                BlackFade.Alpha = 0;
+                                break;
+                        }
                     }
                 }
             }
-            public Endings CurrentEndingsState
+            public Endings? CurrentEndingsState
             {
                 get
                 {
@@ -95,24 +98,27 @@
                 }
                 set
                 {
-                    mCurrentEndingsState = value;
-                    switch(mCurrentEndingsState)
+                    if (value != null)
                     {
-                        case  Endings.Positive:
-                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/positive.png");
-                            EndingTextContainer.X = 0f;
-                            EndingTextContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                            break;
-                        case  Endings.Neutral:
-                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/neutral.png");
-                            EndingTextContainer.X = 40f;
-                            EndingTextContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                            break;
-                        case  Endings.Negative:
-                            SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/negative.png");
-                            EndingTextContainer.X = 50f;
-                            EndingTextContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            break;
+                        mCurrentEndingsState = value;
+                        switch(mCurrentEndingsState)
+                        {
+                            case  Endings.Positive:
+                                SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/positive.png");
+                                EndingTextContainer.X = 0f;
+                                EndingTextContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                                break;
+                            case  Endings.Neutral:
+                                SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/neutral.png");
+                                EndingTextContainer.X = 40f;
+                                EndingTextContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                                break;
+                            case  Endings.Negative:
+                                SetProperty("SpriteInstance.SourceFile", "../Screens/EndingScreen/negative.png");
+                                EndingTextContainer.X = 50f;
+                                EndingTextContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                                break;
+                        }
                     }
                 }
             }
@@ -152,8 +158,8 @@
                 float BlackFadeWidthSecondValue= 0;
                 bool setButtonFrameInstanceCurrentButtonTypeStateFirstValue = false;
                 bool setButtonFrameInstanceCurrentButtonTypeStateSecondValue = false;
-                ButtonFrameRuntime.ButtonType ButtonFrameInstanceCurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
-                ButtonFrameRuntime.ButtonType ButtonFrameInstanceCurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType ButtonFrameInstanceCurrentButtonTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType ButtonFrameInstanceCurrentButtonTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                 bool setCreditsContainerHeightFirstValue = false;
                 bool setCreditsContainerHeightSecondValue = false;
                 float CreditsContainerHeightFirstValue= 0;
@@ -164,8 +170,8 @@
                 float CreditsContainerWidthSecondValue= 0;
                 bool setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = false;
                 bool setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = false;
-                CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue= CurrentMusicDisplayRuntime.Appearing.Hidden;
-                CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue= CurrentMusicDisplayRuntime.Appearing.Hidden;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue= AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.Appearing.Hidden;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.Appearing CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue= AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.Appearing.Hidden;
                 switch(firstState)
                 {
                     case  VariableState.Default:
@@ -190,7 +196,7 @@
                             this.BlackFade.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setButtonFrameInstanceCurrentButtonTypeStateFirstValue = true;
-                        ButtonFrameInstanceCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                        ButtonFrameInstanceCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                         if (interpolationValue < 1)
                         {
                             this.ButtonFrameInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
@@ -236,7 +242,7 @@
                             this.CreditsContainer.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setCurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = true;
-                        CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
+                        CurrentMusicDisplayInstanceCurrentAppearingStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.Appearing.Hidden;
                         if (interpolationValue < 1)
                         {
                             this.SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -275,7 +281,7 @@
                             this.BlackFade.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setButtonFrameInstanceCurrentButtonTypeStateSecondValue = true;
-                        ButtonFrameInstanceCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                        ButtonFrameInstanceCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                         if (interpolationValue >= 1)
                         {
                             this.ButtonFrameInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
@@ -321,7 +327,7 @@
                             this.CreditsContainer.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setCurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = true;
-                        CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime.Appearing.Hidden;
+                        CurrentMusicDisplayInstanceCurrentAppearingStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime.Appearing.Hidden;
                         if (interpolationValue >= 1)
                         {
                             this.SpriteInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -1516,10 +1522,10 @@
                 base.ApplyState(state);
             }
             public AbbatoirIntergrade.GumRuntimes.SpriteRuntime SpriteInstance { get; set; }
-            public AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ButtonFrameInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime ButtonFrameInstance { get; set; }
             public AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime EndingTextContainer { get; set; }
             public AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime BlackFade { get; set; }
-            public AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
+            public AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance { get; set; }
             public AbbatoirIntergrade.GumRuntimes.ContainerRuntime CreditsContainer { get; set; }
             public EndingScreenGumRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             {
@@ -1547,10 +1553,10 @@
             private void AssignReferences () 
             {
                 SpriteInstance = this.GetGraphicalUiElementByName("SpriteInstance") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
-                ButtonFrameInstance = this.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
+                ButtonFrameInstance = this.GetGraphicalUiElementByName("ButtonFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
                 EndingTextContainer = this.GetGraphicalUiElementByName("EndingTextContainer") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
                 BlackFade = this.GetGraphicalUiElementByName("BlackFade") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
-                CurrentMusicDisplayInstance = this.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
+                CurrentMusicDisplayInstance = this.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime;
                 CreditsContainer = this.GetGraphicalUiElementByName("CreditsContainer") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 

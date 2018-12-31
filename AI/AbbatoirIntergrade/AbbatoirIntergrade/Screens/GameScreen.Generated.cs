@@ -2,20 +2,14 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
+using System.Linq;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
+using AbbatoirIntergrade.Entities.GraphicalElements;
 namespace AbbatoirIntergrade.Screens
 {
     public partial class GameScreen : FlatRedBall.Screens.Screen
@@ -238,8 +232,8 @@ namespace AbbatoirIntergrade.Screens
         private FlatRedBall.Graphics.Layer InfoLayer;
         private FlatRedBall.Graphics.Layer HUDLayer;
         private Microsoft.Xna.Framework.Graphics.RenderTarget2D BackgroundRenderTarget;
-        private AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime mEnemyInfoInstance;
-        public AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime EnemyInfoInstance
+        private AbbatoirIntergrade.GumRuntimes.infodisplays.EnemyInfoRuntime mEnemyInfoInstance;
+        public AbbatoirIntergrade.GumRuntimes.infodisplays.EnemyInfoRuntime EnemyInfoInstance
         {
             get
             {
@@ -251,8 +245,8 @@ namespace AbbatoirIntergrade.Screens
             }
         }
         private AbbatoirIntergrade.Entities.GraphicalElements.StructurePlacement StructurePlacementInstance;
-        private AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime mStructureInfoInstance;
-        public AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime StructureInfoInstance
+        private AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime mStructureInfoInstance;
+        public AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime StructureInfoInstance
         {
             get
             {
@@ -303,8 +297,8 @@ namespace AbbatoirIntergrade.Screens
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TileCollisionCircle> TileCollisionCircleList;
         private AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime ChatHistoryInstance;
         private AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime GameScreenGumInstance;
-        private AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime mTopStatusBarInstance;
-        public AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime TopStatusBarInstance
+        private AbbatoirIntergrade.GumRuntimes.InfoDisplays.TopStatusBarRuntime mTopStatusBarInstance;
+        public AbbatoirIntergrade.GumRuntimes.InfoDisplays.TopStatusBarRuntime TopStatusBarInstance
         {
             get
             {
@@ -318,13 +312,13 @@ namespace AbbatoirIntergrade.Screens
         private AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime ScreenShadeInstance;
         private AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime MenuWindowInstance;
         private FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TiledOverlay> TiledOverlayList;
-        private AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime LocationTimeInstance;
+        private AbbatoirIntergrade.GumRuntimes.infodisplays.LocationTimeAnnouncementRuntime LocationTimeInstance;
         private AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime ConfirmationWindowInstance;
-        private AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance;
+        private AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime CurrentMusicDisplayInstance;
         private AbbatoirIntergrade.GumRuntimes.TextRuntime HordeText;
         private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime DimmingRectangleInstance;
-        private AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime mReadyButtonInstance;
-        public AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime ReadyButtonInstance
+        private AbbatoirIntergrade.GumRuntimes.specificbuttons.ReadyButtonRuntime mReadyButtonInstance;
+        public AbbatoirIntergrade.GumRuntimes.specificbuttons.ReadyButtonRuntime ReadyButtonInstance
         {
             get
             {
@@ -335,8 +329,8 @@ namespace AbbatoirIntergrade.Screens
                 mReadyButtonInstance = value;
             }
         }
-        private AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime mPointingArrowInstance;
-        public AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime PointingArrowInstance
+        private AbbatoirIntergrade.GumRuntimes.unique.PointingArrowRuntime mPointingArrowInstance;
+        public AbbatoirIntergrade.GumRuntimes.unique.PointingArrowRuntime PointingArrowInstance
         {
             get
             {
@@ -347,8 +341,8 @@ namespace AbbatoirIntergrade.Screens
                 mPointingArrowInstance = value;
             }
         }
-        private AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime mTutorialTextInstance;
-        public AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime TutorialTextInstance
+        private AbbatoirIntergrade.GumRuntimes.infodisplays.TutorialTextRuntime mTutorialTextInstance;
+        public AbbatoirIntergrade.GumRuntimes.infodisplays.TutorialTextRuntime TutorialTextInstance
         {
             get
             {
@@ -418,10 +412,10 @@ namespace AbbatoirIntergrade.Screens
             HUDLayer = new FlatRedBall.Graphics.Layer();
             HUDLayer.Name = "HUDLayer";
             BackgroundRenderTarget = new Microsoft.Xna.Framework.Graphics.RenderTarget2D(FlatRedBall.FlatRedBallServices.GraphicsDevice, FlatRedBall.Camera.Main.DestinationRectangle.Width, FlatRedBall.Camera.Main.DestinationRectangle.Height);
-            mEnemyInfoInstance = GameScreenGum.GetGraphicalUiElementByName("EnemyInfoInstance") as AbbatoirIntergrade.GumRuntimes.EnemyInfoRuntime;
+            mEnemyInfoInstance = GameScreenGum.GetGraphicalUiElementByName("EnemyInfoInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.EnemyInfoRuntime;
             StructurePlacementInstance = new AbbatoirIntergrade.Entities.GraphicalElements.StructurePlacement(ContentManagerName, false);
             StructurePlacementInstance.Name = "StructurePlacementInstance";
-            mStructureInfoInstance = GameScreenGum.GetGraphicalUiElementByName("StructureInfoInstance") as AbbatoirIntergrade.GumRuntimes.StructureInfoRuntime;
+            mStructureInfoInstance = GameScreenGum.GetGraphicalUiElementByName("StructureInfoInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.StructureInfoRuntime;
             mChatBoxInstance = GameScreenGum.GetGraphicalUiElementByName("ChatBoxInstance") as AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime;
             mBuildMenuInstance = GameScreenGum.GetGraphicalUiElementByName("BuildMenuInstance") as AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime;
             mLivesPointsDisplayInstance = GameScreenGum.GetGraphicalUiElementByName("LivesPointsDisplayInstance") as AbbatoirIntergrade.GumRuntimes.LivesPointsDisplayRuntime;
@@ -431,19 +425,19 @@ namespace AbbatoirIntergrade.Screens
             TileCollisionCircleList.Name = "TileCollisionCircleList";
             ChatHistoryInstance = GameScreenGum.GetGraphicalUiElementByName("ChatHistoryInstance") as AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime;
             GameScreenGumInstance = GameScreenGum.GetGraphicalUiElementByName("this") as AbbatoirIntergrade.GumRuntimes.GameScreenGumRuntime;
-            mTopStatusBarInstance = GameScreenGum.GetGraphicalUiElementByName("TopStatusBarInstance") as AbbatoirIntergrade.GumRuntimes.TopStatusBarRuntime;
+            mTopStatusBarInstance = GameScreenGum.GetGraphicalUiElementByName("TopStatusBarInstance") as AbbatoirIntergrade.GumRuntimes.InfoDisplays.TopStatusBarRuntime;
             ScreenShadeInstance = GameScreenGum.GetGraphicalUiElementByName("ScreenShadeInstance") as AbbatoirIntergrade.GumRuntimes.ScreenShadeRuntime;
             MenuWindowInstance = GameScreenGum.GetGraphicalUiElementByName("MenuWindowInstance") as AbbatoirIntergrade.GumRuntimes.MenuWindowRuntime;
             TiledOverlayList = new FlatRedBall.Math.PositionedObjectList<AbbatoirIntergrade.Entities.GraphicalElements.TiledOverlay>();
             TiledOverlayList.Name = "TiledOverlayList";
-            LocationTimeInstance = GameScreenGum.GetGraphicalUiElementByName("LocationTimeAnnouncementInstance") as AbbatoirIntergrade.GumRuntimes.LocationTimeAnnouncementRuntime;
+            LocationTimeInstance = GameScreenGum.GetGraphicalUiElementByName("LocationTimeAnnouncementInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.LocationTimeAnnouncementRuntime;
             ConfirmationWindowInstance = GameScreenGum.GetGraphicalUiElementByName("ConfirmationWindowInstance") as AbbatoirIntergrade.GumRuntimes.ConfirmationWindowRuntime;
-            CurrentMusicDisplayInstance = GameScreenGum.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.CurrentMusicDisplayRuntime;
+            CurrentMusicDisplayInstance = GameScreenGum.GetGraphicalUiElementByName("CurrentMusicDisplayInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.CurrentMusicDisplayRuntime;
             HordeText = GameScreenGum.GetGraphicalUiElementByName("HordeText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
             DimmingRectangleInstance = GameScreenGum.GetGraphicalUiElementByName("DimmingRectangle") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
-            mReadyButtonInstance = GameScreenGum.GetGraphicalUiElementByName("ReadyButtonInstance") as AbbatoirIntergrade.GumRuntimes.ReadyButtonRuntime;
-            mPointingArrowInstance = GameScreenGum.GetGraphicalUiElementByName("PointingArrowInstance") as AbbatoirIntergrade.GumRuntimes.PointingArrowRuntime;
-            mTutorialTextInstance = GameScreenGum.GetGraphicalUiElementByName("TutorialTextInstance") as AbbatoirIntergrade.GumRuntimes.TutorialTextRuntime;
+            mReadyButtonInstance = GameScreenGum.GetGraphicalUiElementByName("ReadyButtonInstance") as AbbatoirIntergrade.GumRuntimes.specificbuttons.ReadyButtonRuntime;
+            mPointingArrowInstance = GameScreenGum.GetGraphicalUiElementByName("PointingArrowInstance") as AbbatoirIntergrade.GumRuntimes.unique.PointingArrowRuntime;
+            mTutorialTextInstance = GameScreenGum.GetGraphicalUiElementByName("TutorialTextInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.TutorialTextRuntime;
             
             
             PostInitialize();
@@ -1185,6 +1179,16 @@ namespace AbbatoirIntergrade.Screens
             AbbatoirIntergrade.Entities.ShaderRenderer.LoadStaticContent(contentManagerName);
             AbbatoirIntergrade.Entities.GraphicalElements.StructurePlacement.LoadStaticContent(contentManagerName);
             CustomLoadStaticContent(contentManagerName);
+        }
+        public override void PauseThisScreen () 
+        {
+            StateInterpolationPlugin.TweenerManager.Self.Pause();
+            base.PauseThisScreen();
+        }
+        public override void UnpauseThisScreen () 
+        {
+            StateInterpolationPlugin.TweenerManager.Self.Unpause();
+            base.UnpauseThisScreen();
         }
         [System.Obsolete("Use GetFile instead")]
         public static object GetStaticMember (string memberName) 

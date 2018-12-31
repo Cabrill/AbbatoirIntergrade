@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.infodisplays
     {
         public partial class OkMessageRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -45,7 +45,7 @@
                             TextInstance.XUnits = Gum.Converters.GeneralUnitType.Percentage;
                             TextInstance.Y = 7.34862f;
                             TextInstance.YUnits = Gum.Converters.GeneralUnitType.Percentage;
-                            OKButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                            OKButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                             OKButton.Height = 100f;
                             OKButton.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LargeInfoFrameInstance") ?? this;
                             OKButton.Width = 10f;
@@ -81,8 +81,8 @@
                 float LargeInfoFrameInstanceWidthSecondValue= 0;
                 bool setOKButtonCurrentButtonTypeStateFirstValue = false;
                 bool setOKButtonCurrentButtonTypeStateSecondValue = false;
-                ButtonFrameRuntime.ButtonType OKButtonCurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
-                ButtonFrameRuntime.ButtonType OKButtonCurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType OKButtonCurrentButtonTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType OKButtonCurrentButtonTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                 bool setOKButtonHeightFirstValue = false;
                 bool setOKButtonHeightSecondValue = false;
                 float OKButtonHeightFirstValue= 0;
@@ -137,7 +137,7 @@
                         setLargeInfoFrameInstanceWidthFirstValue = true;
                         LargeInfoFrameInstanceWidthFirstValue = 80f;
                         setOKButtonCurrentButtonTypeStateFirstValue = true;
-                        OKButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                        OKButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                         setOKButtonHeightFirstValue = true;
                         OKButtonHeightFirstValue = 100f;
                         if (interpolationValue < 1)
@@ -226,7 +226,7 @@
                         setLargeInfoFrameInstanceWidthSecondValue = true;
                         LargeInfoFrameInstanceWidthSecondValue = 80f;
                         setOKButtonCurrentButtonTypeStateSecondValue = true;
-                        OKButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                        OKButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                         setOKButtonHeightSecondValue = true;
                         OKButtonHeightSecondValue = 100f;
                         if (interpolationValue >= 1)
@@ -368,7 +368,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.OkMessageRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.OkMessageRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.OkMessageRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.OkMessageRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -915,10 +915,10 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.DimmingRuntime DimmingInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.LargeInfoFrameRuntime LargeInfoFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.unique.DimmingRuntime DimmingInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.LargeInfoFrameRuntime LargeInfoFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime TextInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime OKButton { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime OKButton { get; set; }
             public string MessageText
             {
                 get
@@ -962,10 +962,10 @@
             }
             private void AssignReferences () 
             {
-                DimmingInstance = this.GetGraphicalUiElementByName("DimmingInstance") as AbbatoirIntergrade.GumRuntimes.DimmingRuntime;
-                LargeInfoFrameInstance = this.GetGraphicalUiElementByName("LargeInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.LargeInfoFrameRuntime;
+                DimmingInstance = this.GetGraphicalUiElementByName("DimmingInstance") as AbbatoirIntergrade.GumRuntimes.unique.DimmingRuntime;
+                LargeInfoFrameInstance = this.GetGraphicalUiElementByName("LargeInfoFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.LargeInfoFrameRuntime;
                 TextInstance = this.GetGraphicalUiElementByName("TextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                OKButton = this.GetGraphicalUiElementByName("OKButton") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
+                OKButton = this.GetGraphicalUiElementByName("OKButton") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

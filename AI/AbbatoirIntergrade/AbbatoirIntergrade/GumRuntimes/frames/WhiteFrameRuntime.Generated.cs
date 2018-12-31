@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.frames
     {
         public partial class WhiteFrameRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -24,8 +24,8 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Connections mCurrentConnectionsState;
-            Color mCurrentColorState;
+            Connections? mCurrentConnectionsState;
+            Color? mCurrentColorState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -204,7 +204,7 @@
                     }
                 }
             }
-            public Connections CurrentConnectionsState
+            public Connections? CurrentConnectionsState
             {
                 get
                 {
@@ -212,56 +212,59 @@
                 }
                 set
                 {
-                    mCurrentConnectionsState = value;
-                    switch(mCurrentConnectionsState)
+                    if (value != null)
                     {
-                        case  Connections.RightConnect:
-                            Height = 10.68727f;
-                            Width = 10.01024f;
-                            Middle.Width = -16f;
-                            Middle.X = 4f;
-                            Top.Width = -24f;
-                            Top.X = 4f;
-                            TopRight.Height = 16f;
-                            TopRight.TextureLeft = 7;
-                            TopRight.TextureTop = 100;
-                            TopRight.TextureWidth = 8;
-                            TopRight.Width = 8f;
-                            Right.TextureWidth = 8;
-                            Right.Width = 8f;
-                            BottomRight.TextureLeft = 7;
-                            BottomRight.TextureTop = 196;
-                            BottomRight.TextureWidth = 8;
-                            BottomRight.Width = 8f;
-                            Bottom.Width = -24f;
-                            Bottom.X = 4f;
-                            break;
-                        case  Connections.LeftConnect:
-                            Middle.Width = -16f;
-                            Middle.X = -4f;
-                            TopLeft.TextureHeight = 16;
-                            TopLeft.TextureLeft = 15;
-                            TopLeft.TextureTop = 100;
-                            TopLeft.TextureWidth = 8;
-                            TopLeft.Width = 8f;
-                            Top.Width = -24f;
-                            Top.X = -4f;
-                            Bottom.TextureWidth = 72;
-                            Bottom.Width = -24f;
-                            Bottom.X = -4f;
-                            BottomLeft.TextureLeft = 15;
-                            BottomLeft.TextureTop = 196;
-                            BottomLeft.TextureWidth = 8;
-                            BottomLeft.Width = 8f;
-                            Left.FlipHorizontal = false;
-                            Left.TextureLeft = 89;
-                            Left.TextureWidth = 8;
-                            Left.Width = 8f;
-                            break;
+                        mCurrentConnectionsState = value;
+                        switch(mCurrentConnectionsState)
+                        {
+                            case  Connections.RightConnect:
+                                Height = 10.68727f;
+                                Width = 10.01024f;
+                                Middle.Width = -16f;
+                                Middle.X = 4f;
+                                Top.Width = -24f;
+                                Top.X = 4f;
+                                TopRight.Height = 16f;
+                                TopRight.TextureLeft = 7;
+                                TopRight.TextureTop = 100;
+                                TopRight.TextureWidth = 8;
+                                TopRight.Width = 8f;
+                                Right.TextureWidth = 8;
+                                Right.Width = 8f;
+                                BottomRight.TextureLeft = 7;
+                                BottomRight.TextureTop = 196;
+                                BottomRight.TextureWidth = 8;
+                                BottomRight.Width = 8f;
+                                Bottom.Width = -24f;
+                                Bottom.X = 4f;
+                                break;
+                            case  Connections.LeftConnect:
+                                Middle.Width = -16f;
+                                Middle.X = -4f;
+                                TopLeft.TextureHeight = 16;
+                                TopLeft.TextureLeft = 15;
+                                TopLeft.TextureTop = 100;
+                                TopLeft.TextureWidth = 8;
+                                TopLeft.Width = 8f;
+                                Top.Width = -24f;
+                                Top.X = -4f;
+                                Bottom.TextureWidth = 72;
+                                Bottom.Width = -24f;
+                                Bottom.X = -4f;
+                                BottomLeft.TextureLeft = 15;
+                                BottomLeft.TextureTop = 196;
+                                BottomLeft.TextureWidth = 8;
+                                BottomLeft.Width = 8f;
+                                Left.FlipHorizontal = false;
+                                Left.TextureLeft = 89;
+                                Left.TextureWidth = 8;
+                                Left.Width = 8f;
+                                break;
+                        }
                     }
                 }
             }
-            public Color CurrentColorState
+            public Color? CurrentColorState
             {
                 get
                 {
@@ -269,139 +272,142 @@
                 }
                 set
                 {
-                    mCurrentColorState = value;
-                    switch(mCurrentColorState)
+                    if (value != null)
                     {
-                        case  Color.Red:
-                            TopLeft.Blue = 0;
-                            TopLeft.Green = 0;
-                            TopLeft.Red = 255;
-                            Top.Blue = 0;
-                            Top.Green = 0;
-                            Top.Red = 255;
-                            TopRight.Blue = 0;
-                            TopRight.Green = 0;
-                            TopRight.Red = 255;
-                            Right.Blue = 0;
-                            Right.Green = 0;
-                            Right.Red = 255;
-                            BottomRight.Blue = 0;
-                            BottomRight.Green = 0;
-                            BottomRight.Red = 255;
-                            Bottom.Blue = 0;
-                            Bottom.Green = 0;
-                            Bottom.Red = 255;
-                            BottomLeft.Blue = 0;
-                            BottomLeft.Green = 0;
-                            BottomLeft.Red = 255;
-                            Left.Blue = 0;
-                            Left.Green = 0;
-                            Left.Red = 255;
-                            break;
-                        case  Color.Green:
-                            TopLeft.Blue = 0;
-                            TopLeft.Green = 255;
-                            TopLeft.Red = 0;
-                            Top.Blue = 0;
-                            Top.Green = 255;
-                            Top.Red = 0;
-                            TopRight.Blue = 0;
-                            TopRight.Green = 255;
-                            TopRight.Red = 0;
-                            Right.Blue = 0;
-                            Right.Green = 255;
-                            Right.Red = 0;
-                            BottomRight.Blue = 0;
-                            BottomRight.Green = 255;
-                            BottomRight.Red = 0;
-                            Bottom.Blue = 0;
-                            Bottom.Green = 255;
-                            Bottom.Red = 0;
-                            BottomLeft.Blue = 0;
-                            BottomLeft.Green = 255;
-                            BottomLeft.Red = 0;
-                            Left.Blue = 0;
-                            Left.Green = 255;
-                            Left.Red = 0;
-                            break;
-                        case  Color.Blue:
-                            TopLeft.Blue = 255;
-                            TopLeft.Green = 0;
-                            TopLeft.Red = 0;
-                            Top.Blue = 255;
-                            Top.Green = 0;
-                            Top.Red = 0;
-                            TopRight.Blue = 255;
-                            TopRight.Green = 0;
-                            TopRight.Red = 0;
-                            Right.Blue = 255;
-                            Right.Green = 0;
-                            Right.Red = 0;
-                            BottomRight.Blue = 255;
-                            BottomRight.Green = 0;
-                            BottomRight.Red = 0;
-                            Bottom.Blue = 255;
-                            Bottom.Green = 0;
-                            Bottom.Red = 0;
-                            BottomLeft.Blue = 255;
-                            BottomLeft.Green = 0;
-                            BottomLeft.Red = 0;
-                            Left.Blue = 255;
-                            Left.Green = 0;
-                            Left.Red = 0;
-                            break;
-                        case  Color.White:
-                            TopLeft.Blue = 255;
-                            TopLeft.Green = 255;
-                            TopLeft.Red = 255;
-                            Top.Blue = 255;
-                            Top.Green = 255;
-                            Top.Red = 255;
-                            TopRight.Blue = 255;
-                            TopRight.Green = 255;
-                            TopRight.Red = 255;
-                            Right.Blue = 255;
-                            Right.Green = 255;
-                            Right.Red = 255;
-                            BottomRight.Blue = 255;
-                            BottomRight.Green = 255;
-                            BottomRight.Red = 255;
-                            Bottom.Blue = 255;
-                            Bottom.Green = 255;
-                            Bottom.Red = 255;
-                            BottomLeft.Blue = 255;
-                            BottomLeft.Green = 255;
-                            BottomLeft.Red = 255;
-                            Left.Blue = 255;
-                            Left.Green = 255;
-                            Left.Red = 255;
-                            break;
-                        case  Color.LightBlue:
-                            TopLeft.Blue = 255;
-                            TopLeft.Green = 255;
-                            TopLeft.Red = 0;
-                            Top.Blue = 255;
-                            Top.Green = 255;
-                            Top.Red = 0;
-                            TopRight.Blue = 255;
-                            TopRight.Green = 255;
-                            TopRight.Red = 0;
-                            Right.Blue = 255;
-                            Right.Green = 255;
-                            Right.Red = 0;
-                            BottomRight.Blue = 255;
-                            BottomRight.Green = 255;
-                            BottomRight.Red = 0;
-                            Bottom.Blue = 255;
-                            Bottom.Green = 255;
-                            Bottom.Red = 0;
-                            BottomLeft.Blue = 255;
-                            BottomLeft.Green = 255;
-                            BottomLeft.Red = 0;
-                            Left.Blue = 255;
-                            Left.Green = 255;
-                            Left.Red = 0;
-                            break;
+                        mCurrentColorState = value;
+                        switch(mCurrentColorState)
+                        {
+                            case  Color.Red:
+                                TopLeft.Blue = 0;
+                                TopLeft.Green = 0;
+                                TopLeft.Red = 255;
+                                Top.Blue = 0;
+                                Top.Green = 0;
+                                Top.Red = 255;
+                                TopRight.Blue = 0;
+                                TopRight.Green = 0;
+                                TopRight.Red = 255;
+                                Right.Blue = 0;
+                                Right.Green = 0;
+                                Right.Red = 255;
+                                BottomRight.Blue = 0;
+                                BottomRight.Green = 0;
+                                BottomRight.Red = 255;
+                                Bottom.Blue = 0;
+                                Bottom.Green = 0;
+                                Bottom.Red = 255;
+                                BottomLeft.Blue = 0;
+                                BottomLeft.Green = 0;
+                                BottomLeft.Red = 255;
+                                Left.Blue = 0;
+                                Left.Green = 0;
+                                Left.Red = 255;
+                                break;
+                            case  Color.Green:
+                                TopLeft.Blue = 0;
+                                TopLeft.Green = 255;
+                                TopLeft.Red = 0;
+                                Top.Blue = 0;
+                                Top.Green = 255;
+                                Top.Red = 0;
+                                TopRight.Blue = 0;
+                                TopRight.Green = 255;
+                                TopRight.Red = 0;
+                                Right.Blue = 0;
+                                Right.Green = 255;
+                                Right.Red = 0;
+                                BottomRight.Blue = 0;
+                                BottomRight.Green = 255;
+                                BottomRight.Red = 0;
+                                Bottom.Blue = 0;
+                                Bottom.Green = 255;
+                                Bottom.Red = 0;
+                                BottomLeft.Blue = 0;
+                                BottomLeft.Green = 255;
+                                BottomLeft.Red = 0;
+                                Left.Blue = 0;
+                                Left.Green = 255;
+                                Left.Red = 0;
+                                break;
+                            case  Color.Blue:
+                                TopLeft.Blue = 255;
+                                TopLeft.Green = 0;
+                                TopLeft.Red = 0;
+                                Top.Blue = 255;
+                                Top.Green = 0;
+                                Top.Red = 0;
+                                TopRight.Blue = 255;
+                                TopRight.Green = 0;
+                                TopRight.Red = 0;
+                                Right.Blue = 255;
+                                Right.Green = 0;
+                                Right.Red = 0;
+                                BottomRight.Blue = 255;
+                                BottomRight.Green = 0;
+                                BottomRight.Red = 0;
+                                Bottom.Blue = 255;
+                                Bottom.Green = 0;
+                                Bottom.Red = 0;
+                                BottomLeft.Blue = 255;
+                                BottomLeft.Green = 0;
+                                BottomLeft.Red = 0;
+                                Left.Blue = 255;
+                                Left.Green = 0;
+                                Left.Red = 0;
+                                break;
+                            case  Color.White:
+                                TopLeft.Blue = 255;
+                                TopLeft.Green = 255;
+                                TopLeft.Red = 255;
+                                Top.Blue = 255;
+                                Top.Green = 255;
+                                Top.Red = 255;
+                                TopRight.Blue = 255;
+                                TopRight.Green = 255;
+                                TopRight.Red = 255;
+                                Right.Blue = 255;
+                                Right.Green = 255;
+                                Right.Red = 255;
+                                BottomRight.Blue = 255;
+                                BottomRight.Green = 255;
+                                BottomRight.Red = 255;
+                                Bottom.Blue = 255;
+                                Bottom.Green = 255;
+                                Bottom.Red = 255;
+                                BottomLeft.Blue = 255;
+                                BottomLeft.Green = 255;
+                                BottomLeft.Red = 255;
+                                Left.Blue = 255;
+                                Left.Green = 255;
+                                Left.Red = 255;
+                                break;
+                            case  Color.LightBlue:
+                                TopLeft.Blue = 255;
+                                TopLeft.Green = 255;
+                                TopLeft.Red = 0;
+                                Top.Blue = 255;
+                                Top.Green = 255;
+                                Top.Red = 0;
+                                TopRight.Blue = 255;
+                                TopRight.Green = 255;
+                                TopRight.Red = 0;
+                                Right.Blue = 255;
+                                Right.Green = 255;
+                                Right.Red = 0;
+                                BottomRight.Blue = 255;
+                                BottomRight.Green = 255;
+                                BottomRight.Red = 0;
+                                Bottom.Blue = 255;
+                                Bottom.Green = 255;
+                                Bottom.Red = 0;
+                                BottomLeft.Blue = 255;
+                                BottomLeft.Green = 255;
+                                BottomLeft.Red = 0;
+                                Left.Blue = 255;
+                                Left.Green = 255;
+                                Left.Red = 0;
+                                break;
+                        }
                     }
                 }
             }
@@ -3190,7 +3196,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -3244,7 +3250,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Connections fromState,AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Connections toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Connections fromState,AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Connections toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -3298,7 +3304,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color fromState,AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime.Color toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color fromState,AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime.Color toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

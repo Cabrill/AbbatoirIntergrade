@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FlatRedBall;
 
-namespace AbbatoirIntergrade.GumRuntimes
+namespace AbbatoirIntergrade.GumRuntimes.infodisplays
 {
     public partial class ResourceIncreaseNotificationRuntime
     {

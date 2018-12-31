@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using AbbatoirIntergrade.GumRuntimes;
 using FlatRedBall.Gui;
 
-namespace AbbatoirIntergrade.GumRuntimes
+namespace AbbatoirIntergrade.GumRuntimes.frames
 {
     public partial class ButtonFrameRuntime
     {

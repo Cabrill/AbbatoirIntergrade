@@ -411,6 +411,13 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
+        <Type>float</Type>
+        <Name>Y</Name>
+        <Value xsi:type="xsd:float">0</Value>
+        <Category>Position</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>VerticalAlignment</Type>
         <Name>Y Origin</Name>
         <Value xsi:type="xsd:int">2</Value>
@@ -422,38 +429,37 @@
         <Value xsi:type="xsd:int">5</Value>
         <SetsValue>true</SetsValue>
       </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>Y</Name>
-        <Value xsi:type="xsd:float">0</Value>
-        <Category>Position</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
     </State>
   </Category>
   <Instance>
     <Name>LargeInfoFrameInstance</Name>
     <BaseType>frames/LargeInfoFrame</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>TextInstance</Name>
     <BaseType>Text</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ConfirmationButton</Name>
     <BaseType>frames/ButtonFrame</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>SkipTutorialButton</Name>
     <BaseType>frames/ButtonFrame</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>SkipTutorialText</Name>
     <BaseType>Text</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ContinueText</Name>
     <BaseType>Text</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

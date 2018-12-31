@@ -121,14 +121,17 @@
   <Instance>
     <Name>ChatFrameInstance</Name>
     <BaseType>frames/ChatFrame</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>YesButton</Name>
     <BaseType>frames/ButtonFrame</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>YesButton1</Name>
     <BaseType>frames/ButtonFrame</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

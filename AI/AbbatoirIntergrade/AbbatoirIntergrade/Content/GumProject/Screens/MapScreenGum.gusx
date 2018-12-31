@@ -992,89 +992,111 @@
   <Instance>
     <Name>BackgroundMapSprite</Name>
     <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>TechnologyTreeInstance</Name>
     <BaseType>TechnologyTree</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LevelButtonInstance1</Name>
     <BaseType>specificbuttons/LevelButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LevelButtonInstance2</Name>
     <BaseType>specificbuttons/LevelButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LevelButtonInstance3</Name>
     <BaseType>specificbuttons/LevelButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LevelButtonInstance4</Name>
     <BaseType>specificbuttons/LevelButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LevelButtonInstance5</Name>
     <BaseType>specificbuttons/LevelButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LevelButtonInstance6</Name>
     <BaseType>specificbuttons/LevelButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LevelButtonInstance7</Name>
     <BaseType>specificbuttons/LevelButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LevelButtonInstance8</Name>
     <BaseType>specificbuttons/LevelButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LevelButtonInstance9</Name>
     <BaseType>specificbuttons/LevelButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LevelButtonInstance10</Name>
     <BaseType>specificbuttons/LevelButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ScreenDimRectangle</Name>
     <BaseType>ColoredRectangle</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>MenuWindowInstance</Name>
     <BaseType>MenuWindow</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>StyleBarInstance</Name>
     <BaseType>frames/StyleBar</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>OptionsButtonInstance</Name>
     <BaseType>frames/ButtonFrame</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ChatHistoryInstance</Name>
     <BaseType>ChatHistory</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ColoredRectangleInstance</Name>
     <BaseType>ColoredRectangle</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>OkMessageInstance</Name>
     <BaseType>infodisplays/OkMessage</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>TowerSelectionBoxInstance</Name>
     <BaseType>TowerSelectionBox</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ConfirmationWindowInstance</Name>
     <BaseType>ConfirmationWindow</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>CurrentMusicDisplayInstance</Name>
     <BaseType>infodisplays/CurrentMusicDisplay</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
 </ScreenSave>

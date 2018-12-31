@@ -28,6 +28,7 @@ using StateInterpolationPlugin;
 using Layer = FlatRedBall.Graphics.Layer;
 using Sprite = FlatRedBall.Sprite;
 using SpriteManager = FlatRedBall.SpriteManager;
+using AbbatoirIntergrade.GumRuntimes.infodisplays;
 
 namespace AbbatoirIntergrade.Entities.BaseEntities
 {

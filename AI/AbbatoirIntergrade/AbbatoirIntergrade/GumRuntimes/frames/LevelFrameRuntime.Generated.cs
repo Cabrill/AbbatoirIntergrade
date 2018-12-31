@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.frames
     {
         public partial class LevelFrameRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -16,7 +16,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Lock mCurrentLockState;
+            Lock? mCurrentLockState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -52,7 +52,7 @@
                     }
                 }
             }
-            public Lock CurrentLockState
+            public Lock? CurrentLockState
             {
                 get
                 {
@@ -60,15 +60,18 @@
                 }
                 set
                 {
-                    mCurrentLockState = value;
-                    switch(mCurrentLockState)
+                    if (value != null)
                     {
-                        case  Lock.Locked:
-                            BackgroundSprite.TextureLeft = 256;
-                            break;
-                        case  Lock.NotLocked:
-                            BackgroundSprite.TextureLeft = 0;
-                            break;
+                        mCurrentLockState = value;
+                        switch(mCurrentLockState)
+                        {
+                            case  Lock.Locked:
+                                BackgroundSprite.TextureLeft = 256;
+                                break;
+                            case  Lock.NotLocked:
+                                BackgroundSprite.TextureLeft = 0;
+                                break;
+                        }
                     }
                 }
             }
@@ -318,7 +321,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.LevelFrameRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.LevelFrameRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.frames.LevelFrameRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.frames.LevelFrameRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -372,7 +375,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.LevelFrameRuntime.Lock fromState,AbbatoirIntergrade.GumRuntimes.LevelFrameRuntime.Lock toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.frames.LevelFrameRuntime.Lock fromState,AbbatoirIntergrade.GumRuntimes.frames.LevelFrameRuntime.Lock toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

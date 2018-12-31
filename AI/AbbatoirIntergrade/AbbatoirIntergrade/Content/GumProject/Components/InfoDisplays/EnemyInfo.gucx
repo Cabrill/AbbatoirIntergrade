@@ -737,62 +737,77 @@
   <Instance>
     <Name>StatsContainer</Name>
     <BaseType>Container</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>NameContainer</Name>
     <BaseType>Container</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>NameText</Name>
     <BaseType>Text</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>TallInfoFrameInstance</Name>
     <BaseType>frames/TallInfoFrame</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>HealthDisplay</Name>
     <BaseType>infodisplays/AttributeDisplay</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>SpeedDisplay</Name>
     <BaseType>infodisplays/AttributeDisplay</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ResistanceContainer</Name>
     <BaseType>Container</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LeftResistances</Name>
     <BaseType>Container</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>RightResistances</Name>
     <BaseType>Container</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>PiercingResist</Name>
     <BaseType>infodisplays/ResistanceDisplay</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ChemicalResist</Name>
     <BaseType>infodisplays/ResistanceDisplay</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>FrostResist</Name>
     <BaseType>infodisplays/ResistanceDisplay</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>BombardResist</Name>
     <BaseType>infodisplays/ResistanceDisplay</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ElectricResist</Name>
     <BaseType>infodisplays/ResistanceDisplay</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>FireResist</Name>
     <BaseType>infodisplays/ResistanceDisplay</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

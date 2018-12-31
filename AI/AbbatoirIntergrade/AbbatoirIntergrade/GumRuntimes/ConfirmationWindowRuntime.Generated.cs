@@ -44,12 +44,12 @@
                             MessageText.Width = 1190f;
                             MessageText.X = 676f;
                             MessageText.Y = 425f;
-                            ConfirmButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                            ConfirmButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                             ConfirmButton.Height = 100f;
                             ConfirmButton.Width = 6f;
                             ConfirmButton.X = 662f;
                             ConfirmButton.Y = 878f;
-                            CancelButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
+                            CancelButton.CurrentButtonTypeState = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.X;
                             CancelButton.Height = 100f;
                             CancelButton.Width = 6f;
                             CancelButton.X = 1746f;
@@ -70,8 +70,8 @@
                 #endif
                 bool setCancelButtonCurrentButtonTypeStateFirstValue = false;
                 bool setCancelButtonCurrentButtonTypeStateSecondValue = false;
-                ButtonFrameRuntime.ButtonType CancelButtonCurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
-                ButtonFrameRuntime.ButtonType CancelButtonCurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType CancelButtonCurrentButtonTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType CancelButtonCurrentButtonTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                 bool setCancelButtonHeightFirstValue = false;
                 bool setCancelButtonHeightSecondValue = false;
                 float CancelButtonHeightFirstValue= 0;
@@ -90,8 +90,8 @@
                 float CancelButtonYSecondValue= 0;
                 bool setConfirmButtonCurrentButtonTypeStateFirstValue = false;
                 bool setConfirmButtonCurrentButtonTypeStateSecondValue = false;
-                ButtonFrameRuntime.ButtonType ConfirmButtonCurrentButtonTypeStateFirstValue= ButtonFrameRuntime.ButtonType.Check;
-                ButtonFrameRuntime.ButtonType ConfirmButtonCurrentButtonTypeStateSecondValue= ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType ConfirmButtonCurrentButtonTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
+                AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType ConfirmButtonCurrentButtonTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                 bool setConfirmButtonHeightFirstValue = false;
                 bool setConfirmButtonHeightSecondValue = false;
                 float ConfirmButtonHeightFirstValue= 0;
@@ -148,7 +148,7 @@
                 {
                     case  VariableState.Default:
                         setCancelButtonCurrentButtonTypeStateFirstValue = true;
-                        CancelButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
+                        CancelButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.X;
                         setCancelButtonHeightFirstValue = true;
                         CancelButtonHeightFirstValue = 100f;
                         setCancelButtonWidthFirstValue = true;
@@ -158,7 +158,7 @@
                         setCancelButtonYFirstValue = true;
                         CancelButtonYFirstValue = 878f;
                         setConfirmButtonCurrentButtonTypeStateFirstValue = true;
-                        ConfirmButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                        ConfirmButtonCurrentButtonTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                         setConfirmButtonHeightFirstValue = true;
                         ConfirmButtonHeightFirstValue = 100f;
                         setConfirmButtonWidthFirstValue = true;
@@ -231,7 +231,7 @@
                 {
                     case  VariableState.Default:
                         setCancelButtonCurrentButtonTypeStateSecondValue = true;
-                        CancelButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.X;
+                        CancelButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.X;
                         setCancelButtonHeightSecondValue = true;
                         CancelButtonHeightSecondValue = 100f;
                         setCancelButtonWidthSecondValue = true;
@@ -241,7 +241,7 @@
                         setCancelButtonYSecondValue = true;
                         CancelButtonYSecondValue = 878f;
                         setConfirmButtonCurrentButtonTypeStateSecondValue = true;
-                        ConfirmButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime.ButtonType.Check;
+                        ConfirmButtonCurrentButtonTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime.ButtonType.Check;
                         setConfirmButtonHeightSecondValue = true;
                         ConfirmButtonHeightSecondValue = 100f;
                         setConfirmButtonWidthSecondValue = true;
@@ -961,11 +961,11 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.DimmingRuntime DimmingInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.MessageFrameRuntime MessageFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.unique.DimmingRuntime DimmingInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.MessageFrameRuntime MessageFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime MessageText { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime ConfirmButton { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime CancelButton { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime ConfirmButton { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime CancelButton { get; set; }
             public ConfirmationWindowRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
             {
@@ -993,11 +993,11 @@
             }
             private void AssignReferences () 
             {
-                DimmingInstance = this.GetGraphicalUiElementByName("DimmingInstance") as AbbatoirIntergrade.GumRuntimes.DimmingRuntime;
-                MessageFrameInstance = this.GetGraphicalUiElementByName("MessageFrameInstance") as AbbatoirIntergrade.GumRuntimes.MessageFrameRuntime;
+                DimmingInstance = this.GetGraphicalUiElementByName("DimmingInstance") as AbbatoirIntergrade.GumRuntimes.unique.DimmingRuntime;
+                MessageFrameInstance = this.GetGraphicalUiElementByName("MessageFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.MessageFrameRuntime;
                 MessageText = this.GetGraphicalUiElementByName("MessageText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
-                ConfirmButton = this.GetGraphicalUiElementByName("ConfirmButton") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
-                CancelButton = this.GetGraphicalUiElementByName("CancelButton") as AbbatoirIntergrade.GumRuntimes.ButtonFrameRuntime;
+                ConfirmButton = this.GetGraphicalUiElementByName("ConfirmButton") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
+                CancelButton = this.GetGraphicalUiElementByName("CancelButton") as AbbatoirIntergrade.GumRuntimes.frames.ButtonFrameRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

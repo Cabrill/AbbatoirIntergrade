@@ -250,6 +250,7 @@
   <Instance>
     <Name>ThumbSprite</Name>
     <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors>
     <ElementBehaviorReference>

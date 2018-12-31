@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.Entities.BaseEntities;
 using AbbatoirIntergrade.GameClasses.Interfaces;
+using AbbatoirIntergrade.GumRuntimes.infodisplays;
 using AbbatoirIntergrade.Performance;
 using FlatRedBall;
 using FlatRedBall.Graphics;
@@ -15,7 +16,7 @@ using Gum.DataTypes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AbbatoirIntergrade.GumRuntimes
+namespace AbbatoirIntergrade.GumRuntimes.SpecificButtons
 {
     public partial class BuildButtonRuntime : IBuildButton
     {

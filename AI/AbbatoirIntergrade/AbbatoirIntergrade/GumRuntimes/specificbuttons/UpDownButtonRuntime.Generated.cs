@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.specificbuttons
     {
         public partial class UpDownButtonRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -23,8 +23,8 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            UpDown mCurrentUpDownState;
-            ButtonCategory mCurrentButtonCategoryState;
+            UpDown? mCurrentUpDownState;
+            ButtonCategory? mCurrentButtonCategoryState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -51,7 +51,7 @@
                     }
                 }
             }
-            public UpDown CurrentUpDownState
+            public UpDown? CurrentUpDownState
             {
                 get
                 {
@@ -59,21 +59,24 @@
                 }
                 set
                 {
-                    mCurrentUpDownState = value;
-                    switch(mCurrentUpDownState)
+                    if (value != null)
                     {
-                        case  UpDown.Up:
-                            SpriteInstance.TextureLeft = 3846;
-                            SpriteInstance.TextureTop = 1977;
-                            break;
-                        case  UpDown.Down:
-                            SpriteInstance.TextureLeft = 3590;
-                            SpriteInstance.TextureTop = 2017;
-                            break;
+                        mCurrentUpDownState = value;
+                        switch(mCurrentUpDownState)
+                        {
+                            case  UpDown.Up:
+                                SpriteInstance.TextureLeft = 3846;
+                                SpriteInstance.TextureTop = 1977;
+                                break;
+                            case  UpDown.Down:
+                                SpriteInstance.TextureLeft = 3590;
+                                SpriteInstance.TextureTop = 2017;
+                                break;
+                        }
                     }
                 }
             }
-            public ButtonCategory CurrentButtonCategoryState
+            public ButtonCategory? CurrentButtonCategoryState
             {
                 get
                 {
@@ -81,33 +84,36 @@
                 }
                 set
                 {
-                    mCurrentButtonCategoryState = value;
-                    switch(mCurrentButtonCategoryState)
+                    if (value != null)
                     {
-                        case  ButtonCategory.Enabled:
-                            SpriteInstance.Alpha = 255;
-                            SpriteInstance.Blue = 255;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 255;
-                            break;
-                        case  ButtonCategory.Disabled:
-                            SpriteInstance.Alpha = 150;
-                            SpriteInstance.Blue = 0;
-                            SpriteInstance.Green = 0;
-                            SpriteInstance.Red = 0;
-                            break;
-                        case  ButtonCategory.Highlighted:
-                            SpriteInstance.Alpha = 255;
-                            SpriteInstance.Blue = 255;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 224;
-                            break;
-                        case  ButtonCategory.Pushed:
-                            SpriteInstance.Alpha = 255;
-                            SpriteInstance.Blue = 255;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 0;
-                            break;
+                        mCurrentButtonCategoryState = value;
+                        switch(mCurrentButtonCategoryState)
+                        {
+                            case  ButtonCategory.Enabled:
+                                SpriteInstance.Alpha = 255;
+                                SpriteInstance.Blue = 255;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 255;
+                                break;
+                            case  ButtonCategory.Disabled:
+                                SpriteInstance.Alpha = 150;
+                                SpriteInstance.Blue = 0;
+                                SpriteInstance.Green = 0;
+                                SpriteInstance.Red = 0;
+                                break;
+                            case  ButtonCategory.Highlighted:
+                                SpriteInstance.Alpha = 255;
+                                SpriteInstance.Blue = 255;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 224;
+                                break;
+                            case  ButtonCategory.Pushed:
+                                SpriteInstance.Alpha = 255;
+                                SpriteInstance.Blue = 255;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 0;
+                                break;
+                        }
                     }
                 }
             }
@@ -420,7 +426,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -474,7 +480,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.UpDown fromState,AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.UpDown toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.UpDown fromState,AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.UpDown toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -528,7 +534,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.ButtonCategory fromState,AbbatoirIntergrade.GumRuntimes.UpDownButtonRuntime.ButtonCategory toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.ButtonCategory fromState,AbbatoirIntergrade.GumRuntimes.specificbuttons.UpDownButtonRuntime.ButtonCategory toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

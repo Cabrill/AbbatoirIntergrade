@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.coloredbars
     {
         public partial class ResourceBarRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -17,7 +17,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            BarType mCurrentBarTypeState;
+            BarType? mCurrentBarTypeState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -80,7 +80,7 @@
                     }
                 }
             }
-            public BarType CurrentBarTypeState
+            public BarType? CurrentBarTypeState
             {
                 get
                 {
@@ -88,24 +88,27 @@
                 }
                 set
                 {
-                    mCurrentBarTypeState = value;
-                    switch(mCurrentBarTypeState)
+                    if (value != null)
                     {
-                        case  BarType.Energy:
-                            FillRectangle.Blue = 0;
-                            FillRectangle.Green = 225;
-                            FillRectangle.Red = 255;
-                            break;
-                        case  BarType.Minerals:
-                            FillRectangle.Blue = 158;
-                            FillRectangle.Green = 75;
-                            FillRectangle.Red = 120;
-                            break;
-                        case  BarType.Health:
-                            FillRectangle.Blue = 72;
-                            FillRectangle.Green = 90;
-                            FillRectangle.Red = 210;
-                            break;
+                        mCurrentBarTypeState = value;
+                        switch(mCurrentBarTypeState)
+                        {
+                            case  BarType.Energy:
+                                FillRectangle.Blue = 0;
+                                FillRectangle.Green = 225;
+                                FillRectangle.Red = 255;
+                                break;
+                            case  BarType.Minerals:
+                                FillRectangle.Blue = 158;
+                                FillRectangle.Green = 75;
+                                FillRectangle.Red = 120;
+                                break;
+                            case  BarType.Health:
+                                FillRectangle.Blue = 72;
+                                FillRectangle.Green = 90;
+                                FillRectangle.Red = 210;
+                                break;
+                        }
                     }
                 }
             }
@@ -675,7 +678,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ResourceBarRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.ResourceBarRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.coloredbars.ResourceBarRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.coloredbars.ResourceBarRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -729,7 +732,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ResourceBarRuntime.BarType fromState,AbbatoirIntergrade.GumRuntimes.ResourceBarRuntime.BarType toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.coloredbars.ResourceBarRuntime.BarType fromState,AbbatoirIntergrade.GumRuntimes.coloredbars.ResourceBarRuntime.BarType toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1708,7 +1711,7 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime WhiteFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime WhiteFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime ColoredRectangleInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime FillRectangle { get; set; }
             private AbbatoirIntergrade.GumRuntimes.ContainerRuntime ContainerInstance { get; set; }
@@ -1787,7 +1790,7 @@
             }
             private void AssignReferences () 
             {
-                WhiteFrameInstance = this.GetGraphicalUiElementByName("WhiteFrameInstance") as AbbatoirIntergrade.GumRuntimes.WhiteFrameRuntime;
+                WhiteFrameInstance = this.GetGraphicalUiElementByName("WhiteFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.WhiteFrameRuntime;
                 ColoredRectangleInstance = this.GetGraphicalUiElementByName("ColoredRectangleInstance") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 FillRectangle = this.GetGraphicalUiElementByName("FillRectangle") as AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime;
                 ContainerInstance = this.GetGraphicalUiElementByName("ContainerInstance") as AbbatoirIntergrade.GumRuntimes.ContainerRuntime;

@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using AbbatoirIntergrade.Entities.BaseEntities;
 using AbbatoirIntergrade.Entities.GraphicalElements;
+using AbbatoirIntergrade.GumRuntimes.infodisplays;
+using AbbatoirIntergrade.GumRuntimes.SpecificButtons;
 using AbbatoirIntergrade.Performance;
 using RenderingLibrary;
 using Camera = FlatRedBall.Camera;

@@ -2,18 +2,10 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Screens;
+using System.Linq;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,42 +20,44 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         #if DEBUG
         static bool HasBeenLoadedWithGlobalContentManager = false;
         #endif
-        public enum VariableState
+        public class VariableState
         {
-            Uninitialized = 0, //This exists so that the first set call actually does something
-            Unknown = 1, //This exists so that if the entity is actually a child entity and has set a child state, you will get this
-            Flying = 2, 
-            Impact = 3
+            public float X;
+            public float Y;
+            public float Z;
+            public float DamageInflicted;
+            public bool HasLightSource;
+            public string SpriteInstanceCurrentChainName;
+            public float Mass;
+            public float Speed;
+            public static VariableState Flying = new VariableState()
+            {
+                SpriteInstanceCurrentChainName = "Shot",
+            }
+            ;
+            public static VariableState Impact = new VariableState()
+            {
+                SpriteInstanceCurrentChainName = "Impact",
+            }
+            ;
         }
-        protected int mCurrentState = 0;
+        private VariableState mCurrentState = null;
         public Entities.BaseEntities.BasePlayerProjectile.VariableState CurrentState
         {
             get
             {
-                if (mCurrentState >= 0 && mCurrentState <= 3)
-                {
-                    return (VariableState)mCurrentState;
-                }
-                else
-                {
-                    return VariableState.Unknown;
-                }
+                return mCurrentState;
             }
             set
             {
-                mCurrentState = (int)value;
-                switch(CurrentState)
+                mCurrentState = value;
+                if (CurrentState == VariableState.Flying)
                 {
-                    case  VariableState.Uninitialized:
-                        break;
-                    case  VariableState.Unknown:
-                        break;
-                    case  VariableState.Flying:
-                        SpriteInstanceCurrentChainName = "Shot";
-                        break;
-                    case  VariableState.Impact:
-                        SpriteInstanceCurrentChainName = "Impact";
-                        break;
+                    SpriteInstanceCurrentChainName = "Shot";
+                }
+                else if (CurrentState == VariableState.Impact)
+                {
+                    SpriteInstanceCurrentChainName = "Impact";
                 }
             }
         }
@@ -229,6 +223,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             LightOrShadowSprite.Name = "LightOrShadowSprite";
             mCircleInstance = new FlatRedBall.Math.Geometry.Circle();
             mCircleInstance.Name = "mCircleInstance";
+            // Not instantiating for AnimationChain AnimationChainInstance in Entities\BaseEntities\BasePlayerProjectile because properties on the object prevent it
             
             PostInitialize();
             if (SpriteInstance.Parent == null)
@@ -553,7 +548,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 CircleInstance.RelativeY = 0f;
             }
             CircleInstance.Radius = 16f;
-            CircleInstance.Color = Color.Red;
+            CircleInstance.Color = Microsoft.Xna.Framework.Color.Red;
             CircleInstance.ParentRotationChangesPosition = false;
             if (AnimationChainInstance!= null)
             {
@@ -844,7 +839,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 CircleInstance.RelativeY = 0f;
             }
             CircleInstance.Radius = 16f;
-            CircleInstance.Color = Color.Red;
+            CircleInstance.Color = Microsoft.Xna.Framework.Color.Red;
             CircleInstance.ParentRotationChangesPosition = false;
             if (Parent == null)
             {
@@ -932,7 +927,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         {
             // Intentionally left blank because this element uses global content, so it should never be unloaded
         }
-        static VariableState mLoadingState = VariableState.Uninitialized;
+        static VariableState mLoadingState = null;
         public static VariableState LoadingState
         {
             get
@@ -946,12 +941,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         }
         public FlatRedBall.Instructions.Instruction InterpolateToState (VariableState stateToInterpolateTo, double secondsToTake) 
         {
-            switch(stateToInterpolateTo)
+            if (stateToInterpolateTo == VariableState.Flying)
             {
-                case  VariableState.Flying:
-                    break;
-                case  VariableState.Impact:
-                    break;
+            }
+            else if (stateToInterpolateTo == VariableState.Impact)
+            {
             }
             var instruction = new FlatRedBall.Instructions.DelegateInstruction<VariableState>(StopStateInterpolation, stateToInterpolateTo);
             instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
@@ -960,12 +954,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         }
         public void StopStateInterpolation (VariableState stateToStop) 
         {
-            switch(stateToStop)
+            if (stateToStop == VariableState.Flying)
             {
-                case  VariableState.Flying:
-                    break;
-                case  VariableState.Impact:
-                    break;
+            }
+            else if (stateToStop == VariableState.Impact)
+            {
             }
             CurrentState = stateToStop;
         }
@@ -977,60 +970,57 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 throw new System.Exception("interpolationValue cannot be NaN");
             }
             #endif
-            switch(firstState)
+            if (firstState == VariableState.Flying)
             {
-                case  VariableState.Flying:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "Shot";
-                    }
-                    break;
-                case  VariableState.Impact:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "Impact";
-                    }
-                    break;
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "Shot";
+                }
             }
-            switch(secondState)
+            else if (firstState == VariableState.Impact)
             {
-                case  VariableState.Flying:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "Shot";
-                    }
-                    break;
-                case  VariableState.Impact:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "Impact";
-                    }
-                    break;
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "Impact";
+                }
+            }
+            if (secondState == VariableState.Flying)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "Shot";
+                }
+            }
+            else if (secondState == VariableState.Impact)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "Impact";
+                }
             }
             if (interpolationValue < 1)
             {
-                mCurrentState = (int)firstState;
+                mCurrentState = firstState;
             }
             else
             {
-                mCurrentState = (int)secondState;
+                mCurrentState = secondState;
             }
         }
         public static void PreloadStateContent (VariableState state, string contentManagerName) 
         {
             ContentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
-            switch(state)
+            if (state == VariableState.Flying)
             {
-                case  VariableState.Flying:
-                    {
-                        object throwaway = "Shot";
-                    }
-                    break;
-                case  VariableState.Impact:
-                    {
-                        object throwaway = "Impact";
-                    }
-                    break;
+                {
+                    object throwaway = "Shot";
+                }
+            }
+            else if (state == VariableState.Impact)
+            {
+                {
+                    object throwaway = "Impact";
+                }
             }
         }
         [System.Obsolete("Use GetFile instead")]

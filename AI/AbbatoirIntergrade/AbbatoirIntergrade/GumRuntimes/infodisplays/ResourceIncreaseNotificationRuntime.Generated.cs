@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.infodisplays
     {
         public partial class ResourceIncreaseNotificationRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -16,7 +16,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            FloatAnimationStates mCurrentFloatAnimationStatesState;
+            FloatAnimationStates? mCurrentFloatAnimationStatesState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -80,7 +80,7 @@
                     }
                 }
             }
-            public FloatAnimationStates CurrentFloatAnimationStatesState
+            public FloatAnimationStates? CurrentFloatAnimationStatesState
             {
                 get
                 {
@@ -88,18 +88,21 @@
                 }
                 set
                 {
-                    mCurrentFloatAnimationStatesState = value;
-                    switch(mCurrentFloatAnimationStatesState)
+                    if (value != null)
                     {
-                        case  FloatAnimationStates.FloatAnimationEnd:
-                            Y = 100f;
-                            IncreaseAmount.Alpha = 0;
-                            MineralsSprite.Alpha = 0;
-                            break;
-                        case  FloatAnimationStates.FloatAnimationStart:
-                            IncreaseAmount.Alpha = 255;
-                            MineralsSprite.Alpha = 255;
-                            break;
+                        mCurrentFloatAnimationStatesState = value;
+                        switch(mCurrentFloatAnimationStatesState)
+                        {
+                            case  FloatAnimationStates.FloatAnimationEnd:
+                                Y = 100f;
+                                IncreaseAmount.Alpha = 0;
+                                MineralsSprite.Alpha = 0;
+                                break;
+                            case  FloatAnimationStates.FloatAnimationStart:
+                                IncreaseAmount.Alpha = 255;
+                                MineralsSprite.Alpha = 255;
+                                break;
+                        }
                     }
                 }
             }
@@ -645,7 +648,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ResourceIncreaseNotificationRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.ResourceIncreaseNotificationRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.ResourceIncreaseNotificationRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.ResourceIncreaseNotificationRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -699,7 +702,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ResourceIncreaseNotificationRuntime.FloatAnimationStates fromState,AbbatoirIntergrade.GumRuntimes.ResourceIncreaseNotificationRuntime.FloatAnimationStates toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.ResourceIncreaseNotificationRuntime.FloatAnimationStates fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.ResourceIncreaseNotificationRuntime.FloatAnimationStates toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)

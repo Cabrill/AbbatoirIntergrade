@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.infodisplays
     {
         public partial class StructureUpgradeStatusRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -21,7 +21,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Upgrades mCurrentUpgradesState;
+            Upgrades? mCurrentUpgradesState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -58,7 +58,7 @@
                     }
                 }
             }
-            public Upgrades CurrentUpgradesState
+            public Upgrades? CurrentUpgradesState
             {
                 get
                 {
@@ -66,65 +66,68 @@
                 }
                 set
                 {
-                    mCurrentUpgradesState = value;
-                    switch(mCurrentUpgradesState)
+                    if (value != null)
                     {
-                        case  Upgrades.None:
-                            AttributeIconInstance.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
-                            AttributeIconInstance.Visible = false;
-                            AttributeIconInstance1.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
-                            AttributeIconInstance1.Visible = false;
-                            AttributeIconInstance2.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
-                            AttributeIconInstance2.Visible = false;
-                            break;
-                        case  Upgrades.Range:
-                            AttributeIconInstance.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
-                            AttributeIconInstance.Visible = true;
-                            AttributeIconInstance1.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
-                            AttributeIconInstance1.Visible = false;
-                            AttributeIconInstance2.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
-                            AttributeIconInstance2.Visible = false;
-                            break;
-                        case  Upgrades.Speed:
-                            AttributeIconInstance.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
-                            AttributeIconInstance.Visible = true;
-                            AttributeIconInstance1.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
-                            AttributeIconInstance1.Visible = false;
-                            AttributeIconInstance2.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
-                            AttributeIconInstance2.Visible = false;
-                            break;
-                        case  Upgrades.RangeSpeed:
-                            AttributeIconInstance.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
-                            AttributeIconInstance.Visible = true;
-                            AttributeIconInstance1.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
-                            AttributeIconInstance1.Visible = true;
-                            AttributeIconInstance2.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
-                            AttributeIconInstance2.Visible = false;
-                            break;
-                        case  Upgrades.RangeDamage:
-                            AttributeIconInstance.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
-                            AttributeIconInstance.Visible = true;
-                            AttributeIconInstance1.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
-                            AttributeIconInstance1.Visible = true;
-                            AttributeIconInstance2.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
-                            AttributeIconInstance2.Visible = false;
-                            break;
-                        case  Upgrades.SpeedDamage:
-                            AttributeIconInstance.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
-                            AttributeIconInstance.Visible = true;
-                            AttributeIconInstance1.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
-                            AttributeIconInstance1.Visible = true;
-                            AttributeIconInstance2.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
-                            AttributeIconInstance2.Visible = false;
-                            break;
-                        case  Upgrades.DamageRangeSpeed:
-                            AttributeIconInstance.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
-                            AttributeIconInstance.Visible = true;
-                            AttributeIconInstance1.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
-                            AttributeIconInstance1.Visible = true;
-                            AttributeIconInstance2.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
-                            AttributeIconInstance2.Visible = true;
-                            break;
+                        mCurrentUpgradesState = value;
+                        switch(mCurrentUpgradesState)
+                        {
+                            case  Upgrades.None:
+                                AttributeIconInstance.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                                AttributeIconInstance.Visible = false;
+                                AttributeIconInstance1.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                                AttributeIconInstance1.Visible = false;
+                                AttributeIconInstance2.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                                AttributeIconInstance2.Visible = false;
+                                break;
+                            case  Upgrades.Range:
+                                AttributeIconInstance.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
+                                AttributeIconInstance.Visible = true;
+                                AttributeIconInstance1.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                                AttributeIconInstance1.Visible = false;
+                                AttributeIconInstance2.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                                AttributeIconInstance2.Visible = false;
+                                break;
+                            case  Upgrades.Speed:
+                                AttributeIconInstance.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
+                                AttributeIconInstance.Visible = true;
+                                AttributeIconInstance1.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                                AttributeIconInstance1.Visible = false;
+                                AttributeIconInstance2.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                                AttributeIconInstance2.Visible = false;
+                                break;
+                            case  Upgrades.RangeSpeed:
+                                AttributeIconInstance.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
+                                AttributeIconInstance.Visible = true;
+                                AttributeIconInstance1.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
+                                AttributeIconInstance1.Visible = true;
+                                AttributeIconInstance2.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                                AttributeIconInstance2.Visible = false;
+                                break;
+                            case  Upgrades.RangeDamage:
+                                AttributeIconInstance.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
+                                AttributeIconInstance.Visible = true;
+                                AttributeIconInstance1.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                                AttributeIconInstance1.Visible = true;
+                                AttributeIconInstance2.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                                AttributeIconInstance2.Visible = false;
+                                break;
+                            case  Upgrades.SpeedDamage:
+                                AttributeIconInstance.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
+                                AttributeIconInstance.Visible = true;
+                                AttributeIconInstance1.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                                AttributeIconInstance1.Visible = true;
+                                AttributeIconInstance2.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                                AttributeIconInstance2.Visible = false;
+                                break;
+                            case  Upgrades.DamageRangeSpeed:
+                                AttributeIconInstance.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                                AttributeIconInstance.Visible = true;
+                                AttributeIconInstance1.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
+                                AttributeIconInstance1.Visible = true;
+                                AttributeIconInstance2.CurrentAttributeTypeState = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
+                                AttributeIconInstance2.Visible = true;
+                                break;
+                        }
                     }
                 }
             }
@@ -343,33 +346,33 @@
                 #endif
                 bool setAttributeIconInstanceCurrentAttributeTypeStateFirstValue = false;
                 bool setAttributeIconInstanceCurrentAttributeTypeStateSecondValue = false;
-                AttributeIconRuntime.AttributeType AttributeIconInstanceCurrentAttributeTypeStateFirstValue= AttributeIconRuntime.AttributeType.Health;
-                AttributeIconRuntime.AttributeType AttributeIconInstanceCurrentAttributeTypeStateSecondValue= AttributeIconRuntime.AttributeType.Health;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType AttributeIconInstanceCurrentAttributeTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType AttributeIconInstanceCurrentAttributeTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                 bool setAttributeIconInstance1CurrentAttributeTypeStateFirstValue = false;
                 bool setAttributeIconInstance1CurrentAttributeTypeStateSecondValue = false;
-                AttributeIconRuntime.AttributeType AttributeIconInstance1CurrentAttributeTypeStateFirstValue= AttributeIconRuntime.AttributeType.Health;
-                AttributeIconRuntime.AttributeType AttributeIconInstance1CurrentAttributeTypeStateSecondValue= AttributeIconRuntime.AttributeType.Health;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType AttributeIconInstance1CurrentAttributeTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType AttributeIconInstance1CurrentAttributeTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                 bool setAttributeIconInstance2CurrentAttributeTypeStateFirstValue = false;
                 bool setAttributeIconInstance2CurrentAttributeTypeStateSecondValue = false;
-                AttributeIconRuntime.AttributeType AttributeIconInstance2CurrentAttributeTypeStateFirstValue= AttributeIconRuntime.AttributeType.Health;
-                AttributeIconRuntime.AttributeType AttributeIconInstance2CurrentAttributeTypeStateSecondValue= AttributeIconRuntime.AttributeType.Health;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType AttributeIconInstance2CurrentAttributeTypeStateFirstValue= AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
+                AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType AttributeIconInstance2CurrentAttributeTypeStateSecondValue= AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                 switch(firstState)
                 {
                     case  Upgrades.None:
                         setAttributeIconInstanceCurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstanceCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstanceCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance.Visible = false;
                         }
                         setAttributeIconInstance1CurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstance1CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance1CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance1.Visible = false;
                         }
                         setAttributeIconInstance2CurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstance2CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance2CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance2.Visible = false;
@@ -377,19 +380,19 @@
                         break;
                     case  Upgrades.Range:
                         setAttributeIconInstanceCurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstanceCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
+                        AttributeIconInstanceCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance.Visible = true;
                         }
                         setAttributeIconInstance1CurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstance1CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance1CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance1.Visible = false;
                         }
                         setAttributeIconInstance2CurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstance2CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance2CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance2.Visible = false;
@@ -397,19 +400,19 @@
                         break;
                     case  Upgrades.Speed:
                         setAttributeIconInstanceCurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstanceCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
+                        AttributeIconInstanceCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance.Visible = true;
                         }
                         setAttributeIconInstance1CurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstance1CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance1CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance1.Visible = false;
                         }
                         setAttributeIconInstance2CurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstance2CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance2CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance2.Visible = false;
@@ -417,19 +420,19 @@
                         break;
                     case  Upgrades.RangeSpeed:
                         setAttributeIconInstanceCurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstanceCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
+                        AttributeIconInstanceCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance.Visible = true;
                         }
                         setAttributeIconInstance1CurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstance1CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
+                        AttributeIconInstance1CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance1.Visible = true;
                         }
                         setAttributeIconInstance2CurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstance2CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance2CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance2.Visible = false;
@@ -437,19 +440,19 @@
                         break;
                     case  Upgrades.RangeDamage:
                         setAttributeIconInstanceCurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstanceCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
+                        AttributeIconInstanceCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance.Visible = true;
                         }
                         setAttributeIconInstance1CurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstance1CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance1CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance1.Visible = true;
                         }
                         setAttributeIconInstance2CurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstance2CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance2CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance2.Visible = false;
@@ -457,19 +460,19 @@
                         break;
                     case  Upgrades.SpeedDamage:
                         setAttributeIconInstanceCurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstanceCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
+                        AttributeIconInstanceCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance.Visible = true;
                         }
                         setAttributeIconInstance1CurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstance1CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance1CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance1.Visible = true;
                         }
                         setAttributeIconInstance2CurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstance2CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance2CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance2.Visible = false;
@@ -477,19 +480,19 @@
                         break;
                     case  Upgrades.DamageRangeSpeed:
                         setAttributeIconInstanceCurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstanceCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstanceCurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance.Visible = true;
                         }
                         setAttributeIconInstance1CurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstance1CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
+                        AttributeIconInstance1CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance1.Visible = true;
                         }
                         setAttributeIconInstance2CurrentAttributeTypeStateFirstValue = true;
-                        AttributeIconInstance2CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
+                        AttributeIconInstance2CurrentAttributeTypeStateFirstValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
                         if (interpolationValue < 1)
                         {
                             this.AttributeIconInstance2.Visible = true;
@@ -500,19 +503,19 @@
                 {
                     case  Upgrades.None:
                         setAttributeIconInstanceCurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstanceCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstanceCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance.Visible = false;
                         }
                         setAttributeIconInstance1CurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstance1CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance1CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance1.Visible = false;
                         }
                         setAttributeIconInstance2CurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstance2CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance2CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance2.Visible = false;
@@ -520,19 +523,19 @@
                         break;
                     case  Upgrades.Range:
                         setAttributeIconInstanceCurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstanceCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
+                        AttributeIconInstanceCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance.Visible = true;
                         }
                         setAttributeIconInstance1CurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstance1CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance1CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance1.Visible = false;
                         }
                         setAttributeIconInstance2CurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstance2CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance2CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance2.Visible = false;
@@ -540,19 +543,19 @@
                         break;
                     case  Upgrades.Speed:
                         setAttributeIconInstanceCurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstanceCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
+                        AttributeIconInstanceCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance.Visible = true;
                         }
                         setAttributeIconInstance1CurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstance1CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance1CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance1.Visible = false;
                         }
                         setAttributeIconInstance2CurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstance2CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance2CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance2.Visible = false;
@@ -560,19 +563,19 @@
                         break;
                     case  Upgrades.RangeSpeed:
                         setAttributeIconInstanceCurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstanceCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
+                        AttributeIconInstanceCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance.Visible = true;
                         }
                         setAttributeIconInstance1CurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstance1CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
+                        AttributeIconInstance1CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance1.Visible = true;
                         }
                         setAttributeIconInstance2CurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstance2CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance2CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance2.Visible = false;
@@ -580,19 +583,19 @@
                         break;
                     case  Upgrades.RangeDamage:
                         setAttributeIconInstanceCurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstanceCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
+                        AttributeIconInstanceCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance.Visible = true;
                         }
                         setAttributeIconInstance1CurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstance1CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance1CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance1.Visible = true;
                         }
                         setAttributeIconInstance2CurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstance2CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance2CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance2.Visible = false;
@@ -600,19 +603,19 @@
                         break;
                     case  Upgrades.SpeedDamage:
                         setAttributeIconInstanceCurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstanceCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
+                        AttributeIconInstanceCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance.Visible = true;
                         }
                         setAttributeIconInstance1CurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstance1CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance1CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance1.Visible = true;
                         }
                         setAttributeIconInstance2CurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstance2CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstance2CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance2.Visible = false;
@@ -620,19 +623,19 @@
                         break;
                     case  Upgrades.DamageRangeSpeed:
                         setAttributeIconInstanceCurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstanceCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.Health;
+                        AttributeIconInstanceCurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.Health;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance.Visible = true;
                         }
                         setAttributeIconInstance1CurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstance1CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.MaxRange;
+                        AttributeIconInstance1CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.MaxRange;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance1.Visible = true;
                         }
                         setAttributeIconInstance2CurrentAttributeTypeStateSecondValue = true;
-                        AttributeIconInstance2CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime.AttributeType.AttackSpeed;
+                        AttributeIconInstance2CurrentAttributeTypeStateSecondValue = AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime.AttributeType.AttackSpeed;
                         if (interpolationValue >= 1)
                         {
                             this.AttributeIconInstance2.Visible = true;
@@ -662,7 +665,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.StructureUpgradeStatusRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.StructureUpgradeStatusRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -716,7 +719,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime.Upgrades fromState,AbbatoirIntergrade.GumRuntimes.StructureUpgradeStatusRuntime.Upgrades toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.StructureUpgradeStatusRuntime.Upgrades fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.StructureUpgradeStatusRuntime.Upgrades toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1829,9 +1832,9 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime AttributeIconInstance { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime AttributeIconInstance1 { get; set; }
-            private AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime AttributeIconInstance2 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime AttributeIconInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime AttributeIconInstance1 { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime AttributeIconInstance2 { get; set; }
             public StructureUpgradeStatusRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
             {
@@ -1860,9 +1863,9 @@
             }
             private void AssignReferences () 
             {
-                AttributeIconInstance = this.GetGraphicalUiElementByName("AttributeIconInstance") as AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime;
-                AttributeIconInstance1 = this.GetGraphicalUiElementByName("AttributeIconInstance1") as AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime;
-                AttributeIconInstance2 = this.GetGraphicalUiElementByName("AttributeIconInstance2") as AbbatoirIntergrade.GumRuntimes.AttributeIconRuntime;
+                AttributeIconInstance = this.GetGraphicalUiElementByName("AttributeIconInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime;
+                AttributeIconInstance1 = this.GetGraphicalUiElementByName("AttributeIconInstance1") as AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime;
+                AttributeIconInstance2 = this.GetGraphicalUiElementByName("AttributeIconInstance2") as AbbatoirIntergrade.GumRuntimes.infodisplays.AttributeIconRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

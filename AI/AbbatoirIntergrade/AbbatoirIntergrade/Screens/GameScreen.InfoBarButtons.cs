@@ -7,6 +7,7 @@ using FlatRedBall.Gui;
 using AbbatoirIntergrade.GumRuntimes;
 using AbbatoirIntergrade.StaticManagers;
 using FlatRedBall;
+using AbbatoirIntergrade.GumRuntimes.frames;
 
 namespace AbbatoirIntergrade.Screens
 {

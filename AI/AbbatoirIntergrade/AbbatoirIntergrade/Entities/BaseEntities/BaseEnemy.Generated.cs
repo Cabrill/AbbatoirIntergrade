@@ -2,23 +2,16 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Screens;
+using System.Linq;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
 using FlatRedBall.Gui;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using FlatRedBall.Math.Geometry;
+using AbbatoirIntergrade.Entities.GraphicalElements;
 using FlatRedBall.Graphics.Particle;
 namespace AbbatoirIntergrade.Entities.BaseEntities
 {
@@ -29,195 +22,370 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         #if DEBUG
         static bool HasBeenLoadedWithGlobalContentManager = false;
         #endif
-        public enum Action
+        public class Action
         {
-            Uninitialized = 0, //This exists so that the first set call actually does something
-            Unknown = 1, //This exists so that if the entity is actually a child entity and has set a child state, you will get this
-            Dying = 2, 
-            Hurt = 3, 
-            Running = 4, 
-            Standing = 5, 
-            Drowning = 6
+            public float X;
+            public float Y;
+            public float Z;
+            public bool SpriteInstanceFlipHorizontal;
+            public string SpriteInstanceCurrentChainName;
+            public float MaximumHealth;
+            public float EffectiveSpeed;
+            public string DisplayName;
+            public bool IsFlying;
+            public bool HasLightSource;
+            public bool IsJumper;
+            public bool HasReachedGoal;
+            public float Mass;
+            public bool SpriteInstanceAnimate;
+            public float Drag;
+            public System.Double EffectivePiercingResist;
+            public System.Double EffectiveBombardResist;
+            public System.Double EffectiveChemicalResist;
+            public System.Double EffectiveFrostResist;
+            public System.Double EffectiveFireResist;
+            public System.Double EffectiveElectricResist;
+            public float BaseHealth;
+            public float BasePiercingResist;
+            public float BaseBombardResist;
+            public float BaseChemicalResist;
+            public float BaseFrostResist;
+            public float BaseFireResist;
+            public float BaseElectricResist;
+            public float BaseSpeed;
+            public FlatRedBall.Graphics.ColorOperation SpriteInstanceColorOperation;
+            public float SpriteInstanceRed;
+            public float SpriteInstanceGreen;
+            public float SpriteInstanceBlue;
+            public bool FrozenParticlesTimedEmission;
+            public bool PoisonedParticlesTimedEmission;
+            public bool SmokeParticlesTimedEmission;
+            public bool StunParticlesTimedEmission;
+            public static Action Dying = new Action()
+            {
+                SpriteInstanceCurrentChainName = "Dying",
+                Drag = 2f,
+            }
+            ;
+            public static Action Hurt = new Action()
+            {
+                SpriteInstanceCurrentChainName = "Hurt",
+                Drag = 1f,
+            }
+            ;
+            public static Action Running = new Action()
+            {
+                SpriteInstanceCurrentChainName = "Running",
+                SpriteInstanceAnimate = true,
+                Drag = 0f,
+            }
+            ;
+            public static Action Standing = new Action()
+            {
+                SpriteInstanceCurrentChainName = "",
+                Drag = 20f,
+            }
+            ;
+            public static Action Drowning = new Action()
+            {
+                SpriteInstanceCurrentChainName = "Drowning",
+            }
+            ;
         }
-        protected int mCurrentActionState = 0;
+        private Action mCurrentActionState = null;
         public Entities.BaseEntities.BaseEnemy.Action CurrentActionState
         {
             get
             {
-                if (mCurrentActionState >= 0 && mCurrentActionState <= 6)
-                {
-                    return (Action)mCurrentActionState;
-                }
-                else
-                {
-                    return Action.Unknown;
-                }
+                return mCurrentActionState;
             }
             set
             {
-                mCurrentActionState = (int)value;
-                switch(CurrentActionState)
+                mCurrentActionState = value;
+                if (CurrentActionState == Action.Dying)
                 {
-                    case  Action.Uninitialized:
-                        break;
-                    case  Action.Unknown:
-                        break;
-                    case  Action.Dying:
-                        SpriteInstanceCurrentChainName = "Dying";
-                        Drag = 2f;
-                        break;
-                    case  Action.Hurt:
-                        SpriteInstanceCurrentChainName = "Hurt";
-                        Drag = 1f;
-                        break;
-                    case  Action.Running:
-                        SpriteInstanceCurrentChainName = "Running";
-                        SpriteInstanceAnimate = true;
-                        Drag = 0f;
-                        break;
-                    case  Action.Standing:
-                        SpriteInstanceCurrentChainName = "";
-                        Drag = 20f;
-                        break;
-                    case  Action.Drowning:
-                        SpriteInstanceCurrentChainName = "Drowning";
-                        break;
+                    SpriteInstanceCurrentChainName = "Dying";
+                    Drag = 2f;
+                }
+                else if (CurrentActionState == Action.Hurt)
+                {
+                    SpriteInstanceCurrentChainName = "Hurt";
+                    Drag = 1f;
+                }
+                else if (CurrentActionState == Action.Running)
+                {
+                    SpriteInstanceCurrentChainName = "Running";
+                    SpriteInstanceAnimate = true;
+                    Drag = 0f;
+                }
+                else if (CurrentActionState == Action.Standing)
+                {
+                    SpriteInstanceCurrentChainName = "";
+                    Drag = 20f;
+                }
+                else if (CurrentActionState == Action.Drowning)
+                {
+                    SpriteInstanceCurrentChainName = "Drowning";
                 }
             }
         }
-        public enum Direction
+        public class Direction
         {
-            Uninitialized = 0, //This exists so that the first set call actually does something
-            Unknown = 1, //This exists so that if the entity is actually a child entity and has set a child state, you will get this
-            MovingLeft = 2, 
-            MovingRight = 3
+            public float X;
+            public float Y;
+            public float Z;
+            public bool SpriteInstanceFlipHorizontal;
+            public string SpriteInstanceCurrentChainName;
+            public float MaximumHealth;
+            public float EffectiveSpeed;
+            public string DisplayName;
+            public bool IsFlying;
+            public bool HasLightSource;
+            public bool IsJumper;
+            public bool HasReachedGoal;
+            public float Mass;
+            public bool SpriteInstanceAnimate;
+            public float Drag;
+            public System.Double EffectivePiercingResist;
+            public System.Double EffectiveBombardResist;
+            public System.Double EffectiveChemicalResist;
+            public System.Double EffectiveFrostResist;
+            public System.Double EffectiveFireResist;
+            public System.Double EffectiveElectricResist;
+            public float BaseHealth;
+            public float BasePiercingResist;
+            public float BaseBombardResist;
+            public float BaseChemicalResist;
+            public float BaseFrostResist;
+            public float BaseFireResist;
+            public float BaseElectricResist;
+            public float BaseSpeed;
+            public FlatRedBall.Graphics.ColorOperation SpriteInstanceColorOperation;
+            public float SpriteInstanceRed;
+            public float SpriteInstanceGreen;
+            public float SpriteInstanceBlue;
+            public bool FrozenParticlesTimedEmission;
+            public bool PoisonedParticlesTimedEmission;
+            public bool SmokeParticlesTimedEmission;
+            public bool StunParticlesTimedEmission;
+            public static Direction MovingLeft = new Direction()
+            {
+                SpriteInstanceFlipHorizontal = false,
+            }
+            ;
+            public static Direction MovingRight = new Direction()
+            {
+                SpriteInstanceFlipHorizontal = true,
+            }
+            ;
         }
-        protected int mCurrentDirectionState = 0;
+        private Direction mCurrentDirectionState = null;
         public Entities.BaseEntities.BaseEnemy.Direction CurrentDirectionState
         {
             get
             {
-                if (mCurrentDirectionState >= 0 && mCurrentDirectionState <= 3)
-                {
-                    return (Direction)mCurrentDirectionState;
-                }
-                else
-                {
-                    return Direction.Unknown;
-                }
+                return mCurrentDirectionState;
             }
             set
             {
-                mCurrentDirectionState = (int)value;
-                switch(CurrentDirectionState)
+                mCurrentDirectionState = value;
+                if (CurrentDirectionState == Direction.MovingLeft)
                 {
-                    case  Direction.Uninitialized:
-                        break;
-                    case  Direction.Unknown:
-                        break;
-                    case  Direction.MovingLeft:
-                        SpriteInstanceFlipHorizontal = false;
-                        break;
-                    case  Direction.MovingRight:
-                        SpriteInstanceFlipHorizontal = true;
-                        break;
+                    SpriteInstanceFlipHorizontal = false;
+                }
+                else if (CurrentDirectionState == Direction.MovingRight)
+                {
+                    SpriteInstanceFlipHorizontal = true;
                 }
             }
         }
-        public enum Status
+        public class Status
         {
-            Uninitialized = 0, //This exists so that the first set call actually does something
-            Unknown = 1, //This exists so that if the entity is actually a child entity and has set a child state, you will get this
-            Normal = 2, 
-            Frozen = 3, 
-            Poisoned = 4, 
-            FrozenAndPoisoned = 5, 
-            Burning = 6, 
-            BurningAndPoisoned = 7
+            public float X;
+            public float Y;
+            public float Z;
+            public bool SpriteInstanceFlipHorizontal;
+            public string SpriteInstanceCurrentChainName;
+            public float MaximumHealth;
+            public float EffectiveSpeed;
+            public string DisplayName;
+            public bool IsFlying;
+            public bool HasLightSource;
+            public bool IsJumper;
+            public bool HasReachedGoal;
+            public float Mass;
+            public bool SpriteInstanceAnimate;
+            public float Drag;
+            public System.Double EffectivePiercingResist;
+            public System.Double EffectiveBombardResist;
+            public System.Double EffectiveChemicalResist;
+            public System.Double EffectiveFrostResist;
+            public System.Double EffectiveFireResist;
+            public System.Double EffectiveElectricResist;
+            public float BaseHealth;
+            public float BasePiercingResist;
+            public float BaseBombardResist;
+            public float BaseChemicalResist;
+            public float BaseFrostResist;
+            public float BaseFireResist;
+            public float BaseElectricResist;
+            public float BaseSpeed;
+            public FlatRedBall.Graphics.ColorOperation SpriteInstanceColorOperation;
+            public float SpriteInstanceRed;
+            public float SpriteInstanceGreen;
+            public float SpriteInstanceBlue;
+            public bool FrozenParticlesTimedEmission;
+            public bool PoisonedParticlesTimedEmission;
+            public bool SmokeParticlesTimedEmission;
+            public bool StunParticlesTimedEmission;
+            public static Status Normal = new Status()
+            {
+                SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.InverseTexture,
+                SpriteInstanceRed = 1f,
+                SpriteInstanceGreen = 1f,
+                SpriteInstanceBlue = 1f,
+                FrozenParticlesTimedEmission = false,
+                PoisonedParticlesTimedEmission = false,
+                SmokeParticlesTimedEmission = false,
+                StunParticlesTimedEmission = false,
+            }
+            ;
+            public static Status Frozen = new Status()
+            {
+                SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate,
+                SpriteInstanceRed = 0.5f,
+                SpriteInstanceGreen = 0.9f,
+                SpriteInstanceBlue = 1f,
+                FrozenParticlesTimedEmission = true,
+                PoisonedParticlesTimedEmission = false,
+                SmokeParticlesTimedEmission = false,
+                StunParticlesTimedEmission = false,
+            }
+            ;
+            public static Status Poisoned = new Status()
+            {
+                SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate,
+                SpriteInstanceRed = 0.5f,
+                SpriteInstanceGreen = 1f,
+                SpriteInstanceBlue = 0.3f,
+                FrozenParticlesTimedEmission = false,
+                PoisonedParticlesTimedEmission = true,
+                SmokeParticlesTimedEmission = false,
+                StunParticlesTimedEmission = false,
+            }
+            ;
+            public static Status FrozenAndPoisoned = new Status()
+            {
+                SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate,
+                SpriteInstanceRed = 0f,
+                SpriteInstanceGreen = 1f,
+                SpriteInstanceBlue = 0.8f,
+                FrozenParticlesTimedEmission = true,
+                PoisonedParticlesTimedEmission = true,
+                SmokeParticlesTimedEmission = false,
+                StunParticlesTimedEmission = false,
+            }
+            ;
+            public static Status Burning = new Status()
+            {
+                SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate,
+                SpriteInstanceRed = 0.3f,
+                SpriteInstanceGreen = 0.1f,
+                SpriteInstanceBlue = 0.1f,
+                FrozenParticlesTimedEmission = false,
+                PoisonedParticlesTimedEmission = false,
+                SmokeParticlesTimedEmission = true,
+                StunParticlesTimedEmission = false,
+            }
+            ;
+            public static Status BurningAndPoisoned = new Status()
+            {
+                SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate,
+                SpriteInstanceRed = 0.1f,
+                SpriteInstanceGreen = 0.4f,
+                SpriteInstanceBlue = 0f,
+                FrozenParticlesTimedEmission = false,
+                PoisonedParticlesTimedEmission = true,
+                SmokeParticlesTimedEmission = true,
+                StunParticlesTimedEmission = false,
+            }
+            ;
         }
-        protected int mCurrentStatusState = 0;
+        private Status mCurrentStatusState = null;
         public Entities.BaseEntities.BaseEnemy.Status CurrentStatusState
         {
             get
             {
-                if (mCurrentStatusState >= 0 && mCurrentStatusState <= 7)
-                {
-                    return (Status)mCurrentStatusState;
-                }
-                else
-                {
-                    return Status.Unknown;
-                }
+                return mCurrentStatusState;
             }
             set
             {
-                mCurrentStatusState = (int)value;
-                switch(CurrentStatusState)
+                mCurrentStatusState = value;
+                if (CurrentStatusState == Status.Normal)
                 {
-                    case  Status.Uninitialized:
-                        break;
-                    case  Status.Unknown:
-                        break;
-                    case  Status.Normal:
-                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
-                        SpriteInstanceRed = 1f;
-                        SpriteInstanceGreen = 1f;
-                        SpriteInstanceBlue = 1f;
-                        FrozenParticlesTimedEmission = false;
-                        PoisonedParticlesTimedEmission = false;
-                        SmokeParticlesTimedEmission = false;
-                        StunParticlesTimedEmission = false;
-                        break;
-                    case  Status.Frozen:
-                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                        SpriteInstanceRed = 0.5f;
-                        SpriteInstanceGreen = 0.9f;
-                        SpriteInstanceBlue = 1f;
-                        FrozenParticlesTimedEmission = true;
-                        PoisonedParticlesTimedEmission = false;
-                        SmokeParticlesTimedEmission = false;
-                        StunParticlesTimedEmission = false;
-                        break;
-                    case  Status.Poisoned:
-                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                        SpriteInstanceRed = 0.5f;
-                        SpriteInstanceGreen = 1f;
-                        SpriteInstanceBlue = 0.3f;
-                        FrozenParticlesTimedEmission = false;
-                        PoisonedParticlesTimedEmission = true;
-                        SmokeParticlesTimedEmission = false;
-                        StunParticlesTimedEmission = false;
-                        break;
-                    case  Status.FrozenAndPoisoned:
-                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                        SpriteInstanceRed = 0f;
-                        SpriteInstanceGreen = 1f;
-                        SpriteInstanceBlue = 0.8f;
-                        FrozenParticlesTimedEmission = true;
-                        PoisonedParticlesTimedEmission = true;
-                        SmokeParticlesTimedEmission = false;
-                        StunParticlesTimedEmission = false;
-                        break;
-                    case  Status.Burning:
-                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                        SpriteInstanceRed = 0.3f;
-                        SpriteInstanceGreen = 0.1f;
-                        SpriteInstanceBlue = 0.1f;
-                        FrozenParticlesTimedEmission = false;
-                        PoisonedParticlesTimedEmission = false;
-                        SmokeParticlesTimedEmission = true;
-                        StunParticlesTimedEmission = false;
-                        break;
-                    case  Status.BurningAndPoisoned:
-                        SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                        SpriteInstanceRed = 0.1f;
-                        SpriteInstanceGreen = 0.4f;
-                        SpriteInstanceBlue = 0f;
-                        FrozenParticlesTimedEmission = false;
-                        PoisonedParticlesTimedEmission = true;
-                        SmokeParticlesTimedEmission = true;
-                        StunParticlesTimedEmission = false;
-                        break;
+                    SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.InverseTexture;
+                    SpriteInstanceRed = 1f;
+                    SpriteInstanceGreen = 1f;
+                    SpriteInstanceBlue = 1f;
+                    FrozenParticlesTimedEmission = false;
+                    PoisonedParticlesTimedEmission = false;
+                    SmokeParticlesTimedEmission = false;
+                    StunParticlesTimedEmission = false;
+                }
+                else if (CurrentStatusState == Status.Frozen)
+                {
+                    SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                    SpriteInstanceRed = 0.5f;
+                    SpriteInstanceGreen = 0.9f;
+                    SpriteInstanceBlue = 1f;
+                    FrozenParticlesTimedEmission = true;
+                    PoisonedParticlesTimedEmission = false;
+                    SmokeParticlesTimedEmission = false;
+                    StunParticlesTimedEmission = false;
+                }
+                else if (CurrentStatusState == Status.Poisoned)
+                {
+                    SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                    SpriteInstanceRed = 0.5f;
+                    SpriteInstanceGreen = 1f;
+                    SpriteInstanceBlue = 0.3f;
+                    FrozenParticlesTimedEmission = false;
+                    PoisonedParticlesTimedEmission = true;
+                    SmokeParticlesTimedEmission = false;
+                    StunParticlesTimedEmission = false;
+                }
+                else if (CurrentStatusState == Status.FrozenAndPoisoned)
+                {
+                    SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                    SpriteInstanceRed = 0f;
+                    SpriteInstanceGreen = 1f;
+                    SpriteInstanceBlue = 0.8f;
+                    FrozenParticlesTimedEmission = true;
+                    PoisonedParticlesTimedEmission = true;
+                    SmokeParticlesTimedEmission = false;
+                    StunParticlesTimedEmission = false;
+                }
+                else if (CurrentStatusState == Status.Burning)
+                {
+                    SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                    SpriteInstanceRed = 0.3f;
+                    SpriteInstanceGreen = 0.1f;
+                    SpriteInstanceBlue = 0.1f;
+                    FrozenParticlesTimedEmission = false;
+                    PoisonedParticlesTimedEmission = false;
+                    SmokeParticlesTimedEmission = true;
+                    StunParticlesTimedEmission = false;
+                }
+                else if (CurrentStatusState == Status.BurningAndPoisoned)
+                {
+                    SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                    SpriteInstanceRed = 0.1f;
+                    SpriteInstanceGreen = 0.4f;
+                    SpriteInstanceBlue = 0f;
+                    FrozenParticlesTimedEmission = false;
+                    PoisonedParticlesTimedEmission = true;
+                    SmokeParticlesTimedEmission = true;
+                    StunParticlesTimedEmission = false;
                 }
             }
         }
@@ -562,10 +730,14 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         protected virtual void InitializeEntity (bool addToManagers) 
         {
             LoadStaticContent(ContentManagerName);
+            // Not instantiating for Sprite mSpriteInstance in Entities\BaseEntities\BaseEnemy because properties on the object prevent it
+            // Not instantiating for Circle mCircleInstance in Entities\BaseEntities\BaseEnemy because properties on the object prevent it
             ShadowSprite = new FlatRedBall.Sprite();
             ShadowSprite.Name = "ShadowSprite";
+            // Not instantiating for Sprite LightSprite in Entities\BaseEntities\BaseEnemy because properties on the object prevent it
             HealthBar = new AbbatoirIntergrade.Entities.GraphicalElements.ResourceBar(ContentManagerName, false);
             HealthBar.Name = "HealthBar";
+            // Not instantiating for AxisAlignedRectangle mAxisAlignedRectangleInstance in Entities\BaseEntities\BaseEnemy because properties on the object prevent it
             PoisonedParticles = ParticleEmitterListFile.FindByName("PoisonedParticles").Clone();
             FrozenParticles = ParticleEmitterListFile.FindByName("FrozenParticles").Clone();
             mSelfCollisionCircle = new FlatRedBall.Math.Geometry.Circle();
@@ -667,6 +839,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 }
                 SpriteInstance.TextureScale = 1f;
                 SpriteInstance.IgnoreAnimationChainTextureFlip = true;
+                #if FRB_MDX
+                SpriteInstance.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Texture;
+                #else
+                SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
+                #endif
             }
             if (CircleInstance!= null)
             {
@@ -980,18 +1157,20 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         }
         public FlatRedBall.Instructions.Instruction InterpolateToState (Action stateToInterpolateTo, double secondsToTake) 
         {
-            switch(stateToInterpolateTo)
+            if (stateToInterpolateTo == Action.Dying)
             {
-                case  Action.Dying:
-                    break;
-                case  Action.Hurt:
-                    break;
-                case  Action.Running:
-                    break;
-                case  Action.Standing:
-                    break;
-                case  Action.Drowning:
-                    break;
+            }
+            else if (stateToInterpolateTo == Action.Hurt)
+            {
+            }
+            else if (stateToInterpolateTo == Action.Running)
+            {
+            }
+            else if (stateToInterpolateTo == Action.Standing)
+            {
+            }
+            else if (stateToInterpolateTo == Action.Drowning)
+            {
             }
             var instruction = new FlatRedBall.Instructions.DelegateInstruction<Action>(StopStateInterpolation, stateToInterpolateTo);
             instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
@@ -1000,18 +1179,20 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         }
         public void StopStateInterpolation (Action stateToStop) 
         {
-            switch(stateToStop)
+            if (stateToStop == Action.Dying)
             {
-                case  Action.Dying:
-                    break;
-                case  Action.Hurt:
-                    break;
-                case  Action.Running:
-                    break;
-                case  Action.Standing:
-                    break;
-                case  Action.Drowning:
-                    break;
+            }
+            else if (stateToStop == Action.Hurt)
+            {
+            }
+            else if (stateToStop == Action.Running)
+            {
+            }
+            else if (stateToStop == Action.Standing)
+            {
+            }
+            else if (stateToStop == Action.Drowning)
+            {
             }
             CurrentActionState = stateToStop;
         }
@@ -1026,87 +1207,91 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             bool setDrag = true;
             float DragFirstValue= 0;
             float DragSecondValue= 0;
-            switch(firstState)
+            if (firstState == Action.Dying)
             {
-                case  Action.Dying:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "Dying";
-                    }
-                    DragFirstValue = 2f;
-                    break;
-                case  Action.Hurt:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "Hurt";
-                    }
-                    DragFirstValue = 1f;
-                    break;
-                case  Action.Running:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "Running";
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceAnimate = true;
-                    }
-                    DragFirstValue = 0f;
-                    break;
-                case  Action.Standing:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "";
-                    }
-                    DragFirstValue = 20f;
-                    break;
-                case  Action.Drowning:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "Drowning";
-                    }
-                    break;
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "Dying";
+                }
+                DragFirstValue = 2f;
             }
-            switch(secondState)
+            else if (firstState == Action.Hurt)
             {
-                case  Action.Dying:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "Dying";
-                    }
-                    DragSecondValue = 2f;
-                    break;
-                case  Action.Hurt:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "Hurt";
-                    }
-                    DragSecondValue = 1f;
-                    break;
-                case  Action.Running:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "Running";
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceAnimate = true;
-                    }
-                    DragSecondValue = 0f;
-                    break;
-                case  Action.Standing:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "";
-                    }
-                    DragSecondValue = 20f;
-                    break;
-                case  Action.Drowning:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceCurrentChainName = "Drowning";
-                    }
-                    break;
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "Hurt";
+                }
+                DragFirstValue = 1f;
+            }
+            else if (firstState == Action.Running)
+            {
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "Running";
+                }
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceAnimate = true;
+                }
+                DragFirstValue = 0f;
+            }
+            else if (firstState == Action.Standing)
+            {
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "";
+                }
+                DragFirstValue = 20f;
+            }
+            else if (firstState == Action.Drowning)
+            {
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "Drowning";
+                }
+            }
+            if (secondState == Action.Dying)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "Dying";
+                }
+                DragSecondValue = 2f;
+            }
+            else if (secondState == Action.Hurt)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "Hurt";
+                }
+                DragSecondValue = 1f;
+            }
+            else if (secondState == Action.Running)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "Running";
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceAnimate = true;
+                }
+                DragSecondValue = 0f;
+            }
+            else if (secondState == Action.Standing)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "";
+                }
+                DragSecondValue = 20f;
+            }
+            else if (secondState == Action.Drowning)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceCurrentChainName = "Drowning";
+                }
             }
             if (setDrag)
             {
@@ -1114,21 +1299,20 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
             if (interpolationValue < 1)
             {
-                mCurrentActionState = (int)firstState;
+                mCurrentActionState = firstState;
             }
             else
             {
-                mCurrentActionState = (int)secondState;
+                mCurrentActionState = secondState;
             }
         }
         public FlatRedBall.Instructions.Instruction InterpolateToState (Direction stateToInterpolateTo, double secondsToTake) 
         {
-            switch(stateToInterpolateTo)
+            if (stateToInterpolateTo == Direction.MovingLeft)
             {
-                case  Direction.MovingLeft:
-                    break;
-                case  Direction.MovingRight:
-                    break;
+            }
+            else if (stateToInterpolateTo == Direction.MovingRight)
+            {
             }
             var instruction = new FlatRedBall.Instructions.DelegateInstruction<Direction>(StopStateInterpolation, stateToInterpolateTo);
             instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
@@ -1137,12 +1321,11 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         }
         public void StopStateInterpolation (Direction stateToStop) 
         {
-            switch(stateToStop)
+            if (stateToStop == Direction.MovingLeft)
             {
-                case  Direction.MovingLeft:
-                    break;
-                case  Direction.MovingRight:
-                    break;
+            }
+            else if (stateToStop == Direction.MovingRight)
+            {
             }
             CurrentDirectionState = stateToStop;
         }
@@ -1154,79 +1337,80 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 throw new System.Exception("interpolationValue cannot be NaN");
             }
             #endif
-            switch(firstState)
+            if (firstState == Direction.MovingLeft)
             {
-                case  Direction.MovingLeft:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceFlipHorizontal = false;
-                    }
-                    break;
-                case  Direction.MovingRight:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceFlipHorizontal = true;
-                    }
-                    break;
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceFlipHorizontal = false;
+                }
             }
-            switch(secondState)
+            else if (firstState == Direction.MovingRight)
             {
-                case  Direction.MovingLeft:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceFlipHorizontal = false;
-                    }
-                    break;
-                case  Direction.MovingRight:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceFlipHorizontal = true;
-                    }
-                    break;
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceFlipHorizontal = true;
+                }
+            }
+            if (secondState == Direction.MovingLeft)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceFlipHorizontal = false;
+                }
+            }
+            else if (secondState == Direction.MovingRight)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceFlipHorizontal = true;
+                }
             }
             if (interpolationValue < 1)
             {
-                mCurrentDirectionState = (int)firstState;
+                mCurrentDirectionState = firstState;
             }
             else
             {
-                mCurrentDirectionState = (int)secondState;
+                mCurrentDirectionState = secondState;
             }
         }
         public FlatRedBall.Instructions.Instruction InterpolateToState (Status stateToInterpolateTo, double secondsToTake) 
         {
-            switch(stateToInterpolateTo)
+            if (stateToInterpolateTo == Status.Normal)
             {
-                case  Status.Normal:
-                    SpriteInstance.RedRate = (1f - SpriteInstance.Red) / (float)secondsToTake;
-                    SpriteInstance.GreenRate = (1f - SpriteInstance.Green) / (float)secondsToTake;
-                    SpriteInstance.BlueRate = (1f - SpriteInstance.Blue) / (float)secondsToTake;
-                    break;
-                case  Status.Frozen:
-                    SpriteInstance.RedRate = (0.5f - SpriteInstance.Red) / (float)secondsToTake;
-                    SpriteInstance.GreenRate = (0.9f - SpriteInstance.Green) / (float)secondsToTake;
-                    SpriteInstance.BlueRate = (1f - SpriteInstance.Blue) / (float)secondsToTake;
-                    break;
-                case  Status.Poisoned:
-                    SpriteInstance.RedRate = (0.5f - SpriteInstance.Red) / (float)secondsToTake;
-                    SpriteInstance.GreenRate = (1f - SpriteInstance.Green) / (float)secondsToTake;
-                    SpriteInstance.BlueRate = (0.3f - SpriteInstance.Blue) / (float)secondsToTake;
-                    break;
-                case  Status.FrozenAndPoisoned:
-                    SpriteInstance.RedRate = (0f - SpriteInstance.Red) / (float)secondsToTake;
-                    SpriteInstance.GreenRate = (1f - SpriteInstance.Green) / (float)secondsToTake;
-                    SpriteInstance.BlueRate = (0.8f - SpriteInstance.Blue) / (float)secondsToTake;
-                    break;
-                case  Status.Burning:
-                    SpriteInstance.RedRate = (0.3f - SpriteInstance.Red) / (float)secondsToTake;
-                    SpriteInstance.GreenRate = (0.1f - SpriteInstance.Green) / (float)secondsToTake;
-                    SpriteInstance.BlueRate = (0.1f - SpriteInstance.Blue) / (float)secondsToTake;
-                    break;
-                case  Status.BurningAndPoisoned:
-                    SpriteInstance.RedRate = (0.1f - SpriteInstance.Red) / (float)secondsToTake;
-                    SpriteInstance.GreenRate = (0.4f - SpriteInstance.Green) / (float)secondsToTake;
-                    SpriteInstance.BlueRate = (0f - SpriteInstance.Blue) / (float)secondsToTake;
-                    break;
+                SpriteInstance.RedRate = (1f - SpriteInstance.Red) / (float)secondsToTake;
+                SpriteInstance.GreenRate = (1f - SpriteInstance.Green) / (float)secondsToTake;
+                SpriteInstance.BlueRate = (1f - SpriteInstance.Blue) / (float)secondsToTake;
+            }
+            else if (stateToInterpolateTo == Status.Frozen)
+            {
+                SpriteInstance.RedRate = (0.5f - SpriteInstance.Red) / (float)secondsToTake;
+                SpriteInstance.GreenRate = (0.9f - SpriteInstance.Green) / (float)secondsToTake;
+                SpriteInstance.BlueRate = (1f - SpriteInstance.Blue) / (float)secondsToTake;
+            }
+            else if (stateToInterpolateTo == Status.Poisoned)
+            {
+                SpriteInstance.RedRate = (0.5f - SpriteInstance.Red) / (float)secondsToTake;
+                SpriteInstance.GreenRate = (1f - SpriteInstance.Green) / (float)secondsToTake;
+                SpriteInstance.BlueRate = (0.3f - SpriteInstance.Blue) / (float)secondsToTake;
+            }
+            else if (stateToInterpolateTo == Status.FrozenAndPoisoned)
+            {
+                SpriteInstance.RedRate = (0f - SpriteInstance.Red) / (float)secondsToTake;
+                SpriteInstance.GreenRate = (1f - SpriteInstance.Green) / (float)secondsToTake;
+                SpriteInstance.BlueRate = (0.8f - SpriteInstance.Blue) / (float)secondsToTake;
+            }
+            else if (stateToInterpolateTo == Status.Burning)
+            {
+                SpriteInstance.RedRate = (0.3f - SpriteInstance.Red) / (float)secondsToTake;
+                SpriteInstance.GreenRate = (0.1f - SpriteInstance.Green) / (float)secondsToTake;
+                SpriteInstance.BlueRate = (0.1f - SpriteInstance.Blue) / (float)secondsToTake;
+            }
+            else if (stateToInterpolateTo == Status.BurningAndPoisoned)
+            {
+                SpriteInstance.RedRate = (0.1f - SpriteInstance.Red) / (float)secondsToTake;
+                SpriteInstance.GreenRate = (0.4f - SpriteInstance.Green) / (float)secondsToTake;
+                SpriteInstance.BlueRate = (0f - SpriteInstance.Blue) / (float)secondsToTake;
             }
             var instruction = new FlatRedBall.Instructions.DelegateInstruction<Status>(StopStateInterpolation, stateToInterpolateTo);
             instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
@@ -1235,38 +1419,41 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
         }
         public void StopStateInterpolation (Status stateToStop) 
         {
-            switch(stateToStop)
+            if (stateToStop == Status.Normal)
             {
-                case  Status.Normal:
-                    SpriteInstance.RedRate =  0;
-                    SpriteInstance.GreenRate =  0;
-                    SpriteInstance.BlueRate =  0;
-                    break;
-                case  Status.Frozen:
-                    SpriteInstance.RedRate =  0;
-                    SpriteInstance.GreenRate =  0;
-                    SpriteInstance.BlueRate =  0;
-                    break;
-                case  Status.Poisoned:
-                    SpriteInstance.RedRate =  0;
-                    SpriteInstance.GreenRate =  0;
-                    SpriteInstance.BlueRate =  0;
-                    break;
-                case  Status.FrozenAndPoisoned:
-                    SpriteInstance.RedRate =  0;
-                    SpriteInstance.GreenRate =  0;
-                    SpriteInstance.BlueRate =  0;
-                    break;
-                case  Status.Burning:
-                    SpriteInstance.RedRate =  0;
-                    SpriteInstance.GreenRate =  0;
-                    SpriteInstance.BlueRate =  0;
-                    break;
-                case  Status.BurningAndPoisoned:
-                    SpriteInstance.RedRate =  0;
-                    SpriteInstance.GreenRate =  0;
-                    SpriteInstance.BlueRate =  0;
-                    break;
+                SpriteInstance.RedRate =  0;
+                SpriteInstance.GreenRate =  0;
+                SpriteInstance.BlueRate =  0;
+            }
+            else if (stateToStop == Status.Frozen)
+            {
+                SpriteInstance.RedRate =  0;
+                SpriteInstance.GreenRate =  0;
+                SpriteInstance.BlueRate =  0;
+            }
+            else if (stateToStop == Status.Poisoned)
+            {
+                SpriteInstance.RedRate =  0;
+                SpriteInstance.GreenRate =  0;
+                SpriteInstance.BlueRate =  0;
+            }
+            else if (stateToStop == Status.FrozenAndPoisoned)
+            {
+                SpriteInstance.RedRate =  0;
+                SpriteInstance.GreenRate =  0;
+                SpriteInstance.BlueRate =  0;
+            }
+            else if (stateToStop == Status.Burning)
+            {
+                SpriteInstance.RedRate =  0;
+                SpriteInstance.GreenRate =  0;
+                SpriteInstance.BlueRate =  0;
+            }
+            else if (stateToStop == Status.BurningAndPoisoned)
+            {
+                SpriteInstance.RedRate =  0;
+                SpriteInstance.GreenRate =  0;
+                SpriteInstance.BlueRate =  0;
             }
             CurrentStatusState = stateToStop;
         }
@@ -1287,311 +1474,317 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             bool setSpriteInstanceBlue = true;
             float SpriteInstanceBlueFirstValue= 0;
             float SpriteInstanceBlueSecondValue= 0;
-            switch(firstState)
+            if (firstState == Status.Normal)
             {
-                case  Status.Normal:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
-                    }
-                    SpriteInstanceRedFirstValue = 1f;
-                    SpriteInstanceGreenFirstValue = 1f;
-                    SpriteInstanceBlueFirstValue = 1f;
-                    if (interpolationValue < 1)
-                    {
-                        this.FrozenParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.PoisonedParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.SmokeParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.StunParticlesTimedEmission = false;
-                    }
-                    break;
-                case  Status.Frozen:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                    }
-                    SpriteInstanceRedFirstValue = 0.5f;
-                    SpriteInstanceGreenFirstValue = 0.9f;
-                    SpriteInstanceBlueFirstValue = 1f;
-                    if (interpolationValue < 1)
-                    {
-                        this.FrozenParticlesTimedEmission = true;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.PoisonedParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.SmokeParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.StunParticlesTimedEmission = false;
-                    }
-                    break;
-                case  Status.Poisoned:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                    }
-                    SpriteInstanceRedFirstValue = 0.5f;
-                    SpriteInstanceGreenFirstValue = 1f;
-                    SpriteInstanceBlueFirstValue = 0.3f;
-                    if (interpolationValue < 1)
-                    {
-                        this.FrozenParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.PoisonedParticlesTimedEmission = true;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.SmokeParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.StunParticlesTimedEmission = false;
-                    }
-                    break;
-                case  Status.FrozenAndPoisoned:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                    }
-                    SpriteInstanceRedFirstValue = 0f;
-                    SpriteInstanceGreenFirstValue = 1f;
-                    SpriteInstanceBlueFirstValue = 0.8f;
-                    if (interpolationValue < 1)
-                    {
-                        this.FrozenParticlesTimedEmission = true;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.PoisonedParticlesTimedEmission = true;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.SmokeParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.StunParticlesTimedEmission = false;
-                    }
-                    break;
-                case  Status.Burning:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                    }
-                    SpriteInstanceRedFirstValue = 0.3f;
-                    SpriteInstanceGreenFirstValue = 0.1f;
-                    SpriteInstanceBlueFirstValue = 0.1f;
-                    if (interpolationValue < 1)
-                    {
-                        this.FrozenParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.PoisonedParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.SmokeParticlesTimedEmission = true;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.StunParticlesTimedEmission = false;
-                    }
-                    break;
-                case  Status.BurningAndPoisoned:
-                    if (interpolationValue < 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                    }
-                    SpriteInstanceRedFirstValue = 0.1f;
-                    SpriteInstanceGreenFirstValue = 0.4f;
-                    SpriteInstanceBlueFirstValue = 0f;
-                    if (interpolationValue < 1)
-                    {
-                        this.FrozenParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.PoisonedParticlesTimedEmission = true;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.SmokeParticlesTimedEmission = true;
-                    }
-                    if (interpolationValue < 1)
-                    {
-                        this.StunParticlesTimedEmission = false;
-                    }
-                    break;
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.InverseTexture;
+                }
+                SpriteInstanceRedFirstValue = 1f;
+                SpriteInstanceGreenFirstValue = 1f;
+                SpriteInstanceBlueFirstValue = 1f;
+                if (interpolationValue < 1)
+                {
+                    this.FrozenParticlesTimedEmission = false;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.PoisonedParticlesTimedEmission = false;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.SmokeParticlesTimedEmission = false;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.StunParticlesTimedEmission = false;
+                }
             }
-            switch(secondState)
+            else if (firstState == Status.Frozen)
             {
-                case  Status.Normal:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
-                    }
-                    SpriteInstanceRedSecondValue = 1f;
-                    SpriteInstanceGreenSecondValue = 1f;
-                    SpriteInstanceBlueSecondValue = 1f;
-                    if (interpolationValue >= 1)
-                    {
-                        this.FrozenParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.PoisonedParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.SmokeParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.StunParticlesTimedEmission = false;
-                    }
-                    break;
-                case  Status.Frozen:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                    }
-                    SpriteInstanceRedSecondValue = 0.5f;
-                    SpriteInstanceGreenSecondValue = 0.9f;
-                    SpriteInstanceBlueSecondValue = 1f;
-                    if (interpolationValue >= 1)
-                    {
-                        this.FrozenParticlesTimedEmission = true;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.PoisonedParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.SmokeParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.StunParticlesTimedEmission = false;
-                    }
-                    break;
-                case  Status.Poisoned:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                    }
-                    SpriteInstanceRedSecondValue = 0.5f;
-                    SpriteInstanceGreenSecondValue = 1f;
-                    SpriteInstanceBlueSecondValue = 0.3f;
-                    if (interpolationValue >= 1)
-                    {
-                        this.FrozenParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.PoisonedParticlesTimedEmission = true;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.SmokeParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.StunParticlesTimedEmission = false;
-                    }
-                    break;
-                case  Status.FrozenAndPoisoned:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                    }
-                    SpriteInstanceRedSecondValue = 0f;
-                    SpriteInstanceGreenSecondValue = 1f;
-                    SpriteInstanceBlueSecondValue = 0.8f;
-                    if (interpolationValue >= 1)
-                    {
-                        this.FrozenParticlesTimedEmission = true;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.PoisonedParticlesTimedEmission = true;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.SmokeParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.StunParticlesTimedEmission = false;
-                    }
-                    break;
-                case  Status.Burning:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                    }
-                    SpriteInstanceRedSecondValue = 0.3f;
-                    SpriteInstanceGreenSecondValue = 0.1f;
-                    SpriteInstanceBlueSecondValue = 0.1f;
-                    if (interpolationValue >= 1)
-                    {
-                        this.FrozenParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.PoisonedParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.SmokeParticlesTimedEmission = true;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.StunParticlesTimedEmission = false;
-                    }
-                    break;
-                case  Status.BurningAndPoisoned:
-                    if (interpolationValue >= 1)
-                    {
-                        this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
-                    }
-                    SpriteInstanceRedSecondValue = 0.1f;
-                    SpriteInstanceGreenSecondValue = 0.4f;
-                    SpriteInstanceBlueSecondValue = 0f;
-                    if (interpolationValue >= 1)
-                    {
-                        this.FrozenParticlesTimedEmission = false;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.PoisonedParticlesTimedEmission = true;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.SmokeParticlesTimedEmission = true;
-                    }
-                    if (interpolationValue >= 1)
-                    {
-                        this.StunParticlesTimedEmission = false;
-                    }
-                    break;
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                }
+                SpriteInstanceRedFirstValue = 0.5f;
+                SpriteInstanceGreenFirstValue = 0.9f;
+                SpriteInstanceBlueFirstValue = 1f;
+                if (interpolationValue < 1)
+                {
+                    this.FrozenParticlesTimedEmission = true;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.PoisonedParticlesTimedEmission = false;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.SmokeParticlesTimedEmission = false;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.StunParticlesTimedEmission = false;
+                }
+            }
+            else if (firstState == Status.Poisoned)
+            {
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                }
+                SpriteInstanceRedFirstValue = 0.5f;
+                SpriteInstanceGreenFirstValue = 1f;
+                SpriteInstanceBlueFirstValue = 0.3f;
+                if (interpolationValue < 1)
+                {
+                    this.FrozenParticlesTimedEmission = false;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.PoisonedParticlesTimedEmission = true;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.SmokeParticlesTimedEmission = false;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.StunParticlesTimedEmission = false;
+                }
+            }
+            else if (firstState == Status.FrozenAndPoisoned)
+            {
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                }
+                SpriteInstanceRedFirstValue = 0f;
+                SpriteInstanceGreenFirstValue = 1f;
+                SpriteInstanceBlueFirstValue = 0.8f;
+                if (interpolationValue < 1)
+                {
+                    this.FrozenParticlesTimedEmission = true;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.PoisonedParticlesTimedEmission = true;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.SmokeParticlesTimedEmission = false;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.StunParticlesTimedEmission = false;
+                }
+            }
+            else if (firstState == Status.Burning)
+            {
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                }
+                SpriteInstanceRedFirstValue = 0.3f;
+                SpriteInstanceGreenFirstValue = 0.1f;
+                SpriteInstanceBlueFirstValue = 0.1f;
+                if (interpolationValue < 1)
+                {
+                    this.FrozenParticlesTimedEmission = false;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.PoisonedParticlesTimedEmission = false;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.SmokeParticlesTimedEmission = true;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.StunParticlesTimedEmission = false;
+                }
+            }
+            else if (firstState == Status.BurningAndPoisoned)
+            {
+                if (interpolationValue < 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                }
+                SpriteInstanceRedFirstValue = 0.1f;
+                SpriteInstanceGreenFirstValue = 0.4f;
+                SpriteInstanceBlueFirstValue = 0f;
+                if (interpolationValue < 1)
+                {
+                    this.FrozenParticlesTimedEmission = false;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.PoisonedParticlesTimedEmission = true;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.SmokeParticlesTimedEmission = true;
+                }
+                if (interpolationValue < 1)
+                {
+                    this.StunParticlesTimedEmission = false;
+                }
+            }
+            if (secondState == Status.Normal)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.InverseTexture;
+                }
+                SpriteInstanceRedSecondValue = 1f;
+                SpriteInstanceGreenSecondValue = 1f;
+                SpriteInstanceBlueSecondValue = 1f;
+                if (interpolationValue >= 1)
+                {
+                    this.FrozenParticlesTimedEmission = false;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.PoisonedParticlesTimedEmission = false;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.SmokeParticlesTimedEmission = false;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.StunParticlesTimedEmission = false;
+                }
+            }
+            else if (secondState == Status.Frozen)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                }
+                SpriteInstanceRedSecondValue = 0.5f;
+                SpriteInstanceGreenSecondValue = 0.9f;
+                SpriteInstanceBlueSecondValue = 1f;
+                if (interpolationValue >= 1)
+                {
+                    this.FrozenParticlesTimedEmission = true;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.PoisonedParticlesTimedEmission = false;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.SmokeParticlesTimedEmission = false;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.StunParticlesTimedEmission = false;
+                }
+            }
+            else if (secondState == Status.Poisoned)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                }
+                SpriteInstanceRedSecondValue = 0.5f;
+                SpriteInstanceGreenSecondValue = 1f;
+                SpriteInstanceBlueSecondValue = 0.3f;
+                if (interpolationValue >= 1)
+                {
+                    this.FrozenParticlesTimedEmission = false;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.PoisonedParticlesTimedEmission = true;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.SmokeParticlesTimedEmission = false;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.StunParticlesTimedEmission = false;
+                }
+            }
+            else if (secondState == Status.FrozenAndPoisoned)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                }
+                SpriteInstanceRedSecondValue = 0f;
+                SpriteInstanceGreenSecondValue = 1f;
+                SpriteInstanceBlueSecondValue = 0.8f;
+                if (interpolationValue >= 1)
+                {
+                    this.FrozenParticlesTimedEmission = true;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.PoisonedParticlesTimedEmission = true;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.SmokeParticlesTimedEmission = false;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.StunParticlesTimedEmission = false;
+                }
+            }
+            else if (secondState == Status.Burning)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                }
+                SpriteInstanceRedSecondValue = 0.3f;
+                SpriteInstanceGreenSecondValue = 0.1f;
+                SpriteInstanceBlueSecondValue = 0.1f;
+                if (interpolationValue >= 1)
+                {
+                    this.FrozenParticlesTimedEmission = false;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.PoisonedParticlesTimedEmission = false;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.SmokeParticlesTimedEmission = true;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.StunParticlesTimedEmission = false;
+                }
+            }
+            else if (secondState == Status.BurningAndPoisoned)
+            {
+                if (interpolationValue >= 1)
+                {
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Modulate;
+                }
+                SpriteInstanceRedSecondValue = 0.1f;
+                SpriteInstanceGreenSecondValue = 0.4f;
+                SpriteInstanceBlueSecondValue = 0f;
+                if (interpolationValue >= 1)
+                {
+                    this.FrozenParticlesTimedEmission = false;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.PoisonedParticlesTimedEmission = true;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.SmokeParticlesTimedEmission = true;
+                }
+                if (interpolationValue >= 1)
+                {
+                    this.StunParticlesTimedEmission = false;
+                }
             }
             if (setSpriteInstanceRed)
             {
@@ -1607,73 +1800,77 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             }
             if (interpolationValue < 1)
             {
-                mCurrentStatusState = (int)firstState;
+                mCurrentStatusState = firstState;
             }
             else
             {
-                mCurrentStatusState = (int)secondState;
+                mCurrentStatusState = secondState;
             }
         }
         public static void PreloadStateContent (Action state, string contentManagerName) 
         {
             ContentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
-            switch(state)
+            if (state == Action.Dying)
             {
-                case  Action.Dying:
-                    {
-                        object throwaway = "Dying";
-                    }
-                    break;
-                case  Action.Hurt:
-                    {
-                        object throwaway = "Hurt";
-                    }
-                    break;
-                case  Action.Running:
-                    {
-                        object throwaway = "Running";
-                    }
-                    break;
-                case  Action.Standing:
-                    {
-                        object throwaway = "";
-                    }
-                    break;
-                case  Action.Drowning:
-                    {
-                        object throwaway = "Drowning";
-                    }
-                    break;
+                {
+                    object throwaway = "Dying";
+                }
+            }
+            else if (state == Action.Hurt)
+            {
+                {
+                    object throwaway = "Hurt";
+                }
+            }
+            else if (state == Action.Running)
+            {
+                {
+                    object throwaway = "Running";
+                }
+            }
+            else if (state == Action.Standing)
+            {
+                {
+                    object throwaway = "";
+                }
+            }
+            else if (state == Action.Drowning)
+            {
+                {
+                    object throwaway = "Drowning";
+                }
             }
         }
         public static void PreloadStateContent (Direction state, string contentManagerName) 
         {
             ContentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
-            switch(state)
+            if (state == Direction.MovingLeft)
             {
-                case  Direction.MovingLeft:
-                    break;
-                case  Direction.MovingRight:
-                    break;
+            }
+            else if (state == Direction.MovingRight)
+            {
             }
         }
         public static void PreloadStateContent (Status state, string contentManagerName) 
         {
             ContentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
-            switch(state)
+            if (state == Status.Normal)
             {
-                case  Status.Normal:
-                    break;
-                case  Status.Frozen:
-                    break;
-                case  Status.Poisoned:
-                    break;
-                case  Status.FrozenAndPoisoned:
-                    break;
-                case  Status.Burning:
-                    break;
-                case  Status.BurningAndPoisoned:
-                    break;
+            }
+            else if (state == Status.Frozen)
+            {
+            }
+            else if (state == Status.Poisoned)
+            {
+            }
+            else if (state == Status.FrozenAndPoisoned)
+            {
+            }
+            else if (state == Status.Burning)
+            {
+            }
+            else if (state == Status.BurningAndPoisoned)
+            {
             }
         }
         [System.Obsolete("Use GetFile instead")]

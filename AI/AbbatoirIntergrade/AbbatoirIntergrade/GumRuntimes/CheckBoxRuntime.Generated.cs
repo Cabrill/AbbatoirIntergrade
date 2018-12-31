@@ -22,7 +22,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            CheckBoxCategory mCurrentCheckBoxCategoryState;
+            CheckBoxCategory? mCurrentCheckBoxCategoryState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -86,7 +86,7 @@
                     }
                 }
             }
-            public CheckBoxCategory CurrentCheckBoxCategoryState
+            public CheckBoxCategory? CurrentCheckBoxCategoryState
             {
                 get
                 {
@@ -94,105 +94,108 @@
                 }
                 set
                 {
-                    mCurrentCheckBoxCategoryState = value;
-                    switch(mCurrentCheckBoxCategoryState)
+                    if (value != null)
                     {
-                        case  CheckBoxCategory.EnabledOn:
-                            ColoredRectangleInstance.Blue = 0;
-                            ColoredRectangleInstance.Green = 0;
-                            ColoredRectangleInstance.Red = 0;
-                            SpriteInstance.Blue = 255;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 0;
-                            SpriteInstance.Visible = true;
-                            TextInstance.Blue = 255;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 255;
-                            break;
-                        case  CheckBoxCategory.EnabledOff:
-                            ColoredRectangleInstance.Blue = 0;
-                            ColoredRectangleInstance.Green = 0;
-                            ColoredRectangleInstance.Red = 0;
-                            SpriteInstance.Blue = 255;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 0;
-                            SpriteInstance.Visible = false;
-                            TextInstance.Blue = 255;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 255;
-                            break;
-                        case  CheckBoxCategory.DisabledOn:
-                            ColoredRectangleInstance.Blue = 169;
-                            ColoredRectangleInstance.Green = 169;
-                            ColoredRectangleInstance.Red = 169;
-                            SpriteInstance.Blue = 220;
-                            SpriteInstance.Green = 220;
-                            SpriteInstance.Red = 220;
-                            SpriteInstance.Visible = true;
-                            TextInstance.Blue = 169;
-                            TextInstance.Green = 169;
-                            TextInstance.Red = 169;
-                            break;
-                        case  CheckBoxCategory.DisabledOff:
-                            ColoredRectangleInstance.Blue = 169;
-                            ColoredRectangleInstance.Green = 169;
-                            ColoredRectangleInstance.Red = 169;
-                            SpriteInstance.Blue = 255;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 0;
-                            SpriteInstance.Visible = false;
-                            TextInstance.Blue = 169;
-                            TextInstance.Green = 169;
-                            TextInstance.Red = 169;
-                            break;
-                        case  CheckBoxCategory.HighlightedOn:
-                            ColoredRectangleInstance.Blue = 100;
-                            ColoredRectangleInstance.Green = 100;
-                            ColoredRectangleInstance.Red = 0;
-                            SpriteInstance.Blue = 212;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 127;
-                            SpriteInstance.Visible = true;
-                            TextInstance.Blue = 212;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 127;
-                            break;
-                        case  CheckBoxCategory.HighlightedOff:
-                            ColoredRectangleInstance.Blue = 100;
-                            ColoredRectangleInstance.Green = 100;
-                            ColoredRectangleInstance.Red = 0;
-                            SpriteInstance.Blue = 255;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 0;
-                            SpriteInstance.Visible = false;
-                            TextInstance.Blue = 212;
-                            TextInstance.Green = 255;
-                            TextInstance.Red = 127;
-                            break;
-                        case  CheckBoxCategory.PushedOn:
-                            ColoredRectangleInstance.Blue = 255;
-                            ColoredRectangleInstance.Green = 144;
-                            ColoredRectangleInstance.Red = 30;
-                            SpriteInstance.Blue = 255;
-                            SpriteInstance.Green = 255;
-                            SpriteInstance.Red = 0;
-                            SpriteInstance.Visible = true;
-                            TextInstance.Blue = 230;
-                            TextInstance.Green = 230;
-                            TextInstance.Red = 230;
-                            break;
-                        case  CheckBoxCategory.PushedOff:
-                            ColoredRectangleInstance.Blue = 255;
-                            ColoredRectangleInstance.Green = 144;
-                            ColoredRectangleInstance.Red = 30;
-                            SpriteInstance.Blue = 139;
-                            SpriteInstance.Green = 0;
-                            SpriteInstance.Red = 0;
-                            SpriteInstance.Visible = false;
-                            TextInstance.Blue = 250;
-                            TextInstance.Green = 230;
-                            TextInstance.Red = 230;
-                            break;
+                        mCurrentCheckBoxCategoryState = value;
+                        switch(mCurrentCheckBoxCategoryState)
+                        {
+                            case  CheckBoxCategory.EnabledOn:
+                                ColoredRectangleInstance.Blue = 0;
+                                ColoredRectangleInstance.Green = 0;
+                                ColoredRectangleInstance.Red = 0;
+                                SpriteInstance.Blue = 255;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 0;
+                                SpriteInstance.Visible = true;
+                                TextInstance.Blue = 255;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 255;
+                                break;
+                            case  CheckBoxCategory.EnabledOff:
+                                ColoredRectangleInstance.Blue = 0;
+                                ColoredRectangleInstance.Green = 0;
+                                ColoredRectangleInstance.Red = 0;
+                                SpriteInstance.Blue = 255;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 0;
+                                SpriteInstance.Visible = false;
+                                TextInstance.Blue = 255;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 255;
+                                break;
+                            case  CheckBoxCategory.DisabledOn:
+                                ColoredRectangleInstance.Blue = 169;
+                                ColoredRectangleInstance.Green = 169;
+                                ColoredRectangleInstance.Red = 169;
+                                SpriteInstance.Blue = 220;
+                                SpriteInstance.Green = 220;
+                                SpriteInstance.Red = 220;
+                                SpriteInstance.Visible = true;
+                                TextInstance.Blue = 169;
+                                TextInstance.Green = 169;
+                                TextInstance.Red = 169;
+                                break;
+                            case  CheckBoxCategory.DisabledOff:
+                                ColoredRectangleInstance.Blue = 169;
+                                ColoredRectangleInstance.Green = 169;
+                                ColoredRectangleInstance.Red = 169;
+                                SpriteInstance.Blue = 255;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 0;
+                                SpriteInstance.Visible = false;
+                                TextInstance.Blue = 169;
+                                TextInstance.Green = 169;
+                                TextInstance.Red = 169;
+                                break;
+                            case  CheckBoxCategory.HighlightedOn:
+                                ColoredRectangleInstance.Blue = 100;
+                                ColoredRectangleInstance.Green = 100;
+                                ColoredRectangleInstance.Red = 0;
+                                SpriteInstance.Blue = 212;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 127;
+                                SpriteInstance.Visible = true;
+                                TextInstance.Blue = 212;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 127;
+                                break;
+                            case  CheckBoxCategory.HighlightedOff:
+                                ColoredRectangleInstance.Blue = 100;
+                                ColoredRectangleInstance.Green = 100;
+                                ColoredRectangleInstance.Red = 0;
+                                SpriteInstance.Blue = 255;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 0;
+                                SpriteInstance.Visible = false;
+                                TextInstance.Blue = 212;
+                                TextInstance.Green = 255;
+                                TextInstance.Red = 127;
+                                break;
+                            case  CheckBoxCategory.PushedOn:
+                                ColoredRectangleInstance.Blue = 255;
+                                ColoredRectangleInstance.Green = 144;
+                                ColoredRectangleInstance.Red = 30;
+                                SpriteInstance.Blue = 255;
+                                SpriteInstance.Green = 255;
+                                SpriteInstance.Red = 0;
+                                SpriteInstance.Visible = true;
+                                TextInstance.Blue = 230;
+                                TextInstance.Green = 230;
+                                TextInstance.Red = 230;
+                                break;
+                            case  CheckBoxCategory.PushedOff:
+                                ColoredRectangleInstance.Blue = 255;
+                                ColoredRectangleInstance.Green = 144;
+                                ColoredRectangleInstance.Red = 30;
+                                SpriteInstance.Blue = 139;
+                                SpriteInstance.Green = 0;
+                                SpriteInstance.Red = 0;
+                                SpriteInstance.Visible = false;
+                                TextInstance.Blue = 250;
+                                TextInstance.Green = 230;
+                                TextInstance.Red = 230;
+                                break;
+                        }
                     }
                 }
             }

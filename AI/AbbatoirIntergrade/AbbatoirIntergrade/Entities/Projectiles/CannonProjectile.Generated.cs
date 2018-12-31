@@ -2,19 +2,10 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Screens;
+using System.Linq;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
-using AbbatoirIntergrade.Performance;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -121,7 +112,6 @@ namespace AbbatoirIntergrade.Entities.Projectiles
         	: base(contentManagerName, addToManagers)
         {
             ContentManagerName = FlatRedBall.FlatRedBallServices.GlobalContentManager;
-           
         }
         protected override void InitializeEntity (bool addToManagers) 
         {
@@ -439,7 +429,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                 base.CircleInstance.RelativeY = 0f;
             }
             base.CircleInstance.Radius = 16f;
-            base.CircleInstance.Color = Color.Red;
+            base.CircleInstance.Color = Microsoft.Xna.Framework.Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = false;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
@@ -719,7 +709,7 @@ namespace AbbatoirIntergrade.Entities.Projectiles
                 base.CircleInstance.RelativeY = 0f;
             }
             base.CircleInstance.Radius = 16f;
-            base.CircleInstance.Color = Color.Red;
+            base.CircleInstance.Color = Microsoft.Xna.Framework.Color.Red;
             base.CircleInstance.ParentRotationChangesPosition = false;
             CircleInstance.Radius = CircleInstanceRadiusReset;
             CircleInstance.Visible = CircleInstanceVisibleReset;

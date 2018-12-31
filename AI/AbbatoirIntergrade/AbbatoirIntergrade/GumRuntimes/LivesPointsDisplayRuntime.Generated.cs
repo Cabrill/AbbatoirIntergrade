@@ -26,8 +26,8 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            LivesChange mCurrentLivesChangeState;
-            PointsChange mCurrentPointsChangeState;
+            LivesChange? mCurrentLivesChangeState;
+            PointsChange? mCurrentPointsChangeState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -141,7 +141,7 @@
                     }
                 }
             }
-            public LivesChange CurrentLivesChangeState
+            public LivesChange? CurrentLivesChangeState
             {
                 get
                 {
@@ -149,48 +149,51 @@
                 }
                 set
                 {
-                    mCurrentLivesChangeState = value;
-                    switch(mCurrentLivesChangeState)
+                    if (value != null)
                     {
-                        case  LivesChange.StartReduce:
-                            LivesSprite.Blue = 255;
-                            LivesSprite.Green = 255;
-                            LivesXSprite.Alpha = 0;
-                            LivesXSprite.Height = 64f;
-                            LivesXSprite.Width = 64f;
-                            break;
-                        case  LivesChange.Mid1Reduce:
-                            LivesSprite.Blue = 100;
-                            LivesSprite.Green = 100;
-                            LivesXSprite.Alpha = 100;
-                            LivesXSprite.Height = 64f;
-                            LivesXSprite.Width = 64f;
-                            break;
-                        case  LivesChange.Mid2Reduce:
-                            LivesSprite.Blue = 0;
-                            LivesSprite.Green = 0;
-                            LivesXSprite.Alpha = 255;
-                            LivesXSprite.Height = 80f;
-                            LivesXSprite.Width = 80f;
-                            break;
-                        case  LivesChange.Mid3Reduce:
-                            LivesSprite.Blue = 150;
-                            LivesSprite.Green = 150;
-                            LivesXSprite.Alpha = 100;
-                            LivesXSprite.Height = 64f;
-                            LivesXSprite.Width = 64f;
-                            break;
-                        case  LivesChange.EndReduce:
-                            LivesSprite.Blue = 255;
-                            LivesSprite.Green = 255;
-                            LivesXSprite.Alpha = 0;
-                            LivesXSprite.Height = 64f;
-                            LivesXSprite.Width = 64f;
-                            break;
+                        mCurrentLivesChangeState = value;
+                        switch(mCurrentLivesChangeState)
+                        {
+                            case  LivesChange.StartReduce:
+                                LivesSprite.Blue = 255;
+                                LivesSprite.Green = 255;
+                                LivesXSprite.Alpha = 0;
+                                LivesXSprite.Height = 64f;
+                                LivesXSprite.Width = 64f;
+                                break;
+                            case  LivesChange.Mid1Reduce:
+                                LivesSprite.Blue = 100;
+                                LivesSprite.Green = 100;
+                                LivesXSprite.Alpha = 100;
+                                LivesXSprite.Height = 64f;
+                                LivesXSprite.Width = 64f;
+                                break;
+                            case  LivesChange.Mid2Reduce:
+                                LivesSprite.Blue = 0;
+                                LivesSprite.Green = 0;
+                                LivesXSprite.Alpha = 255;
+                                LivesXSprite.Height = 80f;
+                                LivesXSprite.Width = 80f;
+                                break;
+                            case  LivesChange.Mid3Reduce:
+                                LivesSprite.Blue = 150;
+                                LivesSprite.Green = 150;
+                                LivesXSprite.Alpha = 100;
+                                LivesXSprite.Height = 64f;
+                                LivesXSprite.Width = 64f;
+                                break;
+                            case  LivesChange.EndReduce:
+                                LivesSprite.Blue = 255;
+                                LivesSprite.Green = 255;
+                                LivesXSprite.Alpha = 0;
+                                LivesXSprite.Height = 64f;
+                                LivesXSprite.Width = 64f;
+                                break;
+                        }
                     }
                 }
             }
-            public PointsChange CurrentPointsChangeState
+            public PointsChange? CurrentPointsChangeState
             {
                 get
                 {
@@ -198,49 +201,52 @@
                 }
                 set
                 {
-                    mCurrentPointsChangeState = value;
-                    switch(mCurrentPointsChangeState)
+                    if (value != null)
                     {
-                        case  PointsChange.PointsIncreaseStart:
-                            PointsText.Blue = 100;
-                            PointsText.Green = 255;
-                            PointsText.Red = 100;
-                            PointsChangeText.Alpha = 255;
-                            PointsChangeText.Blue = 0;
-                            PointsChangeText.Green = 255;
-                            PointsChangeText.Red = 0;
-                            PointsChangeText.Y = 7f;
-                            break;
-                        case  PointsChange.PointsIncreaseEnd:
-                            PointsText.Blue = 255;
-                            PointsText.Green = 255;
-                            PointsText.Red = 255;
-                            PointsChangeText.Alpha = 0;
-                            PointsChangeText.Blue = 0;
-                            PointsChangeText.Green = 255;
-                            PointsChangeText.Red = 0;
-                            PointsChangeText.Y = -100f;
-                            break;
-                        case  PointsChange.PointsDecreaseStart:
-                            PointsText.Blue = 100;
-                            PointsText.Green = 100;
-                            PointsText.Red = 255;
-                            PointsChangeText.Alpha = 255;
-                            PointsChangeText.Blue = 0;
-                            PointsChangeText.Green = 0;
-                            PointsChangeText.Red = 255;
-                            PointsChangeText.Y = 7f;
-                            break;
-                        case  PointsChange.PointsDecreaseEnd:
-                            PointsText.Blue = 255;
-                            PointsText.Green = 255;
-                            PointsText.Red = 255;
-                            PointsChangeText.Alpha = 0;
-                            PointsChangeText.Blue = 255;
-                            PointsChangeText.Green = 255;
-                            PointsChangeText.Red = 255;
-                            PointsChangeText.Y = 100f;
-                            break;
+                        mCurrentPointsChangeState = value;
+                        switch(mCurrentPointsChangeState)
+                        {
+                            case  PointsChange.PointsIncreaseStart:
+                                PointsText.Blue = 100;
+                                PointsText.Green = 255;
+                                PointsText.Red = 100;
+                                PointsChangeText.Alpha = 255;
+                                PointsChangeText.Blue = 0;
+                                PointsChangeText.Green = 255;
+                                PointsChangeText.Red = 0;
+                                PointsChangeText.Y = 7f;
+                                break;
+                            case  PointsChange.PointsIncreaseEnd:
+                                PointsText.Blue = 255;
+                                PointsText.Green = 255;
+                                PointsText.Red = 255;
+                                PointsChangeText.Alpha = 0;
+                                PointsChangeText.Blue = 0;
+                                PointsChangeText.Green = 255;
+                                PointsChangeText.Red = 0;
+                                PointsChangeText.Y = -100f;
+                                break;
+                            case  PointsChange.PointsDecreaseStart:
+                                PointsText.Blue = 100;
+                                PointsText.Green = 100;
+                                PointsText.Red = 255;
+                                PointsChangeText.Alpha = 255;
+                                PointsChangeText.Blue = 0;
+                                PointsChangeText.Green = 0;
+                                PointsChangeText.Red = 255;
+                                PointsChangeText.Y = 7f;
+                                break;
+                            case  PointsChange.PointsDecreaseEnd:
+                                PointsText.Blue = 255;
+                                PointsText.Green = 255;
+                                PointsText.Red = 255;
+                                PointsChangeText.Alpha = 0;
+                                PointsChangeText.Blue = 255;
+                                PointsChangeText.Green = 255;
+                                PointsChangeText.Red = 255;
+                                PointsChangeText.Y = 100f;
+                                break;
+                        }
                     }
                 }
             }
@@ -4644,7 +4650,7 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.MessageFrameRuntime MessageFrameInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.frames.MessageFrameRuntime MessageFrameInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime LivesSprite { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime LivesRemainingText { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime LivesXSprite { get; set; }
@@ -4727,7 +4733,7 @@
             }
             private void AssignReferences () 
             {
-                MessageFrameInstance = this.GetGraphicalUiElementByName("MessageFrameInstance") as AbbatoirIntergrade.GumRuntimes.MessageFrameRuntime;
+                MessageFrameInstance = this.GetGraphicalUiElementByName("MessageFrameInstance") as AbbatoirIntergrade.GumRuntimes.frames.MessageFrameRuntime;
                 LivesSprite = this.GetGraphicalUiElementByName("LivesSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 LivesRemainingText = this.GetGraphicalUiElementByName("LivesRemainingText") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 LivesXSprite = this.GetGraphicalUiElementByName("LivesXSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;

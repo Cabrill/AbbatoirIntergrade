@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AbbatoirIntergrade.GumRuntimes.frames;
 using FlatRedBall.Gui;
-using OpenTK;
 
-namespace AbbatoirIntergrade.GumRuntimes
+namespace AbbatoirIntergrade.GumRuntimes.InfoDisplays
 {
     public partial class TopStatusBarRuntime
     {

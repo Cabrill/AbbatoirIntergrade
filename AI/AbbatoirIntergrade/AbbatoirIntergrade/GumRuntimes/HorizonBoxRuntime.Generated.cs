@@ -27,8 +27,8 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Scenery mCurrentSceneryState;
-            CloudCover mCurrentCloudCoverState;
+            Scenery? mCurrentSceneryState;
+            CloudCover? mCurrentCloudCoverState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -210,7 +210,7 @@
                     }
                 }
             }
-            public Scenery CurrentSceneryState
+            public Scenery? CurrentSceneryState
             {
                 get
                 {
@@ -218,45 +218,48 @@
                 }
                 set
                 {
-                    mCurrentSceneryState = value;
-                    switch(mCurrentSceneryState)
+                    if (value != null)
                     {
-                        case  Scenery.Swamp:
-                            CloudCoverSprite.Visible = false;
-                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGswamp.png");
-                            break;
-                        case  Scenery.DeadTrees:
-                            CloudCoverSprite.Visible = false;
-                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGDeadtrees.png");
-                            break;
-                        case  Scenery.ForestedHills:
-                            CloudCoverSprite.Visible = false;
-                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGforesthills.png");
-                            break;
-                        case  Scenery.RedMountains:
-                            CloudCoverSprite.Visible = true;
-                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains.png");
-                            break;
-                        case  Scenery.Plains:
-                            CloudCoverSprite.Visible = false;
-                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGPlains.png");
-                            break;
-                        case  Scenery.SparseTrees:
-                            CloudCoverSprite.Visible = false;
-                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGTreeplains.png");
-                            break;
-                        case  Scenery.City:
-                            CloudCoverSprite.Visible = true;
-                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGcity.png");
-                            break;
-                        case  Scenery.Desert:
-                            CloudCoverSprite.Visible = true;
-                            SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGDesert.png");
-                            break;
+                        mCurrentSceneryState = value;
+                        switch(mCurrentSceneryState)
+                        {
+                            case  Scenery.Swamp:
+                                CloudCoverSprite.Visible = false;
+                                SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGswamp.png");
+                                break;
+                            case  Scenery.DeadTrees:
+                                CloudCoverSprite.Visible = false;
+                                SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGDeadtrees.png");
+                                break;
+                            case  Scenery.ForestedHills:
+                                CloudCoverSprite.Visible = false;
+                                SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGforesthills.png");
+                                break;
+                            case  Scenery.RedMountains:
+                                CloudCoverSprite.Visible = true;
+                                SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGmountains.png");
+                                break;
+                            case  Scenery.Plains:
+                                CloudCoverSprite.Visible = false;
+                                SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGPlains.png");
+                                break;
+                            case  Scenery.SparseTrees:
+                                CloudCoverSprite.Visible = false;
+                                SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGTreeplains.png");
+                                break;
+                            case  Scenery.City:
+                                CloudCoverSprite.Visible = true;
+                                SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGcity.png");
+                                break;
+                            case  Scenery.Desert:
+                                CloudCoverSprite.Visible = true;
+                                SetProperty("ForegroundSprite.SourceFile", "../Screens/GameScreen/Backgrounds/BGDesert.png");
+                                break;
+                        }
                     }
                 }
             }
-            public CloudCover CurrentCloudCoverState
+            public CloudCover? CurrentCloudCoverState
             {
                 get
                 {
@@ -264,17 +267,20 @@
                 }
                 set
                 {
-                    mCurrentCloudCoverState = value;
-                    switch(mCurrentCloudCoverState)
+                    if (value != null)
                     {
-                        case  CloudCover.CloudStart:
-                            CloudCoverSprite.Width = 150f;
-                            CloudCoverSprite.X = 0f;
-                            break;
-                        case  CloudCover.CloudEnd:
-                            CloudCoverSprite.Width = 150f;
-                            CloudCoverSprite.X = -512f;
-                            break;
+                        mCurrentCloudCoverState = value;
+                        switch(mCurrentCloudCoverState)
+                        {
+                            case  CloudCover.CloudStart:
+                                CloudCoverSprite.Width = 150f;
+                                CloudCoverSprite.X = 0f;
+                                break;
+                            case  CloudCover.CloudEnd:
+                                CloudCoverSprite.Width = 150f;
+                                CloudCoverSprite.X = -512f;
+                                break;
+                        }
                     }
                 }
             }

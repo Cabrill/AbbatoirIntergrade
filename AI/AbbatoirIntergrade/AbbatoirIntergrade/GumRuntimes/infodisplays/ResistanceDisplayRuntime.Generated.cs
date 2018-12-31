@@ -1,5 +1,5 @@
     using System.Linq;
-    namespace AbbatoirIntergrade.GumRuntimes
+    namespace AbbatoirIntergrade.GumRuntimes.infodisplays
     {
         public partial class ResistanceDisplayRuntime : AbbatoirIntergrade.GumRuntimes.ContainerRuntime
         {
@@ -16,7 +16,7 @@
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
-            Upgraded mCurrentUpgradedState;
+            Upgraded? mCurrentUpgradedState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -71,7 +71,7 @@
                     }
                 }
             }
-            public Upgraded CurrentUpgradedState
+            public Upgraded? CurrentUpgradedState
             {
                 get
                 {
@@ -79,21 +79,24 @@
                 }
                 set
                 {
-                    mCurrentUpgradedState = value;
-                    switch(mCurrentUpgradedState)
+                    if (value != null)
                     {
-                        case  Upgraded.IsUpgraded:
-                            ResistanceTextInstance.Blue = 0;
-                            ResistanceTextInstance.Green = 255;
-                            ResistanceTextInstance.Red = 0;
-                            UpgradeSprite.Visible = true;
-                            break;
-                        case  Upgraded.NotUpgraded:
-                            ResistanceTextInstance.Blue = 255;
-                            ResistanceTextInstance.Green = 255;
-                            ResistanceTextInstance.Red = 255;
-                            UpgradeSprite.Visible = false;
-                            break;
+                        mCurrentUpgradedState = value;
+                        switch(mCurrentUpgradedState)
+                        {
+                            case  Upgraded.IsUpgraded:
+                                ResistanceTextInstance.Blue = 0;
+                                ResistanceTextInstance.Green = 255;
+                                ResistanceTextInstance.Red = 0;
+                                UpgradeSprite.Visible = true;
+                                break;
+                            case  Upgraded.NotUpgraded:
+                                ResistanceTextInstance.Blue = 255;
+                                ResistanceTextInstance.Green = 255;
+                                ResistanceTextInstance.Red = 255;
+                                UpgradeSprite.Visible = false;
+                                break;
+                        }
                     }
                 }
             }
@@ -575,7 +578,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime.VariableState fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -629,7 +632,7 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime.Upgraded fromState,AbbatoirIntergrade.GumRuntimes.ResistanceDisplayRuntime.Upgraded toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime.Upgraded fromState,AbbatoirIntergrade.GumRuntimes.infodisplays.ResistanceDisplayRuntime.Upgraded toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -1459,10 +1462,10 @@
                 }
                 base.ApplyState(state);
             }
-            private AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime DamageTypeIconInstance { get; set; }
+            private AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime DamageTypeIconInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.TextRuntime ResistanceTextInstance { get; set; }
             private AbbatoirIntergrade.GumRuntimes.SpriteRuntime UpgradeSprite { get; set; }
-            public DamageTypeIconRuntime.DamageType DamageTypeIconState
+            public DamageTypeIconRuntime.DamageType? DamageTypeIconState
             {
                 get
                 {
@@ -1555,7 +1558,7 @@
             }
             private void AssignReferences () 
             {
-                DamageTypeIconInstance = this.GetGraphicalUiElementByName("DamageTypeIconInstance") as AbbatoirIntergrade.GumRuntimes.DamageTypeIconRuntime;
+                DamageTypeIconInstance = this.GetGraphicalUiElementByName("DamageTypeIconInstance") as AbbatoirIntergrade.GumRuntimes.infodisplays.DamageTypeIconRuntime;
                 ResistanceTextInstance = this.GetGraphicalUiElementByName("ResistanceTextInstance") as AbbatoirIntergrade.GumRuntimes.TextRuntime;
                 UpgradeSprite = this.GetGraphicalUiElementByName("UpgradeSprite") as AbbatoirIntergrade.GumRuntimes.SpriteRuntime;
                 DamageTypeIconInstance.Click += (unused) => DamageTypeIconInstanceClick?.Invoke(this);

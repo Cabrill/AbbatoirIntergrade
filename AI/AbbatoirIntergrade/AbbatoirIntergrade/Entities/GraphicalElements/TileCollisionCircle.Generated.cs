@@ -2,19 +2,10 @@
 #define REQUIRES_PRIMARY_THREAD_LOADING
 #endif
 using Color = Microsoft.Xna.Framework.Color;
-using AbbatoirIntergrade.Screens;
+using System.Linq;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
-using AbbatoirIntergrade.Performance;
-using AbbatoirIntergrade.Entities.BaseEntities;
-using AbbatoirIntergrade.Entities;
-using AbbatoirIntergrade.Entities.Enemies;
-using AbbatoirIntergrade.Entities.GraphicalElements;
-using AbbatoirIntergrade.Entities.Projectiles;
-using AbbatoirIntergrade.Entities.Structures;
-using AbbatoirIntergrade.Factories;
 using FlatRedBall;
-using FlatRedBall.Screens;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -139,7 +130,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
                 mCircleInstance.AttachTo(this, false);
             }
             CircleInstance.Radius = 64f;
-            CircleInstance.Color = Color.Maroon;
+            CircleInstance.Color = Microsoft.Xna.Framework.Color.Maroon;
             mGeneratedCollision = new FlatRedBall.Math.Geometry.ShapeCollection();
             mGeneratedCollision.Circles.AddOneWay(mCircleInstance);
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
@@ -163,7 +154,7 @@ namespace AbbatoirIntergrade.Entities.GraphicalElements
             {
             }
             CircleInstance.Radius = 64f;
-            CircleInstance.Color = Color.Maroon;
+            CircleInstance.Color = Microsoft.Xna.Framework.Color.Maroon;
             CircleInstanceRadius = 64f;
         }
         public virtual void ConvertToManuallyUpdated () 
