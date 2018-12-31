@@ -206,18 +206,22 @@
   <Instance>
     <Name>DimmingInstance</Name>
     <BaseType>unique/Dimming</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LargeInfoFrameInstance</Name>
     <BaseType>frames/LargeInfoFrame</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>TextInstance</Name>
     <BaseType>Text</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>OKButton</Name>
     <BaseType>frames/ButtonFrame</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

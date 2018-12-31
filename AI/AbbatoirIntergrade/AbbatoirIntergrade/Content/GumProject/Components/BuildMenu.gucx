@@ -1610,38 +1610,47 @@
   <Instance>
     <Name>FourButtonFrameInstance</Name>
     <BaseType>frames/FourButtonFrame</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>SevenButtonFrameInstance</Name>
     <BaseType>frames/SevenButtonFrame</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>BuildButtonInstance0</Name>
     <BaseType>specificbuttons/BuildButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>BuildButtonInstance1</Name>
     <BaseType>specificbuttons/BuildButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>BuildButtonInstance2</Name>
     <BaseType>specificbuttons/BuildButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>BuildButtonInstance3</Name>
     <BaseType>specificbuttons/BuildButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>BuildButtonInstance4</Name>
     <BaseType>specificbuttons/BuildButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>BuildButtonInstance5</Name>
     <BaseType>specificbuttons/BuildButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>BuildButtonInstance6</Name>
     <BaseType>specificbuttons/BuildButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

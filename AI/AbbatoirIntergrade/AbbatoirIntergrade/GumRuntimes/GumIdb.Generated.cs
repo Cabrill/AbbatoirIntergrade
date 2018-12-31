@@ -8,10 +8,10 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ColoredRectangle", typeof(AbbatoirIntergrade.GumRuntimes.ColoredRectangleRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Container", typeof(AbbatoirIntergrade.GumRuntimes.ContainerRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("NineSlice", typeof(AbbatoirIntergrade.GumRuntimes.NineSliceRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Polygon", typeof(AbbatoirIntergrade.GumRuntimes.PolygonRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Rectangle", typeof(AbbatoirIntergrade.GumRuntimes.RectangleRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Sprite", typeof(AbbatoirIntergrade.GumRuntimes.SpriteRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Text", typeof(AbbatoirIntergrade.GumRuntimes.TextRuntime));
-                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Polygon", typeof(AbbatoirIntergrade.GumRuntimes.PolygonRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("BuildMenu", typeof(AbbatoirIntergrade.GumRuntimes.BuildMenuRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ChatBox", typeof(AbbatoirIntergrade.GumRuntimes.ChatBoxRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ChatHistory", typeof(AbbatoirIntergrade.GumRuntimes.ChatHistoryRuntime));

@@ -6,7 +6,7 @@ namespace AbbatoirIntergrade.DataTypes
         public string Title;
         public System.Collections.Generic.List<string> Credit = new System.Collections.Generic.List<string>();
         public const string Game_Designer = "Game Designer";
-        public const string Character_and_Landscape_Art = "Character and Landscape Art";
+        public const string Character__Tower__Icons_and_Landscape_Art = "Character, Tower, Icons and Landscape Art";
         public const string Animation = "Animation";
         public const string Development_Support = "Development Support";
         public const string Music = "Music";
@@ -25,7 +25,7 @@ namespace AbbatoirIntergrade.DataTypes
         public static System.Collections.Generic.List<System.String> OrderedList = new System.Collections.Generic.List<System.String>
         {
         Game_Designer
-        ,Character_and_Landscape_Art
+        ,Character__Tower__Icons_and_Landscape_Art
         ,Animation
         ,Development_Support
         ,Music

@@ -26,6 +26,7 @@ using Microsoft.Xna.Framework.Input;
 using Camera = FlatRedBall.Camera;
 using ShapeManager = FlatRedBall.Math.Geometry.ShapeManager;
 using FlatRedBall.Scripting;
+using AbbatoirIntergrade.GumRuntimes.infodisplays;
 
 namespace AbbatoirIntergrade.Screens
 {

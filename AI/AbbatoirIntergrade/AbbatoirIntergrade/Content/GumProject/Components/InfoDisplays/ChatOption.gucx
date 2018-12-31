@@ -256,10 +256,12 @@
   <Instance>
     <Name>ChatOptionFrameInstance</Name>
     <BaseType>Frames/ChatOptionFrame</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>TextInstance</Name>
     <BaseType>Text</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>

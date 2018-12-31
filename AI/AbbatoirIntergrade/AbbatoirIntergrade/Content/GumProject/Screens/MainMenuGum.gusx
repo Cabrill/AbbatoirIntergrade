@@ -259,21 +259,26 @@
   <Instance>
     <Name>BackgroundSprite</Name>
     <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>DimmingInstance</Name>
     <BaseType>unique/Dimming</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LeftEye</Name>
     <BaseType>unique/MainMenuEye</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>RightEye</Name>
     <BaseType>unique/MainMenuEye</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>PressAnyKeyText</Name>
     <BaseType>Text</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
 </ScreenSave>

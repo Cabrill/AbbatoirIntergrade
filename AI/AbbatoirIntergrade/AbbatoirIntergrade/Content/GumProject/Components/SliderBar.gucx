@@ -222,14 +222,17 @@
   <Instance>
     <Name>BackgroundRectangle</Name>
     <BaseType>ColoredRectangle</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ColoredRectangleInstance</Name>
     <BaseType>ColoredRectangle</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ThumbInstance</Name>
     <BaseType>Thumb</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors>
     <ElementBehaviorReference>

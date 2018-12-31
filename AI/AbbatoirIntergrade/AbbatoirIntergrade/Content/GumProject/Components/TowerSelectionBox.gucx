@@ -474,30 +474,37 @@ Choose one:</Value>
   <Instance>
     <Name>DimmingInstance</Name>
     <BaseType>unique/Dimming</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>LargeInfoFrameInstance</Name>
     <BaseType>frames/LargeInfoFrame</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>StructureChoice1</Name>
     <BaseType>infodisplays/StructureInfo</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>StructureChoice2</Name>
     <BaseType>infodisplays/StructureInfo</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>InstructionsText</Name>
     <BaseType>Text</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>TextInstance</Name>
     <BaseType>Text</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
     <Name>ConfirmButton</Name>
     <BaseType>frames/ButtonFrame</BaseType>
+    <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
 </ComponentSave>
