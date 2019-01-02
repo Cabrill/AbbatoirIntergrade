@@ -18,6 +18,14 @@ namespace AbbatoirIntergrade.StaticManagers
 
         public static BaseLevel CurrentLevel;
 
+        public enum GameplayMode
+        {
+            Story,
+            Arcade
+        };
+        public static GameplayMode CurrentGameplayMode = GameplayMode.Arcade;
+
+
         public static string CurrentTrackName { get; set; }
 
         private static GameDialogue _gameDialogue;

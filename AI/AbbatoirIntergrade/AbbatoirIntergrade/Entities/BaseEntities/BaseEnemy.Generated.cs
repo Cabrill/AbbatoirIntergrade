@@ -240,7 +240,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             public bool StunParticlesTimedEmission;
             public static Status Normal = new Status()
             {
-                SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.InverseTexture,
+                SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture,
                 SpriteInstanceRed = 1f,
                 SpriteInstanceGreen = 1f,
                 SpriteInstanceBlue = 1f,
@@ -323,7 +323,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 mCurrentStatusState = value;
                 if (CurrentStatusState == Status.Normal)
                 {
-                    SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.InverseTexture;
+                    SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
                     SpriteInstanceRed = 1f;
                     SpriteInstanceGreen = 1f;
                     SpriteInstanceBlue = 1f;
@@ -1478,7 +1478,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 if (interpolationValue < 1)
                 {
-                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.InverseTexture;
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
                 }
                 SpriteInstanceRedFirstValue = 1f;
                 SpriteInstanceGreenFirstValue = 1f;
@@ -1634,7 +1634,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 if (interpolationValue >= 1)
                 {
-                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.InverseTexture;
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
                 }
                 SpriteInstanceRedSecondValue = 1f;
                 SpriteInstanceGreenSecondValue = 1f;

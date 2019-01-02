@@ -164,7 +164,8 @@ namespace AbbatoirIntergrade.Entities
         {
             DarknessAlpha = MinimumBrightness * (1 - SunlightManager.SunlightEffectiveness);
 
-            var destinationRectangle = camera.DestinationRectangle;
+            //var destinationRectangle = camera.DestinationRectangle;
+            var destinationRectangle = new Rectangle(0, 0, camera.DestinationRectangle.Width, camera.DestinationRectangle.Height);
 
             FlatRedBallServices.GraphicsDevice.SetRenderTarget(RenderTargetInstance);
             FlatRedBallServices.GraphicsDevice.Clear(new Color(0, 0, 0, 0));

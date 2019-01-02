@@ -179,7 +179,7 @@ namespace AbbatoirIntergrade.GameClasses
 
         public void WaveHasStarted(string cmdName = null)
         {
-            CreateGeneralDecision(() => _gameScreen.CurrentGameMode == GameScreen.GameMode.Normal, cmdName);
+            CreateGeneralDecision(() => _gameScreen.CurrentPlayerActionMode == GameScreen.PlayerActionMode.Normal, cmdName);
         }
 
         public void ChatBoxVisible(string cmdName = null)
@@ -199,7 +199,7 @@ namespace AbbatoirIntergrade.GameClasses
 
         public void WaveEnded(string cmdName = null)
         {
-            CreateGeneralDecision(() => _gameScreen.CurrentGameMode == GameScreen.GameMode.Building, cmdName);
+            CreateGeneralDecision(() => _gameScreen.CurrentPlayerActionMode == GameScreen.PlayerActionMode.Building, cmdName);
         }
 
         public void HideText(string cmdName = null)

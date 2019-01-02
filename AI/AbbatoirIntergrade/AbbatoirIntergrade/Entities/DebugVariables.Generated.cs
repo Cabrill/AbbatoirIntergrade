@@ -22,14 +22,14 @@ namespace AbbatoirIntergrade.Entities
         static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
         static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
         
-        public static bool ShowDebugShapes = false;
+        public static bool ShowDebugShapes = true;
         public static bool EnableDebugHotkeys = true;
         public static bool IgnoreStructureBuildCost = false;
-        public static bool ShowPerformanceStats = false;
+        public static bool ShowPerformanceStats = true;
         public static bool TurretsAimAtMouse = false;
         public static bool SlowTimeForShots = false;
         public static bool UnlockAllTurrets = true;
-        public static bool ShowNodeNetwork = false;
+        public static bool ShowNodeNetwork = true;
         public static bool ShouldTestDialogue = false;
         public static bool ShouldExportDialogue = false;
         protected FlatRedBall.Graphics.Layer LayerProvidedByContainer = null;

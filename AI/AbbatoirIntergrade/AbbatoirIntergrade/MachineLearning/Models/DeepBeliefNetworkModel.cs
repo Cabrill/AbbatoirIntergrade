@@ -47,10 +47,9 @@ namespace AbbatoirIntergrade.MachineLearning.Models
         private double supervisedLR;
         private double supervisedM;
 
-        public void Initialize(int inputCount, int hiddenLayerNodes, double usLR, double usM, double usD, double sLR, double sM)
+        public void Initialize(int inputCount, int hiddenLayerNodes, double usLR = 0.8, double usM = 0.8, double usD = 0.9, double sLR = 0.2, double sM = 0.21)
         {
-            //IsReady = false;
-            IsReady = true;
+            IsReady = false;
             HiddenLayerNodes = hiddenLayerNodes;
             unsupervisedLR = usLR;
             unsupervisedM = usM;
@@ -61,8 +60,6 @@ namespace AbbatoirIntergrade.MachineLearning.Models
             network = new DeepBeliefNetwork(inputCount, HiddenLayerNodes, 1);
             new GaussianWeights(network, 0.1).Randomize();
             network.UpdateVisibleWeights();
-
-
 
             CreateTeachers(network);
         }

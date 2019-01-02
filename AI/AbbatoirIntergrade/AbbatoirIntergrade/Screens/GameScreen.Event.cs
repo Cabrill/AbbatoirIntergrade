@@ -11,7 +11,7 @@ namespace AbbatoirIntergrade.Screens
         }
         void OnAfterCurrentSatoshisSet (object sender, EventArgs e)
         {
-            var allowUpgrade = CurrentGameMode == GameMode.Building;
+            var allowUpgrade = CurrentPlayerActionMode == PlayerActionMode.Building;
 
             BuildMenuInstance.UpdateAffordability(CurrentSatoshis);
             StructureInfoInstance.UpdateAffordability(CurrentSatoshis, allowUpgrade);

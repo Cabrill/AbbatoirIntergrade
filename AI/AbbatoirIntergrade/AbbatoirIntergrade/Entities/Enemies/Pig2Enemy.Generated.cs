@@ -390,7 +390,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.SpriteInstance.RightTexturePixel = 142f;
             base.SpriteInstance.TopTexturePixel = 373f;
             base.SpriteInstance.BottomTexturePixel = 760f;
-            base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.TextureScale = 0.5f;
             base.SpriteInstance.UseAnimationRelativePosition = true;
             base.SpriteInstance.AnimationChains = Pig2Animations;
             base.SpriteInstance.CurrentChainName = "Running";
@@ -413,7 +413,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.LightSprite.RightTexturePixel = 2048f;
             base.LightSprite.TopTexturePixel = 1792f;
             base.LightSprite.BottomTexturePixel = 2048f;
-            base.LightSprite.TextureScale = 1f;
+            base.LightSprite.TextureScale = 0.5f;
             if (ShadowSprite.Parent == null)
             {
                 ShadowSprite.CopyAbsoluteToRelative();
@@ -421,11 +421,11 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             if (ShadowSprite.Parent == null)
             {
-                base.ShadowSprite.Y = -96f;
+                base.ShadowSprite.Y = -48f;
             }
             else
             {
-                base.ShadowSprite.RelativeY = -96f;
+                base.ShadowSprite.RelativeY = -48f;
             }
             if (ShadowSprite.Parent == null)
             {
@@ -441,8 +441,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.TopTexturePixel = 1895f;
             base.ShadowSprite.BottomTexturePixel = 1948f;
             base.ShadowSprite.TextureScale = 1f;
-            base.ShadowSprite.Width = 128f;
-            base.ShadowSprite.Height = 64f;
+            base.ShadowSprite.Width = 64f;
+            base.ShadowSprite.Height = 32f;
             #if FRB_MDX
             ShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
@@ -470,8 +470,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
             {
                 base.AxisAlignedRectangleInstance.RelativeY = 0f;
             }
-            base.AxisAlignedRectangleInstance.Width = 32f;
-            base.AxisAlignedRectangleInstance.Height = 32f;
+            base.AxisAlignedRectangleInstance.Width = 16f;
+            base.AxisAlignedRectangleInstance.Height = 16f;
             if (PoisonedParticles.Parent == null)
             {
                 PoisonedParticles.CopyAbsoluteToRelative();
@@ -528,7 +528,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.SpriteInstance.RightTexturePixel = 142f;
             base.SpriteInstance.TopTexturePixel = 373f;
             base.SpriteInstance.BottomTexturePixel = 760f;
-            base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.TextureScale = 0.5f;
             base.SpriteInstance.UseAnimationRelativePosition = true;
             base.SpriteInstance.AnimationChains = Pig2Animations;
             base.SpriteInstance.CurrentChainName = "Running";
@@ -644,7 +644,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.LightSprite.RightTexturePixel = 2048f;
             base.LightSprite.TopTexturePixel = 1792f;
             base.LightSprite.BottomTexturePixel = 2048f;
-            base.LightSprite.TextureScale = 1f;
+            base.LightSprite.TextureScale = 0.5f;
             if (LightSprite.Parent == null)
             {
                 LightSprite.X = LightSpriteXReset;
@@ -745,11 +745,11 @@ namespace AbbatoirIntergrade.Entities.Enemies
             LightSprite.AlphaRate = LightSpriteAlphaRateReset;
             if (ShadowSprite.Parent == null)
             {
-                base.ShadowSprite.Y = -96f;
+                base.ShadowSprite.Y = -48f;
             }
             else
             {
-                base.ShadowSprite.RelativeY = -96f;
+                base.ShadowSprite.RelativeY = -48f;
             }
             if (ShadowSprite.Parent == null)
             {
@@ -765,8 +765,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.TopTexturePixel = 1895f;
             base.ShadowSprite.BottomTexturePixel = 1948f;
             base.ShadowSprite.TextureScale = 1f;
-            base.ShadowSprite.Width = 128f;
-            base.ShadowSprite.Height = 64f;
+            base.ShadowSprite.Width = 64f;
+            base.ShadowSprite.Height = 32f;
             #if FRB_MDX
             ShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
@@ -789,8 +789,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
             {
                 base.AxisAlignedRectangleInstance.RelativeY = 0f;
             }
-            base.AxisAlignedRectangleInstance.Width = 32f;
-            base.AxisAlignedRectangleInstance.Height = 32f;
+            base.AxisAlignedRectangleInstance.Width = 16f;
+            base.AxisAlignedRectangleInstance.Height = 16f;
             DisplayName = "Mutant Pig";
             IsFlying = false;
             HasLightSource = false;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using FlatRedBall;
 using FlatRedBall.Input;
-using FlatRedBall.Audio;
 using FlatRedBall.Gui;
 using FlatRedBall.Math.Geometry;
 using AbbatoirIntergrade.Entities;
@@ -25,8 +24,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Camera = FlatRedBall.Camera;
 using ShapeManager = FlatRedBall.Math.Geometry.ShapeManager;
-using FlatRedBall.Scripting;
 using AbbatoirIntergrade.GumRuntimes.infodisplays;
+using static AbbatoirIntergrade.StaticManagers.GameStateManager;
 
 namespace AbbatoirIntergrade.Screens
 {
@@ -39,14 +38,13 @@ namespace AbbatoirIntergrade.Screens
         //}
 
         #region Properties and Fields
-
-        public enum GameMode
+        public enum PlayerActionMode
         {
             Normal,
             Building,
             Ending
         };
-        public GameMode CurrentGameMode = GameMode.Normal;
+        public PlayerActionMode CurrentPlayerActionMode = PlayerActionMode.Normal;
 
         private TutorialScript _tutorialScript;
 
@@ -415,7 +413,7 @@ namespace AbbatoirIntergrade.Screens
             HandleTouchActivity();
             SelectedItemActivity();
 
-            if (CurrentGameMode == GameMode.Building)
+            if (CurrentPlayerActionMode == PlayerActionMode.Building)
             {
                 if (!BuildMenuInstance.Visible) GuiManager.Cursor.GetCursorPosition(StructurePlacementInstance, 1);
                 StructurePlacementInstance.CurrentCurrentlyActiveState = IsStructureBlocked() ? StructurePlacement.CurrentlyActive.Inactive : StructurePlacement.CurrentlyActive.Active;
@@ -423,14 +421,14 @@ namespace AbbatoirIntergrade.Screens
 
             TopStatusBarInstance.UpdateTime(PauseAndBuildAjustedTime, IsPaused);
 
-            var gameplayOccuring = !IsPaused && GameHasStarted && CurrentGameMode != GameMode.Building;
+            var gameplayOccuring = !IsPaused && GameHasStarted && CurrentPlayerActionMode != PlayerActionMode.Building;
             if (gameplayOccuring)
             {
                 PauseAndBuildAjustedTime += TimeManager.SecondDifference;
 
                 UpdateGameTime();
 
-                if (CurrentGameMode != GameMode.Ending)
+                if (CurrentPlayerActionMode != PlayerActionMode.Ending)
                 {
                     CurrentLevel.Update();
                 }
@@ -442,11 +440,11 @@ namespace AbbatoirIntergrade.Screens
                 EnemyStatusActivity();
                 PlayerProjectileActivity();
 
-                if (CurrentGameMode == GameMode.Ending && !GameScreenGumInstance.HordeIncomingAnimation.IsPlaying())
+                if (CurrentPlayerActionMode == PlayerActionMode.Ending && !GameScreenGumInstance.HordeIncomingAnimation.IsPlaying())
                 {
                     SendTheHorde();
                 }
-                else if (CurrentGameMode != GameMode.Ending && CurrentLevel.HasReachedDefeat())
+                else if (CurrentPlayerActionMode != PlayerActionMode.Ending && CurrentLevel.HasReachedDefeat())
                 {
                     LevelFailed();
                 }
@@ -501,6 +499,45 @@ namespace AbbatoirIntergrade.Screens
             {
                 if (!MenuWindowInstance.Visible) OnPauseButtonClick(null);
             }
+#if DEBUG
+            else if (DebugVariables.EnableDebugHotkeys)
+            {
+                if (InputManager.Keyboard.KeyPushed(Keys.Q))
+                    EnemyFactories.CreateNew(EnemyTypes.Chicken1);
+                if (InputManager.Keyboard.KeyPushed(Keys.A))
+                    EnemyFactories.CreateNew(EnemyTypes.Chicken2);
+                if (InputManager.Keyboard.KeyPushed(Keys.Z))
+                    EnemyFactories.CreateNew(EnemyTypes.Chicken3);
+
+                if (InputManager.Keyboard.KeyPushed(Keys.W))
+                    EnemyFactories.CreateNew(EnemyTypes.Rabbit1);
+                if (InputManager.Keyboard.KeyPushed(Keys.S))
+                    EnemyFactories.CreateNew(EnemyTypes.Rabbit2);
+                if (InputManager.Keyboard.KeyPushed(Keys.X))
+                    EnemyFactories.CreateNew(EnemyTypes.Rabbit3);
+
+                if (InputManager.Keyboard.KeyPushed(Keys.E))
+                    EnemyFactories.CreateNew(EnemyTypes.Sheep1);
+                if (InputManager.Keyboard.KeyPushed(Keys.D))
+                    EnemyFactories.CreateNew(EnemyTypes.Sheep2);
+                if (InputManager.Keyboard.KeyPushed(Keys.C))
+                    EnemyFactories.CreateNew(EnemyTypes.Sheep3);
+
+                if (InputManager.Keyboard.KeyPushed(Keys.R))
+                    EnemyFactories.CreateNew(EnemyTypes.Pig1);
+                if (InputManager.Keyboard.KeyPushed(Keys.F))
+                    EnemyFactories.CreateNew(EnemyTypes.Pig2);
+                if (InputManager.Keyboard.KeyPushed(Keys.V))
+                    EnemyFactories.CreateNew(EnemyTypes.Pig3);
+
+                if (InputManager.Keyboard.KeyPushed(Keys.T))
+                    EnemyFactories.CreateNew(EnemyTypes.Cow1);
+                if (InputManager.Keyboard.KeyPushed(Keys.G))
+                    EnemyFactories.CreateNew(EnemyTypes.Cow2);
+                if (InputManager.Keyboard.KeyPushed(Keys.B))
+                    EnemyFactories.CreateNew(EnemyTypes.Cow3);
+            }
+#endif
         }
 
         private void UpdateGameTime()
@@ -519,7 +556,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void EndLevel()
         {
-            CurrentGameMode = GameMode.Ending;
+            CurrentPlayerActionMode = PlayerActionMode.Ending;
 
             var chosenDialogue = PlayerDataManager.LastChosenDialogueId;
             if (!string.IsNullOrEmpty(chosenDialogue))
@@ -583,7 +620,7 @@ namespace AbbatoirIntergrade.Screens
 	            var enemy = AllEnemiesList[i-1];
 
                 //For horde mode we are only going to update drowning
-	            if (CurrentGameMode == GameMode.Ending)
+	            if (CurrentPlayerActionMode == PlayerActionMode.Ending)
 	            {
 	                //Collide enemies against water
 	                if (WaterShapes != null && enemy.Altitude <= 0)
@@ -763,7 +800,7 @@ namespace AbbatoirIntergrade.Screens
             if (selectedObject is BaseStructure objectAsStructure)
             {
                 EnemyInfoInstance.Hide();
-                var canBeUpgraded = CurrentGameMode == GameMode.Building;
+                var canBeUpgraded = CurrentPlayerActionMode == PlayerActionMode.Building;
                 StructureInfoInstance.Show(objectAsStructure, CurrentSatoshis, canBeUpgraded);
             }
             else if (selectedObject is BaseEnemy objectAsEnemy)
@@ -786,7 +823,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void OnStructurePlacementClick(object sender, EventArgs eventArgs)
         {
-            if (CurrentGameMode != GameMode.Building) return;
+            if (CurrentPlayerActionMode != PlayerActionMode.Building) return;
 
             if (sender is StructurePlacement placement)
             {
@@ -822,13 +859,13 @@ namespace AbbatoirIntergrade.Screens
 	                {
 	                    GuiManager.Cursor.ObjectGrabbed = structure;
 	                    selectedObject = structure;
-	                    var canBeUpgraded = CurrentGameMode == GameMode.Building;
+	                    var canBeUpgraded = CurrentPlayerActionMode == PlayerActionMode.Building;
                         StructureInfoInstance.Show(structure, CurrentSatoshis, canBeUpgraded);
 	                    break;
 	                }
 	            }
 
-                if (CurrentGameMode != GameMode.Building)
+                if (CurrentPlayerActionMode != PlayerActionMode.Building)
 	            {
 	                //Didn't select a structure, check for enemies
 	                if (selectedObject == null)
@@ -862,7 +899,7 @@ namespace AbbatoirIntergrade.Screens
         {
             var lastMSE = MachineLearningManager.CurrentMeanSquaredError;
             var avmMSE = MachineLearningManager.AverageValueMSE;
-            var currentPrediction = CurrentGameMode == GameMode.Normal
+            var currentPrediction = CurrentPlayerActionMode == PlayerActionMode.Normal
                 ? MachineLearningManager.CurrentPrediction.ToString()
                 : "N\\A";
             var sampleSize = MachineLearningManager.SampleSize == 0 ? "N/A" : MachineLearningManager.SampleSize.ToString();
@@ -871,7 +908,7 @@ namespace AbbatoirIntergrade.Screens
             var lastLearn = MachineLearningManager.LastLearnTime;
             var currentLearn = MachineLearningManager.CurrentLearnTime;
             var currentScore =
-                CurrentGameMode == GameMode.Normal
+                CurrentPlayerActionMode == PlayerActionMode.Normal
                     ? MachineLearningManager.CurrentScore.ToString()
                     : "N\\A"; 
 

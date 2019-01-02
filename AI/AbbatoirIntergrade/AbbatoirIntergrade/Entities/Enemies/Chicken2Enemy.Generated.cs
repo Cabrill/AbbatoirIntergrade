@@ -494,7 +494,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 SpriteInstance.AttachTo(this, false);
             }
             base.SpriteInstance.Texture = Stage2;
-            base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.TextureScale = 0.5f;
             base.SpriteInstance.Animate = true;
             base.SpriteInstance.AnimationChains = Chicken2Animations;
             base.SpriteInstance.CurrentChainName = "Running";
@@ -503,7 +503,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
                 mCircleInstance.CopyAbsoluteToRelative();
                 mCircleInstance.AttachTo(this, false);
             }
-            base.CircleInstance.Radius = 48f;
+            base.CircleInstance.Radius = 24f;
             if (LightSprite.Parent == null)
             {
                 LightSprite.CopyAbsoluteToRelative();
@@ -522,7 +522,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.LightSprite.RightTexturePixel = 2048f;
             base.LightSprite.TopTexturePixel = 1792f;
             base.LightSprite.BottomTexturePixel = 2048f;
-            base.LightSprite.TextureScale = 0.4f;
+            base.LightSprite.TextureScale = 0.2f;
             #if FRB_MDX
             LightSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
@@ -538,11 +538,11 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             if (ShadowSprite.Parent == null)
             {
-                base.ShadowSprite.Y = -72f;
+                base.ShadowSprite.Y = -36f;
             }
             else
             {
-                base.ShadowSprite.RelativeY = -72f;
+                base.ShadowSprite.RelativeY = -36f;
             }
             if (ShadowSprite.Parent == null)
             {
@@ -558,8 +558,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.TopTexturePixel = 1895f;
             base.ShadowSprite.BottomTexturePixel = 1948f;
             base.ShadowSprite.TextureScale = 1f;
-            base.ShadowSprite.Width = 64f;
-            base.ShadowSprite.Height = 40f;
+            base.ShadowSprite.Width = 32f;
+            base.ShadowSprite.Height = 20f;
             #if FRB_MDX
             ShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
@@ -618,7 +618,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             {
             }
             base.SpriteInstance.Texture = Stage2;
-            base.SpriteInstance.TextureScale = 1f;
+            base.SpriteInstance.TextureScale = 0.5f;
             base.SpriteInstance.Animate = true;
             base.SpriteInstance.AnimationChains = Chicken2Animations;
             base.SpriteInstance.CurrentChainName = "Running";
@@ -720,7 +720,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             }
             SpriteInstance.Alpha = SpriteInstanceAlphaReset;
             SpriteInstance.AlphaRate = SpriteInstanceAlphaRateReset;
-            base.CircleInstance.Radius = 48f;
+            base.CircleInstance.Radius = 24f;
             if (CircleInstance.Parent == null)
             {
                 CircleInstance.X = CircleInstanceXReset;
@@ -830,7 +830,7 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.LightSprite.RightTexturePixel = 2048f;
             base.LightSprite.TopTexturePixel = 1792f;
             base.LightSprite.BottomTexturePixel = 2048f;
-            base.LightSprite.TextureScale = 0.4f;
+            base.LightSprite.TextureScale = 0.2f;
             #if FRB_MDX
             LightSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else
@@ -939,11 +939,11 @@ namespace AbbatoirIntergrade.Entities.Enemies
             LightSprite.AlphaRate = LightSpriteAlphaRateReset;
             if (ShadowSprite.Parent == null)
             {
-                base.ShadowSprite.Y = -72f;
+                base.ShadowSprite.Y = -36f;
             }
             else
             {
-                base.ShadowSprite.RelativeY = -72f;
+                base.ShadowSprite.RelativeY = -36f;
             }
             if (ShadowSprite.Parent == null)
             {
@@ -959,8 +959,8 @@ namespace AbbatoirIntergrade.Entities.Enemies
             base.ShadowSprite.TopTexturePixel = 1895f;
             base.ShadowSprite.BottomTexturePixel = 1948f;
             base.ShadowSprite.TextureScale = 1f;
-            base.ShadowSprite.Width = 64f;
-            base.ShadowSprite.Height = 40f;
+            base.ShadowSprite.Width = 32f;
+            base.ShadowSprite.Height = 20f;
             #if FRB_MDX
             ShadowSprite.ColorOperation = Microsoft.DirectX.Direct3D.TextureOperation.Modulate;
             #else

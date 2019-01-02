@@ -57,7 +57,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void ChangeGameModeToBuilding()
         {
-            CurrentGameMode = GameMode.Building;
+            CurrentPlayerActionMode = PlayerActionMode.Building;
             StructurePlacementInstance.Visible = true;
             selectedObject = StructurePlacementInstance;
             ReadyButtonInstance.Enabled = true;
@@ -72,7 +72,7 @@ namespace AbbatoirIntergrade.Screens
 
         private void ChangeGameModeToNormal()
         {
-            CurrentGameMode = GameMode.Normal;
+            CurrentPlayerActionMode = PlayerActionMode.Normal;
             CurrentLevel.IsReadyForNextWave = true;
             StructurePlacementInstance.Visible = false;
             BuildMenuInstance.Hide();

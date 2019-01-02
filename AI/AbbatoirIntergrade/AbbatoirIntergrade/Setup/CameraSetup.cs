@@ -36,7 +36,7 @@
                 Is2D = true,
                 AspectRatio = 1.7777777777777777777777777778m,
                 IsFullScreen = true,
-                AllowWidowResizing = false,
+                AllowWidowResizing = true,
                 ResizeBehavior = ResizeBehavior.StretchVisibleArea,
                 DominantInternalCoordinates = WidthOrHeight.Height,
             }

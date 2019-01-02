@@ -71,7 +71,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
             {
                 SpriteInstanceRed = 0f,
                 SpriteInstanceGreen = 0f,
-                SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.InverseTexture,
+                SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture,
             }
             ;
             public static VariableState CantAfford = new VariableState()
@@ -113,7 +113,7 @@ namespace AbbatoirIntergrade.Entities.BaseEntities
                 {
                     SpriteInstanceRed = 0f;
                     SpriteInstanceGreen = 0f;
-                    SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.InverseTexture;
+                    SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
                 }
                 else if (CurrentState == VariableState.CantAfford)
                 {
@@ -1137,7 +1137,7 @@ gumAttachmentWrappers.Add(wrapperForAttachment);
                 SpriteInstanceGreenFirstValue = 0f;
                 if (interpolationValue < 1)
                 {
-                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.InverseTexture;
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
                 }
             }
             else if (firstState == VariableState.CantAfford)
@@ -1174,7 +1174,7 @@ gumAttachmentWrappers.Add(wrapperForAttachment);
                 SpriteInstanceGreenSecondValue = 0f;
                 if (interpolationValue >= 1)
                 {
-                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.InverseTexture;
+                    this.SpriteInstanceColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
                 }
             }
             else if (secondState == VariableState.CantAfford)

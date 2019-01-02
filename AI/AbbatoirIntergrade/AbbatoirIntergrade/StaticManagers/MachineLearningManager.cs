@@ -44,10 +44,8 @@ namespace AbbatoirIntergrade.StaticManagers
         private static List<double> _levelPartialInput;
         private static List<double> _fitnessRankingPartialInput;
         private static double[] _currentWaveInput;
-        private static string[] _dataHeaders;
 
         private static DeepBeliefNetworkModel _machineLearningModel;
-        private static bool IsLearningTaskRunning = false;
 
         private static FlatRedBall.Math.PositionedObjectList<BaseStructure> _allTowers;
         private static Polygon _groundPathing;
@@ -98,7 +96,7 @@ namespace AbbatoirIntergrade.StaticManagers
             
                 if (!canLoadExistingModel)
                 {
-                    //_machineLearningModel.Initialize(InputCount, (int)(InputCount * 0.8));
+                    _machineLearningModel.Initialize(InputCount, (int)(InputCount * 0.8));
                 }
             }
 
